@@ -1,3 +1,3 @@
-struct GObject {
+struct _GObject {
 
 }

@@ -1,5 +1,12 @@
+import CGLib
 import GLib
 
 public struct GBinding {}
 public struct GParamSpecPool {}
 public struct GValueArray {}
+
+// export the following aliases as part of GObject (vs CGLib)
+
+public typealias ClosureNotify = GClosureNotify
+public typealias ClosureMarshal = GClosureMarshal
+
