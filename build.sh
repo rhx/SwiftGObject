@@ -22,4 +22,9 @@ fi
 LINKFLAGS=`pkg-config --libs $module gio-unix-2.0 glib-2.0 | tr ' ' '\n' | sed 's/^/-Xlinker /' | tr '\n' ' '`
 CCFLAGS=`pkg-config --cflags $module gio-unix-2.0 glib-2.0 | tr ' ' '\n' | sed 's/^/-Xcc /' | tr '\n' ' ' `
 gir2swift -p ${GIR_DIR}/GLib-2.0.gir "${GIR}" | sed -f ${MODULE}.sed > Sources/${MODULE}.swift
+echo  > Sources/GObject.swift "import CGLib"
+echo >> Sources/GObject.swift "import GLib"
+echo >> Sources/GObject.swift "public struct GObject {"
+grep 'public typealias' Sources/${MODULE}.swift | sed 's/^/    /' >> Sources/GObject.swift
+echo >> Sources/GObject.swift "}"
 swift build $CCFLAGS $LINKFLAGS "$@"
