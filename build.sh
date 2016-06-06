@@ -26,7 +26,6 @@ echo  > Sources/GObject.swift "import CGLib"
 echo >> Sources/GObject.swift "import GLib"
 echo >> Sources/GObject.swift ""
 echo >> Sources/GObject.swift "public extension GObject {"
-echo >> Sources/GObject.swift "    public typealias Type = GType"
 grep 'public typealias' Sources/${MODULE}.swift | sed 's/^/    /' >> Sources/GObject.swift
 echo >> Sources/GObject.swift "}"
 swift build $CCFLAGS $LINKFLAGS "$@"
