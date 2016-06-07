@@ -25,7 +25,15 @@ gir2swift -p ${GIR_DIR}/GLib-2.0.gir "${GIR}" | sed -f ${MODULE}.sed > Sources/$
 echo  > Sources/GObject.swift "import CGLib"
 echo >> Sources/GObject.swift "import GLib"
 echo >> Sources/GObject.swift ""
+grep 'public protocol' Sources/GObject-2.0.swift | cut -d' ' -f3 | cut -d: -f1 | sort -u | sed -e 's/^\(.*\)/public typealias _GObject_\1 = \1/' >> Sources/GObject.swift
+echo >> Sources/GObject.swift ""
+grep 'public class' Sources/GObject-2.0.swift | cut -d' ' -f3 | cut -d: -f1 | sort -u | sed -e 's/^\(.*\)/public typealias _GObject_\1 = \1/' >> Sources/GObject.swift
+echo >> Sources/GObject.swift ""
 echo >> Sources/GObject.swift "public extension GObject {"
+grep 'public protocol' Sources/GObject-2.0.swift | cut -d' ' -f3 | cut -d: -f1 | sort -u | sed -e 's/^\(.*\)/    public typealias \1 = _GObject_\1/' >> Sources/GObject.swift
+echo >> Sources/GObject.swift ""
+grep 'public class' Sources/GObject-2.0.swift | cut -d' ' -f3 | cut -d: -f1 | sort -u | sed -e 's/^\(.*\)/    public typealias \1 = _GObject_\1/' >> Sources/GObject.swift
+echo >> Sources/GObject.swift ""
 grep 'public typealias' Sources/${MODULE}.swift | sed 's/^/    /' >> Sources/GObject.swift
 echo >> Sources/GObject.swift "}"
 swift build $CCFLAGS $LINKFLAGS "$@"
