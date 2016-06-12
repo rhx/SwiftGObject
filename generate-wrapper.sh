@@ -1,5 +1,8 @@
 #!/bin/sh
 #
+# Swift code wrapper generator for gobject-introspection (.gir) files.
+# This needs an installed `gir2swift' executable (github.com/rhx/gir2swift)
+#
 . ./config.sh
 ./package.sh fetch
 GOBJECT_LIBDIR=`pkg-config --libs-only-L gobject-introspection-1.0 2>/dev/null | tr ' ' '\n' | grep gobject-introspection | tail -n1 | cut -c3-`
