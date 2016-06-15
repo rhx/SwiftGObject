@@ -5,7 +5,7 @@
 #
 . ./config.sh
 ./package.sh fetch
-for gen in Packages/*/generate-wrapper.sh ; do
+for gen in Packages/*/gir-to-swift.sh ; do
 	( cd `dirname $gen` && ./`basename $gen` )
 done
 . ./gir-to-swift.sh "$@"
