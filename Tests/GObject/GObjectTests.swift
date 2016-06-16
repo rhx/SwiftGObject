@@ -7,9 +7,9 @@ class GObjectTests: XCTestCase {
     /// test fundamental types
     func testTypeFundamental() {
         let gt: GType = 20
-        let type = type_fundamental(type_id: gt)
+        let type = typeFundamental(type_id: gt)
         XCTAssertEqual(type, gt)
-        let name = type_name(type: gt)
+        let name = typeName(type: gt)
         XCTAssertNotNil(name)
     }
 
