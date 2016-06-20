@@ -36,3 +36,6 @@ grep 'public class' Sources/GObject-2.0.swift | cut -d' ' -f3 | cut -d: -f1 | so
 echo >> Sources/GObject.swift ""
 grep 'public typealias' Sources/${Module}.swift | sed 's/^/    /' >> Sources/GObject.swift
 echo >> Sources/GObject.swift "}"
+if swiftc --version | grep -q 9e8266aaeb ; then
+	patch -p0 < Patches/swift-9e8266aaeb.patch
+fi
