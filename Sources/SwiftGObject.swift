@@ -8,6 +8,26 @@
 import CGLib
 import GLib
 
+/// Protocol for signal name enums
+public protocol SignalNameProtocol {
+    var rawValue: String { get }
+}
+
+/// Protocol extension for signal name enums
+public extension SignalNameProtocol {
+    var name: String { return rawValue }
+}
+
+/// Protocol for property name enums
+public protocol PropertyNameProtocol {
+    var rawValue: String { get }
+}
+
+/// Protocol extension for signal name enums
+public extension PropertyNameProtocol {
+    var name: String { return rawValue }
+}
+
 /// A Void closure to use as a signal handler, that takes no parameters.
 public typealias SignalHandler = () -> ()
 
@@ -76,8 +96,8 @@ public extension ObjectProtocol {
     /// Connects a (Void) -> Void closure or function to a signal for
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
-    public func connect(signal name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: SignalHandler) -> CUnsignedLong {
-        let rv = _connect(signal: name, flags: f, data: ClosureHolder(handler)) {
+    public func connect<S: SignalNameProtocol>(signal type: S, flags f: ConnectFlags = ConnectFlags(0), handler: SignalHandler) -> CUnsignedLong {
+        let rv = _connect(signal: type.name, flags: f, data: ClosureHolder(handler)) {
             let ptr = OpaquePointer($1)
             let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
             holder.call()
@@ -107,8 +127,8 @@ public extension ObjectProtocol {
     /// #GBinding instance.
     ///
     /// A #GObject can have multiple bindings.
-    public func bind<T: ObjectProtocol>(sourceProperty source_property: UnsafePointer<gchar>, target: T, targetProperty target_property: UnsafePointer<gchar>, flags: BindingFlags = .default_) -> BindingRef! {
-        let rv = g_object_bind_property(ptr, source_property, target.ptr, target_property, flags)
+    public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(sourceProperty source_property: P, target: T, targetProperty target_property: Q, flags: BindingFlags = .default_) -> BindingRef! {
+        let rv = g_object_bind_property(ptr, source_property.name, target.ptr, target_property.name, flags)
         return rv.map { BindingRef(opaquePointer: $0) }
     }
 
@@ -129,8 +149,8 @@ public extension ObjectProtocol {
     /// #GBinding instance.
     ///
     /// A #GObject can have multiple bindings.
-    public func bind<T: ObjectProtocol>(_ source_property: UnsafePointer<gchar>, to target: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, transformFrom transform_from: ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: ValueTransformer) -> BindingRef! {
-        let rv = _bind(source_property, to: target, target_property, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
+    public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: ValueTransformer) -> BindingRef! {
+        let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
             let ptr = OpaquePointer($3)
             let holder = Unmanaged<BindingClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
             return holder.transform_from(ValueRef(cPointer: $1), ValueRef(cPointer: $2)) ? 1 : 0
