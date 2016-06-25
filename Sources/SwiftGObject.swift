@@ -10,7 +10,6 @@ import GLib
 
 /// Protocol for signal name enums
 public protocol SignalNameProtocol {
-    associatedtype Class
     var rawValue: String { get }
 }
 
@@ -21,7 +20,6 @@ public extension SignalNameProtocol {
 
 /// Protocol for property name enums
 public protocol PropertyNameProtocol {
-    associatedtype Class
     var rawValue: String { get }
 }
 
