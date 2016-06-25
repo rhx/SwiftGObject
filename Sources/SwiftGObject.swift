@@ -10,6 +10,7 @@ import GLib
 
 /// Protocol for signal name enums
 public protocol SignalNameProtocol {
+    associatedtype Class
     var rawValue: String { get }
 }
 
@@ -20,6 +21,7 @@ public extension SignalNameProtocol {
 
 /// Protocol for property name enums
 public protocol PropertyNameProtocol {
+    associatedtype Class
     var rawValue: String { get }
 }
 
@@ -127,7 +129,7 @@ public extension ObjectProtocol {
     /// #GBinding instance.
     ///
     /// A #GObject can have multiple bindings.
-    public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, target: T, _ target_property: Q, flags: BindingFlags = .default_) -> BindingRef! {
+    public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, target: T, property target_property: Q, flags: BindingFlags = .default_) -> BindingRef! {
         let rv = g_object_bind_property(ptr, source_property.name, target.ptr, target_property.name, flags)
         return rv.map { BindingRef(opaquePointer: $0) }
     }
@@ -149,7 +151,7 @@ public extension ObjectProtocol {
     /// #GBinding instance.
     ///
     /// A #GObject can have multiple bindings.
-    public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: ValueTransformer) -> BindingRef! {
+    public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, to target: T, property target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: ValueTransformer) -> BindingRef! {
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
             let ptr = OpaquePointer($3)
             let holder = Unmanaged<BindingClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
