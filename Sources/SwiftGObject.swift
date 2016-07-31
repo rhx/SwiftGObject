@@ -67,11 +67,11 @@ typealias BindingClosureHolder = BindingHolder<ValueRef, ValueRef>
 public extension ObjectProtocol {
     /// Connection helper function for signal handler closure
     private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: SignalHandlerClosureHolder, handler: @convention(c) (gpointer, gpointer) -> Void) -> CUnsignedLong {
-        let opaqueHolder = OpaquePointer(bitPattern: Unmanaged.passRetained(data))
+        let opaqueHolder = OpaquePointer(Unmanaged.passRetained(data).toOpaque())
         let callback = unsafeBitCast(handler, to: Callback.self)
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
             if let swift = OpaquePointer($0) {
-                let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(swift)
+                let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(UnsafePointer<Void>(swift))
                 holder.release()
             }
             let _ = $1
@@ -81,11 +81,11 @@ public extension ObjectProtocol {
 
     /// Binding helper function for binding closure
     private func _bind<T: ObjectProtocol>(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
-        let opaqueHolder = OpaquePointer(bitPattern: Unmanaged.passRetained(holder))
+        let opaqueHolder = OpaquePointer(Unmanaged.passRetained(holder).toOpaque())
         let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
         let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
         let rv = bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: opaqueHolder) {
-            if let swift = OpaquePointer($0) {
+            if let swift = UnsafePointer<Void>($0) {
                 let holder = Unmanaged<BindingClosureHolder>.fromOpaque(swift)
                 holder.release()
             }
@@ -99,7 +99,7 @@ public extension ObjectProtocol {
     public func connect<S: SignalNameProtocol>(_ signal: S, flags f: ConnectFlags = ConnectFlags(0), handler: SignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: signal.name, flags: f, data: ClosureHolder(handler)) {
             let ptr = OpaquePointer($1)
-            let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
+            let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(UnsafePointer<Void>(ptr)).takeUnretainedValue()
             holder.call()
         }
         return rv
@@ -151,11 +151,11 @@ public extension ObjectProtocol {
     /// A #GObject can have multiple bindings.
     public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, to target: T, property target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: ValueTransformer) -> BindingRef! {
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
-            let ptr = OpaquePointer($3)
+            let ptr = UnsafePointer<Void>($3)
             let holder = Unmanaged<BindingClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
             return holder.transform_from(ValueRef(cPointer: $1), ValueRef(cPointer: $2)) ? 1 : 0
         }) {
-            let ptr = OpaquePointer($3)
+            let ptr = UnsafePointer<Void>($3)
             let holder = Unmanaged<BindingClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
             return holder.transform_to(ValueRef(cPointer: $1), ValueRef(cPointer: $2)) ? 1 : 0
         }
