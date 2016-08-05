@@ -37,31 +37,31 @@ public typealias ValueTransformer = (ValueRef, ValueRef) -> Bool
 
 /// Internal Class that wraps a closure to make sure the closure is retained
 /// until no longer required
-class ClosureHolder<S,T> {
-    let call: (S) -> T
+public class ClosureHolder<S,T> {
+    public let call: (S) -> T
 
-    init(_ closure: (S) -> T) {
+    public init(_ closure: (S) -> T) {
         self.call = closure
     }
 }
 
 /// Internal Class that wraps a closure to make sure the closure is retained
 /// until no longer required
-class BindingHolder<S,T> {
-    let transform_from: (S, T) -> Bool
-    let transform_to:   (T, S) -> Bool
+public class BindingHolder<S,T> {
+    public let transform_from: (S, T) -> Bool
+    public let transform_to:   (T, S) -> Bool
 
-    init(_ transform_from: (S, T) -> Bool, _ transform_to: (T, S) -> Bool) {
+    public init(_ transform_from: (S, T) -> Bool, _ transform_to: (T, S) -> Bool) {
         self.transform_from = transform_from
         self.transform_to   = transform_to
     }
 }
 
 /// Internal type for SignalHandler closure holder
-typealias SignalHandlerClosureHolder = ClosureHolder<Void,Void>
+public typealias SignalHandlerClosureHolder = ClosureHolder<Void,Void>
 
 /// Internal type for a binding closure holder
-typealias BindingClosureHolder = BindingHolder<ValueRef, ValueRef>
+public typealias BindingClosureHolder = BindingHolder<ValueRef, ValueRef>
 
 /// Convenience extensions for Objects
 public extension ObjectProtocol {
