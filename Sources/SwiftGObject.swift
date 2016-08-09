@@ -9,23 +9,25 @@ import CGLib
 import GLib
 
 /// Protocol for signal name enums
-public protocol SignalNameProtocol {
+public protocol SignalNameProtocol: Hashable {
     var rawValue: String { get }
 }
 
 /// Protocol extension for signal name enums
 public extension SignalNameProtocol {
     var name: String { return rawValue }
+    var hashValue: Int { return rawValue.hashValue }
 }
 
 /// Protocol for property name enums
-public protocol PropertyNameProtocol {
+public protocol PropertyNameProtocol: Hashable {
     var rawValue: String { get }
 }
 
 /// Protocol extension for signal name enums
 public extension PropertyNameProtocol {
     var name: String { return rawValue }
+    var hashValue: Int { return rawValue.hashValue }
 }
 
 /// A Void closure to use as a signal handler, that takes no parameters.
