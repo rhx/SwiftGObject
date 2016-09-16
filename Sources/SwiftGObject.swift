@@ -98,7 +98,7 @@ public extension ObjectProtocol {
     /// Connects a (Void) -> Void closure or function to a signal for
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
-    @discardableResult public func connect<S: SignalNameProtocol>(_ signal: S, flags f: ConnectFlags = ConnectFlags(0), handler: SignalHandler) -> CUnsignedLong {
+    @discardableResult public func connect<S: SignalNameProtocol>(_ signal: S, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping SignalHandler) -> CUnsignedLong {
         let rv = _connect(signal: signal.name, flags: f, data: ClosureHolder(handler)) {
             let ptr = UnsafeRawPointer($1)
             let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
@@ -151,7 +151,7 @@ public extension ObjectProtocol {
     /// #GBinding instance.
     ///
     /// A #GObject can have multiple bindings.
-    @discardableResult public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, to target: T, property target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: ValueTransformer) -> BindingRef! {
+    @discardableResult public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, to target: T, property target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping ValueTransformer) -> BindingRef! {
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
             let ptr = UnsafeRawPointer($3)
             let holder = Unmanaged<BindingClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
