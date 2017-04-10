@@ -1,8 +1,8 @@
 import XCTest
 import CGLib
-@testable import GObject
+@testable import GLibObject
 
-class GObjectTests: XCTestCase {
+class GLibObjectTests: XCTestCase {
 
     /// test fundamental types
     func testTypeFundamental() {
@@ -21,8 +21,8 @@ class GObjectTests: XCTestCase {
     }
 
 }
-extension GObjectTests {
-    static var allTests : [(String, (GObjectTests) -> () throws -> Void)] {
+extension GLibObjectTests {
+    static var allTests : [(String, (GLibObjectTests) -> () throws -> Void)] {
         return [
             ("testTypeFundamental", testTypeFundamental),
             ("testCreateObject",    testCreateObject),

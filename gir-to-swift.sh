@@ -21,35 +21,4 @@ if [ ! -e "${GIR}" ] ; then
 	echo "and can be found in /usr /usr/local or by pkg-config!"
 	exit 1
 fi
-gir2swift -p ${GIR_DIR}/GLib-2.0.gir "${GIR}" | sed -f ${Module}.sed > Sources/${Module}.swift
-echo  > Sources/GObject.swift "import CGLib"
-echo >> Sources/GObject.swift "import GLib"
-echo >> Sources/GObject.swift ""
-echo >> Sources/GObject.swift "public typealias _GObject_SignalHandler = SignalHandler"
-echo >> Sources/GObject.swift "public typealias _GObject_ValueTransformer = ValueTransformer"
-echo >> Sources/GObject.swift "public typealias _GObject_SignalHandlerClosureHolder = SignalHandlerClosureHolder"
-echo >> Sources/GObject.swift "public typealias _GObject_BindingClosureHolder = BindingClosureHolder"
-echo >> Sources/GObject.swift ""
-grep 'public protocol' Sources/GObject-2.0.swift | cut -d' ' -f3 | cut -d: -f1 | sort -u | sed -e 's/^\(.*\)/public typealias _GObject_\1 = \1/' >> Sources/GObject.swift
-echo >> Sources/GObject.swift ""
-grep '^open class' Sources/GObject-2.0.swift | cut -d' ' -f3 | cut -d: -f1 | sort -u | sed -e 's/^\(.*\)/public typealias _GObject_\1 = \1/' >> Sources/GObject.swift
-echo >> Sources/GObject.swift ""
-grep '^public struct' Sources/GObject-2.0.swift | cut -d' ' -f3 | cut -d: -f1 | sort -u | sed -e 's/^\(.*\)/public typealias _GObject_\1 = \1/' >> Sources/GObject.swift
-echo >> Sources/GObject.swift ""
-echo >> Sources/GObject.swift "public extension GObject {"
-echo >> Sources/GObject.swift "    public typealias SignalHandler = _GObject_SignalHandler"
-echo >> Sources/GObject.swift "    public typealias ValueTransformer = _GObject_ValueTransformer"
-echo >> Sources/GObject.swift "    public typealias SignalHandlerClosureHolder = _GObject_SignalHandlerClosureHolder"
-echo >> Sources/GObject.swift "    public typealias BindingClosureHolder = _GObject_BindingClosureHolder"
-echo >> Sources/GObject.swift ""
-grep 'public protocol' Sources/GObject-2.0.swift | cut -d' ' -f3 | cut -d: -f1 | sort -u | sed -e 's/^\(.*\)/    public typealias \1 = _GObject_\1/' >> Sources/GObject.swift
-echo >> Sources/GObject.swift ""
-grep '^open class' Sources/GObject-2.0.swift | cut -d' ' -f3 | cut -d: -f1 | sort -u | sed -e 's/^\(.*\)/    public typealias \1 = _GObject_\1/' >> Sources/GObject.swift
-echo >> Sources/GObject.swift ""
-grep '^public struct' Sources/GObject-2.0.swift | cut -d' ' -f3 | cut -d: -f1 | sort -u | sed -e 's/^\(.*\)/    public typealias \1 = _GObject_\1/' >> Sources/GObject.swift
-echo >> Sources/GObject.swift ""
-grep '^public typealias' Sources/${Module}.swift | sed 's/^/    /' >> Sources/GObject.swift
-echo >> Sources/GObject.swift "}"
-#if swiftc --version | grep -q 9e8266aaeb ; then
-#	patch -p0 < Patches/swift-9e8266aaeb.patch
-#fi
+exec gir2swift -p ${GIR_DIR}/GLib-2.0.gir "${GIR}" | sed -f ${Module}.sed > Sources/${Module}.swift

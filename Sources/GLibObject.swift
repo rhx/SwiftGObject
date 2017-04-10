@@ -1,5 +1,5 @@
 //
-//  SwiftGObject.swift
+//  GLibObject.swift
 //  GObject
 //
 //  Created by Rene Hexel on 20/06/2016.
