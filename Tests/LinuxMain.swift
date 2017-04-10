@@ -1,6 +1,6 @@
 import XCTest
-@testable import GlibObjectTests
+@testable import GLibObjectTests
 
 XCTMain([
-	 testCase(GlibObjectTests.allTests),
+	 testCase(GLibObjectTests.allTests),
 ])
