@@ -1,5 +1,5 @@
 import XCTest
-@testable import GObjectTestSuite
+@testable import GObjectTests
 
 XCTMain([
 	 testCase(GObjectTests.allTests),
