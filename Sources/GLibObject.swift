@@ -3,7 +3,7 @@
 //  GObject
 //
 //  Created by Rene Hexel on 20/06/2016.
-//
+//  Copyright © 2016, 2017 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -29,6 +29,43 @@ public extension PropertyNameProtocol {
     var name: String { return rawValue }
     var hashValue: Int { return rawValue.hashValue }
 }
+
+/// Type representing the name of a property
+public struct PropertyName {
+    public let name: String
+
+    public init(_ n: String) { name = n }
+
+    public init<T: PropertyNameProtocol>(_ p: T) { name = p.rawValue }
+}
+
+extension PropertyName: PropertyNameProtocol {
+    /// Returns a Boolean value indicating whether two values are equal.
+    ///
+    /// Equality is the inverse of inequality. For any values `a` and `b`,
+    /// `a == b` implies that `a != b` is `false`.
+    ///
+    /// - Parameters:
+    ///   - lhs: A value to compare.
+    ///   - rhs: Another value to compare.
+    public static func ==(lhs: PropertyName, rhs: PropertyName) -> Bool {
+        return lhs.name == rhs.name
+    }
+
+    /// Property name as a String
+    public var rawValue: String { return name }
+}
+
+extension PropertyName: ExpressibleByStringLiteral {
+    public typealias UnicodeScalarLiteralType = String
+    public typealias ExtendedGraphemeClusterLiteralType = String
+    public typealias StringLiteralType = String
+
+    public init(stringLiteral value: StringLiteralType) { self.init(value) }
+    public init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) { self.init(value) }
+    public init(unicodeScalarLiteral value: UnicodeScalarLiteralType) { self.init(value) }
+}
+
 
 /// A Void closure to use as a signal handler, that takes no parameters.
 public typealias SignalHandler = () -> ()
