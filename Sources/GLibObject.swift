@@ -66,7 +66,6 @@ extension PropertyName: ExpressibleByStringLiteral {
     public init(unicodeScalarLiteral value: UnicodeScalarLiteralType) { self.init(value) }
 }
 
-
 /// A Void closure to use as a signal handler, that takes no parameters.
 public typealias SignalHandler = () -> ()
 
@@ -84,7 +83,7 @@ public class ClosureHolder<S,T> {
     }
 }
 
-/// Internal Class that wraps a closure to make sure the closure is retained
+/// Internal Class that wraps a binding to make sure it is retained
 /// until no longer required
 public class BindingHolder<S,T> {
     public let transform_from: (S, T) -> Bool
@@ -104,8 +103,33 @@ public typealias BindingClosureHolder = BindingHolder<ValueRef, ValueRef>
 
 /// Convenience extensions for Objects
 public extension ObjectProtocol {
+    /// Create a new instance of a given type
+    ///
+    /// - Parameter type: a type registered with g_type_register_*()
+    /// - Returns: pointer to the instance of the given type
+    public static func new(type: GType) -> gpointer! {
+        var params = GParameter()
+        return g_object_newv(type, 0, &params)
+    }
+    /// Create a reference to an instance of a given type
+    ///
+    /// - Parameter t: a type registered with g_type_register_*()
+    /// - Returns: `ObjectRef` wrapping the pointer to the given type instance
+    public static func newReferenceTo(instanceOf t: GType) -> ObjectRef! {
+        let ptr: gpointer? = Self.new(type: t)
+        return ptr.map { ObjectRef($0.assumingMemoryBound(to: GObject.self)) }
+    }
+    /// Create an instance of a given type
+    ///
+    /// - Parameter t: a type registered with g_type_register_*()
+    /// - Returns: reference-counted object, wrapping the pointer to the given type instance
+    public static func new(_ t: GType) -> Object! {
+        let ptr: gpointer? = Self.new(type: t)
+        return ptr.map { Object($0.assumingMemoryBound(to: GObject.self)) }
+    }
+
     /// Connection helper function for signal handler closure
-    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    fileprivate func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
         let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
         let callback = unsafeBitCast(handler, to: Callback.self)
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -119,7 +143,7 @@ public extension ObjectProtocol {
     }
 
     /// Binding helper function for binding closure
-    private func _bind<T: ObjectProtocol>(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    fileprivate func _bind<T: ObjectProtocol>(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
         let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
         let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
         let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -199,5 +223,57 @@ public extension ObjectProtocol {
             return holder.transform_to(ValueRef(raw: $1), ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Complete version of bind() with strongly typed transformers.
+    ///
+    /// Creates a binding between @source_property on @source and @target_property
+    /// on @target, allowing you to set the transformation functions to be used by
+    /// the binding.
+    ///
+    /// If @flags contains %G_BINDING_BIDIRECTIONAL then the binding will be mutual:
+    /// if @target_property on @target changes then the @source_property on @source
+    /// will be updated as well. The @transform_from function is only used in case
+    /// of bidirectional bindings, otherwise it will be ignored
+    ///
+    /// The binding will automatically be removed when either the @source or the
+    /// @target instances are finalized. To remove the binding without affecting the
+    /// @source and the @target you can just call g_object_unref() on the returned
+    /// #GBinding instance.
+    ///
+    /// A #GObject can have multiple bindings.
+    @discardableResult public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol, U, V>(_ source_property: P, to target: T, property target_property: Q, flags fl: BindingFlags = .sync_create, convertFrom f: @escaping (U?) -> V? = { _ in nil }, convertTo g: @escaping (V?) -> U?) -> BindingRef! {
+        let ft: ValueTransformer = { $0.transform(to: $1, f) }
+        let gt: ValueTransformer = { $1.transform(to: $0, g) }
+        return bind(source_property, to: target, property: target_property, flags: fl, transformFrom: ft, transformTo: gt)
+    }
+
+    /// Complete version of bind() with strongly typed transformers.
+    ///
+    /// Creates a binding between @source_property on @source and @target_property
+    /// on @target, allowing you to set the transformation functions to be used by
+    /// the binding.
+    ///
+    /// If @flags contains %G_BINDING_BIDIRECTIONAL then the binding will be mutual:
+    /// if @target_property on @target changes then the @source_property on @source
+    /// will be updated as well. The @transform_from function is only used in case
+    /// of bidirectional bindings, otherwise it will be ignored
+    ///
+    /// The binding will automatically be removed when either the @source or the
+    /// @target instances are finalized. To remove the binding without affecting the
+    /// @source and the @target you can just call g_object_unref() on the returned
+    /// #GBinding instance.
+    ///
+    /// A #GObject can have multiple bindings.
+    @discardableResult public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol, U, V>(_ source_property: P, to target: T, property target_property: Q, flags fl: BindingFlags = .sync_create, convertFrom f: @escaping (U) -> V? = { _ in nil }, convertTo g: @escaping (V) -> U?) -> BindingRef! {
+        let ft: ValueTransformer = {
+            print("transformFrom(\($0.long))")
+            return $0.transform(to: $1, f)
+        }
+        let gt: ValueTransformer = {
+            print("transform(\($0.string) to: \($1.long))")
+            return $0.transform(to: $1, g)
+        }
+        return bind(source_property, to: target, property: target_property, flags: fl, transformFrom: ft, transformTo: gt)
     }
 }
