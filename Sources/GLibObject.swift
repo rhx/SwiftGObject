@@ -191,6 +191,7 @@ public extension ObjectProtocol {
     ///
     /// A #GObject can have multiple bindings.
     @discardableResult public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, target: T, property target_property: Q, flags: BindingFlags = .default_) -> BindingRef! {
+        print("Binding \(ptr).\(source_property.name) -> \(target.ptr).\(target_property.name)")
         let rv = g_object_bind_property(ptr, source_property.name, target.ptr, target_property.name, flags)
         return rv.map { BindingRef(opaquePointer: $0) }
     }

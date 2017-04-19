@@ -140,7 +140,7 @@ public extension ValueProtocol {
     /// Generic value setter.
     ///
     /// - Parameter value: Int value to set
-    public func set(_ value: Int) { set(type: .long) ; setLong(vLong: glong(value)) }
+    public func set(_ value: Int) { unset() ; set(type: .long) ; setLong(vLong: glong(value)) }
 
     /// Generic value setter.
     ///
@@ -283,6 +283,7 @@ open class Value: ValueBase, ExpressibleByStringLiteral, ExpressibleByIntegerLit
     /// - Parameter v: value to initialise with
     convenience public init<T>(_ v: T) {
         self.init()
+        g_value_reset(<#T##value: UnsafeMutablePointer<GValue>!##UnsafeMutablePointer<GValue>!#>)
         set(v)
     }
 
