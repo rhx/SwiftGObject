@@ -5,6 +5,11 @@
 //  Created by Rene Hexel on 17/4/17.
 //  Copyright © 2016, 2017 Rene Hexel.  All rights reserved.
 //
+#if os(macOS) || os(iOS) || os(tvOS)
+    import Darwin
+#else
+    import Glibc
+#endif
 import CGLib
 import GLib
 
@@ -121,6 +126,7 @@ public extension ValueProtocol {
     ///
     /// - Parameter value: static String value to set
     public func set(_ s: StaticString) {
+        unset()
         set(type: .string)
         s.utf8Start.withMemoryRebound(to: CChar.self, capacity: s.utf8CodeUnitCount) {
             setStaticString(vString: $0)
@@ -130,12 +136,12 @@ public extension ValueProtocol {
     /// Generic value setter.
     ///
     /// - Parameter value: Bool value to set
-    public func set(_ value: Bool) { set(type: .boolean) ; setBoolean(vBoolean: value) }
+    public func set(_ value: Bool) { unset() ; set(type: .boolean) ; setBoolean(vBoolean: value) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: Double value to set
-    public func set(_ value: Double) { set(type: .double) ; setDouble(vDouble: value) }
+    public func set(_ value: Double) { unset() ; set(type: .double) ; setDouble(vDouble: value) }
 
     /// Generic value setter.
     ///
@@ -145,47 +151,47 @@ public extension ValueProtocol {
     /// Generic value setter.
     ///
     /// - Parameter value: UInt value to set
-    public func set(_ value: UInt) { set(type: .ulong) ; setUlong(vUlong: gulong(value)) }
+    public func set(_ value: UInt) { unset() ; set(type: .ulong) ; setUlong(vUlong: gulong(value)) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: Int64 value to set
-    public func set(_ value: Int64) { set(type: .int64) ; setInt64(vInt64: value) }
+    public func set(_ value: Int64) { unset() ; set(type: .int64) ; setInt64(vInt64: value) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: UInt64 value to set
-    public func set(_ value: UInt64) { set(type: .uint64) ; setUint64(vUint64: value) }
+    public func set(_ value: UInt64) { unset() ; set(type: .uint64) ; setUint64(vUint64: value) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: Int32 value to set
-    public func set(_ value: Int32) { set(type: .int) ; setInt(vInt: gint(value)) }
+    public func set(_ value: Int32) { unset() ; set(type: .int) ; setInt(vInt: gint(value)) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: UInt32 value to set
-    public func set(_ value: UInt32) { set(type: .uint) ; setUint(vUint: guint(value)) }
+    public func set(_ value: UInt32) { unset() ; set(type: .uint) ; setUint(vUint: guint(value)) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: Int8 value to set
-    public func set(_ value: Int8) { set(type: .char) ; setSchar(vChar: value) }
+    public func set(_ value: Int8) { unset() ; set(type: .char) ; setSchar(vChar: value) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: UInt8 value to set
-    public func set(_ value: UInt8) { set(type: .uchar) ; setUchar(vUchar: value) }
+    public func set(_ value: UInt8) { unset() ; set(type: .uchar) ; setUchar(vUchar: value) }
 
     /// Generic object setter.
     ///
     /// - Parameter object: GObject or subclass to set
-    public func set<O: ObjectProtocol>(_ object: O) { set(type: .object) ; setObject(vObject: object) }
+    public func set<O: ObjectProtocol>(_ object: O) { unset() ; set(type: .object) ; setObject(vObject: object) }
 
     /// Generic ParamSpec setter.
     ///
     /// - Parameter spec: ParamSpec to set
-    public func set<P: ParamSpecProtocol>(_ spec: P) { set(type: .param) ; set(param: spec) }
+    public func set<P: ParamSpecProtocol>(_ spec: P) { unset() ; set(type: .param) ; set(param: spec) }
 
     /// Generic Optional setter.
     ///
@@ -274,6 +280,7 @@ open class Value: ValueBase, ExpressibleByStringLiteral, ExpressibleByIntegerLit
     /// Designated initialiser, allocating a value in memory
     required public init() {
         let ptr = UnsafeMutablePointer<GValue>.allocate(capacity: 1)
+        memset(UnsafeMutableRawPointer(ptr), 0, MemoryLayout<GValue>.size)
         super.init(ptr)
     }
     deinit { ptr.deallocate(capacity: 1) }
@@ -283,7 +290,6 @@ open class Value: ValueBase, ExpressibleByStringLiteral, ExpressibleByIntegerLit
     /// - Parameter v: value to initialise with
     convenience public init<T>(_ v: T) {
         self.init()
-        g_value_reset(<#T##value: UnsafeMutablePointer<GValue>!##UnsafeMutablePointer<GValue>!#>)
         set(v)
     }
 
@@ -365,5 +371,21 @@ open class Value: ValueBase, ExpressibleByStringLiteral, ExpressibleByIntegerLit
     /// - Parameter value: The value of the new instance.
     public required convenience init(booleanLiteral value: BooleanLiteralType) {
         self.init(value)
+    }
+
+//    fileprivate static let transformFunctions: [(src: GType, dst: GType) : (Any) -> Any?] = [:]
+//
+//    /// Registers a value transformation function for use in g_value_transform().
+//    /// A previously registered transformation function for @src_type and @dest_type
+//    /// will be replaced.
+//    public static func registerTransform<T, U>(from: GType, to: GType, function: @escaping (T) -> U?) {
+//        let f: (Any) -> Any? = { ($0 as? T).flatMap { function($0) }.map { $0 as Any } }
+//        valueRegisterTransformFunc(srcType: from, destType: to) {
+//            guard let src = $0.map({ ValueRef(constPointer: $0) }),
+//                  let dst = $1.map({ ValueRef($0) }),
+//                  let v: T = src.get(),
+//                  let u: U = function(v) else { return }
+//            dst.set(u)
+//        }
     }
 }

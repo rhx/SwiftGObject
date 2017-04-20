@@ -26,6 +26,55 @@ class GLibObjectTests: XCTestCase {
         XCTAssertNil(object)
     }
 
+    /// test values and transformations
+    func testValues() {
+        let a = Value()
+        XCTAssertFalse(a.typeCheckValueHolds(type: .boolean))
+        XCTAssertFalse(a.typeCheckValueHolds(type: .string))
+        XCTAssertFalse(a.typeCheckValueHolds(type: .double))
+        XCTAssertFalse(a.typeCheckValueHolds(type: .float))
+        XCTAssertFalse(a.typeCheckValueHolds(type: .long))
+        XCTAssertFalse(a.typeCheckValueHolds(type: .ulong))
+        XCTAssertFalse(a.typeCheckValueHolds(type: .int))
+        XCTAssertFalse(a.typeCheckValueHolds(type: .uint))
+        XCTAssertFalse(a.typeCheckValueHolds(type: .int64))
+        XCTAssertFalse(a.typeCheckValueHolds(type: .uint64))
+        XCTAssertFalse(a.typeCheckValueHolds(type: .char))
+        XCTAssertFalse(a.typeCheckValueHolds(type: .uchar))
+        XCTAssertFalse(a.typeCheckValueHolds(type: .object))
+        XCTAssertFalse(a.typeCheckValueHolds(type: .param))
+        a.set(type: .string)
+        XCTAssertTrue(a.typeCheckValueHolds(type: .string))
+        let s: StaticString = "Hello, world!"
+        a.set(s)
+        XCTAssertTrue(a.typeCheckValueHolds(type: .string))
+        let t = s.description
+        XCTAssertEqual(a.string, t)
+        a.set(t)
+        XCTAssertTrue(a.typeCheckValueHolds(type: .string))
+        XCTAssertEqual(a.string, t)
+        a.set(1)
+        XCTAssertTrue(a.typeCheckValueHolds(type: .long))
+        XCTAssertEqual(a.long, 1)
+        let i: Int = a.get()
+        XCTAssertEqual(i, 1)
+        let b: Value = "Hello, world!"
+        XCTAssertTrue(b.typeCheckValueHolds(type: .string))
+        XCTAssertTrue(GType.transformable(from: .long, to: .string))
+        XCTAssertTrue(a.transform(destValue: b))
+        XCTAssertTrue(b.typeCheckValueHolds(type: .string))
+        XCTAssertEqual(b.string, "1")
+        valueRegisterTransformFunc(srcType: .long, destType: .string) {
+            guard let src = $0.map({ ValueRef(constPointer: $0) }),
+                  var dst = $1.map({ ValueRef($0) }) else { XCTFail(); return }
+            let v: Int = src.get()
+            dst.string = "\(2*v)"
+        }
+        XCTAssertTrue(a.transform(destValue: b))
+        XCTAssertTrue(b.typeCheckValueHolds(type: .string))
+        XCTAssertEqual(b.string, "2")
+    }
+
     /// test bindings and transformations between two instances
     func testBindings() {
         let type = type_a_get_type()
@@ -160,6 +209,7 @@ extension GLibObjectTests {
         return [
             ("testTypeFundamental",         testTypeFundamental),
             ("testCreateObject",            testCreateObject),
+            ("testValues",                  testValues),
             ("testBindings",                testBindings),
             ("testTypedBindings",           testTypedBindings),
             ("testTypedDistinctBindings",   testTypedDistinctBindings),

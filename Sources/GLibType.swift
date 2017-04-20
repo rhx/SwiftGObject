@@ -69,4 +69,8 @@ public extension GType {
     public var isValueType: Bool    { return g_type_check_is_value_type(self) != 0 }
     /// Return `true` iff `self` has a value table.
     public var hasValueTable: Bool  { return g_type_value_table_peek(self) != nil }
+    /// Return `true` iff `a` is transformable into `b`
+    public static func transformable(from a: GType, to b: GType) -> Bool {
+        return g_value_type_transformable(a, b) != 0
+    }
 }
