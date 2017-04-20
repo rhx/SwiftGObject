@@ -105,10 +105,14 @@ class GLibObjectTests: XCTestCase {
                 type_a_set_property(objB.ptr, 1, value2.ptr, nil)
                 XCTAssertEqual(ptrB.pointee.integer, 2)
                 let binding = objB.bind(integerProperty, target: objA, property: integerProperty, flags: .sync_create)
+                XCTAssertEqual(ptrA.pointee.integer, 2)
+                value2.set(3)
+                XCTAssertEqual(value2.long, 3)
+                type_a_set_property(objB.ptr, 1, value2.ptr, nil)
+                XCTAssertEqual(ptrB.pointee.integer, 3)
+                XCTAssertEqual(ptrA.pointee.integer, 3)
                 XCTAssertNotNil(binding)
-                XCTAssertEqual(ptrA.pointee.integer, 1)
                 binding?.unbind()
-                // XCTAssertEqual(ptrA.pointee.integer, 2)
             }
         }
     }
@@ -242,7 +246,7 @@ fileprivate func type_a_class_init(_ cl: gpointer?, _: gpointer?) {
     guard let object_class = cl?.assumingMemoryBound(to: GObjectClass.self) else { return }
     object_class.pointee.set_property = type_a_set_property
     object_class.pointee.get_property = type_a_get_property
-    g_object_class_install_property(object_class, 1, g_param_spec_string(integerProperty.name, integerProperty.name, "Integer property", "", G_PARAM_READWRITE))
+    g_object_class_install_property(object_class, 1, g_param_spec_long(integerProperty.name, integerProperty.name, "Integer property", Int.min, Int.max, 0, G_PARAM_READWRITE))
 }
 
 fileprivate func type_b_class_init(_ cl: gpointer?, _: gpointer?) {
@@ -273,15 +277,15 @@ fileprivate func type_a_set_property(_ object: UnsafeMutablePointer<GObject>?, _
     guard let iptr = object.map({ $0.withMemoryRebound(to: GTypeA.self, capacity: 1) { p in p } }),
           let valueRef = value.map(ValueRef.init) else { return }
     iptr.pointee.integer = valueRef.get()
-    print("Set a (\(iptr)): \(iptr.pointee.integer) from \(valueRef.ptr)")
+    print("Set a (\(iptr)): \(iptr.pointee.integer) from \(valueRef.ptr) = \(value!)")
 }
 
 fileprivate func type_a_get_property(_ object: UnsafeMutablePointer<GObject>?, _ property_id: guint, _ value: UnsafeMutablePointer<GValue>?, _ pspec: UnsafeMutablePointer<GParamSpec>?) {
     guard let iptr = object.map({ $0.withMemoryRebound(to: GTypeA.self, capacity: 1) { p in p } }),
-        let valueRef = value.map({ ValueRef($0) }) else { return }
+          let valueRef = value.map({ ValueRef($0) }) else { return }
     valueRef.set(iptr.pointee.integer)
     let i: Int = valueRef.get()
-    print("Get a (\(iptr)): \(i) (should be \(iptr.pointee.integer)) into \(valueRef.ptr)")
+    print("Get a (\(iptr)): \(i) (should be \(iptr.pointee.integer)) into \(valueRef.ptr) = \(value!)")
 }
 
 fileprivate func type_b_set_property(_ object: UnsafeMutablePointer<GObject>?, _ property_id: guint, _ value: UnsafePointer<GValue>?, _ pspec: UnsafeMutablePointer<GParamSpec>?) {
@@ -289,13 +293,13 @@ fileprivate func type_b_set_property(_ object: UnsafeMutablePointer<GObject>?, _
         let valueRef = value.map(ValueRef.init),
         let s: String = valueRef.get() else { return }
     iptr.pointee.string = s
-    print("Set b (\(iptr)): \(iptr.pointee.string) from \(valueRef.ptr) (\(value!))")
+    print("Set b (\(iptr)): \(iptr.pointee.string) from \(valueRef.ptr) (\(value!)) = \(value!)")
 }
 
 fileprivate func type_b_get_property(_ object: UnsafeMutablePointer<GObject>?, _ property_id: guint, _ value: UnsafeMutablePointer<GValue>?, _ pspec: UnsafeMutablePointer<GParamSpec>?) {
     guard let iptr = object.map({ $0.withMemoryRebound(to: GTypeB.self, capacity: 1) { p in p } }),
-        let valueRef = value.map({ ValueRef($0) }) else { return }
+          let valueRef = value.map({ ValueRef($0) }) else { return }
     valueRef.set(iptr.pointee.string)
     let s: String = valueRef.get()
-    print("Get b (\(iptr)): \(s) (should be \(iptr.pointee.string)) into \(valueRef.ptr)")
+    print("Get b (\(iptr)): \(s) (should be \(iptr.pointee.string)) into \(valueRef.ptr) = \(value!)")
 }

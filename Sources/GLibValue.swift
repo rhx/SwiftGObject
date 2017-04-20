@@ -372,20 +372,4 @@ open class Value: ValueBase, ExpressibleByStringLiteral, ExpressibleByIntegerLit
     public required convenience init(booleanLiteral value: BooleanLiteralType) {
         self.init(value)
     }
-
-//    fileprivate static let transformFunctions: [(src: GType, dst: GType) : (Any) -> Any?] = [:]
-//
-//    /// Registers a value transformation function for use in g_value_transform().
-//    /// A previously registered transformation function for @src_type and @dest_type
-//    /// will be replaced.
-//    public static func registerTransform<T, U>(from: GType, to: GType, function: @escaping (T) -> U?) {
-//        let f: (Any) -> Any? = { ($0 as? T).flatMap { function($0) }.map { $0 as Any } }
-//        valueRegisterTransformFunc(srcType: from, destType: to) {
-//            guard let src = $0.map({ ValueRef(constPointer: $0) }),
-//                  let dst = $1.map({ ValueRef($0) }),
-//                  let v: T = src.get(),
-//                  let u: U = function(v) else { return }
-//            dst.set(u)
-//        }
-    }
 }
