@@ -143,7 +143,7 @@ public extension ObjectProtocol {
     }
 
     /// Binding helper function for binding closure
-    fileprivate func _bind<T: ObjectProtocol>(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    fileprivate func _bind<T: ObjectProtocol>(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .sync_create, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
         let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
         let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
         let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -190,8 +190,7 @@ public extension ObjectProtocol {
     /// #GBinding instance.
     ///
     /// A #GObject can have multiple bindings.
-    @discardableResult public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, target: T, property target_property: Q, flags: BindingFlags = .default_) -> BindingRef! {
-        print("Binding \(ptr).\(source_property.name) -> \(target.ptr).\(target_property.name)")
+    @discardableResult public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, target: T, property target_property: Q, flags: BindingFlags = .sync_create) -> BindingRef! {
         let rv = g_object_bind_property(ptr, source_property.name, target.ptr, target_property.name, flags)
         return rv.map { BindingRef(opaquePointer: $0) }
     }
@@ -213,7 +212,7 @@ public extension ObjectProtocol {
     /// #GBinding instance.
     ///
     /// A #GObject can have multiple bindings.
-    @discardableResult public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, to target: T, property target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping ValueTransformer) -> BindingRef! {
+    @discardableResult public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, to target: T, property target_property: Q, flags f: BindingFlags = .sync_create, transformFrom transform_from: @escaping ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping ValueTransformer) -> BindingRef! {
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
             let ptr = UnsafeRawPointer($3)
             let holder = Unmanaged<BindingClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
@@ -268,11 +267,9 @@ public extension ObjectProtocol {
     /// A #GObject can have multiple bindings.
     @discardableResult public func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol, U, V>(_ source_property: P, to target: T, property target_property: Q, flags fl: BindingFlags = .sync_create, convertFrom f: @escaping (U) -> V? = { _ in nil }, convertTo g: @escaping (V) -> U?) -> BindingRef! {
         let ft: ValueTransformer = {
-            print("transformFrom(\($0.long))")
             return $0.transform(to: $1, f)
         }
         let gt: ValueTransformer = {
-            print("transform(\($0.string) to: \($1.long))")
             return $0.transform(to: $1, g)
         }
         return bind(source_property, to: target, property: target_property, flags: fl, transformFrom: ft, transformTo: gt)

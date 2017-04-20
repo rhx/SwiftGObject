@@ -75,7 +75,7 @@ class GLibObjectTests: XCTestCase {
         XCTAssertEqual(b.string, "2")
     }
 
-    /// test bindings and transformations between two instances
+    /// test bindings between two instances
     func testBindings() {
         let type = type_a_get_type()
         XCTAssertNotEqual(type, 0)
@@ -105,19 +105,56 @@ class GLibObjectTests: XCTestCase {
                 type_a_set_property(objB.ptr, 1, value2.ptr, nil)
                 XCTAssertEqual(ptrB.pointee.integer, 2)
                 let binding = objB.bind(integerProperty, target: objA, property: integerProperty, flags: .sync_create)
-                XCTAssertEqual(ptrA.pointee.integer, 2)
-                value2.set(3)
-                XCTAssertEqual(value2.long, 3)
-                type_a_set_property(objB.ptr, 1, value2.ptr, nil)
-                XCTAssertEqual(ptrB.pointee.integer, 3)
-                XCTAssertEqual(ptrA.pointee.integer, 3)
                 XCTAssertNotNil(binding)
+                XCTAssertEqual(ptrA.pointee.integer, 2)
                 binding?.unbind()
             }
         }
     }
 
 
+    /// test value transformer bindings between two instances
+    func testTransformerBindings() {
+        let type = type_a_get_type()
+        XCTAssertNotEqual(type, 0)
+        XCTAssertNotEqual(type, typeB)
+        XCTAssertTrue(type.isClassed)
+        XCTAssertTrue(type.isDerived)
+        XCTAssertTrue(type.isDerivable)
+        XCTAssertTrue(type.isDeepDerivable)
+        XCTAssertTrue(type.isInstantiable)
+        XCTAssertTrue(type.isValueType)
+        XCTAssertFalse(type.isAbstract)
+        XCTAssertFalse(type.isAbstractValue)
+        guard let objA = Object.new(type),
+            let objB = Object.new(type) else {
+                XCTFail("Cannot instantiate objects")
+                return
+        }
+        objA.ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
+            let ptrA = $0
+            XCTAssertEqual(ptrA.pointee.integer, 0)
+            let value1: Value = 1
+            type_a_set_property(objA.ptr, 1, value1.ptr, nil)
+            XCTAssertEqual(ptrA.pointee.integer, 1)
+            objB.ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
+                let ptrB = $0
+                let value2: Value = 2
+                type_a_set_property(objB.ptr, 1, value2.ptr, nil)
+                XCTAssertEqual(ptrB.pointee.integer, 2)
+                let binding = objB.bind(integerProperty, to: objA, property: integerProperty, flags: .sync_create) {
+                    let v: Int = $0.0.get()
+                    $0.1.set(2*v)
+                    return true
+                }
+                XCTAssertNotNil(binding)
+                XCTAssertEqual(ptrA.pointee.integer, 4)
+                binding?.unbind()
+            }
+        }
+    }
+
+    
     /// test typed bindings and transformations between two instances
     func testTypedBindings() {
         let type = type_a_get_type()
@@ -139,25 +176,23 @@ class GLibObjectTests: XCTestCase {
         objA.ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
             let ptrA = $0
             XCTAssertEqual(ptrA.pointee.integer, 0)
-            let value1: Value = 3
+            let value1: Value = 1
             type_a_set_property(objA.ptr, 1, value1.ptr, nil)
-            XCTAssertEqual(ptrA.pointee.integer, 3)
+            XCTAssertEqual(ptrA.pointee.integer, 1)
             objB.ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
                 let ptrB = $0
-                let value2: Value = 4
+                let value2: Value = 2
                 type_a_set_property(objB.ptr, 1, value2.ptr, nil)
-                XCTAssertEqual(ptrB.pointee.integer, 4)
-                let binding = objB.bind(integerProperty, to: objA, property: integerProperty) { (s: Int) -> Int? in
-                    print("Converting Int(\(s)) -> Int(\(s))")
-                    return s
-                }
+                XCTAssertEqual(ptrB.pointee.integer, 2)
+                let binding = objB.bind(integerProperty, to: objA, property: integerProperty, flags: .sync_create) { 3 * $0 }
                 XCTAssertNotNil(binding)
+                XCTAssertEqual(ptrA.pointee.integer, 6)
                 binding?.unbind()
-                // XCTAssertEqual(ptrA.pointee.integer, 2)
             }
         }
     }
-    
+
+
     /// test typed bindings and transformations between instances of two distinct types
     func testTypedDistinctBindings() {
         let typeA = type_a_get_type()
@@ -197,13 +232,10 @@ class GLibObjectTests: XCTestCase {
                 let value2: Value = "2"
                 type_b_set_property(objB.ptr, 1, value2.ptr, nil)
                 XCTAssertEqual(ptrB.pointee.string, "2")
-                let binding = objB.bind(stringProperty, to: objA, property: integerProperty) { (s: String) -> Int? in
-                    print("Converting String(\(s)) -> Int(\(s))")
-                    return Int(s)
-                }
+                let binding = objB.bind(stringProperty, to: objA, property: integerProperty) { Int($0).map { $0*4 } }
                 XCTAssertNotNil(binding)
+                XCTAssertEqual(ptrA.pointee.integer, 8)
                 binding?.unbind()
-                // XCTAssertEqual(ptrA.pointee.integer, 2)
             }
         }
     }
@@ -215,6 +247,7 @@ extension GLibObjectTests {
             ("testCreateObject",            testCreateObject),
             ("testValues",                  testValues),
             ("testBindings",                testBindings),
+            ("testTransformerBindings",     testTransformerBindings),
             ("testTypedBindings",           testTypedBindings),
             ("testTypedDistinctBindings",   testTypedDistinctBindings),
         ]
@@ -277,15 +310,15 @@ fileprivate func type_a_set_property(_ object: UnsafeMutablePointer<GObject>?, _
     guard let iptr = object.map({ $0.withMemoryRebound(to: GTypeA.self, capacity: 1) { p in p } }),
           let valueRef = value.map(ValueRef.init) else { return }
     iptr.pointee.integer = valueRef.get()
-    print("Set a (\(iptr)): \(iptr.pointee.integer) from \(valueRef.ptr) = \(value!)")
+//    print("Set a (\(iptr)): \(iptr.pointee.integer) from \(valueRef.ptr) = \(value!)")
 }
 
 fileprivate func type_a_get_property(_ object: UnsafeMutablePointer<GObject>?, _ property_id: guint, _ value: UnsafeMutablePointer<GValue>?, _ pspec: UnsafeMutablePointer<GParamSpec>?) {
     guard let iptr = object.map({ $0.withMemoryRebound(to: GTypeA.self, capacity: 1) { p in p } }),
           let valueRef = value.map({ ValueRef($0) }) else { return }
     valueRef.set(iptr.pointee.integer)
-    let i: Int = valueRef.get()
-    print("Get a (\(iptr)): \(i) (should be \(iptr.pointee.integer)) into \(valueRef.ptr) = \(value!)")
+//    let i: Int = valueRef.get()
+//    print("Get a (\(iptr)): \(i) (should be \(iptr.pointee.integer)) into \(valueRef.ptr) = \(value!)")
 }
 
 fileprivate func type_b_set_property(_ object: UnsafeMutablePointer<GObject>?, _ property_id: guint, _ value: UnsafePointer<GValue>?, _ pspec: UnsafeMutablePointer<GParamSpec>?) {
@@ -293,13 +326,13 @@ fileprivate func type_b_set_property(_ object: UnsafeMutablePointer<GObject>?, _
         let valueRef = value.map(ValueRef.init),
         let s: String = valueRef.get() else { return }
     iptr.pointee.string = s
-    print("Set b (\(iptr)): \(iptr.pointee.string) from \(valueRef.ptr) (\(value!)) = \(value!)")
+//    print("Set b (\(iptr)): \(iptr.pointee.string) from \(valueRef.ptr) (\(value!)) = \(value!)")
 }
 
 fileprivate func type_b_get_property(_ object: UnsafeMutablePointer<GObject>?, _ property_id: guint, _ value: UnsafeMutablePointer<GValue>?, _ pspec: UnsafeMutablePointer<GParamSpec>?) {
     guard let iptr = object.map({ $0.withMemoryRebound(to: GTypeB.self, capacity: 1) { p in p } }),
           let valueRef = value.map({ ValueRef($0) }) else { return }
     valueRef.set(iptr.pointee.string)
-    let s: String = valueRef.get()
-    print("Get b (\(iptr)): \(s) (should be \(iptr.pointee.string)) into \(valueRef.ptr) = \(value!)")
+//    let s: String = valueRef.get()
+//    print("Get b (\(iptr)): \(s) (should be \(iptr.pointee.string)) into \(valueRef.ptr) = \(value!)")
 }
