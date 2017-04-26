@@ -4,7 +4,7 @@
 # the compiler and linker flags to use.
 #
 VER=2.0
-Mod=GLibObject
+Mod=`grep name: Package.swift | cut -d'"' -f2`
 Pkg=GObject
 Module=${Pkg}-${VER}
 module="`echo "${Module}" | tr '[:upper:]' '[:lower:]'`"
