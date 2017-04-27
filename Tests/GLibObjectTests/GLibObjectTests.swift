@@ -73,6 +73,10 @@ class GLibObjectTests: XCTestCase {
         XCTAssertTrue(a.transform(destValue: b))
         XCTAssertTrue(b.typeCheckValueHolds(type: .string))
         XCTAssertEqual(b.string, "2")
+        let anyString: Any = t
+        let anyValue = Value(anyString)
+        XCTAssertTrue(anyValue.typeCheckValueHolds(type: .string))
+        XCTAssertEqual(anyValue.string, t)
     }
 
     /// test bindings between two instances
