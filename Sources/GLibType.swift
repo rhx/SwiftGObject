@@ -74,3 +74,21 @@ public extension GType {
         return g_value_type_transformable(a, b) != 0
     }
 }
+
+fileprivate struct _GTypeClass { let g_type: GType }
+fileprivate struct _GTypeInstance { let g_class: UnsafeMutablePointer<_GTypeClass>? }
+
+/// Convenience extensions for Object types
+public extension ObjectProtocol {
+    /// Underlying type
+    public var type: GType {
+        let typeInstance = ptr.withMemoryRebound(to: _GTypeInstance.self, capacity: 1) { $0 }
+        guard let cls = typeInstance.pointee.g_class else { return .invalid }
+        return cls.pointee.g_type
+    }
+
+    /// Name of the underlying type
+    public var typeName: String {
+        return String(cString: g_type_name(type))
+    }
+}
