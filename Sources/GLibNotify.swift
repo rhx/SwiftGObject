@@ -9,21 +9,6 @@ import CGLib
 import GLib
 import Dispatch
 
-public typealias GObjectNotifyQueueDispatcher = @convention(c) (UnsafePointer<GObject>?, guint, UnsafePointer<UnsafePointer<GParamSpec>?>?) -> Void
-
-public struct GObjectNotifyContext {
-    var quark_notify_queue: GQuark
-    var dispatcher: GObjectNotifyQueueDispatcher
-    var _nqueue_trash: UnsafeMutablePointer<GTrashStack>? /* unused */
-}
-
-public struct GObjectNotifyQueue {
-    var context: UnsafeMutablePointer<GObjectNotifyContext>?
-    var pspecs: UnsafeMutablePointer<GSList>?
-    var n_pspecs: guint16
-    var freeze_count: guint16
-}
-
 let lockq = DispatchQueue(label: "io.github.rhx.glib.notify.lock")
 
 public extension ObjectProtocol {
@@ -62,7 +47,7 @@ public extension ObjectProtocol {
     /// - Parameter queue: notification queue to thaw
     public func thaw(queue nq: UnsafeMutablePointer<GObjectNotifyQueue>) {
         guard let context = nq.pointee.context else { return }
-        var pspecs = Array<UnsafePointer<GParamSpec>?>()
+        var pspecs = Array<UnsafeMutablePointer<GParamSpec>?>()
         lockq.sync {
             guard nq.pointee.freeze_count > 0 else { return }
             nq.pointee.freeze_count -= 1
