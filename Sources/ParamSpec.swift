@@ -16,8 +16,8 @@ public extension ParamSpecRef {
     ///   - pool: lookup table to consult
     ///   - ownerType: type of the property owner (defaults to `.object`)
     ///   - walkAncestors: `false` to avoid checking ancestors (defaults to `true`)
-    public init?<P: PropertyNameProtocol>(name: P, from pool: UnsafeMutablePointer<GParamSpecPool>!, ownerType: GType = .object, walkAncestors: Bool = true) {
-        guard let p = g_param_spec_pool_lookup(OpaquePointer(pool), name.rawValue, ownerType, gboolean(walkAncestors ? 1 : 0)) else { return nil }
+    public init?<P: PropertyNameProtocol>(name: P, from pool: OpaquePointer!, ownerType: GType = .object, walkAncestors: Bool = true) {
+        guard let p = g_param_spec_pool_lookup(pool, name.rawValue, ownerType, gboolean(walkAncestors ? 1 : 0)) else { return nil }
         self.init(p)
     }
 }
