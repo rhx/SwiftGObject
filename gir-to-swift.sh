@@ -21,4 +21,9 @@ if [ ! -e "${GIR}" ] ; then
 	echo "and can be found in /usr /usr/local or by pkg-config!"
 	exit 1
 fi
-exec gir2swift -p ${GIR_DIR}/GLib-2.0.gir "${GIR}" | sed -f ${Module}.sed | awk -f ${Module}.awk > Sources/${Module}.swift
+gir2swift -o Sources -m ${Module}.module -p ${GIR_DIR}/GLib-2.0.gir "${GIR}"
+for src in Sources/*-*.swift ; do
+	sed -f ${Module}.sed < ${src} | awk -f ${Module}.awk > ${src}.out
+	mv ${src}.out ${src}
+done
+touch Sources/${Module}.swift
