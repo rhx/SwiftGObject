@@ -5,3 +5,4 @@ public struct GBinding {}
 public struct GParamSpecPool {}
 public struct GValueArray {}
 public struct GTypePlugin {}
+
