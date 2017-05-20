@@ -67,6 +67,10 @@ public extension ValueProtocol {
     ///
     /// - Returns: an optional UInt if stored as the value
     public func get() -> UInt8 { return UInt8(uchar) }
+    /// Generic Value copier.
+    ///
+    /// - Returns: a `Value` containing a copy of the receiver
+    public func get() -> Value { return Value(self) }
     /// Generic Value accessor.
     ///
     /// - Returns: an optional Object reference if stored as the value
@@ -116,6 +120,21 @@ public extension ValueProtocol {
         g_warn_message("GLibObject", #file, #line, #function, "Cannot retrieve value of type \(gtype) to type \(T.self)")
         return nil
     }
+
+    /// Generic value copier.
+    ///
+    /// - Parameter value: original `Value` to copy
+    public func set(_ value: ValueBase) { ptr.pointee = value.ptr.pointee }
+
+    /// Generic value copier.
+    ///
+    /// - Parameter value: original `ValueRef` to copy
+    public func set(_ value: ValueRef) { ptr.pointee = value.ptr.pointee }
+
+    /// Generic value copier.
+    ///
+    /// - Parameter value: original value of kind `ValueProtocol` to copy
+    public func set(_ value: ValueProtocol) { ptr.pointee = value.ptr.pointee }
 
     /// Generic value setter.
     ///
@@ -213,6 +232,9 @@ public extension ValueProtocol {
         if let v = o as? Double { set(v) ; return }
         if let v = o as? String { set(v) ; return }
         if let v = o as? StaticString { set(v) ; return }
+        if let v = o as? ValueBase { set(v) ; return }
+        if let v = o as? ValueRef { set(v) ; return }
+        if let v = o as? ValueProtocol { set(v) ; return }
         if let v = o as? Object { setObject(vObject: v) ; return }
         if let v = o as? ObjectRef { setObject(vObject: v) ; return }
         if let v = o as? ObjectProtocol { setObject(vObject: v) ; return }
