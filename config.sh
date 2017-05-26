@@ -11,7 +11,7 @@ module="`echo "${Module}" | tr '[:upper:]' '[:lower:]'`"
 mod="`echo "${Pkg}" | tr '[:upper:]' '[:lower:]'`"
 BUILD_DIR=`pwd`/.build
 export PATH="${BUILD_DIR}/gir2swift/.build/release:${BUILD_DIR}/gir2swift/.build/debug:${PATH}"
-LINKFLAGS="`pkg-config --libs $module gio-unix-${VER} glib-${VER} | tr ' ' '\n' | sed 's/^/-Xlinker /' | tr '\n' ' '`"
+LINKFLAGS="`pkg-config --libs $module gio-unix-${VER} glib-${VER} | tr ' ' '\n' | sed -e 's/^/-Xlinker /' -e 's/-Wl,//' | tr '\n' ' '`"
 CCFLAGS="`pkg-config --cflags $module gio-unix-${VER} glib-${VER} | tr ' ' '\n' | sed 's/^/-Xcc /' | tr '\n' ' ' `"
 TAC="tail -r"
 if which tac >/dev/null ; then
