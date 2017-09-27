@@ -2,3 +2,6 @@
 /.build
 /Packages
 /*.xcodeproj
+Package.resolved
+Package.pins
+Sources/GObject-2.*.swift
