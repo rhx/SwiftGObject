@@ -146,9 +146,9 @@ class GLibObjectTests: XCTestCase {
                 let value2: Value = 2
                 type_a_set_property(objB.ptr, 1, value2.ptr, nil)
                 XCTAssertEqual(ptrB.pointee.integer, 2)
-                let binding = objB.bind(integerProperty, to: objA, property: integerProperty, flags: .sync_create) {
-                    let v: Int = $0.0.get()
-                    $0.1.set(2*v)
+                let binding = objB.bind(integerProperty, to: objA, property: integerProperty, flags: .sync_create) { (u: (Value, Value)) -> Bool in
+                    let v: Int = u.0.get()
+                    u.1.set(2*v)
                     return true
                 }
                 XCTAssertNotNil(binding)
