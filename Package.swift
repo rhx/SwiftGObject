@@ -5,5 +5,5 @@ let package = Package(
     dependencies: [
         .Package(url: "https://github.com/rhx/SwiftGLib.git", majorVersion: 2)
     ],
-    swiftLanguageVersions: [3]
+    swiftLanguageVersions: [3, 4]
 )

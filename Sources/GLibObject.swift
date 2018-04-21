@@ -3,7 +3,7 @@
 //  GObject
 //
 //  Created by Rene Hexel on 20/06/2016.
-//  Copyright © 2016, 2017 Rene Hexel.  All rights reserved.
+//  Copyright © 2016, 2017, 2018 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -163,7 +163,8 @@ public extension ObjectProtocol {
         let rv = _connect(signal: signal.name, flags: f, data: ClosureHolder(handler)) {
             let ptr = UnsafeRawPointer($1)
             let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call()
+            let call = holder.call
+            call(())
         }
         return rv
     }
