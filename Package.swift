@@ -1,9 +1,17 @@
+// swift-tools-version:4.0
+
 import PackageDescription
 
 let package = Package(
     name: "GLibObject",
-    dependencies: [
-        .Package(url: "https://github.com/rhx/SwiftGLib.git", majorVersion: 2)
+    products: [
+        .library(name: "GLibObject", targets: ["GLibObject"]),
     ],
-    swiftLanguageVersions: [3, 4]
+    dependencies: [
+        .package(url: "https://github.com/rhx/SwiftGLib.git", .branch("master"))
+    ],
+    targets: [
+        .target(name: "GLibObject", dependencies: ["GLib"]),
+        .testTarget(name: "GLibObjectTests", dependencies: ["GLibObject"]),
+    ]
 )

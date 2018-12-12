@@ -135,27 +135,28 @@ class GLibObjectTests: XCTestCase {
                 XCTFail("Cannot instantiate objects")
                 return
         }
-        objA.ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
+        withExtendedLifetime(objA) { $0.ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
             let ptrA = $0
             XCTAssertEqual(ptrA.pointee.integer, 0)
             let value1: Value = 1
             type_a_set_property(objA.ptr, 1, value1.ptr, nil)
             XCTAssertEqual(ptrA.pointee.integer, 1)
-            objB.ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
+            withExtendedLifetime(objB) { $0.ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
                 let ptrB = $0
                 let value2: Value = 2
                 type_a_set_property(objB.ptr, 1, value2.ptr, nil)
                 XCTAssertEqual(ptrB.pointee.integer, 2)
                 let binding = objB.bind(integerProperty, to: objA, property: integerProperty, flags: .sync_create) { (u: (Value, Value)) -> Bool in
                     let v: Int = u.0.get()
+                    print("Got \(v)")
                     u.1.set(2*v)
                     return true
                 }
                 XCTAssertNotNil(binding)
                 XCTAssertEqual(ptrA.pointee.integer, 4)
                 binding?.unbind()
-            }
-        }
+            }}
+        }}
     }
 
     
