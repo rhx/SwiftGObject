@@ -3,7 +3,7 @@
 //  GLibObject
 //
 //  Created by Rene Hexel on 29/4/17.
-//  Copyright © 2017 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -15,7 +15,7 @@ public extension ObjectProtocol {
     ///   - number: signal number
     ///   - quark: the detail (defaults to 0)
     ///   - arguments: array of arguments passed to the signal, followed by a location for the return value (if required)
-    public func emit(signal number: Int, detail quark: GQuark = 0, arguments: [CVarArg]) {
+    func emit(signal number: Int, detail quark: GQuark = 0, arguments: [CVarArg]) {
         withVaList(arguments) {
             g_signal_emit_valist(ptr, guint(number), quark, $0)
         }
@@ -27,7 +27,7 @@ public extension ObjectProtocol {
     ///   - number: signal number
     ///   - quark: the detail (defaults to 0)
     ///   - parameters: list of parameters passed to the signal, followed by a location for the return value (if required)
-    public func emit(signal number: Int, detail quark: GQuark = 0, _ parameters: CVarArg...) {
+    func emit(signal number: Int, detail quark: GQuark = 0, _ parameters: CVarArg...) {
         emit(signal: number, detail: quark, arguments: parameters)
     }
 
@@ -36,7 +36,7 @@ public extension ObjectProtocol {
     /// - Parameters:
     ///   - signalName: name of the signal to emit
     ///   - arguments: array of arguments passed to the signal, followed by a location for the return value (if required)
-    public func emit<S: SignalNameProtocol>(_ signalName: S, arguments: [CVarArg]) {
+    func emit<S: SignalNameProtocol>(_ signalName: S, arguments: [CVarArg]) {
         var quark = GQuark(0)
         var id = guint(0)
         guard g_signal_parse_name(signalName.rawValue, type, &id, &quark, 1) != 0 else { return }
@@ -48,7 +48,7 @@ public extension ObjectProtocol {
     /// - Parameters:
     ///   - signalName: name of the signal to emit
     ///   - parameters: list of parameters passed to the signal, followed by a location for the return value (if required)
-    public func emit<S: SignalNameProtocol>(_ signalName: S, _ parameters: CVarArg...) {
+    func emit<S: SignalNameProtocol>(_ signalName: S, _ parameters: CVarArg...) {
         emit(signalName, arguments: parameters)
     }
 }

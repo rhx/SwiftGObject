@@ -17,92 +17,92 @@ public extension ValueProtocol {
     /// Set the receiver up to hold a value of the given type
     ///
     /// - Parameter type: the type of value to hold
-    public func set(type: GType) { _ = init_(gType: type) }
+    func set(type: GType) { _ = init_(gType: type) }
 
     /// Generic Value accessor.
     ///
     /// - Returns: an optional String if stored as the value
-    public func get() -> String { return string }
+    func get() -> String { return string }
     /// Generic Value accessor.
     ///
     /// - Returns: a Bool if stored as the value
-    public func get() -> Bool { return boolean }
+    func get() -> Bool { return boolean }
     /// Generic Value accessor.
     ///
     /// - Returns: a Double if stored as the value
-    public func get() -> Double { return double }
+    func get() -> Double { return double }
     /// Generic Value accessor.
     ///
     /// - Returns: a Float if stored as the value
-    public func get() -> Float { return float }
+    func get() -> Float { return float }
     /// Generic Value accessor.
     ///
     /// - Returns: an Int if stored as the value
-    public func get() -> Int { return Int(long) }
+    func get() -> Int { return Int(long) }
     /// Generic Value accessor.
     ///
     /// - Returns: a UInt if stored as the value
-    public func get() -> UInt { return UInt(ulong) }
+    func get() -> UInt { return UInt(ulong) }
     /// Generic Value accessor.
     ///
     /// - Returns: an Int if stored as the value
-    public func get() -> Int64 { return Int64(int64) }
+    func get() -> Int64 { return Int64(int64) }
     /// Generic Value accessor.
     ///
     /// - Returns: a UInt if stored as the value
-    public func get() -> UInt64 { return UInt64(uint64) }
+    func get() -> UInt64 { return UInt64(uint64) }
     /// Generic Value accessor.
     ///
     /// - Returns: an Int if stored as the value
-    public func get() -> Int32 { return Int32(int) }
+    func get() -> Int32 { return Int32(int) }
     /// Generic Value accessor.
     ///
     /// - Returns: a UInt if stored as the value
-    public func get() -> UInt32 { return UInt32(uint) }
+    func get() -> UInt32 { return UInt32(uint) }
     /// Generic Value accessor.
     ///
     /// - Returns: an Int8 if stored as the value
-    public func get() -> Int8 { return Int8(schar) }
+    func get() -> Int8 { return Int8(schar) }
     /// Generic Value accessor.
     ///
     /// - Returns: an optional UInt if stored as the value
-    public func get() -> UInt8 { return UInt8(uchar) }
+    func get() -> UInt8 { return UInt8(uchar) }
     /// Generic Value copier.
     ///
     /// - Returns: a `Value` containing a copy of the receiver
-    public func get() -> Value { return Value(self) }
+    func get() -> Value { return Value(self) }
     /// Generic Value accessor.
     ///
     /// - Returns: an optional Object reference if stored as the value
-    public func get() -> ObjectRef? {
+    func get() -> ObjectRef? {
         let ptr = object
         return ptr.map { ObjectRef($0.assumingMemoryBound(to: GObject.self)) }
     }
     /// Generic Value accessor.
     ///
     /// - Returns: an optional ParamSpec reference if stored as the value
-    public func get() -> ParamSpec? {
+    func get() -> ParamSpec? {
         let ptr = param
         return ptr.map { ParamSpec($0) }
     }
     /// Generic Value accessor.
     ///
     /// - Returns: an optional Variant reference if stored as the value
-    public func get() -> Variant? {
+    func get() -> Variant? {
         let ptr = variant
         return ptr.map { Variant($0) }
     }
     /// Generic Value accessor.
     ///
     /// - Returns: an optional pointer if stored as the value
-    public func get<T>() -> UnsafeMutablePointer<T>? {
+    func get<T>() -> UnsafeMutablePointer<T>? {
         let ptr = pointer
         return ptr.map { $0.assumingMemoryBound(to: T.self) }
     }
     /// Generic Value accessor for unknown types.
     ///
     /// - Returns: nil
-    public func get<T>() -> T? {
+    func get<T>() -> T? {
         if typeCheckValueHolds(type: .boolean) { return boolean as? T }
         if typeCheckValueHolds(type: .string)  { return string  as? T }
         if typeCheckValueHolds(type: .double)  { return double  as? T }
@@ -124,27 +124,27 @@ public extension ValueProtocol {
     /// Generic value copier.
     ///
     /// - Parameter value: original `Value` to copy
-    public func set(_ value: ValueBase) { unset() ; set(type: value.ptr.pointee.g_type) ; g_value_copy(value.ptr, ptr) }
+    func set(_ value: ValueBase) { unset() ; set(type: value.ptr.pointee.g_type) ; g_value_copy(value.ptr, ptr) }
 
     /// Generic value copier.
     ///
     /// - Parameter value: original `ValueRef` to copy
-    public func set(_ value: ValueRef) { unset() ; set(type: value.ptr.pointee.g_type) ; g_value_copy(value.ptr, ptr) }
+    func set(_ value: ValueRef) { unset() ; set(type: value.ptr.pointee.g_type) ; g_value_copy(value.ptr, ptr) }
 
     /// Generic value copier.
     ///
     /// - Parameter value: original value of kind `ValueProtocol` to copy
-    public func set(_ value: ValueProtocol) { unset() ; set(type: value.ptr.pointee.g_type) ; g_value_copy(value.ptr, ptr) }
+    func set(_ value: ValueProtocol) { unset() ; set(type: value.ptr.pointee.g_type) ; g_value_copy(value.ptr, ptr) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: String value to set
-    public func set(_ value: String) { unset() ; set(type: .string) ; setString(vString: value) }
+    func set(_ value: String) { unset() ; set(type: .string) ; setString(vString: value) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: static String value to set
-    public func set(_ s: StaticString) {
+    func set(_ s: StaticString) {
         unset()
         set(type: .string)
         s.utf8Start.withMemoryRebound(to: CChar.self, capacity: s.utf8CodeUnitCount) {
@@ -155,67 +155,67 @@ public extension ValueProtocol {
     /// Generic value setter.
     ///
     /// - Parameter value: Bool value to set
-    public func set(_ value: Bool) { unset() ; set(type: .boolean) ; setBoolean(vBoolean: value) }
+    func set(_ value: Bool) { unset() ; set(type: .boolean) ; setBoolean(vBoolean: value) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: Double value to set
-    public func set(_ value: Double) { unset() ; set(type: .double) ; setDouble(vDouble: value) }
+    func set(_ value: Double) { unset() ; set(type: .double) ; setDouble(vDouble: value) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: Int value to set
-    public func set(_ value: Int) { unset() ; set(type: .long) ; setLong(vLong: glong(value)) }
+    func set(_ value: Int) { unset() ; set(type: .long) ; setLong(vLong: glong(value)) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: UInt value to set
-    public func set(_ value: UInt) { unset() ; set(type: .ulong) ; setUlong(vUlong: gulong(value)) }
+    func set(_ value: UInt) { unset() ; set(type: .ulong) ; setUlong(vUlong: gulong(value)) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: Int64 value to set
-    public func set(_ value: Int64) { unset() ; set(type: .int64) ; setInt64(vInt64: value) }
+    func set(_ value: Int64) { unset() ; set(type: .int64) ; setInt64(vInt64: value) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: UInt64 value to set
-    public func set(_ value: UInt64) { unset() ; set(type: .uint64) ; setUint64(vUint64: value) }
+    func set(_ value: UInt64) { unset() ; set(type: .uint64) ; setUint64(vUint64: value) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: Int32 value to set
-    public func set(_ value: Int32) { unset() ; set(type: .int) ; setInt(vInt: gint(value)) }
+    func set(_ value: Int32) { unset() ; set(type: .int) ; setInt(vInt: gint(value)) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: UInt32 value to set
-    public func set(_ value: UInt32) { unset() ; set(type: .uint) ; setUint(vUint: guint(value)) }
+    func set(_ value: UInt32) { unset() ; set(type: .uint) ; setUint(vUint: guint(value)) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: Int8 value to set
-    public func set(_ value: Int8) { unset() ; set(type: .char) ; setSchar(vChar: value) }
+    func set(_ value: Int8) { unset() ; set(type: .char) ; setSchar(vChar: value) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: UInt8 value to set
-    public func set(_ value: UInt8) { unset() ; set(type: .uchar) ; setUchar(vUchar: value) }
+    func set(_ value: UInt8) { unset() ; set(type: .uchar) ; setUchar(vUchar: value) }
 
     /// Generic object setter.
     ///
     /// - Parameter object: GObject or subclass to set
-    public func set<O: ObjectProtocol>(_ object: O) { unset() ; set(type: .object) ; setObject(vObject: object) }
+    func set<O: ObjectProtocol>(_ object: O) { unset() ; set(type: .object) ; setObject(vObject: object) }
 
     /// Generic ParamSpec setter.
     ///
     /// - Parameter spec: ParamSpec to set
-    public func set<P: ParamSpecProtocol>(_ spec: P) { unset() ; set(type: .param) ; set(param: spec) }
+    func set<P: ParamSpecProtocol>(_ spec: P) { unset() ; set(type: .param) ; set(param: spec) }
 
     /// Generic Optional setter.
     ///
     /// - Parameter spec: optional value to set (or unset if `nil`)
-    public func set<O>(_ optional: O?) {
+    func set<O>(_ optional: O?) {
         guard let o = optional else {
             unset()
             return
@@ -248,21 +248,21 @@ public extension ValueProtocol {
     /// Generic Variant setter.
     ///
     /// - Parameter variant: Variant to set
-    public func set<V: VariantProtocol>(_ v: V) { take(variant: v) ; _ = v.ref() }
+    func set<V: VariantProtocol>(_ v: V) { take(variant: v) ; _ = v.ref() }
 
     /// Generic Transformer
     ///
     /// - Parameters:
     ///   - f: transformation function or closure
     /// - Returns: `true` if destination value has been set, `false` if unset
-    public func transform<T, U>(_ f: (T?) -> U?) -> U? { return f(get()) }
+    func transform<T, U>(_ f: (T?) -> U?) -> U? { return f(get()) }
 
     /// Generic Transformer
     ///
     /// - Parameters:
     ///   - f: transformation function or closure
     /// - Returns: `true` if destination value has been set, `false` if unset
-    public func transform<T, U>(_ f: (T) -> U?) -> U? {
+    func transform<T, U>(_ f: (T) -> U?) -> U? {
         return get().flatMap { f($0) }
     }
 
@@ -272,7 +272,7 @@ public extension ValueProtocol {
     ///   - dest_value: destination value to fill
     ///   - f: transformation function or closure
     /// - Returns: `true` if destination value has been set, `false` if unset
-    public func transform<T, U, V: ValueProtocol>(to dest_value: V, _ f: (T) -> U?) -> Bool {
+    func transform<T, U, V: ValueProtocol>(to dest_value: V, _ f: (T) -> U?) -> Bool {
         let u = transform(f)
         dest_value.set(u)
         return u != nil
@@ -284,7 +284,7 @@ public extension ValueProtocol {
     ///   - dest_value: destination value to fill
     ///   - f: transformation function or closure
     /// - Returns: `true` if destination value has been set, `false` if unset
-    public func transform<T, U, V: ValueProtocol>(to dest_value: V, _ f: (T?) -> U?) -> Bool {
+    func transform<T, U, V: ValueProtocol>(to dest_value: V, _ f: (T?) -> U?) -> Bool {
         let u = transform(f)
         dest_value.set(u)
         return u != nil
