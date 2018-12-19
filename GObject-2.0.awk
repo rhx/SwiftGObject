@@ -16,7 +16,7 @@ BEGIN { unowned_init = 0 ; unowned = 0 }
   if (unowned) {
     unowned = 0
     print
-    print "        refSink()"
+    print "        _ = refSink()"
     next
   }
 }
