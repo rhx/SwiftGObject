@@ -3,7 +3,7 @@
 //  GLibObject
 //
 //  Created by Rene Hexel on 17/4/17.
-//  Copyright © 2016, 2017 Rene Hexel.  All rights reserved.
+//  Copyright © 2016, 2017, 2018 Rene Hexel.  All rights reserved.
 //
 #if os(macOS) || os(iOS) || os(tvOS)
     import Darwin
@@ -305,7 +305,11 @@ open class Value: ValueBase, ExpressibleByStringLiteral, ExpressibleByIntegerLit
         memset(UnsafeMutableRawPointer(ptr), 0, MemoryLayout<GValue>.size)
         super.init(ptr)
     }
+    #if swift(>=4.1)
+    deinit { ptr.deallocate() }
+    #else
     deinit { ptr.deallocate(capacity: 1) }
+    #endif
 
     /// Convenience value constructor
     ///
