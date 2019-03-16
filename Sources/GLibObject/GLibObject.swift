@@ -3,7 +3,7 @@
 //  GObject
 //
 //  Created by Rene Hexel on 20/06/2016.
-//  Copyright © 2016, 2017, 2018 Rene Hexel.  All rights reserved.
+//  Copyright © 2016, 2017, 2018, 2019 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -16,7 +16,15 @@ public protocol SignalNameProtocol: Hashable {
 /// Protocol extension for signal name enums
 public extension SignalNameProtocol {
     var name: String { return rawValue }
+    #if swift(<4.2)
+    /// Hashable conformance
     var hashValue: Int { return rawValue.hashValue }
+    #else
+    /// Hashable conformance
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(rawValue)
+    }
+    #endif
 }
 
 /// Protocol for property name enums
@@ -27,7 +35,15 @@ public protocol PropertyNameProtocol: Hashable {
 /// Protocol extension for signal name enums
 public extension PropertyNameProtocol {
     var name: String { return rawValue }
+    #if swift(<4.2)
+    /// Hashable conformance
     var hashValue: Int { return rawValue.hashValue }
+    #else
+    /// Hashable conformance
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(rawValue)
+    }
+    #endif
 }
 
 /// Type representing the name of a property
