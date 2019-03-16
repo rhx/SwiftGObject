@@ -16,14 +16,14 @@ public protocol SignalNameProtocol: Hashable {
 /// Protocol extension for signal name enums
 public extension SignalNameProtocol {
     var name: String { return rawValue }
-    #if swift(<4.2)
-    /// Hashable conformance
-    var hashValue: Int { return rawValue.hashValue }
-    #else
+    #if swift(>=4.2)
     /// Hashable conformance
     func hash(into hasher: inout Hasher) {
-        hasher.combine(rawValue)
+    hasher.combine(rawValue)
     }
+    #else
+    /// Hashable conformance
+    var hashValue: Int { return rawValue.hashValue }
     #endif
 }
 
@@ -35,14 +35,14 @@ public protocol PropertyNameProtocol: Hashable {
 /// Protocol extension for signal name enums
 public extension PropertyNameProtocol {
     var name: String { return rawValue }
-    #if swift(<4.2)
-    /// Hashable conformance
-    var hashValue: Int { return rawValue.hashValue }
-    #else
+    #if swift(>=4.2)
     /// Hashable conformance
     func hash(into hasher: inout Hasher) {
-        hasher.combine(rawValue)
+    hasher.combine(rawValue)
     }
+    #else
+    /// Hashable conformance
+    var hashValue: Int { return rawValue.hashValue }
     #endif
 }
 
