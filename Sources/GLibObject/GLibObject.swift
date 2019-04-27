@@ -48,9 +48,9 @@ public extension PropertyNameProtocol {
 
 /// Type representing the name of a property
 public struct PropertyName {
-    let name: String
-    init(_ n: String) { name = n }
-    init<T: PropertyNameProtocol>(_ p: T) { name = p.rawValue }
+    public let name: String
+    public init(_ n: String) { name = n }
+    public init<T: PropertyNameProtocol>(_ p: T) { name = p.rawValue }
 }
 
 extension PropertyName: PropertyNameProtocol {
