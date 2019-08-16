@@ -66,7 +66,7 @@ class GLibObjectTests: XCTestCase {
         XCTAssertEqual(b.string, "1")
         valueRegisterTransformFunc(srcType: .long, destType: .string) {
             guard let src = $0.map({ ValueRef(constPointer: $0) }),
-                  var dst = $1.map({ ValueRef($0) }) else { XCTFail(); return }
+                  let dst = $1.map({ ValueRef($0) }) else { XCTFail(); return }
             let v: Int = src.get()
             dst.string = "\(2*v)"
         }
@@ -97,16 +97,16 @@ class GLibObjectTests: XCTestCase {
                 XCTFail("Cannot instantiate objects")
                 return
         }
-        objA.ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
+        objA.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
             let ptrA = $0
             XCTAssertEqual(ptrA.pointee.integer, 0)
             let value1: Value = 1
-            type_a_set_property(objA.ptr, 1, value1.ptr, nil)
+            type_a_set_property(objA.object_ptr, 1, value1.value_ptr, nil)
             XCTAssertEqual(ptrA.pointee.integer, 1)
-            objB.ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
+            objB.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
                 let ptrB = $0
                 let value2: Value = 2
-                type_a_set_property(objB.ptr, 1, value2.ptr, nil)
+                type_a_set_property(objB.object_ptr, 1, value2.value_ptr, nil)
                 XCTAssertEqual(ptrB.pointee.integer, 2)
                 let binding = objB.bind(integerProperty, target: objA, property: integerProperty, flags: .sync_create)
                 XCTAssertNotNil(binding)
@@ -135,16 +135,16 @@ class GLibObjectTests: XCTestCase {
                 XCTFail("Cannot instantiate objects")
                 return
         }
-        withExtendedLifetime(objA) { $0.ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
+        withExtendedLifetime(objA) { $0.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
             let ptrA = $0
             XCTAssertEqual(ptrA.pointee.integer, 0)
             let value1: Value = 1
-            type_a_set_property(objA.ptr, 1, value1.ptr, nil)
+            type_a_set_property(objA.object_ptr, 1, value1.value_ptr, nil)
             XCTAssertEqual(ptrA.pointee.integer, 1)
-            withExtendedLifetime(objB) { $0.ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
+            withExtendedLifetime(objB) { $0.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
                 let ptrB = $0
                 let value2: Value = 2
-                type_a_set_property(objB.ptr, 1, value2.ptr, nil)
+                type_a_set_property(objB.object_ptr, 1, value2.value_ptr, nil)
                 XCTAssertEqual(ptrB.pointee.integer, 2)
                 let binding = objB.bind(integerProperty, to: objA, property: integerProperty, flags: .sync_create) { (u: (Value, Value)) -> Bool in
                     let v: Int = u.0.get()
@@ -178,16 +178,16 @@ class GLibObjectTests: XCTestCase {
                 XCTFail("Cannot instantiate objects")
                 return
         }
-        objA.ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
+        objA.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
             let ptrA = $0
             XCTAssertEqual(ptrA.pointee.integer, 0)
             let value1: Value = 1
-            type_a_set_property(objA.ptr, 1, value1.ptr, nil)
+            type_a_set_property(objA.object_ptr, 1, value1.value_ptr, nil)
             XCTAssertEqual(ptrA.pointee.integer, 1)
-            objB.ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
+            objB.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
                 let ptrB = $0
                 let value2: Value = 2
-                type_a_set_property(objB.ptr, 1, value2.ptr, nil)
+                type_a_set_property(objB.object_ptr, 1, value2.value_ptr, nil)
                 XCTAssertEqual(ptrB.pointee.integer, 2)
                 let binding = objB.bind(integerProperty, to: objA, property: integerProperty, flags: .sync_create) { 3 * $0 }
                 XCTAssertNotNil(binding)
@@ -226,16 +226,16 @@ class GLibObjectTests: XCTestCase {
                 XCTFail("Cannot instantiate objects")
                 return
         }
-        objA.ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
+        objA.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
             let ptrA = $0
             XCTAssertEqual(ptrA.pointee.integer, 0)
             let value1: Value = 1
-            type_a_set_property(objA.ptr, 1, value1.ptr, nil)
+            type_a_set_property(objA.object_ptr, 1, value1.value_ptr, nil)
             XCTAssertEqual(ptrA.pointee.integer, 1)
-            objB.ptr.withMemoryRebound(to: GTypeB.self, capacity: 1) {
+            objB.object_ptr.withMemoryRebound(to: GTypeB.self, capacity: 1) {
                 let ptrB = $0
                 let value2: Value = "2"
-                type_b_set_property(objB.ptr, 1, value2.ptr, nil)
+                type_b_set_property(objB.object_ptr, 1, value2.value_ptr, nil)
                 XCTAssertEqual(ptrB.pointee.string, "2")
                 let binding = objB.bind(stringProperty, to: objA, property: integerProperty) { Int($0).map { $0*4 } }
                 XCTAssertNotNil(binding)

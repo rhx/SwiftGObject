@@ -124,17 +124,17 @@ public extension ValueProtocol {
     /// Generic value copier.
     ///
     /// - Parameter value: original `Value` to copy
-    func set(_ value: ValueBase) { unset() ; set(type: value.ptr.pointee.g_type) ; g_value_copy(value.ptr, ptr) }
+    func set(_ value: ValueBase) { unset() ; set(type: value.value_ptr.pointee.g_type) ; g_value_copy(value.value_ptr, value_ptr) }
 
     /// Generic value copier.
     ///
     /// - Parameter value: original `ValueRef` to copy
-    func set(_ value: ValueRef) { unset() ; set(type: value.ptr.pointee.g_type) ; g_value_copy(value.ptr, ptr) }
+    func set(_ value: ValueRef) { unset() ; set(type: value.value_ptr.pointee.g_type) ; g_value_copy(value.value_ptr, value_ptr) }
 
     /// Generic value copier.
     ///
     /// - Parameter value: original value of kind `ValueProtocol` to copy
-    func set(_ value: ValueProtocol) { unset() ; set(type: value.ptr.pointee.g_type) ; g_value_copy(value.ptr, ptr) }
+    func set(_ value: ValueProtocol) { unset() ; set(type: value.value_ptr.pointee.g_type) ; g_value_copy(value.value_ptr, value_ptr) }
 
     /// Generic value setter.
     ///

@@ -3,7 +3,7 @@
 //  GObject
 //
 //  Created by Rene Hexel on 27/4/17.
-//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -17,7 +17,7 @@ public extension ObjectProtocol {
     /// - Parameter context: notification context to freeze
     func freeze(context: UnsafeMutablePointer<GObjectNotifyContext>?) -> UnsafeMutablePointer<GObjectNotifyQueue>? {
         guard let context = context else { return nil }
-        let qdata = UnsafeMutablePointer(mutating: &ptr.pointee.qdata).withMemoryRebound(to: Optional<UnsafeMutablePointer<GData>>.self, capacity: 1) { $0 }
+        let qdata = UnsafeMutablePointer(mutating: &object_ptr.pointee.qdata).withMemoryRebound(to: Optional<UnsafeMutablePointer<GData>>.self, capacity: 1) { $0 }
         var queue: UnsafeMutablePointer<GObjectNotifyQueue>?
         lockq.sync {
             let nq: UnsafeMutablePointer<GObjectNotifyQueue>
@@ -61,7 +61,7 @@ public extension ObjectProtocol {
             }
         }
         if !pspecs.isEmpty {
-            context.pointee.dispatcher(ptr, guint(pspecs.count), &pspecs)
+            context.pointee.dispatcher(object_ptr, guint(pspecs.count), &pspecs)
         }
     }
 }

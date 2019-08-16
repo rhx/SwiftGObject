@@ -82,7 +82,7 @@ fileprivate struct _GTypeInstance { let g_class: UnsafeMutablePointer<_GTypeClas
 public extension ObjectProtocol {
     /// Underlying type
     var type: GType {
-        let typeInstance = ptr.withMemoryRebound(to: _GTypeInstance.self, capacity: 1) { $0 }
+        let typeInstance = object_ptr.withMemoryRebound(to: _GTypeInstance.self, capacity: 1) { $0 }
         guard let cls = typeInstance.pointee.g_class else { return .invalid }
         return cls.pointee.g_type
     }
