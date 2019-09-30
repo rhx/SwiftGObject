@@ -4,6 +4,7 @@
 # the compiler and linker flags to use.
 #
 VER=2.0
+JAZZY_VER=2.62.0
 Mod=`grep name: Package.swift | head -n1 | cut -d'"' -f2`
 Pkg=GObject
 Module=${Pkg}-${VER}
@@ -21,3 +22,4 @@ if which tac >/dev/null ; then
 	TAC=gtac
    fi
 fi
+JAZZY_B=`echo $CCFLAGS $LINKFLAGS | sed 's/  */,/g'`

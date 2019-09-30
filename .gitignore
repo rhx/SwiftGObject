@@ -1,7 +1,8 @@
 .DS_Store
 /.build
+/.docs.old
 /Packages
 /*.xcodeproj
 Package.resolved
 Package.pins
-Sources/GObject-2.*.swift
+Sources/GLibObject/GObject-2.*.swift

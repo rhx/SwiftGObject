@@ -4,4 +4,4 @@
 #
 . ./config.sh
 ./clean.sh
-exec rm -rf Package.pins Packages Sources/${Mod}/${Module}.swift Sources/${Mod}/*-*.swift ${Mod}.xcodeproj Sources/${Mod}/GObject.swift
+exec rm -rf Package.resolved Package.pins Packages .docs.old Sources/${Mod}/*-*.swift Sources/${Mod}/${Module}.swift ${Mod}.xcodeproj
