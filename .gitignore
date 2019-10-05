@@ -3,6 +3,6 @@
 /.docs.old
 /Packages
 /*.xcodeproj
+undocumented.json
 Package.resolved
 Package.pins
-Sources/GLibObject/GObject-2.*.swift
