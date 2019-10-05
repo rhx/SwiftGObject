@@ -9,7 +9,7 @@ import GLib
 /// Alternatively, use `TypeQueryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// A structure holding information for a specific type.
-/// It is filled in by the g_type_query() function.
+/// It is filled in by the `g_type_query()` function.
 public protocol TypeQueryProtocol {
     /// Untyped pointer to the underlying `GTypeQuery` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -23,7 +23,7 @@ public protocol TypeQueryProtocol {
 /// Use `TypeQueryRef` only as an `unowned` reference to an existing `GTypeQuery` instance.
 ///
 /// A structure holding information for a specific type.
-/// It is filled in by the g_type_query() function.
+/// It is filled in by the `g_type_query()` function.
 public struct TypeQueryRef: TypeQueryProtocol {
     /// Untyped pointer to the underlying `GTypeQuery` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -77,7 +77,7 @@ public extension TypeQueryRef {
 /// Use `TypeQuery` as a strong reference or owner of a `GTypeQuery` instance.
 ///
 /// A structure holding information for a specific type.
-/// It is filled in by the g_type_query() function.
+/// It is filled in by the `g_type_query()` function.
 open class TypeQuery: TypeQueryProtocol {
     /// Untyped pointer to the underlying `GTypeQuery` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

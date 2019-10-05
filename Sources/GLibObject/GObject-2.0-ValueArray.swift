@@ -70,7 +70,7 @@ public extension ValueArrayRef {
 
         /// Allocate and initialize a new `GValueArray`, optionally preserve space
     /// for `n_prealloced` elements. New arrays always contain 0 elements,
-    /// regardless of the value of `n_prealloced`.
+    /// regardless of the value of `n_prealloced.`
     ///
     /// **new is deprecated:**
     /// Use #GArray and g_array_sized_new() instead.
@@ -134,7 +134,7 @@ open class ValueArray: ValueArrayProtocol {
 
     /// Allocate and initialize a new `GValueArray`, optionally preserve space
     /// for `n_prealloced` elements. New arrays always contain 0 elements,
-    /// regardless of the value of `n_prealloced`.
+    /// regardless of the value of `n_prealloced.`
     ///
     /// **new is deprecated:**
     /// Use #GArray and g_array_sized_new() instead.
@@ -184,7 +184,7 @@ public extension ValueArrayProtocol {
     
     }
 
-    /// Return a pointer to the value at `index_` containd in `value_array`.
+    /// Return a pointer to the value at `index_` containd in `value_array.`
     ///
     /// **get_nth is deprecated:**
     /// Use g_array_index() instead.
@@ -213,7 +213,7 @@ public extension ValueArrayProtocol {
         return cast(rv)
     }
 
-    /// Remove the value at position `index_` from `value_array`.
+    /// Remove the value at position `index_` from `value_array.`
     ///
     /// **remove is deprecated:**
     /// Use #GArray and g_array_remove_index() instead.
@@ -226,7 +226,7 @@ public extension ValueArrayProtocol {
     /// the semantics of `GCompareFunc`.
     /// 
     /// The current implementation uses the same sorting algorithm as standard
-    /// C qsort() function.
+    /// C `qsort()` function.
     ///
     /// **sort is deprecated:**
     /// Use #GArray and g_array_sort().
@@ -239,7 +239,7 @@ public extension ValueArrayProtocol {
     /// to the semantics of `GCompareDataFunc`.
     /// 
     /// The current implementation uses the same sorting algorithm as standard
-    /// C qsort() function.
+    /// C `qsort()` function.
     ///
     /// **sort_with_data is deprecated:**
     /// Use #GArray and g_array_sort_with_data().

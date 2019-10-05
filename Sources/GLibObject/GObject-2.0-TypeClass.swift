@@ -68,7 +68,7 @@ public extension TypeClassRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// This function is essentially the same as g_type_class_ref(),
+        /// This function is essentially the same as `g_type_class_ref()`,
     /// except that the classes reference count isn't incremented.
     /// As a consequence, this function may return `nil` if the class
     /// of the type passed in does not currently exist (hasn't been
@@ -78,7 +78,7 @@ public extension TypeClassRef {
         return rv.map { TypeClassRef(cast($0)) }
     }
 
-    /// A more efficient version of g_type_class_peek() which works only for
+    /// A more efficient version of `g_type_class_peek()` which works only for
     /// static types.
     static func peekStatic(type: GType) -> TypeClassRef! {
         let rv = g_type_class_peek_static(type)
@@ -147,7 +147,7 @@ open class TypeClass: TypeClassProtocol {
     }
 
 
-    /// This function is essentially the same as g_type_class_ref(),
+    /// This function is essentially the same as `g_type_class_ref()`,
     /// except that the classes reference count isn't incremented.
     /// As a consequence, this function may return `nil` if the class
     /// of the type passed in does not currently exist (hasn't been
@@ -157,7 +157,7 @@ open class TypeClass: TypeClassProtocol {
         return rv.map { TypeClass(cast($0)) }
     }
 
-    /// A more efficient version of g_type_class_peek() which works only for
+    /// A more efficient version of `g_type_class_peek()` which works only for
     /// static types.
     public static func peekStatic(type: GType) -> TypeClass! {
         let rv = g_type_class_peek_static(type)
@@ -193,16 +193,16 @@ public extension TypeClassProtocol {
     /// Note that the accumulated size of the private structures of
     /// a type and all its parent types cannot exceed 64 KiB.
     /// 
-    /// This function should be called in the type's class_init() function.
+    /// This function should be called in the type's `class_init()` function.
     /// The private structure can be retrieved using the
-    /// G_TYPE_INSTANCE_GET_PRIVATE() macro.
+    /// `G_TYPE_INSTANCE_GET_PRIVATE()` macro.
     /// 
     /// The following example shows attaching a private structure
     /// MyObjectPrivate to an object MyObject defined in the standard
-    /// GObject fashion in the type's class_init() function.
+    /// GObject fashion in the type's `class_init()` function.
     /// 
     /// Note the use of a structure member "priv" to avoid the overhead
-    /// of repeatedly calling MY_OBJECT_GET_PRIVATE().
+    /// of repeatedly calling `MY_OBJECT_GET_PRIVATE()`.
     /// 
     /// (C Language Example):
     /// ```C
@@ -263,7 +263,7 @@ public extension TypeClassProtocol {
     /// `g_class`.
     /// 
     /// You can only call this function after you have registered a private
-    /// data area for `g_class` using g_type_class_add_private().
+    /// data area for `g_class` using `g_type_class_add_private()`.
     func getInstancePrivateOffset() -> CInt {
         let rv = g_type_class_get_instance_private_offset(cast(_ptr))
         return CInt(rv)
@@ -290,13 +290,13 @@ public extension TypeClassProtocol {
     /// Decrements the reference count of the class structure being passed in.
     /// Once the last reference count of a class has been released, classes
     /// may be finalized by the type system, so further dereferencing of a
-    /// class pointer after g_type_class_unref() are invalid.
+    /// class pointer after `g_type_class_unref()` are invalid.
     func unref() {
         g_type_class_unref(cast(_ptr))
     
     }
 
-    /// A variant of g_type_class_unref() for use in `GTypeClassCacheFunc`
+    /// A variant of `g_type_class_unref()` for use in `GTypeClassCacheFunc`
     /// implementations. It unreferences a class without consulting the chain
     /// of `GTypeClassCacheFuncs`, avoiding the recursion which would occur
     /// otherwise.
@@ -333,7 +333,7 @@ public extension TypeClassProtocol {
     /// `g_class`.
     /// 
     /// You can only call this function after you have registered a private
-    /// data area for `g_class` using g_type_class_add_private().
+    /// data area for `g_class` using `g_type_class_add_private()`.
     var instancePrivateOffset: CInt {
         /// Gets the offset of the private data for instances of `g_class`.
         /// 
@@ -342,7 +342,7 @@ public extension TypeClassProtocol {
         /// `g_class`.
         /// 
         /// You can only call this function after you have registered a private
-        /// data area for `g_class` using g_type_class_add_private().
+        /// data area for `g_class` using `g_type_class_add_private()`.
         get {
             let rv = g_type_class_get_instance_private_offset(cast(_ptr))
             return CInt(rv)

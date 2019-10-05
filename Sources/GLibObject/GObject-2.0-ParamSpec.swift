@@ -11,7 +11,7 @@ import GLib
 /// `GParamSpec` is an object structure that encapsulates the metadata
 /// required to specify parameters, such as e.g. `GObject` properties.
 /// 
-/// ``` Parameter names `` {`canonical`-parameter-names}
+/// ```` Parameter names `` {`canonical`-parameter-names}
 /// 
 /// Parameter names need to start with a letter (a-z or A-Z).
 /// Subsequent characters can be letters, numbers or a '-'.
@@ -33,7 +33,7 @@ public protocol ParamSpecProtocol {
 /// `GParamSpec` is an object structure that encapsulates the metadata
 /// required to specify parameters, such as e.g. `GObject` properties.
 /// 
-/// ``` Parameter names `` {`canonical`-parameter-names}
+/// ```` Parameter names `` {`canonical`-parameter-names}
 /// 
 /// Parameter names need to start with a letter (a-z or A-Z).
 /// Subsequent characters can be letters, numbers or a '-'.
@@ -116,7 +116,7 @@ public extension ParamSpecRef {
 /// `GParamSpec` is an object structure that encapsulates the metadata
 /// required to specify parameters, such as e.g. `GObject` properties.
 /// 
-/// ``` Parameter names `` {`canonical`-parameter-names}
+/// ```` Parameter names `` {`canonical`-parameter-names}
 /// 
 /// Parameter names need to start with a letter (a-z or A-Z).
 /// Subsequent characters can be letters, numbers or a '-'.
@@ -204,7 +204,7 @@ public extension ParamSpecProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpec` instance.
     var param_spec_ptr: UnsafeMutablePointer<GParamSpec> { return ptr.assumingMemoryBound(to: GParamSpec.self) }
 
-    /// Get the short description of a `GParamSpec`.
+    /// Get the short description of a `GParamSpec.`
     func getBlurb() -> String! {
         let rv = g_param_spec_get_blurb(cast(param_spec_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -212,7 +212,7 @@ public extension ParamSpecProtocol {
 
     /// Gets the default value of `pspec` as a pointer to a `GValue`.
     /// 
-    /// The `GValue` will remain valid for the life of `pspec`.
+    /// The `GValue` will remain valid for the life of `pspec.`
     func getDefaultValue() -> UnsafePointer<GValue>! {
         let rv = g_param_spec_get_default_value(cast(param_spec_ptr))
         return cast(rv)
@@ -220,7 +220,7 @@ public extension ParamSpecProtocol {
 
     /// Get the name of a `GParamSpec`.
     /// 
-    /// The name is always an "interned" string (as per g_intern_string()).
+    /// The name is always an "interned" string (as per `g_intern_string()`).
     /// This allows for pointer-value comparisons.
     func getName() -> String! {
         let rv = g_param_spec_get_name(cast(param_spec_ptr))
@@ -233,13 +233,13 @@ public extension ParamSpecProtocol {
         return rv
     }
 
-    /// Get the nickname of a `GParamSpec`.
+    /// Get the nickname of a `GParamSpec.`
     func getNick() -> String! {
         let rv = g_param_spec_get_nick(cast(param_spec_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// Gets back user data pointers stored via g_param_spec_set_qdata().
+    /// Gets back user data pointers stored via `g_param_spec_set_qdata()`.
     func getQdata(quark: GLib.Quark) -> UnsafeMutableRawPointer! {
         let rv = g_param_spec_get_qdata(cast(param_spec_ptr), quark)
         return cast(rv)
@@ -250,20 +250,20 @@ public extension ParamSpecProtocol {
     /// providing a new implementation of a property in a derived
     /// type while preserving all the properties from the parent
     /// type. Redirection is established by creating a property
-    /// of type `GParamSpecOverride`. See g_object_class_override_property()
+    /// of type `GParamSpecOverride`. See `g_object_class_override_property()`
     /// for an example of the use of this capability.
     func getRedirectTarget() -> UnsafeMutablePointer<GParamSpec>! {
         let rv = g_param_spec_get_redirect_target(cast(param_spec_ptr))
         return cast(rv)
     }
 
-    /// Increments the reference count of `pspec`.
+    /// Increments the reference count of `pspec.`
     func ref() -> UnsafeMutablePointer<GParamSpec>! {
         let rv = g_param_spec_ref(cast(param_spec_ptr))
         return cast(rv)
     }
 
-    /// Convenience function to ref and sink a `GParamSpec`.
+    /// Convenience function to ref and sink a `GParamSpec.`
     func refSink() -> UnsafeMutablePointer<GParamSpec>! {
         let rv = g_param_spec_ref_sink(cast(param_spec_ptr))
         return cast(rv)
@@ -271,8 +271,8 @@ public extension ParamSpecProtocol {
 
     /// Sets an opaque, named pointer on a `GParamSpec`. The name is
     /// specified through a `GQuark` (retrieved e.g. via
-    /// g_quark_from_static_string()), and the pointer can be gotten back
-    /// from the `pspec` with g_param_spec_get_qdata().  Setting a
+    /// `g_quark_from_static_string()`), and the pointer can be gotten back
+    /// from the `pspec` with `g_param_spec_get_qdata()`.  Setting a
     /// previously set user data pointer, overrides (frees) the old pointer
     /// set, using `nil` as pointer essentially removes the data stored.
     func setQdata(quark: GLib.Quark, data: UnsafeMutableRawPointer) {
@@ -280,18 +280,18 @@ public extension ParamSpecProtocol {
     
     }
 
-    /// This function works like g_param_spec_set_qdata(), but in addition,
+    /// This function works like `g_param_spec_set_qdata()`, but in addition,
     /// a `void (*destroy) (gpointer)` function may be
     /// specified which is called with `data` as argument when the `pspec` is
     /// finalized, or the data is being overwritten by a call to
-    /// g_param_spec_set_qdata() with the same `quark`.
+    /// `g_param_spec_set_qdata()` with the same `quark.`
     func setQdataFull(quark: GLib.Quark, data: UnsafeMutableRawPointer, destroy: @escaping GLib.DestroyNotify) {
         g_param_spec_set_qdata_full(cast(param_spec_ptr), quark, cast(data), destroy)
     
     }
 
     /// The initial reference count of a newly created `GParamSpec` is 1,
-    /// even though no one has explicitly called g_param_spec_ref() on it
+    /// even though no one has explicitly called `g_param_spec_ref()` on it
     /// yet. So the initial reference count is flagged as "floating", until
     /// someone calls `g_param_spec_ref (pspec); g_param_spec_sink
     /// (pspec);` in sequence on it, taking over the initial
@@ -302,8 +302,8 @@ public extension ParamSpecProtocol {
     
     }
 
-    /// Gets back user data pointers stored via g_param_spec_set_qdata()
-    /// and removes the `data` from `pspec` without invoking its destroy()
+    /// Gets back user data pointers stored via `g_param_spec_set_qdata()`
+    /// and removes the `data` from `pspec` without invoking its `destroy()`
     /// function (if any was set).  Usually, calling this function is only
     /// required to update user data pointers with a destroy notifier.
     func stealQdata(quark: GLib.Quark) -> UnsafeMutableRawPointer! {
@@ -311,7 +311,7 @@ public extension ParamSpecProtocol {
         return cast(rv)
     }
 
-    /// Decrements the reference count of a `pspec`.
+    /// Decrements the reference count of a `pspec.`
     func unref() {
         g_param_spec_unref(cast(param_spec_ptr))
     
@@ -328,9 +328,9 @@ public extension ParamSpecProtocol {
     /// Creates a new `GParamSpecValueArray` instance specifying a
     /// `G_TYPE_VALUE_ARRAY` property. `G_TYPE_VALUE_ARRAY` is a
     /// `G_TYPE_BOXED` type, as such, `GValue` structures for this property
-    /// can be accessed with g_value_set_boxed() and g_value_get_boxed().
+    /// can be accessed with `g_value_set_boxed()` and `g_value_get_boxed()`.
     /// 
-    /// See g_param_spec_internal() for details on property names.
+    /// See `g_param_spec_internal()` for details on property names.
     func paramSpecValueArray(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
         let rv = g_param_spec_value_array(name, nick, blurb, cast(param_spec_ptr), flags)
         return cast(rv)
@@ -341,20 +341,20 @@ public extension ParamSpecProtocol {
     /// `strict_validation` is `true` this function will only succeed if the
     /// transformed `dest_value` complied to `pspec` without modifications.
     /// 
-    /// See also g_value_type_transformable(), g_value_transform() and
-    /// g_param_value_validate().
+    /// See also `g_value_type_transformable()`, `g_value_transform()` and
+    /// `g_param_value_validate()`.
     func paramValueConvert(srcValue src_value: ValueProtocol, destValue dest_value: ValueProtocol, strictValidation strict_validation: Bool) -> Bool {
         let rv = g_param_value_convert(cast(param_spec_ptr), cast(src_value.ptr), cast(dest_value.ptr), gboolean(strict_validation ? 1 : 0))
         return Bool(rv != 0)
     }
 
-    /// Checks whether `value` contains the default value as specified in `pspec`.
+    /// Checks whether `value` contains the default value as specified in `pspec.`
     func paramValueDefaults(value: ValueProtocol) -> Bool {
         let rv = g_param_value_defaults(cast(param_spec_ptr), cast(value.ptr))
         return Bool(rv != 0)
     }
 
-    /// Sets `value` to its default value as specified in `pspec`.
+    /// Sets `value` to its default value as specified in `pspec.`
     func paramValueSetDefault(value: ValueProtocol) {
         g_param_value_set_default(cast(param_spec_ptr), cast(value.ptr))
     
@@ -378,9 +378,9 @@ public extension ParamSpecProtocol {
         let rv = g_param_values_cmp(cast(param_spec_ptr), cast(value1.ptr), cast(value2.ptr))
         return CInt(rv)
     }
-    /// Get the short description of a `GParamSpec`.
+    /// Get the short description of a `GParamSpec.`
     var blurb: String! {
-        /// Get the short description of a `GParamSpec`.
+        /// Get the short description of a `GParamSpec.`
         get {
             let rv = g_param_spec_get_blurb(cast(param_spec_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -389,11 +389,11 @@ public extension ParamSpecProtocol {
 
     /// Gets the default value of `pspec` as a pointer to a `GValue`.
     /// 
-    /// The `GValue` will remain valid for the life of `pspec`.
+    /// The `GValue` will remain valid for the life of `pspec.`
     var defaultValue: UnsafePointer<GValue>! {
         /// Gets the default value of `pspec` as a pointer to a `GValue`.
         /// 
-        /// The `GValue` will remain valid for the life of `pspec`.
+        /// The `GValue` will remain valid for the life of `pspec.`
         get {
             let rv = g_param_spec_get_default_value(cast(param_spec_ptr))
             return cast(rv)
@@ -402,12 +402,12 @@ public extension ParamSpecProtocol {
 
     /// Get the name of a `GParamSpec`.
     /// 
-    /// The name is always an "interned" string (as per g_intern_string()).
+    /// The name is always an "interned" string (as per `g_intern_string()`).
     /// This allows for pointer-value comparisons.
     var name: String! {
         /// Get the name of a `GParamSpec`.
         /// 
-        /// The name is always an "interned" string (as per g_intern_string()).
+        /// The name is always an "interned" string (as per `g_intern_string()`).
         /// This allows for pointer-value comparisons.
         get {
             let rv = g_param_spec_get_name(cast(param_spec_ptr))
@@ -424,9 +424,9 @@ public extension ParamSpecProtocol {
         }
     }
 
-    /// Get the nickname of a `GParamSpec`.
+    /// Get the nickname of a `GParamSpec.`
     var nick: String! {
-        /// Get the nickname of a `GParamSpec`.
+        /// Get the nickname of a `GParamSpec.`
         get {
             let rv = g_param_spec_get_nick(cast(param_spec_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -438,7 +438,7 @@ public extension ParamSpecProtocol {
     /// providing a new implementation of a property in a derived
     /// type while preserving all the properties from the parent
     /// type. Redirection is established by creating a property
-    /// of type `GParamSpecOverride`. See g_object_class_override_property()
+    /// of type `GParamSpecOverride`. See `g_object_class_override_property()`
     /// for an example of the use of this capability.
     var redirectTarget: UnsafeMutablePointer<GParamSpec>! {
         /// If the paramspec redirects operations to another paramspec,
@@ -446,7 +446,7 @@ public extension ParamSpecProtocol {
         /// providing a new implementation of a property in a derived
         /// type while preserving all the properties from the parent
         /// type. Redirection is established by creating a property
-        /// of type `GParamSpecOverride`. See g_object_class_override_property()
+        /// of type `GParamSpecOverride`. See `g_object_class_override_property()`
         /// for an example of the use of this capability.
         get {
             let rv = g_param_spec_get_redirect_target(cast(param_spec_ptr))

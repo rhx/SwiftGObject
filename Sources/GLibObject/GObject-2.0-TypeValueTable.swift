@@ -74,7 +74,7 @@ public extension TypeValueTableRef {
     /// 
     /// Note that this function should only be used from source code
     /// that implements or has internal knowledge of the implementation of
-    /// `type`.
+    /// `type.`
     static func peek(type: GType) -> TypeValueTableRef! {
         let rv = g_type_value_table_peek(type)
         return rv.map { TypeValueTableRef(cast($0)) }
@@ -139,7 +139,7 @@ open class TypeValueTable: TypeValueTableProtocol {
     /// 
     /// Note that this function should only be used from source code
     /// that implements or has internal knowledge of the implementation of
-    /// `type`.
+    /// `type.`
     public static func peek(type: GType) -> TypeValueTable! {
         let rv = g_type_value_table_peek(type)
         return rv.map { TypeValueTable(cast($0)) }

@@ -22,18 +22,18 @@ import GLib
 /// other languages need marshallers which convert between `GValues`
 /// and suitable representations in the runtime of the language in
 /// order to use functions written in that language as callbacks. Use
-/// g_closure_set_marshal() to set the marshaller on such a custom
+/// `g_closure_set_marshal()` to set the marshaller on such a custom
 /// closure implementation.
 /// 
 /// Within GObject, closures play an important role in the
 /// implementation of signals. When a signal is registered, the
-/// `c_marshaller` argument to g_signal_new() specifies the default C
+/// `c_marshaller` argument to `g_signal_new()` specifies the default C
 /// marshaller for any closure which is connected to this
 /// signal. GObject provides a number of C marshallers for this
 /// purpose, see the g_cclosure_marshal_*() functions. Additional C
 /// marshallers can be generated with the [glib-genmarshal][glib-genmarshal]
 /// utility.  Closures can be explicitly connected to signals with
-/// g_signal_connect_closure(), but it usually more convenient to let
+/// `g_signal_connect_closure()`, but it usually more convenient to let
 /// GObject create a closure automatically by using one of the
 /// g_signal_connect_*() functions which take a callback function/user
 /// data pair.
@@ -49,7 +49,7 @@ import GLib
 ///   right; if a callback is removed while it is being invoked, the closure
 ///   and its parameters won't be freed until the invocation finishes.
 /// 
-/// - g_closure_invalidate() and invalidation notifiers allow callbacks to be
+/// - `g_closure_invalidate()` and invalidation notifiers allow callbacks to be
 ///   automatically removed when the objects they point to go away.
 public protocol ClosureProtocol {
     /// Untyped pointer to the underlying `GClosure` instance.
@@ -77,18 +77,18 @@ public protocol ClosureProtocol {
 /// other languages need marshallers which convert between `GValues`
 /// and suitable representations in the runtime of the language in
 /// order to use functions written in that language as callbacks. Use
-/// g_closure_set_marshal() to set the marshaller on such a custom
+/// `g_closure_set_marshal()` to set the marshaller on such a custom
 /// closure implementation.
 /// 
 /// Within GObject, closures play an important role in the
 /// implementation of signals. When a signal is registered, the
-/// `c_marshaller` argument to g_signal_new() specifies the default C
+/// `c_marshaller` argument to `g_signal_new()` specifies the default C
 /// marshaller for any closure which is connected to this
 /// signal. GObject provides a number of C marshallers for this
 /// purpose, see the g_cclosure_marshal_*() functions. Additional C
 /// marshallers can be generated with the [glib-genmarshal][glib-genmarshal]
 /// utility.  Closures can be explicitly connected to signals with
-/// g_signal_connect_closure(), but it usually more convenient to let
+/// `g_signal_connect_closure()`, but it usually more convenient to let
 /// GObject create a closure automatically by using one of the
 /// g_signal_connect_*() functions which take a callback function/user
 /// data pair.
@@ -104,7 +104,7 @@ public protocol ClosureProtocol {
 ///   right; if a callback is removed while it is being invoked, the closure
 ///   and its parameters won't be freed until the invocation finishes.
 /// 
-/// - g_closure_invalidate() and invalidation notifiers allow callbacks to be
+/// - `g_closure_invalidate()` and invalidation notifiers allow callbacks to be
 ///   automatically removed when the objects they point to go away.
 public struct ClosureRef: ClosureProtocol {
     /// Untyped pointer to the underlying `GClosure` instance.
@@ -152,8 +152,8 @@ public extension ClosureRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// A variant of g_closure_new_simple() which stores `object` in the
-    /// `data` field of the closure and calls g_object_watch_closure() on
+        /// A variant of `g_closure_new_simple()` which stores `object` in the
+    /// `data` field of the closure and calls `g_object_watch_closure()` on
     /// `object` and the created closure. This function is mainly useful
     /// when implementing new types of closures.
     init(object sizeof_closure: CUnsignedInt, object: ObjectProtocol) {
@@ -203,8 +203,8 @@ public extension ClosureRef {
         let rv = g_closure_new_simple(guint(sizeof_closure), cast(data))
         self.init(cast(rv))
     }
-    /// A variant of g_closure_new_simple() which stores `object` in the
-    /// `data` field of the closure and calls g_object_watch_closure() on
+    /// A variant of `g_closure_new_simple()` which stores `object` in the
+    /// `data` field of the closure and calls `g_object_watch_closure()` on
     /// `object` and the created closure. This function is mainly useful
     /// when implementing new types of closures.
     static func new(object sizeof_closure: CUnsignedInt, object: ObjectProtocol) -> ClosureRef! {
@@ -274,18 +274,18 @@ public extension ClosureRef {
 /// other languages need marshallers which convert between `GValues`
 /// and suitable representations in the runtime of the language in
 /// order to use functions written in that language as callbacks. Use
-/// g_closure_set_marshal() to set the marshaller on such a custom
+/// `g_closure_set_marshal()` to set the marshaller on such a custom
 /// closure implementation.
 /// 
 /// Within GObject, closures play an important role in the
 /// implementation of signals. When a signal is registered, the
-/// `c_marshaller` argument to g_signal_new() specifies the default C
+/// `c_marshaller` argument to `g_signal_new()` specifies the default C
 /// marshaller for any closure which is connected to this
 /// signal. GObject provides a number of C marshallers for this
 /// purpose, see the g_cclosure_marshal_*() functions. Additional C
 /// marshallers can be generated with the [glib-genmarshal][glib-genmarshal]
 /// utility.  Closures can be explicitly connected to signals with
-/// g_signal_connect_closure(), but it usually more convenient to let
+/// `g_signal_connect_closure()`, but it usually more convenient to let
 /// GObject create a closure automatically by using one of the
 /// g_signal_connect_*() functions which take a callback function/user
 /// data pair.
@@ -301,7 +301,7 @@ public extension ClosureRef {
 ///   right; if a callback is removed while it is being invoked, the closure
 ///   and its parameters won't be freed until the invocation finishes.
 /// 
-/// - g_closure_invalidate() and invalidation notifiers allow callbacks to be
+/// - `g_closure_invalidate()` and invalidation notifiers allow callbacks to be
 ///   automatically removed when the objects they point to go away.
 open class Closure: ClosureProtocol {
     /// Untyped pointer to the underlying `GClosure` instance.
@@ -350,8 +350,8 @@ open class Closure: ClosureProtocol {
         self.init(UnsafeMutablePointer<GClosure>(opaquePointer))
     }
 
-    /// A variant of g_closure_new_simple() which stores `object` in the
-    /// `data` field of the closure and calls g_object_watch_closure() on
+    /// A variant of `g_closure_new_simple()` which stores `object` in the
+    /// `data` field of the closure and calls `g_object_watch_closure()` on
     /// `object` and the created closure. This function is mainly useful
     /// when implementing new types of closures.
     public convenience init(object sizeof_closure: CUnsignedInt, object: ObjectProtocol) {
@@ -402,8 +402,8 @@ open class Closure: ClosureProtocol {
         self.init(cast(rv))
     }
 
-    /// A variant of g_closure_new_simple() which stores `object` in the
-    /// `data` field of the closure and calls g_object_watch_closure() on
+    /// A variant of `g_closure_new_simple()` which stores `object` in the
+    /// `data` field of the closure and calls `g_object_watch_closure()` on
     /// `object` and the created closure. This function is mainly useful
     /// when implementing new types of closures.
     public static func new(object sizeof_closure: CUnsignedInt, object: ObjectProtocol) -> Closure! {
@@ -468,7 +468,7 @@ public extension ClosureProtocol {
     /// Registers a finalization notifier which will be called when the
     /// reference count of `closure` goes down to 0. Multiple finalization
     /// notifiers on a single closure are invoked in unspecified order. If
-    /// a single call to g_closure_unref() results in the closure being
+    /// a single call to `g_closure_unref()` results in the closure being
     /// both invalidated and finalized, then the invalidate notifiers will
     /// be run before the finalize notifiers.
     func addFinalizeNotifier(notifyData notify_data: UnsafeMutableRawPointer, notifyFunc notify_func: @escaping ClosureNotify) {
@@ -477,7 +477,7 @@ public extension ClosureProtocol {
     }
 
     /// Registers an invalidation notifier which will be called when the
-    /// `closure` is invalidated with g_closure_invalidate(). Invalidation
+    /// `closure` is invalidated with `g_closure_invalidate()`. Invalidation
     /// notifiers are invoked before finalization notifiers, in an
     /// unspecified order.
     func addInvalidateNotifier(notifyData notify_data: UnsafeMutableRawPointer, notifyFunc notify_func: @escaping ClosureNotify) {
@@ -488,7 +488,7 @@ public extension ClosureProtocol {
     /// Adds a pair of notifiers which get invoked before and after the
     /// closure callback, respectively. This is typically used to protect
     /// the extra arguments for the duration of the callback. See
-    /// g_object_watch_closure() for an example of marshal guards.
+    /// `g_object_watch_closure()` for an example of marshal guards.
     func addMarshalGuards(preMarshalData pre_marshal_data: UnsafeMutableRawPointer, preMarshalNotify pre_marshal_notify: @escaping ClosureNotify, postMarshalData post_marshal_data: UnsafeMutableRawPointer, postMarshalNotify post_marshal_notify: @escaping ClosureNotify) {
         g_closure_add_marshal_guards(cast(closure_ptr), cast(pre_marshal_data), pre_marshal_notify, cast(post_marshal_data), post_marshal_notify)
     
@@ -496,15 +496,15 @@ public extension ClosureProtocol {
 
     /// Sets a flag on the closure to indicate that its calling
     /// environment has become invalid, and thus causes any future
-    /// invocations of g_closure_invoke() on this `closure` to be
+    /// invocations of `g_closure_invoke()` on this `closure` to be
     /// ignored. Also, invalidation notifiers installed on the closure will
     /// be called at this point. Note that unless you are holding a
     /// reference to the closure yourself, the invalidation notifiers may
     /// unref the closure and cause it to be destroyed, so if you need to
-    /// access the closure after calling g_closure_invalidate(), make sure
-    /// that you've previously called g_closure_ref().
+    /// access the closure after calling `g_closure_invalidate()`, make sure
+    /// that you've previously called `g_closure_ref()`.
     /// 
-    /// Note that g_closure_invalidate() will also be called when the
+    /// Note that `g_closure_invalidate()` will also be called when the
     /// reference count of a closure drops to zero (unless it has already
     /// been invalidated before).
     func invalidate() {
@@ -512,7 +512,7 @@ public extension ClosureProtocol {
     
     }
 
-    /// Invokes the closure, i.e. executes the callback represented by the `closure`.
+    /// Invokes the closure, i.e. executes the callback represented by the `closure.`
     func invoke(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: UnsafePointer<GValue>, invocationHint invocation_hint: UnsafeMutableRawPointer) {
         g_closure_invoke(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values), cast(invocation_hint))
     
@@ -543,7 +543,7 @@ public extension ClosureProtocol {
 
     /// Sets the marshaller of `closure`. The `marshal_data`
     /// of `marshal` provides a way for a meta marshaller to provide additional
-    /// information to the marshaller. (See g_closure_set_meta_marshal().) For
+    /// information to the marshaller. (See `g_closure_set_meta_marshal()`.) For
     /// GObject's C predefined marshallers (the g_cclosure_marshal_*()
     /// functions), what it provides is a callback function to use instead of
     /// `closure`->callback.
@@ -562,7 +562,7 @@ public extension ClosureProtocol {
     /// callback function.
     /// 
     /// For example, class closures for signals (see
-    /// g_signal_type_cclosure_new()) retrieve the callback function from a
+    /// `g_signal_type_cclosure_new()`) retrieve the callback function from a
     /// fixed offset in the class structure.  The meta marshaller retrieves
     /// the right callback and passes it to the marshaller as the
     /// `marshal_data` argument.
@@ -573,10 +573,10 @@ public extension ClosureProtocol {
 
     /// Takes over the initial ownership of a closure.  Each closure is
     /// initially created in a "floating" state, which means that the initial
-    /// reference count is not owned by any caller. g_closure_sink() checks
+    /// reference count is not owned by any caller. `g_closure_sink()` checks
     /// to see if the object is still floating, and if so, unsets the
     /// floating state and decreases the reference count. If the closure
-    /// is not floating, g_closure_sink() does nothing. The reason for the
+    /// is not floating, `g_closure_sink()` does nothing. The reason for the
     /// existence of the floating state is to prevent cumbersome code
     /// sequences like:
     /// (C Language Example):
@@ -585,16 +585,14 @@ public extension ClosureProtocol {
     /// g_source_set_closure (source, closure);
     /// g_closure_unref (closure); // GObject doesn't really need this
     /// ```
-    /// 
-    /// Because g_source_set_closure() (and similar functions) take ownership of the
+    /// Because `g_source_set_closure()` (and similar functions) take ownership of the
     /// initial reference count, if it is unowned, we instead can write:
     /// (C Language Example):
     /// ```C
     /// g_source_set_closure (source, g_cclosure_new (cb_func, cb_data));
     /// ```
     /// 
-    /// 
-    /// Generally, this function is used together with g_closure_ref(). Ane example
+    /// Generally, this function is used together with `g_closure_ref()`. Ane example
     /// of storing a closure for later notification looks like:
     /// (C Language Example):
     /// ```C
@@ -613,10 +611,9 @@ public extension ClosureProtocol {
     /// }
     /// ```
     /// 
-    /// 
-    /// Because g_closure_sink() may decrement the reference count of a closure
-    /// (if it hasn't been called on `closure` yet) just like g_closure_unref(),
-    /// g_closure_ref() should be called prior to this function.
+    /// Because `g_closure_sink()` may decrement the reference count of a closure
+    /// (if it hasn't been called on `closure` yet) just like `g_closure_unref()`,
+    /// `g_closure_ref()` should be called prior to this function.
     func sink() {
         g_closure_sink(cast(closure_ptr))
     
@@ -633,7 +630,7 @@ public extension ClosureProtocol {
     /// A `GClosureMarshal` function for use with signals with handlers that
     /// take two boxed pointers as arguments and return a boolean.  If you
     /// have such a signal, you will probably also need to use an
-    /// accumulator, such as g_signal_accumulator_true_handled().
+    /// accumulator, such as `g_signal_accumulator_true_handled()`.
     func cclosureMarshalBOOLEAN_BOXEDBOXED(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
         g_cclosure_marshal_BOOLEAN__BOXED_BOXED(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
     
@@ -790,7 +787,7 @@ public extension ClosureProtocol {
     /// A generic marshaller function implemented via
     /// [libffi](http://sourceware.org/libffi/).
     /// 
-    /// Normally this function is not passed explicitly to g_signal_new(),
+    /// Normally this function is not passed explicitly to `g_signal_new()`,
     /// but used automatically by GLib when specifying a `nil` marshaller.
     func cclosureMarshalGeneric(returnGvalue return_gvalue: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
         g_cclosure_marshal_generic(cast(closure_ptr), cast(return_gvalue.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
@@ -859,9 +856,9 @@ public extension ClosureProtocol {
 
     /// Creates a new signal. (This is usually done in the class initializer.)
     /// 
-    /// See g_signal_new() for details on allowed signal names.
+    /// See `g_signal_new()` for details on allowed signal names.
     /// 
-    /// If c_marshaller is `nil`, g_cclosure_marshal_generic() will be used as
+    /// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
     /// the marshaller for this signal.
     func signalNewValist(signalName signal_name: UnsafePointer<gchar>, itype: GType, signalFlags signal_flags: SignalFlags, accumulator: @escaping SignalAccumulator, accuData accu_data: UnsafeMutableRawPointer, cMarshaller c_marshaller: @escaping SignalCMarshaller, returnType return_type: GType, nParams n_params: CUnsignedInt, args: CVaListPointer) -> CUnsignedInt {
         let rv = g_signal_new_valist(signal_name, itype, signal_flags, cast(closure_ptr), accumulator, cast(accu_data), c_marshaller, return_type, guint(n_params), args)
@@ -870,9 +867,9 @@ public extension ClosureProtocol {
 
     /// Creates a new signal. (This is usually done in the class initializer.)
     /// 
-    /// See g_signal_new() for details on allowed signal names.
+    /// See `g_signal_new()` for details on allowed signal names.
     /// 
-    /// If c_marshaller is `nil`, g_cclosure_marshal_generic() will be used as
+    /// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
     /// the marshaller for this signal.
     func signalNewv(signalName signal_name: UnsafePointer<gchar>, itype: GType, signalFlags signal_flags: SignalFlags, accumulator: @escaping SignalAccumulator, accuData accu_data: UnsafeMutableRawPointer, cMarshaller c_marshaller: @escaping SignalCMarshaller, returnType return_type: GType, nParams n_params: CUnsignedInt, paramTypes param_types: UnsafeMutablePointer<GType>) -> CUnsignedInt {
         let rv = g_signal_newv(signal_name, itype, signal_flags, cast(closure_ptr), accumulator, cast(accu_data), c_marshaller, return_type, guint(n_params), cast(param_types))
@@ -883,8 +880,8 @@ public extension ClosureProtocol {
     /// for emissions on instances of `instance_type`. `instance_type` must be derived
     /// from the type to which the signal belongs.
     /// 
-    /// See g_signal_chain_from_overridden() and
-    /// g_signal_chain_from_overridden_handler() for how to chain up to the
+    /// See `g_signal_chain_from_overridden()` and
+    /// `g_signal_chain_from_overridden_handler()` for how to chain up to the
     /// parent class closure from inside the overridden one.
     func signalOverrideClassClosure(signalID signal_id: CUnsignedInt, instanceType instance_type: GType) {
         g_signal_override_class_closure(guint(signal_id), instance_type, cast(closure_ptr))

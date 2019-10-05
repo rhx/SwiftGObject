@@ -3,9 +3,9 @@ import GLib
 
 /// A callback function used by the type system to finalize those portions
 /// of a derived types class structure that were setup from the corresponding
-/// GBaseInitFunc() function. Class finalization basically works the inverse
+/// `GBaseInitFunc()` function. Class finalization basically works the inverse
 /// way in which class initialization is performed.
-/// See GClassInitFunc() for a discussion of the class initialization process.
+/// See `GClassInitFunc()` for a discussion of the class initialization process.
 public typealias BaseFinalizeFunc = GBaseFinalizeFunc
 
 /// A callback function used by the type system to do base initialization
@@ -14,7 +14,7 @@ public typealias BaseFinalizeFunc = GBaseFinalizeFunc
 /// or reset all dynamic class members copied over from the parent class.
 /// For example, class members (such as strings) that are not sufficiently
 /// handled by a plain memory copy of the parent class into the derived class
-/// have to be altered. See GClassInitFunc() for a discussion of the class
+/// have to be altered. See `GClassInitFunc()` for a discussion of the class
 /// initialization process.
 public typealias BaseInitFunc = GBaseInitFunc
 
@@ -38,13 +38,13 @@ public typealias BoxedFreeFunc = GBoxedFreeFunc
 /// signatures. This doesn't mean that all callback functions must take no
 /// parameters and return void. The required signature of a callback function
 /// is determined by the context in which is used (e.g. the signal to which it
-/// is connected). Use G_CALLBACK() to cast the callback function to a `GCallback`.
+/// is connected). Use `G_CALLBACK()` to cast the callback function to a `GCallback.`
 public typealias Callback = GCallback
 
 /// A callback function used by the type system to finalize a class.
 /// This function is rarely needed, as dynamically allocated class resources
-/// should be handled by GBaseInitFunc() and GBaseFinalizeFunc().
-/// Also, specification of a GClassFinalizeFunc() in the `GTypeInfo`
+/// should be handled by `GBaseInitFunc()` and `GBaseFinalizeFunc()`.
+/// Also, specification of a `GClassFinalizeFunc()` in the `GTypeInfo`
 /// structure of a static type is invalid, because classes of static types
 /// will never be finalized (they are artificially kept alive when their
 /// reference count drops to zero).
@@ -60,18 +60,18 @@ public typealias ClassFinalizeFunc = GClassFinalizeFunc
 ///   derived class structure.
 /// - Zero initialization of the remaining members not copied
 ///   over from the parent class.
-/// - Invocation of the GBaseInitFunc() initializers of all parent
+/// - Invocation of the `GBaseInitFunc()` initializers of all parent
 ///   types and the class' type.
-/// - Invocation of the class' GClassInitFunc() initializer.
+/// - Invocation of the class' `GClassInitFunc()` initializer.
 /// 
 /// Since derived classes are partially initialized through a memory copy
-/// of the parent class, the general rule is that GBaseInitFunc() and
-/// GBaseFinalizeFunc() should take care of necessary reinitialization
+/// of the parent class, the general rule is that `GBaseInitFunc()` and
+/// `GBaseFinalizeFunc()` should take care of necessary reinitialization
 /// and release of those class members that were introduced by the type
-/// that specified these GBaseInitFunc()/GBaseFinalizeFunc().
-/// GClassInitFunc() should only care about initializing static
+/// that specified these `GBaseInitFunc()``/GBaseFinalizeFunc()`.
+/// `GClassInitFunc()` should only care about initializing static
 /// class members, while dynamic class members (such as allocated strings
-/// or reference counted resources) are better handled by a GBaseInitFunc()
+/// or reference counted resources) are better handled by a `GBaseInitFunc()`
 /// for this type, so proper initialization of the dynamic class members
 /// is performed for class initialization of derived types as well.
 /// 
@@ -122,29 +122,28 @@ public typealias ClassFinalizeFunc = GClassFinalizeFunc
 ///   class->static_float = 3.14159265358979323846;
 /// }
 /// ```
-/// 
 /// Initialization of TypeBClass will first cause initialization of
 /// TypeAClass (derived classes reference their parent classes, see
-/// g_type_class_ref() on this).
+/// `g_type_class_ref()` on this).
 /// 
 /// Initialization of TypeAClass roughly involves zero-initializing its fields,
-/// then calling its GBaseInitFunc() type_a_base_class_init() to allocate
-/// its dynamic members (dynamic_string), and finally calling its GClassInitFunc()
-/// type_a_class_init() to initialize its static members (static_integer).
+/// then calling its `GBaseInitFunc()` `type_a_base_class_init()` to allocate
+/// its dynamic members (dynamic_string), and finally calling its `GClassInitFunc()`
+/// `type_a_class_init()` to initialize its static members (static_integer).
 /// The first step in the initialization process of TypeBClass is then
 /// a plain memory copy of the contents of TypeAClass into TypeBClass and
 /// zero-initialization of the remaining fields in TypeBClass.
 /// The dynamic members of TypeAClass within TypeBClass now need
-/// reinitialization which is performed by calling type_a_base_class_init()
+/// reinitialization which is performed by calling `type_a_base_class_init()`
 /// with an argument of TypeBClass.
 /// 
-/// After that, the GBaseInitFunc() of TypeBClass, type_b_base_class_init()
+/// After that, the `GBaseInitFunc()` of TypeBClass, `type_b_base_class_init()`
 /// is called to allocate the dynamic members of TypeBClass (dynamic_gstring),
-/// and finally the GClassInitFunc() of TypeBClass, type_b_class_init(),
+/// and finally the `GClassInitFunc()` of TypeBClass, `type_b_class_init()`,
 /// is called to complete the initialization process with the static members
 /// (static_float).
 /// 
-/// Corresponding finalization counter parts to the GBaseInitFunc() functions
+/// Corresponding finalization counter parts to the `GBaseInitFunc()` functions
 /// have to be provided to release allocated resources at class finalization
 /// time.
 public typealias ClassInitFunc = GClassInitFunc
@@ -171,7 +170,7 @@ public typealias InstanceInitFunc = GInstanceInitFunc
 
 /// A callback function used by the type system to finalize an interface.
 /// This function should destroy any internal data and release any resources
-/// allocated by the corresponding GInterfaceInitFunc() function.
+/// allocated by the corresponding `GInterfaceInitFunc()` function.
 public typealias InterfaceFinalizeFunc = GInterfaceFinalizeFunc
 
 /// A callback function used by the type system to initialize a new
@@ -182,13 +181,13 @@ public typealias InterfaceFinalizeFunc = GInterfaceFinalizeFunc
 /// zeros before this function is called.
 public typealias InterfaceInitFunc = GInterfaceInitFunc
 
-/// The type of the `finalize` function of `GObjectClass`.
+/// The type of the `finalize` function of `GObjectClass.`
 public typealias ObjectFinalizeFunc = GObjectFinalizeFunc
 
-/// The type of the `get_property` function of `GObjectClass`.
+/// The type of the `get_property` function of `GObjectClass.`
 public typealias ObjectGetPropertyFunc = GObjectGetPropertyFunc
 
-/// The type of the `set_property` function of `GObjectClass`.
+/// The type of the `set_property` function of `GObjectClass.`
 public typealias ObjectSetPropertyFunc = GObjectSetPropertyFunc
 
 /// The signal accumulator is a special callback function that can be used
@@ -207,14 +206,14 @@ public typealias SignalAccumulator = GSignalAccumulator
 public typealias SignalEmissionHook = GSignalEmissionHook
 
 /// A callback function used for notification when the state
-/// of a toggle reference changes. See g_object_add_toggle_ref().
+/// of a toggle reference changes. See `g_object_add_toggle_ref()`.
 public typealias ToggleNotify = GToggleNotify
 
 /// A callback function which is called when the reference count of a class
-/// drops to zero. It may use g_type_class_ref() to prevent the class from
-/// being freed. You should not call g_type_class_unref() from a
+/// drops to zero. It may use `g_type_class_ref()` to prevent the class from
+/// being freed. You should not call `g_type_class_unref()` from a
 /// `GTypeClassCacheFunc` function to prevent infinite recursion, use
-/// g_type_class_unref_uncached() instead.
+/// `g_type_class_unref_uncached()` instead.
 /// 
 /// The functions have to check the class id passed in to figure
 /// whether they actually want to cache the class of this type, since all
@@ -222,20 +221,20 @@ public typealias ToggleNotify = GToggleNotify
 public typealias TypeClassCacheFunc = GTypeClassCacheFunc
 
 /// A callback called after an interface vtable is initialized.
-/// See g_type_add_interface_check().
+/// See `g_type_add_interface_check()`.
 public typealias TypeInterfaceCheckFunc = GTypeInterfaceCheckFunc
 
-/// The type of the `complete_interface_info` function of `GTypePluginClass`.
+/// The type of the `complete_interface_info` function of `GTypePluginClass.`
 public typealias TypePluginCompleteInterfaceInfo = GTypePluginCompleteInterfaceInfo
 
-/// The type of the `complete_type_info` function of `GTypePluginClass`.
+/// The type of the `complete_type_info` function of `GTypePluginClass.`
 public typealias TypePluginCompleteTypeInfo = GTypePluginCompleteTypeInfo
 
-/// The type of the `unuse_plugin` function of `GTypePluginClass`.
+/// The type of the `unuse_plugin` function of `GTypePluginClass.`
 public typealias TypePluginUnuse = GTypePluginUnuse
 
 /// The type of the `use_plugin` function of `GTypePluginClass`, which gets called
-/// to increase the use count of `plugin`.
+/// to increase the use count of `plugin.`
 public typealias TypePluginUse = GTypePluginUse
 
 /// This is the signature of va_list marshaller functions, an optional
@@ -244,7 +243,7 @@ public typealias TypePluginUse = GTypePluginUse
 public typealias VaClosureMarshal = GVaClosureMarshal
 
 /// The type of value transformation functions which can be registered with
-/// g_value_register_transform_func().
+/// `g_value_register_transform_func()`.
 /// 
 /// `dest_value` will be initialized to the correct destination type.
 public typealias ValueTransform = GValueTransform

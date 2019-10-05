@@ -12,9 +12,9 @@ import GLib
 /// another paramspec.  All operations other than getting or
 /// setting the value are redirected, including accessing the nick and
 /// blurb, validating a value, and so forth. See
-/// g_param_spec_get_redirect_target() for retrieving the overidden
+/// `g_param_spec_get_redirect_target()` for retrieving the overidden
 /// property. `GParamSpecOverride` is used in implementing
-/// g_object_class_override_property(), and will not be directly useful
+/// `g_object_class_override_property()`, and will not be directly useful
 /// unless you are implementing a new base type similar to GObject.
 public protocol ParamSpecOverrideProtocol: ParamSpecProtocol {
     /// Untyped pointer to the underlying `GParamSpecOverride` instance.
@@ -32,9 +32,9 @@ public protocol ParamSpecOverrideProtocol: ParamSpecProtocol {
 /// another paramspec.  All operations other than getting or
 /// setting the value are redirected, including accessing the nick and
 /// blurb, validating a value, and so forth. See
-/// g_param_spec_get_redirect_target() for retrieving the overidden
+/// `g_param_spec_get_redirect_target()` for retrieving the overidden
 /// property. `GParamSpecOverride` is used in implementing
-/// g_object_class_override_property(), and will not be directly useful
+/// `g_object_class_override_property()`, and will not be directly useful
 /// unless you are implementing a new base type similar to GObject.
 public struct ParamSpecOverrideRef: ParamSpecOverrideProtocol {
     /// Untyped pointer to the underlying `GParamSpecOverride` instance.
@@ -92,9 +92,9 @@ public extension ParamSpecOverrideRef {
 /// another paramspec.  All operations other than getting or
 /// setting the value are redirected, including accessing the nick and
 /// blurb, validating a value, and so forth. See
-/// g_param_spec_get_redirect_target() for retrieving the overidden
+/// `g_param_spec_get_redirect_target()` for retrieving the overidden
 /// property. `GParamSpecOverride` is used in implementing
-/// g_object_class_override_property(), and will not be directly useful
+/// `g_object_class_override_property()`, and will not be directly useful
 /// unless you are implementing a new base type similar to GObject.
 open class ParamSpecOverride: ParamSpec, ParamSpecOverrideProtocol {
     /// Designated initialiser from the underlying `C` data type.

@@ -10,7 +10,7 @@ import GLib
 ///
 /// The class structure for the GParamSpec type.
 /// Normally, GParamSpec classes are filled by
-/// g_param_type_register_static().
+/// `g_param_type_register_static()`.
 public protocol ParamSpecClassProtocol {
     /// Untyped pointer to the underlying `GParamSpecClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -25,7 +25,7 @@ public protocol ParamSpecClassProtocol {
 ///
 /// The class structure for the GParamSpec type.
 /// Normally, GParamSpec classes are filled by
-/// g_param_type_register_static().
+/// `g_param_type_register_static()`.
 public struct ParamSpecClassRef: ParamSpecClassProtocol {
     /// Untyped pointer to the underlying `GParamSpecClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -80,7 +80,7 @@ public extension ParamSpecClassRef {
 ///
 /// The class structure for the GParamSpec type.
 /// Normally, GParamSpec classes are filled by
-/// g_param_type_register_static().
+/// `g_param_type_register_static()`.
 open class ParamSpecClass: ParamSpecClassProtocol {
     /// Untyped pointer to the underlying `GParamSpecClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

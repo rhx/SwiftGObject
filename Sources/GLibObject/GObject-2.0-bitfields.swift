@@ -1,8 +1,8 @@
 import CGLib
 import GLib
 
-/// Flags to be passed to g_object_bind_property() or
-/// g_object_bind_property_full().
+/// Flags to be passed to `g_object_bind_property()` or
+/// `g_object_bind_property_full()`.
 /// 
 /// This enumeration can be extended at later date.
 public typealias BindingFlags = GBindingFlags
@@ -23,7 +23,7 @@ public extension BindingFlags {
     ///   booleans, setting one to `true` will result in the other being
     ///   set to `false` and vice versa. This flag will only work for
     ///   boolean properties, and cannot be used when passing custom
-    ///   transformation functions to g_object_bind_property_full().
+    ///   transformation functions to `g_object_bind_property_full()`.
     static let invert_boolean = G_BINDING_INVERT_BOOLEAN /* 4 */
 }
 
@@ -36,12 +36,12 @@ public extension ConnectFlags {
     ///  default handler of the signal.
     static let after = G_CONNECT_AFTER /* 1 */
     /// whether the instance and data should be swapped when
-    ///  calling the handler; see g_signal_connect_swapped() for an example.
+    ///  calling the handler; see `g_signal_connect_swapped()` for an example.
     static let swapped = G_CONNECT_SWAPPED /* 2 */
 }
 
 /// Through the `GParamFlags` flag values, certain aspects of parameters
-/// can be configured. See also `G_PARAM_STATIC_STRINGS`.
+/// can be configured. See also `G_PARAM_STATIC_STRINGS.`
 public typealias ParamFlags = GParamFlags
 
 public extension ParamFlags {
@@ -55,7 +55,7 @@ public extension ParamFlags {
     static let construct = G_PARAM_CONSTRUCT /* 4 */
     /// the parameter can only be set upon object construction
     static let construct_only = G_PARAM_CONSTRUCT_ONLY /* 8 */
-    /// upon parameter conversion (see g_param_value_convert())
+    /// upon parameter conversion (see `g_param_value_convert()`)
     ///  strict validation is not required
     static let lax_validation = G_PARAM_LAX_VALIDATION /* 16 */
     /// the string used as name when constructing the
@@ -75,9 +75,9 @@ public extension ParamFlags {
     ///  unmodified for the lifetime of the parameter.
     ///  Since 2.8
     static let static_blurb = G_PARAM_STATIC_BLURB /* 128 */
-    /// calls to g_object_set_property() for this
+    /// calls to `g_object_set_property()` for this
     ///   property will not automatically result in a "notify" signal being
-    ///   emitted: the implementation must call g_object_notify() themselves
+    ///   emitted: the implementation must call `g_object_notify()` themselves
     ///   in case the property actually changes.  Since: 2.42.
     static let explicit_notify = G_PARAM_EXPLICIT_NOTIFY /* 1073741824 */
     /// the parameter is deprecated and will be removed
@@ -103,11 +103,11 @@ public extension SignalFlags {
     ///  emission for this very object will not be emitted recursively,
     ///  but instead cause the first emission to be restarted.
     static let no_recurse = G_SIGNAL_NO_RECURSE /* 8 */
-    /// This signal supports "::detail" appendices to the signal name
+    /// This signal supports "`detail`" appendices to the signal name
     ///  upon handler connections and emissions.
     static let detailed = G_SIGNAL_DETAILED /* 16 */
     /// Action signals are signals that may freely be emitted on alive
-    ///  objects from user code via g_signal_emit() and friends, without
+    ///  objects from user code via `g_signal_emit()` and friends, without
     ///  the need of being embedded into extra code that performs pre or
     ///  post emission adjustments on the object. They can also be thought
     ///  of as object methods which can be called generically by
@@ -124,8 +124,8 @@ public extension SignalFlags {
     static let deprecated = G_SIGNAL_DEPRECATED /* 256 */
 }
 
-/// The match types specify what g_signal_handlers_block_matched(),
-/// g_signal_handlers_unblock_matched() and g_signal_handlers_disconnect_matched()
+/// The match types specify what `g_signal_handlers_block_matched()`,
+/// `g_signal_handlers_unblock_matched()` and `g_signal_handlers_disconnect_matched()`
 /// match signals by.
 public typealias SignalMatchType = GSignalMatchType
 
@@ -144,7 +144,7 @@ public extension SignalMatchType {
     static let unblocked = G_SIGNAL_MATCH_UNBLOCKED /* 32 */
 }
 
-/// These flags used to be passed to g_type_init_with_debug_flags() which
+/// These flags used to be passed to `g_type_init_with_debug_flags()` which
 /// is now deprecated.
 /// 
 /// If you need to enable debugging features, use the GOBJECT_DEBUG
@@ -176,7 +176,7 @@ public extension TypeFlags {
     static let abstract = G_TYPE_FLAG_ABSTRACT /* 16 */
     /// Indicates an abstract value type, i.e. a type
     ///  that introduces a value table, but can't be used for
-    ///  g_value_init()
+    ///  `g_value_init()`
     static let value_abstract = G_TYPE_FLAG_VALUE_ABSTRACT /* 32 */
 }
 

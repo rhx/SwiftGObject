@@ -9,7 +9,7 @@ import GLib
 /// Alternatively, use `SignalQueryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// A structure holding in-depth information for a specific signal. It is
-/// filled in by the g_signal_query() function.
+/// filled in by the `g_signal_query()` function.
 public protocol SignalQueryProtocol {
     /// Untyped pointer to the underlying `GSignalQuery` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -23,7 +23,7 @@ public protocol SignalQueryProtocol {
 /// Use `SignalQueryRef` only as an `unowned` reference to an existing `GSignalQuery` instance.
 ///
 /// A structure holding in-depth information for a specific signal. It is
-/// filled in by the g_signal_query() function.
+/// filled in by the `g_signal_query()` function.
 public struct SignalQueryRef: SignalQueryProtocol {
     /// Untyped pointer to the underlying `GSignalQuery` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -77,7 +77,7 @@ public extension SignalQueryRef {
 /// Use `SignalQuery` as a strong reference or owner of a `GSignalQuery` instance.
 ///
 /// A structure holding in-depth information for a specific signal. It is
-/// filled in by the g_signal_query() function.
+/// filled in by the `g_signal_query()` function.
 open class SignalQuery: SignalQueryProtocol {
     /// Untyped pointer to the underlying `GSignalQuery` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

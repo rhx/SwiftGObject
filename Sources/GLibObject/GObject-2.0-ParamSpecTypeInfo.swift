@@ -11,10 +11,10 @@ import GLib
 /// This structure is used to provide the type system with the information
 /// required to initialize and destruct (finalize) a parameter's class and
 /// instances thereof.
-/// The initialized structure is passed to the g_param_type_register_static()
+/// The initialized structure is passed to the `g_param_type_register_static()`
 /// The type system will perform a deep copy of this structure, so its memory
 /// does not need to be persistent across invocation of
-/// g_param_type_register_static().
+/// `g_param_type_register_static()`.
 public protocol ParamSpecTypeInfoProtocol {
     /// Untyped pointer to the underlying `GParamSpecTypeInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -30,10 +30,10 @@ public protocol ParamSpecTypeInfoProtocol {
 /// This structure is used to provide the type system with the information
 /// required to initialize and destruct (finalize) a parameter's class and
 /// instances thereof.
-/// The initialized structure is passed to the g_param_type_register_static()
+/// The initialized structure is passed to the `g_param_type_register_static()`
 /// The type system will perform a deep copy of this structure, so its memory
 /// does not need to be persistent across invocation of
-/// g_param_type_register_static().
+/// `g_param_type_register_static()`.
 public struct ParamSpecTypeInfoRef: ParamSpecTypeInfoProtocol {
     /// Untyped pointer to the underlying `GParamSpecTypeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -89,10 +89,10 @@ public extension ParamSpecTypeInfoRef {
 /// This structure is used to provide the type system with the information
 /// required to initialize and destruct (finalize) a parameter's class and
 /// instances thereof.
-/// The initialized structure is passed to the g_param_type_register_static()
+/// The initialized structure is passed to the `g_param_type_register_static()`
 /// The type system will perform a deep copy of this structure, so its memory
 /// does not need to be persistent across invocation of
-/// g_param_type_register_static().
+/// `g_param_type_register_static()`.
 open class ParamSpecTypeInfo: ParamSpecTypeInfoProtocol {
     /// Untyped pointer to the underlying `GParamSpecTypeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

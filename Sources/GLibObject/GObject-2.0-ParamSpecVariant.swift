@@ -10,9 +10,9 @@ import GLib
 ///
 /// A `GParamSpec` derived structure that contains the meta data for `GVariant` properties.
 /// 
-/// When comparing values with g_param_values_cmp(), scalar values with the same
-/// type will be compared with g_variant_compare(). Other non-`nil` variants will
-/// be checked for equality with g_variant_equal(), and their sort order is
+/// When comparing values with `g_param_values_cmp()`, scalar values with the same
+/// type will be compared with `g_variant_compare()`. Other non-`nil` variants will
+/// be checked for equality with `g_variant_equal()`, and their sort order is
 /// otherwise undefined. `nil` is ordered before non-`nil` variants. Two `nil`
 /// values compare equal.
 public protocol ParamSpecVariantProtocol: ParamSpecProtocol {
@@ -29,9 +29,9 @@ public protocol ParamSpecVariantProtocol: ParamSpecProtocol {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for `GVariant` properties.
 /// 
-/// When comparing values with g_param_values_cmp(), scalar values with the same
-/// type will be compared with g_variant_compare(). Other non-`nil` variants will
-/// be checked for equality with g_variant_equal(), and their sort order is
+/// When comparing values with `g_param_values_cmp()`, scalar values with the same
+/// type will be compared with `g_variant_compare()`. Other non-`nil` variants will
+/// be checked for equality with `g_variant_equal()`, and their sort order is
 /// otherwise undefined. `nil` is ordered before non-`nil` variants. Two `nil`
 /// values compare equal.
 public struct ParamSpecVariantRef: ParamSpecVariantProtocol {
@@ -88,9 +88,9 @@ public extension ParamSpecVariantRef {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for `GVariant` properties.
 /// 
-/// When comparing values with g_param_values_cmp(), scalar values with the same
-/// type will be compared with g_variant_compare(). Other non-`nil` variants will
-/// be checked for equality with g_variant_equal(), and their sort order is
+/// When comparing values with `g_param_values_cmp()`, scalar values with the same
+/// type will be compared with `g_variant_compare()`. Other non-`nil` variants will
+/// be checked for equality with `g_variant_equal()`, and their sort order is
 /// otherwise undefined. `nil` is ordered before non-`nil` variants. Two `nil`
 /// values compare equal.
 open class ParamSpecVariant: ParamSpec, ParamSpecVariantProtocol {

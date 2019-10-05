@@ -144,7 +144,7 @@ public extension TypeInstanceProtocol {
     // *** signalChainFromOverriddenHandler() is not available because it has a varargs (...) parameter!
 
 
-    /// This is similar to g_signal_connect_data(), but uses a closure which
+    /// This is similar to `g_signal_connect_data()`, but uses a closure which
     /// ensures that the `gobject` stays alive during the call to `c_handler`
     /// by temporarily adding a reference count to `gobject`.
     /// 
@@ -159,15 +159,15 @@ public extension TypeInstanceProtocol {
 
     /// Emits a signal.
     /// 
-    /// Note that g_signal_emit_valist() resets the return value to the default
-    /// if no handlers are connected, in contrast to g_signal_emitv().
+    /// Note that `g_signal_emit_valist()` resets the return value to the default
+    /// if no handlers are connected, in contrast to `g_signal_emitv()`.
     func signalEmitValist(signalID signal_id: CUnsignedInt, detail: GLib.Quark, varArgs var_args: CVaListPointer) {
         g_signal_emit_valist(cast(_ptr), guint(signal_id), detail, var_args)
     
     }
 
     /// Private helper function to aid implementation of the
-    /// G_TYPE_CHECK_INSTANCE() macro.
+    /// `G_TYPE_CHECK_INSTANCE()` macro.
     func typeCheckInstance() -> Bool {
         let rv = g_type_check_instance(cast(_ptr))
         return Bool(rv != 0)
@@ -191,7 +191,7 @@ public extension TypeInstanceProtocol {
     /// Frees an instance of a type, returning it to the instance pool for
     /// the type, if there is one.
     /// 
-    /// Like g_type_create_instance(), this function is reserved for
+    /// Like `g_type_create_instance()`, this function is reserved for
     /// implementors of fundamental types.
     func typeFreeInstance() {
         g_type_free_instance(cast(_ptr))

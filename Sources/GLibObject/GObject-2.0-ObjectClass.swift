@@ -236,7 +236,7 @@ public extension ObjectClassProtocol {
     /// be used to store a `GParamSpec`.
     /// 
     /// This function should be used if you plan to use a static array of
-    /// `GParamSpecs` and g_object_notify_by_pspec(). For instance, this
+    /// `GParamSpecs` and `g_object_notify_by_pspec()`. For instance, this
     /// class initialization:
     /// 
     /// (C Language Example):
@@ -271,8 +271,7 @@ public extension ObjectClassProtocol {
     /// }
     /// ```
     /// 
-    /// 
-    /// allows calling g_object_notify_by_pspec() to notify of property changes:
+    /// allows calling `g_object_notify_by_pspec()` to notify of property changes:
     /// 
     /// (C Language Example):
     /// ```C
@@ -321,14 +320,14 @@ public extension ObjectClassProtocol {
     /// 
     /// Internally, overriding is implemented by creating a property of type
     /// `GParamSpecOverride`; generally operations that query the properties of
-    /// the object class, such as g_object_class_find_property() or
-    /// g_object_class_list_properties() will return the overridden
+    /// the object class, such as `g_object_class_find_property()` or
+    /// `g_object_class_list_properties()` will return the overridden
     /// property. However, in one case, the `construct_properties` argument of
     /// the `constructor` virtual function, the `GParamSpecOverride` is passed
     /// instead, so that the `param_id` field of the `GParamSpec` will be
     /// correct.  For virtually all uses, this makes no difference. If you
     /// need to get the overridden property, you can call
-    /// g_param_spec_get_redirect_target().
+    /// `g_param_spec_get_redirect_target()`.
     func overrideProperty(propertyID property_id: CUnsignedInt, name: UnsafePointer<gchar>) {
         g_object_class_override_property(cast(_ptr), guint(property_id), name)
     

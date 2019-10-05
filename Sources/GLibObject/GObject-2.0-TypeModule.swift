@@ -12,28 +12,28 @@ import GLib
 /// interface. The model of `GTypeModule` is a dynamically loaded module
 /// which implements some number of types and interface implementations.
 /// When the module is loaded, it registers its types and interfaces
-/// using g_type_module_register_type() and g_type_module_add_interface().
+/// using `g_type_module_register_type()` and `g_type_module_add_interface()`.
 /// As long as any instances of these types and interface implementations
 /// are in use, the module is kept loaded. When the types and interfaces
 /// are gone, the module may be unloaded. If the types and interfaces
 /// become used again, the module will be reloaded. Note that the last
 /// unref cannot happen in module code, since that would lead to the
-/// caller's code being unloaded before g_object_unref() returns to it.
+/// caller's code being unloaded before `g_object_unref()` returns to it.
 /// 
 /// Keeping track of whether the module should be loaded or not is done by
 /// using a use count - it starts at zero, and whenever it is greater than
 /// zero, the module is loaded. The use count is maintained internally by
 /// the type system, but also can be explicitly controlled by
-/// g_type_module_use() and g_type_module_unuse(). Typically, when loading
-/// a module for the first type, g_type_module_use() will be used to load
+/// `g_type_module_use()` and `g_type_module_unuse()`. Typically, when loading
+/// a module for the first type, `g_type_module_use()` will be used to load
 /// it so that it can initialize its types. At some later point, when the
 /// module no longer needs to be loaded except for the type
-/// implementations it contains, g_type_module_unuse() is called.
+/// implementations it contains, `g_type_module_unuse()` is called.
 /// 
 /// `GTypeModule` does not actually provide any implementation of module
 /// loading and unloading. To create a particular module type you must
 /// derive from `GTypeModule` and implement the load and unload functions
-/// in `GTypeModuleClass`.
+/// in `GTypeModuleClass.`
 public protocol TypeModuleProtocol: ObjectProtocol, TypePluginProtocol {
     /// Untyped pointer to the underlying `GTypeModule` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -50,28 +50,28 @@ public protocol TypeModuleProtocol: ObjectProtocol, TypePluginProtocol {
 /// interface. The model of `GTypeModule` is a dynamically loaded module
 /// which implements some number of types and interface implementations.
 /// When the module is loaded, it registers its types and interfaces
-/// using g_type_module_register_type() and g_type_module_add_interface().
+/// using `g_type_module_register_type()` and `g_type_module_add_interface()`.
 /// As long as any instances of these types and interface implementations
 /// are in use, the module is kept loaded. When the types and interfaces
 /// are gone, the module may be unloaded. If the types and interfaces
 /// become used again, the module will be reloaded. Note that the last
 /// unref cannot happen in module code, since that would lead to the
-/// caller's code being unloaded before g_object_unref() returns to it.
+/// caller's code being unloaded before `g_object_unref()` returns to it.
 /// 
 /// Keeping track of whether the module should be loaded or not is done by
 /// using a use count - it starts at zero, and whenever it is greater than
 /// zero, the module is loaded. The use count is maintained internally by
 /// the type system, but also can be explicitly controlled by
-/// g_type_module_use() and g_type_module_unuse(). Typically, when loading
-/// a module for the first type, g_type_module_use() will be used to load
+/// `g_type_module_use()` and `g_type_module_unuse()`. Typically, when loading
+/// a module for the first type, `g_type_module_use()` will be used to load
 /// it so that it can initialize its types. At some later point, when the
 /// module no longer needs to be loaded except for the type
-/// implementations it contains, g_type_module_unuse() is called.
+/// implementations it contains, `g_type_module_unuse()` is called.
 /// 
 /// `GTypeModule` does not actually provide any implementation of module
 /// loading and unloading. To create a particular module type you must
 /// derive from `GTypeModule` and implement the load and unload functions
-/// in `GTypeModuleClass`.
+/// in `GTypeModuleClass.`
 public struct TypeModuleRef: TypeModuleProtocol {
     /// Untyped pointer to the underlying `GTypeModule` instance.
     /// For type-safe access, use the generated, typed pointer `type_module_ptr` property instead.
@@ -128,28 +128,28 @@ public extension TypeModuleRef {
 /// interface. The model of `GTypeModule` is a dynamically loaded module
 /// which implements some number of types and interface implementations.
 /// When the module is loaded, it registers its types and interfaces
-/// using g_type_module_register_type() and g_type_module_add_interface().
+/// using `g_type_module_register_type()` and `g_type_module_add_interface()`.
 /// As long as any instances of these types and interface implementations
 /// are in use, the module is kept loaded. When the types and interfaces
 /// are gone, the module may be unloaded. If the types and interfaces
 /// become used again, the module will be reloaded. Note that the last
 /// unref cannot happen in module code, since that would lead to the
-/// caller's code being unloaded before g_object_unref() returns to it.
+/// caller's code being unloaded before `g_object_unref()` returns to it.
 /// 
 /// Keeping track of whether the module should be loaded or not is done by
 /// using a use count - it starts at zero, and whenever it is greater than
 /// zero, the module is loaded. The use count is maintained internally by
 /// the type system, but also can be explicitly controlled by
-/// g_type_module_use() and g_type_module_unuse(). Typically, when loading
-/// a module for the first type, g_type_module_use() will be used to load
+/// `g_type_module_use()` and `g_type_module_unuse()`. Typically, when loading
+/// a module for the first type, `g_type_module_use()` will be used to load
 /// it so that it can initialize its types. At some later point, when the
 /// module no longer needs to be loaded except for the type
-/// implementations it contains, g_type_module_unuse() is called.
+/// implementations it contains, `g_type_module_unuse()` is called.
 /// 
 /// `GTypeModule` does not actually provide any implementation of module
 /// loading and unloading. To create a particular module type you must
 /// derive from `GTypeModule` and implement the load and unload functions
-/// in `GTypeModuleClass`.
+/// in `GTypeModuleClass.`
 open class TypeModule: Object, TypeModuleProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `TypeModule` instance.
@@ -196,27 +196,26 @@ open class TypeModule: Object, TypeModuleProtocol {
 
 public enum TypeModuleSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -263,7 +262,7 @@ public extension TypeModuleProtocol {
     /// As long as any instances of the type exist, the type plugin will
     /// not be unloaded.
     /// 
-    /// Since 2.56 if `module` is `nil` this will call g_type_add_interface_static()
+    /// Since 2.56 if `module` is `nil` this will call `g_type_add_interface_static()`
     /// instead. This can be used when making a static build of the module.
     func addInterface(instanceType instance_type: GType, interfaceType interface_type: GType, interfaceInfo interface_info: InterfaceInfoProtocol) {
         g_type_module_add_interface(cast(type_module_ptr), instance_type, interface_type, cast(interface_info.ptr))
@@ -278,7 +277,7 @@ public extension TypeModuleProtocol {
     /// As long as any instances of the type exist, the type plugin will
     /// not be unloaded.
     /// 
-    /// Since 2.56 if `module` is `nil` this will call g_type_register_static()
+    /// Since 2.56 if `module` is `nil` this will call `g_type_register_static()`
     /// instead. This can be used when making a static build of the module.
     func registerEnum(name: UnsafePointer<gchar>, constStaticValues const_static_values: EnumValueProtocol) -> GType {
         let rv = g_type_module_register_enum(cast(type_module_ptr), name, cast(const_static_values.ptr))
@@ -293,7 +292,7 @@ public extension TypeModuleProtocol {
     /// As long as any instances of the type exist, the type plugin will
     /// not be unloaded.
     /// 
-    /// Since 2.56 if `module` is `nil` this will call g_type_register_static()
+    /// Since 2.56 if `module` is `nil` this will call `g_type_register_static()`
     /// instead. This can be used when making a static build of the module.
     func registerFlags(name: UnsafePointer<gchar>, constStaticValues const_static_values: FlagsValueProtocol) -> GType {
         let rv = g_type_module_register_flags(cast(type_module_ptr), name, cast(const_static_values.ptr))
@@ -312,7 +311,7 @@ public extension TypeModuleProtocol {
     /// As long as any instances of the type exist, the type plugin will
     /// not be unloaded.
     /// 
-    /// Since 2.56 if `module` is `nil` this will call g_type_register_static()
+    /// Since 2.56 if `module` is `nil` this will call `g_type_register_static()`
     /// instead. This can be used when making a static build of the module.
     func registerType(parentType parent_type: GType, typeName type_name: UnsafePointer<gchar>, typeInfo type_info: TypeInfoProtocol, flags: TypeFlags) -> GType {
         let rv = g_type_module_register_type(cast(type_module_ptr), parent_type, type_name, cast(type_info.ptr), flags)

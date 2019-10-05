@@ -21,9 +21,8 @@ import GLib
 ///                           G_BINDING_DEFAULT);
 /// ```
 /// 
-/// 
 /// will cause the property named "property-b" of `object2` to be updated
-/// every time g_object_set() or the specific accessor changes the value of
+/// every time `g_object_set()` or the specific accessor changes the value of
 /// the property "property-a" of `object1`.
 /// 
 /// It is possible to create a bidirectional binding between two properties
@@ -36,7 +35,6 @@ import GLib
 ///                           object2, "property-b",
 ///                           G_BINDING_BIDIRECTIONAL);
 /// ```
-/// 
 /// 
 /// will keep the two properties in sync.
 /// 
@@ -54,7 +52,6 @@ import GLib
 ///                                fahrenheit_to_celsius,
 ///                                NULL, NULL);
 /// ```
-/// 
 /// 
 /// will keep the "value" property of the two adjustments in sync; the
 /// `celsius_to_fahrenheit` function will be called whenever the "value"
@@ -74,20 +71,19 @@ import GLib
 ///   object3:propertyC -> object1:propertyA
 /// ```
 /// 
-/// 
 /// might lead to an infinite loop. The loop, in this particular case,
-/// can be avoided if the objects emit the `GObject`::notify signal only
+/// can be avoided if the objects emit the `GObject::notify` signal only
 /// if the value has effectively been changed. A binding is implemented
-/// using the `GObject`::notify signal, so it is susceptible to all the
-/// various ways of blocking a signal emission, like g_signal_stop_emission()
-/// or g_signal_handler_block().
+/// using the `GObject::notify` signal, so it is susceptible to all the
+/// various ways of blocking a signal emission, like `g_signal_stop_emission()`
+/// or `g_signal_handler_block()`.
 /// 
 /// A binding will be severed, and the resources it allocates freed, whenever
 /// either one of the `GObject` instances it refers to are finalized, or when
 /// the `GBinding` instance loses its last reference.
 /// 
 /// Bindings for languages with garbage collection can use
-/// g_binding_unbind() to explicitly release a binding between the source
+/// `g_binding_unbind()` to explicitly release a binding between the source
 /// and target properties, instead of relying on the last reference on the
 /// binding, source, and target instances to drop.
 /// 
@@ -117,9 +113,8 @@ public protocol BindingProtocol: ObjectProtocol {
 ///                           G_BINDING_DEFAULT);
 /// ```
 /// 
-/// 
 /// will cause the property named "property-b" of `object2` to be updated
-/// every time g_object_set() or the specific accessor changes the value of
+/// every time `g_object_set()` or the specific accessor changes the value of
 /// the property "property-a" of `object1`.
 /// 
 /// It is possible to create a bidirectional binding between two properties
@@ -132,7 +127,6 @@ public protocol BindingProtocol: ObjectProtocol {
 ///                           object2, "property-b",
 ///                           G_BINDING_BIDIRECTIONAL);
 /// ```
-/// 
 /// 
 /// will keep the two properties in sync.
 /// 
@@ -150,7 +144,6 @@ public protocol BindingProtocol: ObjectProtocol {
 ///                                fahrenheit_to_celsius,
 ///                                NULL, NULL);
 /// ```
-/// 
 /// 
 /// will keep the "value" property of the two adjustments in sync; the
 /// `celsius_to_fahrenheit` function will be called whenever the "value"
@@ -170,20 +163,19 @@ public protocol BindingProtocol: ObjectProtocol {
 ///   object3:propertyC -> object1:propertyA
 /// ```
 /// 
-/// 
 /// might lead to an infinite loop. The loop, in this particular case,
-/// can be avoided if the objects emit the `GObject`::notify signal only
+/// can be avoided if the objects emit the `GObject::notify` signal only
 /// if the value has effectively been changed. A binding is implemented
-/// using the `GObject`::notify signal, so it is susceptible to all the
-/// various ways of blocking a signal emission, like g_signal_stop_emission()
-/// or g_signal_handler_block().
+/// using the `GObject::notify` signal, so it is susceptible to all the
+/// various ways of blocking a signal emission, like `g_signal_stop_emission()`
+/// or `g_signal_handler_block()`.
 /// 
 /// A binding will be severed, and the resources it allocates freed, whenever
 /// either one of the `GObject` instances it refers to are finalized, or when
 /// the `GBinding` instance loses its last reference.
 /// 
 /// Bindings for languages with garbage collection can use
-/// g_binding_unbind() to explicitly release a binding between the source
+/// `g_binding_unbind()` to explicitly release a binding between the source
 /// and target properties, instead of relying on the last reference on the
 /// binding, source, and target instances to drop.
 /// 
@@ -253,9 +245,8 @@ public extension BindingRef {
 ///                           G_BINDING_DEFAULT);
 /// ```
 /// 
-/// 
 /// will cause the property named "property-b" of `object2` to be updated
-/// every time g_object_set() or the specific accessor changes the value of
+/// every time `g_object_set()` or the specific accessor changes the value of
 /// the property "property-a" of `object1`.
 /// 
 /// It is possible to create a bidirectional binding between two properties
@@ -268,7 +259,6 @@ public extension BindingRef {
 ///                           object2, "property-b",
 ///                           G_BINDING_BIDIRECTIONAL);
 /// ```
-/// 
 /// 
 /// will keep the two properties in sync.
 /// 
@@ -286,7 +276,6 @@ public extension BindingRef {
 ///                                fahrenheit_to_celsius,
 ///                                NULL, NULL);
 /// ```
-/// 
 /// 
 /// will keep the "value" property of the two adjustments in sync; the
 /// `celsius_to_fahrenheit` function will be called whenever the "value"
@@ -306,20 +295,19 @@ public extension BindingRef {
 ///   object3:propertyC -> object1:propertyA
 /// ```
 /// 
-/// 
 /// might lead to an infinite loop. The loop, in this particular case,
-/// can be avoided if the objects emit the `GObject`::notify signal only
+/// can be avoided if the objects emit the `GObject::notify` signal only
 /// if the value has effectively been changed. A binding is implemented
-/// using the `GObject`::notify signal, so it is susceptible to all the
-/// various ways of blocking a signal emission, like g_signal_stop_emission()
-/// or g_signal_handler_block().
+/// using the `GObject::notify` signal, so it is susceptible to all the
+/// various ways of blocking a signal emission, like `g_signal_stop_emission()`
+/// or `g_signal_handler_block()`.
 /// 
 /// A binding will be severed, and the resources it allocates freed, whenever
 /// either one of the `GObject` instances it refers to are finalized, or when
 /// the `GBinding` instance loses its last reference.
 /// 
 /// Bindings for languages with garbage collection can use
-/// g_binding_unbind() to explicitly release a binding between the source
+/// `g_binding_unbind()` to explicitly release a binding between the source
 /// and target properties, instead of relying on the last reference on the
 /// binding, source, and target instances to drop.
 /// 
@@ -371,12 +359,12 @@ public enum BindingPropertyName: String, PropertyNameProtocol {
     case flags = "flags"
     /// The `GObject` that should be used as the source of the binding
     case source = "source"
-    /// The name of the property of `GBinding`:source that should be used
+    /// The name of the property of `GBinding:source` that should be used
     /// as the source of the binding
     case sourceProperty = "source-property"
     /// The `GObject` that should be used as the target of the binding
     case target = "target"
-    /// The name of the property of `GBinding`:target that should be used
+    /// The name of the property of `GBinding:target` that should be used
     /// as the target of the binding
     case targetProperty = "target-property"
 }
@@ -419,27 +407,26 @@ public extension BindingProtocol {
 
 public enum BindingSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -448,12 +435,12 @@ public enum BindingSignalName: String, SignalNameProtocol {
     case notifyFlags = "notify::flags"
     /// The `GObject` that should be used as the source of the binding
     case notifySource = "notify::source"
-    /// The name of the property of `GBinding`:source that should be used
+    /// The name of the property of `GBinding:source` that should be used
     /// as the source of the binding
     case notifySourceProperty = "notify::source-property"
     /// The `GObject` that should be used as the target of the binding
     case notifyTarget = "notify::target"
-    /// The name of the property of `GBinding`:target that should be used
+    /// The name of the property of `GBinding:target` that should be used
     /// as the target of the binding
     case notifyTargetProperty = "notify::target-property"
 }
@@ -490,7 +477,7 @@ public extension BindingProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GBinding` instance.
     var binding_ptr: UnsafeMutablePointer<GBinding> { return ptr.assumingMemoryBound(to: GBinding.self) }
 
-    /// Retrieves the flags passed when constructing the `GBinding`.
+    /// Retrieves the flags passed when constructing the `GBinding.`
     func getFlags() -> GBindingFlags {
         let rv = g_binding_get_flags(cast(binding_ptr))
         return rv
@@ -502,7 +489,7 @@ public extension BindingProtocol {
         return cast(rv)
     }
 
-    /// Retrieves the name of the property of `GBinding`:source used as the source
+    /// Retrieves the name of the property of `GBinding:source` used as the source
     /// of the binding.
     func getSourceProperty() -> String! {
         let rv = g_binding_get_source_property(cast(binding_ptr))
@@ -515,7 +502,7 @@ public extension BindingProtocol {
         return cast(rv)
     }
 
-    /// Retrieves the name of the property of `GBinding`:target used as the target
+    /// Retrieves the name of the property of `GBinding:target` used as the target
     /// of the binding.
     func getTargetProperty() -> String! {
         let rv = g_binding_get_target_property(cast(binding_ptr))
@@ -527,7 +514,7 @@ public extension BindingProtocol {
     /// 
     /// This function will release the reference that is being held on
     /// the `binding` instance; if you want to hold on to the `GBinding` instance
-    /// after calling g_binding_unbind(), you will need to hold a reference
+    /// after calling `g_binding_unbind()`, you will need to hold a reference
     /// to it.
     func unbind() {
         g_binding_unbind(cast(binding_ptr))
@@ -535,7 +522,7 @@ public extension BindingProtocol {
     }
     /// Flags to be used to control the `GBinding`
     var flags: GBindingFlags {
-        /// Retrieves the flags passed when constructing the `GBinding`.
+        /// Retrieves the flags passed when constructing the `GBinding.`
         get {
             let rv = g_binding_get_flags(cast(binding_ptr))
             return rv
@@ -551,10 +538,10 @@ public extension BindingProtocol {
         }
     }
 
-    /// Retrieves the name of the property of `GBinding`:source used as the source
+    /// Retrieves the name of the property of `GBinding:source` used as the source
     /// of the binding.
     var sourceProperty: String! {
-        /// Retrieves the name of the property of `GBinding`:source used as the source
+        /// Retrieves the name of the property of `GBinding:source` used as the source
         /// of the binding.
         get {
             let rv = g_binding_get_source_property(cast(binding_ptr))
@@ -571,10 +558,10 @@ public extension BindingProtocol {
         }
     }
 
-    /// Retrieves the name of the property of `GBinding`:target used as the target
+    /// Retrieves the name of the property of `GBinding:target` used as the target
     /// of the binding.
     var targetProperty: String! {
-        /// Retrieves the name of the property of `GBinding`:target used as the target
+        /// Retrieves the name of the property of `GBinding:target` used as the target
         /// of the binding.
         get {
             let rv = g_binding_get_target_property(cast(binding_ptr))

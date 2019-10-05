@@ -12,11 +12,11 @@ import GLib
 /// required to initialize and destruct (finalize) a type's class and
 /// its instances.
 /// 
-/// The initialized structure is passed to the g_type_register_static() function
+/// The initialized structure is passed to the `g_type_register_static()` function
 /// (or is copied into the provided `GTypeInfo` structure in the
-/// g_type_plugin_complete_type_info()). The type system will perform a deep
+/// `g_type_plugin_complete_type_info()`). The type system will perform a deep
 /// copy of this structure, so its memory does not need to be persistent
-/// across invocation of g_type_register_static().
+/// across invocation of `g_type_register_static()`.
 public protocol TypeInfoProtocol {
     /// Untyped pointer to the underlying `GTypeInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -33,11 +33,11 @@ public protocol TypeInfoProtocol {
 /// required to initialize and destruct (finalize) a type's class and
 /// its instances.
 /// 
-/// The initialized structure is passed to the g_type_register_static() function
+/// The initialized structure is passed to the `g_type_register_static()` function
 /// (or is copied into the provided `GTypeInfo` structure in the
-/// g_type_plugin_complete_type_info()). The type system will perform a deep
+/// `g_type_plugin_complete_type_info()`). The type system will perform a deep
 /// copy of this structure, so its memory does not need to be persistent
-/// across invocation of g_type_register_static().
+/// across invocation of `g_type_register_static()`.
 public struct TypeInfoRef: TypeInfoProtocol {
     /// Untyped pointer to the underlying `GTypeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -94,11 +94,11 @@ public extension TypeInfoRef {
 /// required to initialize and destruct (finalize) a type's class and
 /// its instances.
 /// 
-/// The initialized structure is passed to the g_type_register_static() function
+/// The initialized structure is passed to the `g_type_register_static()` function
 /// (or is copied into the provided `GTypeInfo` structure in the
-/// g_type_plugin_complete_type_info()). The type system will perform a deep
+/// `g_type_plugin_complete_type_info()`). The type system will perform a deep
 /// copy of this structure, so its memory does not need to be persistent
-/// across invocation of g_type_register_static().
+/// across invocation of `g_type_register_static()`.
 open class TypeInfo: TypeInfoProtocol {
     /// Untyped pointer to the underlying `GTypeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -186,9 +186,9 @@ public extension TypeInfoProtocol {
     
     }
 
-    /// This function is meant to be called from the complete_type_info()
+    /// This function is meant to be called from the `complete_type_info()`
     /// function of a `GTypePlugin` implementation, see the example for
-    /// g_enum_complete_type_info() above.
+    /// `g_enum_complete_type_info()` above.
     func flagsCompleteTypeInfo(gFlagsType g_flags_type: GType, constValues const_values: FlagsValueProtocol) {
         g_flags_complete_type_info(g_flags_type, cast(_ptr), cast(const_values.ptr))
     

@@ -11,18 +11,18 @@ import GLib
 /// A structure containing a weak reference to a `GObject`.  It can either
 /// be empty (i.e. point to `nil`), or point to an object for as long as
 /// at least one "strong" reference to that object exists. Before the
-/// object's `GObjectClass`.dispose method is called, every `GWeakRef`
+/// object's `GObjectClass.dispose` method is called, every `GWeakRef`
 /// associated with becomes empty (i.e. points to `nil`).
 /// 
 /// Like `GValue`, `GWeakRef` can be statically allocated, stack- or
 /// heap-allocated, or embedded in larger structures.
 /// 
-/// Unlike g_object_weak_ref() and g_object_add_weak_pointer(), this weak
+/// Unlike `g_object_weak_ref()` and `g_object_add_weak_pointer()`, this weak
 /// reference is thread-safe: converting a weak pointer to a reference is
 /// atomic with respect to invalidation of weak pointers to destroyed
 /// objects.
 /// 
-/// If the object's `GObjectClass`.dispose method results in additional
+/// If the object's `GObjectClass.dispose` method results in additional
 /// references to the object being held, any `GWeakRefs` taken
 /// before it was disposed will continue to point to `nil`.  If
 /// `GWeakRefs` are taken after the object is disposed and
@@ -43,18 +43,18 @@ public protocol WeakRefProtocol {
 /// A structure containing a weak reference to a `GObject`.  It can either
 /// be empty (i.e. point to `nil`), or point to an object for as long as
 /// at least one "strong" reference to that object exists. Before the
-/// object's `GObjectClass`.dispose method is called, every `GWeakRef`
+/// object's `GObjectClass.dispose` method is called, every `GWeakRef`
 /// associated with becomes empty (i.e. points to `nil`).
 /// 
 /// Like `GValue`, `GWeakRef` can be statically allocated, stack- or
 /// heap-allocated, or embedded in larger structures.
 /// 
-/// Unlike g_object_weak_ref() and g_object_add_weak_pointer(), this weak
+/// Unlike `g_object_weak_ref()` and `g_object_add_weak_pointer()`, this weak
 /// reference is thread-safe: converting a weak pointer to a reference is
 /// atomic with respect to invalidation of weak pointers to destroyed
 /// objects.
 /// 
-/// If the object's `GObjectClass`.dispose method results in additional
+/// If the object's `GObjectClass.dispose` method results in additional
 /// references to the object being held, any `GWeakRefs` taken
 /// before it was disposed will continue to point to `nil`.  If
 /// `GWeakRefs` are taken after the object is disposed and
@@ -115,18 +115,18 @@ public extension WeakRefRef {
 /// A structure containing a weak reference to a `GObject`.  It can either
 /// be empty (i.e. point to `nil`), or point to an object for as long as
 /// at least one "strong" reference to that object exists. Before the
-/// object's `GObjectClass`.dispose method is called, every `GWeakRef`
+/// object's `GObjectClass.dispose` method is called, every `GWeakRef`
 /// associated with becomes empty (i.e. points to `nil`).
 /// 
 /// Like `GValue`, `GWeakRef` can be statically allocated, stack- or
 /// heap-allocated, or embedded in larger structures.
 /// 
-/// Unlike g_object_weak_ref() and g_object_add_weak_pointer(), this weak
+/// Unlike `g_object_weak_ref()` and `g_object_add_weak_pointer()`, this weak
 /// reference is thread-safe: converting a weak pointer to a reference is
 /// atomic with respect to invalidation of weak pointers to destroyed
 /// objects.
 /// 
-/// If the object's `GObjectClass`.dispose method results in additional
+/// If the object's `GObjectClass.dispose` method results in additional
 /// references to the object being held, any `GWeakRefs` taken
 /// before it was disposed will continue to point to `nil`.  If
 /// `GWeakRefs` are taken after the object is disposed and
@@ -196,7 +196,7 @@ public extension WeakRefProtocol {
     /// After this call, the `GWeakRef` is left in an undefined state.
     /// 
     /// You should only call this on a `GWeakRef` that previously had
-    /// g_weak_ref_init() called on it.
+    /// `g_weak_ref_init()` called on it.
     func clear() {
         g_weak_ref_clear(cast(_ptr))
     
@@ -206,11 +206,11 @@ public extension WeakRefProtocol {
     /// reference to the object it points to, and return that reference.
     /// 
     /// This function is needed because of the potential race between taking
-    /// the pointer value and g_object_ref() on it, if the object was losing
+    /// the pointer value and `g_object_ref()` on it, if the object was losing
     /// its last reference at the same time in a different thread.
     /// 
     /// The caller should release the resulting reference in the usual way,
-    /// by using g_object_unref().
+    /// by using `g_object_unref()`.
     func get() -> UnsafeMutableRawPointer! {
         let rv = g_weak_ref_get(cast(_ptr))
         return cast(rv)
@@ -218,13 +218,13 @@ public extension WeakRefProtocol {
 
     /// Initialise a non-statically-allocated `GWeakRef`.
     /// 
-    /// This function also calls g_weak_ref_set() with `object` on the
+    /// This function also calls `g_weak_ref_set()` with `object` on the
     /// freshly-initialised weak reference.
     /// 
     /// This function should always be matched with a call to
-    /// g_weak_ref_clear().  It is not necessary to use this function for a
+    /// `g_weak_ref_clear()`.  It is not necessary to use this function for a
     /// `GWeakRef` in static storage because it will already be
-    /// properly initialised.  Just use g_weak_ref_set() directly.
+    /// properly initialised.  Just use `g_weak_ref_set()` directly.
     func init_(object: ObjectProtocol) {
         g_weak_ref_init(cast(_ptr), cast(object.ptr))
     

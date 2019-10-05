@@ -138,9 +138,9 @@ public extension FlagsValueProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFlagsValue` instance.
     var _ptr: UnsafeMutablePointer<GFlagsValue> { return ptr.assumingMemoryBound(to: GFlagsValue.self) }
 
-    /// This function is meant to be called from the complete_type_info()
+    /// This function is meant to be called from the `complete_type_info()`
     /// function of a `GTypePlugin` implementation, see the example for
-    /// g_enum_complete_type_info() above.
+    /// `g_enum_complete_type_info()` above.
     func flagsCompleteTypeInfo(gFlagsType g_flags_type: GType, info: TypeInfoProtocol) {
         g_flags_complete_type_info(g_flags_type, cast(info.ptr), cast(_ptr))
     
@@ -149,8 +149,8 @@ public extension FlagsValueProtocol {
     /// Registers a new static flags type with the name `name`.
     /// 
     /// It is normally more convenient to let [glib-mkenums][glib-mkenums]
-    /// generate a my_flags_get_type() function from a usual C enumeration
-    /// definition than to write one yourself using g_flags_register_static().
+    /// generate a `my_flags_get_type()` function from a usual C enumeration
+    /// definition than to write one yourself using `g_flags_register_static()`.
     func flagsRegisterStatic(name: UnsafePointer<gchar>) -> GType {
         let rv = g_flags_register_static(name, cast(_ptr))
         return rv

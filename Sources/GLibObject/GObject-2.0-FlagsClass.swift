@@ -138,7 +138,7 @@ public extension FlagsClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFlagsClass` instance.
     var _ptr: UnsafeMutablePointer<GFlagsClass> { return ptr.assumingMemoryBound(to: GFlagsClass.self) }
 
-    /// Returns the first `GFlagsValue` which is set in `value`.
+    /// Returns the first `GFlagsValue` which is set in `value.`
     func flagsGetFirst(value: CUnsignedInt) -> UnsafeMutablePointer<GFlagsValue>! {
         let rv = g_flags_get_first_value(cast(_ptr), guint(value))
         return cast(rv)

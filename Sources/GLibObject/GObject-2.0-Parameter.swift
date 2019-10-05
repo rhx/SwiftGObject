@@ -9,7 +9,7 @@ import GLib
 /// Alternatively, use `ParameterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// The GParameter struct is an auxiliary structure used
-/// to hand parameter name/value pairs to g_object_newv().
+/// to hand parameter name/value pairs to `g_object_newv()`.
 public protocol ParameterProtocol {
     /// Untyped pointer to the underlying `GParameter` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -23,7 +23,7 @@ public protocol ParameterProtocol {
 /// Use `ParameterRef` only as an `unowned` reference to an existing `GParameter` instance.
 ///
 /// The GParameter struct is an auxiliary structure used
-/// to hand parameter name/value pairs to g_object_newv().
+/// to hand parameter name/value pairs to `g_object_newv()`.
 public struct ParameterRef: ParameterProtocol {
     /// Untyped pointer to the underlying `GParameter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -77,7 +77,7 @@ public extension ParameterRef {
 /// Use `Parameter` as a strong reference or owner of a `GParameter` instance.
 ///
 /// The GParameter struct is an auxiliary structure used
-/// to hand parameter name/value pairs to g_object_newv().
+/// to hand parameter name/value pairs to `g_object_newv()`.
 open class Parameter: ParameterProtocol {
     /// Untyped pointer to the underlying `GParameter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

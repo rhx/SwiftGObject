@@ -269,27 +269,26 @@ open class Object: ObjectProtocol {
 
 public enum ObjectSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -337,7 +336,7 @@ public extension ObjectProtocol {
     /// This functionality is intended for binding `object` to a proxy
     /// object managed by another memory manager. This is done with two
     /// paired references: the strong reference added by
-    /// g_object_add_toggle_ref() and a reverse reference to the proxy
+    /// `g_object_add_toggle_ref()` and a reverse reference to the proxy
     /// object which is either a strong reference or weak reference.
     /// 
     /// The setup is that when there are no other references to `object`,
@@ -349,7 +348,7 @@ public extension ObjectProtocol {
     /// (`is_last_ref` false).
     /// 
     /// Since a (normal) reference must be held to the object before
-    /// calling g_object_add_toggle_ref(), the initial state of the reverse
+    /// calling `g_object_add_toggle_ref()`, the initial state of the reverse
     /// link is always strong.
     /// 
     /// Multiple toggle references may be added to the same gobject,
@@ -367,9 +366,9 @@ public extension ObjectProtocol {
     /// the lifetime of `object`. When the `object` is finalized,
     /// `weak_pointer` will be set to `nil`.
     /// 
-    /// Note that as with g_object_weak_ref(), the weak references created by
+    /// Note that as with `g_object_weak_ref()`, the weak references created by
     /// this method are not thread-safe: they cannot safely be used in one
-    /// thread if the object's last g_object_unref() might happen in another
+    /// thread if the object's last `g_object_unref()` might happen in another
     /// thread. Use `GWeakRef` if thread-safety is required.
     func addWeakPointer(weakPointerLocation weak_pointer_location: UnsafeMutablePointer<UnsafeMutableRawPointer>) {
         g_object_add_weak_pointer(cast(object_ptr), cast(weak_pointer_location))
@@ -384,7 +383,6 @@ public extension ObjectProtocol {
     ///   g_object_bind_property (action, "active", widget, "sensitive", 0);
     /// ```
     /// 
-    /// 
     /// Will result in the "sensitive" property of the widget `GObject` instance to be
     /// updated with the same value of the "active" property of the action `GObject`
     /// instance.
@@ -395,7 +393,7 @@ public extension ObjectProtocol {
     /// 
     /// The binding will automatically be removed when either the `source` or the
     /// `target` instances are finalized. To remove the binding without affecting the
-    /// `source` and the `target` you can just call g_object_unref() on the returned
+    /// `source` and the `target` you can just call `g_object_unref()` on the returned
     /// `GBinding` instance.
     /// 
     /// A `GObject` can have multiple bindings.
@@ -404,7 +402,7 @@ public extension ObjectProtocol {
         return cast(rv)
     }
 
-    /// Complete version of g_object_bind_property().
+    /// Complete version of `g_object_bind_property()`.
     /// 
     /// Creates a binding between `source_property` on `source` and `target_property`
     /// on `target`, allowing you to set the transformation functions to be used by
@@ -420,7 +418,7 @@ public extension ObjectProtocol {
     /// being held on the `GBinding` instance; if you want to hold on to the
     /// `GBinding` instance, you will need to hold a reference to it.
     /// 
-    /// To remove the binding, call g_binding_unbind().
+    /// To remove the binding, call `g_binding_unbind()`.
     /// 
     /// A `GObject` can have multiple bindings.
     /// 
@@ -428,7 +426,7 @@ public extension ObjectProtocol {
     /// and `transform_from` transformation functions; the `notify` function will
     /// be called once, when the binding is removed. If you need different data
     /// for each transformation function, please use
-    /// g_object_bind_property_with_closures() instead.
+    /// `g_object_bind_property_with_closures()` instead.
     func bindPropertyFull(sourceProperty source_property: UnsafePointer<gchar>, target: ObjectProtocol, targetProperty target_property: UnsafePointer<gchar>, flags: BindingFlags, transformTo transform_to: @escaping BindingTransformFunc, transformFrom transform_from: @escaping BindingTransformFunc, userData user_data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> UnsafeMutablePointer<GBinding>! {
         let rv = g_object_bind_property_full(cast(object_ptr), source_property, cast(target.ptr), target_property, flags, transform_to, transform_from, cast(user_data), notify)
         return cast(rv)
@@ -439,7 +437,7 @@ public extension ObjectProtocol {
     /// the binding.
     /// 
     /// This function is the language bindings friendly version of
-    /// g_object_bind_property_full(), using `GClosures` instead of
+    /// `g_object_bind_property_full()`, using `GClosures` instead of
     /// function pointers.
     func bindPropertyWithClosures(sourceProperty source_property: UnsafePointer<gchar>, target: ObjectProtocol, targetProperty target_property: UnsafePointer<gchar>, flags: BindingFlags, transformTo transform_to: ClosureProtocol, transformFrom transform_from: ClosureProtocol) -> UnsafeMutablePointer<GBinding>! {
         let rv = g_object_bind_property_with_closures(cast(object_ptr), source_property, cast(target.ptr), target_property, flags, cast(transform_to.ptr), cast(transform_from.ptr))
@@ -454,7 +452,7 @@ public extension ObjectProtocol {
     // *** disconnect() is not available because it has a varargs (...) parameter!
 
 
-    /// This is a variant of g_object_get_data() which returns
+    /// This is a variant of `g_object_get_data()` which returns
     /// a 'duplicate' of the value. `dup_func` defines the
     /// meaning of 'duplicate' in this context, it could e.g.
     /// take a reference on a ref-counted object.
@@ -473,7 +471,7 @@ public extension ObjectProtocol {
         return cast(rv)
     }
 
-    /// This is a variant of g_object_get_qdata() which returns
+    /// This is a variant of `g_object_get_qdata()` which returns
     /// a 'duplicate' of the value. `dup_func` defines the
     /// meaning of 'duplicate' in this context, it could e.g.
     /// take a reference on a ref-counted object.
@@ -495,7 +493,7 @@ public extension ObjectProtocol {
     /// This function is intended for `GObject` implementations to re-enforce
     /// a [floating][floating-ref] object reference. Doing this is seldom
     /// required: all `GInitiallyUnowneds` are created with a floating reference
-    /// which usually just needs to be sunken by calling g_object_ref_sink().
+    /// which usually just needs to be sunken by calling `g_object_ref_sink()`.
     func forceFloating() {
         g_object_force_floating(cast(object_ptr))
     
@@ -505,7 +503,7 @@ public extension ObjectProtocol {
     /// non-zero, the emission of "notify" signals on `object` is
     /// stopped. The signals are queued until the freeze count is decreased
     /// to zero. Duplicate notifications are squashed so that at most one
-    /// `GObject`::notify signal is emitted for each property modified while the
+    /// `GObject::notify` signal is emitted for each property modified while the
     /// object is frozen.
     /// 
     /// This is necessary for accessors that modify multiple properties to prevent
@@ -519,7 +517,7 @@ public extension ObjectProtocol {
     // *** get() is not available because it has a varargs (...) parameter!
 
 
-    /// Gets a named field from the objects table of associations (see g_object_set_data()).
+    /// Gets a named field from the objects table of associations (see `g_object_set_data()`).
     func getData(key: UnsafePointer<gchar>) -> UnsafeMutableRawPointer! {
         let rv = g_object_get_data(cast(object_ptr), key)
         return cast(rv)
@@ -537,17 +535,17 @@ public extension ObjectProtocol {
     ///    of the property can be transformed
     /// 
     /// In general, a copy is made of the property contents and the caller is
-    /// responsible for freeing the memory by calling g_value_unset().
+    /// responsible for freeing the memory by calling `g_value_unset()`.
     /// 
-    /// Note that g_object_get_property() is really intended for language
-    /// bindings, g_object_get() is much more convenient for C programming.
+    /// Note that `g_object_get_property()` is really intended for language
+    /// bindings, `g_object_get()` is much more convenient for C programming.
     func getProperty(propertyName property_name: UnsafePointer<gchar>, value: ValueProtocol) {
         g_object_get_property(cast(object_ptr), property_name, cast(value.ptr))
     
     }
 
     /// This function gets back user data pointers stored via
-    /// g_object_set_qdata().
+    /// `g_object_set_qdata()`.
     func getQdata(quark: GLib.Quark) -> UnsafeMutableRawPointer! {
         let rv = g_object_get_qdata(cast(object_ptr), quark)
         return cast(rv)
@@ -557,9 +555,9 @@ public extension ObjectProtocol {
     /// 
     /// In general, a copy is made of the property contents and the caller
     /// is responsible for freeing the memory in the appropriate manner for
-    /// the type, for instance by calling g_free() or g_object_unref().
+    /// the type, for instance by calling `g_free()` or `g_object_unref()`.
     /// 
-    /// See g_object_get().
+    /// See `g_object_get()`.
     func getValist(firstPropertyName first_property_name: UnsafePointer<gchar>, varArgs var_args: CVaListPointer) {
         g_object_get_valist(cast(object_ptr), first_property_name, var_args)
     
@@ -577,12 +575,12 @@ public extension ObjectProtocol {
     /// Emits a "notify" signal for the property `property_name` on `object`.
     /// 
     /// When possible, eg. when signaling a property change from within the class
-    /// that registered the property, you should use g_object_notify_by_pspec()
+    /// that registered the property, you should use `g_object_notify_by_pspec()`
     /// instead.
     /// 
     /// Note that emission of the notify signal may be blocked with
-    /// g_object_freeze_notify(). In this case, the signal emissions are queued
-    /// and will be emitted (in reverse order) when g_object_thaw_notify() is
+    /// `g_object_freeze_notify()`. In this case, the signal emissions are queued
+    /// and will be emitted (in reverse order) when `g_object_thaw_notify()` is
     /// called.
     func notify(propertyName property_name: UnsafePointer<gchar>) {
         g_object_notify(cast(object_ptr), property_name)
@@ -592,12 +590,12 @@ public extension ObjectProtocol {
     /// Emits a "notify" signal for the property specified by `pspec` on `object`.
     /// 
     /// This function omits the property name lookup, hence it is faster than
-    /// g_object_notify().
+    /// `g_object_notify()`.
     /// 
-    /// One way to avoid using g_object_notify() from within the
-    /// class that registered the properties, and using g_object_notify_by_pspec()
+    /// One way to avoid using `g_object_notify()` from within the
+    /// class that registered the properties, and using `g_object_notify_by_pspec()`
     /// instead, is to store the GParamSpec used with
-    /// g_object_class_install_property() inside a static array, e.g.:
+    /// `g_object_class_install_property()` inside a static array, e.g.:
     /// 
     /// (C Language Example):
     /// ```C
@@ -623,7 +621,6 @@ public extension ObjectProtocol {
     ///   }
     /// ```
     /// 
-    /// 
     /// and then notify a change on the "foo" property with:
     /// 
     /// (C Language Example):
@@ -639,7 +636,7 @@ public extension ObjectProtocol {
     /// Increases the reference count of `object`.
     /// 
     /// Since GLib 2.56, if `GLIB_VERSION_MAX_ALLOWED` is 2.56 or greater, the type
-    /// of `object` will be propagated to the return type (using the GCC typeof()
+    /// of `object` will be propagated to the return type (using the GCC `typeof()`
     /// extension), so any casting the caller needs to do on the return type must be
     /// explicit.
     func ref() -> UnsafeMutableRawPointer! {
@@ -657,13 +654,13 @@ public extension ObjectProtocol {
     /// adds a new normal reference increasing the reference count by one.
     /// 
     /// Since GLib 2.56, the type of `object` will be propagated to the return type
-    /// under the same conditions as for g_object_ref().
+    /// under the same conditions as for `g_object_ref()`.
     func refSink() -> UnsafeMutableRawPointer! {
         let rv = g_object_ref_sink(cast(object_ptr))
         return cast(rv)
     }
 
-    /// Removes a reference added with g_object_add_toggle_ref(). The
+    /// Removes a reference added with `g_object_add_toggle_ref()`. The
     /// reference count of the object is decreased by one.
     func removeToggleRef(notify: @escaping ToggleNotify, data: UnsafeMutableRawPointer) {
         g_object_remove_toggle_ref(cast(object_ptr), notify, cast(data))
@@ -671,8 +668,8 @@ public extension ObjectProtocol {
     }
 
     /// Removes a weak reference from `object` that was previously added
-    /// using g_object_add_weak_pointer(). The `weak_pointer_location` has
-    /// to match the one used with g_object_add_weak_pointer().
+    /// using `g_object_add_weak_pointer()`. The `weak_pointer_location` has
+    /// to match the one used with `g_object_add_weak_pointer()`.
     func removeWeakPointer(weakPointerLocation weak_pointer_location: UnsafeMutablePointer<UnsafeMutableRawPointer>) {
         g_object_remove_weak_pointer(cast(object_ptr), cast(weak_pointer_location))
     
@@ -692,8 +689,8 @@ public extension ObjectProtocol {
     /// or may not include using `old_destroy` as sometimes replacement
     /// should not destroy the object in the normal way.
     /// 
-    /// See g_object_set_data() for guidance on using a small, bounded set of values
-    /// for `key`.
+    /// See `g_object_set_data()` for guidance on using a small, bounded set of values
+    /// for `key.`
     func replaceData(key: UnsafePointer<gchar>, oldval: UnsafeMutableRawPointer, newval: UnsafeMutableRawPointer, destroy: @escaping GLib.DestroyNotify, oldDestroy old_destroy: UnsafeMutablePointer<GDestroyNotify>) -> Bool {
         let rv = g_object_replace_data(cast(object_ptr), key, cast(oldval), cast(newval), destroy, cast(old_destroy))
         return Bool(rv != 0)
@@ -736,7 +733,7 @@ public extension ObjectProtocol {
     /// If the object already had an association with that name,
     /// the old association will be destroyed.
     /// 
-    /// Internally, the `key` is converted to a `GQuark` using g_quark_from_string().
+    /// Internally, the `key` is converted to a `GQuark` using `g_quark_from_string()`.
     /// This means a copy of `key` is kept permanently (even after `object` has been
     /// finalized) — so it is recommended to only use a small, bounded set of values
     /// for `key` in your program, to avoid the `GQuark` storage growing unbounded.
@@ -745,7 +742,7 @@ public extension ObjectProtocol {
     
     }
 
-    /// Like g_object_set_data() except it adds notification
+    /// Like `g_object_set_data()` except it adds notification
     /// for when the association is destroyed, either by setting it
     /// to a different value or when the object is destroyed.
     /// 
@@ -763,8 +760,8 @@ public extension ObjectProtocol {
 
     /// This sets an opaque, named pointer on an object.
     /// The name is specified through a `GQuark` (retrived e.g. via
-    /// g_quark_from_static_string()), and the pointer
-    /// can be gotten back from the `object` with g_object_get_qdata()
+    /// `g_quark_from_static_string()`), and the pointer
+    /// can be gotten back from the `object` with `g_object_get_qdata()`
     /// until the `object` is finalized.
     /// Setting a previously set user data pointer, overrides (frees)
     /// the old pointer set, using `NULL` as pointer essentially
@@ -774,11 +771,11 @@ public extension ObjectProtocol {
     
     }
 
-    /// This function works like g_object_set_qdata(), but in addition,
+    /// This function works like `g_object_set_qdata()`, but in addition,
     /// a void (*destroy) (gpointer) function may be specified which is
     /// called with `data` as argument when the `object` is finalized, or
-    /// the data is being overwritten by a call to g_object_set_qdata()
-    /// with the same `quark`.
+    /// the data is being overwritten by a call to `g_object_set_qdata()`
+    /// with the same `quark.`
     func setQdataFull(quark: GLib.Quark, data: UnsafeMutableRawPointer, destroy: @escaping GLib.DestroyNotify) {
         g_object_set_qdata_full(cast(object_ptr), quark, cast(data), destroy)
     
@@ -807,8 +804,8 @@ public extension ObjectProtocol {
     }
 
     /// This function gets back user data pointers stored via
-    /// g_object_set_qdata() and removes the `data` from object
-    /// without invoking its destroy() function (if any was
+    /// `g_object_set_qdata()` and removes the `data` from object
+    /// without invoking its `destroy()` function (if any was
     /// set).
     /// Usually, calling this function is only required to update
     /// user data pointers with a destroy notifier, for example:
@@ -838,22 +835,21 @@ public extension ObjectProtocol {
     ///   g_list_free (list);
     /// }
     /// ```
-    /// 
-    /// Using g_object_get_qdata() in the above example, instead of
-    /// g_object_steal_qdata() would have left the destroy function set,
+    /// Using `g_object_get_qdata()` in the above example, instead of
+    /// `g_object_steal_qdata()` would have left the destroy function set,
     /// and thus the partial string list would have been freed upon
-    /// g_object_set_qdata_full().
+    /// `g_object_set_qdata_full()`.
     func stealQdata(quark: GLib.Quark) -> UnsafeMutableRawPointer! {
         let rv = g_object_steal_qdata(cast(object_ptr), quark)
         return cast(rv)
     }
 
     /// Reverts the effect of a previous call to
-    /// g_object_freeze_notify(). The freeze count is decreased on `object`
+    /// `g_object_freeze_notify()`. The freeze count is decreased on `object`
     /// and when it reaches zero, queued "notify" signals are emitted.
     /// 
     /// Duplicate notifications for each property are squashed so that at most one
-    /// `GObject`::notify signal is emitted for each property, in the reverse order
+    /// `GObject::notify` signal is emitted for each property, in the reverse order
     /// in which they have been queued.
     /// 
     /// It is an error to call this function when the freeze count is zero.
@@ -868,7 +864,7 @@ public extension ObjectProtocol {
     /// If the pointer to the `GObject` may be reused in future (for example, if it is
     /// an instance variable of another object), it is recommended to clear the
     /// pointer to `nil` rather than retain a dangling pointer to a potentially
-    /// invalid `GObject` instance. Use g_clear_object() for this.
+    /// invalid `GObject` instance. Use `g_clear_object()` for this.
     func unref() {
         g_object_unref(cast(object_ptr))
     
@@ -876,9 +872,9 @@ public extension ObjectProtocol {
 
     /// This function essentially limits the life time of the `closure` to
     /// the life time of the object. That is, when the object is finalized,
-    /// the `closure` is invalidated by calling g_closure_invalidate() on
+    /// the `closure` is invalidated by calling `g_closure_invalidate()` on
     /// it, in order to prevent invocations of the closure with a finalized
-    /// (nonexisting) object. Also, g_object_ref() and g_object_unref() are
+    /// (nonexisting) object. Also, `g_object_ref()` and `g_object_unref()` are
     /// added as marshal guards to the `closure`, to ensure that an extra
     /// reference count is held on `object` during invocation of the
     /// `closure`.  Usually, this function will be called on closures that
@@ -891,12 +887,12 @@ public extension ObjectProtocol {
     /// Adds a weak reference callback to an object. Weak references are
     /// used for notification when an object is finalized. They are called
     /// "weak references" because they allow you to safely hold a pointer
-    /// to an object without calling g_object_ref() (g_object_ref() adds a
+    /// to an object without calling `g_object_ref()` (`g_object_ref()` adds a
     /// strong reference, that is, forces the object to stay alive).
     /// 
     /// Note that the weak references created by this method are not
     /// thread-safe: they cannot safely be used in one thread if the
-    /// object's last g_object_unref() might happen in another thread.
+    /// object's last `g_object_unref()` might happen in another thread.
     /// Use `GWeakRef` if thread-safety is required.
     func weakRef(notify: @escaping WeakNotify, data: UnsafeMutableRawPointer) {
         g_object_weak_ref(cast(object_ptr), notify, cast(data))
@@ -909,8 +905,8 @@ public extension ObjectProtocol {
     
     }
 
-    /// A variant of g_cclosure_new() which uses `object` as `user_data` and
-    /// calls g_object_watch_closure() on `object` and the created
+    /// A variant of `g_cclosure_new()` which uses `object` as `user_data` and
+    /// calls `g_object_watch_closure()` on `object` and the created
     /// closure. This function is useful when you have a callback closely
     /// associated with a `GObject`, and want the callback to no longer run
     /// after the object is is freed.
@@ -919,8 +915,8 @@ public extension ObjectProtocol {
         return cast(rv)
     }
 
-    /// A variant of g_cclosure_new_swap() which uses `object` as `user_data`
-    /// and calls g_object_watch_closure() on `object` and the created
+    /// A variant of `g_cclosure_new_swap()` which uses `object` as `user_data`
+    /// and calls `g_object_watch_closure()` on `object` and the created
     /// closure. This function is useful when you have a callback closely
     /// associated with a `GObject`, and want the callback to no longer run
     /// after the object is is freed.
@@ -946,7 +942,7 @@ public extension ObjectProtocol {
 
     /// Disconnects a handler from `instance` so it will not be called during
     /// any future or currently ongoing emissions of the signal it has been
-    /// connected to. The `handler_id_ptr` is then set to zero, which is never a valid handler ID value (see g_signal_connect()).
+    /// connected to. The `handler_id_ptr` is then set to zero, which is never a valid handler ID value (see `g_signal_connect()`).
     /// 
     /// If the handler ID is 0 then this function does nothing.
     /// 
@@ -970,16 +966,16 @@ public extension ObjectProtocol {
     }
 
     /// Connects a `GCallback` function to a signal for a particular object. Similar
-    /// to g_signal_connect(), but allows to provide a `GClosureNotify` for the data
+    /// to `g_signal_connect()`, but allows to provide a `GClosureNotify` for the data
     /// which will be called when the signal handler is disconnected and no longer
-    /// used. Specify `connect_flags` if you need `..._after()` or
-    /// `..._swapped()` variants of this function.
+    /// used. Specify `connect_flags` if you need ``..._after()`` or
+    /// ``..._swapped()`` variants of this function.
     func signalConnectData(detailedSignal detailed_signal: UnsafePointer<gchar>, cHandler c_handler: @escaping Callback, data: UnsafeMutableRawPointer, destroyData destroy_data: @escaping ClosureNotify, connectFlags connect_flags: ConnectFlags) -> CUnsignedLong {
         let rv = g_signal_connect_data(cast(object_ptr), detailed_signal, c_handler, cast(data), destroy_data, connect_flags)
         return CUnsignedLong(rv)
     }
 
-    /// This is similar to g_signal_connect_data(), but uses a closure which
+    /// This is similar to `g_signal_connect_data()`, but uses a closure which
     /// ensures that the `gobject` stays alive during the call to `c_handler`
     /// by temporarily adding a reference count to `gobject`.
     /// 
@@ -1013,7 +1009,7 @@ public extension ObjectProtocol {
     /// blocked before to become active again.
     /// 
     /// The `handler_id` has to be a valid signal handler id, connected to a
-    /// signal of `instance`.
+    /// signal of `instance.`
     func signalHandlerBlock(handlerID handler_id: CUnsignedLong) {
         g_signal_handler_block(cast(object_ptr), gulong(handler_id))
     
@@ -1024,7 +1020,7 @@ public extension ObjectProtocol {
     /// connected to. The `handler_id` becomes invalid and may be reused.
     /// 
     /// The `handler_id` has to be a valid signal handler id, connected to a
-    /// signal of `instance`.
+    /// signal of `instance.`
     func signalHandlerDisconnect(handlerID handler_id: CUnsignedLong) {
         g_signal_handler_disconnect(cast(object_ptr), gulong(handler_id))
     
@@ -1040,13 +1036,13 @@ public extension ObjectProtocol {
         return CUnsignedLong(rv)
     }
 
-    /// Returns whether `handler_id` is the ID of a handler connected to `instance`.
+    /// Returns whether `handler_id` is the ID of a handler connected to `instance.`
     func signalHandlerIsConnected(handlerID handler_id: CUnsignedLong) -> Bool {
         let rv = g_signal_handler_is_connected(cast(object_ptr), gulong(handler_id))
         return Bool(rv != 0)
     }
 
-    /// Undoes the effect of a previous g_signal_handler_block() call.  A
+    /// Undoes the effect of a previous `g_signal_handler_block()` call.  A
     /// blocked handler is skipped during signal emissions and will not be
     /// invoked, unblocking it (for exactly the amount of times it has been
     /// blocked before) reverts its "blocked" state, so the handler will be
@@ -1145,7 +1141,7 @@ public extension ObjectProtocol {
 
     /// Stops a signal's current emission.
     /// 
-    /// This is just like g_signal_stop_emission() except it will look up the
+    /// This is just like `g_signal_stop_emission()` except it will look up the
     /// signal id for you.
     func signalStopEmissionByName(detailedSignal detailed_signal: UnsafePointer<gchar>) {
         g_signal_stop_emission_by_name(cast(object_ptr), detailed_signal)
