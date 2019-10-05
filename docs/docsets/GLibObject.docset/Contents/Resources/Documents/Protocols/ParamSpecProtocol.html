@@ -1407,7 +1407,7 @@ Alternatively, use <code><a href="../Structs/ParamSpecRef.html">ParamSpecRef</a>
 <p><code>GParamSpec</code> is an object structure that encapsulates the metadata
 required to specify parameters, such as e.g. <code>GObject</code> properties.</p>
 
-<p>`<code>Parameter names</code> {<code>canonical</code>-parameter-names}</p>
+<p>&ldquo;<code>Parameter names</code> {<code>canonical</code>-parameter-names}</p>
 
 <p>Parameter names need to start with a letter (a-z or A-Z).
 Subsequent characters can be letters, numbers or a &lsquo;-&rsquo;.
@@ -1517,7 +1517,7 @@ the parameter.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the short description of a <code>GParamSpec</code>.</p>
+                        <p>Get the short description of a <code>GParamSpec.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -1552,7 +1552,7 @@ the parameter.</p>
                       <div class="abstract">
                         <p>Gets the default value of <code>pspec</code> as a pointer to a <code>GValue</code>.</p>
 
-<p>The <code>GValue</code> will remain valid for the life of <code>pspec</code>.</p>
+<p>The <code>GValue</code> will remain valid for the life of <code>pspec.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -1587,7 +1587,7 @@ the parameter.</p>
                       <div class="abstract">
                         <p>Get the name of a <code>GParamSpec</code>.</p>
 
-<p>The name is always an <q>interned</q> string (as per g_intern_string()).
+<p>The name is always an <q>interned</q> string (as per <code>g_intern_string()</code>).
 This allows for pointer-value comparisons.</p>
 
                       </div>
@@ -1654,7 +1654,7 @@ This allows for pointer-value comparisons.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the nickname of a <code>GParamSpec</code>.</p>
+                        <p>Get the nickname of a <code>GParamSpec.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -1687,7 +1687,7 @@ This allows for pointer-value comparisons.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets back user data pointers stored via g_param_spec_set_qdata().</p>
+                        <p>Gets back user data pointers stored via <code>g_param_spec_set_qdata()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1725,7 +1725,7 @@ returns that paramspec. Redirect is used typically for
 providing a new implementation of a property in a derived
 type while preserving all the properties from the parent
 type. Redirection is established by creating a property
-of type <code>GParamSpecOverride</code>. See g_object_class_override_property()
+of type <code>GParamSpecOverride</code>. See <code>g_object_class_override_property()</code>
 for an example of the use of this capability.</p>
 
                       </div>
@@ -1759,7 +1759,7 @@ for an example of the use of this capability.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Increments the reference count of <code>pspec</code>.</p>
+                        <p>Increments the reference count of <code>pspec.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -1792,7 +1792,7 @@ for an example of the use of this capability.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Convenience function to ref and sink a <code>GParamSpec</code>.</p>
+                        <p>Convenience function to ref and sink a <code>GParamSpec.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -1827,8 +1827,8 @@ for an example of the use of this capability.</p>
                       <div class="abstract">
                         <p>Sets an opaque, named pointer on a <code>GParamSpec</code>. The name is
 specified through a <code>GQuark</code> (retrieved e.g. via
-g_quark_from_static_string()), and the pointer can be gotten back
-from the <code>pspec</code> with g_param_spec_get_qdata().  Setting a
+<code>g_quark_from_static_string()</code>), and the pointer can be gotten back
+from the <code>pspec</code> with <code>g_param_spec_get_qdata()</code>.  Setting a
 previously set user data pointer, overrides (frees) the old pointer
 set, using <code>nil</code> as pointer essentially removes the data stored.</p>
 
@@ -1863,11 +1863,11 @@ set, using <code>nil</code> as pointer essentially removes the data stored.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This function works like g_param_spec_set_qdata(), but in addition,
+                        <p>This function works like <code>g_param_spec_set_qdata()</code>, but in addition,
 a <code>void (*destroy) (gpointer)</code> function may be
 specified which is called with <code>data</code> as argument when the <code>pspec</code> is
 finalized, or the data is being overwritten by a call to
-g_param_spec_set_qdata() with the same <code>quark</code>.</p>
+<code>g_param_spec_set_qdata()</code> with the same <code>quark.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -1901,7 +1901,7 @@ g_param_spec_set_qdata() with the same <code>quark</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The initial reference count of a newly created <code>GParamSpec</code> is 1,
-even though no one has explicitly called g_param_spec_ref() on it
+even though no one has explicitly called <code>g_param_spec_ref()</code> on it
 yet. So the initial reference count is flagged as <q>floating</q>, until
 someone calls <code>g_param_spec_ref (pspec); g_param_spec_sink
 (pspec);</code> in sequence on it, taking over the initial
@@ -1939,8 +1939,8 @@ count of 1 still, but is not flagged <q>floating</q> anymore).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets back user data pointers stored via g_param_spec_set_qdata()
-and removes the <code>data</code> from <code>pspec</code> without invoking its destroy()
+                        <p>Gets back user data pointers stored via <code>g_param_spec_set_qdata()</code>
+and removes the <code>data</code> from <code>pspec</code> without invoking its <code>destroy()</code>
 function (if any was set).  Usually, calling this function is only
 required to update user data pointers with a destroy notifier.</p>
 
@@ -1975,7 +1975,7 @@ required to update user data pointers with a destroy notifier.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Decrements the reference count of a <code>pspec</code>.</p>
+                        <p>Decrements the reference count of a <code>pspec.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2046,9 +2046,9 @@ useful unless you are implementing a new base type similar to GObject.</p>
                         <p>Creates a new <code>GParamSpecValueArray</code> instance specifying a
 <code>G_TYPE_VALUE_ARRAY</code> property. <code>G_TYPE_VALUE_ARRAY</code> is a
 <code>G_TYPE_BOXED</code> type, as such, <code>GValue</code> structures for this property
-can be accessed with g_value_set_boxed() and g_value_get_boxed().</p>
+can be accessed with <code>g_value_set_boxed()</code> and <code>g_value_get_boxed()</code>.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -2086,8 +2086,8 @@ validates <code>dest_value</code>, in order for it to conform to <code>pspec</co
 <code>strict_validation</code> is <code>true</code> this function will only succeed if the
 transformed <code>dest_value</code> complied to <code>pspec</code> without modifications.</p>
 
-<p>See also g_value_type_transformable(), g_value_transform() and
-g_param_value_validate().</p>
+<p>See also <code>g_value_type_transformable()</code>, <code>g_value_transform()</code> and
+<code>g_param_value_validate()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -2120,7 +2120,7 @@ g_param_value_validate().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Checks whether <code>value</code> contains the default value as specified in <code>pspec</code>.</p>
+                        <p>Checks whether <code>value</code> contains the default value as specified in <code>pspec.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2153,7 +2153,7 @@ g_param_value_validate().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets <code>value</code> to its default value as specified in <code>pspec</code>.</p>
+                        <p>Sets <code>value</code> to its default value as specified in <code>pspec.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2259,7 +2259,7 @@ respectively.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the short description of a <code>GParamSpec</code>.</p>
+                        <p>Get the short description of a <code>GParamSpec.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2294,7 +2294,7 @@ respectively.</p>
                       <div class="abstract">
                         <p>Gets the default value of <code>pspec</code> as a pointer to a <code>GValue</code>.</p>
 
-<p>The <code>GValue</code> will remain valid for the life of <code>pspec</code>.</p>
+<p>The <code>GValue</code> will remain valid for the life of <code>pspec.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2329,7 +2329,7 @@ respectively.</p>
                       <div class="abstract">
                         <p>Get the name of a <code>GParamSpec</code>.</p>
 
-<p>The name is always an <q>interned</q> string (as per g_intern_string()).
+<p>The name is always an <q>interned</q> string (as per <code>g_intern_string()</code>).
 This allows for pointer-value comparisons.</p>
 
                       </div>
@@ -2396,7 +2396,7 @@ This allows for pointer-value comparisons.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the nickname of a <code>GParamSpec</code>.</p>
+                        <p>Get the nickname of a <code>GParamSpec.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2434,7 +2434,7 @@ returns that paramspec. Redirect is used typically for
 providing a new implementation of a property in a derived
 type while preserving all the properties from the parent
 type. Redirection is established by creating a property
-of type <code>GParamSpecOverride</code>. See g_object_class_override_property()
+of type <code>GParamSpecOverride</code>. See <code>g_object_class_override_property()</code>
 for an example of the use of this capability.</p>
 
                       </div>
@@ -2460,7 +2460,7 @@ for an example of the use of this capability.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

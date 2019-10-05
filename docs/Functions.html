@@ -1415,7 +1415,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provide a copy of a boxed structure <code>src_boxed</code> which is of type <code>boxed_type</code>.</p>
+                        <p>Provide a copy of a boxed structure <code>src_boxed</code> which is of type <code>boxed_type.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -1445,7 +1445,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Free the boxed structure <code>boxed</code> which is of type <code>boxed_type</code>.</p>
+                        <p>Free the boxed structure <code>boxed</code> which is of type <code>boxed_type.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -1510,7 +1510,7 @@ provided to copy and free opaque boxed structures of this type.</p>
                         <p>A <code>GClosureMarshal</code> function for use with signals with handlers that
 take two boxed pointers as arguments and return a boolean.  If you
 have such a signal, you will probably also need to use an
-accumulator, such as g_signal_accumulator_true_handled().</p>
+accumulator, such as <code>g_signal_accumulator_true_handled()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -2195,7 +2195,7 @@ denotes a flags type.</p>
                         <p>A generic marshaller function implemented via
 <a href="http://sourceware.org/libffi/">libffi</a>.</p>
 
-<p>Normally this function is not passed explicitly to g_signal_new(),
+<p>Normally this function is not passed explicitly to <code>g_signal_new()</code>,
 but used automatically by GLib when specifying a <code>nil</code> marshaller.</p>
 
                       </div>
@@ -2229,7 +2229,7 @@ but used automatically by GLib when specifying a <code>nil</code> marshaller.</p
                         <p>Creates a new closure which invokes <code>callback_func</code> with <code>user_data</code> as
 the last parameter.</p>
 
-<p><code>destroy_data</code> will be called as a finalize notifier on the <code>GClosure</code>.</p>
+<p><code>destroy_data</code> will be called as a finalize notifier on the <code>GClosure.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2259,8 +2259,8 @@ the last parameter.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A variant of g_cclosure_new() which uses <code>object</code> as <code>user_data</code> and
-calls g_object_watch_closure() on <code>object</code> and the created
+                        <p>A variant of <code>g_cclosure_new()</code> which uses <code>object</code> as <code>user_data</code> and
+calls <code>g_object_watch_closure()</code> on <code>object</code> and the created
 closure. This function is useful when you have a callback closely
 associated with a <code>GObject</code>, and want the callback to no longer run
 after the object is is freed.</p>
@@ -2293,8 +2293,8 @@ after the object is is freed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A variant of g_cclosure_new_swap() which uses <code>object</code> as <code>user_data</code>
-and calls g_object_watch_closure() on <code>object</code> and the created
+                        <p>A variant of <code>g_cclosure_new_swap()</code> which uses <code>object</code> as <code>user_data</code>
+and calls <code>g_object_watch_closure()</code> on <code>object</code> and the created
 closure. This function is useful when you have a callback closely
 associated with a <code>GObject</code>, and want the callback to no longer run
 after the object is is freed.</p>
@@ -2330,7 +2330,7 @@ after the object is is freed.</p>
                         <p>Creates a new closure which invokes <code>callback_func</code> with <code>user_data</code> as
 the first parameter.</p>
 
-<p><code>destroy_data</code> will be called as a finalize notifier on the <code>GClosure</code>.</p>
+<p><code>destroy_data</code> will be called as a finalize notifier on the <code>GClosure.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2401,7 +2401,7 @@ pointer casts.</p>
                       <div class="abstract">
                         <p>Disconnects a handler from <code>instance</code> so it will not be called during
 any future or currently ongoing emissions of the signal it has been
-connected to. The <code>handler_id_ptr</code> is then set to zero, which is never a valid handler ID value (see g_signal_connect()).</p>
+connected to. The <code>handler_id_ptr</code> is then set to zero, which is never a valid handler ID value (see <code>g_signal_connect()</code>).</p>
 
 <p>If the handler ID is 0 then this function does nothing.</p>
 
@@ -2578,8 +2578,8 @@ my_enum_complete_type_info (GTypePlugin     *plugin,
                         <p>Registers a new static enumeration type with the name <code>name</code>.</p>
 
 <p>It is normally more convenient to let [glib-mkenums][glib-mkenums],
-generate a my_enum_get_type() function from a usual C enumeration
-definition  than to write one yourself using g_enum_register_static().</p>
+generate a <code>my_enum_get_type()</code> function from a usual C enumeration
+definition  than to write one yourself using <code>g_enum_register_static()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -2642,9 +2642,9 @@ may change in the future.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This function is meant to be called from the complete_type_info()
+                        <p>This function is meant to be called from the <code>complete_type_info()</code>
 function of a <code><a href="Structs.html#/s:10GLibObject11GTypePluginV">GTypePlugin</a></code> implementation, see the example for
-g_enum_complete_type_info() above.</p>
+<code>g_enum_complete_type_info()</code> above.</p>
 
                       </div>
                       <div class="declaration">
@@ -2674,7 +2674,7 @@ g_enum_complete_type_info() above.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the first <code>GFlagsValue</code> which is set in <code>value</code>.</p>
+                        <p>Returns the first <code>GFlagsValue</code> which is set in <code>value.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2767,8 +2767,8 @@ g_enum_complete_type_info() above.</p>
                         <p>Registers a new static flags type with the name <code>name</code>.</p>
 
 <p>It is normally more convenient to let [glib-mkenums][glib-mkenums]
-generate a my_flags_get_type() function from a usual C enumeration
-definition than to write one yourself using g_flags_register_static().</p>
+generate a <code>my_flags_get_type()</code> function from a usual C enumeration
+definition than to write one yourself using <code>g_flags_register_static()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -2864,11 +2864,11 @@ may change in the future.</p>
                       <div class="abstract">
                         <p>Creates a new <code>GParamSpecBoolean</code> instance specifying a <code>G_TYPE_BOOLEAN</code>
 property. In many cases, it may be more appropriate to use an enum with
-g_param_spec_enum(), both to improve code clarity by using explicitly named
+<code>g_param_spec_enum()</code>, both to improve code clarity by using explicitly named
 values, and to allow for more values to be added in future without breaking
 API.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -2901,7 +2901,7 @@ API.</p>
                         <p>Creates a new <code>GParamSpecBoxed</code> instance specifying a <code>G_TYPE_BOXED</code>
 derived property.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -2964,7 +2964,7 @@ derived property.</p>
                         <p>Creates a new <code>GParamSpecDouble</code> instance specifying a <code>G_TYPE_DOUBLE</code>
 property.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -2997,7 +2997,7 @@ property.</p>
                         <p>Creates a new <code>GParamSpecEnum</code> instance specifying a <code>G_TYPE_ENUM</code>
 property.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3030,7 +3030,7 @@ property.</p>
                         <p>Creates a new <code>GParamSpecFlags</code> instance specifying a <code>G_TYPE_FLAGS</code>
 property.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3062,7 +3062,7 @@ property.</p>
                       <div class="abstract">
                         <p>Creates a new <code>GParamSpecFloat</code> instance specifying a <code>G_TYPE_FLOAT</code> property.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3095,7 +3095,7 @@ property.</p>
                         <p>Creates a new <code>GParamSpecGType</code> instance specifying a
 <code>G_TYPE_GTYPE</code> property.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3127,7 +3127,7 @@ property.</p>
                       <div class="abstract">
                         <p>Creates a new <code>GParamSpecInt</code> instance specifying a <code>G_TYPE_INT</code> property.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3159,7 +3159,7 @@ property.</p>
                       <div class="abstract">
                         <p>Creates a new <code>GParamSpecInt64</code> instance specifying a <code>G_TYPE_INT64</code> property.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3191,7 +3191,7 @@ property.</p>
                       <div class="abstract">
                         <p>Creates a new <code>GParamSpecLong</code> instance specifying a <code>G_TYPE_LONG</code> property.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3224,7 +3224,7 @@ property.</p>
                         <p>Creates a new <code>GParamSpecBoxed</code> instance specifying a <code>G_TYPE_OBJECT</code>
 derived property.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3289,7 +3289,7 @@ useful unless you are implementing a new base type similar to GObject.</p>
                         <p>Creates a new <code>GParamSpecParam</code> instance specifying a <code>G_TYPE_PARAM</code>
 property.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3320,10 +3320,10 @@ property.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates a new <code>GParamSpecPointer</code> instance specifying a pointer property.
-Where possible, it is better to use g_param_spec_object() or
-g_param_spec_boxed() to expose memory management information.</p>
+Where possible, it is better to use <code>g_param_spec_object()</code> or
+<code>g_param_spec_boxed()</code> to expose memory management information.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3390,7 +3390,7 @@ deprecated, so you should always set <code>type_prefixing</code> to <code>false<
                       <div class="abstract">
                         <p>Creates a new <code>GParamSpecString</code> instance.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3452,7 +3452,7 @@ deprecated, so you should always set <code>type_prefixing</code> to <code>false<
                       <div class="abstract">
                         <p>Creates a new <code>GParamSpecUInt</code> instance specifying a <code>G_TYPE_UINT</code> property.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3485,7 +3485,7 @@ deprecated, so you should always set <code>type_prefixing</code> to <code>false<
                         <p>Creates a new <code>GParamSpecUInt64</code> instance specifying a <code>G_TYPE_UINT64</code>
 property.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3518,7 +3518,7 @@ property.</p>
                         <p>Creates a new <code>GParamSpecULong</code> instance specifying a <code>G_TYPE_ULONG</code>
 property.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3550,9 +3550,9 @@ property.</p>
                       <div class="abstract">
                         <p>Creates a new <code>GParamSpecUnichar</code> instance specifying a <code>G_TYPE_UINT</code>
 property. <code>GValue</code> structures for this property can be accessed with
-g_value_set_uint() and g_value_get_uint().</p>
+<code>g_value_set_uint()</code> and <code>g_value_get_uint()</code>.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3585,9 +3585,9 @@ g_value_set_uint() and g_value_get_uint().</p>
                         <p>Creates a new <code>GParamSpecValueArray</code> instance specifying a
 <code>G_TYPE_VALUE_ARRAY</code> property. <code>G_TYPE_VALUE_ARRAY</code> is a
 <code>G_TYPE_BOXED</code> type, as such, <code>GValue</code> structures for this property
-can be accessed with g_value_set_boxed() and g_value_get_boxed().</p>
+can be accessed with <code>g_value_set_boxed()</code> and <code>g_value_get_boxed()</code>.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3622,7 +3622,7 @@ property.</p>
 
 <p>If <code>default_value</code> is floating, it is consumed.</p>
 
-<p>See g_param_spec_internal() for details on property names.</p>
+<p>See <code>g_param_spec_internal()</code> for details on property names.</p>
 
                       </div>
                       <div class="declaration">
@@ -3690,8 +3690,8 @@ validates <code>dest_value</code>, in order for it to conform to <code>pspec</co
 <code>strict_validation</code> is <code>true</code> this function will only succeed if the
 transformed <code>dest_value</code> complied to <code>pspec</code> without modifications.</p>
 
-<p>See also g_value_type_transformable(), g_value_transform() and
-g_param_value_validate().</p>
+<p>See also <code>g_value_type_transformable()</code>, <code>g_value_transform()</code> and
+<code>g_param_value_validate()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3721,7 +3721,7 @@ g_param_value_validate().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Checks whether <code>value</code> contains the default value as specified in <code>pspec</code>.</p>
+                        <p>Checks whether <code>value</code> contains the default value as specified in <code>pspec.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3751,7 +3751,7 @@ g_param_value_validate().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets <code>value</code> to its default value as specified in <code>pspec</code>.</p>
+                        <p>Sets <code>value</code> to its default value as specified in <code>pspec.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3849,7 +3849,7 @@ respectively.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates a new <code>G_TYPE_POINTER</code> derived type id for a new
-pointer type with name <code>name</code>.</p>
+pointer type with name <code>name.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3988,8 +3988,8 @@ for signals which don&rsquo;t have <code>G_SIGNAL_NO_HOOKS</code> flag set.</p>
                       <div class="abstract">
                         <p>Calls the original class closure of a signal. This function should only
 be called from an overridden class closure; see
-g_signal_override_class_closure() and
-g_signal_override_class_handler().</p>
+<code>g_signal_override_class_closure()</code> and
+<code>g_signal_override_class_handler()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4080,7 +4080,7 @@ g_signal_override_class_handler().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Connects a <code>GCallback</code> function to a signal for a particular object. Similar
-to g_signal_connect(), but allows to provide a <code>GClosureNotify</code> for the data
+to <code>g_signal_connect()</code>, but allows to provide a <code>GClosureNotify</code> for the data
 which will be called when the signal handler is disconnected and no longer
 used. Specify <code>connect_flags</code> if you need <code>..._after()</code> or
 <code>..._swapped()</code> variants of this function.</p>
@@ -4113,7 +4113,7 @@ used. Specify <code>connect_flags</code> if you need <code>..._after()</code> or
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This is similar to g_signal_connect_data(), but uses a closure which
+                        <p>This is similar to <code>g_signal_connect_data()</code>, but uses a closure which
 ensures that the <code>gobject</code> stays alive during the call to <code>c_handler</code>
 by temporarily adding a reference count to <code>gobject</code>.</p>
 
@@ -4152,8 +4152,8 @@ is not safe).</p>
                       <div class="abstract">
                         <p>Emits a signal.</p>
 
-<p>Note that g_signal_emit_valist() resets the return value to the default
-if no handlers are connected, in contrast to g_signal_emitv().</p>
+<p>Note that <code>g_signal_emit_valist()</code> resets the return value to the default
+if no handlers are connected, in contrast to <code>g_signal_emitv()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4185,8 +4185,8 @@ if no handlers are connected, in contrast to g_signal_emitv().</p>
                       <div class="abstract">
                         <p>Emits a signal.</p>
 
-<p>Note that g_signal_emitv() doesn&rsquo;t change <code>return_value</code> if no handlers are
-connected, in contrast to g_signal_emit() and g_signal_emit_valist().</p>
+<p>Note that <code>g_signal_emitv()</code> doesn&rsquo;t change <code>return_value</code> if no handlers are
+connected, in contrast to <code>g_signal_emit()</code> and <code>g_signal_emit_valist()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4253,7 +4253,7 @@ has to be unblocked exactly the same amount of times it has been
 blocked before to become active again.</p>
 
 <p>The <code>handler_id</code> has to be a valid signal handler id, connected to a
-signal of <code>instance</code>.</p>
+signal of <code>instance.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4288,7 +4288,7 @@ any future or currently ongoing emissions of the signal it has been
 connected to. The <code>handler_id</code> becomes invalid and may be reused.</p>
 
 <p>The <code>handler_id</code> has to be a valid signal handler id, connected to a
-signal of <code>instance</code>.</p>
+signal of <code>instance.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4352,7 +4352,7 @@ If no handler was found, 0 is returned.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns whether <code>handler_id</code> is the ID of a handler connected to <code>instance</code>.</p>
+                        <p>Returns whether <code>handler_id</code> is the ID of a handler connected to <code>instance.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4382,7 +4382,7 @@ If no handler was found, 0 is returned.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undoes the effect of a previous g_signal_handler_block() call.  A
+                        <p>Undoes the effect of a previous <code>g_signal_handler_block()</code> call.  A
 blocked handler is skipped during signal emissions and will not be
 invoked, unblocking it (for exactly the amount of times it has been
 blocked before) reverts its <q>blocked</q> state, so the handler will be
@@ -4613,7 +4613,7 @@ of building the arguments.</p>
                       <div class="abstract">
                         <p>Lists the signals by id that a certain instance or interface type
 created. Further information about the signals can be acquired through
-g_signal_query().</p>
+<code>g_signal_query()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4649,7 +4649,7 @@ somewhat faster than using the name each time.</p>
 
 <p>Also tries the ancestors of the given type.</p>
 
-<p>See g_signal_new() for details on allowed signal names.</p>
+<p>See <code>g_signal_new()</code> for details on allowed signal names.</p>
 
                       </div>
                       <div class="declaration">
@@ -4713,9 +4713,9 @@ somewhat faster than using the name each time.</p>
                       <div class="abstract">
                         <p>Creates a new signal. (This is usually done in the class initializer.)</p>
 
-<p>See g_signal_new() for details on allowed signal names.</p>
+<p>See <code>g_signal_new()</code> for details on allowed signal names.</p>
 
-<p>If c_marshaller is <code>nil</code>, g_cclosure_marshal_generic() will be used as
+<p>If c_marshaller is <code>nil</code>, <code>g_cclosure_marshal_generic()</code> will be used as
 the marshaller for this signal.</p>
 
                       </div>
@@ -4748,9 +4748,9 @@ the marshaller for this signal.</p>
                       <div class="abstract">
                         <p>Creates a new signal. (This is usually done in the class initializer.)</p>
 
-<p>See g_signal_new() for details on allowed signal names.</p>
+<p>See <code>g_signal_new()</code> for details on allowed signal names.</p>
 
-<p>If c_marshaller is <code>nil</code>, g_cclosure_marshal_generic() will be used as
+<p>If c_marshaller is <code>nil</code>, <code>g_cclosure_marshal_generic()</code> will be used as
 the marshaller for this signal.</p>
 
                       </div>
@@ -4785,8 +4785,8 @@ the marshaller for this signal.</p>
 for emissions on instances of <code>instance_type</code>. <code>instance_type</code> must be derived
 from the type to which the signal belongs.</p>
 
-<p>See g_signal_chain_from_overridden() and
-g_signal_chain_from_overridden_handler() for how to chain up to the
+<p>See <code>g_signal_chain_from_overridden()</code> and
+<code>g_signal_chain_from_overridden_handler()</code> for how to chain up to the
 parent class closure from inside the overridden one.</p>
 
                       </div>
@@ -4822,8 +4822,8 @@ given signal for emissions on instances of <code>instance_type</code> with
 callback <code>class_handler</code>. <code>instance_type</code> must be derived from the
 type to which the signal belongs.</p>
 
-<p>See g_signal_chain_from_overridden() and
-g_signal_chain_from_overridden_handler() for how to chain up to the
+<p>See <code>g_signal_chain_from_overridden()</code> and
+<code>g_signal_chain_from_overridden_handler()</code> for how to chain up to the
 parent class closure from inside the overridden one.</p>
 
                       </div>
@@ -5021,7 +5021,7 @@ flag).</p>
                       <div class="abstract">
                         <p>Stops a signal&rsquo;s current emission.</p>
 
-<p>This is just like g_signal_stop_emission() except it will look up the
+<p>This is just like <code>g_signal_stop_emission()</code> except it will look up the
 signal id for you.</p>
 
                       </div>
@@ -5054,7 +5054,7 @@ signal id for you.</p>
                       <div class="abstract">
                         <p>Creates a new closure which invokes the function found at the offset
 <code>struct_offset</code> in the class structure of the interface or classed type
-identified by <code>itype</code>.</p>
+identified by <code>itype.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5121,7 +5121,7 @@ filled in with pointers to appropriate functions.</p>
                         <p>Sets a dummy callback for <code>source</code>. The callback will do nothing, and
 if the source expects a <code>gboolean</code> return value, it will return <code>true</code>.
 (If the source expects any other type of return value, it will return
-a 0/<code>nil</code> value; whatever g_value_init() initializes a <code>GValue</code> to for
+a 0/<code>nil</code> value; whatever <code>g_value_init()</code> initializes a <code>GValue</code> to for
 that type.)</p>
 
 <p>If the source is not one of the standard GLib types, the
@@ -5233,9 +5233,9 @@ sequentially in the same memory block as the public
 structures, and are zero-filled.</p>
 
 <p>This function should be called in the
-type&rsquo;s get_type() function after the type is registered.
+type&rsquo;s <code>get_type()</code> function after the type is registered.
 The private structure can be retrieved using the
-G_TYPE_CLASS_GET_PRIVATE() macro.</p>
+<code>G_TYPE_CLASS_GET_PRIVATE()</code> macro.</p>
 
                       </div>
                       <div class="declaration">
@@ -5458,7 +5458,7 @@ pointed to by <code>info</code> is used to manage the relationship.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Private helper function to aid implementation of the
-G_TYPE_CHECK_INSTANCE() macro.</p>
+<code>G_TYPE_CHECK_INSTANCE()</code> macro.</p>
 
                       </div>
                       <div class="declaration">
@@ -5669,7 +5669,7 @@ G_TYPE_CHECK_INSTANCE() macro.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Return a newly allocated and 0-terminated array of type IDs, listing
-the child types of <code>type</code>.</p>
+the child types of <code>type.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5729,7 +5729,7 @@ the child types of <code>type</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This function is essentially the same as g_type_class_ref(),
+                        <p>This function is essentially the same as <code>g_type_class_ref()</code>,
 except that the classes reference count isn&rsquo;t incremented.
 As a consequence, this function may return <code>nil</code> if the class
 of the type passed in does not currently exist (hasn&rsquo;t been
@@ -5763,7 +5763,7 @@ referenced before).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A more efficient version of g_type_class_peek() which works only for
+                        <p>A more efficient version of <code>g_type_class_peek()</code> which works only for
 static types.</p>
 
                       </div>
@@ -5830,10 +5830,10 @@ exist already.</p>
 can be instantiated. The type system only performs basic allocation
 and structure setups for instances: actual instance creation should
 happen through functions supplied by the type&rsquo;s fundamental type
-implementation.  So use of g_type_create_instance() is reserved for
+implementation.  So use of <code>g_type_create_instance()</code> is reserved for
 implementators of fundamental types only. E.g. instances of the
-<code>GObject</code> hierarchy should be created via g_object_new() and never
-directly through g_type_create_instance() which doesn&rsquo;t handle things
+<code>GObject</code> hierarchy should be created via <code>g_object_new()</code> and never
+directly through <code>g_type_create_instance()</code> which doesn&rsquo;t handle things
 like singleton objects or object construction.</p>
 
 <p>The extended members of the returned instance are guaranteed to be filled
@@ -5841,7 +5841,7 @@ with zeros.</p>
 
 <p>Note: Do not use this function, unless you&rsquo;re implementing a
 fundamental type. Also language bindings should not use this
-function, but g_object_new() instead.</p>
+function, but <code>g_object_new()</code> instead.</p>
 
                       </div>
                       <div class="declaration">
@@ -5909,7 +5909,7 @@ and returns the default interface vtable for the type.</p>
 for the type will be created and initalized by calling
 the base interface init and default vtable init functions for
 the type (the <code>base_init</code> and <code>class_init</code> members of <code>GTypeInfo</code>).
-Calling g_type_default_interface_ref() is useful when you
+Calling <code>g_type_default_interface_ref()</code> is useful when you
 want to make sure that signals and properties for an interface
 have been installed.</p>
 
@@ -6007,17 +6007,17 @@ includes the type itself, so that e.g. a fundamental type has depth 1.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Ensures that the indicated <code>type</code> has been registered with the
-type system, and its _class_init() method has been run.</p>
+type system, and its <code>_class_init()</code> method has been run.</p>
 
-<p>In theory, simply calling the type&rsquo;s _get_type() method (or using
+<p>In theory, simply calling the type&rsquo;s <code>_get_type()</code> method (or using
 the corresponding macro) is supposed take care of this. However,
-_get_type() methods are often marked <code>G_GNUC_CONST</code> for performance
+<code>_get_type()</code> methods are often marked <code>G_GNUC_CONST</code> for performance
 reasons, even though this is technically incorrect (since
 <code>G_GNUC_CONST</code> requires that the function not have side effects,
-which _get_type() methods do on the first call). As a result, if
-you write a bare call to a _get_type() macro, it may get optimized
-out by the compiler. Using g_type_ensure() guarantees that the
-type&rsquo;s _get_type() method is called.</p>
+which <code>_get_type()</code> methods do on the first call). As a result, if
+you write a bare call to a <code>_get_type()</code> macro, it may get optimized
+out by the compiler. Using <code>g_type_ensure()</code> guarantees that the
+type&rsquo;s <code>_get_type()</code> method is called.</p>
 
                       </div>
                       <div class="declaration">
@@ -6050,7 +6050,7 @@ type&rsquo;s _get_type() method is called.</p>
                         <p>Frees an instance of a type, returning it to the instance pool for
 the type, if there is one.</p>
 
-<p>Like g_type_create_instance(), this function is reserved for
+<p>Like <code>g_type_create_instance()</code>, this function is reserved for
 implementors of fundamental types.</p>
 
                       </div>
@@ -6115,7 +6115,7 @@ yet).</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Internal function, used to extract the fundamental type ID portion.
-Use G_TYPE_FUNDAMENTAL() instead.</p>
+Use <code>G_TYPE_FUNDAMENTAL()</code> instead.</p>
 
                       </div>
                       <div class="declaration">
@@ -6146,7 +6146,7 @@ Use G_TYPE_FUNDAMENTAL() instead.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the next free fundamental type id which can be used to
-register a new fundamental type with g_type_register_fundamental().
+register a new fundamental type with <code>g_type_register_fundamental()</code>.
 The returned type ID represents the highest currently registered
 fundamental type identifier.</p>
 
@@ -6211,7 +6211,7 @@ variable to include instance-count).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the <code><a href="Structs.html#/s:10GLibObject11GTypePluginV">GTypePlugin</a></code> structure for <code>type</code>.</p>
+                        <p>Returns the <code><a href="Structs.html#/s:10GLibObject11GTypePluginV">GTypePlugin</a></code> structure for <code>type.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -6242,11 +6242,11 @@ variable to include instance-count).</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Obtains data which has previously been attached to <code>type</code>
-with g_type_set_qdata().</p>
+with <code>g_type_set_qdata()</code>.</p>
 
 <p>Note that this does not take subtyping into account; data
-attached to one type with g_type_set_qdata() cannot
-be retrieved from a subtype using g_type_get_qdata().</p>
+attached to one type with <code>g_type_set_qdata()</code> cannot
+be retrieved from a subtype using <code>g_type_get_qdata()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6279,7 +6279,7 @@ be retrieved from a subtype using g_type_get_qdata().</p>
                         <p>Returns an opaque serial number that represents the state of the set
 of registered types. Any time a type is registered this serial changes,
 which means you can cache information based on type lookups (such as
-g_type_from_name()) and know if the cache is still valid at a later
+<code>g_type_from_name()</code>) and know if the cache is still valid at a later
 time by comparing the current serial with the one at the type lookup.</p>
 
                       </div>
@@ -6422,7 +6422,7 @@ at most one instantiatable prerequisite type.</p>
                         <p>Returns the <code><a href="Structs.html#/s:10GLibObject11GTypePluginV">GTypePlugin</a></code> structure for the dynamic interface
 <code>interface_type</code> which has been added to <code>instance_type</code>, or <code>nil</code>
 if <code>interface_type</code> has not been added to <code>instance_type</code> or does
-not have a <code><a href="Structs.html#/s:10GLibObject11GTypePluginV">GTypePlugin</a></code> structure. See g_type_add_interface_dynamic().</p>
+not have a <code><a href="Structs.html#/s:10GLibObject11GTypePluginV">GTypePlugin</a></code> structure. See <code>g_type_add_interface_dynamic()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6909,7 +6909,7 @@ instances (if not abstract). The value of <code>flags</code> determines the natu
                         <p>Registers <code>type_name</code> as the name of a new static type derived from
 <code>parent_type</code>.  The value of <code>flags</code> determines the nature (e.g.
 abstract or not) of the type. It works by filling a <code>GTypeInfo</code>
-struct and calling g_type_register_static().</p>
+struct and calling <code>g_type_register_static()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6941,7 +6941,7 @@ struct and calling g_type_register_static().</p>
                       <div class="abstract">
                         <p>Removes a previously installed <code>GTypeClassCacheFunc</code>. The cache
 maintained by <code>cache_func</code> has to be empty when calling
-g_type_remove_class_cache_func() to avoid leaks.</p>
+<code>g_type_remove_class_cache_func()</code> to avoid leaks.</p>
 
                       </div>
                       <div class="declaration">
@@ -6972,7 +6972,7 @@ g_type_remove_class_cache_func() to avoid leaks.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Removes an interface check function added with
-g_type_add_interface_check().</p>
+<code>g_type_add_interface_check()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -7066,7 +7066,7 @@ g_type_add_interface_check().</p>
 
 <p>Note that this function should only be used from source code
 that implements or has internal knowledge of the implementation of
-<code>type</code>.</p>
+<code>type.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7096,7 +7096,7 @@ that implements or has internal knowledge of the implementation of
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Registers a value transformation function for use in g_value_transform().
+                        <p>Registers a value transformation function for use in <code>g_value_transform()</code>.
 A previously registered transformation function for <code>src_type</code> and <code>dest_type</code>
 will be replaced.</p>
 
@@ -7129,7 +7129,7 @@ will be replaced.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether a <code>GValue</code> of type <code>src_type</code> can be copied into
-a <code>GValue</code> of type <code>dest_type</code>.</p>
+a <code>GValue</code> of type <code>dest_type.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7159,7 +7159,7 @@ a <code>GValue</code> of type <code>dest_type</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Check whether g_value_transform() is able to transform values
+                        <p>Check whether <code>g_value_transform()</code> is able to transform values
 of type <code>src_type</code> into values of type <code>dest_type</code>. Note that for
 the types to be transformable, they must be compatible or a
 transformation function must be registered.</p>
@@ -7187,7 +7187,7 @@ transformation function must be registered.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

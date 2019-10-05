@@ -1417,7 +1417,7 @@ binding:</p>
 </code></pre>
 
 <p>will cause the property named <q>property-b</q> of <code>object2</code> to be updated
-every time g_object_set() or the specific accessor changes the value of
+every time <code>g_object_set()</code> or the specific accessor changes the value of
 the property <q>property-a</q> of <code>object1</code>.</p>
 
 <p>It is possible to create a bidirectional binding between two properties
@@ -1463,18 +1463,18 @@ of <code>adjustment1</code>.</p>
 </code></pre>
 
 <p>might lead to an infinite loop. The loop, in this particular case,
-can be avoided if the objects emit the <code>GObject</code>::notify signal only
+can be avoided if the objects emit the <code>GObject::notify</code> signal only
 if the value has effectively been changed. A binding is implemented
-using the <code>GObject</code>::notify signal, so it is susceptible to all the
-various ways of blocking a signal emission, like g_signal_stop_emission()
-or g_signal_handler_block().</p>
+using the <code>GObject::notify</code> signal, so it is susceptible to all the
+various ways of blocking a signal emission, like <code>g_signal_stop_emission()</code>
+or <code>g_signal_handler_block()</code>.</p>
 
 <p>A binding will be severed, and the resources it allocates freed, whenever
 either one of the <code>GObject</code> instances it refers to are finalized, or when
 the <code><a href="../Structs.html#/s:10GLibObject8GBindingV">GBinding</a></code> instance loses its last reference.</p>
 
 <p>Bindings for languages with garbage collection can use
-g_binding_unbind() to explicitly release a binding between the source
+<code>g_binding_unbind()</code> to explicitly release a binding between the source
 and target properties, instead of relying on the last reference on the
 binding, source, and target instances to drop.</p>
 
@@ -1512,7 +1512,7 @@ binding, source, and target instances to drop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L97">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L93">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1550,7 +1550,7 @@ binding, source, and target instances to drop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L100">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L96">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1678,7 +1678,7 @@ binding, source, and target instances to drop.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L393-L417">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L381-L405">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1770,7 +1770,7 @@ binding, source, and target instances to drop.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L467-L486">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L454-L473">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1802,7 +1802,7 @@ binding, source, and target instances to drop.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the flags passed when constructing the <code><a href="../Structs.html#/s:10GLibObject8GBindingV">GBinding</a></code>.</p>
+                        <p>Retrieves the flags passed when constructing the <code><a href="../Structs.html#/s:10GLibObject8GBindingV">GBinding.</a></code></p>
 
                       </div>
                       <div class="declaration">
@@ -1814,7 +1814,7 @@ binding, source, and target instances to drop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L494-L497">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L481-L484">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1847,7 +1847,7 @@ binding, source, and target instances to drop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L500-L503">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L487-L490">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1868,7 +1868,7 @@ binding, source, and target instances to drop.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the name of the property of <code><a href="../Structs.html#/s:10GLibObject8GBindingV">GBinding</a></code>:source used as the source
+                        <p>Retrieves the name of the property of <code>GBinding:source</code> used as the source
 of the binding.</p>
 
                       </div>
@@ -1881,7 +1881,7 @@ of the binding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L507-L510">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L494-L497">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1914,7 +1914,7 @@ of the binding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L513-L516">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L500-L503">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1935,7 +1935,7 @@ of the binding.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the name of the property of <code><a href="../Structs.html#/s:10GLibObject8GBindingV">GBinding</a></code>:target used as the target
+                        <p>Retrieves the name of the property of <code>GBinding:target</code> used as the target
 of the binding.</p>
 
                       </div>
@@ -1948,7 +1948,7 @@ of the binding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L520-L523">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L507-L510">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1974,7 +1974,7 @@ property expressed by <code>binding</code>.</p>
 
 <p>This function will release the reference that is being held on
 the <code>binding</code> instance; if you want to hold on to the <code><a href="../Structs.html#/s:10GLibObject8GBindingV">GBinding</a></code> instance
-after calling g_binding_unbind(), you will need to hold a reference
+after calling <code>g_binding_unbind()</code>, you will need to hold a reference
 to it.</p>
 
                       </div>
@@ -1987,7 +1987,7 @@ to it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L532-L535">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L519-L522">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2020,7 +2020,7 @@ to it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L537-L543">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L524-L530">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2053,7 +2053,7 @@ to it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L546-L552">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L533-L539">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2074,7 +2074,7 @@ to it.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the name of the property of <code><a href="../Structs.html#/s:10GLibObject8GBindingV">GBinding</a></code>:source used as the source
+                        <p>Retrieves the name of the property of <code>GBinding:source</code> used as the source
 of the binding.</p>
 
                       </div>
@@ -2087,7 +2087,7 @@ of the binding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L556-L563">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L543-L550">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2120,7 +2120,7 @@ of the binding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L566-L572">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L553-L559">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2141,7 +2141,7 @@ of the binding.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the name of the property of <code><a href="../Structs.html#/s:10GLibObject8GBindingV">GBinding</a></code>:target used as the target
+                        <p>Retrieves the name of the property of <code>GBinding:target</code> used as the target
 of the binding.</p>
 
                       </div>
@@ -2154,7 +2154,7 @@ of the binding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L576-L583">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L563-L570">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2167,7 +2167,7 @@ of the binding.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

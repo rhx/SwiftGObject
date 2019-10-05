@@ -1411,7 +1411,7 @@ the g_value_*() API. That is, code portions which implement new fundamental
 types.
 <code>GValue</code> users cannot make any assumptions about how data is stored
 within the 2 element <code>data</code> union, and the <code>g_type</code> member should
-only be accessed through the G_VALUE_TYPE() macro.</p>
+only be accessed through the <code>G_VALUE_TYPE()</code> macro.</p>
 
           </div>
         </section>
@@ -3473,7 +3473,7 @@ only be accessed through the G_VALUE_TYPE() macro.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Copies the value of <code>src_value</code> into <code>dest_value</code>.</p>
+                        <p>Copies the value of <code>src_value</code> into <code>dest_value.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3508,7 +3508,7 @@ only be accessed through the G_VALUE_TYPE() macro.</p>
                       <div class="abstract">
                         <p>Get the contents of a <code>G_TYPE_BOXED</code> derived <code>GValue</code>.  Upon getting,
 the boxed value is duplicated and needs to be later freed with
-g_boxed_free(), e.g. like: g_boxed_free (G_VALUE_TYPE (<code>value</code>),
+<code>g_boxed_free()</code>, e.g. like: g_boxed_free (G_VALUE_TYPE (<code>value</code>),
 return_value);</p>
 
                       </div>
@@ -3611,7 +3611,7 @@ reference count.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get a copy the contents of a <code>G_TYPE_STRING</code> <code>GValue</code>.</p>
+                        <p>Get a copy the contents of a <code>G_TYPE_STRING</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3712,7 +3712,7 @@ This is an internal function introduced mainly for C marshallers.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_BOOLEAN</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_BOOLEAN</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3745,7 +3745,7 @@ This is an internal function introduced mainly for C marshallers.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_BOXED</code> derived <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_BOXED</code> derived <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3779,9 +3779,9 @@ This is an internal function introduced mainly for C marshallers.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Do not use this function; it is broken on platforms where the <code><a href="../Protocols/ValueProtocol.html#/s:10GLibObject13ValueProtocolPAAE4chars4Int8Vvp">char</a></code>
-type is unsigned, such as ARM and PowerPC.  See g_value_get_schar().</p>
+type is unsigned, such as ARM and PowerPC.  See <code>g_value_get_schar()</code>.</p>
 
-<p>Get the contents of a <code>G_TYPE_CHAR</code> <code>GValue</code>.</p>
+<p>Get the contents of a <code>G_TYPE_CHAR</code> <code>GValue.</code></p>
 
 <p><strong>get_char is deprecated:</strong>
 This function&rsquo;s return type is broken, see g_value_get_schar()</p>
@@ -3818,7 +3818,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_DOUBLE</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_DOUBLE</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3851,7 +3851,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_ENUM</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_ENUM</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3884,7 +3884,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_FLAGS</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_FLAGS</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3917,7 +3917,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_FLOAT</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_FLOAT</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3950,7 +3950,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_GTYPE</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_GTYPE</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3983,7 +3983,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_INT</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_INT</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4016,7 +4016,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_INT64</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_INT64</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4049,7 +4049,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_LONG</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_LONG</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4082,7 +4082,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_OBJECT</code> derived <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_OBJECT</code> derived <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4115,7 +4115,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_PARAM</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_PARAM</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4148,7 +4148,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a pointer <code>GValue</code>.</p>
+                        <p>Get the contents of a pointer <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4181,7 +4181,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_CHAR</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_CHAR</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4214,7 +4214,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_STRING</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_STRING</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4247,7 +4247,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_UCHAR</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_UCHAR</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4280,7 +4280,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_UINT</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_UINT</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4313,7 +4313,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_UINT64</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_UINT64</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4346,7 +4346,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_ULONG</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_ULONG</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4379,7 +4379,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a variant <code>GValue</code>.</p>
+                        <p>Get the contents of a variant <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4412,7 +4412,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes <code>value</code> with the default value of <code>type</code>.</p>
+                        <p>Initializes <code>value</code> with the default value of <code>type.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4446,12 +4446,12 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Initializes and sets <code>value</code> from an instantiatable type via the
-value_table&rsquo;s collect_value() function.</p>
+value_table&rsquo;s <code>collect_value()</code> function.</p>
 
 <p>Note: The <code>value</code> will be initialised with the exact type of
 <code>instance</code>.  If you wish to set the <code>value</code>&lsquo;s type to a different GType
 (such as a parent class GType), you need to manually call
-g_value_init() and g_value_set_instance().</p>
+<code>g_value_init()</code> and <code>g_value_set_instance()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4485,7 +4485,7 @@ g_value_init() and g_value_set_instance().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the value contents as pointer. This function asserts that
-g_value_fits_pointer() returned <code>true</code> for the passed in value.
+<code>g_value_fits_pointer()</code> returned <code>true</code> for the passed in value.
 This is an internal function introduced mainly for C marshallers.</p>
 
                       </div>
@@ -4553,7 +4553,7 @@ This is an internal function introduced mainly for C marshallers.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_BOOLEAN</code> <code>GValue</code> to <code>v_boolean</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_BOOLEAN</code> <code>GValue</code> to <code>v_boolean.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4586,7 +4586,7 @@ This is an internal function introduced mainly for C marshallers.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_BOXED</code> derived <code>GValue</code> to <code>v_boxed</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_BOXED</code> derived <code>GValue</code> to <code>v_boxed.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4656,7 +4656,7 @@ Use g_value_take_boxed() instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_CHAR</code> <code>GValue</code> to <code>v_char</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_CHAR</code> <code>GValue</code> to <code>v_char.</code></p>
 
 <p><strong>set_char is deprecated:</strong>
 This function&rsquo;s input type is broken, see g_value_set_schar()</p>
@@ -4693,7 +4693,7 @@ This function&rsquo;s input type is broken, see g_value_set_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_DOUBLE</code> <code>GValue</code> to <code>v_double</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_DOUBLE</code> <code>GValue</code> to <code>v_double.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4726,7 +4726,7 @@ This function&rsquo;s input type is broken, see g_value_set_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_ENUM</code> <code>GValue</code> to <code>v_enum</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_ENUM</code> <code>GValue</code> to <code>v_enum.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4759,7 +4759,7 @@ This function&rsquo;s input type is broken, see g_value_set_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_FLAGS</code> <code>GValue</code> to <code>v_flags</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_FLAGS</code> <code>GValue</code> to <code>v_flags.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4792,7 +4792,7 @@ This function&rsquo;s input type is broken, see g_value_set_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_FLOAT</code> <code>GValue</code> to <code>v_float</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_FLOAT</code> <code>GValue</code> to <code>v_float.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4825,7 +4825,7 @@ This function&rsquo;s input type is broken, see g_value_set_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_GTYPE</code> <code>GValue</code> to <code>v_gtype</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_GTYPE</code> <code>GValue</code> to <code>v_gtype.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4859,7 +4859,7 @@ This function&rsquo;s input type is broken, see g_value_set_schar()</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets <code>value</code> from an instantiatable type via the
-value_table&rsquo;s collect_value() function.</p>
+value_table&rsquo;s <code>collect_value()</code> function.</p>
 
                       </div>
                       <div class="declaration">
@@ -4892,7 +4892,7 @@ value_table&rsquo;s collect_value() function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_INT</code> <code>GValue</code> to <code>v_int</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_INT</code> <code>GValue</code> to <code>v_int.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4925,7 +4925,7 @@ value_table&rsquo;s collect_value() function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_INT64</code> <code>GValue</code> to <code>v_int64</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_INT64</code> <code>GValue</code> to <code>v_int64.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4958,7 +4958,7 @@ value_table&rsquo;s collect_value() function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_LONG</code> <code>GValue</code> to <code>v_long</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_LONG</code> <code>GValue</code> to <code>v_long.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4993,11 +4993,11 @@ value_table&rsquo;s collect_value() function.</p>
                       <div class="abstract">
                         <p>Set the contents of a <code>G_TYPE_OBJECT</code> derived <code>GValue</code> to <code>v_object</code>.</p>
 
-<p>g_value_set_object() increases the reference count of <code>v_object</code>
+<p><code>g_value_set_object()</code> increases the reference count of <code>v_object</code>
 (the <code>GValue</code> holds a reference to <code>v_object</code>).  If you do not wish
 to increase the reference count of the object (i.e. you wish to
 pass your current reference to the <code>GValue</code> because you no longer
-need it), use g_value_take_object() instead.</p>
+need it), use <code>g_value_take_object()</code> instead.</p>
 
 <p>It is important that your <code>GValue</code> holds a reference to <code>v_object</code> (either its
 own, or one it has taken) to ensure that the object won&rsquo;t be destroyed while
@@ -5071,7 +5071,7 @@ Use g_value_take_object() instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_PARAM</code> <code>GValue</code> to <code><a href="../Protocols/ValueProtocol.html#/s:10GLibObject13ValueProtocolPAAE5paramSpySo11_GParamSpecVGSgvp">param</a></code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_PARAM</code> <code>GValue</code> to <code><a href="../Protocols/ValueProtocol.html#/s:10GLibObject13ValueProtocolPAAE5paramSpySo11_GParamSpecVGSgvp">param.</a></code></p>
 
                       </div>
                       <div class="declaration">
@@ -5141,7 +5141,7 @@ Use g_value_take_param() instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a pointer <code>GValue</code> to <code>v_pointer</code>.</p>
+                        <p>Set the contents of a pointer <code>GValue</code> to <code>v_pointer.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5174,7 +5174,7 @@ Use g_value_take_param() instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_CHAR</code> <code>GValue</code> to <code>v_char</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_CHAR</code> <code>GValue</code> to <code>v_char.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5209,7 +5209,7 @@ Use g_value_take_param() instead.</p>
                       <div class="abstract">
                         <p>Set the contents of a <code>G_TYPE_BOXED</code> derived <code>GValue</code> to <code>v_boxed</code>.
 The boxed value is assumed to be static, and is thus not duplicated
-when setting the <code>GValue</code>.</p>
+when setting the <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5244,7 +5244,7 @@ when setting the <code>GValue</code>.</p>
                       <div class="abstract">
                         <p>Set the contents of a <code>G_TYPE_STRING</code> <code>GValue</code> to <code>v_string</code>.
 The string is assumed to be static, and is thus not duplicated
-when setting the <code>GValue</code>.</p>
+when setting the <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5277,7 +5277,7 @@ when setting the <code>GValue</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_STRING</code> <code>GValue</code> to <code>v_string</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_STRING</code> <code>GValue</code> to <code>v_string.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5347,7 +5347,7 @@ Use g_value_take_string() instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_UCHAR</code> <code>GValue</code> to <code>v_uchar</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_UCHAR</code> <code>GValue</code> to <code>v_uchar.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5380,7 +5380,7 @@ Use g_value_take_string() instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_UINT</code> <code>GValue</code> to <code>v_uint</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_UINT</code> <code>GValue</code> to <code>v_uint.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5413,7 +5413,7 @@ Use g_value_take_string() instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_UINT64</code> <code>GValue</code> to <code>v_uint64</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_UINT64</code> <code>GValue</code> to <code>v_uint64.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5446,7 +5446,7 @@ Use g_value_take_string() instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set the contents of a <code>G_TYPE_ULONG</code> <code>GValue</code> to <code>v_ulong</code>.</p>
+                        <p>Set the contents of a <code>G_TYPE_ULONG</code> <code>GValue</code> to <code>v_ulong.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5554,7 +5554,7 @@ the caller doesn’t have to unref it any more (i.e. the reference
 count of the object is not increased).</p>
 
 <p>If you want the <code>GValue</code> to hold its own reference to <code>v_object</code>, use
-g_value_set_object() instead.</p>
+<code>g_value_set_object()</code> instead.</p>
 
                       </div>
                       <div class="declaration">
@@ -5622,7 +5622,7 @@ doesn’t have to unref it any more.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the contents of a <code>G_TYPE_STRING</code> <code>GValue</code> to <code>v_string</code>.</p>
+                        <p>Sets the contents of a <code>G_TYPE_STRING</code> <code>GValue</code> to <code>v_string.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5664,7 +5664,7 @@ count of the variant is not increased).</p>
 a hard reference.</p>
 
 <p>If you want the <code>GValue</code> to hold its own reference to <code><a href="../Protocols/ValueProtocol.html#/s:10GLibObject13ValueProtocolPAAE7variantSpySo9_GVariantVGSgvp">variant</a></code>, use
-g_value_set_variant() instead.</p>
+<code>g_value_set_variant()</code> instead.</p>
 
 <p>This is an internal function introduced mainly for C marshallers.</p>
 
@@ -5777,7 +5777,7 @@ structure.</p>
                         <p>A <code>GClosureMarshal</code> function for use with signals with handlers that
 take two boxed pointers as arguments and return a boolean.  If you
 have such a signal, you will probably also need to use an
-accumulator, such as g_signal_accumulator_true_handled().</p>
+accumulator, such as <code>g_signal_accumulator_true_handled()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6528,7 +6528,7 @@ denotes a flags type.</p>
                         <p>A generic marshaller function implemented via
 <a href="http://sourceware.org/libffi/">libffi</a>.</p>
 
-<p>Normally this function is not passed explicitly to g_signal_new(),
+<p>Normally this function is not passed explicitly to <code>g_signal_new()</code>,
 but used automatically by GLib when specifying a <code>nil</code> marshaller.</p>
 
                       </div>
@@ -6567,8 +6567,8 @@ validates <code>dest_value</code>, in order for it to conform to <code>pspec</co
 <code>strict_validation</code> is <code>true</code> this function will only succeed if the
 transformed <code>dest_value</code> complied to <code>pspec</code> without modifications.</p>
 
-<p>See also g_value_type_transformable(), g_value_transform() and
-g_param_value_validate().</p>
+<p>See also <code>g_value_type_transformable()</code>, <code>g_value_transform()</code> and
+<code>g_param_value_validate()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6601,7 +6601,7 @@ g_param_value_validate().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Checks whether <code>value</code> contains the default value as specified in <code>pspec</code>.</p>
+                        <p>Checks whether <code>value</code> contains the default value as specified in <code>pspec.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -6634,7 +6634,7 @@ g_param_value_validate().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets <code>value</code> to its default value as specified in <code>pspec</code>.</p>
+                        <p>Sets <code>value</code> to its default value as specified in <code>pspec.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -6823,8 +6823,8 @@ handling is needed.</p>
                       <div class="abstract">
                         <p>Calls the original class closure of a signal. This function should only
 be called from an overridden class closure; see
-g_signal_override_class_closure() and
-g_signal_override_class_handler().</p>
+<code>g_signal_override_class_closure()</code> and
+<code>g_signal_override_class_handler()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6859,8 +6859,8 @@ g_signal_override_class_handler().</p>
                       <div class="abstract">
                         <p>Emits a signal.</p>
 
-<p>Note that g_signal_emitv() doesn&rsquo;t change <code>return_value</code> if no handlers are
-connected, in contrast to g_signal_emit() and g_signal_emit_valist().</p>
+<p>Note that <code>g_signal_emitv()</code> doesn&rsquo;t change <code>return_value</code> if no handlers are
+connected, in contrast to <code>g_signal_emit()</code> and <code>g_signal_emit_valist()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6995,7 +6995,7 @@ described may change between different GLib versions.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_BOOLEAN</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_BOOLEAN</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7028,7 +7028,7 @@ described may change between different GLib versions.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_BOXED</code> derived <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_BOXED</code> derived <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7062,9 +7062,9 @@ described may change between different GLib versions.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Do not use this function; it is broken on platforms where the <code>char</code>
-type is unsigned, such as ARM and PowerPC.  See g_value_get_schar().</p>
+type is unsigned, such as ARM and PowerPC.  See <code>g_value_get_schar()</code>.</p>
 
-<p>Get the contents of a <code>G_TYPE_CHAR</code> <code>GValue</code>.</p>
+<p>Get the contents of a <code>G_TYPE_CHAR</code> <code>GValue.</code></p>
 
 <p><strong>get_char is deprecated:</strong>
 This function&rsquo;s return type is broken, see g_value_get_schar()</p>
@@ -7100,7 +7100,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_DOUBLE</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_DOUBLE</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7133,7 +7133,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_ENUM</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_ENUM</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7166,7 +7166,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_FLAGS</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_FLAGS</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7199,7 +7199,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_FLOAT</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_FLOAT</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7232,7 +7232,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_GTYPE</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_GTYPE</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7265,7 +7265,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_INT</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_INT</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7298,7 +7298,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_INT64</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_INT64</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7331,7 +7331,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_LONG</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_LONG</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7364,7 +7364,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_OBJECT</code> derived <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_OBJECT</code> derived <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7397,7 +7397,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_PARAM</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_PARAM</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7430,7 +7430,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a pointer <code>GValue</code>.</p>
+                        <p>Get the contents of a pointer <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7463,7 +7463,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_CHAR</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_CHAR</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7496,7 +7496,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_STRING</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_STRING</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7529,7 +7529,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_UCHAR</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_UCHAR</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7562,7 +7562,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_UINT</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_UINT</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7595,7 +7595,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_UINT64</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_UINT64</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7628,7 +7628,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a <code>G_TYPE_ULONG</code> <code>GValue</code>.</p>
+                        <p>Get the contents of a <code>G_TYPE_ULONG</code> <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7661,7 +7661,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the contents of a variant <code>GValue</code>.</p>
+                        <p>Get the contents of a variant <code>GValue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -7686,7 +7686,7 @@ This function&rsquo;s return type is broken, see g_value_get_schar()</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
