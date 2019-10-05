@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           GLibObject 2.62.0 Docs
         </a>
-         (98% documented)
+         (96% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -1418,18 +1418,18 @@ library provides the <code>GCClosure</code> type for this purpose. Bindings for
 other languages need marshallers which convert between <code>GValues</code>
 and suitable representations in the runtime of the language in
 order to use functions written in that language as callbacks. Use
-g_closure_set_marshal() to set the marshaller on such a custom
+<code>g_closure_set_marshal()</code> to set the marshaller on such a custom
 closure implementation.</p>
 
 <p>Within GObject, closures play an important role in the
 implementation of signals. When a signal is registered, the
-<code>c_marshaller</code> argument to g_signal_new() specifies the default C
+<code>c_marshaller</code> argument to <code>g_signal_new()</code> specifies the default C
 marshaller for any closure which is connected to this
 signal. GObject provides a number of C marshallers for this
 purpose, see the g_cclosure_marshal_<em>() functions. Additional C
 marshallers can be generated with the [glib-genmarshal][glib-genmarshal]
 utility.  Closures can be explicitly connected to signals with
-g_signal_connect_closure(), but it usually more convenient to let
+<code>g_signal_connect_closure()</code>, but it usually more convenient to let
 GObject create a closure automatically by using one of the
 g_signal_connect_</em>() functions which take a callback function/user
 data pair.</p>
@@ -1444,7 +1444,7 @@ for each callback type.</p></li>
 <li><p>The reference counting of <code>GClosure</code> makes it easy to handle reentrancy
 right; if a callback is removed while it is being invoked, the closure
 and its parameters won&rsquo;t be freed until the invocation finishes.</p></li>
-<li><p>g_closure_invalidate() and invalidation notifiers allow callbacks to be
+<li><p><code>g_closure_invalidate()</code> and invalidation notifiers allow callbacks to be
 automatically removed when the objects they point to go away.</p></li>
 </ul>
 
@@ -1553,7 +1553,7 @@ automatically removed when the objects they point to go away.</p></li>
                         <p>Registers a finalization notifier which will be called when the
 reference count of <code>closure</code> goes down to 0. Multiple finalization
 notifiers on a single closure are invoked in unspecified order. If
-a single call to g_closure_unref() results in the closure being
+a single call to <code>g_closure_unref()</code> results in the closure being
 both invalidated and finalized, then the invalidate notifiers will
 be run before the finalize notifiers.</p>
 
@@ -1589,7 +1589,7 @@ be run before the finalize notifiers.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Registers an invalidation notifier which will be called when the
-<code>closure</code> is invalidated with g_closure_invalidate(). Invalidation
+<code>closure</code> is invalidated with <code>g_closure_invalidate()</code>. Invalidation
 notifiers are invoked before finalization notifiers, in an
 unspecified order.</p>
 
@@ -1627,7 +1627,7 @@ unspecified order.</p>
                         <p>Adds a pair of notifiers which get invoked before and after the
 closure callback, respectively. This is typically used to protect
 the extra arguments for the duration of the callback. See
-g_object_watch_closure() for an example of marshal guards.</p>
+<code>g_object_watch_closure()</code> for an example of marshal guards.</p>
 
                       </div>
                       <div class="declaration">
@@ -1662,15 +1662,15 @@ g_object_watch_closure() for an example of marshal guards.</p>
                       <div class="abstract">
                         <p>Sets a flag on the closure to indicate that its calling
 environment has become invalid, and thus causes any future
-invocations of g_closure_invoke() on this <code>closure</code> to be
+invocations of <code>g_closure_invoke()</code> on this <code>closure</code> to be
 ignored. Also, invalidation notifiers installed on the closure will
 be called at this point. Note that unless you are holding a
 reference to the closure yourself, the invalidation notifiers may
 unref the closure and cause it to be destroyed, so if you need to
-access the closure after calling g_closure_invalidate(), make sure
-that you&rsquo;ve previously called g_closure_ref().</p>
+access the closure after calling <code>g_closure_invalidate()</code>, make sure
+that you&rsquo;ve previously called <code>g_closure_ref()</code>.</p>
 
-<p>Note that g_closure_invalidate() will also be called when the
+<p>Note that <code>g_closure_invalidate()</code> will also be called when the
 reference count of a closure drops to zero (unless it has already
 been invalidated before).</p>
 
@@ -1705,7 +1705,7 @@ been invalidated before).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Invokes the closure, i.e. executes the callback represented by the <code>closure</code>.</p>
+                        <p>Invokes the closure, i.e. executes the callback represented by the <code>closure.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -1844,7 +1844,7 @@ alive while the caller holds a pointer to it.</p>
                       <div class="abstract">
                         <p>Sets the marshaller of <code>closure</code>. The <code>marshal_data</code>
 of <code>marshal</code> provides a way for a meta marshaller to provide additional
-information to the marshaller. (See g_closure_set_meta_marshal().) For
+information to the marshaller. (See <code>g_closure_set_meta_marshal()</code>.) For
 GObject&rsquo;s C predefined marshallers (the g_cclosure_marshal_*()
 functions), what it provides is a callback function to use instead of
 <code>closure</code>-&gt;callback.</p>
@@ -1890,7 +1890,7 @@ other cases we want to use some different technique to retrieve the
 callback function.</p>
 
 <p>For example, class closures for signals (see
-g_signal_type_cclosure_new()) retrieve the callback function from a
+<code>g_signal_type_cclosure_new()</code>) retrieve the callback function from a
 fixed offset in the class structure.  The meta marshaller retrieves
 the right callback and passes it to the marshaller as the
 <code>marshal_data</code> argument.</p>
@@ -1928,10 +1928,10 @@ the right callback and passes it to the marshaller as the
                       <div class="abstract">
                         <p>Takes over the initial ownership of a closure.  Each closure is
 initially created in a <q>floating</q> state, which means that the initial
-reference count is not owned by any caller. g_closure_sink() checks
+reference count is not owned by any caller. <code>g_closure_sink()</code> checks
 to see if the object is still floating, and if so, unsets the
 floating state and decreases the reference count. If the closure
-is not floating, g_closure_sink() does nothing. The reason for the
+is not floating, <code>g_closure_sink()</code> does nothing. The reason for the
 existence of the floating state is to prevent cumbersome code
 sequences like:
 (C Language Example):</p>
@@ -1940,13 +1940,13 @@ g_source_set_closure (source, closure);
 g_closure_unref (closure); // GObject doesn't really need this
 </code></pre>
 
-<p>Because g_source_set_closure() (and similar functions) take ownership of the
+<p>Because <code>g_source_set_closure()</code> (and similar functions) take ownership of the
 initial reference count, if it is unowned, we instead can write:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>g_source_set_closure (source, g_cclosure_new (cb_func, cb_data));
 </code></pre>
 
-<p>Generally, this function is used together with g_closure_ref(). Ane example
+<p>Generally, this function is used together with <code>g_closure_ref()</code>. Ane example
 of storing a closure for later notification looks like:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>static GClosure *notify_closure = NULL;
@@ -1964,9 +1964,9 @@ foo_notify_set_closure (GClosure *closure)
 }
 </code></pre>
 
-<p>Because g_closure_sink() may decrement the reference count of a closure
-(if it hasn&rsquo;t been called on <code>closure</code> yet) just like g_closure_unref(),
-g_closure_ref() should be called prior to this function.</p>
+<p>Because <code>g_closure_sink()</code> may decrement the reference count of a closure
+(if it hasn&rsquo;t been called on <code>closure</code> yet) just like <code>g_closure_unref()</code>,
+<code>g_closure_ref()</code> should be called prior to this function.</p>
 
                       </div>
                       <div class="declaration">
@@ -1978,7 +1978,7 @@ g_closure_ref() should be called prior to this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L620-L623">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L617-L620">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2013,7 +2013,7 @@ closure, then the closure will be destroyed and freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L628-L631">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L625-L628">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2037,7 +2037,7 @@ closure, then the closure will be destroyed and freed.</p>
                         <p>A <code>GClosureMarshal</code> function for use with signals with handlers that
 take two boxed pointers as arguments and return a boolean.  If you
 have such a signal, you will probably also need to use an
-accumulator, such as g_signal_accumulator_true_handled().</p>
+accumulator, such as <code>g_signal_accumulator_true_handled()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -2049,7 +2049,7 @@ accumulator, such as g_signal_accumulator_true_handled().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L637-L640">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L634-L637">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2084,7 +2084,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L645-L648">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L642-L645">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2118,7 +2118,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L652-L655">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L649-L652">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2152,7 +2152,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L659-L662">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L656-L659">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2186,7 +2186,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L666-L669">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L663-L666">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2220,7 +2220,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L673-L676">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L670-L673">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2254,7 +2254,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L680-L683">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L677-L680">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2288,7 +2288,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L687-L690">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L684-L687">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2322,7 +2322,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L694-L697">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L691-L694">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2356,7 +2356,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L701-L704">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L698-L701">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2390,7 +2390,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L708-L711">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L705-L708">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2424,7 +2424,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L715-L718">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L712-L715">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2458,7 +2458,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L722-L725">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L719-L722">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2492,7 +2492,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L729-L732">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L726-L729">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2526,7 +2526,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L736-L739">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L733-L736">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2560,7 +2560,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L743-L746">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L740-L743">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2594,7 +2594,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L750-L753">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L747-L750">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2628,7 +2628,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L757-L760">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L754-L757">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2662,7 +2662,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L764-L767">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L761-L764">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2696,7 +2696,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L771-L774">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L768-L771">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2730,7 +2730,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L778-L781">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L775-L778">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2764,7 +2764,7 @@ denotes a flags type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L785-L788">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L782-L785">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2788,7 +2788,7 @@ denotes a flags type.</p>
                         <p>A generic marshaller function implemented via
 <a href="http://sourceware.org/libffi/">libffi</a>.</p>
 
-<p>Normally this function is not passed explicitly to g_signal_new(),
+<p>Normally this function is not passed explicitly to <code>g_signal_new()</code>,
 but used automatically by GLib when specifying a <code>nil</code> marshaller.</p>
 
                       </div>
@@ -2801,7 +2801,7 @@ but used automatically by GLib when specifying a <code>nil</code> marshaller.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L795-L798">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L792-L795">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2834,7 +2834,7 @@ but used automatically by GLib when specifying a <code>nil</code> marshaller.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L801-L804">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L798-L801">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2867,7 +2867,7 @@ but used automatically by GLib when specifying a <code>nil</code> marshaller.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L807-L810">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L804-L807">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2904,7 +2904,7 @@ If no handler was found, 0 is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L817-L820">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L814-L817">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2943,7 +2943,7 @@ otherwise.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L829-L832">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L826-L829">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2983,7 +2983,7 @@ disconnected handlers otherwise.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L842-L845">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L839-L842">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3023,7 +3023,7 @@ not currently blocked.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L855-L858">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L852-L855">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3046,9 +3046,9 @@ not currently blocked.</p>
                       <div class="abstract">
                         <p>Creates a new signal. (This is usually done in the class initializer.)</p>
 
-<p>See g_signal_new() for details on allowed signal names.</p>
+<p>See <code>g_signal_new()</code> for details on allowed signal names.</p>
 
-<p>If c_marshaller is <code>nil</code>, g_cclosure_marshal_generic() will be used as
+<p>If c_marshaller is <code>nil</code>, <code>g_cclosure_marshal_generic()</code> will be used as
 the marshaller for this signal.</p>
 
                       </div>
@@ -3061,7 +3061,7 @@ the marshaller for this signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L866-L869">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L863-L866">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3084,9 +3084,9 @@ the marshaller for this signal.</p>
                       <div class="abstract">
                         <p>Creates a new signal. (This is usually done in the class initializer.)</p>
 
-<p>See g_signal_new() for details on allowed signal names.</p>
+<p>See <code>g_signal_new()</code> for details on allowed signal names.</p>
 
-<p>If c_marshaller is <code>nil</code>, g_cclosure_marshal_generic() will be used as
+<p>If c_marshaller is <code>nil</code>, <code>g_cclosure_marshal_generic()</code> will be used as
 the marshaller for this signal.</p>
 
                       </div>
@@ -3099,7 +3099,7 @@ the marshaller for this signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L877-L880">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L874-L877">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3124,8 +3124,8 @@ the marshaller for this signal.</p>
 for emissions on instances of <code>instance_type</code>. <code>instance_type</code> must be derived
 from the type to which the signal belongs.</p>
 
-<p>See g_signal_chain_from_overridden() and
-g_signal_chain_from_overridden_handler() for how to chain up to the
+<p>See <code>g_signal_chain_from_overridden()</code> and
+<code>g_signal_chain_from_overridden_handler()</code> for how to chain up to the
 parent class closure from inside the overridden one.</p>
 
                       </div>
@@ -3138,7 +3138,7 @@ parent class closure from inside the overridden one.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L889-L892">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L886-L889">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3175,7 +3175,7 @@ filled in with pointers to appropriate functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L899-L902">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Closure.swift#L896-L899">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3188,7 +3188,7 @@ filled in with pointers to appropriate functions.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

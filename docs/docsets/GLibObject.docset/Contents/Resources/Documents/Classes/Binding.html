@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           GLibObject 2.62.0 Docs
         </a>
-         (98% documented)
+         (96% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -1416,7 +1416,7 @@ binding:</p>
 </code></pre>
 
 <p>will cause the property named <q>property-b</q> of <code>object2</code> to be updated
-every time g_object_set() or the specific accessor changes the value of
+every time <code>g_object_set()</code> or the specific accessor changes the value of
 the property <q>property-a</q> of <code>object1</code>.</p>
 
 <p>It is possible to create a bidirectional binding between two properties
@@ -1462,18 +1462,18 @@ of <code>adjustment1</code>.</p>
 </code></pre>
 
 <p>might lead to an infinite loop. The loop, in this particular case,
-can be avoided if the objects emit the <code>GObject</code>::notify signal only
+can be avoided if the objects emit the <code>GObject::notify</code> signal only
 if the value has effectively been changed. A binding is implemented
-using the <code>GObject</code>::notify signal, so it is susceptible to all the
-various ways of blocking a signal emission, like g_signal_stop_emission()
-or g_signal_handler_block().</p>
+using the <code>GObject::notify</code> signal, so it is susceptible to all the
+various ways of blocking a signal emission, like <code>g_signal_stop_emission()</code>
+or <code>g_signal_handler_block()</code>.</p>
 
 <p>A binding will be severed, and the resources it allocates freed, whenever
 either one of the <code>GObject</code> instances it refers to are finalized, or when
 the <code><a href="../Structs.html#/s:10GLibObject8GBindingV">GBinding</a></code> instance loses its last reference.</p>
 
 <p>Bindings for languages with garbage collection can use
-g_binding_unbind() to explicitly release a binding between the source
+<code>g_binding_unbind()</code> to explicitly release a binding between the source
 and target properties, instead of relying on the last reference on the
 binding, source, and target instances to drop.</p>
 
@@ -1512,7 +1512,7 @@ Ownership is transferred to the <code>Binding</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L330-L332">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L318-L320">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1543,7 +1543,7 @@ Will retain <code><a href="../Structs.html#/s:10GLibObject8GBindingV">GBinding</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L336-L339">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L324-L327">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1574,7 +1574,7 @@ Will retain <code><a href="../Structs.html#/s:10GLibObject8GBindingV">GBinding</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L343-L345">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L331-L333">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1605,7 +1605,7 @@ Will retain <code><a href="../Structs.html#/s:10GLibObject8GBindingV">GBinding</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L349-L351">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L337-L339">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1636,7 +1636,7 @@ Will retain <code><a href="../Structs.html#/s:10GLibObject8GBindingV">GBinding</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L355-L357">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L343-L345">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1667,7 +1667,7 @@ Will retain <code><a href="../Structs.html#/s:10GLibObject8GBindingV">GBinding</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L361-L363">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding.swift#L349-L351">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1680,7 +1680,7 @@ Will retain <code><a href="../Structs.html#/s:10GLibObject8GBindingV">GBinding</
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           GLibObject 2.62.0 Docs
         </a>
-         (98% documented)
+         (96% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -1410,43 +1410,44 @@ of dynamically loaded types. It goes as follows:</p>
 <ol>
 <li>The type is initially introduced (usually upon loading the module
 the first time, or by your main application that knows what modules
-introduces what types), like this:
-(C Language Example):
-<code>C
-new_type_id = g_type_register_dynamic (parent_type_id,
-                                      &quot;TypeName&quot;,
-                                      new_type_plugin,
-                                      type_flags);
-</code></li>
+introduces what types), like this:</li>
 </ol>
+
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>   new_type_id = g_type_register_dynamic (parent_type_id,
+                                          "TypeName",
+                                          new_type_plugin,
+                                          type_flags);
+
+</code></pre>
 
 <p>where <code>new_type_plugin</code> is an implementation of the
    <code><a href="../Structs.html#/s:10GLibObject11GTypePluginV">GTypePlugin</a></code> interface.</p>
 
 <ol>
 <li><p>The type&rsquo;s implementation is referenced, e.g. through
-g_type_class_ref() or through g_type_create_instance() (this is
-being called by g_object_new()) or through one of the above done on
+<code>g_type_class_ref()</code> or through <code>g_type_create_instance()</code> (this is
+being called by <code>g_object_new()</code>) or through one of the above done on
 a type derived from <code>new_type_id</code>.</p></li>
 <li><p>This causes the type system to load the type&rsquo;s implementation by
-calling g_type_plugin_use() and g_type_plugin_complete_type_info()
+calling <code>g_type_plugin_use()</code> and <code>g_type_plugin_complete_type_info()</code>
 on <code>new_type_plugin</code>.</p></li>
 <li><p>At some point the type&rsquo;s implementation isn&rsquo;t required anymore,
-e.g. after g_type_class_unref() or g_type_free_instance() (called
+e.g. after <code>g_type_class_unref()</code> or <code>g_type_free_instance()</code> (called
 when the reference count of an instance drops to zero).</p></li>
 <li><p>This causes the type system to throw away the information retrieved
-from g_type_plugin_complete_type_info() and then it calls
-g_type_plugin_unuse() on <code>new_type_plugin</code>.</p></li>
+from <code>g_type_plugin_complete_type_info()</code> and then it calls
+<code>g_type_plugin_unuse()</code> on <code>new_type_plugin</code>.</p></li>
 <li><p>Things may repeat from the second step.</p></li>
 </ol>
 
 <p>So basically, you need to implement a <code><a href="../Structs.html#/s:10GLibObject11GTypePluginV">GTypePlugin</a></code> type that
 carries a use_count, once use_count goes from zero to one, you need
 to load the implementation to successfully handle the upcoming
-g_type_plugin_complete_type_info() call. Later, maybe after
+<code>g_type_plugin_complete_type_info()</code> call. Later, maybe after
 succeeding use/unuse calls, once use_count drops to zero, you can
 unload the implementation again. The type system makes sure to call
-g_type_plugin_use() and g_type_plugin_complete_type_info() again
+<code>g_type_plugin_use()</code> and <code>g_type_plugin_complete_type_info()</code> again
 when the type is needed again.</p>
 
 <p><code>GTypeModule</code> is an implementation of <code><a href="../Structs.html#/s:10GLibObject11GTypePluginV">GTypePlugin</a></code> that already
@@ -1486,7 +1487,7 @@ For type-safe access, use the generated, typed pointer <code>type_plugin_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L124">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L126">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1527,7 +1528,7 @@ For type-safe access, use the generated, typed pointer <code>type_plugin_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L129-L130">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L131-L132">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1557,7 +1558,7 @@ For type-safe access, use the generated, typed pointer <code>type_plugin_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L133-L135">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L135-L137">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1588,7 +1589,7 @@ For type-safe access, use the generated, typed pointer <code>type_plugin_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L139-L141">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L141-L143">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1619,7 +1620,7 @@ For type-safe access, use the generated, typed pointer <code>type_plugin_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L145-L147">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L147-L149">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1650,7 +1651,7 @@ For type-safe access, use the generated, typed pointer <code>type_plugin_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L151-L153">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L153-L155">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1681,7 +1682,7 @@ For type-safe access, use the generated, typed pointer <code>type_plugin_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L157-L159">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L159-L161">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1712,7 +1713,7 @@ For type-safe access, use the generated, typed pointer <code>type_plugin_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L163-L165">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin.swift#L165-L167">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1725,7 +1726,7 @@ For type-safe access, use the generated, typed pointer <code>type_plugin_ptr</co
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -23,7 +23,7 @@
         <a class="header-link" href="index.html">
           GLibObject 2.62.0 Docs
         </a>
-         (98% documented)
+         (96% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -1427,7 +1427,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GLibObject.swift#L93">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GLibObject.swift#L74">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1458,7 +1458,7 @@ This closure needs to return true if successful, or false otherwise</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GLibObject.swift#L97">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GLibObject.swift#L78">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1488,7 +1488,7 @@ This closure needs to return true if successful, or false otherwise</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GLibObject.swift#L131">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GLibObject.swift#L103">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1518,7 +1518,7 @@ This closure needs to return true if successful, or false otherwise</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GLibObject.swift#L134">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GLibObject.swift#L106">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1641,8 +1641,8 @@ type.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Flags to be passed to g_object_bind_property() or
-g_object_bind_property_full().</p>
+                        <p>Flags to be passed to <code>g_object_bind_property()</code> or
+<code>g_object_bind_property_full()</code>.</p>
 
 <p>This enumeration can be extended at later date.</p>
 
@@ -1706,7 +1706,7 @@ connection.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Through the <code>GParamFlags</code> flag values, certain aspects of parameters
-can be configured. See also <code>G_PARAM_STATIC_STRINGS</code>.</p>
+can be configured. See also <code>G_PARAM_STATIC_STRINGS.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -1768,8 +1768,8 @@ stages of a signal emission.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The match types specify what g_signal_handlers_block_matched(),
-g_signal_handlers_unblock_matched() and g_signal_handlers_disconnect_matched()
+                        <p>The match types specify what <code>g_signal_handlers_block_matched()</code>,
+<code>g_signal_handlers_unblock_matched()</code> and <code>g_signal_handlers_disconnect_matched()</code>
 match signals by.</p>
 
                       </div>
@@ -1800,7 +1800,7 @@ match signals by.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>These flags used to be passed to g_type_init_with_debug_flags() which
+                        <p>These flags used to be passed to <code>g_type_init_with_debug_flags()</code> which
 is now deprecated.</p>
 
 <p>If you need to enable debugging features, use the GOBJECT_DEBUG
@@ -1904,9 +1904,9 @@ fundamental type.</p>
                       <div class="abstract">
                         <p>A callback function used by the type system to finalize those portions
 of a derived types class structure that were setup from the corresponding
-GBaseInitFunc() function. Class finalization basically works the inverse
+<code>GBaseInitFunc()</code> function. Class finalization basically works the inverse
 way in which class initialization is performed.
-See GClassInitFunc() for a discussion of the class initialization process.</p>
+See <code>GClassInitFunc()</code> for a discussion of the class initialization process.</p>
 
                       </div>
                       <div class="declaration">
@@ -1942,7 +1942,7 @@ initialization process of all derived classes and should reallocate
 or reset all dynamic class members copied over from the parent class.
 For example, class members (such as strings) that are not sufficiently
 handled by a plain memory copy of the parent class into the derived class
-have to be altered. See GClassInitFunc() for a discussion of the class
+have to be altered. See <code>GClassInitFunc()</code> for a discussion of the class
 initialization process.</p>
 
                       </div>
@@ -2074,7 +2074,7 @@ structure passed.</p>
 signatures. This doesn&rsquo;t mean that all callback functions must take no
 parameters and return void. The required signature of a callback function
 is determined by the context in which is used (e.g. the signal to which it
-is connected). Use G_CALLBACK() to cast the callback function to a <code>GCallback</code>.</p>
+is connected). Use <code>G_CALLBACK()</code> to cast the callback function to a <code>GCallback.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2106,8 +2106,8 @@ is connected). Use G_CALLBACK() to cast the callback function to a <code>GCallba
                       <div class="abstract">
                         <p>A callback function used by the type system to finalize a class.
 This function is rarely needed, as dynamically allocated class resources
-should be handled by GBaseInitFunc() and GBaseFinalizeFunc().
-Also, specification of a GClassFinalizeFunc() in the <code>GTypeInfo</code>
+should be handled by <code>GBaseInitFunc()</code> and <code>GBaseFinalizeFunc()</code>.
+Also, specification of a <code>GClassFinalizeFunc()</code> in the <code>GTypeInfo</code>
 structure of a static type is invalid, because classes of static types
 will never be finalized (they are artificially kept alive when their
 reference count drops to zero).</p>
@@ -2151,19 +2151,19 @@ members.</p>
 derived class structure.</li>
 <li>Zero initialization of the remaining members not copied
 over from the parent class.</li>
-<li>Invocation of the GBaseInitFunc() initializers of all parent
+<li>Invocation of the <code>GBaseInitFunc()</code> initializers of all parent
 types and the class&rsquo; type.</li>
-<li>Invocation of the class&rsquo; GClassInitFunc() initializer.</li>
+<li>Invocation of the class&rsquo; <code>GClassInitFunc()</code> initializer.</li>
 </ul>
 
 <p>Since derived classes are partially initialized through a memory copy
-of the parent class, the general rule is that GBaseInitFunc() and
-GBaseFinalizeFunc() should take care of necessary reinitialization
+of the parent class, the general rule is that <code>GBaseInitFunc()</code> and
+<code>GBaseFinalizeFunc()</code> should take care of necessary reinitialization
 and release of those class members that were introduced by the type
-that specified these GBaseInitFunc()/GBaseFinalizeFunc().
-GClassInitFunc() should only care about initializing static
+that specified these <code>GBaseInitFunc()</code><code>/GBaseFinalizeFunc()</code>.
+<code>GClassInitFunc()</code> should only care about initializing static
 class members, while dynamic class members (such as allocated strings
-or reference counted resources) are better handled by a GBaseInitFunc()
+or reference counted resources) are better handled by a <code>GBaseInitFunc()</code>
 for this type, so proper initialization of the dynamic class members
 is performed for class initialization of derived types as well.</p>
 
@@ -2216,26 +2216,26 @@ type_b_class_init (TypeBClass *class)
 
 <p>Initialization of TypeBClass will first cause initialization of
 TypeAClass (derived classes reference their parent classes, see
-g_type_class_ref() on this).</p>
+<code>g_type_class_ref()</code> on this).</p>
 
 <p>Initialization of TypeAClass roughly involves zero-initializing its fields,
-then calling its GBaseInitFunc() type_a_base_class_init() to allocate
-its dynamic members (dynamic_string), and finally calling its GClassInitFunc()
-type_a_class_init() to initialize its static members (static_integer).
+then calling its <code>GBaseInitFunc()</code> <code>type_a_base_class_init()</code> to allocate
+its dynamic members (dynamic_string), and finally calling its <code>GClassInitFunc()</code>
+<code>type_a_class_init()</code> to initialize its static members (static_integer).
 The first step in the initialization process of TypeBClass is then
 a plain memory copy of the contents of TypeAClass into TypeBClass and
 zero-initialization of the remaining fields in TypeBClass.
 The dynamic members of TypeAClass within TypeBClass now need
-reinitialization which is performed by calling type_a_base_class_init()
+reinitialization which is performed by calling <code>type_a_base_class_init()</code>
 with an argument of TypeBClass.</p>
 
-<p>After that, the GBaseInitFunc() of TypeBClass, type_b_base_class_init()
+<p>After that, the <code>GBaseInitFunc()</code> of TypeBClass, <code>type_b_base_class_init()</code>
 is called to allocate the dynamic members of TypeBClass (dynamic_gstring),
-and finally the GClassInitFunc() of TypeBClass, type_b_class_init(),
+and finally the <code>GClassInitFunc()</code> of TypeBClass, <code>type_b_class_init()</code>,
 is called to complete the initialization process with the static members
 (static_float).</p>
 
-<p>Corresponding finalization counter parts to the GBaseInitFunc() functions
+<p>Corresponding finalization counter parts to the <code>GBaseInitFunc()</code> functions
 have to be provided to release allocated resources at class finalization
 time.</p>
 
@@ -2249,7 +2249,7 @@ time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L150">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L149">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2279,7 +2279,7 @@ time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L153">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L152">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2310,7 +2310,7 @@ on closures.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L157">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L156">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2350,7 +2350,7 @@ zeros before this function is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L170">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L169">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2370,7 +2370,7 @@ zeros before this function is called.</p>
                       <div class="abstract">
                         <p>A callback function used by the type system to finalize an interface.
 This function should destroy any internal data and release any resources
-allocated by the corresponding GInterfaceInitFunc() function.</p>
+allocated by the corresponding <code>GInterfaceInitFunc()</code> function.</p>
 
                       </div>
                       <div class="declaration">
@@ -2382,7 +2382,7 @@ allocated by the corresponding GInterfaceInitFunc() function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L175">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L174">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2417,7 +2417,7 @@ zeros before this function is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L183">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L182">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2435,7 +2435,7 @@ zeros before this function is called.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The type of the <code>finalize</code> function of <code>GObjectClass</code>.</p>
+                        <p>The type of the <code>finalize</code> function of <code>GObjectClass.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2447,7 +2447,7 @@ zeros before this function is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L186">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L185">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2465,7 +2465,7 @@ zeros before this function is called.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The type of the <code>get_property</code> function of <code>GObjectClass</code>.</p>
+                        <p>The type of the <code>get_property</code> function of <code>GObjectClass.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2477,7 +2477,7 @@ zeros before this function is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L189">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L188">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2495,7 +2495,7 @@ zeros before this function is called.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The type of the <code>set_property</code> function of <code>GObjectClass</code>.</p>
+                        <p>The type of the <code>set_property</code> function of <code>GObjectClass.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2507,7 +2507,7 @@ zeros before this function is called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L192">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L191">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2542,7 +2542,7 @@ value returned by the last callback.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L200">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L199">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2576,7 +2576,7 @@ emissions of that signal, from any object.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L207">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L206">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2595,7 +2595,7 @@ emissions of that signal, from any object.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A callback function used for notification when the state
-of a toggle reference changes. See g_object_add_toggle_ref().</p>
+of a toggle reference changes. See <code>g_object_add_toggle_ref()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -2607,7 +2607,7 @@ of a toggle reference changes. See g_object_add_toggle_ref().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L211">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L210">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2626,10 +2626,10 @@ of a toggle reference changes. See g_object_add_toggle_ref().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A callback function which is called when the reference count of a class
-drops to zero. It may use g_type_class_ref() to prevent the class from
-being freed. You should not call g_type_class_unref() from a
+drops to zero. It may use <code>g_type_class_ref()</code> to prevent the class from
+being freed. You should not call <code>g_type_class_unref()</code> from a
 <code>GTypeClassCacheFunc</code> function to prevent infinite recursion, use
-g_type_class_unref_uncached() instead.</p>
+<code>g_type_class_unref_uncached()</code> instead.</p>
 
 <p>The functions have to check the class id passed in to figure
 whether they actually want to cache the class of this type, since all
@@ -2645,7 +2645,7 @@ classes are routed through the same <code>GTypeClassCacheFunc</code> chain.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L222">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L221">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2664,7 +2664,7 @@ classes are routed through the same <code>GTypeClassCacheFunc</code> chain.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A callback called after an interface vtable is initialized.
-See g_type_add_interface_check().</p>
+See <code>g_type_add_interface_check()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -2676,7 +2676,7 @@ See g_type_add_interface_check().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L226">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L225">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2694,7 +2694,7 @@ See g_type_add_interface_check().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The type of the <code>complete_interface_info</code> function of <code>GTypePluginClass</code>.</p>
+                        <p>The type of the <code>complete_interface_info</code> function of <code>GTypePluginClass.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2706,7 +2706,7 @@ See g_type_add_interface_check().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L229">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L228">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2724,7 +2724,7 @@ See g_type_add_interface_check().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The type of the <code>complete_type_info</code> function of <code>GTypePluginClass</code>.</p>
+                        <p>The type of the <code>complete_type_info</code> function of <code>GTypePluginClass.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2736,7 +2736,7 @@ See g_type_add_interface_check().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L232">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L231">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2754,7 +2754,7 @@ See g_type_add_interface_check().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The type of the <code>unuse_plugin</code> function of <code>GTypePluginClass</code>.</p>
+                        <p>The type of the <code>unuse_plugin</code> function of <code>GTypePluginClass.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2766,7 +2766,7 @@ See g_type_add_interface_check().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L235">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L234">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2785,7 +2785,7 @@ See g_type_add_interface_check().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The type of the <code>use_plugin</code> function of <code>GTypePluginClass</code>, which gets called
-to increase the use count of <code>plugin</code>.</p>
+to increase the use count of <code>plugin.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -2797,7 +2797,7 @@ to increase the use count of <code>plugin</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L239">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L238">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2829,7 +2829,7 @@ marshalling the signal argument into GValues.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L244">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L243">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2848,7 +2848,7 @@ marshalling the signal argument into GValues.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The type of value transformation functions which can be registered with
-g_value_register_transform_func().</p>
+<code>g_value_register_transform_func()</code>.</p>
 
 <p><code>dest_value</code> will be initialized to the correct destination type.</p>
 
@@ -2862,7 +2862,7 @@ g_value_register_transform_func().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L250">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L249">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2895,7 +2895,7 @@ with the object, apart from e.g. using its address as hash-index or the like.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L256">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L255">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2908,7 +2908,7 @@ with the object, apart from e.g. using its address as hash-index or the like.</p
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

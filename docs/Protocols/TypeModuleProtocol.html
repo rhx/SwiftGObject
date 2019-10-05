@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           GLibObject 2.62.0 Docs
         </a>
-         (98% documented)
+         (96% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -1408,28 +1408,28 @@ Alternatively, use <code><a href="../Structs/TypeModuleRef.html">TypeModuleRef</
 interface. The model of <code>GTypeModule</code> is a dynamically loaded module
 which implements some number of types and interface implementations.
 When the module is loaded, it registers its types and interfaces
-using g_type_module_register_type() and g_type_module_add_interface().
+using <code>g_type_module_register_type()</code> and <code>g_type_module_add_interface()</code>.
 As long as any instances of these types and interface implementations
 are in use, the module is kept loaded. When the types and interfaces
 are gone, the module may be unloaded. If the types and interfaces
 become used again, the module will be reloaded. Note that the last
 unref cannot happen in module code, since that would lead to the
-caller&rsquo;s code being unloaded before g_object_unref() returns to it.</p>
+caller&rsquo;s code being unloaded before <code>g_object_unref()</code> returns to it.</p>
 
 <p>Keeping track of whether the module should be loaded or not is done by
 using a use count - it starts at zero, and whenever it is greater than
 zero, the module is loaded. The use count is maintained internally by
 the type system, but also can be explicitly controlled by
-g_type_module_use() and g_type_module_unuse(). Typically, when loading
-a module for the first type, g_type_module_use() will be used to load
+<code>g_type_module_use()</code> and <code>g_type_module_unuse()</code>. Typically, when loading
+a module for the first type, <code>g_type_module_use()</code> will be used to load
 it so that it can initialize its types. At some later point, when the
 module no longer needs to be loaded except for the type
-implementations it contains, g_type_module_unuse() is called.</p>
+implementations it contains, <code>g_type_module_unuse()</code> is called.</p>
 
 <p><code>GTypeModule</code> does not actually provide any implementation of module
 loading and unloading. To create a particular module type you must
 derive from <code>GTypeModule</code> and implement the load and unload functions
-in <code>GTypeModuleClass</code>.</p>
+in <code>GTypeModuleClass.</code></p>
 
           </div>
         </section>
@@ -1593,7 +1593,7 @@ in <code>GTypeModuleClass</code>.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L233-L252">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L232-L251">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1632,7 +1632,7 @@ for the type in this plugin, nothing will be done.</p>
 <p>As long as any instances of the type exist, the type plugin will
 not be unloaded.</p>
 
-<p>Since 2.56 if <code>module</code> is <code>nil</code> this will call g_type_add_interface_static()
+<p>Since 2.56 if <code>module</code> is <code>nil</code> this will call <code>g_type_add_interface_static()</code>
 instead. This can be used when making a static build of the module.</p>
 
                       </div>
@@ -1645,7 +1645,7 @@ instead. This can be used when making a static build of the module.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L268-L271">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L267-L270">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1674,7 +1674,7 @@ is newly registered, and the resulting <code>GType</code> identifier returned.</
 <p>As long as any instances of the type exist, the type plugin will
 not be unloaded.</p>
 
-<p>Since 2.56 if <code>module</code> is <code>nil</code> this will call g_type_register_static()
+<p>Since 2.56 if <code>module</code> is <code>nil</code> this will call <code>g_type_register_static()</code>
 instead. This can be used when making a static build of the module.</p>
 
                       </div>
@@ -1687,7 +1687,7 @@ instead. This can be used when making a static build of the module.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L283-L286">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L282-L285">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1716,7 +1716,7 @@ is newly registered, and the resulting <code>GType</code> identifier returned.</
 <p>As long as any instances of the type exist, the type plugin will
 not be unloaded.</p>
 
-<p>Since 2.56 if <code>module</code> is <code>nil</code> this will call g_type_register_static()
+<p>Since 2.56 if <code>module</code> is <code>nil</code> this will call <code>g_type_register_static()</code>
 instead. This can be used when making a static build of the module.</p>
 
                       </div>
@@ -1729,7 +1729,7 @@ instead. This can be used when making a static build of the module.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L298-L301">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L297-L300">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1762,7 +1762,7 @@ be the same as they were previously.</p>
 <p>As long as any instances of the type exist, the type plugin will
 not be unloaded.</p>
 
-<p>Since 2.56 if <code>module</code> is <code>nil</code> this will call g_type_register_static()
+<p>Since 2.56 if <code>module</code> is <code>nil</code> this will call <code>g_type_register_static()</code>
 instead. This can be used when making a static build of the module.</p>
 
                       </div>
@@ -1775,7 +1775,7 @@ instead. This can be used when making a static build of the module.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L317-L320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L316-L319">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1808,7 +1808,7 @@ instead. This can be used when making a static build of the module.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L323-L326">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L322-L325">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1845,7 +1845,7 @@ initialized, it must exist forever.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L333-L336">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L332-L335">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1881,7 +1881,7 @@ its prior value.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L342-L345">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L341-L344">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1894,7 +1894,7 @@ its prior value.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
