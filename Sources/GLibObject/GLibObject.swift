@@ -10,16 +10,13 @@ import GLib
 
 /// Protocol for signal name enums
 public protocol SignalNameProtocol: Hashable {
-    /// Name of the signal
     var rawValue: String { get }
 }
 
 /// Protocol extension for signal name enums
 public extension SignalNameProtocol {
-    /// Return the raw name of the signal as a String
     var name: String { return rawValue }
-    /// Hashable conformance.
-    /// Hashes the essential components of this signal by feeding the name into the given hasher.
+    /// Hashable conformance
     func hash(into hasher: inout Hasher) {
         hasher.combine(rawValue)
     }
@@ -27,16 +24,13 @@ public extension SignalNameProtocol {
 
 /// Protocol for property name enums
 public protocol PropertyNameProtocol: Hashable {
-    /// Name of the property
     var rawValue: String { get }
 }
 
 /// Protocol extension for signal name enums
 public extension PropertyNameProtocol {
-    /// Return the raw name of the property as a String
     var name: String { return rawValue }
-    /// Hashable conformance.
-    /// Hashes the essential components of this signal by feeding the name into the given hasher.
+    /// Hashable conformance
     func hash(into hasher: inout Hasher) {
         hasher.combine(rawValue)
     }
@@ -44,15 +38,8 @@ public extension PropertyNameProtocol {
 
 /// Type representing the name of a property
 public struct PropertyName {
-    /// The raw name of the property as a String
     public let name: String
-    /// Designated initialiser
-    /// - Parameter n: name of the property
     public init(_ n: String) { name = n }
-    /// Conversion initialiser.
-    /// This allows a property name of one kind to be initialised
-    /// from an instance of a property name of a different kind.
-    /// - Parameter p: instance of a type that implements the `PropertyNameProtocol` protocol
     public init<T: PropertyNameProtocol>(_ p: T) { name = p.rawValue }
 }
 
@@ -78,14 +65,8 @@ extension PropertyName: ExpressibleByStringLiteral {
     public typealias ExtendedGraphemeClusterLiteralType = String
     public typealias StringLiteralType = String
 
-    /// Creates an instance initialised to the given string value.
-    /// - Parameter value: The value of the new instance.
     public init(stringLiteral value: StringLiteralType) { self.init(value) }
-    /// Creates an instance initialized to the given value.
-    /// - Parameter value: The value of the new instance.
     public init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) { self.init(value) }
-    /// Creates an instance initialized to the given value.
-    /// - Parameter value: The  unicode scalar value of the new instance.
     public init(unicodeScalarLiteral value: UnicodeScalarLiteralType) { self.init(value) }
 }
 
@@ -99,11 +80,8 @@ public typealias ValueTransformer = (ValueRef, ValueRef) -> Bool
 /// Internal Class that wraps a closure to make sure the closure is retained
 /// until no longer required
 public class ClosureHolder<S,T> {
-    /// The closure wrapped by this instance
     public let call: (S) -> T
 
-    /// Creates an instance wrapping the given closure.
-    /// - Parameter closure: The closure to be wrapped by the new instance.
     public init(_ closure: @escaping (S) -> T) {
         self.call = closure
     }
@@ -112,15 +90,9 @@ public class ClosureHolder<S,T> {
 /// Internal Class that wraps a binding to make sure it is retained
 /// until no longer required
 public class BindingHolder<S,T> {
-    /// Forward transformer closure for transforming an instance of`S` into an instance of`T`
     public let transform_from: (S, T) -> Bool
-    /// Reverse transformer closure for transforming an instance of`T` back into an instance of`S`
     public let transform_to:   (T, S) -> Bool
 
-    /// Creates an instance of a binding holder
-    /// - Parameters:
-    ///   - transform_from: The forward transformer closure to store in the new instance.
-    ///   - transform_to: The reverse transformer closure to store in the new instance.
     public init(_ transform_from: @escaping (S, T) -> Bool, _ transform_to: @escaping (T, S) -> Bool) {
         self.transform_from = transform_from
         self.transform_to   = transform_to
