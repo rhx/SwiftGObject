@@ -148,7 +148,7 @@ public extension FlagsValueProtocol {
 
     /// Registers a new static flags type with the name `name`.
     /// 
-    /// It is normally more convenient to let [glib-mkenums][glib-mkenums]
+    /// It is normally more convenient to let [glib-mkenums](#glib-mkenums)
     /// generate a `my_flags_get_type()` function from a usual C enumeration
     /// definition than to write one yourself using `g_flags_register_static()`.
     func flagsRegisterStatic(name: UnsafePointer<gchar>) -> GType {

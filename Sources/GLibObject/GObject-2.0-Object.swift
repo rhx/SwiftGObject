@@ -290,7 +290,7 @@ public enum ObjectSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -491,7 +491,7 @@ public extension ObjectProtocol {
     }
 
     /// This function is intended for `GObject` implementations to re-enforce
-    /// a [floating][floating-ref] object reference. Doing this is seldom
+    /// a [floating](#floating-ref) object reference. Doing this is seldom
     /// required: all `GInitiallyUnowneds` are created with a floating reference
     /// which usually just needs to be sunken by calling `g_object_ref_sink()`.
     func forceFloating() {
@@ -645,7 +645,7 @@ public extension ObjectProtocol {
     }
 
     /// Increase the reference count of `object`, and possibly remove the
-    /// [floating][floating-ref] reference, if `object` has a floating reference.
+    /// [floating](#floating-ref) reference, if `object` has a floating reference.
     /// 
     /// In other words, if the object is floating, then this call "assumes
     /// ownership" of the floating reference, converting it to a normal
@@ -1147,9 +1147,9 @@ public extension ObjectProtocol {
         g_signal_stop_emission_by_name(cast(object_ptr), detailed_signal)
     
     }
-    /// Checks whether `object` has a [floating][floating-ref] reference.
+    /// Checks whether `object` has a [floating](#floating-ref) reference.
     var isFloating: Bool {
-        /// Checks whether `object` has a [floating][floating-ref] reference.
+        /// Checks whether `object` has a [floating](#floating-ref) reference.
         get {
             let rv = g_object_is_floating(cast(object_ptr))
             return Bool(rv != 0)

@@ -11,7 +11,7 @@ import GLib
 /// `GParamSpec` is an object structure that encapsulates the metadata
 /// required to specify parameters, such as e.g. `GObject` properties.
 /// 
-/// ```` Parameter names `` {`canonical`-parameter-names}
+/// ## Parameter names # <a name="canonical-parameter-names"></a>
 /// 
 /// Parameter names need to start with a letter (a-z or A-Z).
 /// Subsequent characters can be letters, numbers or a '-'.
@@ -33,7 +33,7 @@ public protocol ParamSpecProtocol {
 /// `GParamSpec` is an object structure that encapsulates the metadata
 /// required to specify parameters, such as e.g. `GObject` properties.
 /// 
-/// ```` Parameter names `` {`canonical`-parameter-names}
+/// ## Parameter names # <a name="canonical-parameter-names"></a>
 /// 
 /// Parameter names need to start with a letter (a-z or A-Z).
 /// Subsequent characters can be letters, numbers or a '-'.
@@ -116,7 +116,7 @@ public extension ParamSpecRef {
 /// `GParamSpec` is an object structure that encapsulates the metadata
 /// required to specify parameters, such as e.g. `GObject` properties.
 /// 
-/// ```` Parameter names `` {`canonical`-parameter-names}
+/// ## Parameter names # <a name="canonical-parameter-names"></a>
 /// 
 /// Parameter names need to start with a letter (a-z or A-Z).
 /// Subsequent characters can be letters, numbers or a '-'.

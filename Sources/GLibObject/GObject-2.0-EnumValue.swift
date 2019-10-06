@@ -167,7 +167,7 @@ public extension EnumValueProtocol {
 
     /// Registers a new static enumeration type with the name `name`.
     /// 
-    /// It is normally more convenient to let [glib-mkenums][glib-mkenums],
+    /// It is normally more convenient to let [glib-mkenums](#glib-mkenums),
     /// generate a `my_enum_get_type()` function from a usual C enumeration
     /// definition  than to write one yourself using `g_enum_register_static()`.
     func enumRegisterStatic(name: UnsafePointer<gchar>) -> GType {

@@ -2818,7 +2818,7 @@ object.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This function is intended for <code>GObject</code> implementations to re-enforce
-a [floating][floating-ref] object reference. Doing this is seldom
+a <a href="#floating-ref">floating</a> object reference. Doing this is seldom
 required: all <code>GInitiallyUnowneds</code> are created with a floating reference
 which usually just needs to be sunken by calling <code>g_object_ref_sink()</code>.</p>
 
@@ -3237,7 +3237,7 @@ explicit.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Increase the reference count of <code>object</code>, and possibly remove the
-[floating][floating-ref] reference, if <code>object</code> has a floating reference.</p>
+<a href="#floating-ref">floating</a> reference, if <code>object</code> has a floating reference.</p>
 
 <p>In other words, if the object is floating, then this call <q>assumes
 ownership</q> of the floating reference, converting it to a normal
@@ -4835,7 +4835,7 @@ signal id for you.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Checks whether <code>object</code> has a [floating][floating-ref] reference.</p>
+                        <p>Checks whether <code>object</code> has a <a href="#floating-ref">floating</a> reference.</p>
 
                       </div>
                       <div class="declaration">
