@@ -41,7 +41,7 @@ public extension ConnectFlags {
 }
 
 /// Through the `GParamFlags` flag values, certain aspects of parameters
-/// can be configured. See also `G_PARAM_STATIC_STRINGS.`
+/// can be configured. See also `G_PARAM_STATIC_STRINGS`.
 public typealias ParamFlags = GParamFlags
 
 public extension ParamFlags {

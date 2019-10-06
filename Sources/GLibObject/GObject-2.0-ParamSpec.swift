@@ -204,7 +204,7 @@ public extension ParamSpecProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpec` instance.
     var param_spec_ptr: UnsafeMutablePointer<GParamSpec> { return ptr.assumingMemoryBound(to: GParamSpec.self) }
 
-    /// Get the short description of a `GParamSpec.`
+    /// Get the short description of a `GParamSpec`.
     func getBlurb() -> String! {
         let rv = g_param_spec_get_blurb(cast(param_spec_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -212,7 +212,7 @@ public extension ParamSpecProtocol {
 
     /// Gets the default value of `pspec` as a pointer to a `GValue`.
     /// 
-    /// The `GValue` will remain valid for the life of `pspec.`
+    /// The `GValue` will remain valid for the life of `pspec`.
     func getDefaultValue() -> UnsafePointer<GValue>! {
         let rv = g_param_spec_get_default_value(cast(param_spec_ptr))
         return cast(rv)
@@ -233,7 +233,7 @@ public extension ParamSpecProtocol {
         return rv
     }
 
-    /// Get the nickname of a `GParamSpec.`
+    /// Get the nickname of a `GParamSpec`.
     func getNick() -> String! {
         let rv = g_param_spec_get_nick(cast(param_spec_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -257,13 +257,13 @@ public extension ParamSpecProtocol {
         return cast(rv)
     }
 
-    /// Increments the reference count of `pspec.`
+    /// Increments the reference count of `pspec`.
     func ref() -> UnsafeMutablePointer<GParamSpec>! {
         let rv = g_param_spec_ref(cast(param_spec_ptr))
         return cast(rv)
     }
 
-    /// Convenience function to ref and sink a `GParamSpec.`
+    /// Convenience function to ref and sink a `GParamSpec`.
     func refSink() -> UnsafeMutablePointer<GParamSpec>! {
         let rv = g_param_spec_ref_sink(cast(param_spec_ptr))
         return cast(rv)
@@ -284,7 +284,7 @@ public extension ParamSpecProtocol {
     /// a `void (*destroy) (gpointer)` function may be
     /// specified which is called with `data` as argument when the `pspec` is
     /// finalized, or the data is being overwritten by a call to
-    /// `g_param_spec_set_qdata()` with the same `quark.`
+    /// `g_param_spec_set_qdata()` with the same `quark`.
     func setQdataFull(quark: GLib.Quark, data: UnsafeMutableRawPointer, destroy: @escaping GLib.DestroyNotify) {
         g_param_spec_set_qdata_full(cast(param_spec_ptr), quark, cast(data), destroy)
     
@@ -311,7 +311,7 @@ public extension ParamSpecProtocol {
         return cast(rv)
     }
 
-    /// Decrements the reference count of a `pspec.`
+    /// Decrements the reference count of a `pspec`.
     func unref() {
         g_param_spec_unref(cast(param_spec_ptr))
     
@@ -348,13 +348,13 @@ public extension ParamSpecProtocol {
         return Bool(rv != 0)
     }
 
-    /// Checks whether `value` contains the default value as specified in `pspec.`
+    /// Checks whether `value` contains the default value as specified in `pspec`.
     func paramValueDefaults(value: ValueProtocol) -> Bool {
         let rv = g_param_value_defaults(cast(param_spec_ptr), cast(value.ptr))
         return Bool(rv != 0)
     }
 
-    /// Sets `value` to its default value as specified in `pspec.`
+    /// Sets `value` to its default value as specified in `pspec`.
     func paramValueSetDefault(value: ValueProtocol) {
         g_param_value_set_default(cast(param_spec_ptr), cast(value.ptr))
     
@@ -378,9 +378,9 @@ public extension ParamSpecProtocol {
         let rv = g_param_values_cmp(cast(param_spec_ptr), cast(value1.ptr), cast(value2.ptr))
         return CInt(rv)
     }
-    /// Get the short description of a `GParamSpec.`
+    /// Get the short description of a `GParamSpec`.
     var blurb: String! {
-        /// Get the short description of a `GParamSpec.`
+        /// Get the short description of a `GParamSpec`.
         get {
             let rv = g_param_spec_get_blurb(cast(param_spec_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -389,11 +389,11 @@ public extension ParamSpecProtocol {
 
     /// Gets the default value of `pspec` as a pointer to a `GValue`.
     /// 
-    /// The `GValue` will remain valid for the life of `pspec.`
+    /// The `GValue` will remain valid for the life of `pspec`.
     var defaultValue: UnsafePointer<GValue>! {
         /// Gets the default value of `pspec` as a pointer to a `GValue`.
         /// 
-        /// The `GValue` will remain valid for the life of `pspec.`
+        /// The `GValue` will remain valid for the life of `pspec`.
         get {
             let rv = g_param_spec_get_default_value(cast(param_spec_ptr))
             return cast(rv)
@@ -424,9 +424,9 @@ public extension ParamSpecProtocol {
         }
     }
 
-    /// Get the nickname of a `GParamSpec.`
+    /// Get the nickname of a `GParamSpec`.
     var nick: String! {
-        /// Get the nickname of a `GParamSpec.`
+        /// Get the nickname of a `GParamSpec`.
         get {
             let rv = g_param_spec_get_nick(cast(param_spec_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }

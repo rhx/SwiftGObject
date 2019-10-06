@@ -33,7 +33,7 @@ import GLib
 /// `GTypeModule` does not actually provide any implementation of module
 /// loading and unloading. To create a particular module type you must
 /// derive from `GTypeModule` and implement the load and unload functions
-/// in `GTypeModuleClass.`
+/// in `GTypeModuleClass`.
 public protocol TypeModuleProtocol: ObjectProtocol, TypePluginProtocol {
     /// Untyped pointer to the underlying `GTypeModule` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -71,7 +71,7 @@ public protocol TypeModuleProtocol: ObjectProtocol, TypePluginProtocol {
 /// `GTypeModule` does not actually provide any implementation of module
 /// loading and unloading. To create a particular module type you must
 /// derive from `GTypeModule` and implement the load and unload functions
-/// in `GTypeModuleClass.`
+/// in `GTypeModuleClass`.
 public struct TypeModuleRef: TypeModuleProtocol {
     /// Untyped pointer to the underlying `GTypeModule` instance.
     /// For type-safe access, use the generated, typed pointer `type_module_ptr` property instead.
@@ -149,7 +149,7 @@ public extension TypeModuleRef {
 /// `GTypeModule` does not actually provide any implementation of module
 /// loading and unloading. To create a particular module type you must
 /// derive from `GTypeModule` and implement the load and unload functions
-/// in `GTypeModuleClass.`
+/// in `GTypeModuleClass`.
 open class TypeModule: Object, TypeModuleProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `TypeModule` instance.

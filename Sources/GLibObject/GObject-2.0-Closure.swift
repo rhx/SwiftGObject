@@ -512,7 +512,7 @@ public extension ClosureProtocol {
     
     }
 
-    /// Invokes the closure, i.e. executes the callback represented by the `closure.`
+    /// Invokes the closure, i.e. executes the callback represented by the `closure`.
     func invoke(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: UnsafePointer<GValue>, invocationHint invocation_hint: UnsafeMutableRawPointer) {
         g_closure_invoke(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values), cast(invocation_hint))
     

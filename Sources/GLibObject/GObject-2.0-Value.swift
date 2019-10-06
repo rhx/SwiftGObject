@@ -156,7 +156,7 @@ public extension ValueProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GValue` instance.
     var value_ptr: UnsafeMutablePointer<GValue> { return ptr.assumingMemoryBound(to: GValue.self) }
 
-    /// Copies the value of `src_value` into `dest_value.`
+    /// Copies the value of `src_value` into `dest_value`.
     func copy(destValue dest_value: ValueProtocol) {
         g_value_copy(cast(value_ptr), cast(dest_value.ptr))
     
@@ -186,7 +186,7 @@ public extension ValueProtocol {
         return cast(rv)
     }
 
-    /// Get a copy the contents of a `G_TYPE_STRING` `GValue.`
+    /// Get a copy the contents of a `G_TYPE_STRING` `GValue`.
     func dupString() -> String! {
         let rv = g_value_dup_string(cast(value_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -206,13 +206,13 @@ public extension ValueProtocol {
         return Bool(rv != 0)
     }
 
-    /// Get the contents of a `G_TYPE_BOOLEAN` `GValue.`
+    /// Get the contents of a `G_TYPE_BOOLEAN` `GValue`.
     func getBoolean() -> Bool {
         let rv = g_value_get_boolean(cast(value_ptr))
         return Bool(rv != 0)
     }
 
-    /// Get the contents of a `G_TYPE_BOXED` derived `GValue.`
+    /// Get the contents of a `G_TYPE_BOXED` derived `GValue`.
     func getBoxed() -> UnsafeMutableRawPointer! {
         let rv = g_value_get_boxed(cast(value_ptr))
         return cast(rv)
@@ -221,7 +221,7 @@ public extension ValueProtocol {
     /// Do not use this function; it is broken on platforms where the `char`
     /// type is unsigned, such as ARM and PowerPC.  See `g_value_get_schar()`.
     /// 
-    /// Get the contents of a `G_TYPE_CHAR` `GValue.`
+    /// Get the contents of a `G_TYPE_CHAR` `GValue`.
     ///
     /// **get_char is deprecated:**
     /// This function's return type is broken, see g_value_get_schar()
@@ -230,115 +230,115 @@ public extension ValueProtocol {
         return rv
     }
 
-    /// Get the contents of a `G_TYPE_DOUBLE` `GValue.`
+    /// Get the contents of a `G_TYPE_DOUBLE` `GValue`.
     func getDouble() -> gdouble {
         let rv = g_value_get_double(cast(value_ptr))
         return rv
     }
 
-    /// Get the contents of a `G_TYPE_ENUM` `GValue.`
+    /// Get the contents of a `G_TYPE_ENUM` `GValue`.
     func getEnum() -> CInt {
         let rv = g_value_get_enum(cast(value_ptr))
         return CInt(rv)
     }
 
-    /// Get the contents of a `G_TYPE_FLAGS` `GValue.`
+    /// Get the contents of a `G_TYPE_FLAGS` `GValue`.
     func getFlags() -> CUnsignedInt {
         let rv = g_value_get_flags(cast(value_ptr))
         return CUnsignedInt(rv)
     }
 
-    /// Get the contents of a `G_TYPE_FLOAT` `GValue.`
+    /// Get the contents of a `G_TYPE_FLOAT` `GValue`.
     func getFloat() -> gfloat {
         let rv = g_value_get_float(cast(value_ptr))
         return rv
     }
 
-    /// Get the contents of a `G_TYPE_GTYPE` `GValue.`
+    /// Get the contents of a `G_TYPE_GTYPE` `GValue`.
     func getGtype() -> GType {
         let rv = g_value_get_gtype(cast(value_ptr))
         return rv
     }
 
-    /// Get the contents of a `G_TYPE_INT` `GValue.`
+    /// Get the contents of a `G_TYPE_INT` `GValue`.
     func getInt() -> CInt {
         let rv = g_value_get_int(cast(value_ptr))
         return CInt(rv)
     }
 
-    /// Get the contents of a `G_TYPE_INT64` `GValue.`
+    /// Get the contents of a `G_TYPE_INT64` `GValue`.
     func getInt64() -> Int64 {
         let rv = g_value_get_int64(cast(value_ptr))
         return Int64(rv)
     }
 
-    /// Get the contents of a `G_TYPE_LONG` `GValue.`
+    /// Get the contents of a `G_TYPE_LONG` `GValue`.
     func getLong() -> CLong {
         let rv = g_value_get_long(cast(value_ptr))
         return CLong(rv)
     }
 
-    /// Get the contents of a `G_TYPE_OBJECT` derived `GValue.`
+    /// Get the contents of a `G_TYPE_OBJECT` derived `GValue`.
     func getObject() -> UnsafeMutableRawPointer! {
         let rv = g_value_get_object(cast(value_ptr))
         return cast(rv)
     }
 
-    /// Get the contents of a `G_TYPE_PARAM` `GValue.`
+    /// Get the contents of a `G_TYPE_PARAM` `GValue`.
     func getParam() -> UnsafeMutablePointer<GParamSpec>! {
         let rv = g_value_get_param(cast(value_ptr))
         return cast(rv)
     }
 
-    /// Get the contents of a pointer `GValue.`
+    /// Get the contents of a pointer `GValue`.
     func getPointer() -> UnsafeMutableRawPointer! {
         let rv = g_value_get_pointer(cast(value_ptr))
         return cast(rv)
     }
 
-    /// Get the contents of a `G_TYPE_CHAR` `GValue.`
+    /// Get the contents of a `G_TYPE_CHAR` `GValue`.
     func getSchar() -> Int8 {
         let rv = g_value_get_schar(cast(value_ptr))
         return Int8(rv)
     }
 
-    /// Get the contents of a `G_TYPE_STRING` `GValue.`
+    /// Get the contents of a `G_TYPE_STRING` `GValue`.
     func getString() -> String! {
         let rv = g_value_get_string(cast(value_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// Get the contents of a `G_TYPE_UCHAR` `GValue.`
+    /// Get the contents of a `G_TYPE_UCHAR` `GValue`.
     func getUchar() -> guchar {
         let rv = g_value_get_uchar(cast(value_ptr))
         return rv
     }
 
-    /// Get the contents of a `G_TYPE_UINT` `GValue.`
+    /// Get the contents of a `G_TYPE_UINT` `GValue`.
     func getUint() -> CUnsignedInt {
         let rv = g_value_get_uint(cast(value_ptr))
         return CUnsignedInt(rv)
     }
 
-    /// Get the contents of a `G_TYPE_UINT64` `GValue.`
+    /// Get the contents of a `G_TYPE_UINT64` `GValue`.
     func getUint64() -> UInt64 {
         let rv = g_value_get_uint64(cast(value_ptr))
         return UInt64(rv)
     }
 
-    /// Get the contents of a `G_TYPE_ULONG` `GValue.`
+    /// Get the contents of a `G_TYPE_ULONG` `GValue`.
     func getUlong() -> CUnsignedLong {
         let rv = g_value_get_ulong(cast(value_ptr))
         return CUnsignedLong(rv)
     }
 
-    /// Get the contents of a variant `GValue.`
+    /// Get the contents of a variant `GValue`.
     func getVariant() -> UnsafeMutablePointer<GVariant>! {
         let rv = g_value_get_variant(cast(value_ptr))
         return cast(rv)
     }
 
-    /// Initializes `value` with the default value of `type.`
+    /// Initializes `value` with the default value of `type`.
     func init_(gType g_type: GType) -> UnsafeMutablePointer<GValue>! {
         let rv = g_value_init(cast(value_ptr), g_type)
         return cast(rv)
@@ -371,13 +371,13 @@ public extension ValueProtocol {
         return cast(rv)
     }
 
-    /// Set the contents of a `G_TYPE_BOOLEAN` `GValue` to `v_boolean.`
+    /// Set the contents of a `G_TYPE_BOOLEAN` `GValue` to `v_boolean`.
     func setBoolean(vBoolean v_boolean: Bool) {
         g_value_set_boolean(cast(value_ptr), gboolean(v_boolean ? 1 : 0))
     
     }
 
-    /// Set the contents of a `G_TYPE_BOXED` derived `GValue` to `v_boxed.`
+    /// Set the contents of a `G_TYPE_BOXED` derived `GValue` to `v_boxed`.
     func setBoxed(vBoxed v_boxed: gconstpointer) {
         g_value_set_boxed(cast(value_ptr), cast(v_boxed))
     
@@ -392,7 +392,7 @@ public extension ValueProtocol {
     
     }
 
-    /// Set the contents of a `G_TYPE_CHAR` `GValue` to `v_char.`
+    /// Set the contents of a `G_TYPE_CHAR` `GValue` to `v_char`.
     ///
     /// **set_char is deprecated:**
     /// This function's input type is broken, see g_value_set_schar()
@@ -401,31 +401,31 @@ public extension ValueProtocol {
     
     }
 
-    /// Set the contents of a `G_TYPE_DOUBLE` `GValue` to `v_double.`
+    /// Set the contents of a `G_TYPE_DOUBLE` `GValue` to `v_double`.
     func setDouble(vDouble v_double: gdouble) {
         g_value_set_double(cast(value_ptr), v_double)
     
     }
 
-    /// Set the contents of a `G_TYPE_ENUM` `GValue` to `v_enum.`
+    /// Set the contents of a `G_TYPE_ENUM` `GValue` to `v_enum`.
     func setEnum(vEnum v_enum: CInt) {
         g_value_set_enum(cast(value_ptr), gint(v_enum))
     
     }
 
-    /// Set the contents of a `G_TYPE_FLAGS` `GValue` to `v_flags.`
+    /// Set the contents of a `G_TYPE_FLAGS` `GValue` to `v_flags`.
     func setFlags(vFlags v_flags: CUnsignedInt) {
         g_value_set_flags(cast(value_ptr), guint(v_flags))
     
     }
 
-    /// Set the contents of a `G_TYPE_FLOAT` `GValue` to `v_float.`
+    /// Set the contents of a `G_TYPE_FLOAT` `GValue` to `v_float`.
     func setFloat(vFloat v_float: gfloat) {
         g_value_set_float(cast(value_ptr), v_float)
     
     }
 
-    /// Set the contents of a `G_TYPE_GTYPE` `GValue` to `v_gtype.`
+    /// Set the contents of a `G_TYPE_GTYPE` `GValue` to `v_gtype`.
     func setGtype(vGtype v_gtype: GType) {
         g_value_set_gtype(cast(value_ptr), v_gtype)
     
@@ -438,19 +438,19 @@ public extension ValueProtocol {
     
     }
 
-    /// Set the contents of a `G_TYPE_INT` `GValue` to `v_int.`
+    /// Set the contents of a `G_TYPE_INT` `GValue` to `v_int`.
     func setInt(vInt v_int: CInt) {
         g_value_set_int(cast(value_ptr), gint(v_int))
     
     }
 
-    /// Set the contents of a `G_TYPE_INT64` `GValue` to `v_int64.`
+    /// Set the contents of a `G_TYPE_INT64` `GValue` to `v_int64`.
     func setInt64(vInt64 v_int64: Int64) {
         g_value_set_int64(cast(value_ptr), gint64(v_int64))
     
     }
 
-    /// Set the contents of a `G_TYPE_LONG` `GValue` to `v_long.`
+    /// Set the contents of a `G_TYPE_LONG` `GValue` to `v_long`.
     func setLong(vLong v_long: CLong) {
         g_value_set_long(cast(value_ptr), glong(v_long))
     
@@ -481,7 +481,7 @@ public extension ValueProtocol {
     
     }
 
-    /// Set the contents of a `G_TYPE_PARAM` `GValue` to `param.`
+    /// Set the contents of a `G_TYPE_PARAM` `GValue` to `param`.
     func set(param: ParamSpecProtocol) {
         g_value_set_param(cast(value_ptr), cast(param.ptr))
     
@@ -496,13 +496,13 @@ public extension ValueProtocol {
     
     }
 
-    /// Set the contents of a pointer `GValue` to `v_pointer.`
+    /// Set the contents of a pointer `GValue` to `v_pointer`.
     func setPointer(vPointer v_pointer: UnsafeMutableRawPointer) {
         g_value_set_pointer(cast(value_ptr), cast(v_pointer))
     
     }
 
-    /// Set the contents of a `G_TYPE_CHAR` `GValue` to `v_char.`
+    /// Set the contents of a `G_TYPE_CHAR` `GValue` to `v_char`.
     func setSchar(vChar v_char: Int8) {
         g_value_set_schar(cast(value_ptr), gint8(v_char))
     
@@ -510,7 +510,7 @@ public extension ValueProtocol {
 
     /// Set the contents of a `G_TYPE_BOXED` derived `GValue` to `v_boxed`.
     /// The boxed value is assumed to be static, and is thus not duplicated
-    /// when setting the `GValue.`
+    /// when setting the `GValue`.
     func setStaticBoxed(vBoxed v_boxed: gconstpointer) {
         g_value_set_static_boxed(cast(value_ptr), cast(v_boxed))
     
@@ -518,13 +518,13 @@ public extension ValueProtocol {
 
     /// Set the contents of a `G_TYPE_STRING` `GValue` to `v_string`.
     /// The string is assumed to be static, and is thus not duplicated
-    /// when setting the `GValue.`
+    /// when setting the `GValue`.
     func setStaticString(vString v_string: UnsafePointer<gchar>) {
         g_value_set_static_string(cast(value_ptr), v_string)
     
     }
 
-    /// Set the contents of a `G_TYPE_STRING` `GValue` to `v_string.`
+    /// Set the contents of a `G_TYPE_STRING` `GValue` to `v_string`.
     func setString(vString v_string: UnsafePointer<gchar>) {
         g_value_set_string(cast(value_ptr), v_string)
     
@@ -539,25 +539,25 @@ public extension ValueProtocol {
     
     }
 
-    /// Set the contents of a `G_TYPE_UCHAR` `GValue` to `v_uchar.`
+    /// Set the contents of a `G_TYPE_UCHAR` `GValue` to `v_uchar`.
     func setUchar(vUchar v_uchar: UInt8) {
         g_value_set_uchar(cast(value_ptr), v_uchar)
     
     }
 
-    /// Set the contents of a `G_TYPE_UINT` `GValue` to `v_uint.`
+    /// Set the contents of a `G_TYPE_UINT` `GValue` to `v_uint`.
     func setUint(vUint v_uint: CUnsignedInt) {
         g_value_set_uint(cast(value_ptr), guint(v_uint))
     
     }
 
-    /// Set the contents of a `G_TYPE_UINT64` `GValue` to `v_uint64.`
+    /// Set the contents of a `G_TYPE_UINT64` `GValue` to `v_uint64`.
     func setUint64(vUint64 v_uint64: UInt64) {
         g_value_set_uint64(cast(value_ptr), guint64(v_uint64))
     
     }
 
-    /// Set the contents of a `G_TYPE_ULONG` `GValue` to `v_ulong.`
+    /// Set the contents of a `G_TYPE_ULONG` `GValue` to `v_ulong`.
     func setUlong(vUlong v_ulong: CUnsignedLong) {
         g_value_set_ulong(cast(value_ptr), gulong(v_ulong))
     
@@ -598,7 +598,7 @@ public extension ValueProtocol {
     
     }
 
-    /// Sets the contents of a `G_TYPE_STRING` `GValue` to `v_string.`
+    /// Sets the contents of a `G_TYPE_STRING` `GValue` to `v_string`.
     func takeString(vString v_string: UnsafeMutablePointer<gchar>) {
         g_value_take_string(cast(value_ptr), v_string)
     
@@ -821,13 +821,13 @@ public extension ValueProtocol {
         return Bool(rv != 0)
     }
 
-    /// Checks whether `value` contains the default value as specified in `pspec.`
+    /// Checks whether `value` contains the default value as specified in `pspec`.
     func paramValueDefaults(pspec: ParamSpecProtocol) -> Bool {
         let rv = g_param_value_defaults(cast(pspec.ptr), cast(value_ptr))
         return Bool(rv != 0)
     }
 
-    /// Sets `value` to its default value as specified in `pspec.`
+    /// Sets `value` to its default value as specified in `pspec`.
     func paramValueSetDefault(pspec: ParamSpecProtocol) {
         g_param_value_set_default(cast(pspec.ptr), cast(value_ptr))
     
@@ -915,27 +915,27 @@ public extension ValueProtocol {
         let rv = g_type_check_value_holds(cast(value_ptr), type)
         return Bool(rv != 0)
     }
-    /// Get the contents of a `G_TYPE_BOOLEAN` `GValue.`
+    /// Get the contents of a `G_TYPE_BOOLEAN` `GValue`.
     var boolean: Bool {
-        /// Get the contents of a `G_TYPE_BOOLEAN` `GValue.`
+        /// Get the contents of a `G_TYPE_BOOLEAN` `GValue`.
         get {
             let rv = g_value_get_boolean(cast(value_ptr))
             return Bool(rv != 0)
         }
-        /// Set the contents of a `G_TYPE_BOOLEAN` `GValue` to `v_boolean.`
+        /// Set the contents of a `G_TYPE_BOOLEAN` `GValue` to `v_boolean`.
         nonmutating set {
             g_value_set_boolean(cast(value_ptr), gboolean(newValue ? 1 : 0))
         }
     }
 
-    /// Get the contents of a `G_TYPE_BOXED` derived `GValue.`
+    /// Get the contents of a `G_TYPE_BOXED` derived `GValue`.
     var boxed: UnsafeMutableRawPointer! {
-        /// Get the contents of a `G_TYPE_BOXED` derived `GValue.`
+        /// Get the contents of a `G_TYPE_BOXED` derived `GValue`.
         get {
             let rv = g_value_get_boxed(cast(value_ptr))
             return cast(rv)
         }
-        /// Set the contents of a `G_TYPE_BOXED` derived `GValue` to `v_boxed.`
+        /// Set the contents of a `G_TYPE_BOXED` derived `GValue` to `v_boxed`.
         nonmutating set {
             g_value_set_boxed(cast(value_ptr), cast(newValue))
         }
@@ -944,7 +944,7 @@ public extension ValueProtocol {
     /// Do not use this function; it is broken on platforms where the `char`
     /// type is unsigned, such as ARM and PowerPC.  See `g_value_get_schar()`.
     /// 
-    /// Get the contents of a `G_TYPE_CHAR` `GValue.`
+    /// Get the contents of a `G_TYPE_CHAR` `GValue`.
     ///
     /// **get_char is deprecated:**
     /// This function's return type is broken, see g_value_get_schar()
@@ -952,7 +952,7 @@ public extension ValueProtocol {
         /// Do not use this function; it is broken on platforms where the `char`
         /// type is unsigned, such as ARM and PowerPC.  See `g_value_get_schar()`.
         /// 
-        /// Get the contents of a `G_TYPE_CHAR` `GValue.`
+        /// Get the contents of a `G_TYPE_CHAR` `GValue`.
         ///
         /// **get_char is deprecated:**
         /// This function's return type is broken, see g_value_get_schar()
@@ -960,7 +960,7 @@ public extension ValueProtocol {
             let rv = g_value_get_char(cast(value_ptr))
             return rv
         }
-        /// Set the contents of a `G_TYPE_CHAR` `GValue` to `v_char.`
+        /// Set the contents of a `G_TYPE_CHAR` `GValue` to `v_char`.
         ///
         /// **set_char is deprecated:**
         /// This function's input type is broken, see g_value_set_schar()
@@ -969,113 +969,113 @@ public extension ValueProtocol {
         }
     }
 
-    /// Get the contents of a `G_TYPE_DOUBLE` `GValue.`
+    /// Get the contents of a `G_TYPE_DOUBLE` `GValue`.
     var double: gdouble {
-        /// Get the contents of a `G_TYPE_DOUBLE` `GValue.`
+        /// Get the contents of a `G_TYPE_DOUBLE` `GValue`.
         get {
             let rv = g_value_get_double(cast(value_ptr))
             return rv
         }
-        /// Set the contents of a `G_TYPE_DOUBLE` `GValue` to `v_double.`
+        /// Set the contents of a `G_TYPE_DOUBLE` `GValue` to `v_double`.
         nonmutating set {
             g_value_set_double(cast(value_ptr), newValue)
         }
     }
 
-    /// Get the contents of a `G_TYPE_ENUM` `GValue.`
+    /// Get the contents of a `G_TYPE_ENUM` `GValue`.
     var enum_: CInt {
-        /// Get the contents of a `G_TYPE_ENUM` `GValue.`
+        /// Get the contents of a `G_TYPE_ENUM` `GValue`.
         get {
             let rv = g_value_get_enum(cast(value_ptr))
             return CInt(rv)
         }
-        /// Set the contents of a `G_TYPE_ENUM` `GValue` to `v_enum.`
+        /// Set the contents of a `G_TYPE_ENUM` `GValue` to `v_enum`.
         nonmutating set {
             g_value_set_enum(cast(value_ptr), gint(newValue))
         }
     }
 
-    /// Get the contents of a `G_TYPE_FLAGS` `GValue.`
+    /// Get the contents of a `G_TYPE_FLAGS` `GValue`.
     var flags: CUnsignedInt {
-        /// Get the contents of a `G_TYPE_FLAGS` `GValue.`
+        /// Get the contents of a `G_TYPE_FLAGS` `GValue`.
         get {
             let rv = g_value_get_flags(cast(value_ptr))
             return CUnsignedInt(rv)
         }
-        /// Set the contents of a `G_TYPE_FLAGS` `GValue` to `v_flags.`
+        /// Set the contents of a `G_TYPE_FLAGS` `GValue` to `v_flags`.
         nonmutating set {
             g_value_set_flags(cast(value_ptr), guint(newValue))
         }
     }
 
-    /// Get the contents of a `G_TYPE_FLOAT` `GValue.`
+    /// Get the contents of a `G_TYPE_FLOAT` `GValue`.
     var float: gfloat {
-        /// Get the contents of a `G_TYPE_FLOAT` `GValue.`
+        /// Get the contents of a `G_TYPE_FLOAT` `GValue`.
         get {
             let rv = g_value_get_float(cast(value_ptr))
             return rv
         }
-        /// Set the contents of a `G_TYPE_FLOAT` `GValue` to `v_float.`
+        /// Set the contents of a `G_TYPE_FLOAT` `GValue` to `v_float`.
         nonmutating set {
             g_value_set_float(cast(value_ptr), newValue)
         }
     }
 
-    /// Get the contents of a `G_TYPE_GTYPE` `GValue.`
+    /// Get the contents of a `G_TYPE_GTYPE` `GValue`.
     var gtype: GType {
-        /// Get the contents of a `G_TYPE_GTYPE` `GValue.`
+        /// Get the contents of a `G_TYPE_GTYPE` `GValue`.
         get {
             let rv = g_value_get_gtype(cast(value_ptr))
             return rv
         }
-        /// Set the contents of a `G_TYPE_GTYPE` `GValue` to `v_gtype.`
+        /// Set the contents of a `G_TYPE_GTYPE` `GValue` to `v_gtype`.
         nonmutating set {
             g_value_set_gtype(cast(value_ptr), newValue)
         }
     }
 
-    /// Get the contents of a `G_TYPE_INT` `GValue.`
+    /// Get the contents of a `G_TYPE_INT` `GValue`.
     var int: CInt {
-        /// Get the contents of a `G_TYPE_INT` `GValue.`
+        /// Get the contents of a `G_TYPE_INT` `GValue`.
         get {
             let rv = g_value_get_int(cast(value_ptr))
             return CInt(rv)
         }
-        /// Set the contents of a `G_TYPE_INT` `GValue` to `v_int.`
+        /// Set the contents of a `G_TYPE_INT` `GValue` to `v_int`.
         nonmutating set {
             g_value_set_int(cast(value_ptr), gint(newValue))
         }
     }
 
-    /// Get the contents of a `G_TYPE_INT64` `GValue.`
+    /// Get the contents of a `G_TYPE_INT64` `GValue`.
     var int64: Int64 {
-        /// Get the contents of a `G_TYPE_INT64` `GValue.`
+        /// Get the contents of a `G_TYPE_INT64` `GValue`.
         get {
             let rv = g_value_get_int64(cast(value_ptr))
             return Int64(rv)
         }
-        /// Set the contents of a `G_TYPE_INT64` `GValue` to `v_int64.`
+        /// Set the contents of a `G_TYPE_INT64` `GValue` to `v_int64`.
         nonmutating set {
             g_value_set_int64(cast(value_ptr), gint64(newValue))
         }
     }
 
-    /// Get the contents of a `G_TYPE_LONG` `GValue.`
+    /// Get the contents of a `G_TYPE_LONG` `GValue`.
     var long: CLong {
-        /// Get the contents of a `G_TYPE_LONG` `GValue.`
+        /// Get the contents of a `G_TYPE_LONG` `GValue`.
         get {
             let rv = g_value_get_long(cast(value_ptr))
             return CLong(rv)
         }
-        /// Set the contents of a `G_TYPE_LONG` `GValue` to `v_long.`
+        /// Set the contents of a `G_TYPE_LONG` `GValue` to `v_long`.
         nonmutating set {
             g_value_set_long(cast(value_ptr), glong(newValue))
         }
     }
 
-    /// Get the contents of a `G_TYPE_OBJECT` derived `GValue.`
+    /// Get the contents of a `G_TYPE_OBJECT` derived `GValue`.
     var object: UnsafeMutableRawPointer! {
-        /// Get the contents of a `G_TYPE_OBJECT` derived `GValue.`
+        /// Get the contents of a `G_TYPE_OBJECT` derived `GValue`.
         get {
             let rv = g_value_get_object(cast(value_ptr))
             return cast(rv)
@@ -1096,113 +1096,113 @@ public extension ValueProtocol {
         }
     }
 
-    /// Get the contents of a `G_TYPE_PARAM` `GValue.`
+    /// Get the contents of a `G_TYPE_PARAM` `GValue`.
     var param: UnsafeMutablePointer<GParamSpec>! {
-        /// Get the contents of a `G_TYPE_PARAM` `GValue.`
+        /// Get the contents of a `G_TYPE_PARAM` `GValue`.
         get {
             let rv = g_value_get_param(cast(value_ptr))
             return cast(rv)
         }
-        /// Set the contents of a `G_TYPE_PARAM` `GValue` to `param.`
+        /// Set the contents of a `G_TYPE_PARAM` `GValue` to `param`.
         nonmutating set {
             g_value_set_param(cast(value_ptr), cast(newValue))
         }
     }
 
-    /// Get the contents of a pointer `GValue.`
+    /// Get the contents of a pointer `GValue`.
     var pointer: UnsafeMutableRawPointer! {
-        /// Get the contents of a pointer `GValue.`
+        /// Get the contents of a pointer `GValue`.
         get {
             let rv = g_value_get_pointer(cast(value_ptr))
             return cast(rv)
         }
-        /// Set the contents of a pointer `GValue` to `v_pointer.`
+        /// Set the contents of a pointer `GValue` to `v_pointer`.
         nonmutating set {
             g_value_set_pointer(cast(value_ptr), cast(newValue))
         }
     }
 
-    /// Get the contents of a `G_TYPE_CHAR` `GValue.`
+    /// Get the contents of a `G_TYPE_CHAR` `GValue`.
     var schar: Int8 {
-        /// Get the contents of a `G_TYPE_CHAR` `GValue.`
+        /// Get the contents of a `G_TYPE_CHAR` `GValue`.
         get {
             let rv = g_value_get_schar(cast(value_ptr))
             return Int8(rv)
         }
-        /// Set the contents of a `G_TYPE_CHAR` `GValue` to `v_char.`
+        /// Set the contents of a `G_TYPE_CHAR` `GValue` to `v_char`.
         nonmutating set {
             g_value_set_schar(cast(value_ptr), gint8(newValue))
         }
     }
 
-    /// Get the contents of a `G_TYPE_STRING` `GValue.`
+    /// Get the contents of a `G_TYPE_STRING` `GValue`.
     var string: String! {
-        /// Get the contents of a `G_TYPE_STRING` `GValue.`
+        /// Get the contents of a `G_TYPE_STRING` `GValue`.
         get {
             let rv = g_value_get_string(cast(value_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
         }
-        /// Set the contents of a `G_TYPE_STRING` `GValue` to `v_string.`
+        /// Set the contents of a `G_TYPE_STRING` `GValue` to `v_string`.
         nonmutating set {
             g_value_set_string(cast(value_ptr), newValue)
         }
     }
 
-    /// Get the contents of a `G_TYPE_UCHAR` `GValue.`
+    /// Get the contents of a `G_TYPE_UCHAR` `GValue`.
     var uchar: guchar {
-        /// Get the contents of a `G_TYPE_UCHAR` `GValue.`
+        /// Get the contents of a `G_TYPE_UCHAR` `GValue`.
         get {
             let rv = g_value_get_uchar(cast(value_ptr))
             return rv
         }
-        /// Set the contents of a `G_TYPE_UCHAR` `GValue` to `v_uchar.`
+        /// Set the contents of a `G_TYPE_UCHAR` `GValue` to `v_uchar`.
         nonmutating set {
             g_value_set_uchar(cast(value_ptr), newValue)
         }
     }
 
-    /// Get the contents of a `G_TYPE_UINT` `GValue.`
+    /// Get the contents of a `G_TYPE_UINT` `GValue`.
     var uint: CUnsignedInt {
-        /// Get the contents of a `G_TYPE_UINT` `GValue.`
+        /// Get the contents of a `G_TYPE_UINT` `GValue`.
         get {
             let rv = g_value_get_uint(cast(value_ptr))
             return CUnsignedInt(rv)
         }
-        /// Set the contents of a `G_TYPE_UINT` `GValue` to `v_uint.`
+        /// Set the contents of a `G_TYPE_UINT` `GValue` to `v_uint`.
         nonmutating set {
             g_value_set_uint(cast(value_ptr), guint(newValue))
         }
     }
 
-    /// Get the contents of a `G_TYPE_UINT64` `GValue.`
+    /// Get the contents of a `G_TYPE_UINT64` `GValue`.
     var uint64: UInt64 {
-        /// Get the contents of a `G_TYPE_UINT64` `GValue.`
+        /// Get the contents of a `G_TYPE_UINT64` `GValue`.
         get {
             let rv = g_value_get_uint64(cast(value_ptr))
             return UInt64(rv)
         }
-        /// Set the contents of a `G_TYPE_UINT64` `GValue` to `v_uint64.`
+        /// Set the contents of a `G_TYPE_UINT64` `GValue` to `v_uint64`.
         nonmutating set {
             g_value_set_uint64(cast(value_ptr), guint64(newValue))
         }
     }
 
-    /// Get the contents of a `G_TYPE_ULONG` `GValue.`
+    /// Get the contents of a `G_TYPE_ULONG` `GValue`.
     var ulong: CUnsignedLong {
-        /// Get the contents of a `G_TYPE_ULONG` `GValue.`
+        /// Get the contents of a `G_TYPE_ULONG` `GValue`.
         get {
             let rv = g_value_get_ulong(cast(value_ptr))
             return CUnsignedLong(rv)
         }
-        /// Set the contents of a `G_TYPE_ULONG` `GValue` to `v_ulong.`
+        /// Set the contents of a `G_TYPE_ULONG` `GValue` to `v_ulong`.
         nonmutating set {
             g_value_set_ulong(cast(value_ptr), gulong(newValue))
         }
     }
 
-    /// Get the contents of a variant `GValue.`
+    /// Get the contents of a variant `GValue`.
     var variant: UnsafeMutablePointer<GVariant>! {
-        /// Get the contents of a variant `GValue.`
+        /// Get the contents of a variant `GValue`.
         get {
             let rv = g_value_get_variant(cast(value_ptr))
             return cast(rv)

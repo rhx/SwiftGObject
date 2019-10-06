@@ -690,7 +690,7 @@ public extension ObjectProtocol {
     /// should not destroy the object in the normal way.
     /// 
     /// See `g_object_set_data()` for guidance on using a small, bounded set of values
-    /// for `key.`
+    /// for `key`.
     func replaceData(key: UnsafePointer<gchar>, oldval: UnsafeMutableRawPointer, newval: UnsafeMutableRawPointer, destroy: @escaping GLib.DestroyNotify, oldDestroy old_destroy: UnsafeMutablePointer<GDestroyNotify>) -> Bool {
         let rv = g_object_replace_data(cast(object_ptr), key, cast(oldval), cast(newval), destroy, cast(old_destroy))
         return Bool(rv != 0)
@@ -775,7 +775,7 @@ public extension ObjectProtocol {
     /// a void (*destroy) (gpointer) function may be specified which is
     /// called with `data` as argument when the `object` is finalized, or
     /// the data is being overwritten by a call to `g_object_set_qdata()`
-    /// with the same `quark.`
+    /// with the same `quark`.
     func setQdataFull(quark: GLib.Quark, data: UnsafeMutableRawPointer, destroy: @escaping GLib.DestroyNotify) {
         g_object_set_qdata_full(cast(object_ptr), quark, cast(data), destroy)
     
@@ -1009,7 +1009,7 @@ public extension ObjectProtocol {
     /// blocked before to become active again.
     /// 
     /// The `handler_id` has to be a valid signal handler id, connected to a
-    /// signal of `instance.`
+    /// signal of `instance`.
     func signalHandlerBlock(handlerID handler_id: CUnsignedLong) {
         g_signal_handler_block(cast(object_ptr), gulong(handler_id))
     
@@ -1020,7 +1020,7 @@ public extension ObjectProtocol {
     /// connected to. The `handler_id` becomes invalid and may be reused.
     /// 
     /// The `handler_id` has to be a valid signal handler id, connected to a
-    /// signal of `instance.`
+    /// signal of `instance`.
     func signalHandlerDisconnect(handlerID handler_id: CUnsignedLong) {
         g_signal_handler_disconnect(cast(object_ptr), gulong(handler_id))
     
@@ -1036,7 +1036,7 @@ public extension ObjectProtocol {
         return CUnsignedLong(rv)
     }
 
-    /// Returns whether `handler_id` is the ID of a handler connected to `instance.`
+    /// Returns whether `handler_id` is the ID of a handler connected to `instance`.
     func signalHandlerIsConnected(handlerID handler_id: CUnsignedLong) -> Bool {
         let rv = g_signal_handler_is_connected(cast(object_ptr), gulong(handler_id))
         return Bool(rv != 0)

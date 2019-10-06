@@ -38,7 +38,7 @@ public typealias BoxedFreeFunc = GBoxedFreeFunc
 /// signatures. This doesn't mean that all callback functions must take no
 /// parameters and return void. The required signature of a callback function
 /// is determined by the context in which is used (e.g. the signal to which it
-/// is connected). Use `G_CALLBACK()` to cast the callback function to a `GCallback.`
+/// is connected). Use `G_CALLBACK()` to cast the callback function to a `GCallback`.
 public typealias Callback = GCallback
 
 /// A callback function used by the type system to finalize a class.
@@ -181,13 +181,13 @@ public typealias InterfaceFinalizeFunc = GInterfaceFinalizeFunc
 /// zeros before this function is called.
 public typealias InterfaceInitFunc = GInterfaceInitFunc
 
-/// The type of the `finalize` function of `GObjectClass.`
+/// The type of the `finalize` function of `GObjectClass`.
 public typealias ObjectFinalizeFunc = GObjectFinalizeFunc
 
-/// The type of the `get_property` function of `GObjectClass.`
+/// The type of the `get_property` function of `GObjectClass`.
 public typealias ObjectGetPropertyFunc = GObjectGetPropertyFunc
 
-/// The type of the `set_property` function of `GObjectClass.`
+/// The type of the `set_property` function of `GObjectClass`.
 public typealias ObjectSetPropertyFunc = GObjectSetPropertyFunc
 
 /// The signal accumulator is a special callback function that can be used
@@ -224,17 +224,17 @@ public typealias TypeClassCacheFunc = GTypeClassCacheFunc
 /// See `g_type_add_interface_check()`.
 public typealias TypeInterfaceCheckFunc = GTypeInterfaceCheckFunc
 
-/// The type of the `complete_interface_info` function of `GTypePluginClass.`
+/// The type of the `complete_interface_info` function of `GTypePluginClass`.
 public typealias TypePluginCompleteInterfaceInfo = GTypePluginCompleteInterfaceInfo
 
-/// The type of the `complete_type_info` function of `GTypePluginClass.`
+/// The type of the `complete_type_info` function of `GTypePluginClass`.
 public typealias TypePluginCompleteTypeInfo = GTypePluginCompleteTypeInfo
 
-/// The type of the `unuse_plugin` function of `GTypePluginClass.`
+/// The type of the `unuse_plugin` function of `GTypePluginClass`.
 public typealias TypePluginUnuse = GTypePluginUnuse
 
 /// The type of the `use_plugin` function of `GTypePluginClass`, which gets called
-/// to increase the use count of `plugin.`
+/// to increase the use count of `plugin`.
 public typealias TypePluginUse = GTypePluginUse
 
 /// This is the signature of va_list marshaller functions, an optional

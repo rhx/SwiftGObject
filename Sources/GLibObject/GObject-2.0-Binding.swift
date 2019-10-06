@@ -477,7 +477,7 @@ public extension BindingProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GBinding` instance.
     var binding_ptr: UnsafeMutablePointer<GBinding> { return ptr.assumingMemoryBound(to: GBinding.self) }
 
-    /// Retrieves the flags passed when constructing the `GBinding.`
+    /// Retrieves the flags passed when constructing the `GBinding`.
     func getFlags() -> GBindingFlags {
         let rv = g_binding_get_flags(cast(binding_ptr))
         return rv
@@ -522,7 +522,7 @@ public extension BindingProtocol {
     }
     /// Flags to be used to control the `GBinding`
     var flags: GBindingFlags {
-        /// Retrieves the flags passed when constructing the `GBinding.`
+        /// Retrieves the flags passed when constructing the `GBinding`.
         get {
             let rv = g_binding_get_flags(cast(binding_ptr))
             return rv

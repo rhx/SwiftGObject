@@ -10,7 +10,7 @@ import GLib
 ///
 /// The GObjectConstructParam struct is an auxiliary
 /// structure used to hand `GParamSpec`/`GValue` pairs to the `constructor` of
-/// a `GObjectClass.`
+/// a `GObjectClass`.
 public protocol ObjectConstructParamProtocol {
     /// Untyped pointer to the underlying `GObjectConstructParam` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -25,7 +25,7 @@ public protocol ObjectConstructParamProtocol {
 ///
 /// The GObjectConstructParam struct is an auxiliary
 /// structure used to hand `GParamSpec`/`GValue` pairs to the `constructor` of
-/// a `GObjectClass.`
+/// a `GObjectClass`.
 public struct ObjectConstructParamRef: ObjectConstructParamProtocol {
     /// Untyped pointer to the underlying `GObjectConstructParam` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -80,7 +80,7 @@ public extension ObjectConstructParamRef {
 ///
 /// The GObjectConstructParam struct is an auxiliary
 /// structure used to hand `GParamSpec`/`GValue` pairs to the `constructor` of
-/// a `GObjectClass.`
+/// a `GObjectClass`.
 open class ObjectConstructParam: ObjectConstructParamProtocol {
     /// Untyped pointer to the underlying `GObjectConstructParam` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

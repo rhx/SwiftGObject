@@ -1,7 +1,7 @@
 import CGLib
 import GLib
 
-/// Provide a copy of a boxed structure `src_boxed` which is of type `boxed_type.`
+/// Provide a copy of a boxed structure `src_boxed` which is of type `boxed_type`.
 public func boxedCopy(boxedType boxed_type: GType, srcBoxed src_boxed: gconstpointer) -> UnsafeMutableRawPointer! {
     let rv = g_boxed_copy(boxed_type, cast(src_boxed))
     return cast(rv)
@@ -10,7 +10,7 @@ public func boxedCopy(boxedType boxed_type: GType, srcBoxed src_boxed: gconstpoi
 
 
 
-/// Free the boxed structure `boxed` which is of type `boxed_type.`
+/// Free the boxed structure `boxed` which is of type `boxed_type`.
 public func boxedFree(boxedType boxed_type: GType, boxed: UnsafeMutableRawPointer) {
     g_boxed_free(boxed_type, cast(boxed))
 
@@ -269,7 +269,7 @@ public func cclosureMarshalGeneric(closure: ClosureProtocol, returnGvalue return
 /// Creates a new closure which invokes `callback_func` with `user_data` as
 /// the last parameter.
 /// 
-/// `destroy_data` will be called as a finalize notifier on the `GClosure.`
+/// `destroy_data` will be called as a finalize notifier on the `GClosure`.
 public func cclosureNew(callbackFunc callback_func: @escaping Callback, userData user_data: UnsafeMutableRawPointer, destroyData destroy_data: @escaping ClosureNotify) -> UnsafeMutablePointer<GClosure>! {
     let rv = g_cclosure_new(callback_func, cast(user_data), destroy_data)
     return cast(rv)
@@ -307,7 +307,7 @@ public func cclosureNewObjectSwap(callbackFunc callback_func: @escaping Callback
 /// Creates a new closure which invokes `callback_func` with `user_data` as
 /// the first parameter.
 /// 
-/// `destroy_data` will be called as a finalize notifier on the `GClosure.`
+/// `destroy_data` will be called as a finalize notifier on the `GClosure`.
 public func cclosureNewSwap(callbackFunc callback_func: @escaping Callback, userData user_data: UnsafeMutableRawPointer, destroyData destroy_data: @escaping ClosureNotify) -> UnsafeMutablePointer<GClosure>! {
     let rv = g_cclosure_new_swap(callback_func, cast(user_data), destroy_data)
     return cast(rv)
@@ -443,7 +443,7 @@ public func flagsCompleteTypeInfo(gFlagsType g_flags_type: GType, info: TypeInfo
 
 
 
-/// Returns the first `GFlagsValue` which is set in `value.`
+/// Returns the first `GFlagsValue` which is set in `value`.
 public func flagsGetFirstValue(flagsClass flags_class: FlagsClassProtocol, value: CUnsignedInt) -> UnsafeMutablePointer<GFlagsValue>! {
     let rv = g_flags_get_first_value(cast(flags_class.ptr), guint(value))
     return cast(rv)
@@ -817,7 +817,7 @@ public func paramValueConvert(pspec: ParamSpecProtocol, srcValue src_value: Valu
 
 
 
-/// Checks whether `value` contains the default value as specified in `pspec.`
+/// Checks whether `value` contains the default value as specified in `pspec`.
 public func paramValueDefaults(pspec: ParamSpecProtocol, value: ValueProtocol) -> Bool {
     let rv = g_param_value_defaults(cast(pspec.ptr), cast(value.ptr))
     return Bool(rv != 0)
@@ -826,7 +826,7 @@ public func paramValueDefaults(pspec: ParamSpecProtocol, value: ValueProtocol) -
 
 
 
-/// Sets `value` to its default value as specified in `pspec.`
+/// Sets `value` to its default value as specified in `pspec`.
 public func paramValueSetDefault(pspec: ParamSpecProtocol, value: ValueProtocol) {
     g_param_value_set_default(cast(pspec.ptr), cast(value.ptr))
 
@@ -861,7 +861,7 @@ public func paramValuesCmp(pspec: ParamSpecProtocol, value1: ValueProtocol, valu
 
 
 /// Creates a new `G_TYPE_POINTER` derived type id for a new
-/// pointer type with name `name.`
+/// pointer type with name `name`.
 public func pointerTypeRegisterStatic(name: UnsafePointer<gchar>) -> GType {
     let rv = g_pointer_type_register_static(name)
     return rv
@@ -1034,7 +1034,7 @@ public func signalGetInvocationHint(instance: ObjectProtocol) -> UnsafeMutablePo
 /// blocked before to become active again.
 /// 
 /// The `handler_id` has to be a valid signal handler id, connected to a
-/// signal of `instance.`
+/// signal of `instance`.
 public func signalHandlerBlock(instance: ObjectProtocol, handlerID handler_id: CUnsignedLong) {
     g_signal_handler_block(cast(instance.ptr), gulong(handler_id))
 
@@ -1048,7 +1048,7 @@ public func signalHandlerBlock(instance: ObjectProtocol, handlerID handler_id: C
 /// connected to. The `handler_id` becomes invalid and may be reused.
 /// 
 /// The `handler_id` has to be a valid signal handler id, connected to a
-/// signal of `instance.`
+/// signal of `instance`.
 public func signalHandlerDisconnect(instance: ObjectProtocol, handlerID handler_id: CUnsignedLong) {
     g_signal_handler_disconnect(cast(instance.ptr), gulong(handler_id))
 
@@ -1070,7 +1070,7 @@ public func signalHandlerFind(instance: ObjectProtocol, mask: SignalMatchType, s
 
 
 
-/// Returns whether `handler_id` is the ID of a handler connected to `instance.`
+/// Returns whether `handler_id` is the ID of a handler connected to `instance`.
 public func signalHandlerIsConnected(instance: ObjectProtocol, handlerID handler_id: CUnsignedLong) -> Bool {
     let rv = g_signal_handler_is_connected(cast(instance.ptr), gulong(handler_id))
     return Bool(rv != 0)
@@ -1366,7 +1366,7 @@ public func signalStopEmissionByName(instance: ObjectProtocol, detailedSignal de
 
 /// Creates a new closure which invokes the function found at the offset
 /// `struct_offset` in the class structure of the interface or classed type
-/// identified by `itype.`
+/// identified by `itype`.
 public func signalTypeCclosureNew(itype: GType, structOffset struct_offset: CUnsignedInt) -> UnsafeMutablePointer<GClosure>! {
     let rv = g_signal_type_cclosure_new(itype, guint(struct_offset))
     return cast(rv)
@@ -1573,7 +1573,7 @@ public func typeCheckValueHolds(value: ValueProtocol, type: GType) -> Bool {
 
 
 /// Return a newly allocated and 0-terminated array of type IDs, listing
-/// the child types of `type.`
+/// the child types of `type`.
 public func typeChildren(type: GType, nChildren n_children: UnsafeMutablePointer<CUnsignedInt>) -> UnsafeMutablePointer<GType>! {
     let rv = g_type_children(type, cast(n_children))
     return cast(rv)
@@ -1778,7 +1778,7 @@ public func typeGetInstanceCount(type: GType) -> CInt {
 
 
 
-/// Returns the `GTypePlugin` structure for `type.`
+/// Returns the `GTypePlugin` structure for `type`.
 public func typeGetPlugin(type: GType) -> UnsafeMutablePointer<GTypePlugin>! {
     let rv = g_type_get_plugin(type)
     return cast(rv)
@@ -2082,7 +2082,7 @@ public func typeTestFlags(type: GType, flags: CUnsignedInt) -> Bool {
 /// 
 /// Note that this function should only be used from source code
 /// that implements or has internal knowledge of the implementation of
-/// `type.`
+/// `type`.
 public func typeValueTablePeek(type: GType) -> UnsafeMutablePointer<GTypeValueTable>! {
     let rv = g_type_value_table_peek(type)
     return cast(rv)
@@ -2103,7 +2103,7 @@ public func valueRegisterTransformFunc(srcType src_type: GType, destType dest_ty
 
 
 /// Returns whether a `GValue` of type `src_type` can be copied into
-/// a `GValue` of type `dest_type.`
+/// a `GValue` of type `dest_type`.
 public func valueTypeCompatible(srcType src_type: GType, destType dest_type: GType) -> Bool {
     let rv = g_value_type_compatible(src_type, dest_type)
     return Bool(rv != 0)
