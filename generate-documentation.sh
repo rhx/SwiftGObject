@@ -8,8 +8,10 @@
 if [ -z "$@" ]; then
     JAZZY_ARGS="--theme fullwidth --author Ren&eacute;&nbsp;Hexel --author_url https://www.ict.griffith.edu.au/~rhexel/ --github_url https://github.com/rhx/Swift$Pkg --github-file-prefix https://github.com/rhx/Swift$Pkg/tree/generated --root-url http://rhx.github.io/Swift$Pkg/ --output docs"
 fi
-./build.sh
+[ -e "$BUILD_DIR/build.db" ] || ./build.sh
 rm -rf .docs.old
 mv docs .docs.old 2>/dev/null
-jazzy --swift-build-tool spm --clean --module-version $JAZZY_VER	\
-      --module $Mod $JAZZY_ARGS "$@" -b $JAZZY_B
+sourcekitten doc --spm-module $Mod -- --build-path "$BUILD_DIR"		\
+	$CCFLAGS $LINKFLAGS > "$BUILD_DIR/$Mod-doc.json"
+jazzy --sourcekitten-sourcefile "$BUILD_DIR/$Mod-doc.json" --clean	\
+      --module-version $JAZZY_VER --module $Mod $JAZZY_ARGS "$@"
