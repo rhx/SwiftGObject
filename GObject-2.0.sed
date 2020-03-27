@@ -1,7 +1,7 @@
 s/GLib.Type/GType/g
 s/GLib.CompareFunc/GCompareFunc/g
 s/GLib.CompareDataFunc/GCompareDataFunc/g
-s/\(public init(_ op:.*<GInitiallyUnowned>.*\)/override \1/
+s/\(public init([a-z_]* op:.*<GInitiallyUnowned>.*\)/override \1/
 s/\(public func ref()\)/@discardableResult \1/
 s/\(public func refSink()\)/@discardableResult \1/
 s/Id/ID/g

@@ -9,12 +9,12 @@ BEGIN { unowned_init = 0 ; unowned = 0 }
 /override public.* init._/ {
   if (unowned_init) {
     unowned_init = 0
-    unowned = 1
+    unowned = 2
   }
 }
 /super.init/ {
   if (unowned) {
-    unowned = 0
+    unowned--
     print
     print "        _ = refSink()"
     next
