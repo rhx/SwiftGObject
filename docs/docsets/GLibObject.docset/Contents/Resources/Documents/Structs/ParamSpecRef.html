@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           GLibObject 2.62.3 Docs
         </a>
-         (96% documented)
+         (97% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -668,7 +668,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject24signalRemoveEmissionHook0C2ID04hookG0ys6UInt32V_SutF">signalRemoveEmissionHook(signalID:hookID:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject21signalSetVaMarshaller0C2ID12instanceType02vaF0ys6UInt32V_SuySpySo9_GClosureVGSg_SpySo7_GValueVGSgSvSgs14CVaListPointerVAPs5Int32VSpySuGSgtXCtF">signalSetVaMarshaller(signalID:instanceType:vaMarshaller:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject21signalSetVaMarshaller0C2ID12instanceType02vaF0ys6UInt32V_SuySpySo9_GClosureVGSg_SpySo7_GValueVGSgSvSgs14CVaListPointerVSgAPs5Int32VSpySuGSgtXCtF">signalSetVaMarshaller(signalID:instanceType:vaMarshaller:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject18signalStopEmission8instance0C2ID6detailyAA0B8Protocol_p_s6UInt32VAHtF">signalStopEmission(instance:signalID:detail:)</a>
@@ -1391,7 +1391,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>ParamSpecRef</h1>
               <div class="declaration">
                 <div class="language">
@@ -1407,11 +1407,14 @@ Use <code>ParamSpecRef</code> only as an <code>unowned</code> reference to an ex
 required to specify parameters, such as e.g. <code>GObject</code> properties.</p>
 <h2 id='parameter-names-a-name-canonical-parameter-names-a' class='heading'>Parameter names # <a name="canonical-parameter-names"></a></h2>
 
-<p>Parameter names need to start with a letter (a-z or A-Z).
-Subsequent characters can be letters, numbers or a &lsquo;-&rsquo;.
-All other characters are replaced by a &lsquo;-&rsquo; during construction.
-The result of this replacement is called the canonical name of
-the parameter.</p>
+<p>A property name consists of segments consisting of ASCII letters and
+digits, separated by either the <code>-</code> or <code>_</code> character. The first
+character of a property name must be a letter. These are the same rules as
+for signal naming (see <code>g_signal_new()</code>).</p>
+
+<p>When creating and looking up a <code>GParamSpec</code>, either separator can be
+used, but they cannot be mixed. Using <code>-</code> is considerably more
+efficient, and is the ‘canonical form’. Using <code>_</code> is discouraged.</p>
 
           </div>
         </section>
@@ -1446,7 +1449,7 @@ For type-safe access, use the generated, typed pointer <code>param_spec_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L46">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L52">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1457,9 +1460,11 @@ For type-safe access, use the generated, typed pointer <code>param_spec_ptr</cod
               <div class="task-name-container">
                 <a name="/ParamSpec%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpec Class" class="dashAnchor"></a>
-                <a href="#/ParamSpec%20Class">
-                  <h3 class="section-name">ParamSpec Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpec%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpec Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -1487,7 +1492,7 @@ For type-safe access, use the generated, typed pointer <code>param_spec_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L51-L52">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L57-L58">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1517,7 +1522,7 @@ For type-safe access, use the generated, typed pointer <code>param_spec_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L55-L57">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L61-L63">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1548,7 +1553,7 @@ For type-safe access, use the generated, typed pointer <code>param_spec_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L61-L63">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L67-L69">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1579,7 +1584,7 @@ For type-safe access, use the generated, typed pointer <code>param_spec_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L67-L69">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L73-L75">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1610,7 +1615,7 @@ For type-safe access, use the generated, typed pointer <code>param_spec_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L73-L75">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L79-L81">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1641,7 +1646,7 @@ For type-safe access, use the generated, typed pointer <code>param_spec_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L79-L81">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L85-L87">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1672,7 +1677,7 @@ For type-safe access, use the generated, typed pointer <code>param_spec_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L85-L87">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L91-L93">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1690,18 +1695,12 @@ For type-safe access, use the generated, typed pointer <code>param_spec_ptr</cod
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="err">`</span><span class="kt">GParamSpec</span><span class="err">`</span> <span class="n">instance</span><span class="o">.</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="p">`</span><span class="nv">GParamSpec</span><span class="p">`</span> <span class="n">instance</span><span class="o">.</span>
 </code></pre>
 
-<p>A property name consists of segments consisting of ASCII letters and
-digits, separated by either the &lsquo;-&rsquo; or &lsquo;_&rsquo; character. The first
-character of a property name must be a letter. Names which violate these
-rules lead to undefined behaviour.</p>
-
-<p>When creating and looking up a <code>GParamSpec</code>, either separator can be
-used, but they cannot be mixed. Using &lsquo;-&rsquo; is considerably more
-efficient and in fact required when using property names as detail
-strings for signals.</p>
+<p>See <a href="#canonical-parameter-names">canonical parameter names</a> for details of
+the rules for <code>name</code>. Names which violate these rules lead to undefined
+behaviour.</p>
 
 <p>Beyond the name, <code>GParamSpecs</code> have two more descriptive
 strings associated with them, the <code>nick</code>, which should be suitable
@@ -1724,10 +1723,6 @@ e.g. a tooltip. The <code>nick</code> and <code>blurb</code> should ideally be l
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -1821,8 +1816,8 @@ e.g. a tooltip. The <code>nick</code> and <code>blurb</code> should ideally be l
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

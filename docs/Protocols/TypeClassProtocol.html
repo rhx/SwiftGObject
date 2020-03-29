@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           GLibObject 2.62.3 Docs
         </a>
-         (96% documented)
+         (97% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -668,7 +668,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject24signalRemoveEmissionHook0C2ID04hookG0ys6UInt32V_SutF">signalRemoveEmissionHook(signalID:hookID:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject21signalSetVaMarshaller0C2ID12instanceType02vaF0ys6UInt32V_SuySpySo9_GClosureVGSg_SpySo7_GValueVGSgSvSgs14CVaListPointerVAPs5Int32VSpySuGSgtXCtF">signalSetVaMarshaller(signalID:instanceType:vaMarshaller:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject21signalSetVaMarshaller0C2ID12instanceType02vaF0ys6UInt32V_SuySpySo9_GClosureVGSg_SpySo7_GValueVGSgSvSgs14CVaListPointerVSgAPs5Int32VSpySuGSgtXCtF">signalSetVaMarshaller(signalID:instanceType:vaMarshaller:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject18signalStopEmission8instance0C2ID6detailyAA0B8Protocol_p_s6UInt32VAHtF">signalStopEmission(instance:signalID:detail:)</a>
@@ -1391,7 +1391,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>TypeClassProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -1487,9 +1487,11 @@ Alternatively, use <code><a href="../Structs/TypeClassRef.html">TypeClassRef</a>
               <div class="task-name-container">
                 <a name="/no%20signals"></a>
                 <a name="//apple_ref/swift/Section/no signals" class="dashAnchor"></a>
-                <a href="#/no%20signals">
-                  <h3 class="section-name">no signals</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/no%20signals"></a>
+                  <h3 class="section-name"><p>no signals</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -1526,7 +1528,7 @@ The private structure can be retrieved using the
 MyObjectPrivate to an object MyObject defined in the standard
 GObject fashion in the type&rsquo;s <code>class_init()</code> function.</p>
 
-<p>Note the use of a structure member <q>priv</q> to avoid the overhead
+<p>Note the use of a structure member &ldquo;priv&rdquo; to avoid the overhead
 of repeatedly calling <code>MY_OBJECT_GET_PRIVATE()</code>.</p>
 
 <p>(C Language Example):</p>
@@ -1580,13 +1582,13 @@ Use the G_ADD_PRIVATE() macro with the <code>G_DEFINE_*</code>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">addPrivate</span><span class="p">(</span><span class="n">privateSize</span> <span class="nv">private_size</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L254-L257">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L301-L304">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1626,7 +1628,7 @@ data area for <code>g_class</code> using <code>g_type_class_add_private()</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L267-L270">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L314-L317">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1659,7 +1661,7 @@ data area for <code>g_class</code> using <code>g_type_class_add_private()</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L272-L275">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L319-L322">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1699,7 +1701,7 @@ g_type_class_peek (g_type_parent (G_TYPE_FROM_CLASS (g_class)))</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L285-L288">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L332-L335">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1735,7 +1737,7 @@ class pointer after <code>g_type_class_unref()</code> are invalid.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L294-L297">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L341-L344">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1771,7 +1773,7 @@ otherwise.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L303-L306">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L350-L353">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1804,7 +1806,7 @@ otherwise.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L308-L311">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L355-L358">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1837,7 +1839,7 @@ otherwise.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L313-L316">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L360-L363">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1871,7 +1873,7 @@ passed in class conforms.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L320-L323">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L367-L370">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1904,7 +1906,7 @@ passed in class conforms.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L325-L328">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L372-L375">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1944,7 +1946,7 @@ data area for <code>g_class</code> using <code>g_type_class_add_private()</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L337-L350">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeClass.swift#L384-L397">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1957,8 +1959,8 @@ data area for <code>g_class</code> using <code>g_type_class_add_private()</code>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
