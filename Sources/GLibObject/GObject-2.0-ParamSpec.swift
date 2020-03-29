@@ -13,11 +13,14 @@ import GLib
 /// 
 /// ## Parameter names # <a name="canonical-parameter-names"></a>
 /// 
-/// Parameter names need to start with a letter (a-z or A-Z).
-/// Subsequent characters can be letters, numbers or a '-'.
-/// All other characters are replaced by a '-' during construction.
-/// The result of this replacement is called the canonical name of
-/// the parameter.
+/// A property name consists of segments consisting of ASCII letters and
+/// digits, separated by either the `-` or `_` character. The first
+/// character of a property name must be a letter. These are the same rules as
+/// for signal naming (see `g_signal_new()`).
+/// 
+/// When creating and looking up a `GParamSpec`, either separator can be
+/// used, but they cannot be mixed. Using `-` is considerably more
+/// efficient, and is the ‘canonical form’. Using `_` is discouraged.
 public protocol ParamSpecProtocol {
     /// Untyped pointer to the underlying `GParamSpec` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -35,11 +38,14 @@ public protocol ParamSpecProtocol {
 /// 
 /// ## Parameter names # <a name="canonical-parameter-names"></a>
 /// 
-/// Parameter names need to start with a letter (a-z or A-Z).
-/// Subsequent characters can be letters, numbers or a '-'.
-/// All other characters are replaced by a '-' during construction.
-/// The result of this replacement is called the canonical name of
-/// the parameter.
+/// A property name consists of segments consisting of ASCII letters and
+/// digits, separated by either the `-` or `_` character. The first
+/// character of a property name must be a letter. These are the same rules as
+/// for signal naming (see `g_signal_new()`).
+/// 
+/// When creating and looking up a `GParamSpec`, either separator can be
+/// used, but they cannot be mixed. Using `-` is considerably more
+/// efficient, and is the ‘canonical form’. Using `_` is discouraged.
 public struct ParamSpecRef: ParamSpecProtocol {
     /// Untyped pointer to the underlying `GParamSpec` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_ptr` property instead.
@@ -88,15 +94,9 @@ public extension ParamSpecRef {
 
         /// Creates a new `GParamSpec` instance.
     /// 
-    /// A property name consists of segments consisting of ASCII letters and
-    /// digits, separated by either the '-' or '_' character. The first
-    /// character of a property name must be a letter. Names which violate these
-    /// rules lead to undefined behaviour.
-    /// 
-    /// When creating and looking up a `GParamSpec`, either separator can be
-    /// used, but they cannot be mixed. Using '-' is considerably more
-    /// efficient and in fact required when using property names as detail
-    /// strings for signals.
+    /// See [canonical parameter names](#canonical-parameter-names) for details of
+    /// the rules for `name`. Names which violate these rules lead to undefined
+    /// behaviour.
     /// 
     /// Beyond the name, `GParamSpecs` have two more descriptive
     /// strings associated with them, the `nick`, which should be suitable
@@ -118,26 +118,41 @@ public extension ParamSpecRef {
 /// 
 /// ## Parameter names # <a name="canonical-parameter-names"></a>
 /// 
-/// Parameter names need to start with a letter (a-z or A-Z).
-/// Subsequent characters can be letters, numbers or a '-'.
-/// All other characters are replaced by a '-' during construction.
-/// The result of this replacement is called the canonical name of
-/// the parameter.
+/// A property name consists of segments consisting of ASCII letters and
+/// digits, separated by either the `-` or `_` character. The first
+/// character of a property name must be a letter. These are the same rules as
+/// for signal naming (see `g_signal_new()`).
+/// 
+/// When creating and looking up a `GParamSpec`, either separator can be
+/// used, but they cannot be mixed. Using `-` is considerably more
+/// efficient, and is the ‘canonical form’. Using `_` is discouraged.
 open class ParamSpec: ParamSpecProtocol {
     /// Untyped pointer to the underlying `GParamSpec` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ParamSpec` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpec` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GParamSpec>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ParamSpecProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GParamSpec`.
-    public convenience init<T: ParamSpecProtocol>(_ other: T) {
-        self.init(cast(other.param_spec_ptr))
+    /// i.e., ownership is transferred to the `ParamSpec` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GParamSpec>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_param_spec_ref(cast(param_spec_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `ParamSpecProtocol`
+    /// Will retain `GParamSpec`.
+    /// - Parameter other: an instance of a related type that implements `ParamSpecProtocol`
+    public init<T: ParamSpecProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.param_spec_ptr)
         g_param_spec_ref(cast(param_spec_ptr))
     }
 
@@ -148,40 +163,69 @@ open class ParamSpec: ParamSpecProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GParamSpec.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_param_spec_ref(cast(param_spec_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GParamSpec.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_param_spec_ref(cast(param_spec_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GParamSpec.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_param_spec_ref(cast(param_spec_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GParamSpec>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_param_spec_ref(cast(param_spec_ptr))
     }
 
 
     /// Creates a new `GParamSpec` instance.
     /// 
-    /// A property name consists of segments consisting of ASCII letters and
-    /// digits, separated by either the '-' or '_' character. The first
-    /// character of a property name must be a letter. Names which violate these
-    /// rules lead to undefined behaviour.
-    /// 
-    /// When creating and looking up a `GParamSpec`, either separator can be
-    /// used, but they cannot be mixed. Using '-' is considerably more
-    /// efficient and in fact required when using property names as detail
-    /// strings for signals.
+    /// See [canonical parameter names](#canonical-parameter-names) for details of
+    /// the rules for `name`. Names which violate these rules lead to undefined
+    /// behaviour.
     /// 
     /// Beyond the name, `GParamSpecs` have two more descriptive
     /// strings associated with them, the `nick`, which should be suitable

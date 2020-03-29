@@ -228,15 +228,27 @@ open class TypePlugin: TypePluginProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TypePlugin` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TypePlugin` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTypePlugin>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TypePluginProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTypePlugin` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TypePlugin` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTypePlugin>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTypePlugin, cannot ref(cast(type_plugin_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TypePluginProtocol`
     /// `GTypePlugin` does not allow reference counting.
-    public convenience init<T: TypePluginProtocol>(_ other: T) {
-        self.init(cast(other.type_plugin_ptr))
+    /// - Parameter other: an instance of a related type that implements `TypePluginProtocol`
+    public init<T: TypePluginProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.type_plugin_ptr)
         // no reference counting for GTypePlugin, cannot ref(cast(type_plugin_ptr))
     }
 
@@ -247,26 +259,61 @@ open class TypePlugin: TypePluginProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypePluginProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTypePlugin.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypePluginProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTypePlugin, cannot ref(cast(type_plugin_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypePluginProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTypePlugin.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypePluginProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTypePlugin, cannot ref(cast(type_plugin_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypePluginProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTypePlugin.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypePluginProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTypePlugin, cannot ref(cast(type_plugin_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypePluginProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTypePlugin>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypePluginProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTypePlugin, cannot ref(cast(type_plugin_ptr))
     }
 
 
@@ -314,7 +361,7 @@ public extension TypePluginProtocol {
     
     }
 
-    /// Adds the dynamic `interface_type` to `instantiable_type`. The information
+    /// Adds `interface_type` to the dynamic `instantiable_type`. The information
     /// contained in the `GTypePlugin` structure pointed to by `plugin`
     /// is used to manage the relationship.
     func typeAddInterfaceDynamic(instanceType instance_type: GType, interfaceType interface_type: GType) {

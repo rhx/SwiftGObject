@@ -158,7 +158,7 @@ public extension ClosureRef {
     /// when implementing new types of closures.
     init(object sizeof_closure: CUnsignedInt, object: ObjectProtocol) {
         let rv = g_closure_new_object(guint(sizeof_closure), cast(object.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Allocates a struct of the given size and initializes the initial
@@ -201,7 +201,7 @@ public extension ClosureRef {
     /// 
     init(simple sizeof_closure: CUnsignedInt, data: UnsafeMutableRawPointer) {
         let rv = g_closure_new_simple(guint(sizeof_closure), cast(data))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// A variant of `g_closure_new_simple()` which stores `object` in the
     /// `data` field of the closure and calls `g_object_watch_closure()` on
@@ -309,15 +309,27 @@ open class Closure: ClosureProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Closure` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Closure` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GClosure>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ClosureProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GClosure`.
-    public convenience init<T: ClosureProtocol>(_ other: T) {
-        self.init(cast(other.closure_ptr))
+    /// i.e., ownership is transferred to the `Closure` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GClosure>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_closure_ref(cast(closure_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `ClosureProtocol`
+    /// Will retain `GClosure`.
+    /// - Parameter other: an instance of a related type that implements `ClosureProtocol`
+    public init<T: ClosureProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.closure_ptr)
         g_closure_ref(cast(closure_ptr))
     }
 
@@ -328,35 +340,70 @@ open class Closure: ClosureProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GClosure.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_closure_ref(cast(closure_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GClosure.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_closure_ref(cast(closure_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GClosure.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_closure_ref(cast(closure_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GClosure>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_closure_ref(cast(closure_ptr))
     }
 
     /// A variant of `g_closure_new_simple()` which stores `object` in the
     /// `data` field of the closure and calls `g_object_watch_closure()` on
     /// `object` and the created closure. This function is mainly useful
     /// when implementing new types of closures.
-    public convenience init(object sizeof_closure: CUnsignedInt, object: ObjectProtocol) {
+    public init(object sizeof_closure: CUnsignedInt, object: ObjectProtocol) {
         let rv = g_closure_new_object(guint(sizeof_closure), cast(object.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Allocates a struct of the given size and initializes the initial
@@ -397,9 +444,9 @@ open class Closure: ClosureProtocol {
     /// }
     /// ```
     /// 
-    public convenience init(simple sizeof_closure: CUnsignedInt, data: UnsafeMutableRawPointer) {
+    public init(simple sizeof_closure: CUnsignedInt, data: UnsafeMutableRawPointer) {
         let rv = g_closure_new_simple(guint(sizeof_closure), cast(data))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// A variant of `g_closure_new_simple()` which stores `object` in the

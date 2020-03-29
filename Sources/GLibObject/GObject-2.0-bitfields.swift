@@ -132,7 +132,7 @@ public typealias SignalMatchType = GSignalMatchType
 public extension SignalMatchType {
     /// The signal id must be equal.
     static let id = G_SIGNAL_MATCH_ID /* 1 */
-    /// The signal detail be equal.
+    /// The signal detail must be equal.
     static let detail = G_SIGNAL_MATCH_DETAIL /* 2 */
     /// The closure must be the same.
     static let closure = G_SIGNAL_MATCH_CLOSURE /* 4 */
@@ -140,7 +140,7 @@ public extension SignalMatchType {
     static let func_ = G_SIGNAL_MATCH_FUNC /* 8 */
     /// The closure data must be the same.
     static let data = G_SIGNAL_MATCH_DATA /* 16 */
-    /// Only unblocked signals may matched.
+    /// Only unblocked signals may be matched.
     static let unblocked = G_SIGNAL_MATCH_UNBLOCKED /* 32 */
 }
 

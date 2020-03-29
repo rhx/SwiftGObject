@@ -80,7 +80,7 @@ public extension ObjectRef {
     /// which are not explicitly specified are set to their default values.
     init(valist object_type: GType, firstPropertyName first_property_name: UnsafePointer<gchar>, varArgs var_args: CVaListPointer) {
         let rv = g_object_new_valist(object_type, first_property_name, var_args)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new instance of a `GObject` subtype and sets its properties using
@@ -91,7 +91,7 @@ public extension ObjectRef {
     /// which are not explicitly specified are set to their default values.
     init(properties object_type: GType, nProperties n_properties: CUnsignedInt, names: UnsafePointer<UnsafePointer<CChar>>, values: UnsafePointer<GValue>) {
         let rv = g_object_new_with_properties(object_type, guint(n_properties), cast(names), cast(values))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new instance of a `GObject` subtype and sets its properties.
@@ -104,7 +104,7 @@ public extension ObjectRef {
     /// deprecated. See #GParameter for more information.
     @available(*, deprecated) init(objectType object_type: GType, nParameters n_parameters: CUnsignedInt, parameters: UnsafeMutablePointer<GParameter>) {
         let rv = g_object_newv(object_type, guint(n_parameters), cast(parameters))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new instance of a `GObject` subtype and sets its properties.
     /// 
@@ -152,15 +152,27 @@ open class Object: ObjectProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Object` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Object` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GObject>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ObjectProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GObject`.
-    public convenience init<T: ObjectProtocol>(_ other: T) {
-        self.init(cast(other.object_ptr))
+    /// i.e., ownership is transferred to the `Object` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GObject>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_object_ref(cast(object_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `ObjectProtocol`
+    /// Will retain `GObject`.
+    /// - Parameter other: an instance of a related type that implements `ObjectProtocol`
+    public init<T: ObjectProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.object_ptr)
         g_object_ref(cast(object_ptr))
     }
 
@@ -171,26 +183,61 @@ open class Object: ObjectProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ObjectProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GObject.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ObjectProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_object_ref(cast(object_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ObjectProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GObject.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ObjectProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_object_ref(cast(object_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ObjectProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GObject.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ObjectProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_object_ref(cast(object_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ObjectProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GObject>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ObjectProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_object_ref(cast(object_ptr))
     }
 
 
@@ -201,9 +248,9 @@ open class Object: ObjectProtocol {
     /// 
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
-    public convenience init(valist object_type: GType, firstPropertyName first_property_name: UnsafePointer<gchar>, varArgs var_args: CVaListPointer) {
+    public init(valist object_type: GType, firstPropertyName first_property_name: UnsafePointer<gchar>, varArgs var_args: CVaListPointer) {
         let rv = g_object_new_valist(object_type, first_property_name, var_args)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new instance of a `GObject` subtype and sets its properties using
@@ -212,9 +259,9 @@ open class Object: ObjectProtocol {
     /// 
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
-    public convenience init(properties object_type: GType, nProperties n_properties: CUnsignedInt, names: UnsafePointer<UnsafePointer<CChar>>, values: UnsafePointer<GValue>) {
+    public init(properties object_type: GType, nProperties n_properties: CUnsignedInt, names: UnsafePointer<UnsafePointer<CChar>>, values: UnsafePointer<GValue>) {
         let rv = g_object_new_with_properties(object_type, guint(n_properties), cast(names), cast(values))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new instance of a `GObject` subtype and sets its properties.
@@ -225,9 +272,9 @@ open class Object: ObjectProtocol {
     /// **newv is deprecated:**
     /// Use g_object_new_with_properties() instead.
     /// deprecated. See #GParameter for more information.
-    @available(*, deprecated) public convenience init(objectType object_type: GType, nParameters n_parameters: CUnsignedInt, parameters: UnsafeMutablePointer<GParameter>) {
+    @available(*, deprecated) public init(objectType object_type: GType, nParameters n_parameters: CUnsignedInt, parameters: UnsafeMutablePointer<GParameter>) {
         let rv = g_object_newv(object_type, guint(n_parameters), cast(parameters))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new instance of a `GObject` subtype and sets its properties.

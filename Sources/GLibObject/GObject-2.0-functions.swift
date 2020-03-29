@@ -1199,6 +1199,10 @@ public func signalListIDs(itype: GType, nIDs n_ids: UnsafeMutablePointer<CUnsign
 /// 
 /// Also tries the ancestors of the given type.
 /// 
+/// The type class passed as `itype` must already have been instantiated (for
+/// example, using `g_type_class_ref()`) for this function to work, as signals are
+/// always installed during class initialization.
+/// 
 /// See `g_signal_new()` for details on allowed signal names.
 public func signalLookup(name: UnsafePointer<gchar>, itype: GType) -> CUnsignedInt {
     let rv = g_signal_lookup(name, itype)
@@ -1476,7 +1480,7 @@ public func typeAddInterfaceCheck(checkData check_data: UnsafeMutableRawPointer,
 
 
 
-/// Adds the dynamic `interface_type` to `instantiable_type`. The information
+/// Adds `interface_type` to the dynamic `instantiable_type`. The information
 /// contained in the `GTypePlugin` structure pointed to by `plugin`
 /// is used to manage the relationship.
 public func typeAddInterfaceDynamic(instanceType instance_type: GType, interfaceType interface_type: GType, plugin: TypePluginProtocol) {
@@ -1487,7 +1491,7 @@ public func typeAddInterfaceDynamic(instanceType instance_type: GType, interface
 
 
 
-/// Adds the static `interface_type` to `instantiable_type`.
+/// Adds `interface_type` to the static `instantiable_type`.
 /// The information contained in the `GInterfaceInfo` structure
 /// pointed to by `info` is used to manage the relationship.
 public func typeAddInterfaceStatic(instanceType instance_type: GType, interfaceType interface_type: GType, info: InterfaceInfoProtocol) {
