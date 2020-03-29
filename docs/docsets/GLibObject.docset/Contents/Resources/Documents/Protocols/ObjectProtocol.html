@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           GLibObject 2.62.3 Docs
         </a>
-         (96% documented)
+         (97% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -668,7 +668,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject24signalRemoveEmissionHook0C2ID04hookG0ys6UInt32V_SutF">signalRemoveEmissionHook(signalID:hookID:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject21signalSetVaMarshaller0C2ID12instanceType02vaF0ys6UInt32V_SuySpySo9_GClosureVGSg_SpySo7_GValueVGSgSvSgs14CVaListPointerVAPs5Int32VSpySuGSgtXCtF">signalSetVaMarshaller(signalID:instanceType:vaMarshaller:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject21signalSetVaMarshaller0C2ID12instanceType02vaF0ys6UInt32V_SuySpySo9_GClosureVGSg_SpySo7_GValueVGSgSvSgs14CVaListPointerVSgAPs5Int32VSpySuGSgtXCtF">signalSetVaMarshaller(signalID:instanceType:vaMarshaller:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject18signalStopEmission8instance0C2ID6detailyAA0B8Protocol_p_s6UInt32VAHtF">signalStopEmission(instance:signalID:detail:)</a>
@@ -1391,7 +1391,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>ObjectProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -1482,10 +1482,6 @@ to the <code>GObject</code> implementation and should never be accessed directly
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -1590,10 +1586,6 @@ to the <code>GObject</code> implementation and should never be accessed directly
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -1788,7 +1780,7 @@ to provide a Swift closure that can capture its surrounding context.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">connect</span><span class="o">&lt;</span><span class="kt">S</span><span class="p">:</span> <span class="kt"><a href="../Protocols/SignalNameProtocol.html">SignalNameProtocol</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">signal</span><span class="p">:</span> <span class="kt">S</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject12ConnectFlagsa">ConnectFlags</a></span> <span class="o">=</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject12ConnectFlagsa">ConnectFlags</a></span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject13SignalHandlera">SignalHandler</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CUnsignedLong</span></code></pre>
+<span class="kd">func</span> <span class="n">connect</span><span class="o">&lt;</span><span class="kt">S</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">signal</span><span class="p">:</span> <span class="kt">S</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject12ConnectFlagsa">ConnectFlags</a></span> <span class="o">=</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject12ConnectFlagsa">ConnectFlags</a></span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject13SignalHandlera">SignalHandler</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CUnsignedLong</span> <span class="k">where</span> <span class="kt">S</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/SignalNameProtocol.html">SignalNameProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1819,11 +1811,11 @@ on @target. Whenever the @source_property is changed the @target_property is
 updated using the same value. For instance:</p>
 
 <p>|[
-  g_object_bind_property (action, <q>active</q>, widget, <q>sensitive</q>, 0);
+  g_object_bind_property (action, &ldquo;active&rdquo;, widget, &ldquo;sensitive&rdquo;, 0);
 ]|</p>
 
-<p>Will result in the <q>sensitive</q> property of the widget #GObject instance to be
-updated with the same value of the <q>active</q> property of the action #GObject
+<p>Will result in the &ldquo;sensitive&rdquo; property of the widget #GObject instance to be
+updated with the same value of the &ldquo;active&rdquo; property of the action #GObject
 instance.</p>
 
 <p>If @flags contains %G_BINDING_BIDIRECTIONAL then the binding will be mutual:
@@ -1893,7 +1885,7 @@ of bidirectional bindings, otherwise it will be ignored</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">P</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PropertyNameProtocol.html">PropertyNameProtocol</a></span><span class="p">,</span> <span class="kt">Q</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PropertyNameProtocol.html">PropertyNameProtocol</a></span><span class="p">,</span> <span class="kt">T</span><span class="p">:</span> <span class="kt">ObjectProtocol</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt">P</span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">property</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject12BindingFlagsa">BindingFlags</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">sync_create</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject16ValueTransformera">ValueTransformer</a></span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject16ValueTransformera">ValueTransformer</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/BindingRef.html">BindingRef</a></span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">P</span><span class="p">,</span> <span class="kt">Q</span><span class="p">,</span> <span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt">P</span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">property</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject12BindingFlagsa">BindingFlags</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">sync_create</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject16ValueTransformera">ValueTransformer</a></span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject16ValueTransformera">ValueTransformer</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/BindingRef.html">BindingRef</a></span><span class="o">!</span> <span class="k">where</span> <span class="kt">P</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PropertyNameProtocol.html">PropertyNameProtocol</a></span><span class="p">,</span> <span class="kt">Q</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PropertyNameProtocol.html">PropertyNameProtocol</a></span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">ObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -1943,7 +1935,7 @@ of bidirectional bindings, otherwise it will be ignored</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">P</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PropertyNameProtocol.html">PropertyNameProtocol</a></span><span class="p">,</span> <span class="kt">Q</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PropertyNameProtocol.html">PropertyNameProtocol</a></span><span class="p">,</span> <span class="kt">T</span><span class="p">:</span> <span class="kt">ObjectProtocol</span><span class="p">,</span> <span class="kt">U</span><span class="p">,</span> <span class="kt">V</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt">P</span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">property</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">fl</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject12BindingFlagsa">BindingFlags</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">sync_create</span><span class="p">,</span> <span class="n">convertFrom</span> <span class="nv">f</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">U</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">V</span><span class="p">?</span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="kc">nil</span> <span class="p">},</span> <span class="n">convertTo</span> <span class="nv">g</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">V</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">U</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/BindingRef.html">BindingRef</a></span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">P</span><span class="p">,</span> <span class="kt">Q</span><span class="p">,</span> <span class="kt">T</span><span class="p">,</span> <span class="kt">U</span><span class="p">,</span> <span class="kt">V</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt">P</span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">property</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">fl</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject12BindingFlagsa">BindingFlags</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">sync_create</span><span class="p">,</span> <span class="n">convertFrom</span> <span class="nv">f</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">U</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">V</span><span class="p">?</span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="kc">nil</span> <span class="p">},</span> <span class="n">convertTo</span> <span class="nv">g</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">V</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">U</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/BindingRef.html">BindingRef</a></span><span class="o">!</span> <span class="k">where</span> <span class="kt">P</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PropertyNameProtocol.html">PropertyNameProtocol</a></span><span class="p">,</span> <span class="kt">Q</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PropertyNameProtocol.html">PropertyNameProtocol</a></span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">ObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -1993,7 +1985,7 @@ of bidirectional bindings, otherwise it will be ignored</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">P</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PropertyNameProtocol.html">PropertyNameProtocol</a></span><span class="p">,</span> <span class="kt">Q</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PropertyNameProtocol.html">PropertyNameProtocol</a></span><span class="p">,</span> <span class="kt">T</span><span class="p">:</span> <span class="kt">ObjectProtocol</span><span class="p">,</span> <span class="kt">U</span><span class="p">,</span> <span class="kt">V</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt">P</span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">property</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">fl</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject12BindingFlagsa">BindingFlags</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">sync_create</span><span class="p">,</span> <span class="n">convertFrom</span> <span class="nv">f</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">U</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">V</span><span class="p">?</span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="kc">nil</span> <span class="p">},</span> <span class="n">convertTo</span> <span class="nv">g</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">V</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">U</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/BindingRef.html">BindingRef</a></span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">P</span><span class="p">,</span> <span class="kt">Q</span><span class="p">,</span> <span class="kt">T</span><span class="p">,</span> <span class="kt">U</span><span class="p">,</span> <span class="kt">V</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt">P</span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">property</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">fl</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject12BindingFlagsa">BindingFlags</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">sync_create</span><span class="p">,</span> <span class="n">convertFrom</span> <span class="nv">f</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">U</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">V</span><span class="p">?</span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="kc">nil</span> <span class="p">},</span> <span class="n">convertTo</span> <span class="nv">g</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">V</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">U</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/BindingRef.html">BindingRef</a></span><span class="o">!</span> <span class="k">where</span> <span class="kt">P</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PropertyNameProtocol.html">PropertyNameProtocol</a></span><span class="p">,</span> <span class="kt">Q</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/PropertyNameProtocol.html">PropertyNameProtocol</a></span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">ObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -2003,10 +1995,6 @@ of bidirectional bindings, otherwise it will be ignored</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -2287,10 +2275,6 @@ of bidirectional bindings, otherwise it will be ignored</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -2363,9 +2347,11 @@ of bidirectional bindings, otherwise it will be ignored</p>
               <div class="task-name-container">
                 <a name="/no%20Object%20properties"></a>
                 <a name="//apple_ref/swift/Section/no Object properties" class="dashAnchor"></a>
-                <a href="#/no%20Object%20properties">
-                  <h3 class="section-name">no Object properties</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/no%20Object%20properties"></a>
+                  <h3 class="section-name"><p>no Object properties</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2444,22 +2430,11 @@ of bidirectional bindings, otherwise it will be ignored</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L305-L324">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L352-L371">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/no%20Object%20properties2"></a>
-                <a name="//apple_ref/swift/Section/no Object properties" class="dashAnchor"></a>
-                <a href="#/no%20Object%20properties2">
-                  <h3 class="section-name">no Object properties</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -2492,7 +2467,7 @@ only a weak reference is held in the reverse direction from <code>object</code>
 to the proxy object, but when there are other references held to
 <code>object</code>, a strong reference is held. The <code>notify</code> callback is called
 when the reference from <code>object</code> to the proxy object should be
-<q>toggled</q> from strong to weak (<code>is_last_ref</code> true) or weak to strong
+&ldquo;toggled&rdquo; from strong to weak (<code>is_last_ref</code> true) or weak to strong
 (<code>is_last_ref</code> false).</p>
 
 <p>Since a (normal) reference must be held to the object before
@@ -2515,7 +2490,7 @@ is important state in the proxy object.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L359-L362">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L406-L409">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2556,7 +2531,7 @@ thread. Use <code>GWeakRef</code> if thread-safety is required.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L373-L376">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L420-L423">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2583,8 +2558,8 @@ updated using the same value. For instance:</p>
 <pre class="highlight swift"><code>  <span class="nf">g_object_bind_property</span> <span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="s">"active"</span><span class="p">,</span> <span class="n">widget</span><span class="p">,</span> <span class="s">"sensitive"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 </code></pre>
 
-<p>Will result in the <q>sensitive</q> property of the widget <code>GObject</code> instance to be
-updated with the same value of the <q>active</q> property of the action <code>GObject</code>
+<p>Will result in the &ldquo;sensitive&rdquo; property of the widget <code>GObject</code> instance to be
+updated with the same value of the &ldquo;active&rdquo; property of the action <code>GObject</code>
 instance.</p>
 
 <p>If <code>flags</code> contains <code>G_BINDING_BIDIRECTIONAL</code> then the binding will be mutual:
@@ -2608,7 +2583,7 @@ will be updated as well.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L400-L403">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L447-L450">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2665,7 +2640,7 @@ for each transformation function, please use
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L430-L433">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L477-L480">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2704,7 +2679,7 @@ function pointers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L442-L445">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L489-L492">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2750,7 +2725,7 @@ object.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L469-L472">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L516-L519">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2796,7 +2771,7 @@ object.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L488-L491">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L535-L538">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2832,7 +2807,7 @@ which usually just needs to be sunken by calling <code>g_object_ref_sink()</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L497-L500">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L544-L547">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2854,7 +2829,7 @@ which usually just needs to be sunken by calling <code>g_object_ref_sink()</code
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Increases the freeze count on <code>object</code>. If the freeze count is
-non-zero, the emission of <q>notify</q> signals on <code>object</code> is
+non-zero, the emission of &ldquo;notify&rdquo; signals on <code>object</code> is
 stopped. The signals are queued until the freeze count is decreased
 to zero. Duplicate notifications are squashed so that at most one
 <code>GObject::notify</code> signal is emitted for each property modified while the
@@ -2873,7 +2848,7 @@ premature notification while the object is still being modified.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L511-L514">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L558-L561">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2906,7 +2881,7 @@ premature notification while the object is still being modified.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L521-L524">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L568-L571">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2956,7 +2931,7 @@ bindings, <code>g_object_get()</code> is much more convenient for C programming.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L542-L545">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L589-L592">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2990,7 +2965,7 @@ bindings, <code>g_object_get()</code> is much more convenient for C programming.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L549-L552">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L596-L599">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3029,7 +3004,7 @@ the type, for instance by calling <code>g_free()</code> or <code>g_object_unref(
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L561-L564">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L608-L611">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3065,7 +3040,7 @@ properties are passed in.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L570-L573">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L617-L620">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3086,7 +3061,7 @@ properties are passed in.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits a <q>notify</q> signal for the property <code>property_name</code> on <code>object</code>.</p>
+                        <p>Emits a &ldquo;notify&rdquo; signal for the property <code>property_name</code> on <code>object</code>.</p>
 
 <p>When possible, eg. when signaling a property change from within the class
 that registered the property, you should use <code>g_object_notify_by_pspec()</code>
@@ -3107,7 +3082,7 @@ called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L585-L588">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L632-L635">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3128,7 +3103,7 @@ called.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits a <q>notify</q> signal for the property specified by <code>pspec</code> on <code>object</code>.</p>
+                        <p>Emits a &ldquo;notify&rdquo; signal for the property specified by <code>pspec</code> on <code>object</code>.</p>
 
 <p>This function omits the property name lookup, hence it is faster than
 <code>g_object_notify()</code>.</p>
@@ -3161,7 +3136,7 @@ instead, is to store the GParamSpec used with
   }
 </code></pre>
 
-<p>and then notify a change on the <q>foo</q> property with:</p>
+<p>and then notify a change on the &ldquo;foo&rdquo; property with:</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  g_object_notify_by_pspec (self, properties[PROP_FOO]);
@@ -3177,7 +3152,7 @@ instead, is to store the GParamSpec used with
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L631-L634">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L678-L681">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3215,7 +3190,7 @@ explicit.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L642-L645">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L689-L692">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3239,8 +3214,8 @@ explicit.</p>
                         <p>Increase the reference count of <code>object</code>, and possibly remove the
 <a href="#floating-ref">floating</a> reference, if <code>object</code> has a floating reference.</p>
 
-<p>In other words, if the object is floating, then this call <q>assumes
-ownership</q> of the floating reference, converting it to a normal
+<p>In other words, if the object is floating, then this call &ldquo;assumes
+ownership&rdquo; of the floating reference, converting it to a normal
 reference by clearing the floating flag while leaving the reference
 count unchanged.  If the object is not floating, then this call
 adds a new normal reference increasing the reference count by one.</p>
@@ -3258,7 +3233,7 @@ under the same conditions as for <code>g_object_ref()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L658-L661">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L705-L708">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3292,7 +3267,7 @@ reference count of the object is decreased by one.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L665-L668">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L712-L715">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3327,7 +3302,7 @@ to match the one used with <code>g_object_add_weak_pointer()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L673-L676">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L720-L723">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3375,7 +3350,7 @@ for <code>key</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L694-L697">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L741-L744">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3420,7 +3395,7 @@ should not destroy the object in the normal way.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L712-L715">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L759-L762">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3456,7 +3431,7 @@ reference cycles.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L721-L724">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L768-L771">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3498,7 +3473,7 @@ for <code>key</code> in your program, to avoid the <code>GQuark</code> storage g
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L740-L743">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L787-L790">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3535,7 +3510,7 @@ to a different value or when the object is destroyed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L750-L753">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L797-L800">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3568,7 +3543,7 @@ to a different value or when the object is destroyed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L756-L759">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L803-L806">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3608,7 +3583,7 @@ removes the data stored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L769-L772">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L816-L819">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3645,7 +3620,7 @@ with the same <code>quark</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L779-L782">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L826-L829">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3678,7 +3653,7 @@ with the same <code>quark</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L785-L788">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L832-L835">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3714,7 +3689,7 @@ properties are passed in.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L794-L797">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L841-L844">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3748,7 +3723,7 @@ without invoking the association&rsquo;s destroy handler.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L801-L804">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L848-L851">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3816,7 +3791,7 @@ and thus the partial string list would have been freed upon
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L842-L845">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L889-L892">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3839,7 +3814,7 @@ and thus the partial string list would have been freed upon
                       <div class="abstract">
                         <p>Reverts the effect of a previous call to
 <code>g_object_freeze_notify()</code>. The freeze count is decreased on <code>object</code>
-and when it reaches zero, queued <q>notify</q> signals are emitted.</p>
+and when it reaches zero, queued &ldquo;notify&rdquo; signals are emitted.</p>
 
 <p>Duplicate notifications for each property are squashed so that at most one
 <code>GObject::notify</code> signal is emitted for each property, in the reverse order
@@ -3857,7 +3832,7 @@ in which they have been queued.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L856-L859">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L903-L906">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3896,7 +3871,7 @@ invalid <code>GObject</code> instance. Use <code>g_clear_object()</code> for thi
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L868-L871">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L915-L918">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3937,7 +3912,7 @@ use this <code>object</code> as closure data.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L882-L885">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L929-L932">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3960,7 +3935,7 @@ use this <code>object</code> as closure data.</p>
                       <div class="abstract">
                         <p>Adds a weak reference callback to an object. Weak references are
 used for notification when an object is finalized. They are called
-<q>weak references</q> because they allow you to safely hold a pointer
+&ldquo;weak references&rdquo; because they allow you to safely hold a pointer
 to an object without calling <code>g_object_ref()</code> (<code>g_object_ref()</code> adds a
 strong reference, that is, forces the object to stay alive).</p>
 
@@ -3979,7 +3954,7 @@ Use <code>GWeakRef</code> if thread-safety is required.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L897-L900">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L944-L947">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4012,7 +3987,7 @@ Use <code>GWeakRef</code> if thread-safety is required.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L903-L906">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L950-L953">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4049,7 +4024,7 @@ after the object is is freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L913-L916">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L960-L963">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4086,7 +4061,7 @@ after the object is is freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L923-L926">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L970-L973">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4128,7 +4103,7 @@ pointer casts.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L938-L941">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L985-L988">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4168,7 +4143,7 @@ pointer casts.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L951-L954">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L998-L1001">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4201,7 +4176,7 @@ pointer casts.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L957-L960">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1004-L1007">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4234,7 +4209,7 @@ pointer casts.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L963-L966">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1010-L1013">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4271,7 +4246,7 @@ used. Specify <code>connect_flags</code> if you need <code>..._after()</code> or
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L973-L976">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1020-L1023">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4311,7 +4286,7 @@ is not safe).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L986-L989">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1033-L1036">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4344,7 +4319,7 @@ is not safe).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1000-L1003">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1047-L1050">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4366,7 +4341,7 @@ is not safe).</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Blocks a handler of an instance so it will not be called during any
-signal emissions unless it is unblocked again. Thus <q>blocking</q> a
+signal emissions unless it is unblocked again. Thus &ldquo;blocking&rdquo; a
 signal handler means to temporarily deactive it, a signal handler
 has to be unblocked exactly the same amount of times it has been
 blocked before to become active again.</p>
@@ -4384,7 +4359,7 @@ signal of <code>instance</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1013-L1016">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1060-L1063">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4422,7 +4397,7 @@ signal of <code>instance</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1024-L1027">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1071-L1074">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4459,7 +4434,7 @@ If no handler was found, 0 is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1034-L1037">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1081-L1084">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4492,7 +4467,7 @@ If no handler was found, 0 is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1040-L1043">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1087-L1090">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4516,7 +4491,7 @@ If no handler was found, 0 is returned.</p>
                         <p>Undoes the effect of a previous <code>g_signal_handler_block()</code> call.  A
 blocked handler is skipped during signal emissions and will not be
 invoked, unblocking it (for exactly the amount of times it has been
-blocked before) reverts its <q>blocked</q> state, so the handler will be
+blocked before) reverts its &ldquo;blocked&rdquo; state, so the handler will be
 recognized by the signal system and is called upon future or
 currently ongoing signal emissions (since the order in which
 handlers are called during signal emissions is deterministic,
@@ -4537,7 +4512,7 @@ connected to a signal of <code>instance</code> and is currently blocked.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1058-L1061">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1105-L1108">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4576,7 +4551,7 @@ otherwise.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1070-L1073">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1117-L1120">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4611,7 +4586,7 @@ and should not be used outside of the type system.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1078-L1081">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1125-L1128">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4651,7 +4626,7 @@ disconnected handlers otherwise.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1091-L1094">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1138-L1141">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4691,7 +4666,7 @@ not currently blocked.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1104-L1107">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1151-L1154">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4739,7 +4714,7 @@ of building the arguments.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1125-L1128">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1172-L1175">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4763,7 +4738,7 @@ of building the arguments.</p>
                         <p>Stops a signal&rsquo;s current emission.</p>
 
 <p>This will prevent the default method from running, if the signal was
-<code>G_SIGNAL_RUN_LAST</code> and you connected normally (i.e. without the <q>after</q>
+<code>G_SIGNAL_RUN_LAST</code> and you connected normally (i.e. without the &ldquo;after&rdquo;
 flag).</p>
 
 <p>Prints a warning if used on a signal which isn&rsquo;t being emitted.</p>
@@ -4778,7 +4753,7 @@ flag).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1137-L1140">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1184-L1187">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4814,7 +4789,7 @@ signal id for you.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1146-L1149">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1193-L1196">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4847,7 +4822,7 @@ signal id for you.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1151-L1157">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L1198-L1204">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4860,8 +4835,8 @@ signal id for you.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

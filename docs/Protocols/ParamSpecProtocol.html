@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           GLibObject 2.62.3 Docs
         </a>
-         (96% documented)
+         (97% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -668,7 +668,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject24signalRemoveEmissionHook0C2ID04hookG0ys6UInt32V_SutF">signalRemoveEmissionHook(signalID:hookID:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject21signalSetVaMarshaller0C2ID12instanceType02vaF0ys6UInt32V_SuySpySo9_GClosureVGSg_SpySo7_GValueVGSgSvSgs14CVaListPointerVAPs5Int32VSpySuGSgtXCtF">signalSetVaMarshaller(signalID:instanceType:vaMarshaller:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject21signalSetVaMarshaller0C2ID12instanceType02vaF0ys6UInt32V_SuySpySo9_GClosureVGSg_SpySo7_GValueVGSgSvSgs14CVaListPointerVSgAPs5Int32VSpySuGSgtXCtF">signalSetVaMarshaller(signalID:instanceType:vaMarshaller:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject18signalStopEmission8instance0C2ID6detailyAA0B8Protocol_p_s6UInt32VAHtF">signalStopEmission(instance:signalID:detail:)</a>
@@ -1391,7 +1391,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>ParamSpecProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -1408,11 +1408,14 @@ Alternatively, use <code><a href="../Structs/ParamSpecRef.html">ParamSpecRef</a>
 required to specify parameters, such as e.g. <code>GObject</code> properties.</p>
 <h2 id='parameter-names-a-name-canonical-parameter-names-a' class='heading'>Parameter names # <a name="canonical-parameter-names"></a></h2>
 
-<p>Parameter names need to start with a letter (a-z or A-Z).
-Subsequent characters can be letters, numbers or a &lsquo;-&rsquo;.
-All other characters are replaced by a &lsquo;-&rsquo; during construction.
-The result of this replacement is called the canonical name of
-the parameter.</p>
+<p>A property name consists of segments consisting of ASCII letters and
+digits, separated by either the <code>-</code> or <code>_</code> character. The first
+character of a property name must be a letter. These are the same rules as
+for signal naming (see <code>g_signal_new()</code>).</p>
+
+<p>When creating and looking up a <code>GParamSpec</code>, either separator can be
+used, but they cannot be mixed. Using <code>-</code> is considerably more
+efficient, and is the ‘canonical form’. Using <code>_</code> is discouraged.</p>
 
           </div>
         </section>
@@ -1446,7 +1449,7 @@ the parameter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L23">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L26">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1484,7 +1487,7 @@ the parameter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L26">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L29">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1495,9 +1498,11 @@ the parameter.</p>
               <div class="task-name-container">
                 <a name="/no%20signals"></a>
                 <a name="//apple_ref/swift/Section/no signals" class="dashAnchor"></a>
-                <a href="#/no%20signals">
-                  <h3 class="section-name">no signals</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/no%20signals"></a>
+                  <h3 class="section-name"><p>no signals</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -1528,7 +1533,7 @@ the parameter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L208-L211">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L252-L255">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1563,7 +1568,7 @@ the parameter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L216-L219">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L260-L263">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1586,7 +1591,7 @@ the parameter.</p>
                       <div class="abstract">
                         <p>Get the name of a <code>GParamSpec</code>.</p>
 
-<p>The name is always an <q>interned</q> string (as per <code>g_intern_string()</code>).
+<p>The name is always an &ldquo;interned&rdquo; string (as per <code>g_intern_string()</code>).
 This allows for pointer-value comparisons.</p>
 
                       </div>
@@ -1599,7 +1604,7 @@ This allows for pointer-value comparisons.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L225-L228">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L269-L272">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1632,7 +1637,7 @@ This allows for pointer-value comparisons.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L231-L234">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L275-L278">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1665,7 +1670,7 @@ This allows for pointer-value comparisons.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L237-L240">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L281-L284">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1698,7 +1703,7 @@ This allows for pointer-value comparisons.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L243-L246">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L287-L290">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1737,7 +1742,7 @@ for an example of the use of this capability.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L255-L258">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L299-L302">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1770,7 +1775,7 @@ for an example of the use of this capability.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L261-L264">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L305-L308">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1803,7 +1808,7 @@ for an example of the use of this capability.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L267-L270">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L311-L314">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1841,7 +1846,7 @@ set, using <code>nil</code> as pointer essentially removes the data stored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L278-L281">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L322-L325">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1878,7 +1883,7 @@ finalized, or the data is being overwritten by a call to
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L288-L291">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L332-L335">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1901,11 +1906,11 @@ finalized, or the data is being overwritten by a call to
                       <div class="abstract">
                         <p>The initial reference count of a newly created <code>GParamSpec</code> is 1,
 even though no one has explicitly called <code>g_param_spec_ref()</code> on it
-yet. So the initial reference count is flagged as <q>floating</q>, until
+yet. So the initial reference count is flagged as &ldquo;floating&rdquo;, until
 someone calls <code>g_param_spec_ref (pspec); g_param_spec_sink
 (pspec);</code> in sequence on it, taking over the initial
 reference count (thus ending up with a <code>pspec</code> that has a reference
-count of 1 still, but is not flagged <q>floating</q> anymore).</p>
+count of 1 still, but is not flagged &ldquo;floating&rdquo; anymore).</p>
 
                       </div>
                       <div class="declaration">
@@ -1917,7 +1922,7 @@ count of 1 still, but is not flagged <q>floating</q> anymore).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L300-L303">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L344-L347">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1953,7 +1958,7 @@ required to update user data pointers with a destroy notifier.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L309-L312">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L353-L356">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1986,7 +1991,7 @@ required to update user data pointers with a destroy notifier.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L315-L318">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L359-L362">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2021,7 +2026,7 @@ useful unless you are implementing a new base type similar to GObject.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L323-L326">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L367-L370">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2059,7 +2064,7 @@ can be accessed with <code>g_value_set_boxed()</code> and <code>g_value_get_boxe
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L334-L337">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L378-L381">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2098,7 +2103,7 @@ transformed <code>dest_value</code> complied to <code>pspec</code> without modif
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L346-L349">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L390-L393">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2131,7 +2136,7 @@ transformed <code>dest_value</code> complied to <code>pspec</code> without modif
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L352-L355">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L396-L399">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2164,7 +2169,7 @@ transformed <code>dest_value</code> complied to <code>pspec</code> without modif
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L358-L361">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L402-L405">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2202,7 +2207,7 @@ range -42 .. +42.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L369-L372">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L413-L416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2237,7 +2242,7 @@ respectively.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L377-L380">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L421-L424">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2270,7 +2275,7 @@ respectively.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L382-L388">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L426-L432">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2305,7 +2310,7 @@ respectively.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L393-L401">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L437-L445">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2328,7 +2333,7 @@ respectively.</p>
                       <div class="abstract">
                         <p>Get the name of a <code>GParamSpec</code>.</p>
 
-<p>The name is always an <q>interned</q> string (as per <code>g_intern_string()</code>).
+<p>The name is always an &ldquo;interned&rdquo; string (as per <code>g_intern_string()</code>).
 This allows for pointer-value comparisons.</p>
 
                       </div>
@@ -2341,7 +2346,7 @@ This allows for pointer-value comparisons.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L407-L416">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L451-L460">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2374,7 +2379,7 @@ This allows for pointer-value comparisons.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L419-L425">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L463-L469">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2407,7 +2412,7 @@ This allows for pointer-value comparisons.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L428-L434">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L472-L478">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2446,7 +2451,7 @@ for an example of the use of this capability.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L443-L455">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L487-L499">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2459,8 +2464,8 @@ for an example of the use of this capability.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

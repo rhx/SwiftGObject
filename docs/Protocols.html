@@ -23,7 +23,7 @@
         <a class="header-link" href="index.html">
           GLibObject 2.62.3 Docs
         </a>
-         (96% documented)
+         (97% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -668,7 +668,7 @@
                 <a class="nav-group-task-link" href="Functions.html#/s:10GLibObject24signalRemoveEmissionHook0C2ID04hookG0ys6UInt32V_SutF">signalRemoveEmissionHook(signalID:hookID:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/s:10GLibObject21signalSetVaMarshaller0C2ID12instanceType02vaF0ys6UInt32V_SuySpySo9_GClosureVGSg_SpySo7_GValueVGSgSvSgs14CVaListPointerVAPs5Int32VSpySuGSgtXCtF">signalSetVaMarshaller(signalID:instanceType:vaMarshaller:)</a>
+                <a class="nav-group-task-link" href="Functions.html#/s:10GLibObject21signalSetVaMarshaller0C2ID12instanceType02vaF0ys6UInt32V_SuySpySo9_GClosureVGSg_SpySo7_GValueVGSgSvSgs14CVaListPointerVSgAPs5Int32VSpySuGSgtXCtF">signalSetVaMarshaller(signalID:instanceType:vaMarshaller:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:10GLibObject18signalStopEmission8instance0C2ID6detailyAA0B8Protocol_p_s6UInt32VAHtF">signalStopEmission(instance:signalID:detail:)</a>
@@ -1391,7 +1391,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>Protocols</h1>
             <p>The following protocols are available globally.</p>
 
@@ -1404,9 +1404,11 @@
               <div class="task-name-container">
                 <a name="/Object%20Class"></a>
                 <a name="//apple_ref/swift/Section/Object Class" class="dashAnchor"></a>
-                <a href="#/Object%20Class">
-                  <h3 class="section-name">Object Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Object%20Class"></a>
+                  <h3 class="section-name"><p>Object Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -1446,10 +1448,6 @@ to the <code>GObject</code> implementation and should never be accessed directly
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -1518,9 +1516,11 @@ to the <code>GObject</code> implementation and should never be accessed directly
               <div class="task-name-container">
                 <a name="/Value%20Record"></a>
                 <a name="//apple_ref/swift/Section/Value Record" class="dashAnchor"></a>
-                <a href="#/Value%20Record">
-                  <h3 class="section-name">Value Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Value%20Record"></a>
+                  <h3 class="section-name"><p>Value Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -1572,9 +1572,11 @@ only be accessed through the <code>G_VALUE_TYPE()</code> macro.</p>
               <div class="task-name-container">
                 <a name="/Binding%20Class"></a>
                 <a name="//apple_ref/swift/Section/Binding Class" class="dashAnchor"></a>
-                <a href="#/Binding%20Class">
-                  <h3 class="section-name">Binding Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Binding%20Class"></a>
+                  <h3 class="section-name"><p>Binding Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -1607,9 +1609,9 @@ binding:</p>
                           G_BINDING_DEFAULT);
 </code></pre>
 
-<p>will cause the property named <q>property-b</q> of <code>object2</code> to be updated
+<p>will cause the property named &ldquo;property-b&rdquo; of <code>object2</code> to be updated
 every time <code>g_object_set()</code> or the specific accessor changes the value of
-the property <q>property-a</q> of <code>object1</code>.</p>
+the property &ldquo;property-a&rdquo; of <code>object1</code>.</p>
 
 <p>It is possible to create a bidirectional binding between two properties
 of two <code>GObject</code> instances, so that if either property changes, the
@@ -1637,14 +1639,14 @@ applying it; for instance, the following binding:</p>
                                NULL, NULL);
 </code></pre>
 
-<p>will keep the <q>value</q> property of the two adjustments in sync; the
-<code>celsius_to_fahrenheit</code> function will be called whenever the <q>value</q>
+<p>will keep the &ldquo;value&rdquo; property of the two adjustments in sync; the
+<code>celsius_to_fahrenheit</code> function will be called whenever the &ldquo;value&rdquo;
 property of <code>adjustment1</code> changes and will transform the current value
-of the property before applying it to the <q>value</q> property of <code>adjustment2</code>.</p>
+of the property before applying it to the &ldquo;value&rdquo; property of <code>adjustment2</code>.</p>
 
 <p>Vice versa, the <code>fahrenheit_to_celsius</code> function will be called whenever
-the <q>value</q> property of <code>adjustment2</code> changes, and will transform the
-current value of the property before applying it to the <q>value</q> property
+the &ldquo;value&rdquo; property of <code>adjustment2</code> changes, and will transform the
+current value of the property before applying it to the &ldquo;value&rdquo; property
 of <code>adjustment1</code>.</p>
 
 <p>Note that <code><a href="Structs.html#/s:10GLibObject8GBindingV">GBinding</a></code> does not resolve cycles by itself; a cycle like</p>
@@ -1693,9 +1695,11 @@ binding, source, and target instances to drop.</p>
               <div class="task-name-container">
                 <a name="/CClosure%20Record"></a>
                 <a name="//apple_ref/swift/Section/CClosure Record" class="dashAnchor"></a>
-                <a href="#/CClosure%20Record">
-                  <h3 class="section-name">CClosure Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/CClosure%20Record"></a>
+                  <h3 class="section-name"><p>CClosure Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -1740,9 +1744,11 @@ Alternatively, use <code><a href="Structs/CClosureRef.html">CClosureRef</a></cod
               <div class="task-name-container">
                 <a name="/Closure%20Record"></a>
                 <a name="//apple_ref/swift/Section/Closure Record" class="dashAnchor"></a>
-                <a href="#/Closure%20Record">
-                  <h3 class="section-name">Closure Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Closure%20Record"></a>
+                  <h3 class="section-name"><p>Closure Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -1829,9 +1835,11 @@ automatically removed when the objects they point to go away.</p></li>
               <div class="task-name-container">
                 <a name="/ClosureNotifyData%20Record"></a>
                 <a name="//apple_ref/swift/Section/ClosureNotifyData Record" class="dashAnchor"></a>
-                <a href="#/ClosureNotifyData%20Record">
-                  <h3 class="section-name">ClosureNotifyData Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ClosureNotifyData%20Record"></a>
+                  <h3 class="section-name"><p>ClosureNotifyData Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -1874,9 +1882,11 @@ Alternatively, use <code><a href="Structs/ClosureNotifyDataRef.html">ClosureNoti
               <div class="task-name-container">
                 <a name="/EnumClass%20Record"></a>
                 <a name="//apple_ref/swift/Section/EnumClass Record" class="dashAnchor"></a>
-                <a href="#/EnumClass%20Record">
-                  <h3 class="section-name">EnumClass Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/EnumClass%20Record"></a>
+                  <h3 class="section-name"><p>EnumClass Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -1922,9 +1932,11 @@ possible values.</p>
               <div class="task-name-container">
                 <a name="/EnumValue%20Record"></a>
                 <a name="//apple_ref/swift/Section/EnumValue Record" class="dashAnchor"></a>
-                <a href="#/EnumValue%20Record">
-                  <h3 class="section-name">EnumValue Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/EnumValue%20Record"></a>
+                  <h3 class="section-name"><p>EnumValue Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -1970,9 +1982,11 @@ nickname.</p>
               <div class="task-name-container">
                 <a name="/FlagsClass%20Record"></a>
                 <a name="//apple_ref/swift/Section/FlagsClass Record" class="dashAnchor"></a>
-                <a href="#/FlagsClass%20Record">
-                  <h3 class="section-name">FlagsClass Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/FlagsClass%20Record"></a>
+                  <h3 class="section-name"><p>FlagsClass Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2018,9 +2032,11 @@ possible values.</p>
               <div class="task-name-container">
                 <a name="/FlagsValue%20Record"></a>
                 <a name="//apple_ref/swift/Section/FlagsValue Record" class="dashAnchor"></a>
-                <a href="#/FlagsValue%20Record">
-                  <h3 class="section-name">FlagsValue Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/FlagsValue%20Record"></a>
+                  <h3 class="section-name"><p>FlagsValue Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2066,9 +2082,11 @@ nickname.</p>
               <div class="task-name-container">
                 <a name="/InitiallyUnowned%20Class"></a>
                 <a name="//apple_ref/swift/Section/InitiallyUnowned Class" class="dashAnchor"></a>
-                <a href="#/InitiallyUnowned%20Class">
-                  <h3 class="section-name">InitiallyUnowned Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/InitiallyUnowned%20Class"></a>
+                  <h3 class="section-name"><p>InitiallyUnowned Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2115,9 +2133,11 @@ accessed directly.</p>
               <div class="task-name-container">
                 <a name="/InitiallyUnownedClass%20Record"></a>
                 <a name="//apple_ref/swift/Section/InitiallyUnownedClass Record" class="dashAnchor"></a>
-                <a href="#/InitiallyUnownedClass%20Record">
-                  <h3 class="section-name">InitiallyUnownedClass Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/InitiallyUnownedClass%20Record"></a>
+                  <h3 class="section-name"><p>InitiallyUnownedClass Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2162,9 +2182,11 @@ Alternatively, use <code><a href="Structs/InitiallyUnownedClassRef.html">Initial
               <div class="task-name-container">
                 <a name="/InterfaceInfo%20Record"></a>
                 <a name="//apple_ref/swift/Section/InterfaceInfo Record" class="dashAnchor"></a>
-                <a href="#/InterfaceInfo%20Record">
-                  <h3 class="section-name">InterfaceInfo Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/InterfaceInfo%20Record"></a>
+                  <h3 class="section-name"><p>InterfaceInfo Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2210,9 +2232,11 @@ used specifically for managing interface types.</p>
               <div class="task-name-container">
                 <a name="/ObjectClass%20Record"></a>
                 <a name="//apple_ref/swift/Section/ObjectClass Record" class="dashAnchor"></a>
-                <a href="#/ObjectClass%20Record">
-                  <h3 class="section-name">ObjectClass Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ObjectClass%20Record"></a>
+                  <h3 class="section-name"><p>ObjectClass Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2282,9 +2306,11 @@ my_singleton_constructor (GType                  type,
               <div class="task-name-container">
                 <a name="/ObjectConstructParam%20Record"></a>
                 <a name="//apple_ref/swift/Section/ObjectConstructParam Record" class="dashAnchor"></a>
-                <a href="#/ObjectConstructParam%20Record">
-                  <h3 class="section-name">ObjectConstructParam Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ObjectConstructParam%20Record"></a>
+                  <h3 class="section-name"><p>ObjectConstructParam Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2331,9 +2357,11 @@ a <code>GObjectClass</code>.</p>
               <div class="task-name-container">
                 <a name="/ParamSpec%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpec Class" class="dashAnchor"></a>
-                <a href="#/ParamSpec%20Class">
-                  <h3 class="section-name">ParamSpec Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpec%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpec Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2358,11 +2386,14 @@ Alternatively, use <code><a href="Structs/ParamSpecRef.html">ParamSpecRef</a></c
 required to specify parameters, such as e.g. <code>GObject</code> properties.</p>
 <h2 id='parameter-names-a-name-canonical-parameter-names-a' class='heading'>Parameter names # <a name="canonical-parameter-names"></a></h2>
 
-<p>Parameter names need to start with a letter (a-z or A-Z).
-Subsequent characters can be letters, numbers or a &lsquo;-&rsquo;.
-All other characters are replaced by a &lsquo;-&rsquo; during construction.
-The result of this replacement is called the canonical name of
-the parameter.</p>
+<p>A property name consists of segments consisting of ASCII letters and
+digits, separated by either the <code>-</code> or <code>_</code> character. The first
+character of a property name must be a letter. These are the same rules as
+for signal naming (see <code>g_signal_new()</code>).</p>
+
+<p>When creating and looking up a <code>GParamSpec</code>, either separator can be
+used, but they cannot be mixed. Using <code>-</code> is considerably more
+efficient, and is the ‘canonical form’. Using <code>_</code> is discouraged.</p>
 
                         <a href="Protocols/ParamSpecProtocol.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2375,7 +2406,7 @@ the parameter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L21-L27">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L24-L30">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2386,9 +2417,11 @@ the parameter.</p>
               <div class="task-name-container">
                 <a name="/ParamSpecBoolean%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecBoolean Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecBoolean%20Class">
-                  <h3 class="section-name">ParamSpecBoolean Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecBoolean%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecBoolean Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2433,9 +2466,11 @@ Alternatively, use <code><a href="Structs/ParamSpecBooleanRef.html">ParamSpecBoo
               <div class="task-name-container">
                 <a name="/ParamSpecBoxed%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecBoxed Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecBoxed%20Class">
-                  <h3 class="section-name">ParamSpecBoxed Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecBoxed%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecBoxed Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2480,9 +2515,11 @@ Alternatively, use <code><a href="Structs/ParamSpecBoxedRef.html">ParamSpecBoxed
               <div class="task-name-container">
                 <a name="/ParamSpecChar%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecChar Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecChar%20Class">
-                  <h3 class="section-name">ParamSpecChar Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecChar%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecChar Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2527,9 +2564,11 @@ Alternatively, use <code><a href="Structs/ParamSpecCharRef.html">ParamSpecCharRe
               <div class="task-name-container">
                 <a name="/ParamSpecClass%20Record"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecClass Record" class="dashAnchor"></a>
-                <a href="#/ParamSpecClass%20Record">
-                  <h3 class="section-name">ParamSpecClass Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecClass%20Record"></a>
+                  <h3 class="section-name"><p>ParamSpecClass Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2576,9 +2615,11 @@ Normally, GParamSpec classes are filled by
               <div class="task-name-container">
                 <a name="/ParamSpecDouble%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecDouble Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecDouble%20Class">
-                  <h3 class="section-name">ParamSpecDouble Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecDouble%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecDouble Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2623,9 +2664,11 @@ Alternatively, use <code><a href="Structs/ParamSpecDoubleRef.html">ParamSpecDoub
               <div class="task-name-container">
                 <a name="/ParamSpecEnum%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecEnum Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecEnum%20Class">
-                  <h3 class="section-name">ParamSpecEnum Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecEnum%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecEnum Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2671,9 +2714,11 @@ properties.</p>
               <div class="task-name-container">
                 <a name="/ParamSpecFlags%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecFlags Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecFlags%20Class">
-                  <h3 class="section-name">ParamSpecFlags Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecFlags%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecFlags Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2719,9 +2764,11 @@ properties.</p>
               <div class="task-name-container">
                 <a name="/ParamSpecFloat%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecFloat Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecFloat%20Class">
-                  <h3 class="section-name">ParamSpecFloat Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecFloat%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecFloat Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2766,9 +2813,11 @@ Alternatively, use <code><a href="Structs/ParamSpecFloatRef.html">ParamSpecFloat
               <div class="task-name-container">
                 <a name="/ParamSpecGType%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecGType Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecGType%20Class">
-                  <h3 class="section-name">ParamSpecGType Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecGType%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecGType Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2813,9 +2862,11 @@ Alternatively, use <code><a href="Structs/ParamSpecGTypeRef.html">ParamSpecGType
               <div class="task-name-container">
                 <a name="/ParamSpecInt%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecInt Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecInt%20Class">
-                  <h3 class="section-name">ParamSpecInt Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecInt%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecInt Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2860,9 +2911,11 @@ Alternatively, use <code><a href="Structs/ParamSpecIntRef.html">ParamSpecIntRef<
               <div class="task-name-container">
                 <a name="/ParamSpecInt64%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecInt64 Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecInt64%20Class">
-                  <h3 class="section-name">ParamSpecInt64 Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecInt64%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecInt64 Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2907,9 +2960,11 @@ Alternatively, use <code><a href="Structs/ParamSpecInt64Ref.html">ParamSpecInt64
               <div class="task-name-container">
                 <a name="/ParamSpecLong%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecLong Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecLong%20Class">
-                  <h3 class="section-name">ParamSpecLong Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecLong%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecLong Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -2954,9 +3009,11 @@ Alternatively, use <code><a href="Structs/ParamSpecLongRef.html">ParamSpecLongRe
               <div class="task-name-container">
                 <a name="/ParamSpecObject%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecObject Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecObject%20Class">
-                  <h3 class="section-name">ParamSpecObject Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecObject%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecObject Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3001,9 +3058,11 @@ Alternatively, use <code><a href="Structs/ParamSpecObjectRef.html">ParamSpecObje
               <div class="task-name-container">
                 <a name="/ParamSpecOverride%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecOverride Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecOverride%20Class">
-                  <h3 class="section-name">ParamSpecOverride Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecOverride%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecOverride Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3055,9 +3114,11 @@ unless you are implementing a new base type similar to GObject.</p>
               <div class="task-name-container">
                 <a name="/ParamSpecParam%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecParam Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecParam%20Class">
-                  <h3 class="section-name">ParamSpecParam Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecParam%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecParam Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3103,9 +3164,11 @@ properties.</p>
               <div class="task-name-container">
                 <a name="/ParamSpecPointer%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecPointer Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecPointer%20Class">
-                  <h3 class="section-name">ParamSpecPointer Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecPointer%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecPointer Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3150,9 +3213,11 @@ Alternatively, use <code><a href="Structs/ParamSpecPointerRef.html">ParamSpecPoi
               <div class="task-name-container">
                 <a name="/ParamSpecPool%20Record"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecPool Record" class="dashAnchor"></a>
-                <a href="#/ParamSpecPool%20Record">
-                  <h3 class="section-name">ParamSpecPool Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecPool%20Record"></a>
+                  <h3 class="section-name"><p>ParamSpecPool Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3200,9 +3265,11 @@ types.</p>
               <div class="task-name-container">
                 <a name="/ParamSpecString%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecString Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecString%20Class">
-                  <h3 class="section-name">ParamSpecString Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecString%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecString Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3248,9 +3315,11 @@ properties.</p>
               <div class="task-name-container">
                 <a name="/ParamSpecTypeInfo%20Record"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecTypeInfo Record" class="dashAnchor"></a>
-                <a href="#/ParamSpecTypeInfo%20Record">
-                  <h3 class="section-name">ParamSpecTypeInfo Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecTypeInfo%20Record"></a>
+                  <h3 class="section-name"><p>ParamSpecTypeInfo Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3301,9 +3370,11 @@ does not need to be persistent across invocation of
               <div class="task-name-container">
                 <a name="/ParamSpecUChar%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecUChar Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecUChar%20Class">
-                  <h3 class="section-name">ParamSpecUChar Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecUChar%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecUChar Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3348,9 +3419,11 @@ Alternatively, use <code><a href="Structs/ParamSpecUCharRef.html">ParamSpecUChar
               <div class="task-name-container">
                 <a name="/ParamSpecUInt%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecUInt Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecUInt%20Class">
-                  <h3 class="section-name">ParamSpecUInt Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecUInt%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecUInt Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3395,9 +3468,11 @@ Alternatively, use <code><a href="Structs/ParamSpecUIntRef.html">ParamSpecUIntRe
               <div class="task-name-container">
                 <a name="/ParamSpecUInt64%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecUInt64 Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecUInt64%20Class">
-                  <h3 class="section-name">ParamSpecUInt64 Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecUInt64%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecUInt64 Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3442,9 +3517,11 @@ Alternatively, use <code><a href="Structs/ParamSpecUInt64Ref.html">ParamSpecUInt
               <div class="task-name-container">
                 <a name="/ParamSpecULong%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecULong Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecULong%20Class">
-                  <h3 class="section-name">ParamSpecULong Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecULong%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecULong Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3489,9 +3566,11 @@ Alternatively, use <code><a href="Structs/ParamSpecULongRef.html">ParamSpecULong
               <div class="task-name-container">
                 <a name="/ParamSpecUnichar%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecUnichar Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecUnichar%20Class">
-                  <h3 class="section-name">ParamSpecUnichar Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecUnichar%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecUnichar Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3536,9 +3615,11 @@ Alternatively, use <code><a href="Structs/ParamSpecUnicharRef.html">ParamSpecUni
               <div class="task-name-container">
                 <a name="/ParamSpecValueArray%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecValueArray Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecValueArray%20Class">
-                  <h3 class="section-name">ParamSpecValueArray Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecValueArray%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecValueArray Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3583,9 +3664,11 @@ Alternatively, use <code><a href="Structs/ParamSpecValueArrayRef.html">ParamSpec
               <div class="task-name-container">
                 <a name="/ParamSpecVariant%20Class"></a>
                 <a name="//apple_ref/swift/Section/ParamSpecVariant Class" class="dashAnchor"></a>
-                <a href="#/ParamSpecVariant%20Class">
-                  <h3 class="section-name">ParamSpecVariant Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecVariant%20Class"></a>
+                  <h3 class="section-name"><p>ParamSpecVariant Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3636,9 +3719,11 @@ values compare equal.</p>
               <div class="task-name-container">
                 <a name="/Parameter%20Record"></a>
                 <a name="//apple_ref/swift/Section/Parameter Record" class="dashAnchor"></a>
-                <a href="#/Parameter%20Record">
-                  <h3 class="section-name">Parameter Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Parameter%20Record"></a>
+                  <h3 class="section-name"><p>Parameter Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3684,9 +3769,11 @@ to hand parameter name/value pairs to <code>g_object_newv()</code>.</p>
               <div class="task-name-container">
                 <a name="/SignalInvocationHint%20Record"></a>
                 <a name="//apple_ref/swift/Section/SignalInvocationHint Record" class="dashAnchor"></a>
-                <a href="#/SignalInvocationHint%20Record">
-                  <h3 class="section-name">SignalInvocationHint Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/SignalInvocationHint%20Record"></a>
+                  <h3 class="section-name"><p>SignalInvocationHint Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3732,9 +3819,11 @@ to callbacks during a signal emission.</p>
               <div class="task-name-container">
                 <a name="/SignalQuery%20Record"></a>
                 <a name="//apple_ref/swift/Section/SignalQuery Record" class="dashAnchor"></a>
-                <a href="#/SignalQuery%20Record">
-                  <h3 class="section-name">SignalQuery Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/SignalQuery%20Record"></a>
+                  <h3 class="section-name"><p>SignalQuery Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3780,9 +3869,11 @@ filled in by the <code>g_signal_query()</code> function.</p>
               <div class="task-name-container">
                 <a name="/TypeClass%20Record"></a>
                 <a name="//apple_ref/swift/Section/TypeClass Record" class="dashAnchor"></a>
-                <a href="#/TypeClass%20Record">
-                  <h3 class="section-name">TypeClass Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeClass%20Record"></a>
+                  <h3 class="section-name"><p>TypeClass Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3827,9 +3918,11 @@ Alternatively, use <code><a href="Structs/TypeClassRef.html">TypeClassRef</a></c
               <div class="task-name-container">
                 <a name="/TypeFundamentalInfo%20Record"></a>
                 <a name="//apple_ref/swift/Section/TypeFundamentalInfo Record" class="dashAnchor"></a>
-                <a href="#/TypeFundamentalInfo%20Record">
-                  <h3 class="section-name">TypeFundamentalInfo Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeFundamentalInfo%20Record"></a>
+                  <h3 class="section-name"><p>TypeFundamentalInfo Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3875,9 +3968,11 @@ used specifically for managing fundamental types.</p>
               <div class="task-name-container">
                 <a name="/TypeInfo%20Record"></a>
                 <a name="//apple_ref/swift/Section/TypeInfo Record" class="dashAnchor"></a>
-                <a href="#/TypeInfo%20Record">
-                  <h3 class="section-name">TypeInfo Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeInfo%20Record"></a>
+                  <h3 class="section-name"><p>TypeInfo Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3930,9 +4025,11 @@ across invocation of <code>g_type_register_static()</code>.</p>
               <div class="task-name-container">
                 <a name="/TypeInstance%20Record"></a>
                 <a name="//apple_ref/swift/Section/TypeInstance Record" class="dashAnchor"></a>
-                <a href="#/TypeInstance%20Record">
-                  <h3 class="section-name">TypeInstance Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeInstance%20Record"></a>
+                  <h3 class="section-name"><p>TypeInstance Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3977,9 +4074,11 @@ Alternatively, use <code><a href="Structs/TypeInstanceRef.html">TypeInstanceRef<
               <div class="task-name-container">
                 <a name="/TypeInterface%20Record"></a>
                 <a name="//apple_ref/swift/Section/TypeInterface Record" class="dashAnchor"></a>
-                <a href="#/TypeInterface%20Record">
-                  <h3 class="section-name">TypeInterface Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeInterface%20Record"></a>
+                  <h3 class="section-name"><p>TypeInterface Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4024,9 +4123,11 @@ Alternatively, use <code><a href="Structs/TypeInterfaceRef.html">TypeInterfaceRe
               <div class="task-name-container">
                 <a name="/TypeModule%20Class"></a>
                 <a name="//apple_ref/swift/Section/TypeModule Class" class="dashAnchor"></a>
-                <a href="#/TypeModule%20Class">
-                  <h3 class="section-name">TypeModule Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeModule%20Class"></a>
+                  <h3 class="section-name"><p>TypeModule Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4096,9 +4197,11 @@ in <code>GTypeModuleClass</code>.</p>
               <div class="task-name-container">
                 <a name="/TypeModuleClass%20Record"></a>
                 <a name="//apple_ref/swift/Section/TypeModuleClass Record" class="dashAnchor"></a>
-                <a href="#/TypeModuleClass%20Record">
-                  <h3 class="section-name">TypeModuleClass Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeModuleClass%20Record"></a>
+                  <h3 class="section-name"><p>TypeModuleClass Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4144,9 +4247,11 @@ the <code>load</code> and <code>unload</code> functions in <code>GTypeModuleClas
               <div class="task-name-container">
                 <a name="/TypePlugin%20Interface"></a>
                 <a name="//apple_ref/swift/Section/TypePlugin Interface" class="dashAnchor"></a>
-                <a href="#/TypePlugin%20Interface">
-                  <h3 class="section-name">TypePlugin Interface</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypePlugin%20Interface"></a>
+                  <h3 class="section-name"><p>TypePlugin Interface</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4240,9 +4345,11 @@ unloading. It even handles multiple registered types per module.</p>
               <div class="task-name-container">
                 <a name="/TypePluginClass%20Record"></a>
                 <a name="//apple_ref/swift/Section/TypePluginClass Record" class="dashAnchor"></a>
-                <a href="#/TypePluginClass%20Record">
-                  <h3 class="section-name">TypePluginClass Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypePluginClass%20Record"></a>
+                  <h3 class="section-name"><p>TypePluginClass Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4288,9 +4395,11 @@ the lifecycle of dynamically loaded types.</p>
               <div class="task-name-container">
                 <a name="/TypeQuery%20Record"></a>
                 <a name="//apple_ref/swift/Section/TypeQuery Record" class="dashAnchor"></a>
-                <a href="#/TypeQuery%20Record">
-                  <h3 class="section-name">TypeQuery Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeQuery%20Record"></a>
+                  <h3 class="section-name"><p>TypeQuery Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4336,9 +4445,11 @@ It is filled in by the <code>g_type_query()</code> function.</p>
               <div class="task-name-container">
                 <a name="/TypeValueTable%20Record"></a>
                 <a name="//apple_ref/swift/Section/TypeValueTable Record" class="dashAnchor"></a>
-                <a href="#/TypeValueTable%20Record">
-                  <h3 class="section-name">TypeValueTable Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeValueTable%20Record"></a>
+                  <h3 class="section-name"><p>TypeValueTable Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4384,9 +4495,11 @@ implementation, to serve as a container for values of a type.</p>
               <div class="task-name-container">
                 <a name="/ValueArray%20Record"></a>
                 <a name="//apple_ref/swift/Section/ValueArray Record" class="dashAnchor"></a>
-                <a href="#/ValueArray%20Record">
-                  <h3 class="section-name">ValueArray Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ValueArray%20Record"></a>
+                  <h3 class="section-name"><p>ValueArray Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4431,9 +4544,11 @@ Alternatively, use <code><a href="Structs/ValueArrayRef.html">ValueArrayRef</a><
               <div class="task-name-container">
                 <a name="/WeakRef%20Record"></a>
                 <a name="//apple_ref/swift/Section/WeakRef Record" class="dashAnchor"></a>
-                <a href="#/WeakRef%20Record">
-                  <h3 class="section-name">WeakRef Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/WeakRef%20Record"></a>
+                  <h3 class="section-name"><p>WeakRef Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4456,7 +4571,7 @@ Alternatively, use <code><a href="Structs/WeakRefRef.html">WeakRefRef</a></code>
 
 <p>A structure containing a weak reference to a <code>GObject</code>.  It can either
 be empty (i.e. point to <code>nil</code>), or point to an object for as long as
-at least one <q>strong</q> reference to that object exists. Before the
+at least one &ldquo;strong&rdquo; reference to that object exists. Before the
 object&rsquo;s <code>GObjectClass.dispose</code> method is called, every <code>GWeakRef</code>
 associated with becomes empty (i.e. points to <code>nil</code>).</p>
 
@@ -4499,8 +4614,8 @@ goes back to zero, at which point they too will be invalidated.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
