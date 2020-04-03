@@ -15,6 +15,14 @@ import GLib
 import GObjectCHelpers
 
 public extension ValueProtocol {
+    /// Return the value as bindingFlags
+    var bindingFlags: BindingFlags {
+        get {
+            let data: UnsafePointer<BindingFlags> = dataPointer()
+            return data.pointee
+        }
+    }
+    ///
     /// Set the receiver up to hold a value of the given type
     ///
     /// - Parameter type: the type of value to hold
@@ -93,6 +101,14 @@ public extension ValueProtocol {
         let ptr = variant
         return ptr.map { Variant($0) }
     }
+    /// BindingFlags Value accessor.
+    ///
+    /// - Returns: optional BindingFlags if stored as the value
+    func get() -> BindingFlags? {
+        guard typeCheckValueHolds(type: g_binding_flags_get_type()) else { return nil }
+        return bindingFlags
+    }
+
     /// Generic Value accessor.
     ///
     /// - Returns: an optional pointer if stored as the value
