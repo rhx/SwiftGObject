@@ -72,21 +72,21 @@ public extension ValueProtocol {
     ///
     /// - Returns: a `Value` containing a copy of the receiver
     func get() -> Value { return Value(self) }
-    /// Generic Value accessor.
+    /// ObjectRef Value accessor.
     ///
     /// - Returns: an optional Object reference if stored as the value
     func get() -> ObjectRef? {
         let ptr = object
         return ptr.map { ObjectRef($0.assumingMemoryBound(to: GObject.self)) }
     }
-    /// Generic Value accessor.
+    /// ParamSpec Value accessor.
     ///
     /// - Returns: an optional ParamSpec reference if stored as the value
     func get() -> ParamSpec? {
         let ptr = param
         return ptr.map { ParamSpec($0) }
     }
-    /// Generic Value accessor.
+    /// Variant Value accessor.
     ///
     /// - Returns: an optional Variant reference if stored as the value
     func get() -> Variant? {
@@ -125,16 +125,16 @@ public extension ValueProtocol {
     /// Generic Value accessor for Object classes.
     ///
     /// - Returns: nil
-    func dataPointer<T>() -> UnsafePointer<T>? {
-        guard let ptr = glibobject_value_dataptr(value_ptr) else { return nil }
+    func dataPointer<T>() -> UnsafePointer<T> {
+        let ptr = glibobject_value_dataptr(value_ptr)
         return UnsafePointer(ptr.assumingMemoryBound(to: T.self))
     }
     
     /// Generic Value accessor for Object classes.
     ///
     /// - Returns: nil
-    func mutableDataPointer<T>() -> UnsafeMutablePointer<T>? {
-        guard let ptr = glibobject_value_dataptr(value_ptr) else { return nil }
+    func mutableDataPointer<T>() -> UnsafeMutablePointer<T> {
+        let ptr = glibobject_value_dataptr(value_ptr)
         return ptr.assumingMemoryBound(to: T.self)
     }
 
