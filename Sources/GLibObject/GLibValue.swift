@@ -12,6 +12,7 @@
 #endif
 import CGLib
 import GLib
+import GObjectCHelpers
 
 public extension ValueProtocol {
     /// Set the receiver up to hold a value of the given type
@@ -119,6 +120,22 @@ public extension ValueProtocol {
         if typeCheckValueHolds(type: .param)   { let o = param  ; return o.flatMap { ParamSpecRef($0) as? T } ?? o.flatMap { ParamSpec($0) as? T } }
         g_warn_message("GLibObject", #file, #line, #function, "Cannot retrieve value of type \(gtype) to type \(T.self)")
         return nil
+    }
+
+    /// Generic Value accessor for Object classes.
+    ///
+    /// - Returns: nil
+    func dataPointer<T>() -> UnsafePointer<T>? {
+        guard let ptr = glibobject_value_dataptr(value_ptr) else { return nil }
+        return UnsafePointer(ptr.assumingMemoryBound(to: T.self))
+    }
+    
+    /// Generic Value accessor for Object classes.
+    ///
+    /// - Returns: nil
+    func mutableDataPointer<T>() -> UnsafeMutablePointer<T>? {
+        guard let ptr = glibobject_value_dataptr(value_ptr) else { return nil }
+        return ptr.assumingMemoryBound(to: T.self)
     }
 
     /// Generic value copier.

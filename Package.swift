@@ -11,7 +11,8 @@ let package = Package(
         .package(url: "https://github.com/rhx/SwiftGLib.git", .branch("master"))
     ],
     targets: [
-        .target(name: "GLibObject", dependencies: ["GLib"]),
+        .target(name: "GLibObject", dependencies: ["GObjectCHelpers", "GLib"]),
+        .target(name: "GObjectCHelpers", dependencies: ["GLib"]),
         .testTarget(name: "GLibObjectTests", dependencies: ["GLibObject"]),
     ]
 )
