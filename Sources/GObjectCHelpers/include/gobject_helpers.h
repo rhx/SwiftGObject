@@ -1,3 +1,5 @@
+#include <stdint.h>
+#include <sys/types.h>
 #include <glib.h>
 #include <glib-object.h>
 
