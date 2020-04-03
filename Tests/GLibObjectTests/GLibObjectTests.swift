@@ -92,27 +92,42 @@ class GLibObjectTests: XCTestCase {
         XCTAssertTrue(type.isValueType)
         XCTAssertFalse(type.isAbstract)
         XCTAssertFalse(type.isAbstractValue)
-        guard let objA = Object.new(type),
-            let objB = Object.new(type) else {
+        guard let targetObject = Object.new(type),
+              let sourceObject = Object.new(type) else {
                 XCTFail("Cannot instantiate objects")
                 return
         }
-        objA.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
+        targetObject.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
             let ptrA = $0
             XCTAssertEqual(ptrA.pointee.integer, 0)
             let value1: Value = 1
-            type_a_set_property(objA.object_ptr, 1, value1.value_ptr, nil)
+            type_a_set_property(targetObject.object_ptr, 1, value1.value_ptr, nil)
             XCTAssertEqual(ptrA.pointee.integer, 1)
-            objB.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
+            var binding: BindingRef!
+            sourceObject.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
                 let ptrB = $0
                 let value2: Value = 2
-                type_a_set_property(objB.object_ptr, 1, value2.value_ptr, nil)
+                type_a_set_property(sourceObject.object_ptr, 1, value2.value_ptr, nil)
                 XCTAssertEqual(ptrB.pointee.integer, 2)
-                let binding = objB.bind(integerProperty, target: objA, property: integerProperty, flags: .sync_create)
+                binding = sourceObject.bind(integerProperty, target: targetObject, property: integerProperty, flags: .sync_create)
                 XCTAssertNotNil(binding)
                 XCTAssertEqual(ptrA.pointee.integer, 2)
-                binding?.unbind()
             }
+            let v = binding.get(property: .flags)
+            let f: BindingFlags? = v.get()
+            XCTAssertNotNil(f)
+            XCTAssertEqual(f, BindingFlags.sync_create)
+            XCTAssertEqual(v.bindingFlags, BindingFlags.sync_create)
+            XCTAssertEqual(v.bindingFlags, binding.flags)
+            let source = ObjectRef(raw: binding.get(property: .source).object)
+            XCTAssertEqual(source.ptr, sourceObject.ptr)
+            let target = ObjectRef(raw: binding.get(property: .target).object)
+            XCTAssertEqual(target.ptr, targetObject.ptr)
+            let sourcePropertyName = binding.get(property: .sourceProperty).string
+            XCTAssertEqual(sourcePropertyName, integerProperty.rawValue)
+            let targetPropertyName = binding.get(property: .targetProperty).string
+            XCTAssertEqual(targetPropertyName, integerProperty.rawValue)
+            binding.unbind()
         }
     }
 
