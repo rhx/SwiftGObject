@@ -47,15 +47,12 @@ void glibobject_set_property(gpointer gobject, const char *name, intptr_t value)
 /// @param values the values of each property to be set.
 GObject *g_object_new_with_properties(GType object_type, guint n_properties, const char *names[], const GValue values[])
 {
-    GParameter *parameters = malloc(n_properties*sizeof(GParameter));
+    GParameter parameters[n_properties];
     for (guint i = 0; i < n_properties; i++)
     {
         parameters[i].name  = names[i];
         parameters[i].value = values[i];
     }
-    GObject *object = (GObject *) g_object_newv(object_type, n_properties, parameters);
-    free(parameters);
-
-    return object;
+    return (GObject *) g_object_newv(object_type, n_properties, parameters);
 }
 #endif
