@@ -21,8 +21,7 @@ class GLibObjectTests: XCTestCase {
 
     /// test whether creating an empty object works
     func testCreateObject() {
-        var param = GParameter()
-        let object = Object.newv(objectType: 0, nParameters: 0, parameters: &param)
+        let object = Object.new(0)
         XCTAssertNil(object)
     }
 

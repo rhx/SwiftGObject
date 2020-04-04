@@ -112,8 +112,7 @@ public extension ObjectProtocol {
     /// - Parameter type: a type registered with g_type_register_*()
     /// - Returns: pointer to the instance of the given type
     static func new(type: GType) -> gpointer! {
-        var params = GParameter()
-        return g_object_newv(type, 0, &params)
+        return gpointer(g_object_new_with_properties(type, 0, nil, nil))
     }
     /// Create a reference to an instance of a given type
     ///
