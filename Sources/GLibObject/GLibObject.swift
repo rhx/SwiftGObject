@@ -3,10 +3,11 @@
 //  GObject
 //
 //  Created by Rene Hexel on 20/06/2016.
-//  Copyright © 2016, 2017, 2018, 2019 Rene Hexel.  All rights reserved.
+//  Copyright © 2016, 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
+import GObjectCHelpers
 
 /// Protocol for signal name enums
 public protocol SignalNameProtocol: Hashable {
