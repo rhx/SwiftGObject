@@ -112,21 +112,27 @@ class GLibObjectTests: XCTestCase {
                 XCTAssertNotNil(binding)
                 XCTAssertEqual(ptrA.pointee.integer, 2)
             }
+            defer { binding.unbind() }
             let v = binding.get(property: .flags)
             let f: BindingFlags? = v.get()
             XCTAssertNotNil(f)
             XCTAssertEqual(f, BindingFlags.sync_create)
             XCTAssertEqual(v.bindingFlags, BindingFlags.sync_create)
             XCTAssertEqual(v.bindingFlags, binding.flags)
-            let source = ObjectRef(raw: binding.get(property: .source).object)
+            let maybeS = binding.get(property: .source).object
+            XCTAssertNotNil(maybeS)
+            guard let s = maybeS else { return }
+            let source = ObjectRef(raw: s)
             XCTAssertEqual(source.ptr, sourceObject.ptr)
-            let target = ObjectRef(raw: binding.get(property: .target).object)
+            let maybeT = binding.get(property: .target).object
+            XCTAssertNotNil(maybeT)
+            guard let t = maybeT else { return }
+            let target = ObjectRef(raw: t)
             XCTAssertEqual(target.ptr, targetObject.ptr)
             let sourcePropertyName = binding.get(property: .sourceProperty).string
             XCTAssertEqual(sourcePropertyName, integerProperty.rawValue)
             let targetPropertyName = binding.get(property: .targetProperty).string
             XCTAssertEqual(targetPropertyName, integerProperty.rawValue)
-            binding.unbind()
         }
     }
 
