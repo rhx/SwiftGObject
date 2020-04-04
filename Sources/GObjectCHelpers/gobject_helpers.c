@@ -53,6 +53,9 @@ GObject *g_object_new_with_properties(GType object_type, guint n_properties, con
         parameters[i].name  = names[i];
         parameters[i].value = values[i];
     }
-    return (GObject *) g_object_newv(object_type, n_properties, parameters);
+    GObject *object = (GObject *) g_object_newv(object_type, n_properties, parameters);
+    free(parameters);
+
+    return object;
 }
 #endif
