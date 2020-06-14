@@ -56,7 +56,7 @@ extension PropertyName: PropertyNameProtocol {
     public static func ==(lhs: PropertyName, rhs: PropertyName) -> Bool {
         return lhs.name == rhs.name
     }
-
+    
     /// Property name as a String
     public var rawValue: String { return name }
 }
@@ -65,7 +65,7 @@ extension PropertyName: ExpressibleByStringLiteral {
     public typealias UnicodeScalarLiteralType = String
     public typealias ExtendedGraphemeClusterLiteralType = String
     public typealias StringLiteralType = String
-
+    
     public init(stringLiteral value: StringLiteralType) { self.init(value) }
     public init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) { self.init(value) }
     public init(unicodeScalarLiteral value: UnicodeScalarLiteralType) { self.init(value) }
@@ -82,7 +82,7 @@ public typealias ValueTransformer = (ValueRef, ValueRef) -> Bool
 /// until no longer required
 public class ClosureHolder<S,T> {
     public let call: (S) -> T
-
+    
     public init(_ closure: @escaping (S) -> T) {
         self.call = closure
     }
@@ -93,7 +93,7 @@ public class ClosureHolder<S,T> {
 public class BindingHolder<S,T> {
     public let transform_from: (S, T) -> Bool
     public let transform_to:   (T, S) -> Bool
-
+    
     public init(_ transform_from: @escaping (S, T) -> Bool, _ transform_to: @escaping (T, S) -> Bool) {
         self.transform_from = transform_from
         self.transform_to   = transform_to
@@ -131,7 +131,7 @@ public extension ObjectProtocol {
         let ptr: gpointer? = Self.new(type: t)
         return ptr.map { Object($0.assumingMemoryBound(to: GObject.self)) }
     }
-
+    
     /// Connection helper function for signal handler closure
     fileprivate func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
         let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
@@ -142,12 +142,12 @@ public extension ObjectProtocol {
                 holder.release()
             }
             let _ = $1
-            }, connectFlags: flags)
+        }, connectFlags: flags)
         return rv
     }
-
+    
     /// Binding helper function for binding closure
-    fileprivate func _bind<T: ObjectProtocol>(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .sync_create, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    fileprivate func _bind<T: ObjectProtocol>(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .syncCreate, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
         let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
         let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
         let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -159,7 +159,7 @@ public extension ObjectProtocol {
         }
         return rv.map { BindingRef($0) }
     }
-
+    
     /// Connects a (Void) -> Void closure or function to a signal for
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
@@ -172,7 +172,7 @@ public extension ObjectProtocol {
         }
         return rv
     }
-
+    
     /// Creates a binding between @source_property on @source and @target_property
     /// on @target. Whenever the @source_property is changed the @target_property is
     /// updated using the same value. For instance:
@@ -195,11 +195,11 @@ public extension ObjectProtocol {
     /// #GBinding instance.
     ///
     /// A #GObject can have multiple bindings.
-    @discardableResult func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, target: T, property target_property: Q, flags: BindingFlags = .sync_create) -> BindingRef! {
-        let rv = g_object_bind_property(ptr, source_property.name, target.ptr, target_property.name, flags)
+    @discardableResult func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, target: T, property target_property: Q, flags: BindingFlags = .syncCreate) -> BindingRef! {
+        let rv = g_object_bind_property(ptr, source_property.name, target.ptr, target_property.name, flags.value)
         return rv.map { BindingRef(opaquePointer: $0) }
     }
-
+    
     /// Complete version of bind().
     ///
     /// Creates a binding between @source_property on @source and @target_property
@@ -217,7 +217,7 @@ public extension ObjectProtocol {
     /// #GBinding instance.
     ///
     /// A #GObject can have multiple bindings.
-    @discardableResult func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, to target: T, property target_property: Q, flags f: BindingFlags = .sync_create, transformFrom transform_from: @escaping ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping ValueTransformer) -> BindingRef! {
+    @discardableResult func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol>(_ source_property: P, to target: T, property target_property: Q, flags f: BindingFlags = .syncCreate, transformFrom transform_from: @escaping ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping ValueTransformer) -> BindingRef! {
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
             let ptr = UnsafeRawPointer($3)
             let holder = Unmanaged<BindingClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
@@ -229,7 +229,7 @@ public extension ObjectProtocol {
         }
         return rv
     }
-
+    
     /// Complete version of bind() with strongly typed transformers.
     ///
     /// Creates a binding between @source_property on @source and @target_property
@@ -247,12 +247,12 @@ public extension ObjectProtocol {
     /// #GBinding instance.
     ///
     /// A #GObject can have multiple bindings.
-    @discardableResult func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol, U, V>(_ source_property: P, to target: T, property target_property: Q, flags fl: BindingFlags = .sync_create, convertFrom f: @escaping (U?) -> V? = { _ in nil }, convertTo g: @escaping (V?) -> U?) -> BindingRef! {
+    @discardableResult func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol, U, V>(_ source_property: P, to target: T, property target_property: Q, flags fl: BindingFlags = .syncCreate, convertFrom f: @escaping (U?) -> V? = { _ in nil }, convertTo g: @escaping (V?) -> U?) -> BindingRef! {
         let ft: ValueTransformer = { $0.transform(to: $1, f) }
         let gt: ValueTransformer = { $1.transform(to: $0, g) }
         return bind(source_property, to: target, property: target_property, flags: fl, transformFrom: ft, transformTo: gt)
     }
-
+    
     /// Complete version of bind() with strongly typed transformers.
     ///
     /// Creates a binding between @source_property on @source and @target_property
@@ -270,7 +270,7 @@ public extension ObjectProtocol {
     /// #GBinding instance.
     ///
     /// A #GObject can have multiple bindings.
-    @discardableResult func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol, U, V>(_ source_property: P, to target: T, property target_property: Q, flags fl: BindingFlags = .sync_create, convertFrom f: @escaping (U) -> V? = { _ in nil }, convertTo g: @escaping (V) -> U?) -> BindingRef! {
+    @discardableResult func bind<P: PropertyNameProtocol, Q: PropertyNameProtocol, T: ObjectProtocol, U, V>(_ source_property: P, to target: T, property target_property: Q, flags fl: BindingFlags = .syncCreate, convertFrom f: @escaping (U) -> V? = { _ in nil }, convertTo g: @escaping (V) -> U?) -> BindingRef! {
         let ft: ValueTransformer = {
             return $0.transform(to: $1, f)
         }

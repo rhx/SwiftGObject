@@ -3,7 +3,7 @@
 //  GLibObject
 //
 //  Created by Rene Hexel on 17/4/17.
-//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2020 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -58,13 +58,13 @@ public extension GType {
     /// Return `true` iff `self` is a derivable type.
     var isDerivable: Bool    { return test(flags: .derivable) }
     /// Return `true` iff `self` is a deep derivable type.
-    var isDeepDerivable: Bool { return test(flags: .deep_derivable) }
+    var isDeepDerivable: Bool { return test(flags: .deepDerivable) }
     /// Return `true` iff `self` is an instantiatable type.
     var isInstantiable: Bool { return test(flags: .instantiatable) }
     /// Return `true` iff `self` is an abstract type.
     var isAbstract: Bool     { return test(flags: .abstract) }
     /// Return `true` iff `self` is an abstract value type.
-    var isAbstractValue: Bool { return test(flags: .value_abstract) }
+    var isAbstractValue: Bool { return test(flags: .valueAbstract) }
     /// Return `true` iff `self` is a value type.
     var isValueType: Bool    { return g_type_check_is_value_type(self) != 0 }
     /// Return `true` iff `self` has a value table.
