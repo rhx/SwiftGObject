@@ -13,7 +13,7 @@ if [ ! -x "${GIR2SWIFT_PATH}/gir2swift" ] &&
 	cd gir2swift && ./build.sh
 fi
 export PATH=`pwd`/.build/debug:${PATH}
-popd >/dev/null
+popd >/dev/null 2>&1
 export PACKAGES="${BUILD_DIR}/checkouts"
 [ -e $PACKAGES ] || export PACKAGES=Packages
 if which parallel >/dev/null ; then
