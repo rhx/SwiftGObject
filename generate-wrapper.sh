@@ -5,7 +5,8 @@
 #
 . ./config.sh
 ./package.sh update
-if ! pushd "$BUILD_DIR/gir2swift" >/dev/null 2>&1 ; then
+if [ ! -x "${GIR2SWIFT_PATH}/gir2swift" ] &&
+   ! pushd "$BUILD_DIR/gir2swift" >/dev/null 2>&1 ; then
 	mkdir -p "$BUILD_DIR"
 	pushd "$BUILD_DIR" >/dev/null
 	git clone https://github.com/rhx/gir2swift.git
