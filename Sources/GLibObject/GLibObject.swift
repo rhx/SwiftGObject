@@ -9,6 +9,9 @@ import CGLib
 import GLib
 import GObjectCHelpers
 
+/// Union of primitive glib values
+public typealias GObjectTypeValueUnion = GObjectCHelpers.GObjectTypeValueUnion
+
 /// Protocol for signal name enums
 public protocol SignalNameProtocol: Hashable {
     var rawValue: String { get }
@@ -133,7 +136,7 @@ public extension ObjectProtocol {
     }
     
     /// Connection helper function for signal handler closure
-    fileprivate func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    fileprivate func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
         let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
         let callback = unsafeBitCast(handler, to: Callback.self)
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -163,7 +166,7 @@ public extension ObjectProtocol {
     /// Connects a (Void) -> Void closure or function to a signal for
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
-    @discardableResult func connect<S: SignalNameProtocol>(_ signal: S, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping SignalHandler) -> CUnsignedLong {
+    @discardableResult func connect<S: SignalNameProtocol>(_ signal: S, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping SignalHandler) -> Int {
         let rv = _connect(signal: signal.name, flags: f, data: ClosureHolder(handler)) {
             let ptr = UnsafeRawPointer($1)
             let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
