@@ -75,16 +75,16 @@ public extension GType {
     }
 }
 
-fileprivate struct _GTypeClass { let g_type: GType }
-fileprivate struct _GTypeInstance { let g_class: UnsafeMutablePointer<_GTypeClass>? }
+//fileprivate struct _GTypeClass { let g_type: GType }
+//fileprivate struct _GTypeInstance { let g_class: UnsafeMutablePointer<_GTypeClass>? }
 
 /// Convenience extensions for Object types
 public extension ObjectProtocol {
     /// Underlying type
     var type: GType {
-        let typeInstance = object_ptr.withMemoryRebound(to: _GTypeInstance.self, capacity: 1) { $0 }
-        guard let cls = typeInstance.pointee.g_class else { return .invalid }
-        return cls.pointee.g_type
+        let typeInstance = ptr.assumingMemoryBound(to: Optional<UnsafeMutablePointer<GType>>.self)
+        guard let cls = typeInstance.pointee else { return .invalid }
+        return cls.pointee
     }
 
     /// Name of the underlying type

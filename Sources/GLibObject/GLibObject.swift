@@ -134,7 +134,7 @@ public extension ObjectProtocol {
         let ptr: gpointer? = Self.new(type: t)
         return ptr.map { Object($0.assumingMemoryBound(to: GObject.self)) }
     }
-    
+
     /// Connection helper function for signal handler closure
     fileprivate func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
         let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
@@ -144,11 +144,11 @@ public extension ObjectProtocol {
                 let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(swift)
                 holder.release()
             }
-            let _ = $1
+            _ = $1
         }, connectFlags: flags)
         return rv
     }
-    
+
     /// Binding helper function for binding closure
     fileprivate func _bind<T: ObjectProtocol>(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .syncCreate, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
         let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
@@ -162,7 +162,7 @@ public extension ObjectProtocol {
         }
         return rv.map { BindingRef($0) }
     }
-    
+
     /// Connects a (Void) -> Void closure or function to a signal for
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
@@ -175,7 +175,7 @@ public extension ObjectProtocol {
         }
         return rv
     }
-    
+
     /// Creates a binding between @source_property on @source and @target_property
     /// on @target. Whenever the @source_property is changed the @target_property is
     /// updated using the same value. For instance:
@@ -202,7 +202,7 @@ public extension ObjectProtocol {
         let rv = g_object_bind_property(ptr, source_property.name, target.ptr, target_property.name, flags.value)
         return rv.map { BindingRef(opaquePointer: $0) }
     }
-    
+
     /// Complete version of bind().
     ///
     /// Creates a binding between @source_property on @source and @target_property
@@ -232,7 +232,7 @@ public extension ObjectProtocol {
         }
         return rv
     }
-    
+
     /// Complete version of bind() with strongly typed transformers.
     ///
     /// Creates a binding between @source_property on @source and @target_property
@@ -255,7 +255,7 @@ public extension ObjectProtocol {
         let gt: ValueTransformer = { $1.transform(to: $0, g) }
         return bind(source_property, to: target, property: target_property, flags: fl, transformFrom: ft, transformTo: gt)
     }
-    
+
     /// Complete version of bind() with strongly typed transformers.
     ///
     /// Creates a binding between @source_property on @source and @target_property
