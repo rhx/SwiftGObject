@@ -21,8 +21,7 @@ class GLibObjectTests: XCTestCase {
 
     /// test whether creating an empty object works
     func testCreateObject() {
-        var param = GParameter()
-        let object = Object.newv(objectType: 0, nParameters: 0, parameters: &param)
+        let object = Object.new(0)
         XCTAssertNil(object)
     }
 
@@ -92,27 +91,48 @@ class GLibObjectTests: XCTestCase {
         XCTAssertTrue(type.isValueType)
         XCTAssertFalse(type.isAbstract)
         XCTAssertFalse(type.isAbstractValue)
-        guard let objA = Object.new(type),
-            let objB = Object.new(type) else {
+        guard let targetObject = Object.new(type),
+              let sourceObject = Object.new(type) else {
                 XCTFail("Cannot instantiate objects")
                 return
         }
-        objA.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
+        targetObject.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
             let ptrA = $0
             XCTAssertEqual(ptrA.pointee.integer, 0)
             let value1: Value = 1
-            type_a_set_property(objA.object_ptr, 1, value1.value_ptr, nil)
+            type_a_set_property(targetObject.object_ptr, 1, value1.value_ptr, nil)
             XCTAssertEqual(ptrA.pointee.integer, 1)
-            objB.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
+            var binding: BindingRef!
+            sourceObject.object_ptr.withMemoryRebound(to: GTypeA.self, capacity: 1) {
                 let ptrB = $0
                 let value2: Value = 2
-                type_a_set_property(objB.object_ptr, 1, value2.value_ptr, nil)
+                type_a_set_property(sourceObject.object_ptr, 1, value2.value_ptr, nil)
                 XCTAssertEqual(ptrB.pointee.integer, 2)
-                let binding = objB.bind(integerProperty, target: objA, property: integerProperty, flags: .sync_create)
+                binding = sourceObject.bind(integerProperty, target: targetObject, property: integerProperty, flags: .syncCreate)
                 XCTAssertNotNil(binding)
                 XCTAssertEqual(ptrA.pointee.integer, 2)
-                binding?.unbind()
             }
+            defer { binding.unbind() }
+            let v = binding.get(property: .flags)
+            let f: BindingFlags? = v.get()
+            XCTAssertNotNil(f)
+            XCTAssertEqual(f, BindingFlags.syncCreate)
+            XCTAssertEqual(v.bindingFlags, BindingFlags.syncCreate)
+            XCTAssertEqual(v.bindingFlags.rawValue, binding.flags.rawValue)
+            let maybeS = binding.get(property: .source).object
+            XCTAssertNotNil(maybeS)
+            guard let s = maybeS else { return }
+            let source = ObjectRef(raw: s)
+            XCTAssertEqual(source.ptr, sourceObject.ptr)
+            let maybeT = binding.get(property: .target).object
+            XCTAssertNotNil(maybeT)
+            guard let t = maybeT else { return }
+            let target = ObjectRef(raw: t)
+            XCTAssertEqual(target.ptr, targetObject.ptr)
+            let sourcePropertyName = binding.get(property: .sourceProperty).string
+            XCTAssertEqual(sourcePropertyName, integerProperty.rawValue)
+            let targetPropertyName = binding.get(property: .targetProperty).string
+            XCTAssertEqual(targetPropertyName, integerProperty.rawValue)
         }
     }
 
@@ -146,7 +166,7 @@ class GLibObjectTests: XCTestCase {
                 let value2: Value = 2
                 type_a_set_property(objB.object_ptr, 1, value2.value_ptr, nil)
                 XCTAssertEqual(ptrB.pointee.integer, 2)
-                let binding = objB.bind(integerProperty, to: objA, property: integerProperty, flags: .sync_create) { (u: (Value, Value)) -> Bool in
+                let binding = objB.bind(integerProperty, to: objA, property: integerProperty, flags: .syncCreate) { (u: (Value, Value)) -> Bool in
                     let v: Int = u.0.get()
                     print("Got \(v)")
                     u.1.set(2*v)
@@ -189,7 +209,7 @@ class GLibObjectTests: XCTestCase {
                 let value2: Value = 2
                 type_a_set_property(objB.object_ptr, 1, value2.value_ptr, nil)
                 XCTAssertEqual(ptrB.pointee.integer, 2)
-                let binding = objB.bind(integerProperty, to: objA, property: integerProperty, flags: .sync_create) { 3 * $0 }
+                let binding = objB.bind(integerProperty, to: objA, property: integerProperty, flags: .syncCreate) { 3 * $0 }
                 XCTAssertNotNil(binding)
                 XCTAssertEqual(ptrA.pointee.integer, 6)
                 binding?.unbind()

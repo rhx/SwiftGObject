@@ -3,7 +3,7 @@
 //  GObject
 //
 //  Created by Rene Hexel on 27/4/17.
-//  Copyright © 2017, 2018, 2019 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -17,31 +17,33 @@ public extension ObjectProtocol {
     /// - Parameter context: notification context to freeze
     func freeze(context: UnsafeMutablePointer<GObjectNotifyContext>?) -> UnsafeMutablePointer<GObjectNotifyQueue>? {
         guard let context = context else { return nil }
-        let qdata = UnsafeMutablePointer(mutating: &object_ptr.pointee.qdata).withMemoryRebound(to: Optional<UnsafeMutablePointer<GData>>.self, capacity: 1) { $0 }
         var queue: UnsafeMutablePointer<GObjectNotifyQueue>?
-        lockq.sync {
-            let nq: UnsafeMutablePointer<GObjectNotifyQueue>
-            if let q = g_datalist_id_get_data(qdata, context.pointee.quark_notify_queue) {
-                nq = q.assumingMemoryBound(to: GObjectNotifyQueue.self)
-            } else {
-                nq = g_slice_new0()
-                nq.pointee.context = context
-                g_datalist_id_set_data_full(qdata, context.pointee.quark_notify_queue, UnsafeMutableRawPointer(nq)) {
-                    guard let nq = $0?.assumingMemoryBound(to: GObjectNotifyQueue.self) else { return }
-                    g_slist_free(nq.pointee.pspecs)
-                    g_slice_free(nq)
+        withUnsafeMutablePointer(to: &object_ptr.pointee.qdata) {
+            let qdata = UnsafeMutableRawPointer($0).assumingMemoryBound(to: Optional<UnsafeMutablePointer<GData>>.self)
+            lockq.sync {
+                let nq: UnsafeMutablePointer<GObjectNotifyQueue>
+                if let q = g_datalist_id_get_data(qdata, context.pointee.quark_notify_queue) {
+                    nq = q.assumingMemoryBound(to: GObjectNotifyQueue.self)
+                } else {
+                    nq = g_slice_new0()
+                    nq.pointee.context = context
+                    g_datalist_id_set_data_full(qdata, context.pointee.quark_notify_queue, UnsafeMutableRawPointer(nq)) {
+                        guard let nq = $0?.assumingMemoryBound(to: GObjectNotifyQueue.self) else { return }
+                        g_slist_free(nq.pointee.pspecs)
+                        g_slice_free(nq)
+                    }
                 }
+                if nq.pointee.freeze_count >= 65535 {
+                    g_log("Freeze count for \(typeName) at \(ptr) is larger than 65536 - called freeze(context:) too often (forgot to call thaw(notifyQueue:) or infinite loop)", level: .critical)
+                } else {
+                    nq.pointee.freeze_count += 1
+                }
+                queue = nq
             }
-            if nq.pointee.freeze_count >= 65535 {
-                g_log("Freeze count for \(typeName) at \(ptr) is larger than 65536 - called freeze(context:) too often (forgot to call thaw(notifyQueue:) or infinite loop)", level: .level_critical)
-            } else {
-                nq.pointee.freeze_count += 1
-            }
-            queue = nq
         }
         return queue
     }
-
+    
     /// Unfreeze notifications
     ///
     /// - Parameter queue: notification queue to thaw
@@ -52,7 +54,7 @@ public extension ObjectProtocol {
             guard nq.pointee.freeze_count > 0 else { return }
             nq.pointee.freeze_count -= 1
             guard nq.pointee.freeze_count == 0 else { return }
-
+            
             pspecs.reserveCapacity(Int(nq.pointee.n_pspecs))
             var slist = nq.pointee.pspecs
             while let sl = slist {

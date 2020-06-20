@@ -17,3 +17,5 @@ s/: \([A-Za-z.]*Transformer[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Transform[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Transformer =\)/: @escaping \1/g
 s/: \([A-Za-z.]*Hook[,)]\)/: @escaping \1/g
+s|Pointer<_Value__data__union>|Pointer<GObjectTypeValueUnion>|g
+s|_Value__data__union.self|GObjectTypeValueUnion.self|g

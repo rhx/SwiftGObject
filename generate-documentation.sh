@@ -4,7 +4,7 @@
 # to determine compiler and linker flags
 #
 . ./config.sh
-[ -e Sources/${Module}.swift ] || ./generate-wrapper.sh
+[ -e Sources/${Mod}/${Module}.swift ] || ./generate-wrapper.sh
 if [ -z "$@" ]; then
     JAZZY_ARGS="--theme fullwidth --author Ren&eacute;&nbsp;Hexel --author_url https://www.ict.griffith.edu.au/~rhexel/ --github_url https://github.com/rhx/Swift$Pkg --github-file-prefix https://github.com/rhx/Swift$Pkg/tree/generated --root-url http://rhx.github.io/Swift$Pkg/ --output docs"
 fi

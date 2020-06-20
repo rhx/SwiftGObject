@@ -12,8 +12,17 @@
 #endif
 import CGLib
 import GLib
+import GObjectCHelpers
 
 public extension ValueProtocol {
+    /// Return the value as bindingFlags
+    var bindingFlags: BindingFlags {
+        get {
+            let data: UnsafePointer<BindingFlags> = dataPointer()
+            return data.pointee
+        }
+    }
+    ///
     /// Set the receiver up to hold a value of the given type
     ///
     /// - Parameter type: the type of value to hold
@@ -71,27 +80,35 @@ public extension ValueProtocol {
     ///
     /// - Returns: a `Value` containing a copy of the receiver
     func get() -> Value { return Value(self) }
-    /// Generic Value accessor.
+    /// ObjectRef Value accessor.
     ///
     /// - Returns: an optional Object reference if stored as the value
     func get() -> ObjectRef? {
         let ptr = object
         return ptr.map { ObjectRef($0.assumingMemoryBound(to: GObject.self)) }
     }
-    /// Generic Value accessor.
+    /// ParamSpec Value accessor.
     ///
     /// - Returns: an optional ParamSpec reference if stored as the value
     func get() -> ParamSpec? {
         let ptr = param
         return ptr.map { ParamSpec($0) }
     }
-    /// Generic Value accessor.
+    /// Variant Value accessor.
     ///
     /// - Returns: an optional Variant reference if stored as the value
     func get() -> Variant? {
         let ptr = variant
         return ptr.map { Variant($0) }
     }
+    /// BindingFlags Value accessor.
+    ///
+    /// - Returns: optional BindingFlags if stored as the value
+    func get() -> BindingFlags? {
+        guard typeCheckValueHolds(type: g_binding_flags_get_type()) else { return nil }
+        return bindingFlags
+    }
+
     /// Generic Value accessor.
     ///
     /// - Returns: an optional pointer if stored as the value
@@ -119,6 +136,22 @@ public extension ValueProtocol {
         if typeCheckValueHolds(type: .param)   { let o = param  ; return o.flatMap { ParamSpecRef($0) as? T } ?? o.flatMap { ParamSpec($0) as? T } }
         g_warn_message("GLibObject", #file, #line, #function, "Cannot retrieve value of type \(gtype) to type \(T.self)")
         return nil
+    }
+
+    /// Generic Value accessor for Object classes.
+    ///
+    /// - Returns: nil
+    func dataPointer<T>() -> UnsafePointer<T> {
+        let ptr = glibobject_value_dataptr(value_ptr)
+        return UnsafePointer(ptr.assumingMemoryBound(to: T.self))
+    }
+    
+    /// Generic Value accessor for Object classes.
+    ///
+    /// - Returns: nil
+    func mutableDataPointer<T>() -> UnsafeMutablePointer<T> {
+        let ptr = glibobject_value_dataptr(value_ptr)
+        return ptr.assumingMemoryBound(to: T.self)
     }
 
     /// Generic value copier.
