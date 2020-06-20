@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecInt64 Class
 
@@ -10,7 +11,7 @@ import GLib
 ///
 /// A `GParamSpec` derived structure that contains the meta data for 64bit integer properties.
 public protocol ParamSpecInt64Protocol: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpecInt64` instance.
+        /// Untyped pointer to the underlying `GParamSpecInt64` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecInt64` instance.
@@ -23,7 +24,7 @@ public protocol ParamSpecInt64Protocol: ParamSpecProtocol {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for 64bit integer properties.
 public struct ParamSpecInt64Ref: ParamSpecInt64Protocol {
-    /// Untyped pointer to the underlying `GParamSpecInt64` instance.
+        /// Untyped pointer to the underlying `GParamSpecInt64` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_int64_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -76,7 +77,7 @@ public extension ParamSpecInt64Ref {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for 64bit integer properties.
 open class ParamSpecInt64: ParamSpec, ParamSpecInt64Protocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecInt64` instance.
     /// - Parameter op: pointer to the underlying object
@@ -158,14 +159,52 @@ open class ParamSpecInt64: ParamSpec, ParamSpecInt64Protocol {
 
 }
 
-// MARK: - no ParamSpecInt64 properties
+// MARK: no ParamSpecInt64 properties
 
-// MARK: - no signals
+// MARK: no ParamSpecInt64 signals
 
 
+// MARK: ParamSpecInt64 Class: ParamSpecInt64Protocol extension (methods and fields)
 public extension ParamSpecInt64Protocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecInt64` instance.
     var param_spec_int64_ptr: UnsafeMutablePointer<GParamSpecInt64> { return ptr.assumingMemoryBound(to: GParamSpecInt64.self) }
+
+
+    /// private `GParamSpec` portion
+    var parentInstance: GParamSpec {
+        /// private `GParamSpec` portion
+        get {
+            let rv: GParamSpec = cast(param_spec_int64_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    /// minimum value for the property specified
+    var minimum: Int64 {
+        /// minimum value for the property specified
+        get {
+            let rv: Int64 = cast(param_spec_int64_ptr.pointee.minimum)
+            return rv
+        }
+    }
+
+    /// maximum value for the property specified
+    var maximum: Int64 {
+        /// maximum value for the property specified
+        get {
+            let rv: Int64 = cast(param_spec_int64_ptr.pointee.maximum)
+            return rv
+        }
+    }
+
+    /// default value for the property specified
+    var defaultValue: Int64 {
+        /// default value for the property specified
+        get {
+            let rv: Int64 = cast(param_spec_int64_ptr.pointee.default_value)
+            return rv
+        }
+    }
 
 }
 

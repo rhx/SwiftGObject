@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SignalFlags Extension Reference</title>
+    <title>TypeFlags Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,16 +14,16 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Extension/SignalFlags" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Struct/TypeFlags" class="dashAnchor"></a>
 
-    <a title="SignalFlags Extension Reference"></a>
+    <a title="TypeFlags Structure Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLibObject 2.62.3 Docs
+          GLibObject 2.64.3 Docs
         </a>
-         (97% documented)
+         (96% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -50,7 +50,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">GLibObject Reference</a>
       <img class="carat" src="../img/carat.png" />
-      SignalFlags Extension Reference
+      TypeFlags Structure Reference
     </p>
 
     <div class="content-wrapper">
@@ -198,6 +198,9 @@
                 <a class="nav-group-task-link" href="../Classes/SignalQuery.html">SignalQuery</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/TypeCValue.html">TypeCValue</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/TypeClass.html">TypeClass</a>
               </li>
               <li class="nav-group-task">
@@ -241,6 +244,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/WeakRef.html">WeakRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/_Value__data__union.html">_Value__data__union</a>
               </li>
             </ul>
           </li>
@@ -315,31 +321,7 @@
             <a class="nav-group-name-link" href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Extensions/BindingFlags.html">BindingFlags</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Extensions/ConnectFlags.html">ConnectFlags</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/GType.html">GType</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Extensions/ParamFlags.html">ParamFlags</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Extensions/SignalFlags.html">SignalFlags</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Extensions/SignalMatchType.html">SignalMatchType</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Extensions/TypeDebugFlags.html">TypeDebugFlags</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Extensions/TypeFlags.html">TypeFlags</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Extensions/TypeFundamentalFlags.html">TypeFundamentalFlags</a>
               </li>
             </ul>
           </li>
@@ -482,76 +464,76 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject12gtypeGetTypeSuyF">gtypeGetType()</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject16paramSpecBoolean4name4nick5blurb12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2NSbSo0L5FlagsatF">paramSpecBoolean(name:nick:blurb:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject16paramSpecBoolean4name4nick5blurb12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2NSbAA10ParamFlagsVtF">paramSpecBoolean(name:nick:blurb:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecBoxed4name4nick5blurb9boxedType5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2NSuSo0L5FlagsatF">paramSpecBoxed(name:nick:blurb:boxedType:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecBoxed4name4nick5blurb9boxedType5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2NSuAA10ParamFlagsVtF">paramSpecBoxed(name:nick:blurb:boxedType:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13paramSpecChar4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2p3OSo0N5FlagsatF">paramSpecChar(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13paramSpecChar4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2p3oA10ParamFlagsVtF">paramSpecChar(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject15paramSpecDouble4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2PS3dSo0N5FlagsatF">paramSpecDouble(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject15paramSpecDouble4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2PS3dAA10ParamFlagsVtF">paramSpecDouble(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13paramSpecEnum4name4nick5blurb8enumType12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2OSus5Int32VSo0N5FlagsatF">paramSpecEnum(name:nick:blurb:enumType:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13paramSpecEnum4name4nick5blurb8enumType12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2OSus5Int32VAA10ParamFlagsVtF">paramSpecEnum(name:nick:blurb:enumType:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecFlags4name4nick5blurb9flagsType12defaultValue0I0SpySo07_GParamD0VGSgSPys4Int8VG_A2OSus6UInt32VSo0mE0atF">paramSpecFlags(name:nick:blurb:flagsType:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecFlags4name4nick5blurb9flagsType12defaultValue0I0SpySo07_GParamD0VGSgSPys4Int8VG_A2OSus6UInt32VAA05ParamE0VtF">paramSpecFlags(name:nick:blurb:flagsType:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecFloat4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2PS3fSo0N5FlagsatF">paramSpecFloat(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecFloat4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2PS3fAA10ParamFlagsVtF">paramSpecFloat(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecGtype4name4nick5blurb7isAType5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2NSuSo0L5FlagsatF">paramSpecGtype(name:nick:blurb:isAType:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecGtype4name4nick5blurb7isAType5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2NSuAA10ParamFlagsVtF">paramSpecGtype(name:nick:blurb:isAType:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject12paramSpecInt4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2Ps5Int32VA2RSo0N5FlagsatF">paramSpecInt(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject12paramSpecInt4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2Ps5Int32VA2rA10ParamFlagsVtF">paramSpecInt(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecInt644name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2Ps0E0VA2RSo0N5FlagsatF">paramSpecInt64(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecInt644name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2Ps0E0VA2rA10ParamFlagsVtF">paramSpecInt64(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13paramSpecLong4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2PS3iSo0N5FlagsatF">paramSpecLong(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13paramSpecLong4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2PS3iAA10ParamFlagsVtF">paramSpecLong(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject09paramSpecB04name4nick5blurb10objectType5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2NSuSo0K5FlagsatF">paramSpecObject(name:nick:blurb:objectType:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject09paramSpecB04name4nick5blurb10objectType5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2NSuAA10ParamFlagsVtF">paramSpecObject(name:nick:blurb:objectType:flags:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject17paramSpecOverride4name10overriddenSpySo07_GParamD0VGSgSPys4Int8VG_AA05ParamD8Protocol_ptF">paramSpecOverride(name:overridden:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecParam4name4nick5blurb0C4Type5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2NSuSo0K5FlagsatF">paramSpecParam(name:nick:blurb:paramType:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecParam4name4nick5blurb0C4Type5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2NSuAA0E5FlagsVtF">paramSpecParam(name:nick:blurb:paramType:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject16paramSpecPointer4name4nick5blurb5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2MSo0J5FlagsatF">paramSpecPointer(name:nick:blurb:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject16paramSpecPointer4name4nick5blurb5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2mA10ParamFlagsVtF">paramSpecPointer(name:nick:blurb:flags:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject16paramSpecPoolNew13typePrefixingSpyAA06GParamdE0VGSgSb_tF">paramSpecPoolNew(typePrefixing:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject15paramSpecString4name4nick5blurb12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A3NSo0L5FlagsatF">paramSpecString(name:nick:blurb:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject15paramSpecString4name4nick5blurb12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A3nA10ParamFlagsVtF">paramSpecString(name:nick:blurb:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecUchar4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2Ps5UInt8VA2RSo0N5FlagsatF">paramSpecUchar(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecUchar4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2Ps5UInt8VA2rA10ParamFlagsVtF">paramSpecUchar(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13paramSpecUint4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2Ps6UInt32VA2RSo0N5FlagsatF">paramSpecUint(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13paramSpecUint4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2Ps6UInt32VA2rA10ParamFlagsVtF">paramSpecUint(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject15paramSpecUint644name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2Ps6UInt64VA2RSo0N5FlagsatF">paramSpecUint64(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject15paramSpecUint644name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2Ps6UInt64VA2rA10ParamFlagsVtF">paramSpecUint64(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecUlong4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2PS3uSo0N5FlagsatF">paramSpecUlong(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramSpecUlong4name4nick5blurb7minimum7maximum12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2PS3uAA10ParamFlagsVtF">paramSpecUlong(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject16paramSpecUnichar4name4nick5blurb12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2Ns6UInt32VSo0L5FlagsatF">paramSpecUnichar(name:nick:blurb:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject16paramSpecUnichar4name4nick5blurb12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2Ns6UInt32VAA10ParamFlagsVtF">paramSpecUnichar(name:nick:blurb:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject19paramSpecValueArray4name4nick5blurb07elementD05flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2nA05ParamD8Protocol_pSo0L5FlagsatF">paramSpecValueArray(name:nick:blurb:elementSpec:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject19paramSpecValueArray4name4nick5blurb07elementD05flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2nA05ParamD8Protocol_pAA0N5FlagsVtF">paramSpecValueArray(name:nick:blurb:elementSpec:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject16paramSpecVariant4name4nick5blurb4type12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2O0A00E12TypeProtocol_pAP0eP0_pSo0M5FlagsatF">paramSpecVariant(name:nick:blurb:type:defaultValue:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject16paramSpecVariant4name4nick5blurb4type12defaultValue5flagsSpySo07_GParamD0VGSgSPys4Int8VG_A2O0A00E12TypeProtocol_pAP0eP0_pAA10ParamFlagsVtF">paramSpecVariant(name:nick:blurb:type:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject23paramTypeRegisterStatic4name9pspecInfoSuSPys4Int8VG_AA09ParamSpecdI8Protocol_ptF">paramTypeRegisterStatic(name:pspecInfo:)</a>
@@ -569,7 +551,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject18paramValueValidate5pspec5valueSbAA17ParamSpecProtocol_p_AA0dJ0_ptF">paramValueValidate(pspec:value:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramValuesCmp5pspec6value16value2s5Int32VAA17ParamSpecProtocol_p_AA05ValueL0_pAaI_ptF">paramValuesCmp(pspec:value1:value2:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject14paramValuesCmp5pspec6value16value2SiAA17ParamSpecProtocol_p_AA05ValueK0_pAaG_ptF">paramValuesCmp(pspec:value1:value2:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject25pointerTypeRegisterStatic4nameSuSPys4Int8VG_tF">pointerTypeRegisterStatic(name:)</a>
@@ -581,22 +563,22 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject28signalAccumulatorTrueHandled5ihint10returnAccu13handlerReturn5dummySbAA28SignalInvocationHintProtocol_p_AA05ValueP0_pAaH_pSvtF">signalAccumulatorTrueHandled(ihint:returnAccu:handlerReturn:dummy:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject21signalAddEmissionHook0C2ID6detail8hookFunc0I4Data11dataDestroySus6UInt32V_AIs5Int32VSpySo22_GSignalInvocationHintVGSg_AISPySo7_GValueVGSgSvSgtXCSvyATXCtF">signalAddEmissionHook(signalID:detail:hookFunc:hookData:dataDestroy:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject21signalAddEmissionHook0C2ID6detail8hookFunc0I4Data11dataDestroySis6UInt32V_AIs5Int32VSpySo22_GSignalInvocationHintVGSg_AISPySo7_GValueVGSgSvSgtXCSvyATXCtF">signalAddEmissionHook(signalID:detail:hookFunc:hookData:dataDestroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject25signalChainFromOverridden17instanceAndParams11returnValueySPySo7_GValueVG_AA0K8Protocol_ptF">signalChainFromOverridden(instanceAndParams:returnValue:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject20signalConnectClosure8instance14detailedSignal7closure5afterSuAA0B8Protocol_p_SPys4Int8VGAA0eK0_pSbtF">signalConnectClosure(instance:detailedSignal:closure:after:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject20signalConnectClosure8instance14detailedSignal7closure5afterSiAA0B8Protocol_p_SPys4Int8VGAA0eK0_pSbtF">signalConnectClosure(instance:detailedSignal:closure:after:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject24signalConnectClosureByID8instance0cG06detail7closure5afterSuAA0B8Protocol_p_s6UInt32VAjA0eL0_pSbtF">signalConnectClosureByID(instance:signalID:detail:closure:after:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject24signalConnectClosureByID8instance0cG06detail7closure5afterSiAA0B8Protocol_p_s6UInt32VAjA0eL0_pSbtF">signalConnectClosureByID(instance:signalID:detail:closure:after:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject17signalConnectData8instance14detailedSignal8cHandler4data07destroyE012connectFlagsSuAA0B8Protocol_p_SPys4Int8VGyyXCSvySvSg_SpySo9_GClosureVGSgtXCSo08GConnectM0atF">signalConnectData(instance:detailedSignal:cHandler:data:destroyData:connectFlags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject17signalConnectData8instance14detailedSignal8cHandler4data07destroyE012connectFlagsSiAA0B8Protocol_p_SPys4Int8VGyyXCSvySvSg_SpySo9_GClosureVGSgtXCAA0dM0VtF">signalConnectData(instance:detailedSignal:cHandler:data:destroyData:connectFlags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject013signalConnectB08instance14detailedSignal8cHandler7gobject12connectFlagsSuAA20TypeInstanceProtocol_p_SPys4Int8VGyyXCAA0bN0_pSo08GConnectK0atF">signalConnectObject(instance:detailedSignal:cHandler:gobject:connectFlags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject013signalConnectB08instance14detailedSignal8cHandler7gobject12connectFlagsSiAA20TypeInstanceProtocol_p_SPys4Int8VGyyXCAA0bN0_pAA0dK0VtF">signalConnectObject(instance:detailedSignal:cHandler:gobject:connectFlags:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject16signalEmitValist8instance0C2ID6detail7varArgsyAA20TypeInstanceProtocol_p_s6UInt32VAIs14CVaListPointerVtF">signalEmitValist(instance:signalID:detail:varArgs:)</a>
@@ -614,7 +596,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject23signalHandlerDisconnect8instance9handlerIDyAA0B8Protocol_p_SutF">signalHandlerDisconnect(instance:handlerID:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject17signalHandlerFind8instance4mask0C2ID6detail7closure5func_4dataSuAA0B8Protocol_p_So16GSignalMatchTypeas6UInt32VAnA07ClosureM0_pS2vtF">signalHandlerFind(instance:mask:signalID:detail:closure:func_:data:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject17signalHandlerFind8instance4mask0C2ID6detail7closure5func_4dataSiAA0B8Protocol_p_AA15SignalMatchTypeVs6UInt32VAnA07ClosureM0_pS2vtF">signalHandlerFind(instance:mask:signalID:detail:closure:func_:data:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject24signalHandlerIsConnected8instance9handlerIDSbAA0B8Protocol_p_SutF">signalHandlerIsConnected(instance:handlerID:)</a>
@@ -623,16 +605,16 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject20signalHandlerUnblock8instance9handlerIDyAA0B8Protocol_p_SutF">signalHandlerUnblock(instance:handlerID:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject26signalHandlersBlockMatched8instance4mask0C2ID6detail7closure5func_4datas6UInt32VAA0B8Protocol_p_So16GSignalMatchTypeaA2kA07ClosureO0_pS2vtF">signalHandlersBlockMatched(instance:mask:signalID:detail:closure:func_:data:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject26signalHandlersBlockMatched8instance4mask0C2ID6detail7closure5func_4dataSiAA0B8Protocol_p_AA15SignalMatchTypeVs6UInt32VAnA07ClosureN0_pS2vtF">signalHandlersBlockMatched(instance:mask:signalID:detail:closure:func_:data:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject21signalHandlersDestroy8instanceyAA0B8Protocol_p_tF">signalHandlersDestroy(instance:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject31signalHandlersDisconnectMatched8instance4mask0C2ID6detail7closure5func_4datas6UInt32VAA0B8Protocol_p_So16GSignalMatchTypeaA2kA07ClosureO0_pS2vtF">signalHandlersDisconnectMatched(instance:mask:signalID:detail:closure:func_:data:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject31signalHandlersDisconnectMatched8instance4mask0C2ID6detail7closure5func_4dataSiAA0B8Protocol_p_AA15SignalMatchTypeVs6UInt32VAnA07ClosureN0_pS2vtF">signalHandlersDisconnectMatched(instance:mask:signalID:detail:closure:func_:data:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject28signalHandlersUnblockMatched8instance4mask0C2ID6detail7closure5func_4datas6UInt32VAA0B8Protocol_p_So16GSignalMatchTypeaA2kA07ClosureO0_pS2vtF">signalHandlersUnblockMatched(instance:mask:signalID:detail:closure:func_:data:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject28signalHandlersUnblockMatched8instance4mask0C2ID6detail7closure5func_4dataSiAA0B8Protocol_p_AA15SignalMatchTypeVs6UInt32VAnA07ClosureN0_pS2vtF">signalHandlersUnblockMatched(instance:mask:signalID:detail:closure:func_:data:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject23signalHasHandlerPending8instance0C2ID6detail12mayBeBlockedSbAA0B8Protocol_p_s6UInt32VAISbtF">signalHasHandlerPending(instance:signalID:detail:mayBeBlocked:)</a>
@@ -641,16 +623,16 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13signalListIDs5itype01nE0Spys6UInt32VGSgSu_AGtF">signalListIDs(itype:nIDs:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject12signalLookup4name5itypes6UInt32VSPys4Int8VG_SutF">signalLookup(name:itype:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject12signalLookup4name5itypeSiSPys4Int8VG_SutF">signalLookup(name:itype:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject10signalName0C2IDSSSgs6UInt32V_tF">signalName(signalID:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject15signalNewValist0C4Name5itype0C5Flags12classClosure11accumulator8accuData11cMarshaller10returnType7nParams4argss6UInt32VSPys4Int8VG_SuSo07GSignalH0aAA0J8Protocol_ps5Int32VSpySo01_U14InvocationHintVGSg_SpySo7_GValueVGSgSPyA0_GSgSvSgtXCSvySpySo9_GClosureVGSg_A2_ANA4_A5_A5_tXCSuANs14CVaListPointerVtF">signalNewValist(signalName:itype:signalFlags:classClosure:accumulator:accuData:cMarshaller:returnType:nParams:args:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject15signalNewValist0C4Name5itype0C5Flags12classClosure11accumulator8accuData11cMarshaller10returnType7nParams4argsSiSPys4Int8VG_SuAA06SignalH0VAA0J8Protocol_ps5Int32VSpySo22_GSignalInvocationHintVGSg_SpySo7_GValueVGSgSPyAZGSgSvSgtXCSvySpySo9_GClosureVGSg_A0_s6UInt32VA2_A3_A3_tXCSuA9_s14CVaListPointerVtF">signalNewValist(signalName:itype:signalFlags:classClosure:accumulator:accuData:cMarshaller:returnType:nParams:args:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject10signalNewv0C4Name5itype0C5Flags12classClosure11accumulator8accuData11cMarshaller10returnType7nParams10paramTypess6UInt32VSPys4Int8VG_SuSo07GSignalG0aAA0I8Protocol_ps5Int32VSpySo01_U14InvocationHintVGSg_SpySo7_GValueVGSgSPyA0_GSgSvSgtXCSvySpySo9_GClosureVGSg_A2_ANA4_A5_A5_tXCSuANSpySuGtF">signalNewv(signalName:itype:signalFlags:classClosure:accumulator:accuData:cMarshaller:returnType:nParams:paramTypes:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject10signalNewv0C4Name5itype0C5Flags12classClosure11accumulator8accuData11cMarshaller10returnType7nParams10paramTypesSiSPys4Int8VG_SuAA06SignalG0VAA0I8Protocol_ps5Int32VSpySo22_GSignalInvocationHintVGSg_SpySo7_GValueVGSgSPyAZGSgSvSgtXCSvySpySo9_GClosureVGSg_A0_s6UInt32VA2_A3_A3_tXCSuA9_SpySuGtF">signalNewv(signalName:itype:signalFlags:classClosure:accumulator:accuData:cMarshaller:returnType:nParams:paramTypes:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject26signalOverrideClassClosure0C2ID12instanceType05classF0ys6UInt32V_SuAA0F8Protocol_ptF">signalOverrideClassClosure(signalID:instanceType:classClosure:)</a>
@@ -695,7 +677,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject19typeAddClassPrivate9classType11privateSizeySu_SitF">typeAddClassPrivate(classType:privateSize:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject22typeAddInstancePrivate9classType11privateSizes5Int32VSu_SitF">typeAddInstancePrivate(classType:privateSize:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject22typeAddInstancePrivate9classType11privateSizeSiSu_SitF">typeAddInstancePrivate(classType:privateSize:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject21typeAddInterfaceCheck9checkData0G4FuncySv_ySvSg_AEtXCtF">typeAddInterfaceCheck(checkData:checkFunc:)</a>
@@ -761,7 +743,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject25typeDefaultInterfaceUnref6gIfaceyAA04TypeE8Protocol_p_tF">typeDefaultInterfaceUnref(gIface:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject9typeDepth0C0s6UInt32VSu_tF">typeDepth(type:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject9typeDepth0C0SiSu_tF">typeDepth(type:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject10typeEnsure0C0ySu_tF">typeEnsure(type:)</a>
@@ -779,7 +761,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject19typeFundamentalNextSuyF">typeFundamentalNext()</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject20typeGetInstanceCount0C0s5Int32VSu_tF">typeGetInstanceCount(type:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject20typeGetInstanceCount0C0SiSu_tF">typeGetInstanceCount(type:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13typeGetPlugin0C0SpyAA05GTypeE0VGSgSu_tF">typeGetPlugin(type:)</a>
@@ -788,13 +770,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject12typeGetQdata0C05quarkSvSgSu_s6UInt32VtF">typeGetQdata(type:quark:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject29typeGetTypeRegistrationSerials6UInt32VyF">typeGetTypeRegistrationSerial()</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject29typeGetTypeRegistrationSerialSiyF">typeGetTypeRegistrationSerial()</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject8typeInityyF">typeInit()</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject12typeInitWith10debugFlagsySo010GTypeDebugG0a_tF">typeInitWith(debugFlags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject12typeInitWith10debugFlagsyAA09TypeDebugG0V_tF">typeInitWith(debugFlags:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject28typeInterfaceAddPrerequisite13interfaceType012prerequisiteH0ySu_SutF">typeInterfaceAddPrerequisite(interfaceType:prerequisiteType:)</a>
@@ -836,16 +818,16 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject9typeQuery0C05queryySu_AA04TypeD8Protocol_ptF">typeQuery(type:query:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject19typeRegisterDynamic10parentType0C4Name6plugin5flagsS2u_SPys4Int8VGAA0G14PluginProtocol_pSo10GTypeFlagsatF">typeRegisterDynamic(parentType:typeName:plugin:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject19typeRegisterDynamic10parentType0C4Name6plugin5flagsS2u_SPys4Int8VGAA0G14PluginProtocol_pAA0G5FlagsVtF">typeRegisterDynamic(parentType:typeName:plugin:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject23typeRegisterFundamental0C2ID0C4Name4info5finfo5flagsS2u_SPys4Int8VGAA16TypeInfoProtocol_pAA0lemN0_pSo10GTypeFlagsatF">typeRegisterFundamental(typeID:typeName:info:finfo:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject23typeRegisterFundamental0C2ID0C4Name4info5finfo5flagsS2u_SPys4Int8VGAA16TypeInfoProtocol_pAA0lemN0_pAA0L5FlagsVtF">typeRegisterFundamental(typeID:typeName:info:finfo:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject18typeRegisterStatic10parentType0C4Name4info5flagsS2u_SPys4Int8VGAA0G12InfoProtocol_pSo10GTypeFlagsatF">typeRegisterStatic(parentType:typeName:info:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject18typeRegisterStatic10parentType0C4Name4info5flagsS2u_SPys4Int8VGAA0G12InfoProtocol_pAA0G5FlagsVtF">typeRegisterStatic(parentType:typeName:info:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject24typeRegisterStaticSimple10parentType0C4Name9classSize0J4Init08instanceK00mL05flagsS2u_SPys4Int8VGs6UInt32VySvSg_AOtXCANySpySo14_GTypeInstanceVGSg_AOtXCSo0Q5FlagsatF">typeRegisterStaticSimple(parentType:typeName:classSize:classInit:instanceSize:instanceInit:flags:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject24typeRegisterStaticSimple10parentType0C4Name9classSize0J4Init08instanceK00mL05flagsS2u_SPys4Int8VGs6UInt32VySvSg_AOtXCANySpySo14_GTypeInstanceVGSg_AOtXCAA0H5FlagsVtF">typeRegisterStaticSimple(parentType:typeName:classSize:classInit:instanceSize:instanceInit:flags:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject24typeRemoveClassCacheFunc9cacheData0hG0ySv_s5Int32VSvSg_SpySo06_GTypeE0VGSgtXCtF">typeRemoveClassCacheFunc(cacheData:cacheFunc:)</a>
@@ -1015,6 +997,9 @@
                 <a class="nav-group-task-link" href="../Protocols/SignalQueryProtocol.html">SignalQueryProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/TypeCValueProtocol.html">TypeCValueProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/TypeClassProtocol.html">TypeClassProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -1056,11 +1041,17 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/WeakRefProtocol.html">WeakRefProtocol</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/_Value__data__unionProtocol.html">_Value__data__unionProtocol</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/BindingFlags.html">BindingFlags</a>
+              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/BindingRef.html">BindingRef</a>
               </li>
@@ -1072,6 +1063,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ClosureRef.html">ClosureRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ConnectFlags.html">ConnectFlags</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/EnumClassRef.html">EnumClassRef</a>
@@ -1095,9 +1089,6 @@
                 <a class="nav-group-task-link" href="../Structs.html#/s:10GLibObject11GTypePluginV">GTypePlugin</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs.html#/s:10GLibObject11GValueArrayV">GValueArray</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/InitiallyUnownedClassRef.html">InitiallyUnownedClassRef</a>
               </li>
               <li class="nav-group-task">
@@ -1114,6 +1105,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ObjectRef.html">ObjectRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ParamFlags.html">ParamFlags</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ParamSpecBooleanRef.html">ParamSpecBooleanRef</a>
@@ -1203,13 +1197,31 @@
                 <a class="nav-group-task-link" href="../Structs/PropertyName.html">PropertyName</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SignalFlags.html">SignalFlags</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SignalInvocationHintRef.html">SignalInvocationHintRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SignalMatchType.html">SignalMatchType</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SignalQueryRef.html">SignalQueryRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/TypeCValueRef.html">TypeCValueRef</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TypeClassRef.html">TypeClassRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/TypeDebugFlags.html">TypeDebugFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/TypeFlags.html">TypeFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/TypeFundamentalFlags.html">TypeFundamentalFlags</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TypeFundamentalInfoRef.html">TypeFundamentalInfoRef</a>
@@ -1250,6 +1262,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/WeakRefRef.html">WeakRefRef</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/_Value__data__unionRef.html">_Value__data__unionRef</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -1263,9 +1278,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject20BindingClosureHoldera">BindingClosureHolder</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject12BindingFlagsa">BindingFlags</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject20BindingTransformFunca">BindingTransformFunc</a>
@@ -1292,7 +1304,7 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject13ClosureNotifya">ClosureNotify</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject12ConnectFlagsa">ConnectFlags</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject21GObjectTypeValueUniona">GObjectTypeValueUnion</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject16InstanceInitFunca">InstanceInitFunc</a>
@@ -1313,9 +1325,6 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject0B15SetPropertyFunca">ObjectSetPropertyFunc</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject10ParamFlagsa">ParamFlags</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject17SignalAccumulatora">SignalAccumulator</a>
               </li>
               <li class="nav-group-task">
@@ -1328,31 +1337,16 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject18SignalEmissionHooka">SignalEmissionHook</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject11SignalFlagsa">SignalFlags</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject13SignalHandlera">SignalHandler</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject26SignalHandlerClosureHoldera">SignalHandlerClosureHolder</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject15SignalMatchTypea">SignalMatchType</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject12ToggleNotifya">ToggleNotify</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject18TypeClassCacheFunca">TypeClassCacheFunc</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject14TypeDebugFlagsa">TypeDebugFlags</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject9TypeFlagsa">TypeFlags</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject20TypeFundamentalFlagsa">TypeFundamentalFlags</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:10GLibObject22TypeInterfaceCheckFunca">TypeInterfaceCheckFunc</a>
@@ -1392,14 +1386,15 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>SignalFlags</h1>
+            <h1>TypeFlags</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">extension</span> <span class="kt"><a href="../Typealiases.html#/s:10GLibObject11SignalFlagsa">SignalFlags</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TypeFlags</span> <span class="p">:</span> <span class="kt">OptionSet</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Bit masks used to check or determine characteristics of a type.</p>
+
           </div>
         </section>
 
@@ -1410,9 +1405,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So12GSignalFlagsa10GLibObjectE9run_firstABvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/run_first" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So12GSignalFlagsa10GLibObjectE9run_firstABvpZ">run_first</a>
+                    <a name="/s:10GLibObject9TypeFlagsV8rawValues6UInt32Vvp"></a>
+                    <a name="//apple_ref/swift/Property/rawValue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject9TypeFlagsV8rawValues6UInt32Vvp">rawValue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1420,19 +1415,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Invoke the object method handler in the first emission stage.</p>
+                        <p>The corresponding value of the raw type</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">run_first</span><span class="p">:</span> <span class="kt">GSignalFlags</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">rawValue</span><span class="p">:</span> <span class="kt">UInt32</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L97">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L356">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1440,9 +1435,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So12GSignalFlagsa10GLibObjectE8run_lastABvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/run_last" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So12GSignalFlagsa10GLibObjectE8run_lastABvpZ">run_last</a>
+                    <a name="/s:10GLibObject9TypeFlagsV8intValueSivp"></a>
+                    <a name="//apple_ref/swift/Property/intValue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject9TypeFlagsV8intValueSivp">intValue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1450,19 +1445,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Invoke the object method handler in the third emission stage.</p>
+                        <p>The equivalent raw Int value</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">run_last</span><span class="p">:</span> <span class="kt">GSignalFlags</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">intValue</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L99">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L358">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1470,9 +1465,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So12GSignalFlagsa10GLibObjectE11run_cleanupABvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/run_cleanup" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So12GSignalFlagsa10GLibObjectE11run_cleanupABvpZ">run_cleanup</a>
+                    <a name="/s:10GLibObject9TypeFlagsV3ints5Int32Vvp"></a>
+                    <a name="//apple_ref/swift/Property/int" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject9TypeFlagsV3ints5Int32Vvp">int</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1480,19 +1475,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Invoke the object method handler in the last emission stage.</p>
+                        <p>The equivalent raw <code>gint</code> value</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">run_cleanup</span><span class="p">:</span> <span class="kt">GSignalFlags</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">int</span><span class="p">:</span> <span class="n">gint</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L101">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L360">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1500,9 +1495,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So12GSignalFlagsa10GLibObjectE10no_recurseABvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/no_recurse" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So12GSignalFlagsa10GLibObjectE10no_recurseABvpZ">no_recurse</a>
+                    <a name="/s:10GLibObject9TypeFlagsV5valueSo05GTypeD0avp"></a>
+                    <a name="//apple_ref/swift/Property/value" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject9TypeFlagsV5valueSo05GTypeD0avp">value</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1510,21 +1505,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Signals being emitted for an object while currently being in
- emission for this very object will not be emitted recursively,
- but instead cause the first emission to be restarted.</p>
+                        <p>The equivalent underlying <code>GTypeFlags</code> enum value</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">no_recurse</span><span class="p">:</span> <span class="kt">GSignalFlags</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">GTypeFlags</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L105">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L362">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1532,9 +1525,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So12GSignalFlagsa10GLibObjectE8detailedABvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/detailed" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So12GSignalFlagsa10GLibObjectE8detailedABvpZ">detailed</a>
+                    <a name="/s:10GLibObject9TypeFlagsV8rawValueACs6UInt32V_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(rawValue:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject9TypeFlagsV8rawValueACs6UInt32V_tcfc">init(rawValue:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1542,20 +1535,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This signal supports &ldquo;<code>detail</code>&rdquo; appendices to the signal name
- upon handler connections and emissions.</p>
+                        <p>Creates a new instance with the specified raw value</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">detailed</span><span class="p">:</span> <span class="kt">GSignalFlags</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">rawValue</span><span class="p">:</span> <span class="kt">UInt32</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L108">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L365">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1563,9 +1555,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So12GSignalFlagsa10GLibObjectE6actionABvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/action" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So12GSignalFlagsa10GLibObjectE6actionABvpZ">action</a>
+                    <a name="/s:10GLibObject9TypeFlagsVyACSo05GTypeD0acfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject9TypeFlagsVyACSo05GTypeD0acfc">init(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1573,24 +1565,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Action signals are signals that may freely be emitted on alive
- objects from user code via <code>g_signal_emit()</code> and friends, without
- the need of being embedded into extra code that performs pre or
- post emission adjustments on the object. They can also be thought
- of as object methods which can be called generically by
- third-party code.</p>
+                        <p>Creates a new instance with the specified <code>GTypeFlags</code> enum value</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">GSignalFlags</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">enumValue</span><span class="p">:</span> <span class="kt">GTypeFlags</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L115">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L367">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1598,9 +1585,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So12GSignalFlagsa10GLibObjectE8no_hooksABvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/no_hooks" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So12GSignalFlagsa10GLibObjectE8no_hooksABvpZ">no_hooks</a>
+                    <a name="/s:10GLibObject9TypeFlagsVyACSicfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject9TypeFlagsVyACSicfc">init(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1608,19 +1595,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>No emissions hooks are supported for this signal.</p>
+                        <p>Creates a new instance with the specified Int value</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">no_hooks</span><span class="p">:</span> <span class="kt">GSignalFlags</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">intValue</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L117">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L369">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1628,9 +1615,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So12GSignalFlagsa10GLibObjectE12must_collectABvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/must_collect" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So12GSignalFlagsa10GLibObjectE12must_collectABvpZ">must_collect</a>
+                    <a name="/s:10GLibObject9TypeFlagsVyACs5Int32Vcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject9TypeFlagsVyACs5Int32Vcfc">init(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1638,20 +1625,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Varargs signal emission will always collect the
-  arguments, even if there are no signal handlers connected.  Since 2.30.</p>
+                        <p>Creates a new instance with the specified <code>gint</code> value</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">must_collect</span><span class="p">:</span> <span class="kt">GSignalFlags</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">gintValue</span><span class="p">:</span> <span class="n">gint</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L120">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L371">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1659,9 +1645,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So12GSignalFlagsa10GLibObjectE10deprecatedABvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/deprecated" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So12GSignalFlagsa10GLibObjectE10deprecatedABvpZ">deprecated</a>
+                    <a name="/s:10GLibObject9TypeFlagsV8abstractACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/abstract" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject9TypeFlagsV8abstractACvpZ">abstract</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1669,21 +1655,85 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The signal is deprecated and will be removed
-  in a future version. A warning will be generated if it is connected while
-  running with G_ENABLE_DIAGNOSTIC=1.  Since 2.32.</p>
+                        <p>Indicates an abstract type. No instances can be
+ created for an abstract type</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">deprecated</span><span class="p">:</span> <span class="kt">GSignalFlags</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">abstract</span><span class="p">:</span> <span class="kt">TypeFlags</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L124">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L375">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject9TypeFlagsV13valueAbstractACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/valueAbstract" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject9TypeFlagsV13valueAbstractACvpZ">valueAbstract</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates an abstract value type, i.e. a type
+ that introduces a value table, but can&rsquo;t be used for
+ <code>g_value_init()</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">valueAbstract</span><span class="p">:</span> <span class="kt">TypeFlags</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L379">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject9TypeFlagsV14value_abstractACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/value_abstract" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject9TypeFlagsV14value_abstractACvpZ">value_abstract</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates an abstract value type, i.e. a type
+ that introduces a value table, but can&rsquo;t be used for
+ <code>g_value_init()</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">value_abstract</span><span class="p">:</span> <span class="kt">TypeFlags</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-bitfields.swift#L384">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1696,7 +1746,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-06-21)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

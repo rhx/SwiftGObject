@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecBoxed Class
 
@@ -10,7 +11,7 @@ import GLib
 ///
 /// A `GParamSpec` derived structure that contains the meta data for boxed properties.
 public protocol ParamSpecBoxedProtocol: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpecBoxed` instance.
+        /// Untyped pointer to the underlying `GParamSpecBoxed` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecBoxed` instance.
@@ -23,7 +24,7 @@ public protocol ParamSpecBoxedProtocol: ParamSpecProtocol {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for boxed properties.
 public struct ParamSpecBoxedRef: ParamSpecBoxedProtocol {
-    /// Untyped pointer to the underlying `GParamSpecBoxed` instance.
+        /// Untyped pointer to the underlying `GParamSpecBoxed` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_boxed_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -76,7 +77,7 @@ public extension ParamSpecBoxedRef {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for boxed properties.
 open class ParamSpecBoxed: ParamSpec, ParamSpecBoxedProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecBoxed` instance.
     /// - Parameter op: pointer to the underlying object
@@ -158,14 +159,25 @@ open class ParamSpecBoxed: ParamSpec, ParamSpecBoxedProtocol {
 
 }
 
-// MARK: - no ParamSpecBoxed properties
+// MARK: no ParamSpecBoxed properties
 
-// MARK: - no signals
+// MARK: no ParamSpecBoxed signals
 
 
+// MARK: ParamSpecBoxed Class: ParamSpecBoxedProtocol extension (methods and fields)
 public extension ParamSpecBoxedProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecBoxed` instance.
     var param_spec_boxed_ptr: UnsafeMutablePointer<GParamSpecBoxed> { return ptr.assumingMemoryBound(to: GParamSpecBoxed.self) }
+
+
+    /// private `GParamSpec` portion
+    var parentInstance: GParamSpec {
+        /// private `GParamSpec` portion
+        get {
+            let rv: GParamSpec = cast(param_spec_boxed_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
 
 }
 

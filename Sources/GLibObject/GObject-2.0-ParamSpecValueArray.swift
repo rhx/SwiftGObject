@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecValueArray Class
 
@@ -10,7 +11,7 @@ import GLib
 ///
 /// A `GParamSpec` derived structure that contains the meta data for `GValueArray` properties.
 public protocol ParamSpecValueArrayProtocol: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpecValueArray` instance.
+        /// Untyped pointer to the underlying `GParamSpecValueArray` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecValueArray` instance.
@@ -23,7 +24,7 @@ public protocol ParamSpecValueArrayProtocol: ParamSpecProtocol {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for `GValueArray` properties.
 public struct ParamSpecValueArrayRef: ParamSpecValueArrayProtocol {
-    /// Untyped pointer to the underlying `GParamSpecValueArray` instance.
+        /// Untyped pointer to the underlying `GParamSpecValueArray` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_value_array_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -76,7 +77,7 @@ public extension ParamSpecValueArrayRef {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for `GValueArray` properties.
 open class ParamSpecValueArray: ParamSpec, ParamSpecValueArrayProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecValueArray` instance.
     /// - Parameter op: pointer to the underlying object
@@ -158,14 +159,43 @@ open class ParamSpecValueArray: ParamSpec, ParamSpecValueArrayProtocol {
 
 }
 
-// MARK: - no ParamSpecValueArray properties
+// MARK: no ParamSpecValueArray properties
 
-// MARK: - no signals
+// MARK: no ParamSpecValueArray signals
 
 
+// MARK: ParamSpecValueArray Class: ParamSpecValueArrayProtocol extension (methods and fields)
 public extension ParamSpecValueArrayProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecValueArray` instance.
     var param_spec_value_array_ptr: UnsafeMutablePointer<GParamSpecValueArray> { return ptr.assumingMemoryBound(to: GParamSpecValueArray.self) }
+
+
+    /// private `GParamSpec` portion
+    var parentInstance: GParamSpec {
+        /// private `GParamSpec` portion
+        get {
+            let rv: GParamSpec = cast(param_spec_value_array_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    /// a `GParamSpec` describing the elements contained in arrays of this property, may be `nil`
+    var elementSpec: UnsafeMutablePointer<GParamSpec> {
+        /// a `GParamSpec` describing the elements contained in arrays of this property, may be `nil`
+        get {
+            let rv: UnsafeMutablePointer<GParamSpec> = cast(param_spec_value_array_ptr.pointee.element_spec)
+            return rv
+        }
+    }
+
+    /// if greater than 0, arrays of this property will always have this many elements
+    var fixedNElements: Int {
+        /// if greater than 0, arrays of this property will always have this many elements
+        get {
+            let rv: Int = cast(param_spec_value_array_ptr.pointee.fixed_n_elements)
+            return rv
+        }
+    }
 
 }
 

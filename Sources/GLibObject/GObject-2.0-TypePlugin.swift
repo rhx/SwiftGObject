@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - TypePlugin Interface
 
@@ -59,7 +60,7 @@ import GLib
 /// implements most of this except for the actual module loading and
 /// unloading. It even handles multiple registered types per module.
 public protocol TypePluginProtocol {
-    /// Untyped pointer to the underlying `GTypePlugin` instance.
+        /// Untyped pointer to the underlying `GTypePlugin` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTypePlugin` instance.
@@ -121,7 +122,7 @@ public protocol TypePluginProtocol {
 /// implements most of this except for the actual module loading and
 /// unloading. It even handles multiple registered types per module.
 public struct TypePluginRef: TypePluginProtocol {
-    /// Untyped pointer to the underlying `GTypePlugin` instance.
+        /// Untyped pointer to the underlying `GTypePlugin` instance.
     /// For type-safe access, use the generated, typed pointer `type_plugin_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -223,7 +224,7 @@ public extension TypePluginRef {
 /// implements most of this except for the actual module loading and
 /// unloading. It even handles multiple registered types per module.
 open class TypePlugin: TypePluginProtocol {
-    /// Untyped pointer to the underlying `GTypePlugin` instance.
+        /// Untyped pointer to the underlying `GTypePlugin` instance.
     /// For type-safe access, use the generated, typed pointer `type_plugin_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -252,7 +253,7 @@ open class TypePlugin: TypePluginProtocol {
         // no reference counting for GTypePlugin, cannot ref(cast(type_plugin_ptr))
     }
 
-    /// Do-nothing destructor for`GTypePlugin`.
+    /// Do-nothing destructor for `GTypePlugin`.
     deinit {
         // no reference counting for GTypePlugin, cannot unref(cast(type_plugin_ptr))
     }
@@ -320,11 +321,12 @@ open class TypePlugin: TypePluginProtocol {
 
 }
 
-// MARK: - no TypePlugin properties
+// MARK: no TypePlugin properties
 
-// MARK: - no signals
+// MARK: no TypePlugin signals
 
 
+// MARK: TypePlugin Interface: TypePluginProtocol extension (methods and fields)
 public extension TypePluginProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTypePlugin` instance.
     var type_plugin_ptr: UnsafeMutablePointer<GTypePlugin> { return ptr.assumingMemoryBound(to: GTypePlugin.self) }
@@ -375,9 +377,11 @@ public extension TypePluginProtocol {
     /// instances (if not abstract).  The value of `flags` determines the nature
     /// (e.g. abstract or not) of the type.
     func typeRegisterDynamic(parentType parent_type: GType, typeName type_name: UnsafePointer<gchar>, flags: TypeFlags) -> GType {
-        let rv = g_type_register_dynamic(parent_type, type_name, cast(type_plugin_ptr), flags)
-        return rv
+        let rv = g_type_register_dynamic(parent_type, type_name, cast(type_plugin_ptr), flags.value)
+        return cast(rv)
     }
+
+
 }
 
 

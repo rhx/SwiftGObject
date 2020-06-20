@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - InterfaceInfo Record
 
@@ -11,7 +12,7 @@ import GLib
 /// A structure that provides information to the type system which is
 /// used specifically for managing interface types.
 public protocol InterfaceInfoProtocol {
-    /// Untyped pointer to the underlying `GInterfaceInfo` instance.
+        /// Untyped pointer to the underlying `GInterfaceInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInterfaceInfo` instance.
@@ -25,7 +26,7 @@ public protocol InterfaceInfoProtocol {
 /// A structure that provides information to the type system which is
 /// used specifically for managing interface types.
 public struct InterfaceInfoRef: InterfaceInfoProtocol {
-    /// Untyped pointer to the underlying `GInterfaceInfo` instance.
+        /// Untyped pointer to the underlying `GInterfaceInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension InterfaceInfoRef {
 /// A structure that provides information to the type system which is
 /// used specifically for managing interface types.
 open class InterfaceInfo: InterfaceInfoProtocol {
-    /// Untyped pointer to the underlying `GInterfaceInfo` instance.
+        /// Untyped pointer to the underlying `GInterfaceInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -108,7 +109,7 @@ open class InterfaceInfo: InterfaceInfoProtocol {
         // no reference counting for GInterfaceInfo, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GInterfaceInfo`.
+    /// Do-nothing destructor for `GInterfaceInfo`.
     deinit {
         // no reference counting for GInterfaceInfo, cannot unref(cast(_ptr))
     }
@@ -176,11 +177,12 @@ open class InterfaceInfo: InterfaceInfoProtocol {
 
 }
 
-// MARK: - no InterfaceInfo properties
+// MARK: no InterfaceInfo properties
 
-// MARK: - no signals
+// MARK: no InterfaceInfo signals
 
 
+// MARK: InterfaceInfo Record: InterfaceInfoProtocol extension (methods and fields)
 public extension InterfaceInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInterfaceInfo` instance.
     var _ptr: UnsafeMutablePointer<GInterfaceInfo> { return ptr.assumingMemoryBound(to: GInterfaceInfo.self) }
@@ -192,6 +194,46 @@ public extension InterfaceInfoProtocol {
         g_type_add_interface_static(instance_type, interface_type, cast(_ptr))
     
     }
+
+    /// location of the interface initialization function
+    var interfaceInit: GInterfaceInitFunc {
+        /// location of the interface initialization function
+        get {
+            let rv: GInterfaceInitFunc = cast(_ptr.pointee.interface_init)
+            return rv
+        }
+        /// location of the interface initialization function
+         set {
+            _ptr.pointee.interface_init = cast(newValue)
+        }
+    }
+
+    /// location of the interface finalization function
+    var interfaceFinalize: GInterfaceFinalizeFunc {
+        /// location of the interface finalization function
+        get {
+            let rv: GInterfaceFinalizeFunc = cast(_ptr.pointee.interface_finalize)
+            return rv
+        }
+        /// location of the interface finalization function
+         set {
+            _ptr.pointee.interface_finalize = cast(newValue)
+        }
+    }
+
+    /// user-supplied data passed to the interface init/finalize functions
+    var interfaceData: UnsafeMutableRawPointer {
+        /// user-supplied data passed to the interface init/finalize functions
+        get {
+            let rv: UnsafeMutableRawPointer = cast(_ptr.pointee.interface_data)
+            return rv
+        }
+        /// user-supplied data passed to the interface init/finalize functions
+         set {
+            _ptr.pointee.interface_data = cast(newValue)
+        }
+    }
+
 }
 
 

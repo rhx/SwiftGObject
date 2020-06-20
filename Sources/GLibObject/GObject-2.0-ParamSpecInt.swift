@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecInt Class
 
@@ -10,7 +11,7 @@ import GLib
 ///
 /// A `GParamSpec` derived structure that contains the meta data for integer properties.
 public protocol ParamSpecIntProtocol: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpecInt` instance.
+        /// Untyped pointer to the underlying `GParamSpecInt` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecInt` instance.
@@ -23,7 +24,7 @@ public protocol ParamSpecIntProtocol: ParamSpecProtocol {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for integer properties.
 public struct ParamSpecIntRef: ParamSpecIntProtocol {
-    /// Untyped pointer to the underlying `GParamSpecInt` instance.
+        /// Untyped pointer to the underlying `GParamSpecInt` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_int_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -76,7 +77,7 @@ public extension ParamSpecIntRef {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for integer properties.
 open class ParamSpecInt: ParamSpec, ParamSpecIntProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecInt` instance.
     /// - Parameter op: pointer to the underlying object
@@ -158,14 +159,52 @@ open class ParamSpecInt: ParamSpec, ParamSpecIntProtocol {
 
 }
 
-// MARK: - no ParamSpecInt properties
+// MARK: no ParamSpecInt properties
 
-// MARK: - no signals
+// MARK: no ParamSpecInt signals
 
 
+// MARK: ParamSpecInt Class: ParamSpecIntProtocol extension (methods and fields)
 public extension ParamSpecIntProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecInt` instance.
     var param_spec_int_ptr: UnsafeMutablePointer<GParamSpecInt> { return ptr.assumingMemoryBound(to: GParamSpecInt.self) }
+
+
+    /// private `GParamSpec` portion
+    var parentInstance: GParamSpec {
+        /// private `GParamSpec` portion
+        get {
+            let rv: GParamSpec = cast(param_spec_int_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    /// minimum value for the property specified
+    var minimum: Int {
+        /// minimum value for the property specified
+        get {
+            let rv: Int = cast(param_spec_int_ptr.pointee.minimum)
+            return rv
+        }
+    }
+
+    /// maximum value for the property specified
+    var maximum: Int {
+        /// maximum value for the property specified
+        get {
+            let rv: Int = cast(param_spec_int_ptr.pointee.maximum)
+            return rv
+        }
+    }
+
+    /// default value for the property specified
+    var defaultValue: Int {
+        /// default value for the property specified
+        get {
+            let rv: Int = cast(param_spec_int_ptr.pointee.default_value)
+            return rv
+        }
+    }
 
 }
 

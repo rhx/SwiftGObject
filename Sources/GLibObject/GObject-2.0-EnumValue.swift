@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - EnumValue Record
 
@@ -11,7 +12,7 @@ import GLib
 /// A structure which contains a single enum value, its name, and its
 /// nickname.
 public protocol EnumValueProtocol {
-    /// Untyped pointer to the underlying `GEnumValue` instance.
+        /// Untyped pointer to the underlying `GEnumValue` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GEnumValue` instance.
@@ -25,7 +26,7 @@ public protocol EnumValueProtocol {
 /// A structure which contains a single enum value, its name, and its
 /// nickname.
 public struct EnumValueRef: EnumValueProtocol {
-    /// Untyped pointer to the underlying `GEnumValue` instance.
+        /// Untyped pointer to the underlying `GEnumValue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension EnumValueRef {
 /// A structure which contains a single enum value, its name, and its
 /// nickname.
 open class EnumValue: EnumValueProtocol {
-    /// Untyped pointer to the underlying `GEnumValue` instance.
+        /// Untyped pointer to the underlying `GEnumValue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -108,7 +109,7 @@ open class EnumValue: EnumValueProtocol {
         // no reference counting for GEnumValue, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GEnumValue`.
+    /// Do-nothing destructor for `GEnumValue`.
     deinit {
         // no reference counting for GEnumValue, cannot unref(cast(_ptr))
     }
@@ -176,11 +177,12 @@ open class EnumValue: EnumValueProtocol {
 
 }
 
-// MARK: - no EnumValue properties
+// MARK: no EnumValue properties
 
-// MARK: - no signals
+// MARK: no EnumValue signals
 
 
+// MARK: EnumValue Record: EnumValueProtocol extension (methods and fields)
 public extension EnumValueProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GEnumValue` instance.
     var _ptr: UnsafeMutablePointer<GEnumValue> { return ptr.assumingMemoryBound(to: GEnumValue.self) }
@@ -219,8 +221,48 @@ public extension EnumValueProtocol {
     /// definition  than to write one yourself using `g_enum_register_static()`.
     func enumRegisterStatic(name: UnsafePointer<gchar>) -> GType {
         let rv = g_enum_register_static(name, cast(_ptr))
-        return rv
+        return cast(rv)
     }
+
+    /// the enum value
+    var value: Int {
+        /// the enum value
+        get {
+            let rv: Int = cast(_ptr.pointee.value)
+            return rv
+        }
+        /// the enum value
+         set {
+            _ptr.pointee.value = gint(newValue)
+        }
+    }
+
+    /// the name of the value
+    var valueName: UnsafePointer<CChar> {
+        /// the name of the value
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.value_name)
+            return rv
+        }
+        /// the name of the value
+         set {
+            _ptr.pointee.value_name = cast(newValue)
+        }
+    }
+
+    /// the nickname of the value
+    var valueNick: UnsafePointer<CChar> {
+        /// the nickname of the value
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.value_nick)
+            return rv
+        }
+        /// the nickname of the value
+         set {
+            _ptr.pointee.value_nick = cast(newValue)
+        }
+    }
+
 }
 
 

@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - InitiallyUnowned Class
 
@@ -12,7 +13,7 @@ import GLib
 /// are private to the `GInitiallyUnowned` implementation and should never be
 /// accessed directly.
 public protocol InitiallyUnownedProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GInitiallyUnowned` instance.
+        /// Untyped pointer to the underlying `GInitiallyUnowned` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInitiallyUnowned` instance.
@@ -27,7 +28,7 @@ public protocol InitiallyUnownedProtocol: ObjectProtocol {
 /// are private to the `GInitiallyUnowned` implementation and should never be
 /// accessed directly.
 public struct InitiallyUnownedRef: InitiallyUnownedProtocol {
-    /// Untyped pointer to the underlying `GInitiallyUnowned` instance.
+        /// Untyped pointer to the underlying `GInitiallyUnowned` instance.
     /// For type-safe access, use the generated, typed pointer `initially_unowned_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -82,7 +83,7 @@ public extension InitiallyUnownedRef {
 /// are private to the `GInitiallyUnowned` implementation and should never be
 /// accessed directly.
 open class InitiallyUnowned: Object, InitiallyUnownedProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `InitiallyUnowned` instance.
     /// - Parameter op: pointer to the underlying object
@@ -166,7 +167,7 @@ open class InitiallyUnowned: Object, InitiallyUnownedProtocol {
 
 }
 
-// MARK: - no InitiallyUnowned properties
+// MARK: no InitiallyUnowned properties
 
 public enum InitiallyUnownedSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -203,8 +204,8 @@ public extension InitiallyUnownedProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: InitiallyUnownedSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: InitiallyUnownedSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(initially_unowned_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -225,9 +226,22 @@ public extension InitiallyUnownedProtocol {
     }
 }
 
+// MARK: InitiallyUnowned Class: InitiallyUnownedProtocol extension (methods and fields)
 public extension InitiallyUnownedProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInitiallyUnowned` instance.
     var initially_unowned_ptr: UnsafeMutablePointer<GInitiallyUnowned> { return ptr.assumingMemoryBound(to: GInitiallyUnowned.self) }
+
+
+    var gTypeInstance: GTypeInstance {
+        get {
+            let rv: GTypeInstance = cast(initially_unowned_ptr.pointee.g_type_instance)
+            return rv
+        }
+    }
+
+    // var refCount is unavailable because ref_count is private
+
+    // var qdata is unavailable because qdata is private
 
 }
 

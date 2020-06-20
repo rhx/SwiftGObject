@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - FlagsClass Record
 
@@ -11,7 +12,7 @@ import GLib
 /// The class of a flags type holds information about its
 /// possible values.
 public protocol FlagsClassProtocol {
-    /// Untyped pointer to the underlying `GFlagsClass` instance.
+        /// Untyped pointer to the underlying `GFlagsClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFlagsClass` instance.
@@ -25,7 +26,7 @@ public protocol FlagsClassProtocol {
 /// The class of a flags type holds information about its
 /// possible values.
 public struct FlagsClassRef: FlagsClassProtocol {
-    /// Untyped pointer to the underlying `GFlagsClass` instance.
+        /// Untyped pointer to the underlying `GFlagsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension FlagsClassRef {
 /// The class of a flags type holds information about its
 /// possible values.
 open class FlagsClass: FlagsClassProtocol {
-    /// Untyped pointer to the underlying `GFlagsClass` instance.
+        /// Untyped pointer to the underlying `GFlagsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -108,7 +109,7 @@ open class FlagsClass: FlagsClassProtocol {
         // no reference counting for GFlagsClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFlagsClass`.
+    /// Do-nothing destructor for `GFlagsClass`.
     deinit {
         // no reference counting for GFlagsClass, cannot unref(cast(_ptr))
     }
@@ -176,32 +177,89 @@ open class FlagsClass: FlagsClassProtocol {
 
 }
 
-// MARK: - no FlagsClass properties
+// MARK: no FlagsClass properties
 
-// MARK: - no signals
+// MARK: no FlagsClass signals
 
 
+// MARK: FlagsClass Record: FlagsClassProtocol extension (methods and fields)
 public extension FlagsClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFlagsClass` instance.
     var _ptr: UnsafeMutablePointer<GFlagsClass> { return ptr.assumingMemoryBound(to: GFlagsClass.self) }
 
     /// Returns the first `GFlagsValue` which is set in `value`.
     func flagsGetFirst(value: CUnsignedInt) -> UnsafeMutablePointer<GFlagsValue>! {
-        let rv = g_flags_get_first_value(cast(_ptr), guint(value))
+        let rv: UnsafeMutablePointer<GFlagsValue>! = cast(g_flags_get_first_value(cast(_ptr), guint(value)))
         return cast(rv)
     }
 
     /// Looks up a `GFlagsValue` by name.
     func flagsGetValueBy(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GFlagsValue>! {
-        let rv = g_flags_get_value_by_name(cast(_ptr), name)
+        let rv: UnsafeMutablePointer<GFlagsValue>! = cast(g_flags_get_value_by_name(cast(_ptr), name))
         return cast(rv)
     }
 
     /// Looks up a `GFlagsValue` by nickname.
     func flagsGetValueBy(nick: UnsafePointer<gchar>) -> UnsafeMutablePointer<GFlagsValue>! {
-        let rv = g_flags_get_value_by_nick(cast(_ptr), nick)
+        let rv: UnsafeMutablePointer<GFlagsValue>! = cast(g_flags_get_value_by_nick(cast(_ptr), nick))
         return cast(rv)
     }
+
+    /// the parent class
+    var gTypeClass: GTypeClass {
+        /// the parent class
+        get {
+            let rv: GTypeClass = cast(_ptr.pointee.g_type_class)
+            return rv
+        }
+        /// the parent class
+         set {
+            _ptr.pointee.g_type_class = cast(newValue)
+        }
+    }
+
+    /// a mask covering all possible values.
+    var mask: Int {
+        /// a mask covering all possible values.
+        get {
+            let rv: Int = cast(_ptr.pointee.mask)
+            return rv
+        }
+        /// a mask covering all possible values.
+         set {
+            _ptr.pointee.mask = guint(newValue)
+        }
+    }
+
+    /// the number of possible values.
+    var nValues: Int {
+        /// the number of possible values.
+        get {
+            let rv: Int = cast(_ptr.pointee.n_values)
+            return rv
+        }
+        /// the number of possible values.
+         set {
+            _ptr.pointee.n_values = guint(newValue)
+        }
+    }
+
+    /// an array of `GFlagsValue` structs describing the
+    ///  individual values.
+    var values: UnsafeMutablePointer<GFlagsValue> {
+        /// an array of `GFlagsValue` structs describing the
+        ///  individual values.
+        get {
+            let rv: UnsafeMutablePointer<GFlagsValue> = cast(_ptr.pointee.values)
+            return rv
+        }
+        /// an array of `GFlagsValue` structs describing the
+        ///  individual values.
+         set {
+            _ptr.pointee.values = cast(newValue)
+        }
+    }
+
 }
 
 

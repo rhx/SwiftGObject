@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecClass Record
 
@@ -12,7 +13,7 @@ import GLib
 /// Normally, GParamSpec classes are filled by
 /// `g_param_type_register_static()`.
 public protocol ParamSpecClassProtocol {
-    /// Untyped pointer to the underlying `GParamSpecClass` instance.
+        /// Untyped pointer to the underlying `GParamSpecClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecClass` instance.
@@ -27,7 +28,7 @@ public protocol ParamSpecClassProtocol {
 /// Normally, GParamSpec classes are filled by
 /// `g_param_type_register_static()`.
 public struct ParamSpecClassRef: ParamSpecClassProtocol {
-    /// Untyped pointer to the underlying `GParamSpecClass` instance.
+        /// Untyped pointer to the underlying `GParamSpecClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -82,7 +83,7 @@ public extension ParamSpecClassRef {
 /// Normally, GParamSpec classes are filled by
 /// `g_param_type_register_static()`.
 open class ParamSpecClass: ParamSpecClassProtocol {
-    /// Untyped pointer to the underlying `GParamSpecClass` instance.
+        /// Untyped pointer to the underlying `GParamSpecClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -111,7 +112,7 @@ open class ParamSpecClass: ParamSpecClassProtocol {
         // no reference counting for GParamSpecClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GParamSpecClass`.
+    /// Do-nothing destructor for `GParamSpecClass`.
     deinit {
         // no reference counting for GParamSpecClass, cannot unref(cast(_ptr))
     }
@@ -179,14 +180,44 @@ open class ParamSpecClass: ParamSpecClassProtocol {
 
 }
 
-// MARK: - no ParamSpecClass properties
+// MARK: no ParamSpecClass properties
 
-// MARK: - no signals
+// MARK: no ParamSpecClass signals
 
 
+// MARK: ParamSpecClass Record: ParamSpecClassProtocol extension (methods and fields)
 public extension ParamSpecClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecClass` instance.
     var _ptr: UnsafeMutablePointer<GParamSpecClass> { return ptr.assumingMemoryBound(to: GParamSpecClass.self) }
+
+
+    /// the parent class
+    var gTypeClass: GTypeClass {
+        /// the parent class
+        get {
+            let rv: GTypeClass = cast(_ptr.pointee.g_type_class)
+            return rv
+        }
+    }
+
+    /// the `GValue` type for this parameter
+    var valueType: GType {
+        /// the `GValue` type for this parameter
+        get {
+            let rv: GType = cast(_ptr.pointee.value_type)
+            return rv
+        }
+    }
+
+    // var finalize is unavailable because finalize is void
+
+    // var valueSetDefault is unavailable because value_set_default is void
+
+    // var valueValidate is unavailable because value_validate is void
+
+    // var valuesCmp is unavailable because values_cmp is void
+
+    // var dummy is unavailable because dummy is private
 
 }
 

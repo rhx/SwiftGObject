@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecULong Class
 
@@ -10,7 +11,7 @@ import GLib
 ///
 /// A `GParamSpec` derived structure that contains the meta data for unsigned long integer properties.
 public protocol ParamSpecULongProtocol: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpecULong` instance.
+        /// Untyped pointer to the underlying `GParamSpecULong` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecULong` instance.
@@ -23,7 +24,7 @@ public protocol ParamSpecULongProtocol: ParamSpecProtocol {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for unsigned long integer properties.
 public struct ParamSpecULongRef: ParamSpecULongProtocol {
-    /// Untyped pointer to the underlying `GParamSpecULong` instance.
+        /// Untyped pointer to the underlying `GParamSpecULong` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_ulong_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -76,7 +77,7 @@ public extension ParamSpecULongRef {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for unsigned long integer properties.
 open class ParamSpecULong: ParamSpec, ParamSpecULongProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecULong` instance.
     /// - Parameter op: pointer to the underlying object
@@ -158,14 +159,52 @@ open class ParamSpecULong: ParamSpec, ParamSpecULongProtocol {
 
 }
 
-// MARK: - no ParamSpecULong properties
+// MARK: no ParamSpecULong properties
 
-// MARK: - no signals
+// MARK: no ParamSpecULong signals
 
 
+// MARK: ParamSpecULong Class: ParamSpecULongProtocol extension (methods and fields)
 public extension ParamSpecULongProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecULong` instance.
     var param_spec_ulong_ptr: UnsafeMutablePointer<GParamSpecULong> { return ptr.assumingMemoryBound(to: GParamSpecULong.self) }
+
+
+    /// private `GParamSpec` portion
+    var parentInstance: GParamSpec {
+        /// private `GParamSpec` portion
+        get {
+            let rv: GParamSpec = cast(param_spec_ulong_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    /// minimum value for the property specified
+    var minimum: Int {
+        /// minimum value for the property specified
+        get {
+            let rv: Int = cast(param_spec_ulong_ptr.pointee.minimum)
+            return rv
+        }
+    }
+
+    /// maximum value for the property specified
+    var maximum: Int {
+        /// maximum value for the property specified
+        get {
+            let rv: Int = cast(param_spec_ulong_ptr.pointee.maximum)
+            return rv
+        }
+    }
+
+    /// default value for the property specified
+    var defaultValue: Int {
+        /// default value for the property specified
+        get {
+            let rv: Int = cast(param_spec_ulong_ptr.pointee.default_value)
+            return rv
+        }
+    }
 
 }
 

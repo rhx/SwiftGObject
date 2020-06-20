@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 /// Mask containing the bits of `GParamSpec.flags` which are reserved for GLib.
 public let PARAM_MASK = G_PARAM_MASK /* gint 255 */

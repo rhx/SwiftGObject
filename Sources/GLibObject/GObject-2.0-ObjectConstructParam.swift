@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ObjectConstructParam Record
 
@@ -12,7 +13,7 @@ import GLib
 /// structure used to hand `GParamSpec`/`GValue` pairs to the `constructor` of
 /// a `GObjectClass`.
 public protocol ObjectConstructParamProtocol {
-    /// Untyped pointer to the underlying `GObjectConstructParam` instance.
+        /// Untyped pointer to the underlying `GObjectConstructParam` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GObjectConstructParam` instance.
@@ -27,7 +28,7 @@ public protocol ObjectConstructParamProtocol {
 /// structure used to hand `GParamSpec`/`GValue` pairs to the `constructor` of
 /// a `GObjectClass`.
 public struct ObjectConstructParamRef: ObjectConstructParamProtocol {
-    /// Untyped pointer to the underlying `GObjectConstructParam` instance.
+        /// Untyped pointer to the underlying `GObjectConstructParam` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -82,7 +83,7 @@ public extension ObjectConstructParamRef {
 /// structure used to hand `GParamSpec`/`GValue` pairs to the `constructor` of
 /// a `GObjectClass`.
 open class ObjectConstructParam: ObjectConstructParamProtocol {
-    /// Untyped pointer to the underlying `GObjectConstructParam` instance.
+        /// Untyped pointer to the underlying `GObjectConstructParam` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -111,7 +112,7 @@ open class ObjectConstructParam: ObjectConstructParamProtocol {
         // no reference counting for GObjectConstructParam, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GObjectConstructParam`.
+    /// Do-nothing destructor for `GObjectConstructParam`.
     deinit {
         // no reference counting for GObjectConstructParam, cannot unref(cast(_ptr))
     }
@@ -179,14 +180,42 @@ open class ObjectConstructParam: ObjectConstructParamProtocol {
 
 }
 
-// MARK: - no ObjectConstructParam properties
+// MARK: no ObjectConstructParam properties
 
-// MARK: - no signals
+// MARK: no ObjectConstructParam signals
 
 
+// MARK: ObjectConstructParam Record: ObjectConstructParamProtocol extension (methods and fields)
 public extension ObjectConstructParamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GObjectConstructParam` instance.
     var _ptr: UnsafeMutablePointer<GObjectConstructParam> { return ptr.assumingMemoryBound(to: GObjectConstructParam.self) }
+
+
+    /// the `GParamSpec` of the construct parameter
+    var pspec: UnsafeMutablePointer<GParamSpec> {
+        /// the `GParamSpec` of the construct parameter
+        get {
+            let rv: UnsafeMutablePointer<GParamSpec> = cast(_ptr.pointee.pspec)
+            return rv
+        }
+        /// the `GParamSpec` of the construct parameter
+         set {
+            _ptr.pointee.pspec = cast(newValue)
+        }
+    }
+
+    /// the value to set the parameter to
+    var value: UnsafeMutablePointer<GValue> {
+        /// the value to set the parameter to
+        get {
+            let rv: UnsafeMutablePointer<GValue> = cast(_ptr.pointee.value)
+            return rv
+        }
+        /// the value to set the parameter to
+         set {
+            _ptr.pointee.value = cast(newValue)
+        }
+    }
 
 }
 

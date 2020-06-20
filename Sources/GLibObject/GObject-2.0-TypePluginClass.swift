@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - TypePluginClass Record
 
@@ -11,7 +12,7 @@ import GLib
 /// The `GTypePlugin` interface is used by the type system in order to handle
 /// the lifecycle of dynamically loaded types.
 public protocol TypePluginClassProtocol {
-    /// Untyped pointer to the underlying `GTypePluginClass` instance.
+        /// Untyped pointer to the underlying `GTypePluginClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTypePluginClass` instance.
@@ -25,7 +26,7 @@ public protocol TypePluginClassProtocol {
 /// The `GTypePlugin` interface is used by the type system in order to handle
 /// the lifecycle of dynamically loaded types.
 public struct TypePluginClassRef: TypePluginClassProtocol {
-    /// Untyped pointer to the underlying `GTypePluginClass` instance.
+        /// Untyped pointer to the underlying `GTypePluginClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension TypePluginClassRef {
 /// The `GTypePlugin` interface is used by the type system in order to handle
 /// the lifecycle of dynamically loaded types.
 open class TypePluginClass: TypePluginClassProtocol {
-    /// Untyped pointer to the underlying `GTypePluginClass` instance.
+        /// Untyped pointer to the underlying `GTypePluginClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -108,7 +109,7 @@ open class TypePluginClass: TypePluginClassProtocol {
         // no reference counting for GTypePluginClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTypePluginClass`.
+    /// Do-nothing destructor for `GTypePluginClass`.
     deinit {
         // no reference counting for GTypePluginClass, cannot unref(cast(_ptr))
     }
@@ -176,14 +177,82 @@ open class TypePluginClass: TypePluginClassProtocol {
 
 }
 
-// MARK: - no TypePluginClass properties
+// MARK: no TypePluginClass properties
 
-// MARK: - no signals
+// MARK: no TypePluginClass signals
 
 
+// MARK: TypePluginClass Record: TypePluginClassProtocol extension (methods and fields)
 public extension TypePluginClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTypePluginClass` instance.
     var _ptr: UnsafeMutablePointer<GTypePluginClass> { return ptr.assumingMemoryBound(to: GTypePluginClass.self) }
+
+
+    // var baseIface is unavailable because base_iface is private
+
+    /// Increases the use count of the plugin.
+    var usePlugin: GTypePluginUse {
+        /// Increases the use count of the plugin.
+        get {
+            let rv: GTypePluginUse = cast(_ptr.pointee.use_plugin)
+            return rv
+        }
+        /// Increases the use count of the plugin.
+         set {
+            _ptr.pointee.use_plugin = cast(newValue)
+        }
+    }
+
+    /// Decreases the use count of the plugin.
+    var unusePlugin: GTypePluginUnuse {
+        /// Decreases the use count of the plugin.
+        get {
+            let rv: GTypePluginUnuse = cast(_ptr.pointee.unuse_plugin)
+            return rv
+        }
+        /// Decreases the use count of the plugin.
+         set {
+            _ptr.pointee.unuse_plugin = cast(newValue)
+        }
+    }
+
+    /// Fills in the `GTypeInfo` and
+    ///  `GTypeValueTable` structs for the type. The structs are initialized
+    ///  with ``memset(s, 0, sizeof (s)`)` before calling this function.
+    var completeTypeInfo: GTypePluginCompleteTypeInfo {
+        /// Fills in the `GTypeInfo` and
+        ///  `GTypeValueTable` structs for the type. The structs are initialized
+        ///  with ``memset(s, 0, sizeof (s)`)` before calling this function.
+        get {
+            let rv: GTypePluginCompleteTypeInfo = cast(_ptr.pointee.complete_type_info)
+            return rv
+        }
+        /// Fills in the `GTypeInfo` and
+        ///  `GTypeValueTable` structs for the type. The structs are initialized
+        ///  with ``memset(s, 0, sizeof (s)`)` before calling this function.
+         set {
+            _ptr.pointee.complete_type_info = cast(newValue)
+        }
+    }
+
+    /// Fills in missing parts of the `GInterfaceInfo`
+    ///  for the interface. The structs is initialized with
+    ///  ``memset(s, 0, sizeof (s)`)` before calling this function.
+    var completeInterfaceInfo: GTypePluginCompleteInterfaceInfo {
+        /// Fills in missing parts of the `GInterfaceInfo`
+        ///  for the interface. The structs is initialized with
+        ///  ``memset(s, 0, sizeof (s)`)` before calling this function.
+        get {
+            let rv: GTypePluginCompleteInterfaceInfo = cast(_ptr.pointee.complete_interface_info)
+            return rv
+        }
+        /// Fills in missing parts of the `GInterfaceInfo`
+        ///  for the interface. The structs is initialized with
+        ///  ``memset(s, 0, sizeof (s)`)` before calling this function.
+         set {
+            _ptr.pointee.complete_interface_info = cast(newValue)
+        }
+    }
 
 }
 

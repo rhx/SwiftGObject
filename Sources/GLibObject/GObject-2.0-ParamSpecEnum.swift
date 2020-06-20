@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecEnum Class
 
@@ -11,7 +12,7 @@ import GLib
 /// A `GParamSpec` derived structure that contains the meta data for enum
 /// properties.
 public protocol ParamSpecEnumProtocol: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpecEnum` instance.
+        /// Untyped pointer to the underlying `GParamSpecEnum` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecEnum` instance.
@@ -25,7 +26,7 @@ public protocol ParamSpecEnumProtocol: ParamSpecProtocol {
 /// A `GParamSpec` derived structure that contains the meta data for enum
 /// properties.
 public struct ParamSpecEnumRef: ParamSpecEnumProtocol {
-    /// Untyped pointer to the underlying `GParamSpecEnum` instance.
+        /// Untyped pointer to the underlying `GParamSpecEnum` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_enum_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension ParamSpecEnumRef {
 /// A `GParamSpec` derived structure that contains the meta data for enum
 /// properties.
 open class ParamSpecEnum: ParamSpec, ParamSpecEnumProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecEnum` instance.
     /// - Parameter op: pointer to the underlying object
@@ -161,14 +162,43 @@ open class ParamSpecEnum: ParamSpec, ParamSpecEnumProtocol {
 
 }
 
-// MARK: - no ParamSpecEnum properties
+// MARK: no ParamSpecEnum properties
 
-// MARK: - no signals
+// MARK: no ParamSpecEnum signals
 
 
+// MARK: ParamSpecEnum Class: ParamSpecEnumProtocol extension (methods and fields)
 public extension ParamSpecEnumProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecEnum` instance.
     var param_spec_enum_ptr: UnsafeMutablePointer<GParamSpecEnum> { return ptr.assumingMemoryBound(to: GParamSpecEnum.self) }
+
+
+    /// private `GParamSpec` portion
+    var parentInstance: GParamSpec {
+        /// private `GParamSpec` portion
+        get {
+            let rv: GParamSpec = cast(param_spec_enum_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    /// the `GEnumClass` for the enum
+    var enumClass: UnsafeMutablePointer<GEnumClass> {
+        /// the `GEnumClass` for the enum
+        get {
+            let rv: UnsafeMutablePointer<GEnumClass> = cast(param_spec_enum_ptr.pointee.enum_class)
+            return rv
+        }
+    }
+
+    /// default value for the property specified
+    var defaultValue: Int {
+        /// default value for the property specified
+        get {
+            let rv: Int = cast(param_spec_enum_ptr.pointee.default_value)
+            return rv
+        }
+    }
 
 }
 

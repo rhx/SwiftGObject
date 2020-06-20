@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 /// This is the signature of marshaller functions, required to marshall
 /// arrays of parameter values to signal emissions into C language callback

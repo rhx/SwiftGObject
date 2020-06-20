@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - Binding Class
 
@@ -89,7 +90,7 @@ import GLib
 /// 
 /// `GBinding` is available since GObject 2.26
 public protocol BindingProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GBinding` instance.
+        /// Untyped pointer to the underlying `GBinding` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GBinding` instance.
@@ -181,7 +182,7 @@ public protocol BindingProtocol: ObjectProtocol {
 /// 
 /// `GBinding` is available since GObject 2.26
 public struct BindingRef: BindingProtocol {
-    /// Untyped pointer to the underlying `GBinding` instance.
+        /// Untyped pointer to the underlying `GBinding` instance.
     /// For type-safe access, use the generated, typed pointer `binding_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -313,7 +314,7 @@ public extension BindingRef {
 /// 
 /// `GBinding` is available since GObject 2.26
 open class Binding: Object, BindingProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Binding` instance.
     /// - Parameter op: pointer to the underlying object
@@ -425,8 +426,8 @@ public extension BindingProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: BindingPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: BindingPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -449,6 +450,23 @@ public extension BindingProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Binding property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: BindingPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Binding property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: BindingPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -504,8 +522,8 @@ public extension BindingProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: BindingSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: BindingSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(binding_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -526,6 +544,7 @@ public extension BindingProtocol {
     }
 }
 
+// MARK: Binding Class: BindingProtocol extension (methods and fields)
 public extension BindingProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GBinding` instance.
     var binding_ptr: UnsafeMutablePointer<GBinding> { return ptr.assumingMemoryBound(to: GBinding.self) }
@@ -533,33 +552,33 @@ public extension BindingProtocol {
     /// Retrieves the flags passed when constructing the `GBinding`.
     func getFlags() -> GBindingFlags {
         let rv = g_binding_get_flags(cast(binding_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the `GObject` instance used as the source of the binding.
     func getSource() -> UnsafeMutablePointer<GObject>! {
-        let rv = g_binding_get_source(cast(binding_ptr))
+        let rv: UnsafeMutablePointer<GObject>! = cast(g_binding_get_source(cast(binding_ptr)))
         return cast(rv)
     }
 
     /// Retrieves the name of the property of `GBinding:source` used as the source
     /// of the binding.
     func getSourceProperty() -> String! {
-        let rv = g_binding_get_source_property(cast(binding_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_binding_get_source_property(cast(binding_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the `GObject` instance used as the target of the binding.
     func getTarget() -> UnsafeMutablePointer<GObject>! {
-        let rv = g_binding_get_target(cast(binding_ptr))
+        let rv: UnsafeMutablePointer<GObject>! = cast(g_binding_get_target(cast(binding_ptr)))
         return cast(rv)
     }
 
     /// Retrieves the name of the property of `GBinding:target` used as the target
     /// of the binding.
     func getTargetProperty() -> String! {
-        let rv = g_binding_get_target_property(cast(binding_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_binding_get_target_property(cast(binding_ptr)))
+        return cast(rv)
     }
 
     /// Explicitly releases the binding between the source and the target
@@ -578,7 +597,7 @@ public extension BindingProtocol {
         /// Retrieves the flags passed when constructing the `GBinding`.
         get {
             let rv = g_binding_get_flags(cast(binding_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -586,7 +605,7 @@ public extension BindingProtocol {
     var source: UnsafeMutablePointer<GObject>! {
         /// Retrieves the `GObject` instance used as the source of the binding.
         get {
-            let rv = g_binding_get_source(cast(binding_ptr))
+            let rv: UnsafeMutablePointer<GObject>! = cast(g_binding_get_source(cast(binding_ptr)))
             return cast(rv)
         }
     }
@@ -597,8 +616,8 @@ public extension BindingProtocol {
         /// Retrieves the name of the property of `GBinding:source` used as the source
         /// of the binding.
         get {
-            let rv = g_binding_get_source_property(cast(binding_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_binding_get_source_property(cast(binding_ptr)))
+            return cast(rv)
         }
     }
 
@@ -606,7 +625,7 @@ public extension BindingProtocol {
     var target: UnsafeMutablePointer<GObject>! {
         /// Retrieves the `GObject` instance used as the target of the binding.
         get {
-            let rv = g_binding_get_target(cast(binding_ptr))
+            let rv: UnsafeMutablePointer<GObject>! = cast(g_binding_get_target(cast(binding_ptr)))
             return cast(rv)
         }
     }
@@ -617,10 +636,12 @@ public extension BindingProtocol {
         /// Retrieves the name of the property of `GBinding:target` used as the target
         /// of the binding.
         get {
-            let rv = g_binding_get_target_property(cast(binding_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_binding_get_target_property(cast(binding_ptr)))
+            return cast(rv)
         }
     }
+
+
 }
 
 

@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - Closure Record
 
@@ -52,7 +53,7 @@ import GLib
 /// - `g_closure_invalidate()` and invalidation notifiers allow callbacks to be
 ///   automatically removed when the objects they point to go away.
 public protocol ClosureProtocol {
-    /// Untyped pointer to the underlying `GClosure` instance.
+        /// Untyped pointer to the underlying `GClosure` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GClosure` instance.
@@ -107,7 +108,7 @@ public protocol ClosureProtocol {
 /// - `g_closure_invalidate()` and invalidation notifiers allow callbacks to be
 ///   automatically removed when the objects they point to go away.
 public struct ClosureRef: ClosureProtocol {
-    /// Untyped pointer to the underlying `GClosure` instance.
+        /// Untyped pointer to the underlying `GClosure` instance.
     /// For type-safe access, use the generated, typed pointer `closure_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -157,7 +158,7 @@ public extension ClosureRef {
     /// `object` and the created closure. This function is mainly useful
     /// when implementing new types of closures.
     init(object sizeof_closure: CUnsignedInt, object: ObjectProtocol) {
-        let rv = g_closure_new_object(guint(sizeof_closure), cast(object.ptr))
+        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_object(guint(sizeof_closure), cast(object.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -200,7 +201,7 @@ public extension ClosureRef {
     /// ```
     /// 
     init(simple sizeof_closure: CUnsignedInt, data: UnsafeMutableRawPointer) {
-        let rv = g_closure_new_simple(guint(sizeof_closure), cast(data))
+        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_simple(guint(sizeof_closure), cast(data)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// A variant of `g_closure_new_simple()` which stores `object` in the
@@ -208,7 +209,7 @@ public extension ClosureRef {
     /// `object` and the created closure. This function is mainly useful
     /// when implementing new types of closures.
     static func new(object sizeof_closure: CUnsignedInt, object: ObjectProtocol) -> ClosureRef! {
-        let rv = g_closure_new_object(guint(sizeof_closure), cast(object.ptr))
+        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_object(guint(sizeof_closure), cast(object.ptr)))
         return rv.map { ClosureRef(cast($0)) }
     }
 
@@ -251,7 +252,7 @@ public extension ClosureRef {
     /// ```
     /// 
     static func new(simple sizeof_closure: CUnsignedInt, data: UnsafeMutableRawPointer) -> ClosureRef! {
-        let rv = g_closure_new_simple(guint(sizeof_closure), cast(data))
+        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_simple(guint(sizeof_closure), cast(data)))
         return rv.map { ClosureRef(cast($0)) }
     }
 }
@@ -304,7 +305,7 @@ public extension ClosureRef {
 /// - `g_closure_invalidate()` and invalidation notifiers allow callbacks to be
 ///   automatically removed when the objects they point to go away.
 open class Closure: ClosureProtocol {
-    /// Untyped pointer to the underlying `GClosure` instance.
+        /// Untyped pointer to the underlying `GClosure` instance.
     /// For type-safe access, use the generated, typed pointer `closure_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -402,7 +403,7 @@ open class Closure: ClosureProtocol {
     /// `object` and the created closure. This function is mainly useful
     /// when implementing new types of closures.
     public init(object sizeof_closure: CUnsignedInt, object: ObjectProtocol) {
-        let rv = g_closure_new_object(guint(sizeof_closure), cast(object.ptr))
+        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_object(guint(sizeof_closure), cast(object.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -445,7 +446,7 @@ open class Closure: ClosureProtocol {
     /// ```
     /// 
     public init(simple sizeof_closure: CUnsignedInt, data: UnsafeMutableRawPointer) {
-        let rv = g_closure_new_simple(guint(sizeof_closure), cast(data))
+        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_simple(guint(sizeof_closure), cast(data)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -454,7 +455,7 @@ open class Closure: ClosureProtocol {
     /// `object` and the created closure. This function is mainly useful
     /// when implementing new types of closures.
     public static func new(object sizeof_closure: CUnsignedInt, object: ObjectProtocol) -> Closure! {
-        let rv = g_closure_new_object(guint(sizeof_closure), cast(object.ptr))
+        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_object(guint(sizeof_closure), cast(object.ptr)))
         return rv.map { Closure(cast($0)) }
     }
 
@@ -497,17 +498,18 @@ open class Closure: ClosureProtocol {
     /// ```
     /// 
     public static func new(simple sizeof_closure: CUnsignedInt, data: UnsafeMutableRawPointer) -> Closure! {
-        let rv = g_closure_new_simple(guint(sizeof_closure), cast(data))
+        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_simple(guint(sizeof_closure), cast(data)))
         return rv.map { Closure(cast($0)) }
     }
 
 }
 
-// MARK: - no Closure properties
+// MARK: no Closure properties
 
-// MARK: - no signals
+// MARK: no Closure signals
 
 
+// MARK: Closure Record: ClosureProtocol extension (methods and fields)
 public extension ClosureProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GClosure` instance.
     var closure_ptr: UnsafeMutablePointer<GClosure> { return ptr.assumingMemoryBound(to: GClosure.self) }
@@ -568,7 +570,7 @@ public extension ClosureProtocol {
     /// Increments the reference count on a closure to force it staying
     /// alive while the caller holds a pointer to it.
     func ref() -> UnsafeMutablePointer<GClosure>! {
-        let rv = g_closure_ref(cast(closure_ptr))
+        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_ref(cast(closure_ptr)))
         return cast(rv)
     }
 
@@ -842,15 +844,15 @@ public extension ClosureProtocol {
     }
 
     /// Connects a closure to a signal for a particular object.
-    func signalConnectClosure(instance: ObjectProtocol, detailedSignal detailed_signal: UnsafePointer<gchar>, after: Bool) -> CUnsignedLong {
-        let rv = g_signal_connect_closure(cast(instance.ptr), detailed_signal, cast(closure_ptr), gboolean(after ? 1 : 0))
-        return CUnsignedLong(rv)
+    func signalConnectClosure(instance: ObjectProtocol, detailedSignal detailed_signal: UnsafePointer<gchar>, after: Bool) -> Int {
+        let rv: Int = cast(g_signal_connect_closure(cast(instance.ptr), detailed_signal, cast(closure_ptr), gboolean(after ? 1 : 0)))
+        return Int(rv)
     }
 
     /// Connects a closure to a signal for a particular object.
-    func signalConnectClosureByID(instance: ObjectProtocol, signalID signal_id: CUnsignedInt, detail: GLib.Quark, after: Bool) -> CUnsignedLong {
-        let rv = g_signal_connect_closure_by_id(cast(instance.ptr), guint(signal_id), detail, cast(closure_ptr), gboolean(after ? 1 : 0))
-        return CUnsignedLong(rv)
+    func signalConnectClosureByID(instance: ObjectProtocol, signalID signal_id: CUnsignedInt, detail: GLib.Quark, after: Bool) -> Int {
+        let rv: Int = cast(g_signal_connect_closure_by_id(cast(instance.ptr), guint(signal_id), detail, cast(closure_ptr), gboolean(after ? 1 : 0)))
+        return Int(rv)
     }
 
     /// Finds the first signal handler that matches certain selection criteria.
@@ -858,9 +860,9 @@ public extension ClosureProtocol {
     /// flags, and the criteria values are passed as arguments.
     /// The match `mask` has to be non-0 for successful matches.
     /// If no handler was found, 0 is returned.
-    func signalHandlerFind(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> CUnsignedLong {
-        let rv = g_signal_handler_find(cast(instance.ptr), mask, guint(signal_id), detail, cast(closure_ptr), cast(func_), cast(data))
-        return CUnsignedLong(rv)
+    func signalHandlerFind(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
+        let rv: Int = cast(g_signal_handler_find(cast(instance.ptr), mask.value, guint(signal_id), detail, cast(closure_ptr), cast(func_), cast(data)))
+        return Int(rv)
     }
 
     /// Blocks all handlers on an instance that match a certain selection criteria.
@@ -870,9 +872,9 @@ public extension ClosureProtocol {
     /// or `G_SIGNAL_MATCH_DATA` match flags is required for successful matches.
     /// If no handlers were found, 0 is returned, the number of blocked handlers
     /// otherwise.
-    func signalHandlersBlockMatched(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-        let rv = g_signal_handlers_block_matched(cast(instance.ptr), mask, guint(signal_id), detail, cast(closure_ptr), cast(func_), cast(data))
-        return CUnsignedInt(rv)
+    func signalHandlersBlockMatched(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
+        let rv: Int = cast(g_signal_handlers_block_matched(cast(instance.ptr), mask.value, guint(signal_id), detail, cast(closure_ptr), cast(func_), cast(data)))
+        return Int(rv)
     }
 
     /// Disconnects all handlers on an instance that match a certain
@@ -883,9 +885,9 @@ public extension ClosureProtocol {
     /// `G_SIGNAL_MATCH_DATA` match flags is required for successful
     /// matches.  If no handlers were found, 0 is returned, the number of
     /// disconnected handlers otherwise.
-    func signalHandlersDisconnectMatched(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-        let rv = g_signal_handlers_disconnect_matched(cast(instance.ptr), mask, guint(signal_id), detail, cast(closure_ptr), cast(func_), cast(data))
-        return CUnsignedInt(rv)
+    func signalHandlersDisconnectMatched(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
+        let rv: Int = cast(g_signal_handlers_disconnect_matched(cast(instance.ptr), mask.value, guint(signal_id), detail, cast(closure_ptr), cast(func_), cast(data)))
+        return Int(rv)
     }
 
     /// Unblocks all handlers on an instance that match a certain selection
@@ -896,9 +898,9 @@ public extension ClosureProtocol {
     /// If no handlers were found, 0 is returned, the number of unblocked handlers
     /// otherwise. The match criteria should not apply to any handlers that are
     /// not currently blocked.
-    func signalHandlersUnblockMatched(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-        let rv = g_signal_handlers_unblock_matched(cast(instance.ptr), mask, guint(signal_id), detail, cast(closure_ptr), cast(func_), cast(data))
-        return CUnsignedInt(rv)
+    func signalHandlersUnblockMatched(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
+        let rv: Int = cast(g_signal_handlers_unblock_matched(cast(instance.ptr), mask.value, guint(signal_id), detail, cast(closure_ptr), cast(func_), cast(data)))
+        return Int(rv)
     }
 
     /// Creates a new signal. (This is usually done in the class initializer.)
@@ -907,9 +909,9 @@ public extension ClosureProtocol {
     /// 
     /// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
     /// the marshaller for this signal.
-    func signalNewValist(signalName signal_name: UnsafePointer<gchar>, itype: GType, signalFlags signal_flags: SignalFlags, accumulator: @escaping SignalAccumulator, accuData accu_data: UnsafeMutableRawPointer, cMarshaller c_marshaller: @escaping SignalCMarshaller, returnType return_type: GType, nParams n_params: CUnsignedInt, args: CVaListPointer) -> CUnsignedInt {
-        let rv = g_signal_new_valist(signal_name, itype, signal_flags, cast(closure_ptr), accumulator, cast(accu_data), c_marshaller, return_type, guint(n_params), args)
-        return CUnsignedInt(rv)
+    func signalNewValist(signalName signal_name: UnsafePointer<gchar>, itype: GType, signalFlags signal_flags: SignalFlags, accumulator: @escaping SignalAccumulator, accuData accu_data: UnsafeMutableRawPointer, cMarshaller c_marshaller: @escaping SignalCMarshaller, returnType return_type: GType, nParams n_params: CUnsignedInt, args: CVaListPointer) -> Int {
+        let rv: Int = cast(g_signal_new_valist(signal_name, itype, signal_flags.value, cast(closure_ptr), accumulator, cast(accu_data), c_marshaller, return_type, guint(n_params), args))
+        return Int(rv)
     }
 
     /// Creates a new signal. (This is usually done in the class initializer.)
@@ -918,9 +920,9 @@ public extension ClosureProtocol {
     /// 
     /// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
     /// the marshaller for this signal.
-    func signalNewv(signalName signal_name: UnsafePointer<gchar>, itype: GType, signalFlags signal_flags: SignalFlags, accumulator: @escaping SignalAccumulator, accuData accu_data: UnsafeMutableRawPointer, cMarshaller c_marshaller: @escaping SignalCMarshaller, returnType return_type: GType, nParams n_params: CUnsignedInt, paramTypes param_types: UnsafeMutablePointer<GType>) -> CUnsignedInt {
-        let rv = g_signal_newv(signal_name, itype, signal_flags, cast(closure_ptr), accumulator, cast(accu_data), c_marshaller, return_type, guint(n_params), cast(param_types))
-        return CUnsignedInt(rv)
+    func signalNewv(signalName signal_name: UnsafePointer<gchar>, itype: GType, signalFlags signal_flags: SignalFlags, accumulator: @escaping SignalAccumulator, accuData accu_data: UnsafeMutableRawPointer, cMarshaller c_marshaller: @escaping SignalCMarshaller, returnType return_type: GType, nParams n_params: CUnsignedInt, paramTypes param_types: UnsafeMutablePointer<GType>) -> Int {
+        let rv: Int = cast(g_signal_newv(signal_name, itype, signal_flags.value, cast(closure_ptr), accumulator, cast(accu_data), c_marshaller, return_type, guint(n_params), cast(param_types)))
+        return Int(rv)
     }
 
     /// Overrides the class closure (i.e. the default handler) for the given signal
@@ -944,6 +946,61 @@ public extension ClosureProtocol {
         g_source_set_closure(cast(source.ptr), cast(closure_ptr))
     
     }
+
+    // var refCount is unavailable because ref_count is private
+
+    // var metaMarshalNouse is unavailable because meta_marshal_nouse is private
+
+    // var nGuards is unavailable because n_guards is private
+
+    // var nFnotifiers is unavailable because n_fnotifiers is private
+
+    // var nInotifiers is unavailable because n_inotifiers is private
+
+    // var inInotify is unavailable because in_inotify is private
+
+    // var floating is unavailable because floating is private
+
+    // var derivativeFlag is unavailable because derivative_flag is private
+
+    /// Indicates whether the closure is currently being invoked with
+    ///  `g_closure_invoke()`
+    var inMarshal: Int {
+        /// Indicates whether the closure is currently being invoked with
+        ///  `g_closure_invoke()`
+        get {
+            let rv: Int = cast(closure_ptr.pointee.in_marshal)
+            return rv
+        }
+        /// Indicates whether the closure is currently being invoked with
+        ///  `g_closure_invoke()`
+         set {
+            closure_ptr.pointee.in_marshal = guint(newValue)
+        }
+    }
+
+    /// Indicates whether the closure has been invalidated by
+    ///  `g_closure_invalidate()`
+    var isInvalid: Int {
+        /// Indicates whether the closure has been invalidated by
+        ///  `g_closure_invalidate()`
+        get {
+            let rv: Int = cast(closure_ptr.pointee.is_invalid)
+            return rv
+        }
+        /// Indicates whether the closure has been invalidated by
+        ///  `g_closure_invalidate()`
+         set {
+            closure_ptr.pointee.is_invalid = guint(newValue)
+        }
+    }
+
+    // var marshal is unavailable because marshal is void
+
+    // var data is unavailable because data is private
+
+    // var notifiers is unavailable because notifiers is private
+
 }
 
 

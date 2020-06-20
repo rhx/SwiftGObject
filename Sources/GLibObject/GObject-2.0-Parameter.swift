@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - Parameter Record
 
@@ -11,7 +12,7 @@ import GLib
 /// The GParameter struct is an auxiliary structure used
 /// to hand parameter name/value pairs to `g_object_newv()`.
 public protocol ParameterProtocol {
-    /// Untyped pointer to the underlying `GParameter` instance.
+        /// Untyped pointer to the underlying `GParameter` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParameter` instance.
@@ -25,7 +26,7 @@ public protocol ParameterProtocol {
 /// The GParameter struct is an auxiliary structure used
 /// to hand parameter name/value pairs to `g_object_newv()`.
 public struct ParameterRef: ParameterProtocol {
-    /// Untyped pointer to the underlying `GParameter` instance.
+        /// Untyped pointer to the underlying `GParameter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension ParameterRef {
 /// The GParameter struct is an auxiliary structure used
 /// to hand parameter name/value pairs to `g_object_newv()`.
 open class Parameter: ParameterProtocol {
-    /// Untyped pointer to the underlying `GParameter` instance.
+        /// Untyped pointer to the underlying `GParameter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -108,7 +109,7 @@ open class Parameter: ParameterProtocol {
         // no reference counting for GParameter, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GParameter`.
+    /// Do-nothing destructor for `GParameter`.
     deinit {
         // no reference counting for GParameter, cannot unref(cast(_ptr))
     }
@@ -176,14 +177,42 @@ open class Parameter: ParameterProtocol {
 
 }
 
-// MARK: - no Parameter properties
+// MARK: no Parameter properties
 
-// MARK: - no signals
+// MARK: no Parameter signals
 
 
+// MARK: Parameter Record: ParameterProtocol extension (methods and fields)
 public extension ParameterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParameter` instance.
     var _ptr: UnsafeMutablePointer<GParameter> { return ptr.assumingMemoryBound(to: GParameter.self) }
+
+
+    /// the parameter name
+    var name: UnsafePointer<CChar> {
+        /// the parameter name
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.name)
+            return rv
+        }
+        /// the parameter name
+         set {
+            _ptr.pointee.name = cast(newValue)
+        }
+    }
+
+    /// the parameter value
+    var value: GValue {
+        /// the parameter value
+        get {
+            let rv: GValue = cast(_ptr.pointee.value)
+            return rv
+        }
+        /// the parameter value
+         set {
+            _ptr.pointee.value = cast(newValue)
+        }
+    }
 
 }
 

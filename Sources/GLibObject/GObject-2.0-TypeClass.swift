@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - TypeClass Record
 
@@ -10,7 +11,7 @@ import GLib
 ///
 /// An opaque structure used as the base of all classes.
 public protocol TypeClassProtocol {
-    /// Untyped pointer to the underlying `GTypeClass` instance.
+        /// Untyped pointer to the underlying `GTypeClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTypeClass` instance.
@@ -23,7 +24,7 @@ public protocol TypeClassProtocol {
 ///
 /// An opaque structure used as the base of all classes.
 public struct TypeClassRef: TypeClassProtocol {
-    /// Untyped pointer to the underlying `GTypeClass` instance.
+        /// Untyped pointer to the underlying `GTypeClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -74,14 +75,14 @@ public extension TypeClassRef {
     /// of the type passed in does not currently exist (hasn't been
     /// referenced before).
     static func peek(type: GType) -> TypeClassRef! {
-        let rv = g_type_class_peek(type)
+        let rv: UnsafeMutableRawPointer! = cast(g_type_class_peek(type))
         return rv.map { TypeClassRef(cast($0)) }
     }
 
     /// A more efficient version of `g_type_class_peek()` which works only for
     /// static types.
     static func peekStatic(type: GType) -> TypeClassRef! {
-        let rv = g_type_class_peek_static(type)
+        let rv: UnsafeMutableRawPointer! = cast(g_type_class_peek_static(type))
         return rv.map { TypeClassRef(cast($0)) }
     }
 
@@ -89,7 +90,7 @@ public extension TypeClassRef {
     /// `type`. This function will demand-create the class if it doesn't
     /// exist already.
     static func ref(type: GType) -> TypeClassRef! {
-        let rv = g_type_class_ref(type)
+        let rv: UnsafeMutableRawPointer! = cast(g_type_class_ref(type))
         return rv.map { TypeClassRef(cast($0)) }
     }
 }
@@ -100,7 +101,7 @@ public extension TypeClassRef {
 ///
 /// An opaque structure used as the base of all classes.
 open class TypeClass: TypeClassProtocol {
-    /// Untyped pointer to the underlying `GTypeClass` instance.
+        /// Untyped pointer to the underlying `GTypeClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -200,14 +201,14 @@ open class TypeClass: TypeClassProtocol {
     /// of the type passed in does not currently exist (hasn't been
     /// referenced before).
     public static func peek(type: GType) -> TypeClass! {
-        let rv = g_type_class_peek(type)
+        let rv: UnsafeMutableRawPointer! = cast(g_type_class_peek(type))
         return rv.map { TypeClass(cast($0)) }
     }
 
     /// A more efficient version of `g_type_class_peek()` which works only for
     /// static types.
     public static func peekStatic(type: GType) -> TypeClass! {
-        let rv = g_type_class_peek_static(type)
+        let rv: UnsafeMutableRawPointer! = cast(g_type_class_peek_static(type))
         return rv.map { TypeClass(cast($0)) }
     }
 
@@ -215,17 +216,18 @@ open class TypeClass: TypeClassProtocol {
     /// `type`. This function will demand-create the class if it doesn't
     /// exist already.
     public static func ref(type: GType) -> TypeClass! {
-        let rv = g_type_class_ref(type)
+        let rv: UnsafeMutableRawPointer! = cast(g_type_class_ref(type))
         return rv.map { TypeClass(cast($0)) }
     }
 
 }
 
-// MARK: - no TypeClass properties
+// MARK: no TypeClass properties
 
-// MARK: - no signals
+// MARK: no TypeClass signals
 
 
+// MARK: TypeClass Record: TypeClassProtocol extension (methods and fields)
 public extension TypeClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTypeClass` instance.
     var _ptr: UnsafeMutablePointer<GTypeClass> { return ptr.assumingMemoryBound(to: GTypeClass.self) }
@@ -311,13 +313,13 @@ public extension TypeClassProtocol {
     /// 
     /// You can only call this function after you have registered a private
     /// data area for `g_class` using `g_type_class_add_private()`.
-    func getInstancePrivateOffset() -> CInt {
-        let rv = g_type_class_get_instance_private_offset(cast(_ptr))
-        return CInt(rv)
+    func getInstancePrivateOffset() -> Int {
+        let rv: Int = cast(g_type_class_get_instance_private_offset(cast(_ptr)))
+        return Int(rv)
     }
 
     func getPrivate(privateType private_type: GType) -> UnsafeMutableRawPointer! {
-        let rv = g_type_class_get_private(cast(_ptr), private_type)
+        let rv: UnsafeMutableRawPointer! = cast(g_type_class_get_private(cast(_ptr), private_type))
         return cast(rv)
     }
 
@@ -330,7 +332,7 @@ public extension TypeClassProtocol {
     /// This function is essentially equivalent to:
     /// g_type_class_peek (g_type_parent (G_TYPE_FROM_CLASS (g_class)))
     func peekParent() -> UnsafeMutableRawPointer! {
-        let rv = g_type_class_peek_parent(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_type_class_peek_parent(cast(_ptr)))
         return cast(rv)
     }
 
@@ -353,7 +355,7 @@ public extension TypeClassProtocol {
     }
 
     func typeCheckClassCast(isAType is_a_type: GType) -> UnsafeMutablePointer<GTypeClass>! {
-        let rv = g_type_check_class_cast(cast(_ptr), is_a_type)
+        let rv: UnsafeMutablePointer<GTypeClass>! = cast(g_type_check_class_cast(cast(_ptr), is_a_type))
         return cast(rv)
     }
 
@@ -365,13 +367,13 @@ public extension TypeClassProtocol {
     /// Returns the `GTypeInterface` structure of an interface to which the
     /// passed in class conforms.
     func typeInterfacePeek(ifaceType iface_type: GType) -> UnsafeMutableRawPointer! {
-        let rv = g_type_interface_peek(cast(_ptr), iface_type)
+        let rv: UnsafeMutableRawPointer! = cast(g_type_interface_peek(cast(_ptr), iface_type))
         return cast(rv)
     }
 
     func typeNameFromClass() -> String! {
-        let rv = g_type_name_from_class(cast(_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_type_name_from_class(cast(_ptr)))
+        return cast(rv)
     }
     /// Gets the offset of the private data for instances of `g_class`.
     /// 
@@ -381,7 +383,7 @@ public extension TypeClassProtocol {
     /// 
     /// You can only call this function after you have registered a private
     /// data area for `g_class` using `g_type_class_add_private()`.
-    var instancePrivateOffset: CInt {
+    var instancePrivateOffset: Int {
         /// Gets the offset of the private data for instances of `g_class`.
         /// 
         /// This is how many bytes you should add to the instance pointer of a
@@ -391,10 +393,13 @@ public extension TypeClassProtocol {
         /// You can only call this function after you have registered a private
         /// data area for `g_class` using `g_type_class_add_private()`.
         get {
-            let rv = g_type_class_get_instance_private_offset(cast(_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_type_class_get_instance_private_offset(cast(_ptr)))
+            return Int(rv)
         }
     }
+
+    // var gType is unavailable because g_type is private
+
 }
 
 

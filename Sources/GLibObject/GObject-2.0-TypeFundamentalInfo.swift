@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - TypeFundamentalInfo Record
 
@@ -11,7 +12,7 @@ import GLib
 /// A structure that provides information to the type system which is
 /// used specifically for managing fundamental types.
 public protocol TypeFundamentalInfoProtocol {
-    /// Untyped pointer to the underlying `GTypeFundamentalInfo` instance.
+        /// Untyped pointer to the underlying `GTypeFundamentalInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTypeFundamentalInfo` instance.
@@ -25,7 +26,7 @@ public protocol TypeFundamentalInfoProtocol {
 /// A structure that provides information to the type system which is
 /// used specifically for managing fundamental types.
 public struct TypeFundamentalInfoRef: TypeFundamentalInfoProtocol {
-    /// Untyped pointer to the underlying `GTypeFundamentalInfo` instance.
+        /// Untyped pointer to the underlying `GTypeFundamentalInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension TypeFundamentalInfoRef {
 /// A structure that provides information to the type system which is
 /// used specifically for managing fundamental types.
 open class TypeFundamentalInfo: TypeFundamentalInfoProtocol {
-    /// Untyped pointer to the underlying `GTypeFundamentalInfo` instance.
+        /// Untyped pointer to the underlying `GTypeFundamentalInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -108,7 +109,7 @@ open class TypeFundamentalInfo: TypeFundamentalInfoProtocol {
         // no reference counting for GTypeFundamentalInfo, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTypeFundamentalInfo`.
+    /// Do-nothing destructor for `GTypeFundamentalInfo`.
     deinit {
         // no reference counting for GTypeFundamentalInfo, cannot unref(cast(_ptr))
     }
@@ -176,11 +177,12 @@ open class TypeFundamentalInfo: TypeFundamentalInfoProtocol {
 
 }
 
-// MARK: - no TypeFundamentalInfo properties
+// MARK: no TypeFundamentalInfo properties
 
-// MARK: - no signals
+// MARK: no TypeFundamentalInfo signals
 
 
+// MARK: TypeFundamentalInfo Record: TypeFundamentalInfoProtocol extension (methods and fields)
 public extension TypeFundamentalInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTypeFundamentalInfo` instance.
     var _ptr: UnsafeMutablePointer<GTypeFundamentalInfo> { return ptr.assumingMemoryBound(to: GTypeFundamentalInfo.self) }
@@ -193,9 +195,23 @@ public extension TypeFundamentalInfoProtocol {
     /// `finfo` to manage the type and its instances. The value of `flags` determines
     /// additional characteristics of the fundamental type.
     func typeRegisterFundamental(typeID type_id: GType, typeName type_name: UnsafePointer<gchar>, info: TypeInfoProtocol, flags: TypeFlags) -> GType {
-        let rv = g_type_register_fundamental(type_id, type_name, cast(info.ptr), cast(_ptr), flags)
-        return rv
+        let rv = g_type_register_fundamental(type_id, type_name, cast(info.ptr), cast(_ptr), flags.value)
+        return cast(rv)
     }
+
+    /// `GTypeFundamentalFlags` describing the characteristics of the fundamental type
+    var typeFlags: GTypeFundamentalFlags {
+        /// `GTypeFundamentalFlags` describing the characteristics of the fundamental type
+        get {
+            let rv: GTypeFundamentalFlags = cast(_ptr.pointee.type_flags)
+            return rv
+        }
+        /// `GTypeFundamentalFlags` describing the characteristics of the fundamental type
+         set {
+            _ptr.pointee.type_flags = cast(newValue)
+        }
+    }
+
 }
 
 

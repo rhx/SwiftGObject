@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecString Class
 
@@ -11,7 +12,7 @@ import GLib
 /// A `GParamSpec` derived structure that contains the meta data for string
 /// properties.
 public protocol ParamSpecStringProtocol: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpecString` instance.
+        /// Untyped pointer to the underlying `GParamSpecString` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecString` instance.
@@ -25,7 +26,7 @@ public protocol ParamSpecStringProtocol: ParamSpecProtocol {
 /// A `GParamSpec` derived structure that contains the meta data for string
 /// properties.
 public struct ParamSpecStringRef: ParamSpecStringProtocol {
-    /// Untyped pointer to the underlying `GParamSpecString` instance.
+        /// Untyped pointer to the underlying `GParamSpecString` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_string_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension ParamSpecStringRef {
 /// A `GParamSpec` derived structure that contains the meta data for string
 /// properties.
 open class ParamSpecString: ParamSpec, ParamSpecStringProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecString` instance.
     /// - Parameter op: pointer to the underlying object
@@ -161,14 +162,79 @@ open class ParamSpecString: ParamSpec, ParamSpecStringProtocol {
 
 }
 
-// MARK: - no ParamSpecString properties
+// MARK: no ParamSpecString properties
 
-// MARK: - no signals
+// MARK: no ParamSpecString signals
 
 
+// MARK: ParamSpecString Class: ParamSpecStringProtocol extension (methods and fields)
 public extension ParamSpecStringProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecString` instance.
     var param_spec_string_ptr: UnsafeMutablePointer<GParamSpecString> { return ptr.assumingMemoryBound(to: GParamSpecString.self) }
+
+
+    /// private `GParamSpec` portion
+    var parentInstance: GParamSpec {
+        /// private `GParamSpec` portion
+        get {
+            let rv: GParamSpec = cast(param_spec_string_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    /// default value for the property specified
+    var defaultValue: UnsafePointer<CChar> {
+        /// default value for the property specified
+        get {
+            let rv: UnsafePointer<CChar> = cast(param_spec_string_ptr.pointee.default_value)
+            return rv
+        }
+    }
+
+    /// a string containing the allowed values for the first byte
+    var csetFirst: UnsafePointer<CChar> {
+        /// a string containing the allowed values for the first byte
+        get {
+            let rv: UnsafePointer<CChar> = cast(param_spec_string_ptr.pointee.cset_first)
+            return rv
+        }
+    }
+
+    /// a string containing the allowed values for the subsequent bytes
+    var csetNth: UnsafePointer<CChar> {
+        /// a string containing the allowed values for the subsequent bytes
+        get {
+            let rv: UnsafePointer<CChar> = cast(param_spec_string_ptr.pointee.cset_nth)
+            return rv
+        }
+    }
+
+    /// the replacement byte for bytes which don't match `cset_first` or `cset_nth`.
+    var substitutor: gchar {
+        /// the replacement byte for bytes which don't match `cset_first` or `cset_nth`.
+        get {
+            let rv: gchar = cast(param_spec_string_ptr.pointee.substitutor)
+            return rv
+        }
+    }
+
+    /// replace empty string by `nil`
+    var nullFoldIfEmpty: Int {
+        /// replace empty string by `nil`
+        get {
+            let rv: Int = cast(param_spec_string_ptr.pointee.null_fold_if_empty)
+            return rv
+        }
+    }
+
+    /// replace `nil` strings by an empty string
+    var ensureNonNull: Int {
+        /// replace `nil` strings by an empty string
+        get {
+            let rv: Int = cast(param_spec_string_ptr.pointee.ensure_non_null)
+            return rv
+        }
+    }
 
 }
 

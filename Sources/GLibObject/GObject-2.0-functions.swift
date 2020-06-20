@@ -1,9 +1,10 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 /// Provide a copy of a boxed structure `src_boxed` which is of type `boxed_type`.
 public func boxedCopy(boxedType boxed_type: GType, srcBoxed src_boxed: gconstpointer) -> UnsafeMutableRawPointer! {
-    let rv = g_boxed_copy(boxed_type, cast(src_boxed))
+    let rv: UnsafeMutableRawPointer! = cast(g_boxed_copy(boxed_type, cast(src_boxed)))
     return cast(rv)
 }
 
@@ -24,7 +25,7 @@ public func boxedFree(boxedType boxed_type: GType, boxed: UnsafeMutableRawPointe
 /// provided to copy and free opaque boxed structures of this type.
 public func boxedTypeRegisterStatic(name: UnsafePointer<gchar>, boxedCopy boxed_copy: @escaping BoxedCopyFunc, boxedFree boxed_free: @escaping BoxedFreeFunc) -> GType {
     let rv = g_boxed_type_register_static(name, boxed_copy, boxed_free)
-    return rv
+    return cast(rv)
 }
 
 
@@ -271,7 +272,7 @@ public func cclosureMarshalGeneric(closure: ClosureProtocol, returnGvalue return
 /// 
 /// `destroy_data` will be called as a finalize notifier on the `GClosure`.
 public func cclosureNew(callbackFunc callback_func: @escaping Callback, userData user_data: UnsafeMutableRawPointer, destroyData destroy_data: @escaping ClosureNotify) -> UnsafeMutablePointer<GClosure>! {
-    let rv = g_cclosure_new(callback_func, cast(user_data), destroy_data)
+    let rv: UnsafeMutablePointer<GClosure>! = cast(g_cclosure_new(callback_func, cast(user_data), destroy_data))
     return cast(rv)
 }
 
@@ -284,7 +285,7 @@ public func cclosureNew(callbackFunc callback_func: @escaping Callback, userData
 /// associated with a `GObject`, and want the callback to no longer run
 /// after the object is is freed.
 public func cclosureNewObject(callbackFunc callback_func: @escaping Callback, object: ObjectProtocol) -> UnsafeMutablePointer<GClosure>! {
-    let rv = g_cclosure_new_object(callback_func, cast(object.ptr))
+    let rv: UnsafeMutablePointer<GClosure>! = cast(g_cclosure_new_object(callback_func, cast(object.ptr)))
     return cast(rv)
 }
 
@@ -297,7 +298,7 @@ public func cclosureNewObject(callbackFunc callback_func: @escaping Callback, ob
 /// associated with a `GObject`, and want the callback to no longer run
 /// after the object is is freed.
 public func cclosureNewObjectSwap(callbackFunc callback_func: @escaping Callback, object: ObjectProtocol) -> UnsafeMutablePointer<GClosure>! {
-    let rv = g_cclosure_new_object_swap(callback_func, cast(object.ptr))
+    let rv: UnsafeMutablePointer<GClosure>! = cast(g_cclosure_new_object_swap(callback_func, cast(object.ptr)))
     return cast(rv)
 }
 
@@ -309,7 +310,7 @@ public func cclosureNewObjectSwap(callbackFunc callback_func: @escaping Callback
 /// 
 /// `destroy_data` will be called as a finalize notifier on the `GClosure`.
 public func cclosureNewSwap(callbackFunc callback_func: @escaping Callback, userData user_data: UnsafeMutableRawPointer, destroyData destroy_data: @escaping ClosureNotify) -> UnsafeMutablePointer<GClosure>! {
-    let rv = g_cclosure_new_swap(callback_func, cast(user_data), destroy_data)
+    let rv: UnsafeMutablePointer<GClosure>! = cast(g_cclosure_new_swap(callback_func, cast(user_data), destroy_data))
     return cast(rv)
 }
 
@@ -382,7 +383,7 @@ public func enumCompleteTypeInfo(gEnumType g_enum_type: GType, info: TypeInfoPro
 
 /// Returns the `GEnumValue` for a value.
 public func enumGetValue(enumClass enum_class: EnumClassProtocol, value: CInt) -> UnsafeMutablePointer<GEnumValue>! {
-    let rv = g_enum_get_value(cast(enum_class.ptr), gint(value))
+    let rv: UnsafeMutablePointer<GEnumValue>! = cast(g_enum_get_value(cast(enum_class.ptr), gint(value)))
     return cast(rv)
 }
 
@@ -391,7 +392,7 @@ public func enumGetValue(enumClass enum_class: EnumClassProtocol, value: CInt) -
 
 /// Looks up a `GEnumValue` by name.
 public func enumGetValueByName(enumClass enum_class: EnumClassProtocol, name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GEnumValue>! {
-    let rv = g_enum_get_value_by_name(cast(enum_class.ptr), name)
+    let rv: UnsafeMutablePointer<GEnumValue>! = cast(g_enum_get_value_by_name(cast(enum_class.ptr), name))
     return cast(rv)
 }
 
@@ -400,7 +401,7 @@ public func enumGetValueByName(enumClass enum_class: EnumClassProtocol, name: Un
 
 /// Looks up a `GEnumValue` by nickname.
 public func enumGetValueByNick(enumClass enum_class: EnumClassProtocol, nick: UnsafePointer<gchar>) -> UnsafeMutablePointer<GEnumValue>! {
-    let rv = g_enum_get_value_by_nick(cast(enum_class.ptr), nick)
+    let rv: UnsafeMutablePointer<GEnumValue>! = cast(g_enum_get_value_by_nick(cast(enum_class.ptr), nick))
     return cast(rv)
 }
 
@@ -414,7 +415,7 @@ public func enumGetValueByNick(enumClass enum_class: EnumClassProtocol, nick: Un
 /// definition  than to write one yourself using `g_enum_register_static()`.
 public func enumRegisterStatic(name: UnsafePointer<gchar>, constStaticValues const_static_values: EnumValueProtocol) -> GType {
     let rv = g_enum_register_static(name, cast(const_static_values.ptr))
-    return rv
+    return cast(rv)
 }
 
 
@@ -425,8 +426,8 @@ public func enumRegisterStatic(name: UnsafePointer<gchar>, constStaticValues con
 /// This is intended to be used for debugging purposes. The format of the output
 /// may change in the future.
 public func enumToString(gEnumType g_enum_type: GType, value: CInt) -> String! {
-    let rv = g_enum_to_string(g_enum_type, gint(value))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_enum_to_string(g_enum_type, gint(value)))
+    return cast(rv)
 }
 
 
@@ -445,7 +446,7 @@ public func flagsCompleteTypeInfo(gFlagsType g_flags_type: GType, info: TypeInfo
 
 /// Returns the first `GFlagsValue` which is set in `value`.
 public func flagsGetFirstValue(flagsClass flags_class: FlagsClassProtocol, value: CUnsignedInt) -> UnsafeMutablePointer<GFlagsValue>! {
-    let rv = g_flags_get_first_value(cast(flags_class.ptr), guint(value))
+    let rv: UnsafeMutablePointer<GFlagsValue>! = cast(g_flags_get_first_value(cast(flags_class.ptr), guint(value)))
     return cast(rv)
 }
 
@@ -454,7 +455,7 @@ public func flagsGetFirstValue(flagsClass flags_class: FlagsClassProtocol, value
 
 /// Looks up a `GFlagsValue` by name.
 public func flagsGetValueByName(flagsClass flags_class: FlagsClassProtocol, name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GFlagsValue>! {
-    let rv = g_flags_get_value_by_name(cast(flags_class.ptr), name)
+    let rv: UnsafeMutablePointer<GFlagsValue>! = cast(g_flags_get_value_by_name(cast(flags_class.ptr), name))
     return cast(rv)
 }
 
@@ -463,7 +464,7 @@ public func flagsGetValueByName(flagsClass flags_class: FlagsClassProtocol, name
 
 /// Looks up a `GFlagsValue` by nickname.
 public func flagsGetValueByNick(flagsClass flags_class: FlagsClassProtocol, nick: UnsafePointer<gchar>) -> UnsafeMutablePointer<GFlagsValue>! {
-    let rv = g_flags_get_value_by_nick(cast(flags_class.ptr), nick)
+    let rv: UnsafeMutablePointer<GFlagsValue>! = cast(g_flags_get_value_by_nick(cast(flags_class.ptr), nick))
     return cast(rv)
 }
 
@@ -477,7 +478,7 @@ public func flagsGetValueByNick(flagsClass flags_class: FlagsClassProtocol, nick
 /// definition than to write one yourself using `g_flags_register_static()`.
 public func flagsRegisterStatic(name: UnsafePointer<gchar>, constStaticValues const_static_values: FlagsValueProtocol) -> GType {
     let rv = g_flags_register_static(name, cast(const_static_values.ptr))
-    return rv
+    return cast(rv)
 }
 
 
@@ -489,8 +490,8 @@ public func flagsRegisterStatic(name: UnsafePointer<gchar>, constStaticValues co
 /// This is intended to be used for debugging purposes. The format of the output
 /// may change in the future.
 public func flagsToString(flagsType flags_type: GType, value: CUnsignedInt) -> String! {
-    let rv = g_flags_to_string(flags_type, guint(value))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_flags_to_string(flags_type, guint(value)))
+    return cast(rv)
 }
 
 
@@ -498,7 +499,7 @@ public func flagsToString(flagsType flags_type: GType, value: CUnsignedInt) -> S
 
 public func gtypeGetType() -> GType {
     let rv = g_gtype_get_type()
-    return rv
+    return cast(rv)
 }
 
 
@@ -512,7 +513,7 @@ public func gtypeGetType() -> GType {
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecBoolean(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, defaultValue default_value: Bool, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_boolean(name, nick, blurb, gboolean(default_value ? 1 : 0), flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_boolean(name, nick, blurb, gboolean(default_value ? 1 : 0), flags.value))
     return cast(rv)
 }
 
@@ -524,7 +525,7 @@ public func paramSpecBoolean(name: UnsafePointer<gchar>, nick: UnsafePointer<gch
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecBoxed(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, boxedType boxed_type: GType, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_boxed(name, nick, blurb, boxed_type, flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_boxed(name, nick, blurb, boxed_type, flags.value))
     return cast(rv)
 }
 
@@ -533,7 +534,7 @@ public func paramSpecBoxed(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar
 
 /// Creates a new `GParamSpecChar` instance specifying a `G_TYPE_CHAR` property.
 public func paramSpecChar(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, minimum: Int8, maximum: Int8, defaultValue default_value: Int8, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_char(name, nick, blurb, gint8(minimum), gint8(maximum), gint8(default_value), flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_char(name, nick, blurb, gint8(minimum), gint8(maximum), gint8(default_value), flags.value))
     return cast(rv)
 }
 
@@ -545,7 +546,7 @@ public func paramSpecChar(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecDouble(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, minimum: gdouble, maximum: gdouble, defaultValue default_value: gdouble, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_double(name, nick, blurb, minimum, maximum, default_value, flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_double(name, nick, blurb, minimum, maximum, default_value, flags.value))
     return cast(rv)
 }
 
@@ -557,7 +558,7 @@ public func paramSpecDouble(name: UnsafePointer<gchar>, nick: UnsafePointer<gcha
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecEnum(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, enumType enum_type: GType, defaultValue default_value: CInt, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_enum(name, nick, blurb, enum_type, gint(default_value), flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_enum(name, nick, blurb, enum_type, gint(default_value), flags.value))
     return cast(rv)
 }
 
@@ -569,7 +570,7 @@ public func paramSpecEnum(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecFlags(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, flagsType flags_type: GType, defaultValue default_value: CUnsignedInt, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_flags(name, nick, blurb, flags_type, guint(default_value), flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_flags(name, nick, blurb, flags_type, guint(default_value), flags.value))
     return cast(rv)
 }
 
@@ -580,7 +581,7 @@ public func paramSpecFlags(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecFloat(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, minimum: gfloat, maximum: gfloat, defaultValue default_value: gfloat, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_float(name, nick, blurb, minimum, maximum, default_value, flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_float(name, nick, blurb, minimum, maximum, default_value, flags.value))
     return cast(rv)
 }
 
@@ -592,7 +593,7 @@ public func paramSpecFloat(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecGtype(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, isAType is_a_type: GType, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_gtype(name, nick, blurb, is_a_type, flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_gtype(name, nick, blurb, is_a_type, flags.value))
     return cast(rv)
 }
 
@@ -603,7 +604,7 @@ public func paramSpecGtype(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecInt(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, minimum: CInt, maximum: CInt, defaultValue default_value: CInt, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_int(name, nick, blurb, gint(minimum), gint(maximum), gint(default_value), flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_int(name, nick, blurb, gint(minimum), gint(maximum), gint(default_value), flags.value))
     return cast(rv)
 }
 
@@ -614,7 +615,7 @@ public func paramSpecInt(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>,
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecInt64(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, minimum: Int64, maximum: Int64, defaultValue default_value: Int64, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_int64(name, nick, blurb, gint64(minimum), gint64(maximum), gint64(default_value), flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_int64(name, nick, blurb, gint64(minimum), gint64(maximum), gint64(default_value), flags.value))
     return cast(rv)
 }
 
@@ -625,7 +626,7 @@ public func paramSpecInt64(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecLong(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, minimum: CLong, maximum: CLong, defaultValue default_value: CLong, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_long(name, nick, blurb, glong(minimum), glong(maximum), glong(default_value), flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_long(name, nick, blurb, glong(minimum), glong(maximum), glong(default_value), flags.value))
     return cast(rv)
 }
 
@@ -637,7 +638,7 @@ public func paramSpecLong(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecObject(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, objectType object_type: GType, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_object(name, nick, blurb, object_type, flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_object(name, nick, blurb, object_type, flags.value))
     return cast(rv)
 }
 
@@ -648,7 +649,7 @@ public func paramSpecObject(name: UnsafePointer<gchar>, nick: UnsafePointer<gcha
 /// to direct operations to another paramspec, and will not be directly
 /// useful unless you are implementing a new base type similar to GObject.
 public func paramSpecOverride(name: UnsafePointer<gchar>, overridden: ParamSpecProtocol) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_override(name, cast(overridden.ptr))
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_override(name, cast(overridden.ptr)))
     return cast(rv)
 }
 
@@ -660,7 +661,7 @@ public func paramSpecOverride(name: UnsafePointer<gchar>, overridden: ParamSpecP
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecParam(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, paramType param_type: GType, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_param(name, nick, blurb, param_type, flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_param(name, nick, blurb, param_type, flags.value))
     return cast(rv)
 }
 
@@ -673,7 +674,7 @@ public func paramSpecParam(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecPointer(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_pointer(name, nick, blurb, flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_pointer(name, nick, blurb, flags.value))
     return cast(rv)
 }
 
@@ -687,7 +688,7 @@ public func paramSpecPointer(name: UnsafePointer<gchar>, nick: UnsafePointer<gch
 /// property name, like "GtkContainer:border-width". This feature is
 /// deprecated, so you should always set `type_prefixing` to `false`.
 public func paramSpecPoolNew(typePrefixing type_prefixing: Bool) -> UnsafeMutablePointer<GParamSpecPool>! {
-    let rv = g_param_spec_pool_new(gboolean(type_prefixing ? 1 : 0))
+    let rv: UnsafeMutablePointer<GParamSpecPool>! = cast(g_param_spec_pool_new(gboolean(type_prefixing ? 1 : 0)))
     return cast(rv)
 }
 
@@ -698,7 +699,7 @@ public func paramSpecPoolNew(typePrefixing type_prefixing: Bool) -> UnsafeMutabl
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecString(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, defaultValue default_value: UnsafePointer<gchar>, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_string(name, nick, blurb, default_value, flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_string(name, nick, blurb, default_value, flags.value))
     return cast(rv)
 }
 
@@ -707,7 +708,7 @@ public func paramSpecString(name: UnsafePointer<gchar>, nick: UnsafePointer<gcha
 
 /// Creates a new `GParamSpecUChar` instance specifying a `G_TYPE_UCHAR` property.
 public func paramSpecUchar(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, minimum: UInt8, maximum: UInt8, defaultValue default_value: UInt8, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_uchar(name, nick, blurb, guint8(minimum), guint8(maximum), guint8(default_value), flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_uchar(name, nick, blurb, guint8(minimum), guint8(maximum), guint8(default_value), flags.value))
     return cast(rv)
 }
 
@@ -718,7 +719,7 @@ public func paramSpecUchar(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecUint(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, minimum: CUnsignedInt, maximum: CUnsignedInt, defaultValue default_value: CUnsignedInt, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_uint(name, nick, blurb, guint(minimum), guint(maximum), guint(default_value), flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_uint(name, nick, blurb, guint(minimum), guint(maximum), guint(default_value), flags.value))
     return cast(rv)
 }
 
@@ -730,7 +731,7 @@ public func paramSpecUint(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecUint64(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, minimum: UInt64, maximum: UInt64, defaultValue default_value: UInt64, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_uint64(name, nick, blurb, guint64(minimum), guint64(maximum), guint64(default_value), flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_uint64(name, nick, blurb, guint64(minimum), guint64(maximum), guint64(default_value), flags.value))
     return cast(rv)
 }
 
@@ -742,7 +743,7 @@ public func paramSpecUint64(name: UnsafePointer<gchar>, nick: UnsafePointer<gcha
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecUlong(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, minimum: CUnsignedLong, maximum: CUnsignedLong, defaultValue default_value: CUnsignedLong, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_ulong(name, nick, blurb, gulong(minimum), gulong(maximum), gulong(default_value), flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_ulong(name, nick, blurb, gulong(minimum), gulong(maximum), gulong(default_value), flags.value))
     return cast(rv)
 }
 
@@ -755,7 +756,7 @@ public func paramSpecUlong(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecUnichar(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, defaultValue default_value: gunichar, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_unichar(name, nick, blurb, default_value, flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_unichar(name, nick, blurb, default_value, flags.value))
     return cast(rv)
 }
 
@@ -769,7 +770,7 @@ public func paramSpecUnichar(name: UnsafePointer<gchar>, nick: UnsafePointer<gch
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecValueArray(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, elementSpec element_spec: ParamSpecProtocol, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_value_array(name, nick, blurb, cast(element_spec.ptr), flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_value_array(name, nick, blurb, cast(element_spec.ptr), flags.value))
     return cast(rv)
 }
 
@@ -783,7 +784,7 @@ public func paramSpecValueArray(name: UnsafePointer<gchar>, nick: UnsafePointer<
 /// 
 /// See `g_param_spec_internal()` for details on property names.
 public func paramSpecVariant(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, type: VariantTypeProtocol, defaultValue default_value: VariantProtocol, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = g_param_spec_variant(name, nick, blurb, cast(type.ptr), cast(default_value.ptr), flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_variant(name, nick, blurb, cast(type.ptr), cast(default_value.ptr), flags.value))
     return cast(rv)
 }
 
@@ -796,7 +797,7 @@ public func paramSpecVariant(name: UnsafePointer<gchar>, nick: UnsafePointer<gch
 /// `GParamSpec` type and its instances.
 public func paramTypeRegisterStatic(name: UnsafePointer<gchar>, pspecInfo pspec_info: ParamSpecTypeInfoProtocol) -> GType {
     let rv = g_param_type_register_static(name, cast(pspec_info.ptr))
-    return rv
+    return cast(rv)
 }
 
 
@@ -852,9 +853,9 @@ public func paramValueValidate(pspec: ParamSpecProtocol, value: ValueProtocol) -
 /// Compares `value1` with `value2` according to `pspec`, and return -1, 0 or +1,
 /// if `value1` is found to be less than, equal to or greater than `value2`,
 /// respectively.
-public func paramValuesCmp(pspec: ParamSpecProtocol, value1: ValueProtocol, value2: ValueProtocol) -> CInt {
-    let rv = g_param_values_cmp(cast(pspec.ptr), cast(value1.ptr), cast(value2.ptr))
-    return CInt(rv)
+public func paramValuesCmp(pspec: ParamSpecProtocol, value1: ValueProtocol, value2: ValueProtocol) -> Int {
+    let rv: Int = cast(g_param_values_cmp(cast(pspec.ptr), cast(value1.ptr), cast(value2.ptr)))
+    return Int(rv)
 }
 
 
@@ -864,7 +865,7 @@ public func paramValuesCmp(pspec: ParamSpecProtocol, value1: ValueProtocol, valu
 /// pointer type with name `name`.
 public func pointerTypeRegisterStatic(name: UnsafePointer<gchar>) -> GType {
     let rv = g_pointer_type_register_static(name)
-    return rv
+    return cast(rv)
 }
 
 
@@ -906,9 +907,9 @@ public func signalAccumulatorTrueHandled(ihint: SignalInvocationHintProtocol, re
 /// Adds an emission hook for a signal, which will get called for any emission
 /// of that signal, independent of the instance. This is possible only
 /// for signals which don't have `G_SIGNAL_NO_HOOKS` flag set.
-public func signalAddEmissionHook(signalID signal_id: CUnsignedInt, detail: GLib.Quark, hookFunc hook_func: @escaping SignalEmissionHook, hookData hook_data: UnsafeMutableRawPointer, dataDestroy data_destroy: @escaping GLib.DestroyNotify) -> CUnsignedLong {
-    let rv = g_signal_add_emission_hook(guint(signal_id), detail, hook_func, cast(hook_data), data_destroy)
-    return CUnsignedLong(rv)
+public func signalAddEmissionHook(signalID signal_id: CUnsignedInt, detail: GLib.Quark, hookFunc hook_func: @escaping SignalEmissionHook, hookData hook_data: UnsafeMutableRawPointer, dataDestroy data_destroy: @escaping GLib.DestroyNotify) -> Int {
+    let rv: Int = cast(g_signal_add_emission_hook(guint(signal_id), detail, hook_func, cast(hook_data), data_destroy))
+    return Int(rv)
 }
 
 
@@ -934,18 +935,18 @@ public func signalChainFromOverridden(instanceAndParams instance_and_params: Uns
 
 
 /// Connects a closure to a signal for a particular object.
-public func signalConnectClosure(instance: ObjectProtocol, detailedSignal detailed_signal: UnsafePointer<gchar>, closure: ClosureProtocol, after: Bool) -> CUnsignedLong {
-    let rv = g_signal_connect_closure(cast(instance.ptr), detailed_signal, cast(closure.ptr), gboolean(after ? 1 : 0))
-    return CUnsignedLong(rv)
+public func signalConnectClosure(instance: ObjectProtocol, detailedSignal detailed_signal: UnsafePointer<gchar>, closure: ClosureProtocol, after: Bool) -> Int {
+    let rv: Int = cast(g_signal_connect_closure(cast(instance.ptr), detailed_signal, cast(closure.ptr), gboolean(after ? 1 : 0)))
+    return Int(rv)
 }
 
 
 
 
 /// Connects a closure to a signal for a particular object.
-public func signalConnectClosureByID(instance: ObjectProtocol, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, after: Bool) -> CUnsignedLong {
-    let rv = g_signal_connect_closure_by_id(cast(instance.ptr), guint(signal_id), detail, cast(closure.ptr), gboolean(after ? 1 : 0))
-    return CUnsignedLong(rv)
+public func signalConnectClosureByID(instance: ObjectProtocol, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, after: Bool) -> Int {
+    let rv: Int = cast(g_signal_connect_closure_by_id(cast(instance.ptr), guint(signal_id), detail, cast(closure.ptr), gboolean(after ? 1 : 0)))
+    return Int(rv)
 }
 
 
@@ -956,9 +957,9 @@ public func signalConnectClosureByID(instance: ObjectProtocol, signalID signal_i
 /// which will be called when the signal handler is disconnected and no longer
 /// used. Specify `connect_flags` if you need ``..._after()`` or
 /// ``..._swapped()`` variants of this function.
-public func signalConnectData(instance: ObjectProtocol, detailedSignal detailed_signal: UnsafePointer<gchar>, cHandler c_handler: @escaping Callback, data: UnsafeMutableRawPointer, destroyData destroy_data: @escaping ClosureNotify, connectFlags connect_flags: ConnectFlags) -> CUnsignedLong {
-    let rv = g_signal_connect_data(cast(instance.ptr), detailed_signal, c_handler, cast(data), destroy_data, connect_flags)
-    return CUnsignedLong(rv)
+public func signalConnectData(instance: ObjectProtocol, detailedSignal detailed_signal: UnsafePointer<gchar>, cHandler c_handler: @escaping Callback, data: UnsafeMutableRawPointer, destroyData destroy_data: @escaping ClosureNotify, connectFlags connect_flags: ConnectFlags) -> Int {
+    let rv: Int = cast(g_signal_connect_data(cast(instance.ptr), detailed_signal, c_handler, cast(data), destroy_data, connect_flags.value))
+    return Int(rv)
 }
 
 
@@ -972,9 +973,9 @@ public func signalConnectData(instance: ObjectProtocol, detailedSignal detailed_
 /// disconnected.  Note that this is not currently threadsafe (ie:
 /// emitting a signal while `gobject` is being destroyed in another thread
 /// is not safe).
-public func signalConnectObject(instance: TypeInstanceProtocol, detailedSignal detailed_signal: UnsafePointer<gchar>, cHandler c_handler: @escaping Callback, gobject: ObjectProtocol, connectFlags connect_flags: ConnectFlags) -> CUnsignedLong {
-    let rv = g_signal_connect_object(cast(instance.ptr), detailed_signal, c_handler, cast(gobject.ptr), connect_flags)
-    return CUnsignedLong(rv)
+public func signalConnectObject(instance: TypeInstanceProtocol, detailedSignal detailed_signal: UnsafePointer<gchar>, cHandler c_handler: @escaping Callback, gobject: ObjectProtocol, connectFlags connect_flags: ConnectFlags) -> Int {
+    let rv: Int = cast(g_signal_connect_object(cast(instance.ptr), detailed_signal, c_handler, cast(gobject.ptr), connect_flags.value))
+    return Int(rv)
 }
 
 
@@ -1020,7 +1021,7 @@ public func signalEmitv(instanceAndParams instance_and_params: UnsafePointer<GVa
 
 /// Returns the invocation hint of the innermost signal emission of instance.
 public func signalGetInvocationHint(instance: ObjectProtocol) -> UnsafeMutablePointer<GSignalInvocationHint>! {
-    let rv = g_signal_get_invocation_hint(cast(instance.ptr))
+    let rv: UnsafeMutablePointer<GSignalInvocationHint>! = cast(g_signal_get_invocation_hint(cast(instance.ptr)))
     return cast(rv)
 }
 
@@ -1062,9 +1063,9 @@ public func signalHandlerDisconnect(instance: ObjectProtocol, handlerID handler_
 /// flags, and the criteria values are passed as arguments.
 /// The match `mask` has to be non-0 for successful matches.
 /// If no handler was found, 0 is returned.
-public func signalHandlerFind(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> CUnsignedLong {
-    let rv = g_signal_handler_find(cast(instance.ptr), mask, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data))
-    return CUnsignedLong(rv)
+public func signalHandlerFind(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(g_signal_handler_find(cast(instance.ptr), mask.value, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data)))
+    return Int(rv)
 }
 
 
@@ -1107,9 +1108,9 @@ public func signalHandlerUnblock(instance: ObjectProtocol, handlerID handler_id:
 /// or `G_SIGNAL_MATCH_DATA` match flags is required for successful matches.
 /// If no handlers were found, 0 is returned, the number of blocked handlers
 /// otherwise.
-public func signalHandlersBlockMatched(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = g_signal_handlers_block_matched(cast(instance.ptr), mask, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data))
-    return CUnsignedInt(rv)
+public func signalHandlersBlockMatched(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(g_signal_handlers_block_matched(cast(instance.ptr), mask.value, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data)))
+    return Int(rv)
 }
 
 
@@ -1134,9 +1135,9 @@ public func signalHandlersDestroy(instance: ObjectProtocol) {
 /// `G_SIGNAL_MATCH_DATA` match flags is required for successful
 /// matches.  If no handlers were found, 0 is returned, the number of
 /// disconnected handlers otherwise.
-public func signalHandlersDisconnectMatched(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = g_signal_handlers_disconnect_matched(cast(instance.ptr), mask, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data))
-    return CUnsignedInt(rv)
+public func signalHandlersDisconnectMatched(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(g_signal_handlers_disconnect_matched(cast(instance.ptr), mask.value, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data)))
+    return Int(rv)
 }
 
 
@@ -1150,9 +1151,9 @@ public func signalHandlersDisconnectMatched(instance: ObjectProtocol, mask: Sign
 /// If no handlers were found, 0 is returned, the number of unblocked handlers
 /// otherwise. The match criteria should not apply to any handlers that are
 /// not currently blocked.
-public func signalHandlersUnblockMatched(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = g_signal_handlers_unblock_matched(cast(instance.ptr), mask, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data))
-    return CUnsignedInt(rv)
+public func signalHandlersUnblockMatched(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(g_signal_handlers_unblock_matched(cast(instance.ptr), mask.value, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data)))
+    return Int(rv)
 }
 
 
@@ -1186,7 +1187,7 @@ public func signalHasHandlerPending(instance: ObjectProtocol, signalID signal_id
 /// created. Further information about the signals can be acquired through
 /// `g_signal_query()`.
 public func signalListIDs(itype: GType, nIDs n_ids: UnsafeMutablePointer<CUnsignedInt>) -> UnsafeMutablePointer<CUnsignedInt>! {
-    let rv = g_signal_list_ids(itype, cast(n_ids))
+    let rv: UnsafeMutablePointer<CUnsignedInt>! = cast(g_signal_list_ids(itype, cast(n_ids)))
     return cast(rv)
 }
 
@@ -1204,9 +1205,9 @@ public func signalListIDs(itype: GType, nIDs n_ids: UnsafeMutablePointer<CUnsign
 /// always installed during class initialization.
 /// 
 /// See `g_signal_new()` for details on allowed signal names.
-public func signalLookup(name: UnsafePointer<gchar>, itype: GType) -> CUnsignedInt {
-    let rv = g_signal_lookup(name, itype)
-    return CUnsignedInt(rv)
+public func signalLookup(name: UnsafePointer<gchar>, itype: GType) -> Int {
+    let rv: Int = cast(g_signal_lookup(name, itype))
+    return Int(rv)
 }
 
 
@@ -1216,8 +1217,8 @@ public func signalLookup(name: UnsafePointer<gchar>, itype: GType) -> CUnsignedI
 /// 
 /// Two different signals may have the same name, if they have differing types.
 public func signalName(signalID signal_id: CUnsignedInt) -> String! {
-    let rv = g_signal_name(guint(signal_id))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_signal_name(guint(signal_id)))
+    return cast(rv)
 }
 
 
@@ -1243,9 +1244,9 @@ public func signalName(signalID signal_id: CUnsignedInt) -> String! {
 /// 
 /// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
 /// the marshaller for this signal.
-public func signalNewValist(signalName signal_name: UnsafePointer<gchar>, itype: GType, signalFlags signal_flags: SignalFlags, classClosure class_closure: ClosureProtocol, accumulator: @escaping SignalAccumulator, accuData accu_data: UnsafeMutableRawPointer, cMarshaller c_marshaller: @escaping SignalCMarshaller, returnType return_type: GType, nParams n_params: CUnsignedInt, args: CVaListPointer) -> CUnsignedInt {
-    let rv = g_signal_new_valist(signal_name, itype, signal_flags, cast(class_closure.ptr), accumulator, cast(accu_data), c_marshaller, return_type, guint(n_params), args)
-    return CUnsignedInt(rv)
+public func signalNewValist(signalName signal_name: UnsafePointer<gchar>, itype: GType, signalFlags signal_flags: SignalFlags, classClosure class_closure: ClosureProtocol, accumulator: @escaping SignalAccumulator, accuData accu_data: UnsafeMutableRawPointer, cMarshaller c_marshaller: @escaping SignalCMarshaller, returnType return_type: GType, nParams n_params: CUnsignedInt, args: CVaListPointer) -> Int {
+    let rv: Int = cast(g_signal_new_valist(signal_name, itype, signal_flags.value, cast(class_closure.ptr), accumulator, cast(accu_data), c_marshaller, return_type, guint(n_params), args))
+    return Int(rv)
 }
 
 
@@ -1257,9 +1258,9 @@ public func signalNewValist(signalName signal_name: UnsafePointer<gchar>, itype:
 /// 
 /// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
 /// the marshaller for this signal.
-public func signalNewv(signalName signal_name: UnsafePointer<gchar>, itype: GType, signalFlags signal_flags: SignalFlags, classClosure class_closure: ClosureProtocol, accumulator: @escaping SignalAccumulator, accuData accu_data: UnsafeMutableRawPointer, cMarshaller c_marshaller: @escaping SignalCMarshaller, returnType return_type: GType, nParams n_params: CUnsignedInt, paramTypes param_types: UnsafeMutablePointer<GType>) -> CUnsignedInt {
-    let rv = g_signal_newv(signal_name, itype, signal_flags, cast(class_closure.ptr), accumulator, cast(accu_data), c_marshaller, return_type, guint(n_params), cast(param_types))
-    return CUnsignedInt(rv)
+public func signalNewv(signalName signal_name: UnsafePointer<gchar>, itype: GType, signalFlags signal_flags: SignalFlags, classClosure class_closure: ClosureProtocol, accumulator: @escaping SignalAccumulator, accuData accu_data: UnsafeMutableRawPointer, cMarshaller c_marshaller: @escaping SignalCMarshaller, returnType return_type: GType, nParams n_params: CUnsignedInt, paramTypes param_types: UnsafeMutablePointer<GType>) -> Int {
+    let rv: Int = cast(g_signal_newv(signal_name, itype, signal_flags.value, cast(class_closure.ptr), accumulator, cast(accu_data), c_marshaller, return_type, guint(n_params), cast(param_types)))
+    return Int(rv)
 }
 
 
@@ -1372,7 +1373,7 @@ public func signalStopEmissionByName(instance: ObjectProtocol, detailedSignal de
 /// `struct_offset` in the class structure of the interface or classed type
 /// identified by `itype`.
 public func signalTypeCclosureNew(itype: GType, structOffset struct_offset: CUnsignedInt) -> UnsafeMutablePointer<GClosure>! {
-    let rv = g_signal_type_cclosure_new(itype, guint(struct_offset))
+    let rv: UnsafeMutablePointer<GClosure>! = cast(g_signal_type_cclosure_new(itype, guint(struct_offset)))
     return cast(rv)
 }
 
@@ -1415,8 +1416,8 @@ public func sourceSetDummyCallback(source: SourceProtocol) {
 /// contents for debugging output, the way in which the contents are
 /// described may change between different GLib versions.
 public func strdupValueContents(value: ValueProtocol) -> String! {
-    let rv = g_strdup_value_contents(cast(value.ptr))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strdup_value_contents(cast(value.ptr)))
+    return cast(rv)
 }
 
 
@@ -1455,9 +1456,9 @@ public func typeAddClassPrivate(classType class_type: GType, privateSize private
 
 
 
-public func typeAddInstancePrivate(classType class_type: GType, privateSize private_size: Int) -> CInt {
-    let rv = g_type_add_instance_private(class_type, gsize(private_size))
-    return CInt(rv)
+public func typeAddInstancePrivate(classType class_type: GType, privateSize private_size: Int) -> Int {
+    let rv: Int = cast(g_type_add_instance_private(class_type, gsize(private_size)))
+    return Int(rv)
 }
 
 
@@ -1503,7 +1504,7 @@ public func typeAddInterfaceStatic(instanceType instance_type: GType, interfaceT
 
 
 public func typeCheckClassCast(gClass g_class: TypeClassProtocol, isAType is_a_type: GType) -> UnsafeMutablePointer<GTypeClass>! {
-    let rv = g_type_check_class_cast(cast(g_class.ptr), is_a_type)
+    let rv: UnsafeMutablePointer<GTypeClass>! = cast(g_type_check_class_cast(cast(g_class.ptr), is_a_type))
     return cast(rv)
 }
 
@@ -1529,7 +1530,7 @@ public func typeCheck(instance: TypeInstanceProtocol) -> Bool {
 
 
 public func typeCheckInstanceCast(instance: TypeInstanceProtocol, ifaceType iface_type: GType) -> UnsafeMutablePointer<GTypeInstance>! {
-    let rv = g_type_check_instance_cast(cast(instance.ptr), iface_type)
+    let rv: UnsafeMutablePointer<GTypeInstance>! = cast(g_type_check_instance_cast(cast(instance.ptr), iface_type))
     return cast(rv)
 }
 
@@ -1579,7 +1580,7 @@ public func typeCheckValueHolds(value: ValueProtocol, type: GType) -> Bool {
 /// Return a newly allocated and 0-terminated array of type IDs, listing
 /// the child types of `type`.
 public func typeChildren(type: GType, nChildren n_children: UnsafeMutablePointer<CUnsignedInt>) -> UnsafeMutablePointer<GType>! {
-    let rv = g_type_children(type, cast(n_children))
+    let rv: UnsafeMutablePointer<GType>! = cast(g_type_children(type, cast(n_children)))
     return cast(rv)
 }
 
@@ -1600,7 +1601,7 @@ public func typeClassAdjustPrivateOffset(gClass g_class: UnsafeMutableRawPointer
 /// of the type passed in does not currently exist (hasn't been
 /// referenced before).
 public func typeClassPeek(type: GType) -> UnsafeMutableRawPointer! {
-    let rv = g_type_class_peek(type)
+    let rv: UnsafeMutableRawPointer! = cast(g_type_class_peek(type))
     return cast(rv)
 }
 
@@ -1610,7 +1611,7 @@ public func typeClassPeek(type: GType) -> UnsafeMutableRawPointer! {
 /// A more efficient version of `g_type_class_peek()` which works only for
 /// static types.
 public func typeClassPeekStatic(type: GType) -> UnsafeMutableRawPointer! {
-    let rv = g_type_class_peek_static(type)
+    let rv: UnsafeMutableRawPointer! = cast(g_type_class_peek_static(type))
     return cast(rv)
 }
 
@@ -1621,7 +1622,7 @@ public func typeClassPeekStatic(type: GType) -> UnsafeMutableRawPointer! {
 /// `type`. This function will demand-create the class if it doesn't
 /// exist already.
 public func typeClassRef(type: GType) -> UnsafeMutableRawPointer! {
-    let rv = g_type_class_ref(type)
+    let rv: UnsafeMutableRawPointer! = cast(g_type_class_ref(type))
     return cast(rv)
 }
 
@@ -1645,7 +1646,7 @@ public func typeClassRef(type: GType) -> UnsafeMutableRawPointer! {
 /// fundamental type. Also language bindings should not use this
 /// function, but `g_object_new()` instead.
 public func typeCreateInstance(type: GType) -> UnsafeMutablePointer<GTypeInstance>! {
-    let rv = g_type_create_instance(type)
+    let rv: UnsafeMutablePointer<GTypeInstance>! = cast(g_type_create_instance(type))
     return cast(rv)
 }
 
@@ -1655,7 +1656,7 @@ public func typeCreateInstance(type: GType) -> UnsafeMutablePointer<GTypeInstanc
 /// If the interface type `g_type` is currently in use, returns its
 /// default interface vtable.
 public func typeDefaultInterfacePeek(gType g_type: GType) -> UnsafeMutableRawPointer! {
-    let rv = g_type_default_interface_peek(g_type)
+    let rv: UnsafeMutableRawPointer! = cast(g_type_default_interface_peek(g_type))
     return cast(rv)
 }
 
@@ -1673,7 +1674,7 @@ public func typeDefaultInterfacePeek(gType g_type: GType) -> UnsafeMutableRawPoi
 /// want to make sure that signals and properties for an interface
 /// have been installed.
 public func typeDefaultInterfaceRef(gType g_type: GType) -> UnsafeMutableRawPointer! {
-    let rv = g_type_default_interface_ref(g_type)
+    let rv: UnsafeMutableRawPointer! = cast(g_type_default_interface_ref(g_type))
     return cast(rv)
 }
 
@@ -1695,9 +1696,9 @@ public func typeDefaultInterfaceUnref(gIface g_iface: TypeInterfaceProtocol) {
 
 /// Returns the length of the ancestry of the passed in type. This
 /// includes the type itself, so that e.g. a fundamental type has depth 1.
-public func typeDepth(type: GType) -> CUnsignedInt {
-    let rv = g_type_depth(type)
-    return CUnsignedInt(rv)
+public func typeDepth(type: GType) -> Int {
+    let rv: Int = cast(g_type_depth(type))
+    return Int(rv)
 }
 
 
@@ -1742,7 +1743,7 @@ public func typeFree(instance: TypeInstanceProtocol) {
 /// yet).
 public func typeFrom(name: UnsafePointer<gchar>) -> GType {
     let rv = g_type_from_name(name)
-    return rv
+    return cast(rv)
 }
 
 
@@ -1752,7 +1753,7 @@ public func typeFrom(name: UnsafePointer<gchar>) -> GType {
 /// Use `G_TYPE_FUNDAMENTAL()` instead.
 public func typeFundamental(typeID type_id: GType) -> GType {
     let rv = g_type_fundamental(type_id)
-    return rv
+    return cast(rv)
 }
 
 
@@ -1764,7 +1765,7 @@ public func typeFundamental(typeID type_id: GType) -> GType {
 /// fundamental type identifier.
 public func typeFundamentalNext() -> GType {
     let rv = g_type_fundamental_next()
-    return rv
+    return cast(rv)
 }
 
 
@@ -1774,9 +1775,9 @@ public func typeFundamentalNext() -> GType {
 /// this is only available if GLib is built with debugging support and
 /// the instance_count debug flag is set (by setting the GOBJECT_DEBUG
 /// variable to include instance-count).
-public func typeGetInstanceCount(type: GType) -> CInt {
-    let rv = g_type_get_instance_count(type)
-    return rv
+public func typeGetInstanceCount(type: GType) -> Int {
+    let rv: Int = cast(g_type_get_instance_count(type))
+    return cast(rv)
 }
 
 
@@ -1784,7 +1785,7 @@ public func typeGetInstanceCount(type: GType) -> CInt {
 
 /// Returns the `GTypePlugin` structure for `type`.
 public func typeGetPlugin(type: GType) -> UnsafeMutablePointer<GTypePlugin>! {
-    let rv = g_type_get_plugin(type)
+    let rv: UnsafeMutablePointer<GTypePlugin>! = cast(g_type_get_plugin(type))
     return cast(rv)
 }
 
@@ -1798,7 +1799,7 @@ public func typeGetPlugin(type: GType) -> UnsafeMutablePointer<GTypePlugin>! {
 /// attached to one type with `g_type_set_qdata()` cannot
 /// be retrieved from a subtype using `g_type_get_qdata()`.
 public func typeGetQdata(type: GType, quark: GLib.Quark) -> UnsafeMutableRawPointer! {
-    let rv = g_type_get_qdata(type, quark)
+    let rv: UnsafeMutableRawPointer! = cast(g_type_get_qdata(type, quark))
     return cast(rv)
 }
 
@@ -1810,9 +1811,9 @@ public func typeGetQdata(type: GType, quark: GLib.Quark) -> UnsafeMutableRawPoin
 /// which means you can cache information based on type lookups (such as
 /// `g_type_from_name()`) and know if the cache is still valid at a later
 /// time by comparing the current serial with the one at the type lookup.
-public func typeGetTypeRegistrationSerial() -> CUnsignedInt {
-    let rv = g_type_get_type_registration_serial()
-    return CUnsignedInt(rv)
+public func typeGetTypeRegistrationSerial() -> Int {
+    let rv: Int = cast(g_type_get_type_registration_serial())
+    return Int(rv)
 }
 
 
@@ -1842,7 +1843,7 @@ public func typeGetTypeRegistrationSerial() -> CUnsignedInt {
 /// **type_init_with_debug_flags is deprecated:**
 /// the type system is now initialised automatically
 @available(*, deprecated) public func typeInitWith(debugFlags debug_flags: TypeDebugFlags) {
-    g_type_init_with_debug_flags(debug_flags)
+    g_type_init_with_debug_flags(debug_flags.value)
 
 }
 
@@ -1867,7 +1868,7 @@ public func typeInterfaceAddPrerequisite(interfaceType interface_type: GType, pr
 /// if `interface_type` has not been added to `instance_type` or does
 /// not have a `GTypePlugin` structure. See `g_type_add_interface_dynamic()`.
 public func typeInterfaceGetPlugin(instanceType instance_type: GType, interfaceType interface_type: GType) -> UnsafeMutablePointer<GTypePlugin>! {
-    let rv = g_type_interface_get_plugin(instance_type, interface_type)
+    let rv: UnsafeMutablePointer<GTypePlugin>! = cast(g_type_interface_get_plugin(instance_type, interface_type))
     return cast(rv)
 }
 
@@ -1877,7 +1878,7 @@ public func typeInterfaceGetPlugin(instanceType instance_type: GType, interfaceT
 /// Returns the `GTypeInterface` structure of an interface to which the
 /// passed in class conforms.
 public func typeInterfacePeek(instanceClass instance_class: TypeClassProtocol, ifaceType iface_type: GType) -> UnsafeMutableRawPointer! {
-    let rv = g_type_interface_peek(cast(instance_class.ptr), iface_type)
+    let rv: UnsafeMutableRawPointer! = cast(g_type_interface_peek(cast(instance_class.ptr), iface_type))
     return cast(rv)
 }
 
@@ -1886,7 +1887,7 @@ public func typeInterfacePeek(instanceClass instance_class: TypeClassProtocol, i
 
 /// Returns the prerequisites of an interfaces type.
 public func typeInterfacePrerequisites(interfaceType interface_type: GType, nPrerequisites n_prerequisites: UnsafeMutablePointer<CUnsignedInt>) -> UnsafeMutablePointer<GType>! {
-    let rv = g_type_interface_prerequisites(interface_type, cast(n_prerequisites))
+    let rv: UnsafeMutablePointer<GType>! = cast(g_type_interface_prerequisites(interface_type, cast(n_prerequisites)))
     return cast(rv)
 }
 
@@ -1896,7 +1897,7 @@ public func typeInterfacePrerequisites(interfaceType interface_type: GType, nPre
 /// Return a newly allocated and 0-terminated array of type IDs, listing
 /// the interface types that `type` conforms to.
 public func typeInterfaces(type: GType, nInterfaces n_interfaces: UnsafeMutablePointer<CUnsignedInt>) -> UnsafeMutablePointer<GType>! {
-    let rv = g_type_interfaces(type, cast(n_interfaces))
+    let rv: UnsafeMutablePointer<GType>! = cast(g_type_interfaces(type, cast(n_interfaces)))
     return cast(rv)
 }
 
@@ -1920,24 +1921,24 @@ public func typeIsA(type: GType, isAType is_a_type: GType) -> Bool {
 /// other validly registered type ID, but randomized type IDs should
 /// not be passed in and will most likely lead to a crash.
 public func typeName(type: GType) -> String! {
-    let rv = g_type_name(type)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_type_name(type))
+    return cast(rv)
 }
 
 
 
 
 public func typeNameFromClass(gClass g_class: TypeClassProtocol) -> String! {
-    let rv = g_type_name_from_class(cast(g_class.ptr))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_type_name_from_class(cast(g_class.ptr)))
+    return cast(rv)
 }
 
 
 
 
 public func typeNameFrom(instance: TypeInstanceProtocol) -> String! {
-    let rv = g_type_name_from_instance(cast(instance.ptr))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_type_name_from_instance(cast(instance.ptr)))
+    return cast(rv)
 }
 
 
@@ -1952,7 +1953,7 @@ public func typeNameFrom(instance: TypeInstanceProtocol) -> String! {
 /// descended from the root type.
 public func typeNextBase(leafType leaf_type: GType, rootType root_type: GType) -> GType {
     let rv = g_type_next_base(leaf_type, root_type)
-    return rv
+    return cast(rv)
 }
 
 
@@ -1962,7 +1963,7 @@ public func typeNextBase(leafType leaf_type: GType, rootType root_type: GType) -
 /// in type has no parent, i.e. is a fundamental type, 0 is returned.
 public func typeParent(type: GType) -> GType {
     let rv = g_type_parent(type)
-    return rv
+    return cast(rv)
 }
 
 
@@ -1971,7 +1972,7 @@ public func typeParent(type: GType) -> GType {
 /// Get the corresponding quark of the type IDs name.
 public func typeQname(type: GType) -> GQuark {
     let rv = g_type_qname(type)
-    return rv
+    return cast(rv)
 }
 
 
@@ -1997,8 +1998,8 @@ public func typeQuery(type: GType, query: TypeQueryProtocol) {
 /// instances (if not abstract).  The value of `flags` determines the nature
 /// (e.g. abstract or not) of the type.
 public func typeRegisterDynamic(parentType parent_type: GType, typeName type_name: UnsafePointer<gchar>, plugin: TypePluginProtocol, flags: TypeFlags) -> GType {
-    let rv = g_type_register_dynamic(parent_type, type_name, cast(plugin.ptr), flags)
-    return rv
+    let rv = g_type_register_dynamic(parent_type, type_name, cast(plugin.ptr), flags.value)
+    return cast(rv)
 }
 
 
@@ -2012,8 +2013,8 @@ public func typeRegisterDynamic(parentType parent_type: GType, typeName type_nam
 /// `finfo` to manage the type and its instances. The value of `flags` determines
 /// additional characteristics of the fundamental type.
 public func typeRegisterFundamental(typeID type_id: GType, typeName type_name: UnsafePointer<gchar>, info: TypeInfoProtocol, finfo: TypeFundamentalInfoProtocol, flags: TypeFlags) -> GType {
-    let rv = g_type_register_fundamental(type_id, type_name, cast(info.ptr), cast(finfo.ptr), flags)
-    return rv
+    let rv = g_type_register_fundamental(type_id, type_name, cast(info.ptr), cast(finfo.ptr), flags.value)
+    return cast(rv)
 }
 
 
@@ -2025,8 +2026,8 @@ public func typeRegisterFundamental(typeID type_id: GType, typeName type_name: U
 /// instances (if not abstract). The value of `flags` determines the nature
 /// (e.g. abstract or not) of the type.
 public func typeRegisterStatic(parentType parent_type: GType, typeName type_name: UnsafePointer<gchar>, info: TypeInfoProtocol, flags: TypeFlags) -> GType {
-    let rv = g_type_register_static(parent_type, type_name, cast(info.ptr), flags)
-    return rv
+    let rv = g_type_register_static(parent_type, type_name, cast(info.ptr), flags.value)
+    return cast(rv)
 }
 
 
@@ -2037,8 +2038,8 @@ public func typeRegisterStatic(parentType parent_type: GType, typeName type_name
 /// abstract or not) of the type. It works by filling a `GTypeInfo`
 /// struct and calling `g_type_register_static()`.
 public func typeRegisterStaticSimple(parentType parent_type: GType, typeName type_name: UnsafePointer<gchar>, classSize class_size: CUnsignedInt, classInit class_init: @escaping ClassInitFunc, instanceSize instance_size: CUnsignedInt, instanceInit instance_init: @escaping InstanceInitFunc, flags: TypeFlags) -> GType {
-    let rv = g_type_register_static_simple(parent_type, type_name, guint(class_size), class_init, guint(instance_size), instance_init, flags)
-    return rv
+    let rv = g_type_register_static_simple(parent_type, type_name, guint(class_size), class_init, guint(instance_size), instance_init, flags.value)
+    return cast(rv)
 }
 
 
@@ -2088,7 +2089,7 @@ public func typeTestFlags(type: GType, flags: CUnsignedInt) -> Bool {
 /// that implements or has internal knowledge of the implementation of
 /// `type`.
 public func typeValueTablePeek(type: GType) -> UnsafeMutablePointer<GTypeValueTable>! {
-    let rv = g_type_value_table_peek(type)
+    let rv: UnsafeMutablePointer<GTypeValueTable>! = cast(g_type_value_table_peek(type))
     return cast(rv)
 }
 

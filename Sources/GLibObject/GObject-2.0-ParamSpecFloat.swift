@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecFloat Class
 
@@ -10,7 +11,7 @@ import GLib
 ///
 /// A `GParamSpec` derived structure that contains the meta data for float properties.
 public protocol ParamSpecFloatProtocol: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpecFloat` instance.
+        /// Untyped pointer to the underlying `GParamSpecFloat` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecFloat` instance.
@@ -23,7 +24,7 @@ public protocol ParamSpecFloatProtocol: ParamSpecProtocol {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for float properties.
 public struct ParamSpecFloatRef: ParamSpecFloatProtocol {
-    /// Untyped pointer to the underlying `GParamSpecFloat` instance.
+        /// Untyped pointer to the underlying `GParamSpecFloat` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_float_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -76,7 +77,7 @@ public extension ParamSpecFloatRef {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for float properties.
 open class ParamSpecFloat: ParamSpec, ParamSpecFloatProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecFloat` instance.
     /// - Parameter op: pointer to the underlying object
@@ -158,14 +159,63 @@ open class ParamSpecFloat: ParamSpec, ParamSpecFloatProtocol {
 
 }
 
-// MARK: - no ParamSpecFloat properties
+// MARK: no ParamSpecFloat properties
 
-// MARK: - no signals
+// MARK: no ParamSpecFloat signals
 
 
+// MARK: ParamSpecFloat Class: ParamSpecFloatProtocol extension (methods and fields)
 public extension ParamSpecFloatProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecFloat` instance.
     var param_spec_float_ptr: UnsafeMutablePointer<GParamSpecFloat> { return ptr.assumingMemoryBound(to: GParamSpecFloat.self) }
+
+
+    /// private `GParamSpec` portion
+    var parentInstance: GParamSpec {
+        /// private `GParamSpec` portion
+        get {
+            let rv: GParamSpec = cast(param_spec_float_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    /// minimum value for the property specified
+    var minimum: Float {
+        /// minimum value for the property specified
+        get {
+            let rv: Float = cast(param_spec_float_ptr.pointee.minimum)
+            return rv
+        }
+    }
+
+    /// maximum value for the property specified
+    var maximum: Float {
+        /// maximum value for the property specified
+        get {
+            let rv: Float = cast(param_spec_float_ptr.pointee.maximum)
+            return rv
+        }
+    }
+
+    /// default value for the property specified
+    var defaultValue: Float {
+        /// default value for the property specified
+        get {
+            let rv: Float = cast(param_spec_float_ptr.pointee.default_value)
+            return rv
+        }
+    }
+
+    /// values closer than `epsilon` will be considered identical
+    ///  by `g_param_values_cmp()`; the default value is 1e-30.
+    var epsilon: Float {
+        /// values closer than `epsilon` will be considered identical
+        ///  by `g_param_values_cmp()`; the default value is 1e-30.
+        get {
+            let rv: Float = cast(param_spec_float_ptr.pointee.epsilon)
+            return rv
+        }
+    }
 
 }
 

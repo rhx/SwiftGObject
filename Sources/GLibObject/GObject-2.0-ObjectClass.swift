@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ObjectClass Record
 
@@ -37,7 +38,7 @@ import GLib
 /// ```
 /// 
 public protocol ObjectClassProtocol {
-    /// Untyped pointer to the underlying `GObjectClass` instance.
+        /// Untyped pointer to the underlying `GObjectClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GObjectClass` instance.
@@ -77,7 +78,7 @@ public protocol ObjectClassProtocol {
 /// ```
 /// 
 public struct ObjectClassRef: ObjectClassProtocol {
-    /// Untyped pointer to the underlying `GObjectClass` instance.
+        /// Untyped pointer to the underlying `GObjectClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -157,7 +158,7 @@ public extension ObjectClassRef {
 /// ```
 /// 
 open class ObjectClass: ObjectClassProtocol {
-    /// Untyped pointer to the underlying `GObjectClass` instance.
+        /// Untyped pointer to the underlying `GObjectClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -186,7 +187,7 @@ open class ObjectClass: ObjectClassProtocol {
         // no reference counting for GObjectClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GObjectClass`.
+    /// Do-nothing destructor for `GObjectClass`.
     deinit {
         // no reference counting for GObjectClass, cannot unref(cast(_ptr))
     }
@@ -254,18 +255,19 @@ open class ObjectClass: ObjectClassProtocol {
 
 }
 
-// MARK: - no ObjectClass properties
+// MARK: no ObjectClass properties
 
-// MARK: - no signals
+// MARK: no ObjectClass signals
 
 
+// MARK: ObjectClass Record: ObjectClassProtocol extension (methods and fields)
 public extension ObjectClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GObjectClass` instance.
     var _ptr: UnsafeMutablePointer<GObjectClass> { return ptr.assumingMemoryBound(to: GObjectClass.self) }
 
     /// Looks up the `GParamSpec` for a property of a class.
     func findProperty(propertyName property_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GParamSpec>! {
-        let rv = g_object_class_find_property(cast(_ptr), property_name)
+        let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_object_class_find_property(cast(_ptr), property_name))
         return cast(rv)
     }
 
@@ -355,7 +357,7 @@ public extension ObjectClassProtocol {
 
     /// Get an array of `GParamSpec`* for all properties of a class.
     func listProperties(nProperties n_properties: UnsafeMutablePointer<CUnsignedInt>) -> UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>>! {
-        let rv = g_object_class_list_properties(cast(_ptr), cast(n_properties))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>>! = cast(g_object_class_list_properties(cast(_ptr), cast(n_properties)))
         return cast(rv)
     }
 
@@ -379,6 +381,38 @@ public extension ObjectClassProtocol {
         g_object_class_override_property(cast(_ptr), guint(property_id), name)
     
     }
+
+    /// the parent class
+    var gTypeClass: GTypeClass {
+        /// the parent class
+        get {
+            let rv: GTypeClass = cast(_ptr.pointee.g_type_class)
+            return rv
+        }
+    }
+
+    // var constructProperties is unavailable because construct_properties is private
+
+    // var constructor is unavailable because constructor is void
+
+    // var setProperty is unavailable because set_property is void
+
+    // var getProperty is unavailable because get_property is void
+
+    // var dispose is unavailable because dispose is void
+
+    // var finalize is unavailable because finalize is void
+
+    // var dispatchPropertiesChanged is unavailable because dispatch_properties_changed is void
+
+    // var notify is unavailable because notify is void
+
+    // var constructed is unavailable because constructed is void
+
+    // var flags is unavailable because flags is private
+
+    // var pdummy is unavailable because pdummy is private
+
 }
 
 

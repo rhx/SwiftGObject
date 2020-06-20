@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - TypeModuleClass Record
 
@@ -11,7 +12,7 @@ import GLib
 /// In order to implement dynamic loading of types based on `GTypeModule`,
 /// the `load` and `unload` functions in `GTypeModuleClass` must be implemented.
 public protocol TypeModuleClassProtocol {
-    /// Untyped pointer to the underlying `GTypeModuleClass` instance.
+        /// Untyped pointer to the underlying `GTypeModuleClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTypeModuleClass` instance.
@@ -25,7 +26,7 @@ public protocol TypeModuleClassProtocol {
 /// In order to implement dynamic loading of types based on `GTypeModule`,
 /// the `load` and `unload` functions in `GTypeModuleClass` must be implemented.
 public struct TypeModuleClassRef: TypeModuleClassProtocol {
-    /// Untyped pointer to the underlying `GTypeModuleClass` instance.
+        /// Untyped pointer to the underlying `GTypeModuleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension TypeModuleClassRef {
 /// In order to implement dynamic loading of types based on `GTypeModule`,
 /// the `load` and `unload` functions in `GTypeModuleClass` must be implemented.
 open class TypeModuleClass: TypeModuleClassProtocol {
-    /// Untyped pointer to the underlying `GTypeModuleClass` instance.
+        /// Untyped pointer to the underlying `GTypeModuleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -108,7 +109,7 @@ open class TypeModuleClass: TypeModuleClassProtocol {
         // no reference counting for GTypeModuleClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTypeModuleClass`.
+    /// Do-nothing destructor for `GTypeModuleClass`.
     deinit {
         // no reference counting for GTypeModuleClass, cannot unref(cast(_ptr))
     }
@@ -176,14 +177,37 @@ open class TypeModuleClass: TypeModuleClassProtocol {
 
 }
 
-// MARK: - no TypeModuleClass properties
+// MARK: no TypeModuleClass properties
 
-// MARK: - no signals
+// MARK: no TypeModuleClass signals
 
 
+// MARK: TypeModuleClass Record: TypeModuleClassProtocol extension (methods and fields)
 public extension TypeModuleClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTypeModuleClass` instance.
     var _ptr: UnsafeMutablePointer<GTypeModuleClass> { return ptr.assumingMemoryBound(to: GTypeModuleClass.self) }
+
+
+    /// the parent class
+    var parentClass: GObjectClass {
+        /// the parent class
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var load is unavailable because load is void
+
+    // var unload is unavailable because unload is void
+
+    // var reserved1 is unavailable because reserved1 is void
+
+    // var reserved2 is unavailable because reserved2 is void
+
+    // var reserved3 is unavailable because reserved3 is void
+
+    // var reserved4 is unavailable because reserved4 is void
 
 }
 

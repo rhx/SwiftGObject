@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - TypeValueTable Record
 
@@ -11,7 +12,7 @@ import GLib
 /// The `GTypeValueTable` provides the functions required by the `GValue`
 /// implementation, to serve as a container for values of a type.
 public protocol TypeValueTableProtocol {
-    /// Untyped pointer to the underlying `GTypeValueTable` instance.
+        /// Untyped pointer to the underlying `GTypeValueTable` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTypeValueTable` instance.
@@ -25,7 +26,7 @@ public protocol TypeValueTableProtocol {
 /// The `GTypeValueTable` provides the functions required by the `GValue`
 /// implementation, to serve as a container for values of a type.
 public struct TypeValueTableRef: TypeValueTableProtocol {
-    /// Untyped pointer to the underlying `GTypeValueTable` instance.
+        /// Untyped pointer to the underlying `GTypeValueTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -76,7 +77,7 @@ public extension TypeValueTableRef {
     /// that implements or has internal knowledge of the implementation of
     /// `type`.
     static func peek(type: GType) -> TypeValueTableRef! {
-        let rv = g_type_value_table_peek(type)
+        let rv: UnsafeMutablePointer<GTypeValueTable>! = cast(g_type_value_table_peek(type))
         return rv.map { TypeValueTableRef(cast($0)) }
     }
 }
@@ -88,7 +89,7 @@ public extension TypeValueTableRef {
 /// The `GTypeValueTable` provides the functions required by the `GValue`
 /// implementation, to serve as a container for values of a type.
 open class TypeValueTable: TypeValueTableProtocol {
-    /// Untyped pointer to the underlying `GTypeValueTable` instance.
+        /// Untyped pointer to the underlying `GTypeValueTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -117,7 +118,7 @@ open class TypeValueTable: TypeValueTableProtocol {
         // no reference counting for GTypeValueTable, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTypeValueTable`.
+    /// Do-nothing destructor for `GTypeValueTable`.
     deinit {
         // no reference counting for GTypeValueTable, cannot unref(cast(_ptr))
     }
@@ -188,20 +189,99 @@ open class TypeValueTable: TypeValueTableProtocol {
     /// that implements or has internal knowledge of the implementation of
     /// `type`.
     public static func peek(type: GType) -> TypeValueTable! {
-        let rv = g_type_value_table_peek(type)
+        let rv: UnsafeMutablePointer<GTypeValueTable>! = cast(g_type_value_table_peek(type))
         return rv.map { TypeValueTable(cast($0)) }
     }
 
 }
 
-// MARK: - no TypeValueTable properties
+// MARK: no TypeValueTable properties
 
-// MARK: - no signals
+// MARK: no TypeValueTable signals
 
 
+// MARK: TypeValueTable Record: TypeValueTableProtocol extension (methods and fields)
 public extension TypeValueTableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTypeValueTable` instance.
     var _ptr: UnsafeMutablePointer<GTypeValueTable> { return ptr.assumingMemoryBound(to: GTypeValueTable.self) }
+
+
+    // var valueInit is unavailable because value_init is void
+
+    // var valueFree is unavailable because value_free is void
+
+    // var valueCopy is unavailable because value_copy is void
+
+    // var valuePeekPointer is unavailable because value_peek_pointer is void
+
+    /// A string format describing how to collect the contents of
+    ///  this value bit-by-bit. Each character in the format represents
+    ///  an argument to be collected, and the characters themselves indicate
+    ///  the type of the argument. Currently supported arguments are:
+    ///  - 'i' - Integers. passed as collect_values[].v_int.
+    ///  - 'l' - Longs. passed as collect_values[].v_long.
+    ///  - 'd' - Doubles. passed as collect_values[].v_double.
+    ///  - 'p' - Pointers. passed as collect_values[].v_pointer.
+    ///  It should be noted that for variable argument list construction,
+    ///  ANSI C promotes every type smaller than an integer to an int, and
+    ///  floats to doubles. So for collection of short int or char, 'i'
+    ///  needs to be used, and for collection of floats 'd'.
+    var collectFormat: UnsafePointer<CChar> {
+        /// A string format describing how to collect the contents of
+        ///  this value bit-by-bit. Each character in the format represents
+        ///  an argument to be collected, and the characters themselves indicate
+        ///  the type of the argument. Currently supported arguments are:
+        ///  - 'i' - Integers. passed as collect_values[].v_int.
+        ///  - 'l' - Longs. passed as collect_values[].v_long.
+        ///  - 'd' - Doubles. passed as collect_values[].v_double.
+        ///  - 'p' - Pointers. passed as collect_values[].v_pointer.
+        ///  It should be noted that for variable argument list construction,
+        ///  ANSI C promotes every type smaller than an integer to an int, and
+        ///  floats to doubles. So for collection of short int or char, 'i'
+        ///  needs to be used, and for collection of floats 'd'.
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.collect_format)
+            return rv
+        }
+        /// A string format describing how to collect the contents of
+        ///  this value bit-by-bit. Each character in the format represents
+        ///  an argument to be collected, and the characters themselves indicate
+        ///  the type of the argument. Currently supported arguments are:
+        ///  - 'i' - Integers. passed as collect_values[].v_int.
+        ///  - 'l' - Longs. passed as collect_values[].v_long.
+        ///  - 'd' - Doubles. passed as collect_values[].v_double.
+        ///  - 'p' - Pointers. passed as collect_values[].v_pointer.
+        ///  It should be noted that for variable argument list construction,
+        ///  ANSI C promotes every type smaller than an integer to an int, and
+        ///  floats to doubles. So for collection of short int or char, 'i'
+        ///  needs to be used, and for collection of floats 'd'.
+         set {
+            _ptr.pointee.collect_format = cast(newValue)
+        }
+    }
+
+    // var collectValue is unavailable because collect_value is void
+
+    /// Format description of the arguments to collect for `lcopy_value`,
+    ///  analogous to `collect_format`. Usually, `lcopy_format` string consists
+    ///  only of 'p's to provide `lcopy_value()` with pointers to storage locations.
+    var lcopyFormat: UnsafePointer<CChar> {
+        /// Format description of the arguments to collect for `lcopy_value`,
+        ///  analogous to `collect_format`. Usually, `lcopy_format` string consists
+        ///  only of 'p's to provide `lcopy_value()` with pointers to storage locations.
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.lcopy_format)
+            return rv
+        }
+        /// Format description of the arguments to collect for `lcopy_value`,
+        ///  analogous to `collect_format`. Usually, `lcopy_format` string consists
+        ///  only of 'p's to provide `lcopy_value()` with pointers to storage locations.
+         set {
+            _ptr.pointee.lcopy_format = cast(newValue)
+        }
+    }
+
+    // var lcopyValue is unavailable because lcopy_value is void
 
 }
 

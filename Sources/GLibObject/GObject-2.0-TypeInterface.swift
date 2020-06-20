@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - TypeInterface Record
 
@@ -10,7 +11,7 @@ import GLib
 ///
 /// An opaque structure used as the base of all interface types.
 public protocol TypeInterfaceProtocol {
-    /// Untyped pointer to the underlying `GTypeInterface` instance.
+        /// Untyped pointer to the underlying `GTypeInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTypeInterface` instance.
@@ -23,7 +24,7 @@ public protocol TypeInterfaceProtocol {
 ///
 /// An opaque structure used as the base of all interface types.
 public struct TypeInterfaceRef: TypeInterfaceProtocol {
-    /// Untyped pointer to the underlying `GTypeInterface` instance.
+        /// Untyped pointer to the underlying `GTypeInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -71,7 +72,7 @@ public extension TypeInterfaceRef {
         /// Returns the `GTypeInterface` structure of an interface to which the
     /// passed in class conforms.
     static func peek(instanceClass instance_class: TypeClassProtocol, ifaceType iface_type: GType) -> TypeInterfaceRef! {
-        let rv = g_type_interface_peek(cast(instance_class.ptr), iface_type)
+        let rv: UnsafeMutableRawPointer! = cast(g_type_interface_peek(cast(instance_class.ptr), iface_type))
         return rv.map { TypeInterfaceRef(cast($0)) }
     }
 }
@@ -82,7 +83,7 @@ public extension TypeInterfaceRef {
 ///
 /// An opaque structure used as the base of all interface types.
 open class TypeInterface: TypeInterfaceProtocol {
-    /// Untyped pointer to the underlying `GTypeInterface` instance.
+        /// Untyped pointer to the underlying `GTypeInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -111,7 +112,7 @@ open class TypeInterface: TypeInterfaceProtocol {
         // no reference counting for GTypeInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTypeInterface`.
+    /// Do-nothing destructor for `GTypeInterface`.
     deinit {
         // no reference counting for GTypeInterface, cannot unref(cast(_ptr))
     }
@@ -179,17 +180,18 @@ open class TypeInterface: TypeInterfaceProtocol {
     /// Returns the `GTypeInterface` structure of an interface to which the
     /// passed in class conforms.
     public static func peek(instanceClass instance_class: TypeClassProtocol, ifaceType iface_type: GType) -> TypeInterface! {
-        let rv = g_type_interface_peek(cast(instance_class.ptr), iface_type)
+        let rv: UnsafeMutableRawPointer! = cast(g_type_interface_peek(cast(instance_class.ptr), iface_type))
         return rv.map { TypeInterface(cast($0)) }
     }
 
 }
 
-// MARK: - no TypeInterface properties
+// MARK: no TypeInterface properties
 
-// MARK: - no signals
+// MARK: no TypeInterface signals
 
 
+// MARK: TypeInterface Record: TypeInterfaceProtocol extension (methods and fields)
 public extension TypeInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTypeInterface` instance.
     var _ptr: UnsafeMutablePointer<GTypeInterface> { return ptr.assumingMemoryBound(to: GTypeInterface.self) }
@@ -199,7 +201,7 @@ public extension TypeInterfaceProtocol {
     /// deriving the implementation of an interface from the parent type and
     /// then possibly overriding some methods.
     func peekParent() -> UnsafeMutableRawPointer! {
-        let rv = g_type_interface_peek_parent(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_type_interface_peek_parent(cast(_ptr)))
         return cast(rv)
     }
 
@@ -212,6 +214,11 @@ public extension TypeInterfaceProtocol {
         g_type_default_interface_unref(cast(_ptr))
     
     }
+
+    // var gType is unavailable because g_type is private
+
+    // var gInstanceType is unavailable because g_instance_type is private
+
 }
 
 

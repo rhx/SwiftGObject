@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - Value Record
 
@@ -17,7 +18,7 @@ import GLib
 /// within the 2 element `data` union, and the `g_type` member should
 /// only be accessed through the `G_VALUE_TYPE()` macro.
 public protocol ValueProtocol {
-    /// Untyped pointer to the underlying `GValue` instance.
+        /// Untyped pointer to the underlying `GValue` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GValue` instance.
@@ -37,7 +38,7 @@ public protocol ValueProtocol {
 /// within the 2 element `data` union, and the `g_type` member should
 /// only be accessed through the `G_VALUE_TYPE()` macro.
 public struct ValueRef: ValueProtocol {
-    /// Untyped pointer to the underlying `GValue` instance.
+        /// Untyped pointer to the underlying `GValue` instance.
     /// For type-safe access, use the generated, typed pointer `value_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -97,7 +98,7 @@ public extension ValueRef {
 /// within the 2 element `data` union, and the `g_type` member should
 /// only be accessed through the `G_VALUE_TYPE()` macro.
 open class ValueBase: ValueProtocol {
-    /// Untyped pointer to the underlying `GValue` instance.
+        /// Untyped pointer to the underlying `GValue` instance.
     /// For type-safe access, use the generated, typed pointer `value_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -126,7 +127,7 @@ open class ValueBase: ValueProtocol {
         // no reference counting for GValue, cannot ref(cast(value_ptr))
     }
 
-    /// Do-nothing destructor for`GValue`.
+    /// Do-nothing destructor for `GValue`.
     deinit {
         // no reference counting for GValue, cannot unref(cast(value_ptr))
     }
@@ -194,11 +195,12 @@ open class ValueBase: ValueProtocol {
 
 }
 
-// MARK: - no Value properties
+// MARK: no Value properties
 
-// MARK: - no signals
+// MARK: no Value signals
 
 
+// MARK: Value Record: ValueProtocol extension (methods and fields)
 public extension ValueProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GValue` instance.
     var value_ptr: UnsafeMutablePointer<GValue> { return ptr.assumingMemoryBound(to: GValue.self) }
@@ -214,7 +216,7 @@ public extension ValueProtocol {
     /// `g_boxed_free()`, e.g. like: g_boxed_free (G_VALUE_TYPE (`value`),
     /// return_value);
     func dupBoxed() -> UnsafeMutableRawPointer! {
-        let rv = g_value_dup_boxed(cast(value_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_value_dup_boxed(cast(value_ptr)))
         return cast(rv)
     }
 
@@ -222,27 +224,27 @@ public extension ValueProtocol {
     /// its reference count. If the contents of the `GValue` are `nil`, then
     /// `nil` will be returned.
     func dupObject() -> UnsafeMutableRawPointer! {
-        let rv = g_value_dup_object(cast(value_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_value_dup_object(cast(value_ptr)))
         return cast(rv)
     }
 
     /// Get the contents of a `G_TYPE_PARAM` `GValue`, increasing its
     /// reference count.
     func dupParam() -> UnsafeMutablePointer<GParamSpec>! {
-        let rv = g_value_dup_param(cast(value_ptr))
+        let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_value_dup_param(cast(value_ptr)))
         return cast(rv)
     }
 
     /// Get a copy the contents of a `G_TYPE_STRING` `GValue`.
     func dupString() -> String! {
-        let rv = g_value_dup_string(cast(value_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_value_dup_string(cast(value_ptr)))
+        return cast(rv)
     }
 
     /// Get the contents of a variant `GValue`, increasing its refcount. The returned
     /// `GVariant` is never floating.
     func dupVariant() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_value_dup_variant(cast(value_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_value_dup_variant(cast(value_ptr)))
         return cast(rv)
     }
 
@@ -261,7 +263,7 @@ public extension ValueProtocol {
 
     /// Get the contents of a `G_TYPE_BOXED` derived `GValue`.
     func getBoxed() -> UnsafeMutableRawPointer! {
-        let rv = g_value_get_boxed(cast(value_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_value_get_boxed(cast(value_ptr)))
         return cast(rv)
     }
 
@@ -274,43 +276,43 @@ public extension ValueProtocol {
     /// This function's return type is broken, see g_value_get_schar()
     @available(*, deprecated) func getChar() -> gchar {
         let rv = g_value_get_char(cast(value_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Get the contents of a `G_TYPE_DOUBLE` `GValue`.
-    func getDouble() -> gdouble {
-        let rv = g_value_get_double(cast(value_ptr))
-        return rv
+    func getDouble() -> Double {
+        let rv: Double = cast(g_value_get_double(cast(value_ptr)))
+        return cast(rv)
     }
 
     /// Get the contents of a `G_TYPE_ENUM` `GValue`.
-    func getEnum() -> CInt {
-        let rv = g_value_get_enum(cast(value_ptr))
-        return CInt(rv)
+    func getEnum() -> Int {
+        let rv: Int = cast(g_value_get_enum(cast(value_ptr)))
+        return Int(rv)
     }
 
     /// Get the contents of a `G_TYPE_FLAGS` `GValue`.
-    func getFlags() -> CUnsignedInt {
-        let rv = g_value_get_flags(cast(value_ptr))
-        return CUnsignedInt(rv)
+    func getFlags() -> Int {
+        let rv: Int = cast(g_value_get_flags(cast(value_ptr)))
+        return Int(rv)
     }
 
     /// Get the contents of a `G_TYPE_FLOAT` `GValue`.
-    func getFloat() -> gfloat {
-        let rv = g_value_get_float(cast(value_ptr))
-        return rv
+    func getFloat() -> Float {
+        let rv: Float = cast(g_value_get_float(cast(value_ptr)))
+        return cast(rv)
     }
 
     /// Get the contents of a `G_TYPE_GTYPE` `GValue`.
     func getGtype() -> GType {
         let rv = g_value_get_gtype(cast(value_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Get the contents of a `G_TYPE_INT` `GValue`.
-    func getInt() -> CInt {
-        let rv = g_value_get_int(cast(value_ptr))
-        return CInt(rv)
+    func getInt() -> Int {
+        let rv: Int = cast(g_value_get_int(cast(value_ptr)))
+        return Int(rv)
     }
 
     /// Get the contents of a `G_TYPE_INT64` `GValue`.
@@ -320,26 +322,26 @@ public extension ValueProtocol {
     }
 
     /// Get the contents of a `G_TYPE_LONG` `GValue`.
-    func getLong() -> CLong {
-        let rv = g_value_get_long(cast(value_ptr))
-        return CLong(rv)
+    func getLong() -> Int {
+        let rv: Int = cast(g_value_get_long(cast(value_ptr)))
+        return Int(rv)
     }
 
     /// Get the contents of a `G_TYPE_OBJECT` derived `GValue`.
     func getObject() -> UnsafeMutableRawPointer! {
-        let rv = g_value_get_object(cast(value_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_value_get_object(cast(value_ptr)))
         return cast(rv)
     }
 
     /// Get the contents of a `G_TYPE_PARAM` `GValue`.
     func getParam() -> UnsafeMutablePointer<GParamSpec>! {
-        let rv = g_value_get_param(cast(value_ptr))
+        let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_value_get_param(cast(value_ptr)))
         return cast(rv)
     }
 
     /// Get the contents of a pointer `GValue`.
     func getPointer() -> UnsafeMutableRawPointer! {
-        let rv = g_value_get_pointer(cast(value_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_value_get_pointer(cast(value_ptr)))
         return cast(rv)
     }
 
@@ -351,20 +353,20 @@ public extension ValueProtocol {
 
     /// Get the contents of a `G_TYPE_STRING` `GValue`.
     func getString() -> String! {
-        let rv = g_value_get_string(cast(value_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_value_get_string(cast(value_ptr)))
+        return cast(rv)
     }
 
     /// Get the contents of a `G_TYPE_UCHAR` `GValue`.
     func getUchar() -> guchar {
         let rv = g_value_get_uchar(cast(value_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Get the contents of a `G_TYPE_UINT` `GValue`.
-    func getUint() -> CUnsignedInt {
-        let rv = g_value_get_uint(cast(value_ptr))
-        return CUnsignedInt(rv)
+    func getUint() -> Int {
+        let rv: Int = cast(g_value_get_uint(cast(value_ptr)))
+        return Int(rv)
     }
 
     /// Get the contents of a `G_TYPE_UINT64` `GValue`.
@@ -374,20 +376,20 @@ public extension ValueProtocol {
     }
 
     /// Get the contents of a `G_TYPE_ULONG` `GValue`.
-    func getUlong() -> CUnsignedLong {
-        let rv = g_value_get_ulong(cast(value_ptr))
-        return CUnsignedLong(rv)
+    func getUlong() -> Int {
+        let rv: Int = cast(g_value_get_ulong(cast(value_ptr)))
+        return Int(rv)
     }
 
     /// Get the contents of a variant `GValue`.
     func getVariant() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_value_get_variant(cast(value_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_value_get_variant(cast(value_ptr)))
         return cast(rv)
     }
 
     /// Initializes `value` with the default value of `type`.
     func init_(gType g_type: GType) -> UnsafeMutablePointer<GValue>! {
-        let rv = g_value_init(cast(value_ptr), g_type)
+        let rv: UnsafeMutablePointer<GValue>! = cast(g_value_init(cast(value_ptr), g_type))
         return cast(rv)
     }
 
@@ -407,14 +409,14 @@ public extension ValueProtocol {
     /// `g_value_fits_pointer()` returned `true` for the passed in value.
     /// This is an internal function introduced mainly for C marshallers.
     func peekPointer() -> UnsafeMutableRawPointer! {
-        let rv = g_value_peek_pointer(cast(value_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_value_peek_pointer(cast(value_ptr)))
         return cast(rv)
     }
 
     /// Clears the current value in `value` and resets it to the default value
     /// (as if the value had just been initialized).
     func reset() -> UnsafeMutablePointer<GValue>! {
-        let rv = g_value_reset(cast(value_ptr))
+        let rv: UnsafeMutablePointer<GValue>! = cast(g_value_reset(cast(value_ptr)))
         return cast(rv)
     }
 
@@ -894,9 +896,9 @@ public extension ValueProtocol {
     /// Compares `value1` with `value2` according to `pspec`, and return -1, 0 or +1,
     /// if `value1` is found to be less than, equal to or greater than `value2`,
     /// respectively.
-    func paramValuesCmp(pspec: ParamSpecProtocol, value2: ValueProtocol) -> CInt {
-        let rv = g_param_values_cmp(cast(pspec.ptr), cast(value_ptr), cast(value2.ptr))
-        return CInt(rv)
+    func paramValuesCmp(pspec: ParamSpecProtocol, value2: ValueProtocol) -> Int {
+        let rv: Int = cast(g_param_values_cmp(cast(pspec.ptr), cast(value_ptr), cast(value2.ptr)))
+        return Int(rv)
     }
 
     /// A predefined `GSignalAccumulator` for signals intended to be used as a
@@ -949,8 +951,8 @@ public extension ValueProtocol {
     /// contents for debugging output, the way in which the contents are
     /// described may change between different GLib versions.
     func strdupValueContents() -> String! {
-        let rv = g_strdup_value_contents(cast(value_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_strdup_value_contents(cast(value_ptr)))
+        return cast(rv)
     }
 
     func typeCheckValue() -> Bool {
@@ -979,7 +981,7 @@ public extension ValueProtocol {
     var boxed: UnsafeMutableRawPointer! {
         /// Get the contents of a `G_TYPE_BOXED` derived `GValue`.
         get {
-            let rv = g_value_get_boxed(cast(value_ptr))
+            let rv: UnsafeMutableRawPointer! = cast(g_value_get_boxed(cast(value_ptr)))
             return cast(rv)
         }
         /// Set the contents of a `G_TYPE_BOXED` derived `GValue` to `v_boxed`.
@@ -1005,36 +1007,36 @@ public extension ValueProtocol {
         /// This function's return type is broken, see g_value_get_schar()
         @available(*, deprecated) get {
             let rv = g_value_get_char(cast(value_ptr))
-            return rv
+            return cast(rv)
         }
         /// Set the contents of a `G_TYPE_CHAR` `GValue` to `v_char`.
         ///
         /// **set_char is deprecated:**
         /// This function's input type is broken, see g_value_set_schar()
         @available(*, deprecated) nonmutating set {
-            g_value_set_char(cast(value_ptr), newValue)
+            g_value_set_char(cast(value_ptr), cast(newValue))
         }
     }
 
     /// Get the contents of a `G_TYPE_DOUBLE` `GValue`.
-    var double: gdouble {
+    var double: Double {
         /// Get the contents of a `G_TYPE_DOUBLE` `GValue`.
         get {
-            let rv = g_value_get_double(cast(value_ptr))
-            return rv
+            let rv: Double = cast(g_value_get_double(cast(value_ptr)))
+            return cast(rv)
         }
         /// Set the contents of a `G_TYPE_DOUBLE` `GValue` to `v_double`.
         nonmutating set {
-            g_value_set_double(cast(value_ptr), newValue)
+            g_value_set_double(cast(value_ptr), cast(newValue))
         }
     }
 
     /// Get the contents of a `G_TYPE_ENUM` `GValue`.
-    var enum_: CInt {
+    var `enum`: Int {
         /// Get the contents of a `G_TYPE_ENUM` `GValue`.
         get {
-            let rv = g_value_get_enum(cast(value_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_value_get_enum(cast(value_ptr)))
+            return Int(rv)
         }
         /// Set the contents of a `G_TYPE_ENUM` `GValue` to `v_enum`.
         nonmutating set {
@@ -1043,11 +1045,11 @@ public extension ValueProtocol {
     }
 
     /// Get the contents of a `G_TYPE_FLAGS` `GValue`.
-    var flags: CUnsignedInt {
+    var flags: Int {
         /// Get the contents of a `G_TYPE_FLAGS` `GValue`.
         get {
-            let rv = g_value_get_flags(cast(value_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_value_get_flags(cast(value_ptr)))
+            return Int(rv)
         }
         /// Set the contents of a `G_TYPE_FLAGS` `GValue` to `v_flags`.
         nonmutating set {
@@ -1056,15 +1058,15 @@ public extension ValueProtocol {
     }
 
     /// Get the contents of a `G_TYPE_FLOAT` `GValue`.
-    var float: gfloat {
+    var float: Float {
         /// Get the contents of a `G_TYPE_FLOAT` `GValue`.
         get {
-            let rv = g_value_get_float(cast(value_ptr))
-            return rv
+            let rv: Float = cast(g_value_get_float(cast(value_ptr)))
+            return cast(rv)
         }
         /// Set the contents of a `G_TYPE_FLOAT` `GValue` to `v_float`.
         nonmutating set {
-            g_value_set_float(cast(value_ptr), newValue)
+            g_value_set_float(cast(value_ptr), cast(newValue))
         }
     }
 
@@ -1073,20 +1075,20 @@ public extension ValueProtocol {
         /// Get the contents of a `G_TYPE_GTYPE` `GValue`.
         get {
             let rv = g_value_get_gtype(cast(value_ptr))
-            return rv
+            return cast(rv)
         }
         /// Set the contents of a `G_TYPE_GTYPE` `GValue` to `v_gtype`.
         nonmutating set {
-            g_value_set_gtype(cast(value_ptr), newValue)
+            g_value_set_gtype(cast(value_ptr), cast(newValue))
         }
     }
 
     /// Get the contents of a `G_TYPE_INT` `GValue`.
-    var int: CInt {
+    var int: Int {
         /// Get the contents of a `G_TYPE_INT` `GValue`.
         get {
-            let rv = g_value_get_int(cast(value_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_value_get_int(cast(value_ptr)))
+            return Int(rv)
         }
         /// Set the contents of a `G_TYPE_INT` `GValue` to `v_int`.
         nonmutating set {
@@ -1108,11 +1110,11 @@ public extension ValueProtocol {
     }
 
     /// Get the contents of a `G_TYPE_LONG` `GValue`.
-    var long: CLong {
+    var long: Int {
         /// Get the contents of a `G_TYPE_LONG` `GValue`.
         get {
-            let rv = g_value_get_long(cast(value_ptr))
-            return CLong(rv)
+            let rv: Int = cast(g_value_get_long(cast(value_ptr)))
+            return Int(rv)
         }
         /// Set the contents of a `G_TYPE_LONG` `GValue` to `v_long`.
         nonmutating set {
@@ -1124,7 +1126,7 @@ public extension ValueProtocol {
     var object: UnsafeMutableRawPointer! {
         /// Get the contents of a `G_TYPE_OBJECT` derived `GValue`.
         get {
-            let rv = g_value_get_object(cast(value_ptr))
+            let rv: UnsafeMutableRawPointer! = cast(g_value_get_object(cast(value_ptr)))
             return cast(rv)
         }
         /// Set the contents of a `G_TYPE_OBJECT` derived `GValue` to `v_object`.
@@ -1147,7 +1149,7 @@ public extension ValueProtocol {
     var param: UnsafeMutablePointer<GParamSpec>! {
         /// Get the contents of a `G_TYPE_PARAM` `GValue`.
         get {
-            let rv = g_value_get_param(cast(value_ptr))
+            let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_value_get_param(cast(value_ptr)))
             return cast(rv)
         }
         /// Set the contents of a `G_TYPE_PARAM` `GValue` to `param`.
@@ -1160,7 +1162,7 @@ public extension ValueProtocol {
     var pointer: UnsafeMutableRawPointer! {
         /// Get the contents of a pointer `GValue`.
         get {
-            let rv = g_value_get_pointer(cast(value_ptr))
+            let rv: UnsafeMutableRawPointer! = cast(g_value_get_pointer(cast(value_ptr)))
             return cast(rv)
         }
         /// Set the contents of a pointer `GValue` to `v_pointer`.
@@ -1186,12 +1188,12 @@ public extension ValueProtocol {
     var string: String! {
         /// Get the contents of a `G_TYPE_STRING` `GValue`.
         get {
-            let rv = g_value_get_string(cast(value_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_value_get_string(cast(value_ptr)))
+            return cast(rv)
         }
         /// Set the contents of a `G_TYPE_STRING` `GValue` to `v_string`.
         nonmutating set {
-            g_value_set_string(cast(value_ptr), newValue)
+            g_value_set_string(cast(value_ptr), cast(newValue))
         }
     }
 
@@ -1200,20 +1202,20 @@ public extension ValueProtocol {
         /// Get the contents of a `G_TYPE_UCHAR` `GValue`.
         get {
             let rv = g_value_get_uchar(cast(value_ptr))
-            return rv
+            return cast(rv)
         }
         /// Set the contents of a `G_TYPE_UCHAR` `GValue` to `v_uchar`.
         nonmutating set {
-            g_value_set_uchar(cast(value_ptr), newValue)
+            g_value_set_uchar(cast(value_ptr), cast(newValue))
         }
     }
 
     /// Get the contents of a `G_TYPE_UINT` `GValue`.
-    var uint: CUnsignedInt {
+    var uint: Int {
         /// Get the contents of a `G_TYPE_UINT` `GValue`.
         get {
-            let rv = g_value_get_uint(cast(value_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_value_get_uint(cast(value_ptr)))
+            return Int(rv)
         }
         /// Set the contents of a `G_TYPE_UINT` `GValue` to `v_uint`.
         nonmutating set {
@@ -1235,11 +1237,11 @@ public extension ValueProtocol {
     }
 
     /// Get the contents of a `G_TYPE_ULONG` `GValue`.
-    var ulong: CUnsignedLong {
+    var ulong: Int {
         /// Get the contents of a `G_TYPE_ULONG` `GValue`.
         get {
-            let rv = g_value_get_ulong(cast(value_ptr))
-            return CUnsignedLong(rv)
+            let rv: Int = cast(g_value_get_ulong(cast(value_ptr)))
+            return Int(rv)
         }
         /// Set the contents of a `G_TYPE_ULONG` `GValue` to `v_ulong`.
         nonmutating set {
@@ -1251,7 +1253,7 @@ public extension ValueProtocol {
     var variant: UnsafeMutablePointer<GVariant>! {
         /// Get the contents of a variant `GValue`.
         get {
-            let rv = g_value_get_variant(cast(value_ptr))
+            let rv: UnsafeMutablePointer<GVariant>! = cast(g_value_get_variant(cast(value_ptr)))
             return cast(rv)
         }
         /// Set the contents of a variant `GValue` to `variant`.
@@ -1260,6 +1262,11 @@ public extension ValueProtocol {
             g_value_set_variant(cast(value_ptr), cast(newValue))
         }
     }
+
+    // var gType is unavailable because g_type is private
+
+    // var data is unavailable because data is void
+
 }
 
 

@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ClosureNotifyData Record
 
@@ -10,7 +11,7 @@ import GLib
 ///
 
 public protocol ClosureNotifyDataProtocol {
-    /// Untyped pointer to the underlying `GClosureNotifyData` instance.
+        /// Untyped pointer to the underlying `GClosureNotifyData` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GClosureNotifyData` instance.
@@ -23,7 +24,7 @@ public protocol ClosureNotifyDataProtocol {
 ///
 
 public struct ClosureNotifyDataRef: ClosureNotifyDataProtocol {
-    /// Untyped pointer to the underlying `GClosureNotifyData` instance.
+        /// Untyped pointer to the underlying `GClosureNotifyData` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -76,7 +77,7 @@ public extension ClosureNotifyDataRef {
 ///
 
 open class ClosureNotifyData: ClosureNotifyDataProtocol {
-    /// Untyped pointer to the underlying `GClosureNotifyData` instance.
+        /// Untyped pointer to the underlying `GClosureNotifyData` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -105,7 +106,7 @@ open class ClosureNotifyData: ClosureNotifyDataProtocol {
         // no reference counting for GClosureNotifyData, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GClosureNotifyData`.
+    /// Do-nothing destructor for `GClosureNotifyData`.
     deinit {
         // no reference counting for GClosureNotifyData, cannot unref(cast(_ptr))
     }
@@ -173,14 +174,36 @@ open class ClosureNotifyData: ClosureNotifyDataProtocol {
 
 }
 
-// MARK: - no ClosureNotifyData properties
+// MARK: no ClosureNotifyData properties
 
-// MARK: - no signals
+// MARK: no ClosureNotifyData signals
 
 
+// MARK: ClosureNotifyData Record: ClosureNotifyDataProtocol extension (methods and fields)
 public extension ClosureNotifyDataProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GClosureNotifyData` instance.
     var _ptr: UnsafeMutablePointer<GClosureNotifyData> { return ptr.assumingMemoryBound(to: GClosureNotifyData.self) }
+
+
+    var data: UnsafeMutableRawPointer {
+        get {
+            let rv: UnsafeMutableRawPointer = cast(_ptr.pointee.data)
+            return rv
+        }
+         set {
+            _ptr.pointee.data = cast(newValue)
+        }
+    }
+
+    var notify: GClosureNotify {
+        get {
+            let rv: GClosureNotify = cast(_ptr.pointee.notify)
+            return rv
+        }
+         set {
+            _ptr.pointee.notify = cast(newValue)
+        }
+    }
 
 }
 

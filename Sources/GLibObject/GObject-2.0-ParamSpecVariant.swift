@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecVariant Class
 
@@ -16,7 +17,7 @@ import GLib
 /// otherwise undefined. `nil` is ordered before non-`nil` variants. Two `nil`
 /// values compare equal.
 public protocol ParamSpecVariantProtocol: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpecVariant` instance.
+        /// Untyped pointer to the underlying `GParamSpecVariant` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecVariant` instance.
@@ -35,7 +36,7 @@ public protocol ParamSpecVariantProtocol: ParamSpecProtocol {
 /// otherwise undefined. `nil` is ordered before non-`nil` variants. Two `nil`
 /// values compare equal.
 public struct ParamSpecVariantRef: ParamSpecVariantProtocol {
-    /// Untyped pointer to the underlying `GParamSpecVariant` instance.
+        /// Untyped pointer to the underlying `GParamSpecVariant` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_variant_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -94,7 +95,7 @@ public extension ParamSpecVariantRef {
 /// otherwise undefined. `nil` is ordered before non-`nil` variants. Two `nil`
 /// values compare equal.
 open class ParamSpecVariant: ParamSpec, ParamSpecVariantProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecVariant` instance.
     /// - Parameter op: pointer to the underlying object
@@ -176,14 +177,45 @@ open class ParamSpecVariant: ParamSpec, ParamSpecVariantProtocol {
 
 }
 
-// MARK: - no ParamSpecVariant properties
+// MARK: no ParamSpecVariant properties
 
-// MARK: - no signals
+// MARK: no ParamSpecVariant signals
 
 
+// MARK: ParamSpecVariant Class: ParamSpecVariantProtocol extension (methods and fields)
 public extension ParamSpecVariantProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecVariant` instance.
     var param_spec_variant_ptr: UnsafeMutablePointer<GParamSpecVariant> { return ptr.assumingMemoryBound(to: GParamSpecVariant.self) }
+
+
+    /// private `GParamSpec` portion
+    var parentInstance: GParamSpec {
+        /// private `GParamSpec` portion
+        get {
+            let rv: GParamSpec = cast(param_spec_variant_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    /// a `GVariantType`, or `nil`
+    var type: UnsafeMutablePointer<GVariantType> {
+        /// a `GVariantType`, or `nil`
+        get {
+            let rv: UnsafeMutablePointer<GVariantType> = cast(param_spec_variant_ptr.pointee.type)
+            return rv
+        }
+    }
+
+    /// a `GVariant`, or `nil`
+    var defaultValue: UnsafeMutablePointer<GVariant> {
+        /// a `GVariant`, or `nil`
+        get {
+            let rv: UnsafeMutablePointer<GVariant> = cast(param_spec_variant_ptr.pointee.default_value)
+            return rv
+        }
+    }
+
+    // var padding is unavailable because padding is private
 
 }
 

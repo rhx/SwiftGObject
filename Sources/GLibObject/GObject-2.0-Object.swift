@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - Object Class
 
@@ -11,7 +12,7 @@ import GLib
 /// All the fields in the GObject structure are private
 /// to the `GObject` implementation and should never be accessed directly.
 public protocol ObjectProtocol {
-    /// Untyped pointer to the underlying `GObject` instance.
+        /// Untyped pointer to the underlying `GObject` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GObject` instance.
@@ -25,7 +26,7 @@ public protocol ObjectProtocol {
 /// All the fields in the GObject structure are private
 /// to the `GObject` implementation and should never be accessed directly.
 public struct ObjectRef: ObjectProtocol {
-    /// Untyped pointer to the underlying `GObject` instance.
+        /// Untyped pointer to the underlying `GObject` instance.
     /// For type-safe access, use the generated, typed pointer `object_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension ObjectRef {
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
     init(valist object_type: GType, firstPropertyName first_property_name: UnsafePointer<gchar>, varArgs var_args: CVaListPointer) {
-        let rv = g_object_new_valist(object_type, first_property_name, var_args)
+        let rv: UnsafeMutablePointer<GObject>! = cast(g_object_new_valist(object_type, first_property_name, var_args))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -90,7 +91,7 @@ public extension ObjectRef {
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
     init(properties object_type: GType, nProperties n_properties: CUnsignedInt, names: UnsafePointer<UnsafePointer<CChar>>, values: UnsafePointer<GValue>) {
-        let rv = g_object_new_with_properties(object_type, guint(n_properties), cast(names), cast(values))
+        let rv: UnsafeMutablePointer<GObject>! = cast(g_object_new_with_properties(object_type, guint(n_properties), cast(names), cast(values)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -103,7 +104,7 @@ public extension ObjectRef {
     /// Use g_object_new_with_properties() instead.
     /// deprecated. See #GParameter for more information.
     @available(*, deprecated) init(objectType object_type: GType, nParameters n_parameters: CUnsignedInt, parameters: UnsafeMutablePointer<GParameter>) {
-        let rv = g_object_newv(object_type, guint(n_parameters), cast(parameters))
+        let rv: UnsafeMutableRawPointer! = cast(g_object_newv(object_type, guint(n_parameters), cast(parameters)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new instance of a `GObject` subtype and sets its properties.
@@ -111,7 +112,7 @@ public extension ObjectRef {
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
     static func new(valist object_type: GType, firstPropertyName first_property_name: UnsafePointer<gchar>, varArgs var_args: CVaListPointer) -> ObjectRef! {
-        let rv = g_object_new_valist(object_type, first_property_name, var_args)
+        let rv: UnsafeMutablePointer<GObject>! = cast(g_object_new_valist(object_type, first_property_name, var_args))
         return rv.map { ObjectRef(cast($0)) }
     }
 
@@ -122,7 +123,7 @@ public extension ObjectRef {
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
     static func newWith(properties object_type: GType, nProperties n_properties: CUnsignedInt, names: UnsafePointer<UnsafePointer<CChar>>, values: UnsafePointer<GValue>) -> ObjectRef! {
-        let rv = g_object_new_with_properties(object_type, guint(n_properties), cast(names), cast(values))
+        let rv: UnsafeMutablePointer<GObject>! = cast(g_object_new_with_properties(object_type, guint(n_properties), cast(names), cast(values)))
         return rv.map { ObjectRef(cast($0)) }
     }
 
@@ -135,7 +136,7 @@ public extension ObjectRef {
     /// Use g_object_new_with_properties() instead.
     /// deprecated. See #GParameter for more information.
     @available(*, deprecated) static func newv(objectType object_type: GType, nParameters n_parameters: CUnsignedInt, parameters: UnsafeMutablePointer<GParameter>) -> ObjectRef! {
-        let rv = g_object_newv(object_type, guint(n_parameters), cast(parameters))
+        let rv: UnsafeMutableRawPointer! = cast(g_object_newv(object_type, guint(n_parameters), cast(parameters)))
         return rv.map { ObjectRef(cast($0)) }
     }
 }
@@ -147,7 +148,7 @@ public extension ObjectRef {
 /// All the fields in the GObject structure are private
 /// to the `GObject` implementation and should never be accessed directly.
 open class Object: ObjectProtocol {
-    /// Untyped pointer to the underlying `GObject` instance.
+        /// Untyped pointer to the underlying `GObject` instance.
     /// For type-safe access, use the generated, typed pointer `object_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -249,7 +250,7 @@ open class Object: ObjectProtocol {
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
     public init(valist object_type: GType, firstPropertyName first_property_name: UnsafePointer<gchar>, varArgs var_args: CVaListPointer) {
-        let rv = g_object_new_valist(object_type, first_property_name, var_args)
+        let rv: UnsafeMutablePointer<GObject>! = cast(g_object_new_valist(object_type, first_property_name, var_args))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -260,7 +261,7 @@ open class Object: ObjectProtocol {
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
     public init(properties object_type: GType, nProperties n_properties: CUnsignedInt, names: UnsafePointer<UnsafePointer<CChar>>, values: UnsafePointer<GValue>) {
-        let rv = g_object_new_with_properties(object_type, guint(n_properties), cast(names), cast(values))
+        let rv: UnsafeMutablePointer<GObject>! = cast(g_object_new_with_properties(object_type, guint(n_properties), cast(names), cast(values)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -273,7 +274,7 @@ open class Object: ObjectProtocol {
     /// Use g_object_new_with_properties() instead.
     /// deprecated. See #GParameter for more information.
     @available(*, deprecated) public init(objectType object_type: GType, nParameters n_parameters: CUnsignedInt, parameters: UnsafeMutablePointer<GParameter>) {
-        let rv = g_object_newv(object_type, guint(n_parameters), cast(parameters))
+        let rv: UnsafeMutableRawPointer! = cast(g_object_newv(object_type, guint(n_parameters), cast(parameters)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -282,7 +283,7 @@ open class Object: ObjectProtocol {
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
     public static func new(valist object_type: GType, firstPropertyName first_property_name: UnsafePointer<gchar>, varArgs var_args: CVaListPointer) -> Object! {
-        let rv = g_object_new_valist(object_type, first_property_name, var_args)
+        let rv: UnsafeMutablePointer<GObject>! = cast(g_object_new_valist(object_type, first_property_name, var_args))
         return rv.map { Object(cast($0)) }
     }
 
@@ -293,7 +294,7 @@ open class Object: ObjectProtocol {
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
     public static func newWith(properties object_type: GType, nProperties n_properties: CUnsignedInt, names: UnsafePointer<UnsafePointer<CChar>>, values: UnsafePointer<GValue>) -> Object! {
-        let rv = g_object_new_with_properties(object_type, guint(n_properties), cast(names), cast(values))
+        let rv: UnsafeMutablePointer<GObject>! = cast(g_object_new_with_properties(object_type, guint(n_properties), cast(names), cast(values)))
         return rv.map { Object(cast($0)) }
     }
 
@@ -306,13 +307,13 @@ open class Object: ObjectProtocol {
     /// Use g_object_new_with_properties() instead.
     /// deprecated. See #GParameter for more information.
     @available(*, deprecated) public static func newv(objectType object_type: GType, nParameters n_parameters: CUnsignedInt, parameters: UnsafeMutablePointer<GParameter>) -> Object! {
-        let rv = g_object_newv(object_type, guint(n_parameters), cast(parameters))
+        let rv: UnsafeMutableRawPointer! = cast(g_object_newv(object_type, guint(n_parameters), cast(parameters)))
         return rv.map { Object(cast($0)) }
     }
 
 }
 
-// MARK: - no Object properties
+// MARK: no Object properties
 
 public enum ObjectSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -349,8 +350,8 @@ public extension ObjectProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ObjectSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ObjectSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(object_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -371,6 +372,7 @@ public extension ObjectProtocol {
     }
 }
 
+// MARK: Object Class: ObjectProtocol extension (methods and fields)
 public extension ObjectProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GObject` instance.
     var object_ptr: UnsafeMutablePointer<GObject> { return ptr.assumingMemoryBound(to: GObject.self) }
@@ -445,7 +447,7 @@ public extension ObjectProtocol {
     /// 
     /// A `GObject` can have multiple bindings.
     func bindProperty(sourceProperty source_property: UnsafePointer<gchar>, target: ObjectProtocol, targetProperty target_property: UnsafePointer<gchar>, flags: BindingFlags) -> UnsafeMutablePointer<GBinding>! {
-        let rv = g_object_bind_property(cast(object_ptr), source_property, cast(target.ptr), target_property, flags)
+        let rv: UnsafeMutablePointer<GBinding>! = cast(g_object_bind_property(cast(object_ptr), source_property, cast(target.ptr), target_property, flags.value))
         return cast(rv)
     }
 
@@ -475,7 +477,7 @@ public extension ObjectProtocol {
     /// for each transformation function, please use
     /// `g_object_bind_property_with_closures()` instead.
     func bindPropertyFull(sourceProperty source_property: UnsafePointer<gchar>, target: ObjectProtocol, targetProperty target_property: UnsafePointer<gchar>, flags: BindingFlags, transformTo transform_to: @escaping BindingTransformFunc, transformFrom transform_from: @escaping BindingTransformFunc, userData user_data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> UnsafeMutablePointer<GBinding>! {
-        let rv = g_object_bind_property_full(cast(object_ptr), source_property, cast(target.ptr), target_property, flags, transform_to, transform_from, cast(user_data), notify)
+        let rv: UnsafeMutablePointer<GBinding>! = cast(g_object_bind_property_full(cast(object_ptr), source_property, cast(target.ptr), target_property, flags.value, transform_to, transform_from, cast(user_data), notify))
         return cast(rv)
     }
 
@@ -487,7 +489,7 @@ public extension ObjectProtocol {
     /// `g_object_bind_property_full()`, using `GClosures` instead of
     /// function pointers.
     func bindPropertyWithClosures(sourceProperty source_property: UnsafePointer<gchar>, target: ObjectProtocol, targetProperty target_property: UnsafePointer<gchar>, flags: BindingFlags, transformTo transform_to: ClosureProtocol, transformFrom transform_from: ClosureProtocol) -> UnsafeMutablePointer<GBinding>! {
-        let rv = g_object_bind_property_with_closures(cast(object_ptr), source_property, cast(target.ptr), target_property, flags, cast(transform_to.ptr), cast(transform_from.ptr))
+        let rv: UnsafeMutablePointer<GBinding>! = cast(g_object_bind_property_with_closures(cast(object_ptr), source_property, cast(target.ptr), target_property, flags.value, cast(transform_to.ptr), cast(transform_from.ptr)))
         return cast(rv)
     }
 
@@ -514,7 +516,7 @@ public extension ObjectProtocol {
     /// threads are using object data on the same key on the same
     /// object.
     func dupData(key: UnsafePointer<gchar>, dupFunc dup_func: @escaping GLib.DuplicateFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutableRawPointer! {
-        let rv = g_object_dup_data(cast(object_ptr), key, dup_func, cast(user_data))
+        let rv: UnsafeMutableRawPointer! = cast(g_object_dup_data(cast(object_ptr), key, dup_func, cast(user_data)))
         return cast(rv)
     }
 
@@ -533,7 +535,7 @@ public extension ObjectProtocol {
     /// threads are using object data on the same key on the same
     /// object.
     func dupQdata(quark: GLib.Quark, dupFunc dup_func: @escaping GLib.DuplicateFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutableRawPointer! {
-        let rv = g_object_dup_qdata(cast(object_ptr), quark, dup_func, cast(user_data))
+        let rv: UnsafeMutableRawPointer! = cast(g_object_dup_qdata(cast(object_ptr), quark, dup_func, cast(user_data)))
         return cast(rv)
     }
 
@@ -566,7 +568,7 @@ public extension ObjectProtocol {
 
     /// Gets a named field from the objects table of associations (see `g_object_set_data()`).
     func getData(key: UnsafePointer<gchar>) -> UnsafeMutableRawPointer! {
-        let rv = g_object_get_data(cast(object_ptr), key)
+        let rv: UnsafeMutableRawPointer! = cast(g_object_get_data(cast(object_ptr), key))
         return cast(rv)
     }
 
@@ -594,7 +596,7 @@ public extension ObjectProtocol {
     /// This function gets back user data pointers stored via
     /// `g_object_set_qdata()`.
     func getQdata(quark: GLib.Quark) -> UnsafeMutableRawPointer! {
-        let rv = g_object_get_qdata(cast(object_ptr), quark)
+        let rv: UnsafeMutableRawPointer! = cast(g_object_get_qdata(cast(object_ptr), quark))
         return cast(rv)
     }
 
@@ -687,7 +689,7 @@ public extension ObjectProtocol {
     /// extension), so any casting the caller needs to do on the return type must be
     /// explicit.
     func ref() -> UnsafeMutableRawPointer! {
-        let rv = g_object_ref(cast(object_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_object_ref(cast(object_ptr)))
         return cast(rv)
     }
 
@@ -703,7 +705,7 @@ public extension ObjectProtocol {
     /// Since GLib 2.56, the type of `object` will be propagated to the return type
     /// under the same conditions as for `g_object_ref()`.
     func refSink() -> UnsafeMutableRawPointer! {
-        let rv = g_object_ref_sink(cast(object_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_object_ref_sink(cast(object_ptr)))
         return cast(rv)
     }
 
@@ -846,7 +848,7 @@ public extension ObjectProtocol {
     /// Remove a specified datum from the object's data associations,
     /// without invoking the association's destroy handler.
     func stealData(key: UnsafePointer<gchar>) -> UnsafeMutableRawPointer! {
-        let rv = g_object_steal_data(cast(object_ptr), key)
+        let rv: UnsafeMutableRawPointer! = cast(g_object_steal_data(cast(object_ptr), key))
         return cast(rv)
     }
 
@@ -887,7 +889,7 @@ public extension ObjectProtocol {
     /// and thus the partial string list would have been freed upon
     /// `g_object_set_qdata_full()`.
     func stealQdata(quark: GLib.Quark) -> UnsafeMutableRawPointer! {
-        let rv = g_object_steal_qdata(cast(object_ptr), quark)
+        let rv: UnsafeMutableRawPointer! = cast(g_object_steal_qdata(cast(object_ptr), quark))
         return cast(rv)
     }
 
@@ -958,7 +960,7 @@ public extension ObjectProtocol {
     /// associated with a `GObject`, and want the callback to no longer run
     /// after the object is is freed.
     func cclosureNewObject(callbackFunc callback_func: @escaping Callback) -> UnsafeMutablePointer<GClosure>! {
-        let rv = g_cclosure_new_object(callback_func, cast(object_ptr))
+        let rv: UnsafeMutablePointer<GClosure>! = cast(g_cclosure_new_object(callback_func, cast(object_ptr)))
         return cast(rv)
     }
 
@@ -968,7 +970,7 @@ public extension ObjectProtocol {
     /// associated with a `GObject`, and want the callback to no longer run
     /// after the object is is freed.
     func cclosureNewObjectSwap(callbackFunc callback_func: @escaping Callback) -> UnsafeMutablePointer<GClosure>! {
-        let rv = g_cclosure_new_object_swap(callback_func, cast(object_ptr))
+        let rv: UnsafeMutablePointer<GClosure>! = cast(g_cclosure_new_object_swap(callback_func, cast(object_ptr)))
         return cast(rv)
     }
 
@@ -1001,15 +1003,15 @@ public extension ObjectProtocol {
     }
 
     /// Connects a closure to a signal for a particular object.
-    func signalConnectClosure(detailedSignal detailed_signal: UnsafePointer<gchar>, closure: ClosureProtocol, after: Bool) -> CUnsignedLong {
-        let rv = g_signal_connect_closure(cast(object_ptr), detailed_signal, cast(closure.ptr), gboolean(after ? 1 : 0))
-        return CUnsignedLong(rv)
+    func signalConnectClosure(detailedSignal detailed_signal: UnsafePointer<gchar>, closure: ClosureProtocol, after: Bool) -> Int {
+        let rv: Int = cast(g_signal_connect_closure(cast(object_ptr), detailed_signal, cast(closure.ptr), gboolean(after ? 1 : 0)))
+        return Int(rv)
     }
 
     /// Connects a closure to a signal for a particular object.
-    func signalConnectClosureByID(signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, after: Bool) -> CUnsignedLong {
-        let rv = g_signal_connect_closure_by_id(cast(object_ptr), guint(signal_id), detail, cast(closure.ptr), gboolean(after ? 1 : 0))
-        return CUnsignedLong(rv)
+    func signalConnectClosureByID(signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, after: Bool) -> Int {
+        let rv: Int = cast(g_signal_connect_closure_by_id(cast(object_ptr), guint(signal_id), detail, cast(closure.ptr), gboolean(after ? 1 : 0)))
+        return Int(rv)
     }
 
     /// Connects a `GCallback` function to a signal for a particular object. Similar
@@ -1017,9 +1019,9 @@ public extension ObjectProtocol {
     /// which will be called when the signal handler is disconnected and no longer
     /// used. Specify `connect_flags` if you need ``..._after()`` or
     /// ``..._swapped()`` variants of this function.
-    func signalConnectData(detailedSignal detailed_signal: UnsafePointer<gchar>, cHandler c_handler: @escaping Callback, data: UnsafeMutableRawPointer, destroyData destroy_data: @escaping ClosureNotify, connectFlags connect_flags: ConnectFlags) -> CUnsignedLong {
-        let rv = g_signal_connect_data(cast(object_ptr), detailed_signal, c_handler, cast(data), destroy_data, connect_flags)
-        return CUnsignedLong(rv)
+    func signalConnectData(detailedSignal detailed_signal: UnsafePointer<gchar>, cHandler c_handler: @escaping Callback, data: UnsafeMutableRawPointer, destroyData destroy_data: @escaping ClosureNotify, connectFlags connect_flags: ConnectFlags) -> Int {
+        let rv: Int = cast(g_signal_connect_data(cast(object_ptr), detailed_signal, c_handler, cast(data), destroy_data, connect_flags.value))
+        return Int(rv)
     }
 
     /// This is similar to `g_signal_connect_data()`, but uses a closure which
@@ -1030,9 +1032,9 @@ public extension ObjectProtocol {
     /// disconnected.  Note that this is not currently threadsafe (ie:
     /// emitting a signal while `gobject` is being destroyed in another thread
     /// is not safe).
-    func signalConnectObject(instance: TypeInstanceProtocol, detailedSignal detailed_signal: UnsafePointer<gchar>, cHandler c_handler: @escaping Callback, connectFlags connect_flags: ConnectFlags) -> CUnsignedLong {
-        let rv = g_signal_connect_object(cast(instance.ptr), detailed_signal, c_handler, cast(object_ptr), connect_flags)
-        return CUnsignedLong(rv)
+    func signalConnectObject(instance: TypeInstanceProtocol, detailedSignal detailed_signal: UnsafePointer<gchar>, cHandler c_handler: @escaping Callback, connectFlags connect_flags: ConnectFlags) -> Int {
+        let rv: Int = cast(g_signal_connect_object(cast(instance.ptr), detailed_signal, c_handler, cast(object_ptr), connect_flags.value))
+        return Int(rv)
     }
 
 
@@ -1045,7 +1047,7 @@ public extension ObjectProtocol {
 
     /// Returns the invocation hint of the innermost signal emission of instance.
     func signalGetInvocationHint() -> UnsafeMutablePointer<GSignalInvocationHint>! {
-        let rv = g_signal_get_invocation_hint(cast(object_ptr))
+        let rv: UnsafeMutablePointer<GSignalInvocationHint>! = cast(g_signal_get_invocation_hint(cast(object_ptr)))
         return cast(rv)
     }
 
@@ -1078,9 +1080,9 @@ public extension ObjectProtocol {
     /// flags, and the criteria values are passed as arguments.
     /// The match `mask` has to be non-0 for successful matches.
     /// If no handler was found, 0 is returned.
-    func signalHandlerFind(mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> CUnsignedLong {
-        let rv = g_signal_handler_find(cast(object_ptr), mask, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data))
-        return CUnsignedLong(rv)
+    func signalHandlerFind(mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
+        let rv: Int = cast(g_signal_handler_find(cast(object_ptr), mask.value, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data)))
+        return Int(rv)
     }
 
     /// Returns whether `handler_id` is the ID of a handler connected to `instance`.
@@ -1114,9 +1116,9 @@ public extension ObjectProtocol {
     /// or `G_SIGNAL_MATCH_DATA` match flags is required for successful matches.
     /// If no handlers were found, 0 is returned, the number of blocked handlers
     /// otherwise.
-    func signalHandlersBlockMatched(mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-        let rv = g_signal_handlers_block_matched(cast(object_ptr), mask, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data))
-        return CUnsignedInt(rv)
+    func signalHandlersBlockMatched(mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
+        let rv: Int = cast(g_signal_handlers_block_matched(cast(object_ptr), mask.value, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data)))
+        return Int(rv)
     }
 
     /// Destroy all signal handlers of a type instance. This function is
@@ -1135,9 +1137,9 @@ public extension ObjectProtocol {
     /// `G_SIGNAL_MATCH_DATA` match flags is required for successful
     /// matches.  If no handlers were found, 0 is returned, the number of
     /// disconnected handlers otherwise.
-    func signalHandlersDisconnectMatched(mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-        let rv = g_signal_handlers_disconnect_matched(cast(object_ptr), mask, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data))
-        return CUnsignedInt(rv)
+    func signalHandlersDisconnectMatched(mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
+        let rv: Int = cast(g_signal_handlers_disconnect_matched(cast(object_ptr), mask.value, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data)))
+        return Int(rv)
     }
 
     /// Unblocks all handlers on an instance that match a certain selection
@@ -1148,9 +1150,9 @@ public extension ObjectProtocol {
     /// If no handlers were found, 0 is returned, the number of unblocked handlers
     /// otherwise. The match criteria should not apply to any handlers that are
     /// not currently blocked.
-    func signalHandlersUnblockMatched(mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-        let rv = g_signal_handlers_unblock_matched(cast(object_ptr), mask, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data))
-        return CUnsignedInt(rv)
+    func signalHandlersUnblockMatched(mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, closure: ClosureProtocol, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
+        let rv: Int = cast(g_signal_handlers_unblock_matched(cast(object_ptr), mask.value, guint(signal_id), detail, cast(closure.ptr), cast(func_), cast(data)))
+        return Int(rv)
     }
 
     /// Returns whether there are any handlers connected to `instance` for the
@@ -1202,6 +1204,18 @@ public extension ObjectProtocol {
             return Bool(rv != 0)
         }
     }
+
+    var gTypeInstance: GTypeInstance {
+        get {
+            let rv: GTypeInstance = cast(object_ptr.pointee.g_type_instance)
+            return rv
+        }
+    }
+
+    // var refCount is unavailable because ref_count is private
+
+    // var qdata is unavailable because qdata is private
+
 }
 
 

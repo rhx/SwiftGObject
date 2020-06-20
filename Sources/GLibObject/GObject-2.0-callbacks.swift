@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 /// A callback function used by the type system to finalize those portions
 /// of a derived types class structure that were setup from the corresponding

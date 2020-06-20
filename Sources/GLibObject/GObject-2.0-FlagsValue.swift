@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - FlagsValue Record
 
@@ -11,7 +12,7 @@ import GLib
 /// A structure which contains a single flags value, its name, and its
 /// nickname.
 public protocol FlagsValueProtocol {
-    /// Untyped pointer to the underlying `GFlagsValue` instance.
+        /// Untyped pointer to the underlying `GFlagsValue` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFlagsValue` instance.
@@ -25,7 +26,7 @@ public protocol FlagsValueProtocol {
 /// A structure which contains a single flags value, its name, and its
 /// nickname.
 public struct FlagsValueRef: FlagsValueProtocol {
-    /// Untyped pointer to the underlying `GFlagsValue` instance.
+        /// Untyped pointer to the underlying `GFlagsValue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension FlagsValueRef {
 /// A structure which contains a single flags value, its name, and its
 /// nickname.
 open class FlagsValue: FlagsValueProtocol {
-    /// Untyped pointer to the underlying `GFlagsValue` instance.
+        /// Untyped pointer to the underlying `GFlagsValue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -108,7 +109,7 @@ open class FlagsValue: FlagsValueProtocol {
         // no reference counting for GFlagsValue, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFlagsValue`.
+    /// Do-nothing destructor for `GFlagsValue`.
     deinit {
         // no reference counting for GFlagsValue, cannot unref(cast(_ptr))
     }
@@ -176,11 +177,12 @@ open class FlagsValue: FlagsValueProtocol {
 
 }
 
-// MARK: - no FlagsValue properties
+// MARK: no FlagsValue properties
 
-// MARK: - no signals
+// MARK: no FlagsValue signals
 
 
+// MARK: FlagsValue Record: FlagsValueProtocol extension (methods and fields)
 public extension FlagsValueProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFlagsValue` instance.
     var _ptr: UnsafeMutablePointer<GFlagsValue> { return ptr.assumingMemoryBound(to: GFlagsValue.self) }
@@ -200,8 +202,48 @@ public extension FlagsValueProtocol {
     /// definition than to write one yourself using `g_flags_register_static()`.
     func flagsRegisterStatic(name: UnsafePointer<gchar>) -> GType {
         let rv = g_flags_register_static(name, cast(_ptr))
-        return rv
+        return cast(rv)
     }
+
+    /// the flags value
+    var value: Int {
+        /// the flags value
+        get {
+            let rv: Int = cast(_ptr.pointee.value)
+            return rv
+        }
+        /// the flags value
+         set {
+            _ptr.pointee.value = guint(newValue)
+        }
+    }
+
+    /// the name of the value
+    var valueName: UnsafePointer<CChar> {
+        /// the name of the value
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.value_name)
+            return rv
+        }
+        /// the name of the value
+         set {
+            _ptr.pointee.value_name = cast(newValue)
+        }
+    }
+
+    /// the nickname of the value
+    var valueNick: UnsafePointer<CChar> {
+        /// the nickname of the value
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.value_nick)
+            return rv
+        }
+        /// the nickname of the value
+         set {
+            _ptr.pointee.value_nick = cast(newValue)
+        }
+    }
+
 }
 
 

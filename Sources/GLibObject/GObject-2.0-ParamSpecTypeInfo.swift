@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecTypeInfo Record
 
@@ -16,7 +17,7 @@ import GLib
 /// does not need to be persistent across invocation of
 /// `g_param_type_register_static()`.
 public protocol ParamSpecTypeInfoProtocol {
-    /// Untyped pointer to the underlying `GParamSpecTypeInfo` instance.
+        /// Untyped pointer to the underlying `GParamSpecTypeInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecTypeInfo` instance.
@@ -35,7 +36,7 @@ public protocol ParamSpecTypeInfoProtocol {
 /// does not need to be persistent across invocation of
 /// `g_param_type_register_static()`.
 public struct ParamSpecTypeInfoRef: ParamSpecTypeInfoProtocol {
-    /// Untyped pointer to the underlying `GParamSpecTypeInfo` instance.
+        /// Untyped pointer to the underlying `GParamSpecTypeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -94,7 +95,7 @@ public extension ParamSpecTypeInfoRef {
 /// does not need to be persistent across invocation of
 /// `g_param_type_register_static()`.
 open class ParamSpecTypeInfo: ParamSpecTypeInfoProtocol {
-    /// Untyped pointer to the underlying `GParamSpecTypeInfo` instance.
+        /// Untyped pointer to the underlying `GParamSpecTypeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -123,7 +124,7 @@ open class ParamSpecTypeInfo: ParamSpecTypeInfoProtocol {
         // no reference counting for GParamSpecTypeInfo, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GParamSpecTypeInfo`.
+    /// Do-nothing destructor for `GParamSpecTypeInfo`.
     deinit {
         // no reference counting for GParamSpecTypeInfo, cannot unref(cast(_ptr))
     }
@@ -191,11 +192,12 @@ open class ParamSpecTypeInfo: ParamSpecTypeInfoProtocol {
 
 }
 
-// MARK: - no ParamSpecTypeInfo properties
+// MARK: no ParamSpecTypeInfo properties
 
-// MARK: - no signals
+// MARK: no ParamSpecTypeInfo signals
 
 
+// MARK: ParamSpecTypeInfo Record: ParamSpecTypeInfoProtocol extension (methods and fields)
 public extension ParamSpecTypeInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecTypeInfo` instance.
     var _ptr: UnsafeMutablePointer<GParamSpecTypeInfo> { return ptr.assumingMemoryBound(to: GParamSpecTypeInfo.self) }
@@ -206,8 +208,58 @@ public extension ParamSpecTypeInfoProtocol {
     /// `GParamSpec` type and its instances.
     func paramTypeRegisterStatic(name: UnsafePointer<gchar>) -> GType {
         let rv = g_param_type_register_static(name, cast(_ptr))
-        return rv
+        return cast(rv)
     }
+
+    /// Size of the instance (object) structure.
+    var instanceSize: UInt16 {
+        /// Size of the instance (object) structure.
+        get {
+            let rv: UInt16 = cast(_ptr.pointee.instance_size)
+            return rv
+        }
+        /// Size of the instance (object) structure.
+         set {
+            _ptr.pointee.instance_size = guint16(newValue)
+        }
+    }
+
+    /// Prior to GLib 2.10, it specified the number of pre-allocated (cached) instances to reserve memory for (0 indicates no caching). Since GLib 2.10, it is ignored, since instances are allocated with the [slice allocator](#glib-Memory-Slices) now.
+    var nPreallocs: UInt16 {
+        /// Prior to GLib 2.10, it specified the number of pre-allocated (cached) instances to reserve memory for (0 indicates no caching). Since GLib 2.10, it is ignored, since instances are allocated with the [slice allocator](#glib-Memory-Slices) now.
+        get {
+            let rv: UInt16 = cast(_ptr.pointee.n_preallocs)
+            return rv
+        }
+        /// Prior to GLib 2.10, it specified the number of pre-allocated (cached) instances to reserve memory for (0 indicates no caching). Since GLib 2.10, it is ignored, since instances are allocated with the [slice allocator](#glib-Memory-Slices) now.
+         set {
+            _ptr.pointee.n_preallocs = guint16(newValue)
+        }
+    }
+
+    // var instanceInit is unavailable because instance_init is void
+
+    /// The `GType` of values conforming to this `GParamSpec`
+    var valueType: GType {
+        /// The `GType` of values conforming to this `GParamSpec`
+        get {
+            let rv: GType = cast(_ptr.pointee.value_type)
+            return rv
+        }
+        /// The `GType` of values conforming to this `GParamSpec`
+         set {
+            _ptr.pointee.value_type = cast(newValue)
+        }
+    }
+
+    // var finalize is unavailable because finalize is void
+
+    // var valueSetDefault is unavailable because value_set_default is void
+
+    // var valueValidate is unavailable because value_validate is void
+
+    // var valuesCmp is unavailable because values_cmp is void
+
 }
 
 

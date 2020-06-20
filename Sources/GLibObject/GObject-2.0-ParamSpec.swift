@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpec Class
 
@@ -22,7 +23,7 @@ import GLib
 /// used, but they cannot be mixed. Using `-` is considerably more
 /// efficient, and is the ‘canonical form’. Using `_` is discouraged.
 public protocol ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpec` instance.
+        /// Untyped pointer to the underlying `GParamSpec` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpec` instance.
@@ -47,7 +48,7 @@ public protocol ParamSpecProtocol {
 /// used, but they cannot be mixed. Using `-` is considerably more
 /// efficient, and is the ‘canonical form’. Using `_` is discouraged.
 public struct ParamSpecRef: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpec` instance.
+        /// Untyped pointer to the underlying `GParamSpec` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -104,7 +105,7 @@ public extension ParamSpecRef {
     /// `blurb`, which should be a somewhat longer description, suitable for
     /// e.g. a tooltip. The `nick` and `blurb` should ideally be localized.
     static func internal_(paramType param_type: GType, name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, flags: ParamFlags) -> ParamSpecRef! {
-        let rv = g_param_spec_internal(param_type, name, nick, blurb, flags)
+        let rv: UnsafeMutableRawPointer! = cast(g_param_spec_internal(param_type, name, nick, blurb, flags.value))
         return rv.map { ParamSpecRef(cast($0)) }
     }
 }
@@ -127,7 +128,7 @@ public extension ParamSpecRef {
 /// used, but they cannot be mixed. Using `-` is considerably more
 /// efficient, and is the ‘canonical form’. Using `_` is discouraged.
 open class ParamSpec: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpec` instance.
+        /// Untyped pointer to the underlying `GParamSpec` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -233,32 +234,33 @@ open class ParamSpec: ParamSpecProtocol {
     /// `blurb`, which should be a somewhat longer description, suitable for
     /// e.g. a tooltip. The `nick` and `blurb` should ideally be localized.
     public static func internal_(paramType param_type: GType, name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, flags: ParamFlags) -> ParamSpec! {
-        let rv = g_param_spec_internal(param_type, name, nick, blurb, flags)
+        let rv: UnsafeMutableRawPointer! = cast(g_param_spec_internal(param_type, name, nick, blurb, flags.value))
         return rv.map { ParamSpec(cast($0)) }
     }
 
 }
 
-// MARK: - no ParamSpec properties
+// MARK: no ParamSpec properties
 
-// MARK: - no signals
+// MARK: no ParamSpec signals
 
 
+// MARK: ParamSpec Class: ParamSpecProtocol extension (methods and fields)
 public extension ParamSpecProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpec` instance.
     var param_spec_ptr: UnsafeMutablePointer<GParamSpec> { return ptr.assumingMemoryBound(to: GParamSpec.self) }
 
     /// Get the short description of a `GParamSpec`.
     func getBlurb() -> String! {
-        let rv = g_param_spec_get_blurb(cast(param_spec_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_param_spec_get_blurb(cast(param_spec_ptr)))
+        return cast(rv)
     }
 
     /// Gets the default value of `pspec` as a pointer to a `GValue`.
     /// 
     /// The `GValue` will remain valid for the life of `pspec`.
     func getDefaultValue() -> UnsafePointer<GValue>! {
-        let rv = g_param_spec_get_default_value(cast(param_spec_ptr))
+        let rv: UnsafePointer<GValue>! = cast(g_param_spec_get_default_value(cast(param_spec_ptr)))
         return cast(rv)
     }
 
@@ -267,25 +269,25 @@ public extension ParamSpecProtocol {
     /// The name is always an "interned" string (as per `g_intern_string()`).
     /// This allows for pointer-value comparisons.
     func getName() -> String! {
-        let rv = g_param_spec_get_name(cast(param_spec_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_param_spec_get_name(cast(param_spec_ptr)))
+        return cast(rv)
     }
 
     /// Gets the GQuark for the name.
     func getNameQuark() -> GQuark {
         let rv = g_param_spec_get_name_quark(cast(param_spec_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Get the nickname of a `GParamSpec`.
     func getNick() -> String! {
-        let rv = g_param_spec_get_nick(cast(param_spec_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_param_spec_get_nick(cast(param_spec_ptr)))
+        return cast(rv)
     }
 
     /// Gets back user data pointers stored via `g_param_spec_set_qdata()`.
     func getQdata(quark: GLib.Quark) -> UnsafeMutableRawPointer! {
-        let rv = g_param_spec_get_qdata(cast(param_spec_ptr), quark)
+        let rv: UnsafeMutableRawPointer! = cast(g_param_spec_get_qdata(cast(param_spec_ptr), quark))
         return cast(rv)
     }
 
@@ -297,19 +299,19 @@ public extension ParamSpecProtocol {
     /// of type `GParamSpecOverride`. See `g_object_class_override_property()`
     /// for an example of the use of this capability.
     func getRedirectTarget() -> UnsafeMutablePointer<GParamSpec>! {
-        let rv = g_param_spec_get_redirect_target(cast(param_spec_ptr))
+        let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_get_redirect_target(cast(param_spec_ptr)))
         return cast(rv)
     }
 
     /// Increments the reference count of `pspec`.
     func ref() -> UnsafeMutablePointer<GParamSpec>! {
-        let rv = g_param_spec_ref(cast(param_spec_ptr))
+        let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_ref(cast(param_spec_ptr)))
         return cast(rv)
     }
 
     /// Convenience function to ref and sink a `GParamSpec`.
     func refSink() -> UnsafeMutablePointer<GParamSpec>! {
-        let rv = g_param_spec_ref_sink(cast(param_spec_ptr))
+        let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_ref_sink(cast(param_spec_ptr)))
         return cast(rv)
     }
 
@@ -351,7 +353,7 @@ public extension ParamSpecProtocol {
     /// function (if any was set).  Usually, calling this function is only
     /// required to update user data pointers with a destroy notifier.
     func stealQdata(quark: GLib.Quark) -> UnsafeMutableRawPointer! {
-        let rv = g_param_spec_steal_qdata(cast(param_spec_ptr), quark)
+        let rv: UnsafeMutableRawPointer! = cast(g_param_spec_steal_qdata(cast(param_spec_ptr), quark))
         return cast(rv)
     }
 
@@ -365,7 +367,7 @@ public extension ParamSpecProtocol {
     /// to direct operations to another paramspec, and will not be directly
     /// useful unless you are implementing a new base type similar to GObject.
     func paramSpecOverride(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GParamSpec>! {
-        let rv = g_param_spec_override(name, cast(param_spec_ptr))
+        let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_override(name, cast(param_spec_ptr)))
         return cast(rv)
     }
 
@@ -376,7 +378,7 @@ public extension ParamSpecProtocol {
     /// 
     /// See `g_param_spec_internal()` for details on property names.
     func paramSpecValueArray(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, flags: ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-        let rv = g_param_spec_value_array(name, nick, blurb, cast(param_spec_ptr), flags)
+        let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_value_array(name, nick, blurb, cast(param_spec_ptr), flags.value))
         return cast(rv)
     }
 
@@ -418,16 +420,16 @@ public extension ParamSpecProtocol {
     /// Compares `value1` with `value2` according to `pspec`, and return -1, 0 or +1,
     /// if `value1` is found to be less than, equal to or greater than `value2`,
     /// respectively.
-    func paramValuesCmp(value1: ValueProtocol, value2: ValueProtocol) -> CInt {
-        let rv = g_param_values_cmp(cast(param_spec_ptr), cast(value1.ptr), cast(value2.ptr))
-        return CInt(rv)
+    func paramValuesCmp(value1: ValueProtocol, value2: ValueProtocol) -> Int {
+        let rv: Int = cast(g_param_values_cmp(cast(param_spec_ptr), cast(value1.ptr), cast(value2.ptr)))
+        return Int(rv)
     }
     /// Get the short description of a `GParamSpec`.
     var blurb: String! {
         /// Get the short description of a `GParamSpec`.
         get {
-            let rv = g_param_spec_get_blurb(cast(param_spec_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_param_spec_get_blurb(cast(param_spec_ptr)))
+            return cast(rv)
         }
     }
 
@@ -439,7 +441,7 @@ public extension ParamSpecProtocol {
         /// 
         /// The `GValue` will remain valid for the life of `pspec`.
         get {
-            let rv = g_param_spec_get_default_value(cast(param_spec_ptr))
+            let rv: UnsafePointer<GValue>! = cast(g_param_spec_get_default_value(cast(param_spec_ptr)))
             return cast(rv)
         }
     }
@@ -454,8 +456,8 @@ public extension ParamSpecProtocol {
         /// The name is always an "interned" string (as per `g_intern_string()`).
         /// This allows for pointer-value comparisons.
         get {
-            let rv = g_param_spec_get_name(cast(param_spec_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_param_spec_get_name(cast(param_spec_ptr)))
+            return cast(rv)
         }
     }
 
@@ -464,7 +466,7 @@ public extension ParamSpecProtocol {
         /// Gets the GQuark for the name.
         get {
             let rv = g_param_spec_get_name_quark(cast(param_spec_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -472,8 +474,8 @@ public extension ParamSpecProtocol {
     var nick: String! {
         /// Get the nickname of a `GParamSpec`.
         get {
-            let rv = g_param_spec_get_nick(cast(param_spec_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_param_spec_get_nick(cast(param_spec_ptr)))
+            return cast(rv)
         }
     }
 
@@ -493,10 +495,66 @@ public extension ParamSpecProtocol {
         /// of type `GParamSpecOverride`. See `g_object_class_override_property()`
         /// for an example of the use of this capability.
         get {
-            let rv = g_param_spec_get_redirect_target(cast(param_spec_ptr))
+            let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_get_redirect_target(cast(param_spec_ptr)))
             return cast(rv)
         }
     }
+
+    /// private `GTypeInstance` portion
+    var gTypeInstance: GTypeInstance {
+        /// private `GTypeInstance` portion
+        get {
+            let rv: GTypeInstance = cast(param_spec_ptr.pointee.g_type_instance)
+            return rv
+        }
+    }
+
+    /// name of this parameter: always an interned string
+    var _name: UnsafePointer<CChar> {
+        /// name of this parameter: always an interned string
+        get {
+            let rv: UnsafePointer<CChar> = cast(param_spec_ptr.pointee.name)
+            return rv
+        }
+    }
+
+    /// `GParamFlags` flags for this parameter
+    var flags: GParamFlags {
+        /// `GParamFlags` flags for this parameter
+        get {
+            let rv: GParamFlags = cast(param_spec_ptr.pointee.flags)
+            return rv
+        }
+    }
+
+    /// the `GValue` type for this parameter
+    var valueType: GType {
+        /// the `GValue` type for this parameter
+        get {
+            let rv: GType = cast(param_spec_ptr.pointee.value_type)
+            return rv
+        }
+    }
+
+    /// `GType` type that uses (introduces) this parameter
+    var ownerType: GType {
+        /// `GType` type that uses (introduces) this parameter
+        get {
+            let rv: GType = cast(param_spec_ptr.pointee.owner_type)
+            return rv
+        }
+    }
+
+    // var Nick is unavailable because _nick is private
+
+    // var Blurb is unavailable because _blurb is private
+
+    // var qdata is unavailable because qdata is private
+
+    // var refCount is unavailable because ref_count is private
+
+    // var paramID is unavailable because param_id is private
+
 }
 
 

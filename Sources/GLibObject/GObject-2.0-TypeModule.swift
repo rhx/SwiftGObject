@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - TypeModule Class
 
@@ -35,7 +36,7 @@ import GLib
 /// derive from `GTypeModule` and implement the load and unload functions
 /// in `GTypeModuleClass`.
 public protocol TypeModuleProtocol: ObjectProtocol, TypePluginProtocol {
-    /// Untyped pointer to the underlying `GTypeModule` instance.
+        /// Untyped pointer to the underlying `GTypeModule` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTypeModule` instance.
@@ -73,7 +74,7 @@ public protocol TypeModuleProtocol: ObjectProtocol, TypePluginProtocol {
 /// derive from `GTypeModule` and implement the load and unload functions
 /// in `GTypeModuleClass`.
 public struct TypeModuleRef: TypeModuleProtocol {
-    /// Untyped pointer to the underlying `GTypeModule` instance.
+        /// Untyped pointer to the underlying `GTypeModule` instance.
     /// For type-safe access, use the generated, typed pointer `type_module_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -151,7 +152,7 @@ public extension TypeModuleRef {
 /// derive from `GTypeModule` and implement the load and unload functions
 /// in `GTypeModuleClass`.
 open class TypeModule: Object, TypeModuleProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TypeModule` instance.
     /// - Parameter op: pointer to the underlying object
@@ -233,7 +234,7 @@ open class TypeModule: Object, TypeModuleProtocol {
 
 }
 
-// MARK: - no TypeModule properties
+// MARK: no TypeModule properties
 
 public enum TypeModuleSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -270,8 +271,8 @@ public extension TypeModuleProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TypeModuleSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: TypeModuleSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(type_module_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -292,6 +293,7 @@ public extension TypeModuleProtocol {
     }
 }
 
+// MARK: TypeModule Class: TypeModuleProtocol extension (methods and fields)
 public extension TypeModuleProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTypeModule` instance.
     var type_module_ptr: UnsafeMutablePointer<GTypeModule> { return ptr.assumingMemoryBound(to: GTypeModule.self) }
@@ -322,7 +324,7 @@ public extension TypeModuleProtocol {
     /// instead. This can be used when making a static build of the module.
     func registerEnum(name: UnsafePointer<gchar>, constStaticValues const_static_values: EnumValueProtocol) -> GType {
         let rv = g_type_module_register_enum(cast(type_module_ptr), name, cast(const_static_values.ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Looks up or registers a flags type that is implemented with a particular
@@ -337,7 +339,7 @@ public extension TypeModuleProtocol {
     /// instead. This can be used when making a static build of the module.
     func registerFlags(name: UnsafePointer<gchar>, constStaticValues const_static_values: FlagsValueProtocol) -> GType {
         let rv = g_type_module_register_flags(cast(type_module_ptr), name, cast(const_static_values.ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Looks up or registers a type that is implemented with a particular
@@ -355,8 +357,8 @@ public extension TypeModuleProtocol {
     /// Since 2.56 if `module` is `nil` this will call `g_type_register_static()`
     /// instead. This can be used when making a static build of the module.
     func registerType(parentType parent_type: GType, typeName type_name: UnsafePointer<gchar>, typeInfo type_info: TypeInfoProtocol, flags: TypeFlags) -> GType {
-        let rv = g_type_module_register_type(cast(type_module_ptr), parent_type, type_name, cast(type_info.ptr), flags)
-        return rv
+        let rv = g_type_module_register_type(cast(type_module_ptr), parent_type, type_name, cast(type_info.ptr), flags.value)
+        return cast(rv)
     }
 
     /// Sets the name for a `GTypeModule`
@@ -383,6 +385,44 @@ public extension TypeModuleProtocol {
         let rv = g_type_module_use(cast(type_module_ptr))
         return Bool(rv != 0)
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(type_module_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var useCount: Int {
+        get {
+            let rv: Int = cast(type_module_ptr.pointee.use_count)
+            return rv
+        }
+    }
+
+    var typeInfos: UnsafeMutablePointer<GSList> {
+        get {
+            let rv: UnsafeMutablePointer<GSList> = cast(type_module_ptr.pointee.type_infos)
+            return rv
+        }
+    }
+
+    var interfaceInfos: UnsafeMutablePointer<GSList> {
+        get {
+            let rv: UnsafeMutablePointer<GSList> = cast(type_module_ptr.pointee.interface_infos)
+            return rv
+        }
+    }
+
+    /// the name of the module
+    var name: UnsafePointer<CChar> {
+        /// the name of the module
+        get {
+            let rv: UnsafePointer<CChar> = cast(type_module_ptr.pointee.name)
+            return rv
+        }
+    }
+
 }
 
 

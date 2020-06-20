@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - TypeInstance Record
 
@@ -10,7 +11,7 @@ import GLib
 ///
 /// An opaque structure used as the base of all type instances.
 public protocol TypeInstanceProtocol {
-    /// Untyped pointer to the underlying `GTypeInstance` instance.
+        /// Untyped pointer to the underlying `GTypeInstance` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTypeInstance` instance.
@@ -23,7 +24,7 @@ public protocol TypeInstanceProtocol {
 ///
 /// An opaque structure used as the base of all type instances.
 public struct TypeInstanceRef: TypeInstanceProtocol {
-    /// Untyped pointer to the underlying `GTypeInstance` instance.
+        /// Untyped pointer to the underlying `GTypeInstance` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -76,7 +77,7 @@ public extension TypeInstanceRef {
 ///
 /// An opaque structure used as the base of all type instances.
 open class TypeInstance: TypeInstanceProtocol {
-    /// Untyped pointer to the underlying `GTypeInstance` instance.
+        /// Untyped pointer to the underlying `GTypeInstance` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -105,7 +106,7 @@ open class TypeInstance: TypeInstanceProtocol {
         // no reference counting for GTypeInstance, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTypeInstance`.
+    /// Do-nothing destructor for `GTypeInstance`.
     deinit {
         // no reference counting for GTypeInstance, cannot unref(cast(_ptr))
     }
@@ -173,17 +174,18 @@ open class TypeInstance: TypeInstanceProtocol {
 
 }
 
-// MARK: - no TypeInstance properties
+// MARK: no TypeInstance properties
 
-// MARK: - no signals
+// MARK: no TypeInstance signals
 
 
+// MARK: TypeInstance Record: TypeInstanceProtocol extension (methods and fields)
 public extension TypeInstanceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTypeInstance` instance.
     var _ptr: UnsafeMutablePointer<GTypeInstance> { return ptr.assumingMemoryBound(to: GTypeInstance.self) }
 
     func getPrivate(privateType private_type: GType) -> UnsafeMutableRawPointer! {
-        let rv = g_type_instance_get_private(cast(_ptr), private_type)
+        let rv: UnsafeMutableRawPointer! = cast(g_type_instance_get_private(cast(_ptr), private_type))
         return cast(rv)
     }
 
@@ -199,9 +201,9 @@ public extension TypeInstanceProtocol {
     /// disconnected.  Note that this is not currently threadsafe (ie:
     /// emitting a signal while `gobject` is being destroyed in another thread
     /// is not safe).
-    func signalConnectObject(detailedSignal detailed_signal: UnsafePointer<gchar>, cHandler c_handler: @escaping Callback, gobject: ObjectProtocol, connectFlags connect_flags: ConnectFlags) -> CUnsignedLong {
-        let rv = g_signal_connect_object(cast(_ptr), detailed_signal, c_handler, cast(gobject.ptr), connect_flags)
-        return CUnsignedLong(rv)
+    func signalConnectObject(detailedSignal detailed_signal: UnsafePointer<gchar>, cHandler c_handler: @escaping Callback, gobject: ObjectProtocol, connectFlags connect_flags: ConnectFlags) -> Int {
+        let rv: Int = cast(g_signal_connect_object(cast(_ptr), detailed_signal, c_handler, cast(gobject.ptr), connect_flags.value))
+        return Int(rv)
     }
 
     /// Emits a signal.
@@ -221,7 +223,7 @@ public extension TypeInstanceProtocol {
     }
 
     func typeCheckInstanceCast(ifaceType iface_type: GType) -> UnsafeMutablePointer<GTypeInstance>! {
-        let rv = g_type_check_instance_cast(cast(_ptr), iface_type)
+        let rv: UnsafeMutablePointer<GTypeInstance>! = cast(g_type_check_instance_cast(cast(_ptr), iface_type))
         return cast(rv)
     }
 
@@ -246,9 +248,12 @@ public extension TypeInstanceProtocol {
     }
 
     func typeNameFromInstance() -> String! {
-        let rv = g_type_name_from_instance(cast(_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_type_name_from_instance(cast(_ptr)))
+        return cast(rv)
     }
+
+    // var gClass is unavailable because g_class is private
+
 }
 
 

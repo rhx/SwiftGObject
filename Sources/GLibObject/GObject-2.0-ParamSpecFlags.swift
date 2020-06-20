@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecFlags Class
 
@@ -11,7 +12,7 @@ import GLib
 /// A `GParamSpec` derived structure that contains the meta data for flags
 /// properties.
 public protocol ParamSpecFlagsProtocol: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpecFlags` instance.
+        /// Untyped pointer to the underlying `GParamSpecFlags` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecFlags` instance.
@@ -25,7 +26,7 @@ public protocol ParamSpecFlagsProtocol: ParamSpecProtocol {
 /// A `GParamSpec` derived structure that contains the meta data for flags
 /// properties.
 public struct ParamSpecFlagsRef: ParamSpecFlagsProtocol {
-    /// Untyped pointer to the underlying `GParamSpecFlags` instance.
+        /// Untyped pointer to the underlying `GParamSpecFlags` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_flags_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension ParamSpecFlagsRef {
 /// A `GParamSpec` derived structure that contains the meta data for flags
 /// properties.
 open class ParamSpecFlags: ParamSpec, ParamSpecFlagsProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecFlags` instance.
     /// - Parameter op: pointer to the underlying object
@@ -161,14 +162,43 @@ open class ParamSpecFlags: ParamSpec, ParamSpecFlagsProtocol {
 
 }
 
-// MARK: - no ParamSpecFlags properties
+// MARK: no ParamSpecFlags properties
 
-// MARK: - no signals
+// MARK: no ParamSpecFlags signals
 
 
+// MARK: ParamSpecFlags Class: ParamSpecFlagsProtocol extension (methods and fields)
 public extension ParamSpecFlagsProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecFlags` instance.
     var param_spec_flags_ptr: UnsafeMutablePointer<GParamSpecFlags> { return ptr.assumingMemoryBound(to: GParamSpecFlags.self) }
+
+
+    /// private `GParamSpec` portion
+    var parentInstance: GParamSpec {
+        /// private `GParamSpec` portion
+        get {
+            let rv: GParamSpec = cast(param_spec_flags_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    /// the `GFlagsClass` for the flags
+    var flagsClass: UnsafeMutablePointer<GFlagsClass> {
+        /// the `GFlagsClass` for the flags
+        get {
+            let rv: UnsafeMutablePointer<GFlagsClass> = cast(param_spec_flags_ptr.pointee.flags_class)
+            return rv
+        }
+    }
+
+    /// default value for the property specified
+    var defaultValue: Int {
+        /// default value for the property specified
+        get {
+            let rv: Int = cast(param_spec_flags_ptr.pointee.default_value)
+            return rv
+        }
+    }
 
 }
 

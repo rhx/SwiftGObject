@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecUChar Class
 
@@ -10,7 +11,7 @@ import GLib
 ///
 /// A `GParamSpec` derived structure that contains the meta data for unsigned character properties.
 public protocol ParamSpecUCharProtocol: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpecUChar` instance.
+        /// Untyped pointer to the underlying `GParamSpecUChar` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecUChar` instance.
@@ -23,7 +24,7 @@ public protocol ParamSpecUCharProtocol: ParamSpecProtocol {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for unsigned character properties.
 public struct ParamSpecUCharRef: ParamSpecUCharProtocol {
-    /// Untyped pointer to the underlying `GParamSpecUChar` instance.
+        /// Untyped pointer to the underlying `GParamSpecUChar` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_uchar_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -76,7 +77,7 @@ public extension ParamSpecUCharRef {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for unsigned character properties.
 open class ParamSpecUChar: ParamSpec, ParamSpecUCharProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecUChar` instance.
     /// - Parameter op: pointer to the underlying object
@@ -158,14 +159,52 @@ open class ParamSpecUChar: ParamSpec, ParamSpecUCharProtocol {
 
 }
 
-// MARK: - no ParamSpecUChar properties
+// MARK: no ParamSpecUChar properties
 
-// MARK: - no signals
+// MARK: no ParamSpecUChar signals
 
 
+// MARK: ParamSpecUChar Class: ParamSpecUCharProtocol extension (methods and fields)
 public extension ParamSpecUCharProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecUChar` instance.
     var param_spec_uchar_ptr: UnsafeMutablePointer<GParamSpecUChar> { return ptr.assumingMemoryBound(to: GParamSpecUChar.self) }
+
+
+    /// private `GParamSpec` portion
+    var parentInstance: GParamSpec {
+        /// private `GParamSpec` portion
+        get {
+            let rv: GParamSpec = cast(param_spec_uchar_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    /// minimum value for the property specified
+    var minimum: UInt8 {
+        /// minimum value for the property specified
+        get {
+            let rv: UInt8 = cast(param_spec_uchar_ptr.pointee.minimum)
+            return rv
+        }
+    }
+
+    /// maximum value for the property specified
+    var maximum: UInt8 {
+        /// maximum value for the property specified
+        get {
+            let rv: UInt8 = cast(param_spec_uchar_ptr.pointee.maximum)
+            return rv
+        }
+    }
+
+    /// default value for the property specified
+    var defaultValue: UInt8 {
+        /// default value for the property specified
+        get {
+            let rv: UInt8 = cast(param_spec_uchar_ptr.pointee.default_value)
+            return rv
+        }
+    }
 
 }
 

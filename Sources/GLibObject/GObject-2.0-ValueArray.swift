@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ValueArray Record
 
@@ -10,7 +11,7 @@ import GLib
 ///
 /// A `GValueArray` contains an array of `GValue` elements.
 public protocol ValueArrayProtocol {
-    /// Untyped pointer to the underlying `GValueArray` instance.
+        /// Untyped pointer to the underlying `GValueArray` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GValueArray` instance.
@@ -23,7 +24,7 @@ public protocol ValueArrayProtocol {
 ///
 /// A `GValueArray` contains an array of `GValue` elements.
 public struct ValueArrayRef: ValueArrayProtocol {
-    /// Untyped pointer to the underlying `GValueArray` instance.
+        /// Untyped pointer to the underlying `GValueArray` instance.
     /// For type-safe access, use the generated, typed pointer `value_array_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -75,7 +76,7 @@ public extension ValueArrayRef {
     /// **new is deprecated:**
     /// Use #GArray and g_array_sized_new() instead.
     @available(*, deprecated) init( n_prealloced: CUnsignedInt) {
-        let rv = g_value_array_new(guint(n_prealloced))
+        let rv: UnsafeMutablePointer<GValueArray>! = cast(g_value_array_new(guint(n_prealloced)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -86,7 +87,7 @@ public extension ValueArrayRef {
 ///
 /// A `GValueArray` contains an array of `GValue` elements.
 open class ValueArray: ValueArrayProtocol {
-    /// Untyped pointer to the underlying `GValueArray` instance.
+        /// Untyped pointer to the underlying `GValueArray` instance.
     /// For type-safe access, use the generated, typed pointer `value_array_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -115,7 +116,7 @@ open class ValueArray: ValueArrayProtocol {
         // no reference counting for GValueArray, cannot ref(cast(value_array_ptr))
     }
 
-    /// Do-nothing destructor for`GValueArray`.
+    /// Do-nothing destructor for `GValueArray`.
     deinit {
         // no reference counting for GValueArray, cannot unref(cast(value_array_ptr))
     }
@@ -186,18 +187,19 @@ open class ValueArray: ValueArrayProtocol {
     /// **new is deprecated:**
     /// Use #GArray and g_array_sized_new() instead.
     @available(*, deprecated) public init( n_prealloced: CUnsignedInt) {
-        let rv = g_value_array_new(guint(n_prealloced))
+        let rv: UnsafeMutablePointer<GValueArray>! = cast(g_value_array_new(guint(n_prealloced)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
 }
 
-// MARK: - no ValueArray properties
+// MARK: no ValueArray properties
 
-// MARK: - no signals
+// MARK: no ValueArray signals
 
 
+// MARK: ValueArray Record: ValueArrayProtocol extension (methods and fields)
 public extension ValueArrayProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GValueArray` instance.
     var value_array_ptr: UnsafeMutablePointer<GValueArray> { return ptr.assumingMemoryBound(to: GValueArray.self) }
@@ -208,7 +210,7 @@ public extension ValueArrayProtocol {
     /// **append is deprecated:**
     /// Use #GArray and g_array_append_val() instead.
     @available(*, deprecated) func append(value: ValueProtocol) -> UnsafeMutablePointer<GValueArray>! {
-        let rv = g_value_array_append(cast(value_array_ptr), cast(value.ptr))
+        let rv: UnsafeMutablePointer<GValueArray>! = cast(g_value_array_append(cast(value_array_ptr), cast(value.ptr)))
         return cast(rv)
     }
 
@@ -218,7 +220,7 @@ public extension ValueArrayProtocol {
     /// **copy is deprecated:**
     /// Use #GArray and g_array_ref() instead.
     @available(*, deprecated) func copy() -> UnsafeMutablePointer<GValueArray>! {
-        let rv = g_value_array_copy(cast(value_array_ptr))
+        let rv: UnsafeMutablePointer<GValueArray>! = cast(g_value_array_copy(cast(value_array_ptr)))
         return cast(rv)
     }
 
@@ -236,7 +238,7 @@ public extension ValueArrayProtocol {
     /// **get_nth is deprecated:**
     /// Use g_array_index() instead.
     @available(*, deprecated) func getNth(index_: CUnsignedInt) -> UnsafeMutablePointer<GValue>! {
-        let rv = g_value_array_get_nth(cast(value_array_ptr), guint(index_))
+        let rv: UnsafeMutablePointer<GValue>! = cast(g_value_array_get_nth(cast(value_array_ptr), guint(index_)))
         return cast(rv)
     }
 
@@ -246,7 +248,7 @@ public extension ValueArrayProtocol {
     /// **insert is deprecated:**
     /// Use #GArray and g_array_insert_val() instead.
     @available(*, deprecated) func insert(index_: CUnsignedInt, value: ValueProtocol) -> UnsafeMutablePointer<GValueArray>! {
-        let rv = g_value_array_insert(cast(value_array_ptr), guint(index_), cast(value.ptr))
+        let rv: UnsafeMutablePointer<GValueArray>! = cast(g_value_array_insert(cast(value_array_ptr), guint(index_), cast(value.ptr)))
         return cast(rv)
     }
 
@@ -256,7 +258,7 @@ public extension ValueArrayProtocol {
     /// **prepend is deprecated:**
     /// Use #GArray and g_array_prepend_val() instead.
     @available(*, deprecated) func prepend(value: ValueProtocol) -> UnsafeMutablePointer<GValueArray>! {
-        let rv = g_value_array_prepend(cast(value_array_ptr), cast(value.ptr))
+        let rv: UnsafeMutablePointer<GValueArray>! = cast(g_value_array_prepend(cast(value_array_ptr), cast(value.ptr)))
         return cast(rv)
     }
 
@@ -265,7 +267,7 @@ public extension ValueArrayProtocol {
     /// **remove is deprecated:**
     /// Use #GArray and g_array_remove_index() instead.
     @available(*, deprecated) func remove(index_: CUnsignedInt) -> UnsafeMutablePointer<GValueArray>! {
-        let rv = g_value_array_remove(cast(value_array_ptr), guint(index_))
+        let rv: UnsafeMutablePointer<GValueArray>! = cast(g_value_array_remove(cast(value_array_ptr), guint(index_)))
         return cast(rv)
     }
 
@@ -278,7 +280,7 @@ public extension ValueArrayProtocol {
     /// **sort is deprecated:**
     /// Use #GArray and g_array_sort().
     @available(*, deprecated) func sort(compareFunc compare_func: @escaping GCompareFunc) -> UnsafeMutablePointer<GValueArray>! {
-        let rv = g_value_array_sort(cast(value_array_ptr), compare_func)
+        let rv: UnsafeMutablePointer<GValueArray>! = cast(g_value_array_sort(cast(value_array_ptr), compare_func))
         return cast(rv)
     }
 
@@ -291,9 +293,38 @@ public extension ValueArrayProtocol {
     /// **sort_with_data is deprecated:**
     /// Use #GArray and g_array_sort_with_data().
     @available(*, deprecated) func sortWithData(compareFunc compare_func: @escaping GCompareDataFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GValueArray>! {
-        let rv = g_value_array_sort_with_data(cast(value_array_ptr), compare_func, cast(user_data))
+        let rv: UnsafeMutablePointer<GValueArray>! = cast(g_value_array_sort_with_data(cast(value_array_ptr), compare_func, cast(user_data)))
         return cast(rv)
     }
+
+    /// number of values contained in the array
+    var nValues: Int {
+        /// number of values contained in the array
+        get {
+            let rv: Int = cast(value_array_ptr.pointee.n_values)
+            return rv
+        }
+        /// number of values contained in the array
+         set {
+            value_array_ptr.pointee.n_values = guint(newValue)
+        }
+    }
+
+    /// array of values
+    var values: UnsafeMutablePointer<GValue> {
+        /// array of values
+        get {
+            let rv: UnsafeMutablePointer<GValue> = cast(value_array_ptr.pointee.values)
+            return rv
+        }
+        /// array of values
+         set {
+            value_array_ptr.pointee.values = cast(newValue)
+        }
+    }
+
+    // var nPrealloced is unavailable because n_prealloced is private
+
 }
 
 

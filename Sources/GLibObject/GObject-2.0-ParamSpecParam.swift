@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecParam Class
 
@@ -11,7 +12,7 @@ import GLib
 /// A `GParamSpec` derived structure that contains the meta data for `G_TYPE_PARAM`
 /// properties.
 public protocol ParamSpecParamProtocol: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpecParam` instance.
+        /// Untyped pointer to the underlying `GParamSpecParam` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecParam` instance.
@@ -25,7 +26,7 @@ public protocol ParamSpecParamProtocol: ParamSpecProtocol {
 /// A `GParamSpec` derived structure that contains the meta data for `G_TYPE_PARAM`
 /// properties.
 public struct ParamSpecParamRef: ParamSpecParamProtocol {
-    /// Untyped pointer to the underlying `GParamSpecParam` instance.
+        /// Untyped pointer to the underlying `GParamSpecParam` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_param_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension ParamSpecParamRef {
 /// A `GParamSpec` derived structure that contains the meta data for `G_TYPE_PARAM`
 /// properties.
 open class ParamSpecParam: ParamSpec, ParamSpecParamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecParam` instance.
     /// - Parameter op: pointer to the underlying object
@@ -161,14 +162,25 @@ open class ParamSpecParam: ParamSpec, ParamSpecParamProtocol {
 
 }
 
-// MARK: - no ParamSpecParam properties
+// MARK: no ParamSpecParam properties
 
-// MARK: - no signals
+// MARK: no ParamSpecParam signals
 
 
+// MARK: ParamSpecParam Class: ParamSpecParamProtocol extension (methods and fields)
 public extension ParamSpecParamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecParam` instance.
     var param_spec_param_ptr: UnsafeMutablePointer<GParamSpecParam> { return ptr.assumingMemoryBound(to: GParamSpecParam.self) }
+
+
+    /// private `GParamSpec` portion
+    var parentInstance: GParamSpec {
+        /// private `GParamSpec` portion
+        get {
+            let rv: GParamSpec = cast(param_spec_param_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
 
 }
 

@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecDouble Class
 
@@ -10,7 +11,7 @@ import GLib
 ///
 /// A `GParamSpec` derived structure that contains the meta data for double properties.
 public protocol ParamSpecDoubleProtocol: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpecDouble` instance.
+        /// Untyped pointer to the underlying `GParamSpecDouble` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecDouble` instance.
@@ -23,7 +24,7 @@ public protocol ParamSpecDoubleProtocol: ParamSpecProtocol {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for double properties.
 public struct ParamSpecDoubleRef: ParamSpecDoubleProtocol {
-    /// Untyped pointer to the underlying `GParamSpecDouble` instance.
+        /// Untyped pointer to the underlying `GParamSpecDouble` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_double_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -76,7 +77,7 @@ public extension ParamSpecDoubleRef {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for double properties.
 open class ParamSpecDouble: ParamSpec, ParamSpecDoubleProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecDouble` instance.
     /// - Parameter op: pointer to the underlying object
@@ -158,14 +159,63 @@ open class ParamSpecDouble: ParamSpec, ParamSpecDoubleProtocol {
 
 }
 
-// MARK: - no ParamSpecDouble properties
+// MARK: no ParamSpecDouble properties
 
-// MARK: - no signals
+// MARK: no ParamSpecDouble signals
 
 
+// MARK: ParamSpecDouble Class: ParamSpecDoubleProtocol extension (methods and fields)
 public extension ParamSpecDoubleProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecDouble` instance.
     var param_spec_double_ptr: UnsafeMutablePointer<GParamSpecDouble> { return ptr.assumingMemoryBound(to: GParamSpecDouble.self) }
+
+
+    /// private `GParamSpec` portion
+    var parentInstance: GParamSpec {
+        /// private `GParamSpec` portion
+        get {
+            let rv: GParamSpec = cast(param_spec_double_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    /// minimum value for the property specified
+    var minimum: Double {
+        /// minimum value for the property specified
+        get {
+            let rv: Double = cast(param_spec_double_ptr.pointee.minimum)
+            return rv
+        }
+    }
+
+    /// maximum value for the property specified
+    var maximum: Double {
+        /// maximum value for the property specified
+        get {
+            let rv: Double = cast(param_spec_double_ptr.pointee.maximum)
+            return rv
+        }
+    }
+
+    /// default value for the property specified
+    var defaultValue: Double {
+        /// default value for the property specified
+        get {
+            let rv: Double = cast(param_spec_double_ptr.pointee.default_value)
+            return rv
+        }
+    }
+
+    /// values closer than `epsilon` will be considered identical
+    ///  by `g_param_values_cmp()`; the default value is 1e-90.
+    var epsilon: Double {
+        /// values closer than `epsilon` will be considered identical
+        ///  by `g_param_values_cmp()`; the default value is 1e-90.
+        get {
+            let rv: Double = cast(param_spec_double_ptr.pointee.epsilon)
+            return rv
+        }
+    }
 
 }
 

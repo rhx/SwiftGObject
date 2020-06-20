@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - CClosure Record
 
@@ -10,7 +11,7 @@ import GLib
 ///
 /// A `GCClosure` is a specialization of `GClosure` for C function callbacks.
 public protocol CClosureProtocol {
-    /// Untyped pointer to the underlying `GCClosure` instance.
+        /// Untyped pointer to the underlying `GCClosure` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GCClosure` instance.
@@ -23,7 +24,7 @@ public protocol CClosureProtocol {
 ///
 /// A `GCClosure` is a specialization of `GClosure` for C function callbacks.
 public struct CClosureRef: CClosureProtocol {
-    /// Untyped pointer to the underlying `GCClosure` instance.
+        /// Untyped pointer to the underlying `GCClosure` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -76,7 +77,7 @@ public extension CClosureRef {
 ///
 /// A `GCClosure` is a specialization of `GClosure` for C function callbacks.
 open class CClosure: CClosureProtocol {
-    /// Untyped pointer to the underlying `GCClosure` instance.
+        /// Untyped pointer to the underlying `GCClosure` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -105,7 +106,7 @@ open class CClosure: CClosureProtocol {
         // no reference counting for GCClosure, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GCClosure`.
+    /// Do-nothing destructor for `GCClosure`.
     deinit {
         // no reference counting for GCClosure, cannot unref(cast(_ptr))
     }
@@ -173,14 +174,42 @@ open class CClosure: CClosureProtocol {
 
 }
 
-// MARK: - no CClosure properties
+// MARK: no CClosure properties
 
-// MARK: - no signals
+// MARK: no CClosure signals
 
 
+// MARK: CClosure Record: CClosureProtocol extension (methods and fields)
 public extension CClosureProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GCClosure` instance.
     var _ptr: UnsafeMutablePointer<GCClosure> { return ptr.assumingMemoryBound(to: GCClosure.self) }
+
+
+    /// the `GClosure`
+    var closure: GClosure {
+        /// the `GClosure`
+        get {
+            let rv: GClosure = cast(_ptr.pointee.closure)
+            return rv
+        }
+        /// the `GClosure`
+         set {
+            _ptr.pointee.closure = cast(newValue)
+        }
+    }
+
+    /// the callback function
+    var callback: UnsafeMutableRawPointer {
+        /// the callback function
+        get {
+            let rv: UnsafeMutableRawPointer = cast(_ptr.pointee.callback)
+            return rv
+        }
+        /// the callback function
+         set {
+            _ptr.pointee.callback = cast(newValue)
+        }
+    }
 
 }
 

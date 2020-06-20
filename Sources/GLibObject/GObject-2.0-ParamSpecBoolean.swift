@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecBoolean Class
 
@@ -10,7 +11,7 @@ import GLib
 ///
 /// A `GParamSpec` derived structure that contains the meta data for boolean properties.
 public protocol ParamSpecBooleanProtocol: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpecBoolean` instance.
+        /// Untyped pointer to the underlying `GParamSpecBoolean` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecBoolean` instance.
@@ -23,7 +24,7 @@ public protocol ParamSpecBooleanProtocol: ParamSpecProtocol {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for boolean properties.
 public struct ParamSpecBooleanRef: ParamSpecBooleanProtocol {
-    /// Untyped pointer to the underlying `GParamSpecBoolean` instance.
+        /// Untyped pointer to the underlying `GParamSpecBoolean` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_boolean_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -76,7 +77,7 @@ public extension ParamSpecBooleanRef {
 ///
 /// A `GParamSpec` derived structure that contains the meta data for boolean properties.
 open class ParamSpecBoolean: ParamSpec, ParamSpecBooleanProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecBoolean` instance.
     /// - Parameter op: pointer to the underlying object
@@ -158,14 +159,34 @@ open class ParamSpecBoolean: ParamSpec, ParamSpecBooleanProtocol {
 
 }
 
-// MARK: - no ParamSpecBoolean properties
+// MARK: no ParamSpecBoolean properties
 
-// MARK: - no signals
+// MARK: no ParamSpecBoolean signals
 
 
+// MARK: ParamSpecBoolean Class: ParamSpecBooleanProtocol extension (methods and fields)
 public extension ParamSpecBooleanProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecBoolean` instance.
     var param_spec_boolean_ptr: UnsafeMutablePointer<GParamSpecBoolean> { return ptr.assumingMemoryBound(to: GParamSpecBoolean.self) }
+
+
+    /// private `GParamSpec` portion
+    var parentInstance: GParamSpec {
+        /// private `GParamSpec` portion
+        get {
+            let rv: GParamSpec = cast(param_spec_boolean_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    /// default value for the property specified
+    var defaultValue: Bool {
+        /// default value for the property specified
+        get {
+            let rv: Bool = cast(param_spec_boolean_ptr.pointee.default_value)
+            return rv
+        }
+    }
 
 }
 

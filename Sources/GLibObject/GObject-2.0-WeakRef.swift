@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - WeakRef Record
 
@@ -29,7 +30,7 @@ import GLib
 /// re-referenced, they will continue to point to it until its refcount
 /// goes back to zero, at which point they too will be invalidated.
 public protocol WeakRefProtocol {
-    /// Untyped pointer to the underlying `GWeakRef` instance.
+        /// Untyped pointer to the underlying `GWeakRef` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GWeakRef` instance.
@@ -61,7 +62,7 @@ public protocol WeakRefProtocol {
 /// re-referenced, they will continue to point to it until its refcount
 /// goes back to zero, at which point they too will be invalidated.
 public struct WeakRefRef: WeakRefProtocol {
-    /// Untyped pointer to the underlying `GWeakRef` instance.
+        /// Untyped pointer to the underlying `GWeakRef` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -133,7 +134,7 @@ public extension WeakRefRef {
 /// re-referenced, they will continue to point to it until its refcount
 /// goes back to zero, at which point they too will be invalidated.
 open class WeakRef: WeakRefProtocol {
-    /// Untyped pointer to the underlying `GWeakRef` instance.
+        /// Untyped pointer to the underlying `GWeakRef` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -162,7 +163,7 @@ open class WeakRef: WeakRefProtocol {
         // no reference counting for GWeakRef, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GWeakRef`.
+    /// Do-nothing destructor for `GWeakRef`.
     deinit {
         // no reference counting for GWeakRef, cannot unref(cast(_ptr))
     }
@@ -230,11 +231,12 @@ open class WeakRef: WeakRefProtocol {
 
 }
 
-// MARK: - no WeakRef properties
+// MARK: no WeakRef properties
 
-// MARK: - no signals
+// MARK: no WeakRef signals
 
 
+// MARK: WeakRef Record: WeakRefProtocol extension (methods and fields)
 public extension WeakRefProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GWeakRef` instance.
     var _ptr: UnsafeMutablePointer<GWeakRef> { return ptr.assumingMemoryBound(to: GWeakRef.self) }
@@ -259,7 +261,7 @@ public extension WeakRefProtocol {
     /// The caller should release the resulting reference in the usual way,
     /// by using `g_object_unref()`.
     func get() -> UnsafeMutableRawPointer! {
-        let rv = g_weak_ref_get(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_weak_ref_get(cast(_ptr)))
         return cast(rv)
     }
 
@@ -286,6 +288,8 @@ public extension WeakRefProtocol {
         g_weak_ref_set(cast(_ptr), cast(object.ptr))
     
     }
+
+
 }
 
 

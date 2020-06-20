@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - EnumClass Record
 
@@ -11,7 +12,7 @@ import GLib
 /// The class of an enumeration type holds information about its
 /// possible values.
 public protocol EnumClassProtocol {
-    /// Untyped pointer to the underlying `GEnumClass` instance.
+        /// Untyped pointer to the underlying `GEnumClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GEnumClass` instance.
@@ -25,7 +26,7 @@ public protocol EnumClassProtocol {
 /// The class of an enumeration type holds information about its
 /// possible values.
 public struct EnumClassRef: EnumClassProtocol {
-    /// Untyped pointer to the underlying `GEnumClass` instance.
+        /// Untyped pointer to the underlying `GEnumClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension EnumClassRef {
 /// The class of an enumeration type holds information about its
 /// possible values.
 open class EnumClass: EnumClassProtocol {
-    /// Untyped pointer to the underlying `GEnumClass` instance.
+        /// Untyped pointer to the underlying `GEnumClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -108,7 +109,7 @@ open class EnumClass: EnumClassProtocol {
         // no reference counting for GEnumClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GEnumClass`.
+    /// Do-nothing destructor for `GEnumClass`.
     deinit {
         // no reference counting for GEnumClass, cannot unref(cast(_ptr))
     }
@@ -176,32 +177,102 @@ open class EnumClass: EnumClassProtocol {
 
 }
 
-// MARK: - no EnumClass properties
+// MARK: no EnumClass properties
 
-// MARK: - no signals
+// MARK: no EnumClass signals
 
 
+// MARK: EnumClass Record: EnumClassProtocol extension (methods and fields)
 public extension EnumClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GEnumClass` instance.
     var _ptr: UnsafeMutablePointer<GEnumClass> { return ptr.assumingMemoryBound(to: GEnumClass.self) }
 
     /// Returns the `GEnumValue` for a value.
     func enumGet(value: CInt) -> UnsafeMutablePointer<GEnumValue>! {
-        let rv = g_enum_get_value(cast(_ptr), gint(value))
+        let rv: UnsafeMutablePointer<GEnumValue>! = cast(g_enum_get_value(cast(_ptr), gint(value)))
         return cast(rv)
     }
 
     /// Looks up a `GEnumValue` by name.
     func enumGetValueBy(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GEnumValue>! {
-        let rv = g_enum_get_value_by_name(cast(_ptr), name)
+        let rv: UnsafeMutablePointer<GEnumValue>! = cast(g_enum_get_value_by_name(cast(_ptr), name))
         return cast(rv)
     }
 
     /// Looks up a `GEnumValue` by nickname.
     func enumGetValueBy(nick: UnsafePointer<gchar>) -> UnsafeMutablePointer<GEnumValue>! {
-        let rv = g_enum_get_value_by_nick(cast(_ptr), nick)
+        let rv: UnsafeMutablePointer<GEnumValue>! = cast(g_enum_get_value_by_nick(cast(_ptr), nick))
         return cast(rv)
     }
+
+    /// the parent class
+    var gTypeClass: GTypeClass {
+        /// the parent class
+        get {
+            let rv: GTypeClass = cast(_ptr.pointee.g_type_class)
+            return rv
+        }
+        /// the parent class
+         set {
+            _ptr.pointee.g_type_class = cast(newValue)
+        }
+    }
+
+    /// the smallest possible value.
+    var minimum: Int {
+        /// the smallest possible value.
+        get {
+            let rv: Int = cast(_ptr.pointee.minimum)
+            return rv
+        }
+        /// the smallest possible value.
+         set {
+            _ptr.pointee.minimum = gint(newValue)
+        }
+    }
+
+    /// the largest possible value.
+    var maximum: Int {
+        /// the largest possible value.
+        get {
+            let rv: Int = cast(_ptr.pointee.maximum)
+            return rv
+        }
+        /// the largest possible value.
+         set {
+            _ptr.pointee.maximum = gint(newValue)
+        }
+    }
+
+    /// the number of possible values.
+    var nValues: Int {
+        /// the number of possible values.
+        get {
+            let rv: Int = cast(_ptr.pointee.n_values)
+            return rv
+        }
+        /// the number of possible values.
+         set {
+            _ptr.pointee.n_values = guint(newValue)
+        }
+    }
+
+    /// an array of `GEnumValue` structs describing the
+    ///  individual values.
+    var values: UnsafeMutablePointer<GEnumValue> {
+        /// an array of `GEnumValue` structs describing the
+        ///  individual values.
+        get {
+            let rv: UnsafeMutablePointer<GEnumValue> = cast(_ptr.pointee.values)
+            return rv
+        }
+        /// an array of `GEnumValue` structs describing the
+        ///  individual values.
+         set {
+            _ptr.pointee.values = cast(newValue)
+        }
+    }
+
 }
 
 

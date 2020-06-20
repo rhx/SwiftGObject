@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - SignalQuery Record
 
@@ -11,7 +12,7 @@ import GLib
 /// A structure holding in-depth information for a specific signal. It is
 /// filled in by the `g_signal_query()` function.
 public protocol SignalQueryProtocol {
-    /// Untyped pointer to the underlying `GSignalQuery` instance.
+        /// Untyped pointer to the underlying `GSignalQuery` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSignalQuery` instance.
@@ -25,7 +26,7 @@ public protocol SignalQueryProtocol {
 /// A structure holding in-depth information for a specific signal. It is
 /// filled in by the `g_signal_query()` function.
 public struct SignalQueryRef: SignalQueryProtocol {
-    /// Untyped pointer to the underlying `GSignalQuery` instance.
+        /// Untyped pointer to the underlying `GSignalQuery` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension SignalQueryRef {
 /// A structure holding in-depth information for a specific signal. It is
 /// filled in by the `g_signal_query()` function.
 open class SignalQuery: SignalQueryProtocol {
-    /// Untyped pointer to the underlying `GSignalQuery` instance.
+        /// Untyped pointer to the underlying `GSignalQuery` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -108,7 +109,7 @@ open class SignalQuery: SignalQueryProtocol {
         // no reference counting for GSignalQuery, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSignalQuery`.
+    /// Do-nothing destructor for `GSignalQuery`.
     deinit {
         // no reference counting for GSignalQuery, cannot unref(cast(_ptr))
     }
@@ -176,11 +177,12 @@ open class SignalQuery: SignalQueryProtocol {
 
 }
 
-// MARK: - no SignalQuery properties
+// MARK: no SignalQuery properties
 
-// MARK: - no signals
+// MARK: no SignalQuery signals
 
 
+// MARK: SignalQuery Record: SignalQueryProtocol extension (methods and fields)
 public extension SignalQueryProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSignalQuery` instance.
     var _ptr: UnsafeMutablePointer<GSignalQuery> { return ptr.assumingMemoryBound(to: GSignalQuery.self) }
@@ -195,6 +197,90 @@ public extension SignalQueryProtocol {
         g_signal_query(guint(signal_id), cast(_ptr))
     
     }
+
+    /// The signal id of the signal being queried, or 0 if the
+    ///  signal to be queried was unknown.
+    var signalID: Int {
+        /// The signal id of the signal being queried, or 0 if the
+        ///  signal to be queried was unknown.
+        get {
+            let rv: Int = cast(_ptr.pointee.signal_id)
+            return rv
+        }
+        /// The signal id of the signal being queried, or 0 if the
+        ///  signal to be queried was unknown.
+         set {
+            _ptr.pointee.signal_id = guint(newValue)
+        }
+    }
+
+    /// The signal name.
+    var signalName: UnsafePointer<CChar> {
+        /// The signal name.
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.signal_name)
+            return rv
+        }
+        /// The signal name.
+         set {
+            _ptr.pointee.signal_name = cast(newValue)
+        }
+    }
+
+    /// The interface/instance type that this signal can be emitted for.
+    var itype: GType {
+        /// The interface/instance type that this signal can be emitted for.
+        get {
+            let rv: GType = cast(_ptr.pointee.itype)
+            return rv
+        }
+        /// The interface/instance type that this signal can be emitted for.
+         set {
+            _ptr.pointee.itype = cast(newValue)
+        }
+    }
+
+    /// The signal flags as passed in to `g_signal_new()`.
+    var signalFlags: GSignalFlags {
+        /// The signal flags as passed in to `g_signal_new()`.
+        get {
+            let rv: GSignalFlags = cast(_ptr.pointee.signal_flags)
+            return rv
+        }
+        /// The signal flags as passed in to `g_signal_new()`.
+         set {
+            _ptr.pointee.signal_flags = cast(newValue)
+        }
+    }
+
+    /// The return type for user callbacks.
+    var returnType: GType {
+        /// The return type for user callbacks.
+        get {
+            let rv: GType = cast(_ptr.pointee.return_type)
+            return rv
+        }
+        /// The return type for user callbacks.
+         set {
+            _ptr.pointee.return_type = cast(newValue)
+        }
+    }
+
+    /// The number of parameters that user callbacks take.
+    var nParams: Int {
+        /// The number of parameters that user callbacks take.
+        get {
+            let rv: Int = cast(_ptr.pointee.n_params)
+            return rv
+        }
+        /// The number of parameters that user callbacks take.
+         set {
+            _ptr.pointee.n_params = guint(newValue)
+        }
+    }
+
+    // var paramTypes is unavailable because param_types is void
+
 }
 
 

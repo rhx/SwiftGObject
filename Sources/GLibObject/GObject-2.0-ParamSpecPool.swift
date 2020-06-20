@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecPool Record
 
@@ -13,7 +14,7 @@ import GLib
 /// system uses such a pool to store the `GParamSpecs` of the properties all object
 /// types.
 public protocol ParamSpecPoolProtocol {
-    /// Untyped pointer to the underlying `GParamSpecPool` instance.
+        /// Untyped pointer to the underlying `GParamSpecPool` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecPool` instance.
@@ -29,7 +30,7 @@ public protocol ParamSpecPoolProtocol {
 /// system uses such a pool to store the `GParamSpecs` of the properties all object
 /// types.
 public struct ParamSpecPoolRef: ParamSpecPoolProtocol {
-    /// Untyped pointer to the underlying `GParamSpecPool` instance.
+        /// Untyped pointer to the underlying `GParamSpecPool` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -85,7 +86,7 @@ public extension ParamSpecPoolRef {
 /// system uses such a pool to store the `GParamSpecs` of the properties all object
 /// types.
 open class ParamSpecPool: ParamSpecPoolProtocol {
-    /// Untyped pointer to the underlying `GParamSpecPool` instance.
+        /// Untyped pointer to the underlying `GParamSpecPool` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -114,7 +115,7 @@ open class ParamSpecPool: ParamSpecPoolProtocol {
         // no reference counting for GParamSpecPool, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GParamSpecPool`.
+    /// Do-nothing destructor for `GParamSpecPool`.
     deinit {
         // no reference counting for GParamSpecPool, cannot unref(cast(_ptr))
     }
@@ -182,11 +183,12 @@ open class ParamSpecPool: ParamSpecPoolProtocol {
 
 }
 
-// MARK: - no ParamSpecPool properties
+// MARK: no ParamSpecPool properties
 
-// MARK: - no signals
+// MARK: no ParamSpecPool signals
 
 
+// MARK: ParamSpecPool Record: ParamSpecPoolProtocol extension (methods and fields)
 public extension ParamSpecPoolProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecPool` instance.
     var _ptr: UnsafeMutablePointer<GParamSpecPool> { return ptr.assumingMemoryBound(to: GParamSpecPool.self) }
@@ -200,20 +202,20 @@ public extension ParamSpecPoolProtocol {
     /// Gets an array of all `GParamSpecs` owned by `owner_type` in
     /// the pool.
     func list(ownerType owner_type: GType, nPspecsP n_pspecs_p: UnsafeMutablePointer<CUnsignedInt>) -> UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>>! {
-        let rv = g_param_spec_pool_list(cast(_ptr), owner_type, cast(n_pspecs_p))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>>! = cast(g_param_spec_pool_list(cast(_ptr), owner_type, cast(n_pspecs_p)))
         return cast(rv)
     }
 
     /// Gets an `GList` of all `GParamSpecs` owned by `owner_type` in
     /// the pool.
     func listOwned(ownerType owner_type: GType) -> UnsafeMutablePointer<GList>! {
-        let rv = g_param_spec_pool_list_owned(cast(_ptr), owner_type)
+        let rv: UnsafeMutablePointer<GList>! = cast(g_param_spec_pool_list_owned(cast(_ptr), owner_type))
         return cast(rv)
     }
 
     /// Looks up a `GParamSpec` in the pool.
     func lookup(paramName param_name: UnsafePointer<gchar>, ownerType owner_type: GType, walkAncestors walk_ancestors: Bool) -> UnsafeMutablePointer<GParamSpec>! {
-        let rv = g_param_spec_pool_lookup(cast(_ptr), param_name, owner_type, gboolean(walk_ancestors ? 1 : 0))
+        let rv: UnsafeMutablePointer<GParamSpec>! = cast(g_param_spec_pool_lookup(cast(_ptr), param_name, owner_type, gboolean(walk_ancestors ? 1 : 0)))
         return cast(rv)
     }
 
@@ -222,6 +224,8 @@ public extension ParamSpecPoolProtocol {
         g_param_spec_pool_remove(cast(_ptr), cast(pspec.ptr))
     
     }
+
+
 }
 
 

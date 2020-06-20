@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - TypeInfo Record
 
@@ -18,7 +19,7 @@ import GLib
 /// copy of this structure, so its memory does not need to be persistent
 /// across invocation of `g_type_register_static()`.
 public protocol TypeInfoProtocol {
-    /// Untyped pointer to the underlying `GTypeInfo` instance.
+        /// Untyped pointer to the underlying `GTypeInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTypeInfo` instance.
@@ -39,7 +40,7 @@ public protocol TypeInfoProtocol {
 /// copy of this structure, so its memory does not need to be persistent
 /// across invocation of `g_type_register_static()`.
 public struct TypeInfoRef: TypeInfoProtocol {
-    /// Untyped pointer to the underlying `GTypeInfo` instance.
+        /// Untyped pointer to the underlying `GTypeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -100,7 +101,7 @@ public extension TypeInfoRef {
 /// copy of this structure, so its memory does not need to be persistent
 /// across invocation of `g_type_register_static()`.
 open class TypeInfo: TypeInfoProtocol {
-    /// Untyped pointer to the underlying `GTypeInfo` instance.
+        /// Untyped pointer to the underlying `GTypeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -129,7 +130,7 @@ open class TypeInfo: TypeInfoProtocol {
         // no reference counting for GTypeInfo, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTypeInfo`.
+    /// Do-nothing destructor for `GTypeInfo`.
     deinit {
         // no reference counting for GTypeInfo, cannot unref(cast(_ptr))
     }
@@ -197,11 +198,12 @@ open class TypeInfo: TypeInfoProtocol {
 
 }
 
-// MARK: - no TypeInfo properties
+// MARK: no TypeInfo properties
 
-// MARK: - no signals
+// MARK: no TypeInfo signals
 
 
+// MARK: TypeInfo Record: TypeInfoProtocol extension (methods and fields)
 public extension TypeInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTypeInfo` instance.
     var _ptr: UnsafeMutablePointer<GTypeInfo> { return ptr.assumingMemoryBound(to: GTypeInfo.self) }
@@ -249,8 +251,8 @@ public extension TypeInfoProtocol {
     /// `finfo` to manage the type and its instances. The value of `flags` determines
     /// additional characteristics of the fundamental type.
     func typeRegisterFundamental(typeID type_id: GType, typeName type_name: UnsafePointer<gchar>, finfo: TypeFundamentalInfoProtocol, flags: TypeFlags) -> GType {
-        let rv = g_type_register_fundamental(type_id, type_name, cast(_ptr), cast(finfo.ptr), flags)
-        return rv
+        let rv = g_type_register_fundamental(type_id, type_name, cast(_ptr), cast(finfo.ptr), flags.value)
+        return cast(rv)
     }
 
     /// Registers `type_name` as the name of a new static type derived from
@@ -259,9 +261,164 @@ public extension TypeInfoProtocol {
     /// instances (if not abstract). The value of `flags` determines the nature
     /// (e.g. abstract or not) of the type.
     func typeRegisterStatic(parentType parent_type: GType, typeName type_name: UnsafePointer<gchar>, flags: TypeFlags) -> GType {
-        let rv = g_type_register_static(parent_type, type_name, cast(_ptr), flags)
-        return rv
+        let rv = g_type_register_static(parent_type, type_name, cast(_ptr), flags.value)
+        return cast(rv)
     }
+
+    /// Size of the class structure (required for interface, classed and instantiatable types)
+    var classSize: UInt16 {
+        /// Size of the class structure (required for interface, classed and instantiatable types)
+        get {
+            let rv: UInt16 = cast(_ptr.pointee.class_size)
+            return rv
+        }
+        /// Size of the class structure (required for interface, classed and instantiatable types)
+         set {
+            _ptr.pointee.class_size = guint16(newValue)
+        }
+    }
+
+    /// Location of the base initialization function (optional)
+    var baseInit: GBaseInitFunc {
+        /// Location of the base initialization function (optional)
+        get {
+            let rv: GBaseInitFunc = cast(_ptr.pointee.base_init)
+            return rv
+        }
+        /// Location of the base initialization function (optional)
+         set {
+            _ptr.pointee.base_init = cast(newValue)
+        }
+    }
+
+    /// Location of the base finalization function (optional)
+    var baseFinalize: GBaseFinalizeFunc {
+        /// Location of the base finalization function (optional)
+        get {
+            let rv: GBaseFinalizeFunc = cast(_ptr.pointee.base_finalize)
+            return rv
+        }
+        /// Location of the base finalization function (optional)
+         set {
+            _ptr.pointee.base_finalize = cast(newValue)
+        }
+    }
+
+    /// Location of the class initialization function for
+    ///  classed and instantiatable types. Location of the default vtable
+    ///  inititalization function for interface types. (optional) This function
+    ///  is used both to fill in virtual functions in the class or default vtable,
+    ///  and to do type-specific setup such as registering signals and object
+    ///  properties.
+    var classInit: GClassInitFunc {
+        /// Location of the class initialization function for
+        ///  classed and instantiatable types. Location of the default vtable
+        ///  inititalization function for interface types. (optional) This function
+        ///  is used both to fill in virtual functions in the class or default vtable,
+        ///  and to do type-specific setup such as registering signals and object
+        ///  properties.
+        get {
+            let rv: GClassInitFunc = cast(_ptr.pointee.class_init)
+            return rv
+        }
+        /// Location of the class initialization function for
+        ///  classed and instantiatable types. Location of the default vtable
+        ///  inititalization function for interface types. (optional) This function
+        ///  is used both to fill in virtual functions in the class or default vtable,
+        ///  and to do type-specific setup such as registering signals and object
+        ///  properties.
+         set {
+            _ptr.pointee.class_init = cast(newValue)
+        }
+    }
+
+    /// Location of the class finalization function for
+    ///  classed and instantiatable types. Location of the default vtable
+    ///  finalization function for interface types. (optional)
+    var classFinalize: GClassFinalizeFunc {
+        /// Location of the class finalization function for
+        ///  classed and instantiatable types. Location of the default vtable
+        ///  finalization function for interface types. (optional)
+        get {
+            let rv: GClassFinalizeFunc = cast(_ptr.pointee.class_finalize)
+            return rv
+        }
+        /// Location of the class finalization function for
+        ///  classed and instantiatable types. Location of the default vtable
+        ///  finalization function for interface types. (optional)
+         set {
+            _ptr.pointee.class_finalize = cast(newValue)
+        }
+    }
+
+    /// User-supplied data passed to the class init/finalize functions
+    var classData: gconstpointer {
+        /// User-supplied data passed to the class init/finalize functions
+        get {
+            let rv: gconstpointer = cast(_ptr.pointee.class_data)
+            return rv
+        }
+        /// User-supplied data passed to the class init/finalize functions
+         set {
+            _ptr.pointee.class_data = cast(newValue)
+        }
+    }
+
+    /// Size of the instance (object) structure (required for instantiatable types only)
+    var instanceSize: UInt16 {
+        /// Size of the instance (object) structure (required for instantiatable types only)
+        get {
+            let rv: UInt16 = cast(_ptr.pointee.instance_size)
+            return rv
+        }
+        /// Size of the instance (object) structure (required for instantiatable types only)
+         set {
+            _ptr.pointee.instance_size = guint16(newValue)
+        }
+    }
+
+    /// Prior to GLib 2.10, it specified the number of pre-allocated (cached) instances to reserve memory for (0 indicates no caching). Since GLib 2.10, it is ignored, since instances are allocated with the [slice allocator](#glib-Memory-Slices) now.
+    var nPreallocs: UInt16 {
+        /// Prior to GLib 2.10, it specified the number of pre-allocated (cached) instances to reserve memory for (0 indicates no caching). Since GLib 2.10, it is ignored, since instances are allocated with the [slice allocator](#glib-Memory-Slices) now.
+        get {
+            let rv: UInt16 = cast(_ptr.pointee.n_preallocs)
+            return rv
+        }
+        /// Prior to GLib 2.10, it specified the number of pre-allocated (cached) instances to reserve memory for (0 indicates no caching). Since GLib 2.10, it is ignored, since instances are allocated with the [slice allocator](#glib-Memory-Slices) now.
+         set {
+            _ptr.pointee.n_preallocs = guint16(newValue)
+        }
+    }
+
+    /// Location of the instance initialization function (optional, for instantiatable types only)
+    var instanceInit: GInstanceInitFunc {
+        /// Location of the instance initialization function (optional, for instantiatable types only)
+        get {
+            let rv: GInstanceInitFunc = cast(_ptr.pointee.instance_init)
+            return rv
+        }
+        /// Location of the instance initialization function (optional, for instantiatable types only)
+         set {
+            _ptr.pointee.instance_init = cast(newValue)
+        }
+    }
+
+    /// A `GTypeValueTable` function table for generic handling of GValues
+    ///  of this type (usually only useful for fundamental types)
+    var valueTable: UnsafePointer<GTypeValueTable> {
+        /// A `GTypeValueTable` function table for generic handling of GValues
+        ///  of this type (usually only useful for fundamental types)
+        get {
+            let rv: UnsafePointer<GTypeValueTable> = cast(_ptr.pointee.value_table)
+            return rv
+        }
+        /// A `GTypeValueTable` function table for generic handling of GValues
+        ///  of this type (usually only useful for fundamental types)
+         set {
+            _ptr.pointee.value_table = cast(newValue)
+        }
+    }
+
 }
 
 

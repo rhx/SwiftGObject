@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - SignalInvocationHint Record
 
@@ -11,7 +12,7 @@ import GLib
 /// The `GSignalInvocationHint` structure is used to pass on additional information
 /// to callbacks during a signal emission.
 public protocol SignalInvocationHintProtocol {
-    /// Untyped pointer to the underlying `GSignalInvocationHint` instance.
+        /// Untyped pointer to the underlying `GSignalInvocationHint` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSignalInvocationHint` instance.
@@ -25,7 +26,7 @@ public protocol SignalInvocationHintProtocol {
 /// The `GSignalInvocationHint` structure is used to pass on additional information
 /// to callbacks during a signal emission.
 public struct SignalInvocationHintRef: SignalInvocationHintProtocol {
-    /// Untyped pointer to the underlying `GSignalInvocationHint` instance.
+        /// Untyped pointer to the underlying `GSignalInvocationHint` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension SignalInvocationHintRef {
 /// The `GSignalInvocationHint` structure is used to pass on additional information
 /// to callbacks during a signal emission.
 open class SignalInvocationHint: SignalInvocationHintProtocol {
-    /// Untyped pointer to the underlying `GSignalInvocationHint` instance.
+        /// Untyped pointer to the underlying `GSignalInvocationHint` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -108,7 +109,7 @@ open class SignalInvocationHint: SignalInvocationHintProtocol {
         // no reference counting for GSignalInvocationHint, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSignalInvocationHint`.
+    /// Do-nothing destructor for `GSignalInvocationHint`.
     deinit {
         // no reference counting for GSignalInvocationHint, cannot unref(cast(_ptr))
     }
@@ -176,11 +177,12 @@ open class SignalInvocationHint: SignalInvocationHintProtocol {
 
 }
 
-// MARK: - no SignalInvocationHint properties
+// MARK: no SignalInvocationHint properties
 
-// MARK: - no signals
+// MARK: no SignalInvocationHint signals
 
 
+// MARK: SignalInvocationHint Record: SignalInvocationHintProtocol extension (methods and fields)
 public extension SignalInvocationHintProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSignalInvocationHint` instance.
     var _ptr: UnsafeMutablePointer<GSignalInvocationHint> { return ptr.assumingMemoryBound(to: GSignalInvocationHint.self) }
@@ -211,6 +213,52 @@ public extension SignalInvocationHintProtocol {
         let rv = g_signal_accumulator_true_handled(cast(_ptr), cast(return_accu.ptr), cast(handler_return.ptr), cast(dummy))
         return Bool(rv != 0)
     }
+
+    /// The signal id of the signal invoking the callback
+    var signalID: Int {
+        /// The signal id of the signal invoking the callback
+        get {
+            let rv: Int = cast(_ptr.pointee.signal_id)
+            return rv
+        }
+        /// The signal id of the signal invoking the callback
+         set {
+            _ptr.pointee.signal_id = guint(newValue)
+        }
+    }
+
+    /// The detail passed on for this emission
+    var detail: GQuark {
+        /// The detail passed on for this emission
+        get {
+            let rv: GQuark = cast(_ptr.pointee.detail)
+            return rv
+        }
+        /// The detail passed on for this emission
+         set {
+            _ptr.pointee.detail = cast(newValue)
+        }
+    }
+
+    /// The stage the signal emission is currently in, this
+    ///  field will contain one of `G_SIGNAL_RUN_FIRST`,
+    ///  `G_SIGNAL_RUN_LAST` or `G_SIGNAL_RUN_CLEANUP`.
+    var runType: GSignalFlags {
+        /// The stage the signal emission is currently in, this
+        ///  field will contain one of `G_SIGNAL_RUN_FIRST`,
+        ///  `G_SIGNAL_RUN_LAST` or `G_SIGNAL_RUN_CLEANUP`.
+        get {
+            let rv: GSignalFlags = cast(_ptr.pointee.run_type)
+            return rv
+        }
+        /// The stage the signal emission is currently in, this
+        ///  field will contain one of `G_SIGNAL_RUN_FIRST`,
+        ///  `G_SIGNAL_RUN_LAST` or `G_SIGNAL_RUN_CLEANUP`.
+         set {
+            _ptr.pointee.run_type = cast(newValue)
+        }
+    }
+
 }
 
 

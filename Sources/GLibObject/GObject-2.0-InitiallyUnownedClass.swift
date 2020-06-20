@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - InitiallyUnownedClass Record
 
@@ -10,7 +11,7 @@ import GLib
 ///
 /// The class structure for the GInitiallyUnowned type.
 public protocol InitiallyUnownedClassProtocol {
-    /// Untyped pointer to the underlying `GInitiallyUnownedClass` instance.
+        /// Untyped pointer to the underlying `GInitiallyUnownedClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInitiallyUnownedClass` instance.
@@ -23,7 +24,7 @@ public protocol InitiallyUnownedClassProtocol {
 ///
 /// The class structure for the GInitiallyUnowned type.
 public struct InitiallyUnownedClassRef: InitiallyUnownedClassProtocol {
-    /// Untyped pointer to the underlying `GInitiallyUnownedClass` instance.
+        /// Untyped pointer to the underlying `GInitiallyUnownedClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -76,7 +77,7 @@ public extension InitiallyUnownedClassRef {
 ///
 /// The class structure for the GInitiallyUnowned type.
 open class InitiallyUnownedClass: InitiallyUnownedClassProtocol {
-    /// Untyped pointer to the underlying `GInitiallyUnownedClass` instance.
+        /// Untyped pointer to the underlying `GInitiallyUnownedClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -105,7 +106,7 @@ open class InitiallyUnownedClass: InitiallyUnownedClassProtocol {
         // no reference counting for GInitiallyUnownedClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GInitiallyUnownedClass`.
+    /// Do-nothing destructor for `GInitiallyUnownedClass`.
     deinit {
         // no reference counting for GInitiallyUnownedClass, cannot unref(cast(_ptr))
     }
@@ -173,14 +174,47 @@ open class InitiallyUnownedClass: InitiallyUnownedClassProtocol {
 
 }
 
-// MARK: - no InitiallyUnownedClass properties
+// MARK: no InitiallyUnownedClass properties
 
-// MARK: - no signals
+// MARK: no InitiallyUnownedClass signals
 
 
+// MARK: InitiallyUnownedClass Record: InitiallyUnownedClassProtocol extension (methods and fields)
 public extension InitiallyUnownedClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInitiallyUnownedClass` instance.
     var _ptr: UnsafeMutablePointer<GInitiallyUnownedClass> { return ptr.assumingMemoryBound(to: GInitiallyUnownedClass.self) }
+
+
+    /// the parent class
+    var gTypeClass: GTypeClass {
+        /// the parent class
+        get {
+            let rv: GTypeClass = cast(_ptr.pointee.g_type_class)
+            return rv
+        }
+    }
+
+    // var constructProperties is unavailable because construct_properties is private
+
+    // var constructor is unavailable because constructor is void
+
+    // var setProperty is unavailable because set_property is void
+
+    // var getProperty is unavailable because get_property is void
+
+    // var dispose is unavailable because dispose is void
+
+    // var finalize is unavailable because finalize is void
+
+    // var dispatchPropertiesChanged is unavailable because dispatch_properties_changed is void
+
+    // var notify is unavailable because notify is void
+
+    // var constructed is unavailable because constructed is void
+
+    // var flags is unavailable because flags is private
+
+    // var pdummy is unavailable because pdummy is private
 
 }
 

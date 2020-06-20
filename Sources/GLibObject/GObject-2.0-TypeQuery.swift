@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - TypeQuery Record
 
@@ -11,7 +12,7 @@ import GLib
 /// A structure holding information for a specific type.
 /// It is filled in by the `g_type_query()` function.
 public protocol TypeQueryProtocol {
-    /// Untyped pointer to the underlying `GTypeQuery` instance.
+        /// Untyped pointer to the underlying `GTypeQuery` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTypeQuery` instance.
@@ -25,7 +26,7 @@ public protocol TypeQueryProtocol {
 /// A structure holding information for a specific type.
 /// It is filled in by the `g_type_query()` function.
 public struct TypeQueryRef: TypeQueryProtocol {
-    /// Untyped pointer to the underlying `GTypeQuery` instance.
+        /// Untyped pointer to the underlying `GTypeQuery` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,7 +80,7 @@ public extension TypeQueryRef {
 /// A structure holding information for a specific type.
 /// It is filled in by the `g_type_query()` function.
 open class TypeQuery: TypeQueryProtocol {
-    /// Untyped pointer to the underlying `GTypeQuery` instance.
+        /// Untyped pointer to the underlying `GTypeQuery` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -108,7 +109,7 @@ open class TypeQuery: TypeQueryProtocol {
         // no reference counting for GTypeQuery, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTypeQuery`.
+    /// Do-nothing destructor for `GTypeQuery`.
     deinit {
         // no reference counting for GTypeQuery, cannot unref(cast(_ptr))
     }
@@ -176,11 +177,12 @@ open class TypeQuery: TypeQueryProtocol {
 
 }
 
-// MARK: - no TypeQuery properties
+// MARK: no TypeQuery properties
 
-// MARK: - no signals
+// MARK: no TypeQuery signals
 
 
+// MARK: TypeQuery Record: TypeQueryProtocol extension (methods and fields)
 public extension TypeQueryProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTypeQuery` instance.
     var _ptr: UnsafeMutablePointer<GTypeQuery> { return ptr.assumingMemoryBound(to: GTypeQuery.self) }
@@ -195,6 +197,59 @@ public extension TypeQueryProtocol {
         g_type_query(type, cast(_ptr))
     
     }
+
+    /// the `GType` value of the type
+    var type: GType {
+        /// the `GType` value of the type
+        get {
+            let rv: GType = cast(_ptr.pointee.type)
+            return rv
+        }
+        /// the `GType` value of the type
+         set {
+            _ptr.pointee.type = cast(newValue)
+        }
+    }
+
+    /// the name of the type
+    var typeName: UnsafePointer<CChar> {
+        /// the name of the type
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.type_name)
+            return rv
+        }
+        /// the name of the type
+         set {
+            _ptr.pointee.type_name = cast(newValue)
+        }
+    }
+
+    /// the size of the class structure
+    var classSize: Int {
+        /// the size of the class structure
+        get {
+            let rv: Int = cast(_ptr.pointee.class_size)
+            return rv
+        }
+        /// the size of the class structure
+         set {
+            _ptr.pointee.class_size = guint(newValue)
+        }
+    }
+
+    /// the size of the instance structure
+    var instanceSize: Int {
+        /// the size of the instance structure
+        get {
+            let rv: Int = cast(_ptr.pointee.instance_size)
+            return rv
+        }
+        /// the size of the instance structure
+         set {
+            _ptr.pointee.instance_size = guint(newValue)
+        }
+    }
+
 }
 
 

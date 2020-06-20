@@ -1,5 +1,6 @@
 import CGLib
 import GLib
+import GObjectCHelpers
 
 // MARK: - ParamSpecOverride Class
 
@@ -17,7 +18,7 @@ import GLib
 /// `g_object_class_override_property()`, and will not be directly useful
 /// unless you are implementing a new base type similar to GObject.
 public protocol ParamSpecOverrideProtocol: ParamSpecProtocol {
-    /// Untyped pointer to the underlying `GParamSpecOverride` instance.
+        /// Untyped pointer to the underlying `GParamSpecOverride` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GParamSpecOverride` instance.
@@ -37,7 +38,7 @@ public protocol ParamSpecOverrideProtocol: ParamSpecProtocol {
 /// `g_object_class_override_property()`, and will not be directly useful
 /// unless you are implementing a new base type similar to GObject.
 public struct ParamSpecOverrideRef: ParamSpecOverrideProtocol {
-    /// Untyped pointer to the underlying `GParamSpecOverride` instance.
+        /// Untyped pointer to the underlying `GParamSpecOverride` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_override_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -97,7 +98,7 @@ public extension ParamSpecOverrideRef {
 /// `g_object_class_override_property()`, and will not be directly useful
 /// unless you are implementing a new base type similar to GObject.
 open class ParamSpecOverride: ParamSpec, ParamSpecOverrideProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecOverride` instance.
     /// - Parameter op: pointer to the underlying object
@@ -179,14 +180,20 @@ open class ParamSpecOverride: ParamSpec, ParamSpecOverrideProtocol {
 
 }
 
-// MARK: - no ParamSpecOverride properties
+// MARK: no ParamSpecOverride properties
 
-// MARK: - no signals
+// MARK: no ParamSpecOverride signals
 
 
+// MARK: ParamSpecOverride Class: ParamSpecOverrideProtocol extension (methods and fields)
 public extension ParamSpecOverrideProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecOverride` instance.
     var param_spec_override_ptr: UnsafeMutablePointer<GParamSpecOverride> { return ptr.assumingMemoryBound(to: GParamSpecOverride.self) }
+
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var overridden is unavailable because overridden is private
 
 }
 
