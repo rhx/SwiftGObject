@@ -145,7 +145,7 @@ public extension ObjectProtocol {
                 holder.release()
             }
             _ = $1
-        }, connectFlags: flags)
+        }, connectFlags: flags.value)
         return rv
     }
 
