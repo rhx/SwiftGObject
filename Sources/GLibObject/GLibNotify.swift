@@ -34,7 +34,7 @@ public extension ObjectProtocol {
                     }
                 }
                 if nq.pointee.freeze_count >= 65535 {
-                    g_log("Freeze count for \(typeName) at \(ptr) is larger than 65536 - called freeze(context:) too often (forgot to call thaw(notifyQueue:) or infinite loop)", level: .critical)
+                    g_log("Freeze count for \(typeName) at \(String(describing: ptr)) is larger than 65536 - called freeze(context:) too often (forgot to call thaw(notifyQueue:) or infinite loop)", level: .critical)
                 } else {
                     nq.pointee.freeze_count += 1
                 }
@@ -43,7 +43,7 @@ public extension ObjectProtocol {
         }
         return queue
     }
-    
+
     /// Unfreeze notifications
     ///
     /// - Parameter queue: notification queue to thaw
