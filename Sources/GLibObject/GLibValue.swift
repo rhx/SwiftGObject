@@ -83,17 +83,11 @@ public extension ValueProtocol {
     /// ObjectRef Value accessor.
     ///
     /// - Returns: an optional Object reference if stored as the value
-    func get() -> ObjectRef? {
-        let ptr = object
-        return ptr.map { ObjectRef($0.assumingMemoryBound(to: GObject.self)) }
-    }
+    func get() -> ObjectRef? { return object }
     /// ParamSpec Value accessor.
     ///
     /// - Returns: an optional ParamSpec reference if stored as the value
-    func get() -> ParamSpec? {
-        let ptr = param
-        return ptr.map { ParamSpec($0) }
-    }
+    func get() -> ParamSpecRef? { return param }
     /// Variant Value accessor.
     ///
     /// - Returns: an optional Variant reference if stored as the value
@@ -132,7 +126,7 @@ public extension ValueProtocol {
         if typeCheckValueHolds(type: .uint64)  { let u = uint64 ; return u as? T ?? UInt64(u) as? T }
         if typeCheckValueHolds(type: .char)    { let i = schar  ; return i as? T ?? Int8(i)   as? T }
         if typeCheckValueHolds(type: .uchar)   { let u = uchar  ; return u as? T ?? UInt8(u)  as? T }
-        if typeCheckValueHolds(type: .object)  { let o = object ; return o.flatMap { ObjectRef(raw: $0) as? T } ?? o.flatMap { ObjectRef(raw: $0) as? T } }
+        if typeCheckValueHolds(type: .object)  { let o = object ; return o as? T ?? o?.ptr.flatMap { ObjectRef(raw: $0) as? T } }
         if typeCheckValueHolds(type: .param)   { let o = param  ; return o.flatMap { ParamSpecRef($0) as? T } ?? o.flatMap { ParamSpec($0) as? T } }
         g_warn_message("GLibObject", #file, #line, #function, "Cannot retrieve value of type \(gtype) to type \(T.self)")
         return nil
@@ -270,10 +264,8 @@ public extension ValueProtocol {
         if let v = o as? ValueProtocol { set(v) ; return }
         if let v = o as? Object { setObject(vObject: v) ; return }
         if let v = o as? ObjectRef { setObject(vObject: v) ; return }
-        if let v = o as? ObjectProtocol { setObject(vObject: v) ; return }
         if let v = o as? ParamSpec { set(param: v) ; return }
         if let v = o as? ParamSpecRef { set(param: v) ; return }
-        if let v = o as? ParamSpecProtocol { set(param: v) ; return }
         unset()
         g_warn_message("GLibObject", #file, #line, #function, "Cannot set \(o) of type \(O.self) as a Value")
     }
