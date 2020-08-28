@@ -9,13 +9,14 @@ import CGLib
 import GLib
 import Dispatch
 
+@usableFromInline
 let lockq = DispatchQueue(label: "io.github.rhx.glib.notify.lock")
 
 public extension ObjectProtocol {
     /// Freeze notifications
     ///
     /// - Parameter context: notification context to freeze
-    func freeze(context: UnsafeMutablePointer<GObjectNotifyContext>?) -> UnsafeMutablePointer<GObjectNotifyQueue>? {
+    @inlinable func freeze(context: UnsafeMutablePointer<GObjectNotifyContext>?) -> UnsafeMutablePointer<GObjectNotifyQueue>? {
         guard let context = context else { return nil }
         var queue: UnsafeMutablePointer<GObjectNotifyQueue>?
         withUnsafeMutablePointer(to: &object_ptr.pointee.qdata) {
@@ -47,7 +48,7 @@ public extension ObjectProtocol {
     /// Unfreeze notifications
     ///
     /// - Parameter queue: notification queue to thaw
-    func thaw(queue nq: UnsafeMutablePointer<GObjectNotifyQueue>) {
+    @inlinable func thaw(queue nq: UnsafeMutablePointer<GObjectNotifyQueue>) {
         guard let context = nq.pointee.context else { return }
         var pspecs = Array<UnsafeMutablePointer<GParamSpec>?>()
         lockq.sync {
