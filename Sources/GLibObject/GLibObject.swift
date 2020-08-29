@@ -145,7 +145,7 @@ public extension ObjectProtocol {
                 holder.release()
             }
             _ = $1
-        }, connectFlags: flags.value)
+        }, connectFlags: flags)
         return rv
     }
 
@@ -154,7 +154,7 @@ public extension ObjectProtocol {
         let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
         let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
         let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-        let rv = bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f.value, transformTo: to, transformFrom: from, userData: holder) {
+        let rv = bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
             if let swift = UnsafeRawPointer($0) {
                 let holder = Unmanaged<BindingClosureHolder>.fromOpaque(swift)
                 holder.release()
