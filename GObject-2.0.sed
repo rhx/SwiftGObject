@@ -29,3 +29,5 @@ s|setUint(vUint v_uint: Int)|setUint(vUint v_uint: guint)|
 s|= value_ptr.pointee.data$|= value_ptr.withMemoryRebound(to: GType.self, capacity: 2) { UnsafeRawPointer($0+1).assumingMemoryBound(to: (_Value__data__union, _Value__data__union).self).pointee }|
 s|value_ptr.pointee.data = newValue|value_ptr.withMemoryRebound(to: GType.self, capacity: 2) { UnsafeMutableRawPointer($0+1).assumingMemoryBound(to: (_Value__data__union, _Value__data__union).self).pointee = newValue }|
 s|\(@discardableResult @inlinable\) @discardableResult|\1|
+s|paramTypes: UnsafeMutablePointer<GType>|paramTypes: UnsafePointer<GType>|
+s|names: UnsafeMutablePointer<..har>|names: UnsafeMutablePointer<UnsafePointer<CChar>?>|
