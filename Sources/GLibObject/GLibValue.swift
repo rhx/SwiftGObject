@@ -207,12 +207,12 @@ public extension ValueProtocol {
     /// Generic value setter.
     ///
     /// - Parameter value: Int64 value to set
-    @inlinable func set(_ value: Int64) { unset() ; set(type: .int64) ; setInt64(vInt64: value) }
+    @inlinable func set(_ value: Int64) { unset() ; set(type: .int64) ; setInt64(vInt64: gint64(value)) }
 
     /// Generic value setter.
     ///
     /// - Parameter value: UInt64 value to set
-    @inlinable func set(_ value: UInt64) { unset() ; set(type: .uint64) ; setUint64(vUint64: value) }
+    @inlinable func set(_ value: UInt64) { unset() ; set(type: .uint64) ; setUint64(vUint64: guint64(value)) }
 
     /// Generic value setter.
     ///
