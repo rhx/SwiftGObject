@@ -12,10 +12,11 @@ import GObjectCHelpers
 /// An opaque structure used as the base of all classes.
 public protocol TypeClassProtocol {
         /// Untyped pointer to the underlying `GTypeClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GTypeClass` instance.
-    var _ptr: UnsafeMutablePointer<GTypeClass> { get }
+    var _ptr: UnsafeMutablePointer<GTypeClass>! { get }
+
 }
 
 /// The `TypeClassRef` type acts as a lightweight Swift reference to an underlying `GTypeClass` instance.
@@ -26,46 +27,76 @@ public protocol TypeClassProtocol {
 public struct TypeClassRef: TypeClassProtocol {
         /// Untyped pointer to the underlying `GTypeClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TypeClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GTypeClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GTypeClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTypeClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTypeClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTypeClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TypeClassProtocol`
-    init<T: TypeClassProtocol>(_ other: T) {
+    @inlinable init<T: TypeClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -74,24 +105,24 @@ public extension TypeClassRef {
     /// As a consequence, this function may return `nil` if the class
     /// of the type passed in does not currently exist (hasn't been
     /// referenced before).
-    static func peek(type: GType) -> TypeClassRef! {
-        let rv: UnsafeMutableRawPointer! = cast(g_type_class_peek(type))
-        return rv.map { TypeClassRef(cast($0)) }
+    @inlinable static func peek(type: GType) -> TypeClassRef! {
+        guard let rv = TypeClassRef(gpointer: g_type_class_peek(type)) else { return nil }
+        return rv
     }
 
     /// A more efficient version of `g_type_class_peek()` which works only for
     /// static types.
-    static func peekStatic(type: GType) -> TypeClassRef! {
-        let rv: UnsafeMutableRawPointer! = cast(g_type_class_peek_static(type))
-        return rv.map { TypeClassRef(cast($0)) }
+    @inlinable static func peekStatic(type: GType) -> TypeClassRef! {
+        guard let rv = TypeClassRef(gpointer: g_type_class_peek_static(type)) else { return nil }
+        return rv
     }
 
     /// Increments the reference count of the class structure belonging to
     /// `type`. This function will demand-create the class if it doesn't
     /// exist already.
-    static func ref(type: GType) -> TypeClassRef! {
-        let rv: UnsafeMutableRawPointer! = cast(g_type_class_ref(type))
-        return rv.map { TypeClassRef(cast($0)) }
+    @inlinable static func ref(type: GType) -> TypeClassRef! {
+        guard let rv = TypeClassRef(gpointer: g_type_class_ref(type)) else { return nil }
+        return rv
     }
 }
 
@@ -103,95 +134,141 @@ public extension TypeClassRef {
 open class TypeClass: TypeClassProtocol {
         /// Untyped pointer to the underlying `GTypeClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TypeClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GTypeClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GTypeClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TypeClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTypeClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TypeClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TypeClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TypeClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTypeClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TypeClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTypeClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GTypeClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `TypeClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GTypeClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTypeClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GTypeClass, cannot ref(cast(_ptr))
+        // no reference counting for GTypeClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `TypeClassProtocol`
     /// `GTypeClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `TypeClassProtocol`
-    public init<T: TypeClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GTypeClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: TypeClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GTypeClass, cannot ref(_ptr)
     }
 
     /// Releases the underlying `GTypeClass` instance using `g_type_class_unref`.
     deinit {
-        g_type_class_unref(cast(_ptr))
+        g_type_class_unref(ptr.assumingMemoryBound(to: GTypeClass.self))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GTypeClass, cannot ref(cast(_ptr))
+        // no reference counting for GTypeClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GTypeClass, cannot ref(cast(_ptr))
+        // no reference counting for GTypeClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GTypeClass, cannot ref(cast(_ptr))
+        // no reference counting for GTypeClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GTypeClass, cannot ref(cast(_ptr))
+        // no reference counting for GTypeClass, cannot ref(_ptr)
     }
 
 
@@ -200,24 +277,24 @@ open class TypeClass: TypeClassProtocol {
     /// As a consequence, this function may return `nil` if the class
     /// of the type passed in does not currently exist (hasn't been
     /// referenced before).
-    public static func peek(type: GType) -> TypeClass! {
-        let rv: UnsafeMutableRawPointer! = cast(g_type_class_peek(type))
-        return rv.map { TypeClass(cast($0)) }
+    @inlinable public static func peek(type: GType) -> TypeClass! {
+        guard let rv = TypeClass(gpointer: g_type_class_peek(type)) else { return nil }
+        return rv
     }
 
     /// A more efficient version of `g_type_class_peek()` which works only for
     /// static types.
-    public static func peekStatic(type: GType) -> TypeClass! {
-        let rv: UnsafeMutableRawPointer! = cast(g_type_class_peek_static(type))
-        return rv.map { TypeClass(cast($0)) }
+    @inlinable public static func peekStatic(type: GType) -> TypeClass! {
+        guard let rv = TypeClass(gpointer: g_type_class_peek_static(type)) else { return nil }
+        return rv
     }
 
     /// Increments the reference count of the class structure belonging to
     /// `type`. This function will demand-create the class if it doesn't
     /// exist already.
-    public static func ref(type: GType) -> TypeClass! {
-        let rv: UnsafeMutableRawPointer! = cast(g_type_class_ref(type))
-        return rv.map { TypeClass(cast($0)) }
+    @inlinable public static func ref(type: GType) -> TypeClass! {
+        guard let rv = TypeClass(gpointer: g_type_class_ref(type)) else { return nil }
+        return rv
     }
 
 }
@@ -230,7 +307,7 @@ open class TypeClass: TypeClassProtocol {
 // MARK: TypeClass Record: TypeClassProtocol extension (methods and fields)
 public extension TypeClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTypeClass` instance.
-    var _ptr: UnsafeMutablePointer<GTypeClass> { return ptr.assumingMemoryBound(to: GTypeClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GTypeClass>! { return ptr?.assumingMemoryBound(to: GTypeClass.self) }
 
     /// Registers a private structure for an instantiatable type.
     /// 
@@ -300,8 +377,8 @@ public extension TypeClassProtocol {
     /// **add_private is deprecated:**
     /// Use the G_ADD_PRIVATE() macro with the `G_DEFINE_*`
     ///   family of macros to add instance private data to a type
-    @available(*, deprecated) func addPrivate(privateSize private_size: Int) {
-        g_type_class_add_private(cast(_ptr), gsize(private_size))
+    @available(*, deprecated) @inlinable func addPrivate(privateSize private_size: Int) {
+        g_type_class_add_private(_ptr, gsize(private_size))
     
     }
 
@@ -313,14 +390,14 @@ public extension TypeClassProtocol {
     /// 
     /// You can only call this function after you have registered a private
     /// data area for `g_class` using `g_type_class_add_private()`.
-    func getInstancePrivateOffset() -> Int {
-        let rv: Int = cast(g_type_class_get_instance_private_offset(cast(_ptr)))
-        return Int(rv)
+    @inlinable func getInstancePrivateOffset() -> Int {
+        let rv = Int(g_type_class_get_instance_private_offset(_ptr))
+        return rv
     }
 
-    func getPrivate(privateType private_type: GType) -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_type_class_get_private(cast(_ptr), private_type))
-        return cast(rv)
+    @inlinable func getPrivate(privateType private_type: GType) -> gpointer! {
+        let rv = g_type_class_get_private(_ptr, private_type)
+        return rv
     }
 
     /// This is a convenience function often needed in class initializers.
@@ -331,17 +408,17 @@ public extension TypeClassProtocol {
     /// 
     /// This function is essentially equivalent to:
     /// g_type_class_peek (g_type_parent (G_TYPE_FROM_CLASS (g_class)))
-    func peekParent() -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_type_class_peek_parent(cast(_ptr)))
-        return cast(rv)
+    @inlinable func peekParent() -> TypeClassRef! {
+        guard let rv = TypeClassRef(gpointer: g_type_class_peek_parent(_ptr)) else { return nil }
+        return rv
     }
 
     /// Decrements the reference count of the class structure being passed in.
     /// Once the last reference count of a class has been released, classes
     /// may be finalized by the type system, so further dereferencing of a
     /// class pointer after `g_type_class_unref()` are invalid.
-    func unref() {
-        g_type_class_unref(cast(_ptr))
+    @inlinable func unref() {
+        g_type_class_unref(_ptr)
     
     }
 
@@ -349,31 +426,31 @@ public extension TypeClassProtocol {
     /// implementations. It unreferences a class without consulting the chain
     /// of `GTypeClassCacheFuncs`, avoiding the recursion which would occur
     /// otherwise.
-    func unrefUncached() {
-        g_type_class_unref_uncached(cast(_ptr))
+    @inlinable func unrefUncached() {
+        g_type_class_unref_uncached(_ptr)
     
     }
 
-    func typeCheckClassCast(isAType is_a_type: GType) -> UnsafeMutablePointer<GTypeClass>! {
-        let rv: UnsafeMutablePointer<GTypeClass>! = cast(g_type_check_class_cast(cast(_ptr), is_a_type))
-        return cast(rv)
+    @inlinable func typeCheckClassCast(isAType is_a_type: GType) -> TypeClassRef! {
+        guard let rv = TypeClassRef(gconstpointer: gconstpointer(g_type_check_class_cast(_ptr, is_a_type))) else { return nil }
+        return rv
     }
 
-    func typeCheckClassIsA(isAType is_a_type: GType) -> Bool {
-        let rv = g_type_check_class_is_a(cast(_ptr), is_a_type)
-        return Bool(rv != 0)
+    @inlinable func typeCheckClassIsA(isAType is_a_type: GType) -> Bool {
+        let rv = ((g_type_check_class_is_a(_ptr, is_a_type)) != 0)
+        return rv
     }
 
     /// Returns the `GTypeInterface` structure of an interface to which the
     /// passed in class conforms.
-    func typeInterfacePeek(ifaceType iface_type: GType) -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_type_interface_peek(cast(_ptr), iface_type))
-        return cast(rv)
+    @inlinable func typeInterfacePeek(ifaceType iface_type: GType) -> TypeInterfaceRef! {
+        let rv = TypeInterfaceRef(gpointer: g_type_interface_peek(_ptr, iface_type))
+        return rv
     }
 
-    func typeNameFromClass() -> String! {
-        let rv: String! = cast(g_type_name_from_class(cast(_ptr)))
-        return cast(rv)
+    @inlinable func typeNameFromClass() -> String! {
+        let rv = g_type_name_from_class(_ptr).map({ String(cString: $0) })
+        return rv
     }
     /// Gets the offset of the private data for instances of `g_class`.
     /// 
@@ -383,7 +460,7 @@ public extension TypeClassProtocol {
     /// 
     /// You can only call this function after you have registered a private
     /// data area for `g_class` using `g_type_class_add_private()`.
-    var instancePrivateOffset: Int {
+    @inlinable var instancePrivateOffset: Int {
         /// Gets the offset of the private data for instances of `g_class`.
         /// 
         /// This is how many bytes you should add to the instance pointer of a
@@ -393,8 +470,8 @@ public extension TypeClassProtocol {
         /// You can only call this function after you have registered a private
         /// data area for `g_class` using `g_type_class_add_private()`.
         get {
-            let rv: Int = cast(g_type_class_get_instance_private_offset(cast(_ptr)))
-            return Int(rv)
+            let rv = Int(g_type_class_get_instance_private_offset(_ptr))
+            return rv
         }
     }
 

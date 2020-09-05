@@ -238,11 +238,6 @@ public typealias TypePluginUnuse = GTypePluginUnuse
 /// to increase the use count of `plugin`.
 public typealias TypePluginUse = GTypePluginUse
 
-/// This is the signature of va_list marshaller functions, an optional
-/// marshaller that can be used in some situations to avoid
-/// marshalling the signal argument into GValues.
-public typealias VaClosureMarshal = GVaClosureMarshal
-
 /// The type of value transformation functions which can be registered with
 /// `g_value_register_transform_func()`.
 /// 

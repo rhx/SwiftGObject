@@ -37,10 +37,11 @@ import GObjectCHelpers
 /// in `GTypeModuleClass`.
 public protocol TypeModuleProtocol: ObjectProtocol, TypePluginProtocol {
         /// Untyped pointer to the underlying `GTypeModule` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GTypeModule` instance.
-    var type_module_ptr: UnsafeMutablePointer<GTypeModule> { get }
+    var type_module_ptr: UnsafeMutablePointer<GTypeModule>! { get }
+
 }
 
 /// The `TypeModuleRef` type acts as a lightweight Swift reference to an underlying `GTypeModule` instance.
@@ -76,46 +77,76 @@ public protocol TypeModuleProtocol: ObjectProtocol, TypePluginProtocol {
 public struct TypeModuleRef: TypeModuleProtocol {
         /// Untyped pointer to the underlying `GTypeModule` instance.
     /// For type-safe access, use the generated, typed pointer `type_module_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TypeModuleRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GTypeModule>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GTypeModule>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTypeModule>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTypeModule>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTypeModule>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TypeModuleProtocol`
-    init<T: TypeModuleProtocol>(_ other: T) {
+    @inlinable init<T: TypeModuleProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -156,77 +187,123 @@ open class TypeModule: Object, TypeModuleProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TypeModule` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GTypeModule>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GTypeModule>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TypeModule` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTypeModule>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TypeModule` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TypeModule` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TypeModule` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTypeModule>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TypeModule` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTypeModule>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTypeModule`.
     /// i.e., ownership is transferred to the `TypeModule` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GTypeModule>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTypeModule>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TypeModuleProtocol`
     /// Will retain `GTypeModule`.
     /// - Parameter other: an instance of a related type that implements `TypeModuleProtocol`
-    public init<T: TypeModuleProtocol>(typeModule other: T) {
-        super.init(retaining: cast(other.type_module_ptr))
+    @inlinable public init<T: TypeModuleProtocol>(typeModule other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -271,11 +348,11 @@ public extension TypeModuleProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TypeModuleSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TypeModuleSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(type_module_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -296,7 +373,7 @@ public extension TypeModuleProtocol {
 // MARK: TypeModule Class: TypeModuleProtocol extension (methods and fields)
 public extension TypeModuleProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTypeModule` instance.
-    var type_module_ptr: UnsafeMutablePointer<GTypeModule> { return ptr.assumingMemoryBound(to: GTypeModule.self) }
+    @inlinable var type_module_ptr: UnsafeMutablePointer<GTypeModule>! { return ptr?.assumingMemoryBound(to: GTypeModule.self) }
 
     /// Registers an additional interface for a type, whose interface lives
     /// in the given type plugin. If the interface was already registered
@@ -307,8 +384,8 @@ public extension TypeModuleProtocol {
     /// 
     /// Since 2.56 if `module` is `nil` this will call `g_type_add_interface_static()`
     /// instead. This can be used when making a static build of the module.
-    func addInterface(instanceType instance_type: GType, interfaceType interface_type: GType, interfaceInfo interface_info: InterfaceInfoProtocol) {
-        g_type_module_add_interface(cast(type_module_ptr), instance_type, interface_type, cast(interface_info.ptr))
+    @inlinable func addInterface<InterfaceInfoT: InterfaceInfoProtocol>(instanceType instance_type: GType, interfaceType interface_type: GType, interfaceInfo interface_info: InterfaceInfoT) {
+        g_type_module_add_interface(type_module_ptr, instance_type, interface_type, interface_info._ptr)
     
     }
 
@@ -322,9 +399,9 @@ public extension TypeModuleProtocol {
     /// 
     /// Since 2.56 if `module` is `nil` this will call `g_type_register_static()`
     /// instead. This can be used when making a static build of the module.
-    func registerEnum(name: UnsafePointer<gchar>, constStaticValues const_static_values: EnumValueProtocol) -> GType {
-        let rv = g_type_module_register_enum(cast(type_module_ptr), name, cast(const_static_values.ptr))
-        return cast(rv)
+    @inlinable func registerEnum<EnumValueT: EnumValueProtocol>(name: UnsafePointer<gchar>!, constStaticValues const_static_values: EnumValueT) -> GType {
+        let rv = g_type_module_register_enum(type_module_ptr, name, const_static_values._ptr)
+        return rv
     }
 
     /// Looks up or registers a flags type that is implemented with a particular
@@ -337,9 +414,9 @@ public extension TypeModuleProtocol {
     /// 
     /// Since 2.56 if `module` is `nil` this will call `g_type_register_static()`
     /// instead. This can be used when making a static build of the module.
-    func registerFlags(name: UnsafePointer<gchar>, constStaticValues const_static_values: FlagsValueProtocol) -> GType {
-        let rv = g_type_module_register_flags(cast(type_module_ptr), name, cast(const_static_values.ptr))
-        return cast(rv)
+    @inlinable func registerFlags<FlagsValueT: FlagsValueProtocol>(name: UnsafePointer<gchar>!, constStaticValues const_static_values: FlagsValueT) -> GType {
+        let rv = g_type_module_register_flags(type_module_ptr, name, const_static_values._ptr)
+        return rv
     }
 
     /// Looks up or registers a type that is implemented with a particular
@@ -356,14 +433,14 @@ public extension TypeModuleProtocol {
     /// 
     /// Since 2.56 if `module` is `nil` this will call `g_type_register_static()`
     /// instead. This can be used when making a static build of the module.
-    func registerType(parentType parent_type: GType, typeName type_name: UnsafePointer<gchar>, typeInfo type_info: TypeInfoProtocol, flags: TypeFlags) -> GType {
-        let rv = g_type_module_register_type(cast(type_module_ptr), parent_type, type_name, cast(type_info.ptr), flags.value)
-        return cast(rv)
+    @inlinable func registerType<TypeInfoT: TypeInfoProtocol>(parentType parent_type: GType, typeName type_name: UnsafePointer<gchar>!, typeInfo type_info: TypeInfoT, flags: TypeFlags) -> GType {
+        let rv = g_type_module_register_type(type_module_ptr, parent_type, type_name, type_info._ptr, flags.value)
+        return rv
     }
 
     /// Sets the name for a `GTypeModule`
-    func set(name: UnsafePointer<gchar>) {
-        g_type_module_set_name(cast(type_module_ptr), name)
+    @inlinable func set(name: UnsafePointer<gchar>!) {
+        g_type_module_set_name(type_module_ptr, name)
     
     }
 
@@ -372,8 +449,8 @@ public extension TypeModuleProtocol {
     /// `GTypeModule` will not be freed, and types associated with the
     /// `GTypeModule` are not unregistered. Once a `GTypeModule` is
     /// initialized, it must exist forever.)
-    func unuse() {
-        g_type_module_unuse(cast(type_module_ptr))
+    @inlinable func unuse() {
+        g_type_module_unuse(type_module_ptr)
     
     }
 
@@ -381,44 +458,44 @@ public extension TypeModuleProtocol {
     /// use count was zero before, the plugin will be loaded.
     /// If loading the plugin fails, the use count is reset to
     /// its prior value.
-    func use() -> Bool {
-        let rv = g_type_module_use(cast(type_module_ptr))
-        return Bool(rv != 0)
+    @inlinable func use() -> Bool {
+        let rv = ((g_type_module_use(type_module_ptr)) != 0)
+        return rv
     }
 
-    var parentInstance: GObject {
+    @inlinable var parentInstance: GObject {
         get {
-            let rv: GObject = cast(type_module_ptr.pointee.parent_instance)
+            let rv = type_module_ptr.pointee.parent_instance
             return rv
         }
     }
 
-    var useCount: Int {
+    @inlinable var useCount: guint {
         get {
-            let rv: Int = cast(type_module_ptr.pointee.use_count)
+            let rv = type_module_ptr.pointee.use_count
             return rv
         }
     }
 
-    var typeInfos: UnsafeMutablePointer<GSList> {
+    @inlinable var typeInfos: SListRef! {
         get {
-            let rv: UnsafeMutablePointer<GSList> = cast(type_module_ptr.pointee.type_infos)
+            let rv = SListRef(gconstpointer: gconstpointer(type_module_ptr.pointee.type_infos))
             return rv
         }
     }
 
-    var interfaceInfos: UnsafeMutablePointer<GSList> {
+    @inlinable var interfaceInfos: SListRef! {
         get {
-            let rv: UnsafeMutablePointer<GSList> = cast(type_module_ptr.pointee.interface_infos)
+            let rv = SListRef(gconstpointer: gconstpointer(type_module_ptr.pointee.interface_infos))
             return rv
         }
     }
 
     /// the name of the module
-    var name: UnsafePointer<CChar> {
+    @inlinable var name: UnsafeMutablePointer<gchar>! {
         /// the name of the module
         get {
-            let rv: UnsafePointer<CChar> = cast(type_module_ptr.pointee.name)
+            let rv = type_module_ptr.pointee.name
             return rv
         }
     }

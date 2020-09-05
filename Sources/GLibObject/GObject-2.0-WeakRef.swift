@@ -31,10 +31,11 @@ import GObjectCHelpers
 /// goes back to zero, at which point they too will be invalidated.
 public protocol WeakRefProtocol {
         /// Untyped pointer to the underlying `GWeakRef` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GWeakRef` instance.
-    var _ptr: UnsafeMutablePointer<GWeakRef> { get }
+    var _ptr: UnsafeMutablePointer<GWeakRef>! { get }
+
 }
 
 /// The `WeakRefRef` type acts as a lightweight Swift reference to an underlying `GWeakRef` instance.
@@ -64,46 +65,76 @@ public protocol WeakRefProtocol {
 public struct WeakRefRef: WeakRefProtocol {
         /// Untyped pointer to the underlying `GWeakRef` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension WeakRefRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GWeakRef>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GWeakRef>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GWeakRef>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GWeakRef>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GWeakRef>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `WeakRefProtocol`
-    init<T: WeakRefProtocol>(_ other: T) {
+    @inlinable init<T: WeakRefProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WeakRefProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WeakRefProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WeakRefProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WeakRefProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WeakRefProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -136,95 +167,141 @@ public extension WeakRefRef {
 open class WeakRef: WeakRefProtocol {
         /// Untyped pointer to the underlying `GWeakRef` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `WeakRef` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GWeakRef>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GWeakRef>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `WeakRef` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GWeakRef>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `WeakRef` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `WeakRef` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `WeakRef` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GWeakRef>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `WeakRef` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GWeakRef>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GWeakRef` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `WeakRef` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GWeakRef>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GWeakRef>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GWeakRef, cannot ref(cast(_ptr))
+        // no reference counting for GWeakRef, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `WeakRefProtocol`
     /// `GWeakRef` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `WeakRefProtocol`
-    public init<T: WeakRefProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GWeakRef, cannot ref(cast(_ptr))
+    @inlinable public init<T: WeakRefProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GWeakRef, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GWeakRef`.
     deinit {
-        // no reference counting for GWeakRef, cannot unref(cast(_ptr))
+        // no reference counting for GWeakRef, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WeakRefProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WeakRefProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GWeakRef, cannot ref(cast(_ptr))
+        // no reference counting for GWeakRef, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WeakRefProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WeakRefProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GWeakRef, cannot ref(cast(_ptr))
+        // no reference counting for GWeakRef, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WeakRefProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WeakRefProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GWeakRef, cannot ref(cast(_ptr))
+        // no reference counting for GWeakRef, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WeakRefProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WeakRefProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GWeakRef, cannot ref(cast(_ptr))
+        // no reference counting for GWeakRef, cannot ref(_ptr)
     }
 
 
@@ -239,15 +316,15 @@ open class WeakRef: WeakRefProtocol {
 // MARK: WeakRef Record: WeakRefProtocol extension (methods and fields)
 public extension WeakRefProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GWeakRef` instance.
-    var _ptr: UnsafeMutablePointer<GWeakRef> { return ptr.assumingMemoryBound(to: GWeakRef.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GWeakRef>! { return ptr?.assumingMemoryBound(to: GWeakRef.self) }
 
     /// Frees resources associated with a non-statically-allocated `GWeakRef`.
     /// After this call, the `GWeakRef` is left in an undefined state.
     /// 
     /// You should only call this on a `GWeakRef` that previously had
     /// `g_weak_ref_init()` called on it.
-    func clear() {
-        g_weak_ref_clear(cast(_ptr))
+    @inlinable func clear() {
+        g_weak_ref_clear(_ptr)
     
     }
 
@@ -260,9 +337,9 @@ public extension WeakRefProtocol {
     /// 
     /// The caller should release the resulting reference in the usual way,
     /// by using `g_object_unref()`.
-    func get() -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_weak_ref_get(cast(_ptr)))
-        return cast(rv)
+    @inlinable func get() -> ObjectRef! {
+        let rv = ObjectRef(gpointer: g_weak_ref_get(_ptr))
+        return rv
     }
 
     /// Initialise a non-statically-allocated `GWeakRef`.
@@ -274,8 +351,8 @@ public extension WeakRefProtocol {
     /// `g_weak_ref_clear()`.  It is not necessary to use this function for a
     /// `GWeakRef` in static storage because it will already be
     /// properly initialised.  Just use `g_weak_ref_set()` directly.
-    func init_(object: ObjectProtocol) {
-        g_weak_ref_init(cast(_ptr), cast(object.ptr))
+    @inlinable func init_<ObjectT: ObjectProtocol>(object: ObjectT? = nil) {
+        g_weak_ref_init(_ptr, object?.object_ptr)
     
     }
 
@@ -284,8 +361,8 @@ public extension WeakRefProtocol {
     /// 
     /// You must own a strong reference on `object` while calling this
     /// function.
-    func set(object: ObjectProtocol) {
-        g_weak_ref_set(cast(_ptr), cast(object.ptr))
+    @inlinable func set<ObjectT: ObjectProtocol>(object: ObjectT? = nil) {
+        g_weak_ref_set(_ptr, object?.object_ptr)
     
     }
 

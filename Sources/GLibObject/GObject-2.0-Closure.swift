@@ -54,10 +54,11 @@ import GObjectCHelpers
 ///   automatically removed when the objects they point to go away.
 public protocol ClosureProtocol {
         /// Untyped pointer to the underlying `GClosure` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GClosure` instance.
-    var closure_ptr: UnsafeMutablePointer<GClosure> { get }
+    var closure_ptr: UnsafeMutablePointer<GClosure>! { get }
+
 }
 
 /// The `ClosureRef` type acts as a lightweight Swift reference to an underlying `GClosure` instance.
@@ -110,46 +111,76 @@ public protocol ClosureProtocol {
 public struct ClosureRef: ClosureProtocol {
         /// Untyped pointer to the underlying `GClosure` instance.
     /// For type-safe access, use the generated, typed pointer `closure_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ClosureRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GClosure>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GClosure>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GClosure>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GClosure>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GClosure>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ClosureProtocol`
-    init<T: ClosureProtocol>(_ other: T) {
+    @inlinable init<T: ClosureProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -157,9 +188,9 @@ public extension ClosureRef {
     /// `data` field of the closure and calls `g_object_watch_closure()` on
     /// `object` and the created closure. This function is mainly useful
     /// when implementing new types of closures.
-    init(object sizeof_closure: CUnsignedInt, object: ObjectProtocol) {
-        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_object(guint(sizeof_closure), cast(object.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<ObjectT: ObjectProtocol>(object sizeof_closure: Int, object: ObjectT) {
+        let rv = g_closure_new_object(guint(sizeof_closure), object.object_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Allocates a struct of the given size and initializes the initial
@@ -200,17 +231,17 @@ public extension ClosureRef {
     /// }
     /// ```
     /// 
-    init(simple sizeof_closure: CUnsignedInt, data: UnsafeMutableRawPointer) {
-        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_simple(guint(sizeof_closure), cast(data)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init(simple sizeof_closure: Int, data: gpointer! = nil) {
+        let rv = g_closure_new_simple(guint(sizeof_closure), data)
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// A variant of `g_closure_new_simple()` which stores `object` in the
     /// `data` field of the closure and calls `g_object_watch_closure()` on
     /// `object` and the created closure. This function is mainly useful
     /// when implementing new types of closures.
-    static func new(object sizeof_closure: CUnsignedInt, object: ObjectProtocol) -> ClosureRef! {
-        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_object(guint(sizeof_closure), cast(object.ptr)))
-        return rv.map { ClosureRef(cast($0)) }
+    @inlinable static func new<ObjectT: ObjectProtocol>(object sizeof_closure: Int, object: ObjectT) -> ClosureRef! {
+        guard let rv = ClosureRef(gconstpointer: gconstpointer(g_closure_new_object(guint(sizeof_closure), object.object_ptr))) else { return nil }
+        return rv
     }
 
     /// Allocates a struct of the given size and initializes the initial
@@ -251,9 +282,9 @@ public extension ClosureRef {
     /// }
     /// ```
     /// 
-    static func new(simple sizeof_closure: CUnsignedInt, data: UnsafeMutableRawPointer) -> ClosureRef! {
-        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_simple(guint(sizeof_closure), cast(data)))
-        return rv.map { ClosureRef(cast($0)) }
+    @inlinable static func new(simple sizeof_closure: Int, data: gpointer! = nil) -> ClosureRef! {
+        guard let rv = ClosureRef(gconstpointer: gconstpointer(g_closure_new_simple(guint(sizeof_closure), data))) else { return nil }
+        return rv
     }
 }
 
@@ -307,104 +338,150 @@ public extension ClosureRef {
 open class Closure: ClosureProtocol {
         /// Untyped pointer to the underlying `GClosure` instance.
     /// For type-safe access, use the generated, typed pointer `closure_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Closure` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GClosure>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GClosure>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Closure` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GClosure>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Closure` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Closure` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Closure` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GClosure>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Closure` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GClosure>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GClosure`.
     /// i.e., ownership is transferred to the `Closure` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GClosure>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GClosure>) {
         ptr = UnsafeMutableRawPointer(op)
-        g_closure_ref(cast(closure_ptr))
+        g_closure_ref(ptr.assumingMemoryBound(to: GClosure.self))
     }
 
     /// Reference intialiser for a related type that implements `ClosureProtocol`
     /// Will retain `GClosure`.
     /// - Parameter other: an instance of a related type that implements `ClosureProtocol`
-    public init<T: ClosureProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.closure_ptr)
-        g_closure_ref(cast(closure_ptr))
+    @inlinable public init<T: ClosureProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_closure_ref(ptr.assumingMemoryBound(to: GClosure.self))
     }
 
     /// Releases the underlying `GClosure` instance using `g_closure_unref`.
     deinit {
-        g_closure_unref(cast(closure_ptr))
+        g_closure_unref(ptr.assumingMemoryBound(to: GClosure.self))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        g_closure_ref(cast(closure_ptr))
+        g_closure_ref(ptr.assumingMemoryBound(to: GClosure.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        g_closure_ref(cast(closure_ptr))
+        g_closure_ref(ptr.assumingMemoryBound(to: GClosure.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        g_closure_ref(cast(closure_ptr))
+        g_closure_ref(ptr.assumingMemoryBound(to: GClosure.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        g_closure_ref(cast(closure_ptr))
+        g_closure_ref(ptr.assumingMemoryBound(to: GClosure.self))
     }
 
     /// A variant of `g_closure_new_simple()` which stores `object` in the
     /// `data` field of the closure and calls `g_object_watch_closure()` on
     /// `object` and the created closure. This function is mainly useful
     /// when implementing new types of closures.
-    public init(object sizeof_closure: CUnsignedInt, object: ObjectProtocol) {
-        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_object(guint(sizeof_closure), cast(object.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable public init<ObjectT: ObjectProtocol>(object sizeof_closure: Int, object: ObjectT) {
+        let rv = g_closure_new_object(guint(sizeof_closure), object.object_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Allocates a struct of the given size and initializes the initial
@@ -445,18 +522,18 @@ open class Closure: ClosureProtocol {
     /// }
     /// ```
     /// 
-    public init(simple sizeof_closure: CUnsignedInt, data: UnsafeMutableRawPointer) {
-        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_simple(guint(sizeof_closure), cast(data)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable public init(simple sizeof_closure: Int, data: gpointer! = nil) {
+        let rv = g_closure_new_simple(guint(sizeof_closure), data)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// A variant of `g_closure_new_simple()` which stores `object` in the
     /// `data` field of the closure and calls `g_object_watch_closure()` on
     /// `object` and the created closure. This function is mainly useful
     /// when implementing new types of closures.
-    public static func new(object sizeof_closure: CUnsignedInt, object: ObjectProtocol) -> Closure! {
-        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_object(guint(sizeof_closure), cast(object.ptr)))
-        return rv.map { Closure(cast($0)) }
+    @inlinable public static func new<ObjectT: ObjectProtocol>(object sizeof_closure: Int, object: ObjectT) -> Closure! {
+        guard let rv = Closure(gconstpointer: gconstpointer(g_closure_new_object(guint(sizeof_closure), object.object_ptr))) else { return nil }
+        return rv
     }
 
     /// Allocates a struct of the given size and initializes the initial
@@ -497,9 +574,9 @@ open class Closure: ClosureProtocol {
     /// }
     /// ```
     /// 
-    public static func new(simple sizeof_closure: CUnsignedInt, data: UnsafeMutableRawPointer) -> Closure! {
-        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_new_simple(guint(sizeof_closure), cast(data)))
-        return rv.map { Closure(cast($0)) }
+    @inlinable public static func new(simple sizeof_closure: Int, data: gpointer! = nil) -> Closure! {
+        guard let rv = Closure(gconstpointer: gconstpointer(g_closure_new_simple(guint(sizeof_closure), data))) else { return nil }
+        return rv
     }
 
 }
@@ -512,7 +589,7 @@ open class Closure: ClosureProtocol {
 // MARK: Closure Record: ClosureProtocol extension (methods and fields)
 public extension ClosureProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GClosure` instance.
-    var closure_ptr: UnsafeMutablePointer<GClosure> { return ptr.assumingMemoryBound(to: GClosure.self) }
+    @inlinable var closure_ptr: UnsafeMutablePointer<GClosure>! { return ptr?.assumingMemoryBound(to: GClosure.self) }
 
     /// Registers a finalization notifier which will be called when the
     /// reference count of `closure` goes down to 0. Multiple finalization
@@ -520,8 +597,8 @@ public extension ClosureProtocol {
     /// a single call to `g_closure_unref()` results in the closure being
     /// both invalidated and finalized, then the invalidate notifiers will
     /// be run before the finalize notifiers.
-    func addFinalizeNotifier(notifyData notify_data: UnsafeMutableRawPointer, notifyFunc notify_func: @escaping ClosureNotify) {
-        g_closure_add_finalize_notifier(cast(closure_ptr), cast(notify_data), notify_func)
+    @inlinable func addFinalizeNotifier(notifyData notify_data: gpointer! = nil, notifyFunc notify_func: GClosureNotify? = nil) {
+        g_closure_add_finalize_notifier(closure_ptr, notify_data, notify_func)
     
     }
 
@@ -529,8 +606,8 @@ public extension ClosureProtocol {
     /// `closure` is invalidated with `g_closure_invalidate()`. Invalidation
     /// notifiers are invoked before finalization notifiers, in an
     /// unspecified order.
-    func addInvalidateNotifier(notifyData notify_data: UnsafeMutableRawPointer, notifyFunc notify_func: @escaping ClosureNotify) {
-        g_closure_add_invalidate_notifier(cast(closure_ptr), cast(notify_data), notify_func)
+    @inlinable func addInvalidateNotifier(notifyData notify_data: gpointer! = nil, notifyFunc notify_func: GClosureNotify? = nil) {
+        g_closure_add_invalidate_notifier(closure_ptr, notify_data, notify_func)
     
     }
 
@@ -538,8 +615,8 @@ public extension ClosureProtocol {
     /// closure callback, respectively. This is typically used to protect
     /// the extra arguments for the duration of the callback. See
     /// `g_object_watch_closure()` for an example of marshal guards.
-    func addMarshalGuards(preMarshalData pre_marshal_data: UnsafeMutableRawPointer, preMarshalNotify pre_marshal_notify: @escaping ClosureNotify, postMarshalData post_marshal_data: UnsafeMutableRawPointer, postMarshalNotify post_marshal_notify: @escaping ClosureNotify) {
-        g_closure_add_marshal_guards(cast(closure_ptr), cast(pre_marshal_data), pre_marshal_notify, cast(post_marshal_data), post_marshal_notify)
+    @inlinable func addMarshalGuards(preMarshalData pre_marshal_data: gpointer! = nil, preMarshalNotify pre_marshal_notify: GClosureNotify? = nil, postMarshalData post_marshal_data: gpointer! = nil, postMarshalNotify post_marshal_notify: GClosureNotify? = nil) {
+        g_closure_add_marshal_guards(closure_ptr, pre_marshal_data, pre_marshal_notify, post_marshal_data, post_marshal_notify)
     
     }
 
@@ -556,37 +633,37 @@ public extension ClosureProtocol {
     /// Note that `g_closure_invalidate()` will also be called when the
     /// reference count of a closure drops to zero (unless it has already
     /// been invalidated before).
-    func invalidate() {
-        g_closure_invalidate(cast(closure_ptr))
+    @inlinable func invalidate() {
+        g_closure_invalidate(closure_ptr)
     
     }
 
     /// Invokes the closure, i.e. executes the callback represented by the `closure`.
-    func invoke(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: UnsafePointer<GValue>, invocationHint invocation_hint: UnsafeMutableRawPointer) {
-        g_closure_invoke(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values), cast(invocation_hint))
+    @inlinable func invoke<ValueT: ValueProtocol>(returnValue return_value: ValueT? = nil, nParamValues n_param_values: Int, paramValues param_values: UnsafePointer<GValue>!, invocationHint invocation_hint: gpointer! = nil) {
+        g_closure_invoke(closure_ptr, return_value?.value_ptr, guint(n_param_values), param_values, invocation_hint)
     
     }
 
     /// Increments the reference count on a closure to force it staying
     /// alive while the caller holds a pointer to it.
-    func ref() -> UnsafeMutablePointer<GClosure>! {
-        let rv: UnsafeMutablePointer<GClosure>! = cast(g_closure_ref(cast(closure_ptr)))
-        return cast(rv)
+    @discardableResult @inlinable func ref() -> ClosureRef! {
+        guard let rv = ClosureRef(gconstpointer: gconstpointer(g_closure_ref(closure_ptr))) else { return nil }
+        return rv
     }
 
     /// Removes a finalization notifier.
     /// 
     /// Notice that notifiers are automatically removed after they are run.
-    func removeFinalizeNotifier(notifyData notify_data: UnsafeMutableRawPointer, notifyFunc notify_func: @escaping ClosureNotify) {
-        g_closure_remove_finalize_notifier(cast(closure_ptr), cast(notify_data), notify_func)
+    @inlinable func removeFinalizeNotifier(notifyData notify_data: gpointer! = nil, notifyFunc notify_func: GClosureNotify?) {
+        g_closure_remove_finalize_notifier(closure_ptr, notify_data, notify_func)
     
     }
 
     /// Removes an invalidation notifier.
     /// 
     /// Notice that notifiers are automatically removed after they are run.
-    func removeInvalidateNotifier(notifyData notify_data: UnsafeMutableRawPointer, notifyFunc notify_func: @escaping ClosureNotify) {
-        g_closure_remove_invalidate_notifier(cast(closure_ptr), cast(notify_data), notify_func)
+    @inlinable func removeInvalidateNotifier(notifyData notify_data: gpointer! = nil, notifyFunc notify_func: GClosureNotify?) {
+        g_closure_remove_invalidate_notifier(closure_ptr, notify_data, notify_func)
     
     }
 
@@ -596,8 +673,8 @@ public extension ClosureProtocol {
     /// GObject's C predefined marshallers (the g_cclosure_marshal_*()
     /// functions), what it provides is a callback function to use instead of
     /// `closure`->callback.
-    func set(marshal: @escaping ClosureMarshal) {
-        g_closure_set_marshal(cast(closure_ptr), marshal)
+    @inlinable func set(marshal: @escaping GClosureMarshal) {
+        g_closure_set_marshal(closure_ptr, marshal)
     
     }
 
@@ -615,8 +692,8 @@ public extension ClosureProtocol {
     /// fixed offset in the class structure.  The meta marshaller retrieves
     /// the right callback and passes it to the marshaller as the
     /// `marshal_data` argument.
-    func setMetaMarshal(marshalData marshal_data: UnsafeMutableRawPointer, metaMarshal meta_marshal: @escaping ClosureMarshal) {
-        g_closure_set_meta_marshal(cast(closure_ptr), cast(marshal_data), meta_marshal)
+    @inlinable func setMetaMarshal(marshalData marshal_data: gpointer! = nil, metaMarshal meta_marshal: GClosureMarshal! = nil) {
+        g_closure_set_meta_marshal(closure_ptr, marshal_data, meta_marshal)
     
     }
 
@@ -663,16 +740,16 @@ public extension ClosureProtocol {
     /// Because `g_closure_sink()` may decrement the reference count of a closure
     /// (if it hasn't been called on `closure` yet) just like `g_closure_unref()`,
     /// `g_closure_ref()` should be called prior to this function.
-    func sink() {
-        g_closure_sink(cast(closure_ptr))
+    @inlinable func sink() {
+        g_closure_sink(closure_ptr)
     
     }
 
     /// Decrements the reference count of a closure after it was previously
     /// incremented by the same caller. If no other callers are using the
     /// closure, then the closure will be destroyed and freed.
-    func unref() {
-        g_closure_unref(cast(closure_ptr))
+    @inlinable func unref() {
+        g_closure_unref(closure_ptr)
     
     }
 
@@ -680,156 +757,156 @@ public extension ClosureProtocol {
     /// take two boxed pointers as arguments and return a boolean.  If you
     /// have such a signal, you will probably also need to use an
     /// accumulator, such as `g_signal_accumulator_true_handled()`.
-    func cclosureMarshalBOOLEAN_BOXEDBOXED(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_BOOLEAN__BOXED_BOXED(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalBOOLEAN_BOXEDBOXED<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_BOOLEAN__BOXED_BOXED(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `gboolean (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter
     /// denotes a flags type.
-    func cclosureMarshalBOOLEAN_FLAGS(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_BOOLEAN__FLAGS(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalBOOLEAN_FLAGS<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_BOOLEAN__FLAGS(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `gchar* (*callback) (gpointer instance, GObject *arg1, gpointer arg2, gpointer user_data)`.
-    func cclosureMarshalSTRING_OBJECTPOINTER(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_STRING__OBJECT_POINTER(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalSTRING_OBJECTPOINTER<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_STRING__OBJECT_POINTER(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gboolean arg1, gpointer user_data)`.
-    func cclosureMarshalVOID_BOOLEAN(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__BOOLEAN(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_BOOLEAN<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__BOOLEAN(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GBoxed *arg1, gpointer user_data)`.
-    func cclosureMarshalVOID_BOXED(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__BOXED(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_BOXED<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__BOXED(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gchar arg1, gpointer user_data)`.
-    func cclosureMarshalVOID_CHAR(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__CHAR(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_CHAR<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__CHAR(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gdouble arg1, gpointer user_data)`.
-    func cclosureMarshalVOID_DOUBLE(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__DOUBLE(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_DOUBLE<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__DOUBLE(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter denotes an enumeration type..
-    func cclosureMarshalVOID_ENUM(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__ENUM(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_ENUM<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__ENUM(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter denotes a flags type.
-    func cclosureMarshalVOID_FLAGS(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__FLAGS(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_FLAGS<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__FLAGS(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gfloat arg1, gpointer user_data)`.
-    func cclosureMarshalVOID_FLOAT(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__FLOAT(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_FLOAT<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__FLOAT(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)`.
-    func cclosureMarshalVOID_INT(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__INT(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_INT<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__INT(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, glong arg1, gpointer user_data)`.
-    func cclosureMarshalVOID_LONG(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__LONG(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_LONG<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__LONG(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GObject *arg1, gpointer user_data)`.
-    func cclosureMarshalVOID_OBJECT(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__OBJECT(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_OBJECT<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__OBJECT(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GParamSpec *arg1, gpointer user_data)`.
-    func cclosureMarshalVOID_PARAM(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__PARAM(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_PARAM<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__PARAM(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gpointer arg1, gpointer user_data)`.
-    func cclosureMarshalVOID_POINTER(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__POINTER(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_POINTER<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__POINTER(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, const gchar *arg1, gpointer user_data)`.
-    func cclosureMarshalVOID_STRING(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__STRING(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_STRING<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__STRING(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, guchar arg1, gpointer user_data)`.
-    func cclosureMarshalVOID_UCHAR(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__UCHAR(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_UCHAR<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__UCHAR(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, guint arg1, gpointer user_data)`.
-    func cclosureMarshalVOID_UINT(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__UINT(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_UINT<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__UINT(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, guint arg1, gpointer arg2, gpointer user_data)`.
-    func cclosureMarshalVOID_UINTPOINTER(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__UINT_POINTER(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_UINTPOINTER<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__UINT_POINTER(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gulong arg1, gpointer user_data)`.
-    func cclosureMarshalVOID_ULONG(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__ULONG(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_ULONG<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__ULONG(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GVariant *arg1, gpointer user_data)`.
-    func cclosureMarshalVOID_VARIANT(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__VARIANT(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_VARIANT<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__VARIANT(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gpointer user_data)`.
-    func cclosureMarshalVOID_VOID(returnValue return_value: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_VOID__VOID(cast(closure_ptr), cast(return_value.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalVOID_VOID<ValueT: ValueProtocol>(returnValue return_value: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_VOID__VOID(closure_ptr, return_value.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
@@ -838,21 +915,21 @@ public extension ClosureProtocol {
     /// 
     /// Normally this function is not passed explicitly to `g_signal_new()`,
     /// but used automatically by GLib when specifying a `nil` marshaller.
-    func cclosureMarshalGeneric(returnGvalue return_gvalue: ValueProtocol, nParamValues n_param_values: CUnsignedInt, paramValues param_values: ValueProtocol, invocationHint invocation_hint: UnsafeMutableRawPointer, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_cclosure_marshal_generic(cast(closure_ptr), cast(return_gvalue.ptr), guint(n_param_values), cast(param_values.ptr), cast(invocation_hint), cast(marshal_data))
+    @inlinable func cclosureMarshalGeneric<ValueT: ValueProtocol>(returnGvalue return_gvalue: ValueT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
+        g_cclosure_marshal_generic(closure_ptr, return_gvalue.value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
     
     }
 
     /// Connects a closure to a signal for a particular object.
-    func signalConnectClosure(instance: ObjectProtocol, detailedSignal detailed_signal: UnsafePointer<gchar>, after: Bool) -> Int {
-        let rv: Int = cast(g_signal_connect_closure(cast(instance.ptr), detailed_signal, cast(closure_ptr), gboolean(after ? 1 : 0)))
-        return Int(rv)
+    @inlinable func signalConnectClosure<ObjectT: ObjectProtocol>(instance: ObjectT, detailedSignal detailed_signal: UnsafePointer<gchar>!, after: Bool) -> Int {
+        let rv = Int(g_signal_connect_closure(instance.object_ptr, detailed_signal, closure_ptr, gboolean((after) ? 1 : 0)))
+        return rv
     }
 
     /// Connects a closure to a signal for a particular object.
-    func signalConnectClosureByID(instance: ObjectProtocol, signalID signal_id: CUnsignedInt, detail: GLib.Quark, after: Bool) -> Int {
-        let rv: Int = cast(g_signal_connect_closure_by_id(cast(instance.ptr), guint(signal_id), detail, cast(closure_ptr), gboolean(after ? 1 : 0)))
-        return Int(rv)
+    @inlinable func signalConnectClosureByID<ObjectT: ObjectProtocol>(instance: ObjectT, signalID signal_id: Int, detail: GQuark, after: Bool) -> Int {
+        let rv = Int(g_signal_connect_closure_by_id(instance.object_ptr, guint(signal_id), detail, closure_ptr, gboolean((after) ? 1 : 0)))
+        return rv
     }
 
     /// Finds the first signal handler that matches certain selection criteria.
@@ -860,9 +937,9 @@ public extension ClosureProtocol {
     /// flags, and the criteria values are passed as arguments.
     /// The match `mask` has to be non-0 for successful matches.
     /// If no handler was found, 0 is returned.
-    func signalHandlerFind(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
-        let rv: Int = cast(g_signal_handler_find(cast(instance.ptr), mask.value, guint(signal_id), detail, cast(closure_ptr), cast(func_), cast(data)))
-        return Int(rv)
+    @inlinable func signalHandlerFind<ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID signal_id: Int, detail: GQuark, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
+        let rv = Int(g_signal_handler_find(instance.object_ptr, mask.value, guint(signal_id), detail, closure_ptr, `func`, data))
+        return rv
     }
 
     /// Blocks all handlers on an instance that match a certain selection criteria.
@@ -872,9 +949,9 @@ public extension ClosureProtocol {
     /// or `G_SIGNAL_MATCH_DATA` match flags is required for successful matches.
     /// If no handlers were found, 0 is returned, the number of blocked handlers
     /// otherwise.
-    func signalHandlersBlockMatched(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
-        let rv: Int = cast(g_signal_handlers_block_matched(cast(instance.ptr), mask.value, guint(signal_id), detail, cast(closure_ptr), cast(func_), cast(data)))
-        return Int(rv)
+    @inlinable func signalHandlersBlockMatched<ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID signal_id: Int, detail: GQuark, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
+        let rv = Int(g_signal_handlers_block_matched(instance.object_ptr, mask.value, guint(signal_id), detail, closure_ptr, `func`, data))
+        return rv
     }
 
     /// Disconnects all handlers on an instance that match a certain
@@ -885,9 +962,9 @@ public extension ClosureProtocol {
     /// `G_SIGNAL_MATCH_DATA` match flags is required for successful
     /// matches.  If no handlers were found, 0 is returned, the number of
     /// disconnected handlers otherwise.
-    func signalHandlersDisconnectMatched(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
-        let rv: Int = cast(g_signal_handlers_disconnect_matched(cast(instance.ptr), mask.value, guint(signal_id), detail, cast(closure_ptr), cast(func_), cast(data)))
-        return Int(rv)
+    @inlinable func signalHandlersDisconnectMatched<ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID signal_id: Int, detail: GQuark, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
+        let rv = Int(g_signal_handlers_disconnect_matched(instance.object_ptr, mask.value, guint(signal_id), detail, closure_ptr, `func`, data))
+        return rv
     }
 
     /// Unblocks all handlers on an instance that match a certain selection
@@ -898,9 +975,9 @@ public extension ClosureProtocol {
     /// If no handlers were found, 0 is returned, the number of unblocked handlers
     /// otherwise. The match criteria should not apply to any handlers that are
     /// not currently blocked.
-    func signalHandlersUnblockMatched(instance: ObjectProtocol, mask: SignalMatchType, signalID signal_id: CUnsignedInt, detail: GLib.Quark, func_: UnsafeMutableRawPointer, data: UnsafeMutableRawPointer) -> Int {
-        let rv: Int = cast(g_signal_handlers_unblock_matched(cast(instance.ptr), mask.value, guint(signal_id), detail, cast(closure_ptr), cast(func_), cast(data)))
-        return Int(rv)
+    @inlinable func signalHandlersUnblockMatched<ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID signal_id: Int, detail: GQuark, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
+        let rv = Int(g_signal_handlers_unblock_matched(instance.object_ptr, mask.value, guint(signal_id), detail, closure_ptr, `func`, data))
+        return rv
     }
 
     /// Creates a new signal. (This is usually done in the class initializer.)
@@ -909,9 +986,9 @@ public extension ClosureProtocol {
     /// 
     /// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
     /// the marshaller for this signal.
-    func signalNewValist(signalName signal_name: UnsafePointer<gchar>, itype: GType, signalFlags signal_flags: SignalFlags, accumulator: @escaping SignalAccumulator, accuData accu_data: UnsafeMutableRawPointer, cMarshaller c_marshaller: @escaping SignalCMarshaller, returnType return_type: GType, nParams n_params: CUnsignedInt, args: CVaListPointer) -> Int {
-        let rv: Int = cast(g_signal_new_valist(signal_name, itype, signal_flags.value, cast(closure_ptr), accumulator, cast(accu_data), c_marshaller, return_type, guint(n_params), args))
-        return Int(rv)
+    @inlinable func signalNewValist(signalName signal_name: UnsafePointer<gchar>!, itype: GType, signalFlags signal_flags: SignalFlags, accumulator: @escaping GSignalAccumulator, accuData accu_data: gpointer! = nil, cMarshaller c_marshaller: GSignalCMarshaller! = nil, returnType return_type: GType, nParams n_params: Int, args: CVaListPointer) -> Int {
+        let rv = Int(g_signal_new_valist(signal_name, itype, signal_flags.value, closure_ptr, accumulator, accu_data, c_marshaller, return_type, guint(n_params), args))
+        return rv
     }
 
     /// Creates a new signal. (This is usually done in the class initializer.)
@@ -920,9 +997,9 @@ public extension ClosureProtocol {
     /// 
     /// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
     /// the marshaller for this signal.
-    func signalNewv(signalName signal_name: UnsafePointer<gchar>, itype: GType, signalFlags signal_flags: SignalFlags, accumulator: @escaping SignalAccumulator, accuData accu_data: UnsafeMutableRawPointer, cMarshaller c_marshaller: @escaping SignalCMarshaller, returnType return_type: GType, nParams n_params: CUnsignedInt, paramTypes param_types: UnsafeMutablePointer<GType>) -> Int {
-        let rv: Int = cast(g_signal_newv(signal_name, itype, signal_flags.value, cast(closure_ptr), accumulator, cast(accu_data), c_marshaller, return_type, guint(n_params), cast(param_types)))
-        return Int(rv)
+    @inlinable func signalNewv(signalName signal_name: UnsafePointer<gchar>!, itype: GType, signalFlags signal_flags: SignalFlags, accumulator: GSignalAccumulator! = nil, accuData accu_data: gpointer! = nil, cMarshaller c_marshaller: GSignalCMarshaller! = nil, returnType return_type: GType, nParams n_params: Int, paramTypes param_types: UnsafeMutablePointer<GType>!) -> Int {
+        let rv = Int(g_signal_newv(signal_name, itype, signal_flags.value, closure_ptr, accumulator, accu_data, c_marshaller, return_type, guint(n_params), param_types))
+        return rv
     }
 
     /// Overrides the class closure (i.e. the default handler) for the given signal
@@ -932,8 +1009,8 @@ public extension ClosureProtocol {
     /// See `g_signal_chain_from_overridden()` and
     /// `g_signal_chain_from_overridden_handler()` for how to chain up to the
     /// parent class closure from inside the overridden one.
-    func signalOverrideClassClosure(signalID signal_id: CUnsignedInt, instanceType instance_type: GType) {
-        g_signal_override_class_closure(guint(signal_id), instance_type, cast(closure_ptr))
+    @inlinable func signalOverrideClassClosure(signalID signal_id: Int, instanceType instance_type: GType) {
+        g_signal_override_class_closure(guint(signal_id), instance_type, closure_ptr)
     
     }
 
@@ -942,8 +1019,8 @@ public extension ClosureProtocol {
     /// If the source is not one of the standard GLib types, the `closure_callback`
     /// and `closure_marshal` fields of the `GSourceFuncs` structure must have been
     /// filled in with pointers to appropriate functions.
-    func sourceSetClosure(source: SourceProtocol) {
-        g_source_set_closure(cast(source.ptr), cast(closure_ptr))
+    @inlinable func sourceSetClosure<SourceT: SourceProtocol>(source: SourceT) {
+        g_source_set_closure(source.source_ptr, closure_ptr)
     
     }
 
@@ -965,33 +1042,33 @@ public extension ClosureProtocol {
 
     /// Indicates whether the closure is currently being invoked with
     ///  `g_closure_invoke()`
-    var inMarshal: Int {
+    @inlinable var inMarshal: guint {
         /// Indicates whether the closure is currently being invoked with
         ///  `g_closure_invoke()`
         get {
-            let rv: Int = cast(closure_ptr.pointee.in_marshal)
+            let rv = closure_ptr.pointee.in_marshal
             return rv
         }
         /// Indicates whether the closure is currently being invoked with
         ///  `g_closure_invoke()`
          set {
-            closure_ptr.pointee.in_marshal = guint(newValue)
+            closure_ptr.pointee.in_marshal = newValue
         }
     }
 
     /// Indicates whether the closure has been invalidated by
     ///  `g_closure_invalidate()`
-    var isInvalid: Int {
+    @inlinable var isInvalid: guint {
         /// Indicates whether the closure has been invalidated by
         ///  `g_closure_invalidate()`
         get {
-            let rv: Int = cast(closure_ptr.pointee.is_invalid)
+            let rv = closure_ptr.pointee.is_invalid
             return rv
         }
         /// Indicates whether the closure has been invalidated by
         ///  `g_closure_invalidate()`
          set {
-            closure_ptr.pointee.is_invalid = guint(newValue)
+            closure_ptr.pointee.is_invalid = newValue
         }
     }
 

@@ -9,13 +9,14 @@ import CGLib
 import GLib
 import Dispatch
 
+@usableFromInline
 let lockq = DispatchQueue(label: "io.github.rhx.glib.notify.lock")
 
 public extension ObjectProtocol {
     /// Freeze notifications
     ///
     /// - Parameter context: notification context to freeze
-    func freeze(context: UnsafeMutablePointer<GObjectNotifyContext>?) -> UnsafeMutablePointer<GObjectNotifyQueue>? {
+    @inlinable func freeze(context: UnsafeMutablePointer<GObjectNotifyContext>?) -> UnsafeMutablePointer<GObjectNotifyQueue>? {
         guard let context = context else { return nil }
         var queue: UnsafeMutablePointer<GObjectNotifyQueue>?
         withUnsafeMutablePointer(to: &object_ptr.pointee.qdata) {
@@ -34,7 +35,7 @@ public extension ObjectProtocol {
                     }
                 }
                 if nq.pointee.freeze_count >= 65535 {
-                    g_log("Freeze count for \(typeName) at \(ptr) is larger than 65536 - called freeze(context:) too often (forgot to call thaw(notifyQueue:) or infinite loop)", level: .critical)
+                    g_log("Freeze count for \(typeName) at \(String(describing: ptr)) is larger than 65536 - called freeze(context:) too often (forgot to call thaw(notifyQueue:) or infinite loop)", level: .critical)
                 } else {
                     nq.pointee.freeze_count += 1
                 }
@@ -43,11 +44,11 @@ public extension ObjectProtocol {
         }
         return queue
     }
-    
+
     /// Unfreeze notifications
     ///
     /// - Parameter queue: notification queue to thaw
-    func thaw(queue nq: UnsafeMutablePointer<GObjectNotifyQueue>) {
+    @inlinable func thaw(queue nq: UnsafeMutablePointer<GObjectNotifyQueue>) {
         guard let context = nq.pointee.context else { return }
         var pspecs = Array<UnsafeMutablePointer<GParamSpec>?>()
         lockq.sync {

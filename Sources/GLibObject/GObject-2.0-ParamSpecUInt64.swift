@@ -12,10 +12,11 @@ import GObjectCHelpers
 /// A `GParamSpec` derived structure that contains the meta data for unsigned 64bit integer properties.
 public protocol ParamSpecUInt64Protocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecUInt64` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GParamSpecUInt64` instance.
-    var param_spec_uint64_ptr: UnsafeMutablePointer<GParamSpecUInt64> { get }
+    var param_spec_uint64_ptr: UnsafeMutablePointer<GParamSpecUInt64>! { get }
+
 }
 
 /// The `ParamSpecUInt64Ref` type acts as a lightweight Swift reference to an underlying `GParamSpecUInt64` instance.
@@ -26,46 +27,76 @@ public protocol ParamSpecUInt64Protocol: ParamSpecProtocol {
 public struct ParamSpecUInt64Ref: ParamSpecUInt64Protocol {
         /// Untyped pointer to the underlying `GParamSpecUInt64` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_uint64_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ParamSpecUInt64Ref {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GParamSpecUInt64>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GParamSpecUInt64>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GParamSpecUInt64>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GParamSpecUInt64>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GParamSpecUInt64>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ParamSpecUInt64Protocol`
-    init<T: ParamSpecUInt64Protocol>(_ other: T) {
+    @inlinable init<T: ParamSpecUInt64Protocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUInt64Protocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUInt64Protocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUInt64Protocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUInt64Protocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUInt64Protocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -81,77 +112,123 @@ open class ParamSpecUInt64: ParamSpec, ParamSpecUInt64Protocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecUInt64` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GParamSpecUInt64>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GParamSpecUInt64>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecUInt64` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GParamSpecUInt64>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecUInt64` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecUInt64` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecUInt64` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GParamSpecUInt64>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecUInt64` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GParamSpecUInt64>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GParamSpecUInt64`.
     /// i.e., ownership is transferred to the `ParamSpecUInt64` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GParamSpecUInt64>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GParamSpecUInt64>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `ParamSpecUInt64Protocol`
     /// Will retain `GParamSpecUInt64`.
     /// - Parameter other: an instance of a related type that implements `ParamSpecUInt64Protocol`
-    public init<T: ParamSpecUInt64Protocol>(paramSpecUInt64 other: T) {
-        super.init(retaining: cast(other.param_spec_uint64_ptr))
+    @inlinable public init<T: ParamSpecUInt64Protocol>(paramSpecUInt64 other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUInt64Protocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUInt64Protocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUInt64Protocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUInt64Protocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUInt64Protocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUInt64Protocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUInt64Protocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUInt64Protocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -167,41 +244,41 @@ open class ParamSpecUInt64: ParamSpec, ParamSpecUInt64Protocol {
 // MARK: ParamSpecUInt64 Class: ParamSpecUInt64Protocol extension (methods and fields)
 public extension ParamSpecUInt64Protocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecUInt64` instance.
-    var param_spec_uint64_ptr: UnsafeMutablePointer<GParamSpecUInt64> { return ptr.assumingMemoryBound(to: GParamSpecUInt64.self) }
+    @inlinable var param_spec_uint64_ptr: UnsafeMutablePointer<GParamSpecUInt64>! { return ptr?.assumingMemoryBound(to: GParamSpecUInt64.self) }
 
 
     /// private `GParamSpec` portion
-    var parentInstance: GParamSpec {
+    @inlinable var parentInstance: GParamSpec {
         /// private `GParamSpec` portion
         get {
-            let rv: GParamSpec = cast(param_spec_uint64_ptr.pointee.parent_instance)
+            let rv = param_spec_uint64_ptr.pointee.parent_instance
             return rv
         }
     }
 
     /// minimum value for the property specified
-    var minimum: UInt64 {
+    @inlinable var minimum: guint64 {
         /// minimum value for the property specified
         get {
-            let rv: UInt64 = cast(param_spec_uint64_ptr.pointee.minimum)
+            let rv = param_spec_uint64_ptr.pointee.minimum
             return rv
         }
     }
 
     /// maximum value for the property specified
-    var maximum: UInt64 {
+    @inlinable var maximum: guint64 {
         /// maximum value for the property specified
         get {
-            let rv: UInt64 = cast(param_spec_uint64_ptr.pointee.maximum)
+            let rv = param_spec_uint64_ptr.pointee.maximum
             return rv
         }
     }
 
     /// default value for the property specified
-    var defaultValue: UInt64 {
+    @inlinable var defaultValue: guint64 {
         /// default value for the property specified
         get {
-            let rv: UInt64 = cast(param_spec_uint64_ptr.pointee.default_value)
+            let rv = param_spec_uint64_ptr.pointee.default_value
             return rv
         }
     }
