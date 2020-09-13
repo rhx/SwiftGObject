@@ -84,7 +84,7 @@ public extension ValueArrayRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ValueArrayProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -106,8 +106,8 @@ public extension ValueArrayRef {
     ///
     /// **new is deprecated:**
     /// Use #GArray and g_array_sized_new() instead.
-    @available(*, deprecated) @inlinable init( n_prealloced: Int) {
-        let rv = g_value_array_new(guint(n_prealloced))
+    @available(*, deprecated) @inlinable init( nPrealloced: Int) {
+        let rv = g_value_array_new(guint(nPrealloced))
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -263,8 +263,8 @@ open class ValueArray: ValueArrayProtocol {
     ///
     /// **new is deprecated:**
     /// Use #GArray and g_array_sized_new() instead.
-    @available(*, deprecated) @inlinable public init( n_prealloced: Int) {
-        let rv = g_value_array_new(guint(n_prealloced))
+    @available(*, deprecated) @inlinable public init( nPrealloced: Int) {
+        let rv = g_value_array_new(guint(nPrealloced))
         ptr = UnsafeMutableRawPointer(rv)
     }
 
@@ -286,7 +286,16 @@ public extension ValueArrayProtocol {
     ///
     /// **append is deprecated:**
     /// Use #GArray and g_array_append_val() instead.
-    @available(*, deprecated) @inlinable func append<ValueT: ValueProtocol>(value: ValueT? = nil) -> ValueArrayRef! {
+    @available(*, deprecated) @inlinable func append(value: ValueRef? = nil) -> ValueArrayRef! {
+        guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_append(value_array_ptr, value?.value_ptr))) else { return nil }
+        return rv
+    }
+    /// Insert a copy of `value` as last element of `value_array`. If `value` is
+    /// `nil`, an uninitialized value is appended.
+    ///
+    /// **append is deprecated:**
+    /// Use #GArray and g_array_append_val() instead.
+    @available(*, deprecated) @inlinable func append<ValueT: ValueProtocol>(value: ValueT?) -> ValueArrayRef! {
         guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_append(value_array_ptr, value?.value_ptr))) else { return nil }
         return rv
     }
@@ -324,7 +333,16 @@ public extension ValueArrayProtocol {
     ///
     /// **insert is deprecated:**
     /// Use #GArray and g_array_insert_val() instead.
-    @available(*, deprecated) @inlinable func insert<ValueT: ValueProtocol>(index_: Int, value: ValueT? = nil) -> ValueArrayRef! {
+    @available(*, deprecated) @inlinable func insert(index_: Int, value: ValueRef? = nil) -> ValueArrayRef! {
+        guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_insert(value_array_ptr, guint(index_), value?.value_ptr))) else { return nil }
+        return rv
+    }
+    /// Insert a copy of `value` at specified position into `value_array`. If `value`
+    /// is `nil`, an uninitialized value is inserted.
+    ///
+    /// **insert is deprecated:**
+    /// Use #GArray and g_array_insert_val() instead.
+    @available(*, deprecated) @inlinable func insert<ValueT: ValueProtocol>(index_: Int, value: ValueT?) -> ValueArrayRef! {
         guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_insert(value_array_ptr, guint(index_), value?.value_ptr))) else { return nil }
         return rv
     }
@@ -334,7 +352,16 @@ public extension ValueArrayProtocol {
     ///
     /// **prepend is deprecated:**
     /// Use #GArray and g_array_prepend_val() instead.
-    @available(*, deprecated) @inlinable func prepend<ValueT: ValueProtocol>(value: ValueT? = nil) -> ValueArrayRef! {
+    @available(*, deprecated) @inlinable func prepend(value: ValueRef? = nil) -> ValueArrayRef! {
+        guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_prepend(value_array_ptr, value?.value_ptr))) else { return nil }
+        return rv
+    }
+    /// Insert a copy of `value` as first element of `value_array`. If `value` is
+    /// `nil`, an uninitialized value is prepended.
+    ///
+    /// **prepend is deprecated:**
+    /// Use #GArray and g_array_prepend_val() instead.
+    @available(*, deprecated) @inlinable func prepend<ValueT: ValueProtocol>(value: ValueT?) -> ValueArrayRef! {
         guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_prepend(value_array_ptr, value?.value_ptr))) else { return nil }
         return rv
     }
@@ -356,8 +383,8 @@ public extension ValueArrayProtocol {
     ///
     /// **sort is deprecated:**
     /// Use #GArray and g_array_sort().
-    @available(*, deprecated) @inlinable func sort(compareFunc compare_func: GCompareFunc?) -> ValueArrayRef! {
-        guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_sort(value_array_ptr, compare_func))) else { return nil }
+    @available(*, deprecated) @inlinable func sort(compareFunc: GCompareFunc?) -> ValueArrayRef! {
+        guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_sort(value_array_ptr, compareFunc))) else { return nil }
         return rv
     }
 
@@ -369,8 +396,8 @@ public extension ValueArrayProtocol {
     ///
     /// **sort_with_data is deprecated:**
     /// Use #GArray and g_array_sort_with_data().
-    @available(*, deprecated) @inlinable func sortWithData(compareFunc compare_func: GCompareDataFunc?, userData user_data: gpointer! = nil) -> ValueArrayRef! {
-        guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_sort_with_data(value_array_ptr, compare_func, user_data))) else { return nil }
+    @available(*, deprecated) @inlinable func sortWithData(compareFunc: GCompareDataFunc?, userData: gpointer! = nil) -> ValueArrayRef! {
+        guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_sort_with_data(value_array_ptr, compareFunc, userData))) else { return nil }
         return rv
     }
 

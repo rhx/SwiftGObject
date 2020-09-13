@@ -138,7 +138,7 @@ public extension ObjectClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ObjectClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -343,8 +343,8 @@ public extension ObjectClassProtocol {
     @inlinable var _ptr: UnsafeMutablePointer<GObjectClass>! { return ptr?.assumingMemoryBound(to: GObjectClass.self) }
 
     /// Looks up the `GParamSpec` for a property of a class.
-    @inlinable func findProperty(propertyName property_name: UnsafePointer<gchar>!) -> ParamSpecRef! {
-        let rv = ParamSpecRef(gconstpointer: gconstpointer(g_object_class_find_property(_ptr, property_name)))
+    @inlinable func findProperty(propertyName: UnsafePointer<gchar>!) -> ParamSpecRef! {
+        let rv = ParamSpecRef(gconstpointer: gconstpointer(g_object_class_find_property(_ptr, propertyName)))
         return rv
     }
 
@@ -412,8 +412,8 @@ public extension ObjectClassProtocol {
     ///  }
     /// ```
     /// 
-    @inlinable func installProperties(nPspecs n_pspecs: Int, pspecs: UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>?>!) {
-        g_object_class_install_properties(_ptr, guint(n_pspecs), pspecs)
+    @inlinable func installProperties(nPspecs: Int, pspecs: UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>?>!) {
+        g_object_class_install_properties(_ptr, guint(nPspecs), pspecs)
     
     }
 
@@ -427,14 +427,14 @@ public extension ObjectClassProtocol {
     /// Note that it is possible to redefine a property in a derived class,
     /// by installing a property with the same name. This can be useful at times,
     /// e.g. to change the range of allowed values or the default value.
-    @inlinable func installProperty<ParamSpecT: ParamSpecProtocol>(propertyID property_id: Int, pspec: ParamSpecT) {
-        g_object_class_install_property(_ptr, guint(property_id), pspec.param_spec_ptr)
+    @inlinable func installProperty<ParamSpecT: ParamSpecProtocol>(propertyID: Int, pspec: ParamSpecT) {
+        g_object_class_install_property(_ptr, guint(propertyID), pspec.param_spec_ptr)
     
     }
 
     /// Get an array of `GParamSpec`* for all properties of a class.
-    @inlinable func listProperties(nProperties n_properties: UnsafeMutablePointer<guint>!) -> UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>?>! {
-        let rv = g_object_class_list_properties(_ptr, n_properties)
+    @inlinable func listProperties(nProperties: UnsafeMutablePointer<guint>!) -> UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>?>! {
+        let rv = g_object_class_list_properties(_ptr, nProperties)
         return rv
     }
 
@@ -454,8 +454,8 @@ public extension ObjectClassProtocol {
     /// correct.  For virtually all uses, this makes no difference. If you
     /// need to get the overridden property, you can call
     /// `g_param_spec_get_redirect_target()`.
-    @inlinable func overrideProperty(propertyID property_id: Int, name: UnsafePointer<gchar>!) {
-        g_object_class_override_property(_ptr, guint(property_id), name)
+    @inlinable func overrideProperty(propertyID: Int, name: UnsafePointer<gchar>!) {
+        g_object_class_override_property(_ptr, guint(propertyID), name)
     
     }
 

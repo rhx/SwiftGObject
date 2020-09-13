@@ -86,7 +86,7 @@ public extension SignalInvocationHintRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SignalInvocationHintProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -274,8 +274,8 @@ public extension SignalInvocationHintProtocol {
     /// This accumulator will use the return value from the first signal
     /// handler that is run as the return value for the signal and not run
     /// any further handlers (ie: the first handler "wins").
-    @inlinable func signalAccumulatorFirstWins<ValueT: ValueProtocol>(returnAccu return_accu: ValueT, handlerReturn handler_return: ValueT, dummy: gpointer! = nil) -> Bool {
-        let rv = ((g_signal_accumulator_first_wins(_ptr, return_accu.value_ptr, handler_return.value_ptr, dummy)) != 0)
+    @inlinable func signalAccumulatorFirstWins<ValueT: ValueProtocol>(returnAccu: ValueT, handlerReturn: ValueT, dummy: gpointer! = nil) -> Bool {
+        let rv = ((g_signal_accumulator_first_wins(_ptr, returnAccu.value_ptr, handlerReturn.value_ptr, dummy)) != 0)
         return rv
     }
 
@@ -286,8 +286,8 @@ public extension SignalInvocationHintProtocol {
     /// the emission to continue. The idea here is that a `true` return
     /// indicates that the callback handled the signal, and no further
     /// handling is needed.
-    @inlinable func signalAccumulatorTrueHandled<ValueT: ValueProtocol>(returnAccu return_accu: ValueT, handlerReturn handler_return: ValueT, dummy: gpointer! = nil) -> Bool {
-        let rv = ((g_signal_accumulator_true_handled(_ptr, return_accu.value_ptr, handler_return.value_ptr, dummy)) != 0)
+    @inlinable func signalAccumulatorTrueHandled<ValueT: ValueProtocol>(returnAccu: ValueT, handlerReturn: ValueT, dummy: gpointer! = nil) -> Bool {
+        let rv = ((g_signal_accumulator_true_handled(_ptr, returnAccu.value_ptr, handlerReturn.value_ptr, dummy)) != 0)
         return rv
     }
 

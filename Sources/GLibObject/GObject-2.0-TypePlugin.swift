@@ -182,7 +182,7 @@ public extension TypePluginRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypePluginProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -411,16 +411,16 @@ public extension TypePluginProtocol {
     /// Calls the `complete_interface_info` function from the
     /// `GTypePluginClass` of `plugin`. There should be no need to use this
     /// function outside of the GObject type system itself.
-    @inlinable func completeInterfaceInfo<InterfaceInfoT: InterfaceInfoProtocol>(instanceType instance_type: GType, interfaceType interface_type: GType, info: InterfaceInfoT) {
-        g_type_plugin_complete_interface_info(type_plugin_ptr, instance_type, interface_type, info._ptr)
+    @inlinable func completeInterfaceInfo<InterfaceInfoT: InterfaceInfoProtocol>(instanceType: GType, interfaceType: GType, info: InterfaceInfoT) {
+        g_type_plugin_complete_interface_info(type_plugin_ptr, instanceType, interfaceType, info._ptr)
     
     }
 
     /// Calls the `complete_type_info` function from the `GTypePluginClass` of `plugin`.
     /// There should be no need to use this function outside of the GObject
     /// type system itself.
-    @inlinable func completeTypeInfo<TypeInfoT: TypeInfoProtocol, TypeValueTableT: TypeValueTableProtocol>(gType g_type: GType, info: TypeInfoT, valueTable value_table: TypeValueTableT) {
-        g_type_plugin_complete_type_info(type_plugin_ptr, g_type, info._ptr, value_table._ptr)
+    @inlinable func completeTypeInfo<TypeInfoT: TypeInfoProtocol, TypeValueTableT: TypeValueTableProtocol>(gType: GType, info: TypeInfoT, valueTable: TypeValueTableT) {
+        g_type_plugin_complete_type_info(type_plugin_ptr, gType, info._ptr, valueTable._ptr)
     
     }
 
@@ -443,8 +443,8 @@ public extension TypePluginProtocol {
     /// Adds `interface_type` to the dynamic `instantiable_type`. The information
     /// contained in the `GTypePlugin` structure pointed to by `plugin`
     /// is used to manage the relationship.
-    @inlinable func typeAddInterfaceDynamic(instanceType instance_type: GType, interfaceType interface_type: GType) {
-        g_type_add_interface_dynamic(instance_type, interface_type, type_plugin_ptr)
+    @inlinable func typeAddInterfaceDynamic(instanceType: GType, interfaceType: GType) {
+        g_type_add_interface_dynamic(instanceType, interfaceType, type_plugin_ptr)
     
     }
 
@@ -453,8 +453,8 @@ public extension TypePluginProtocol {
     /// `GTypePlugin` structure pointed to by `plugin` to manage the type and its
     /// instances (if not abstract).  The value of `flags` determines the nature
     /// (e.g. abstract or not) of the type.
-    @inlinable func typeRegisterDynamic(parentType parent_type: GType, typeName type_name: UnsafePointer<gchar>!, flags: TypeFlags) -> GType {
-        let rv = g_type_register_dynamic(parent_type, type_name, type_plugin_ptr, flags.value)
+    @inlinable func typeRegisterDynamic(parentType: GType, typeName: UnsafePointer<gchar>!, flags: TypeFlags) -> GType {
+        let rv = g_type_register_dynamic(parentType, typeName, type_plugin_ptr, flags.value)
         return rv
     }
 

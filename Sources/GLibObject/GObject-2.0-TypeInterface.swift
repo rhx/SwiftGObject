@@ -84,7 +84,7 @@ public extension TypeInterfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeInterfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -102,8 +102,8 @@ public extension TypeInterfaceRef {
 
         /// Returns the `GTypeInterface` structure of an interface to which the
     /// passed in class conforms.
-    @inlinable static func peek<TypeClassT: TypeClassProtocol>(instanceClass instance_class: TypeClassT, ifaceType iface_type: GType) -> TypeInterfaceRef! {
-        guard let rv = TypeInterfaceRef(gpointer: g_type_interface_peek(instance_class._ptr, iface_type)) else { return nil }
+    @inlinable static func peek<TypeClassT: TypeClassProtocol>(instanceClass: TypeClassT, ifaceType: GType) -> TypeInterfaceRef! {
+        guard let rv = TypeInterfaceRef(gpointer: g_type_interface_peek(instanceClass._ptr, ifaceType)) else { return nil }
         return rv
     }
 }
@@ -256,8 +256,8 @@ open class TypeInterface: TypeInterfaceProtocol {
 
     /// Returns the `GTypeInterface` structure of an interface to which the
     /// passed in class conforms.
-    @inlinable public static func peek<TypeClassT: TypeClassProtocol>(instanceClass instance_class: TypeClassT, ifaceType iface_type: GType) -> TypeInterface! {
-        guard let rv = TypeInterface(gpointer: g_type_interface_peek(instance_class._ptr, iface_type)) else { return nil }
+    @inlinable public static func peek<TypeClassT: TypeClassProtocol>(instanceClass: TypeClassT, ifaceType: GType) -> TypeInterface! {
+        guard let rv = TypeInterface(gpointer: g_type_interface_peek(instanceClass._ptr, ifaceType)) else { return nil }
         return rv
     }
 

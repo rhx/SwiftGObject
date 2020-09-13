@@ -98,7 +98,7 @@ public extension ValueRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ValueProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -283,8 +283,8 @@ public extension ValueProtocol {
     @inlinable var value_ptr: UnsafeMutablePointer<GValue>! { return ptr?.assumingMemoryBound(to: GValue.self) }
 
     /// Copies the value of `src_value` into `dest_value`.
-    @inlinable func copy<ValueT: ValueProtocol>(destValue dest_value: ValueT) {
-        g_value_copy(value_ptr, dest_value.value_ptr)
+    @inlinable func copy<ValueT: ValueProtocol>(destValue: ValueT) {
+        g_value_copy(value_ptr, destValue.value_ptr)
     
     }
 
@@ -320,8 +320,8 @@ public extension ValueProtocol {
 
     /// Get the contents of a variant `GValue`, increasing its refcount. The returned
     /// `GVariant` is never floating.
-    @inlinable func dupVariant() -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_value_dup_variant(value_ptr)))
+    @inlinable func dupVariant() -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_value_dup_variant(value_ptr))
         return rv
     }
 
@@ -459,14 +459,14 @@ public extension ValueProtocol {
     }
 
     /// Get the contents of a variant `GValue`.
-    @inlinable func getVariant() -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_value_get_variant(value_ptr)))
+    @inlinable func getVariant() -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_value_get_variant(value_ptr))
         return rv
     }
 
     /// Initializes `value` with the default value of `type`.
-    @inlinable func init_(gType g_type: GType) -> ValueRef! {
-        guard let rv = ValueRef(gconstpointer: gconstpointer(g_value_init(value_ptr, g_type))) else { return nil }
+    @inlinable func init_(gType: GType) -> ValueRef! {
+        guard let rv = ValueRef(gconstpointer: gconstpointer(g_value_init(value_ptr, gType))) else { return nil }
         return rv
     }
 
@@ -498,14 +498,14 @@ public extension ValueProtocol {
     }
 
     /// Set the contents of a `G_TYPE_BOOLEAN` `GValue` to `v_boolean`.
-    @inlinable func setBoolean(vBoolean v_boolean: Bool) {
-        g_value_set_boolean(value_ptr, gboolean((v_boolean) ? 1 : 0))
+    @inlinable func setBoolean(vBoolean: Bool) {
+        g_value_set_boolean(value_ptr, gboolean((vBoolean) ? 1 : 0))
     
     }
 
     /// Set the contents of a `G_TYPE_BOXED` derived `GValue` to `v_boxed`.
-    @inlinable func setBoxed(vBoxed v_boxed: gconstpointer! = nil) {
-        g_value_set_boxed(value_ptr, v_boxed)
+    @inlinable func setBoxed(vBoxed: gconstpointer! = nil) {
+        g_value_set_boxed(value_ptr, vBoxed)
     
     }
 
@@ -513,8 +513,8 @@ public extension ValueProtocol {
     ///
     /// **set_boxed_take_ownership is deprecated:**
     /// Use g_value_take_boxed() instead.
-    @available(*, deprecated) @inlinable func setBoxedTakeOwnership(vBoxed v_boxed: gconstpointer! = nil) {
-        g_value_set_boxed_take_ownership(value_ptr, v_boxed)
+    @available(*, deprecated) @inlinable func setBoxedTakeOwnership(vBoxed: gconstpointer! = nil) {
+        g_value_set_boxed_take_ownership(value_ptr, vBoxed)
     
     }
 
@@ -522,38 +522,38 @@ public extension ValueProtocol {
     ///
     /// **set_char is deprecated:**
     /// This function's input type is broken, see g_value_set_schar()
-    @available(*, deprecated) @inlinable func setChar(vChar v_char: gchar) {
-        g_value_set_char(value_ptr, v_char)
+    @available(*, deprecated) @inlinable func setChar(vChar: gchar) {
+        g_value_set_char(value_ptr, vChar)
     
     }
 
     /// Set the contents of a `G_TYPE_DOUBLE` `GValue` to `v_double`.
-    @inlinable func setDouble(vDouble v_double: Double) {
-        g_value_set_double(value_ptr, gdouble(v_double))
+    @inlinable func setDouble(vDouble: Double) {
+        g_value_set_double(value_ptr, gdouble(vDouble))
     
     }
 
     /// Set the contents of a `G_TYPE_ENUM` `GValue` to `v_enum`.
-    @inlinable func setEnum(vEnum v_enum: Int) {
-        g_value_set_enum(value_ptr, gint(v_enum))
+    @inlinable func setEnum(vEnum: Int) {
+        g_value_set_enum(value_ptr, gint(vEnum))
     
     }
 
     /// Set the contents of a `G_TYPE_FLAGS` `GValue` to `v_flags`.
-    @inlinable func setFlags(vFlags v_flags: Int) {
-        g_value_set_flags(value_ptr, guint(v_flags))
+    @inlinable func setFlags(vFlags: Int) {
+        g_value_set_flags(value_ptr, guint(vFlags))
     
     }
 
     /// Set the contents of a `G_TYPE_FLOAT` `GValue` to `v_float`.
-    @inlinable func setFloat(vFloat v_float: Double) {
-        g_value_set_float(value_ptr, gfloat(v_float))
+    @inlinable func setFloat(vFloat: Double) {
+        g_value_set_float(value_ptr, gfloat(vFloat))
     
     }
 
     /// Set the contents of a `G_TYPE_GTYPE` `GValue` to `v_gtype`.
-    @inlinable func setGtype(vGtype v_gtype: GType) {
-        g_value_set_gtype(value_ptr, v_gtype)
+    @inlinable func setGtype(vGtype: GType) {
+        g_value_set_gtype(value_ptr, vGtype)
     
     }
 
@@ -565,20 +565,20 @@ public extension ValueProtocol {
     }
 
     /// Set the contents of a `G_TYPE_INT` `GValue` to `v_int`.
-    @inlinable func setInt(vInt v_int: gint) {
-        g_value_set_int(value_ptr, gint(v_int))
+    @inlinable func setInt(vInt: gint) {
+        g_value_set_int(value_ptr, gint(vInt))
     
     }
 
     /// Set the contents of a `G_TYPE_INT64` `GValue` to `v_int64`.
-    @inlinable func setInt64(vInt64 v_int64: gint64) {
-        g_value_set_int64(value_ptr, v_int64)
+    @inlinable func setInt64(vInt64: gint64) {
+        g_value_set_int64(value_ptr, vInt64)
     
     }
 
     /// Set the contents of a `G_TYPE_LONG` `GValue` to `v_long`.
-    @inlinable func setLong(vLong v_long: Int) {
-        g_value_set_long(value_ptr, glong(v_long))
+    @inlinable func setLong(vLong: Int) {
+        g_value_set_long(value_ptr, glong(vLong))
     
     }
 
@@ -593,8 +593,23 @@ public extension ValueProtocol {
     /// It is important that your `GValue` holds a reference to `v_object` (either its
     /// own, or one it has taken) to ensure that the object won't be destroyed while
     /// the `GValue` still exists).
-    @inlinable func setObject<ObjectT: ObjectProtocol>(vObject v_object: ObjectT? = nil) {
-        g_value_set_object(value_ptr, v_object?.object_ptr)
+    @inlinable func setObject(vObject: ObjectRef? = nil) {
+        g_value_set_object(value_ptr, vObject?.object_ptr)
+    
+    }
+    /// Set the contents of a `G_TYPE_OBJECT` derived `GValue` to `v_object`.
+    /// 
+    /// `g_value_set_object()` increases the reference count of `v_object`
+    /// (the `GValue` holds a reference to `v_object`).  If you do not wish
+    /// to increase the reference count of the object (i.e. you wish to
+    /// pass your current reference to the `GValue` because you no longer
+    /// need it), use `g_value_take_object()` instead.
+    /// 
+    /// It is important that your `GValue` holds a reference to `v_object` (either its
+    /// own, or one it has taken) to ensure that the object won't be destroyed while
+    /// the `GValue` still exists).
+    @inlinable func setObject<ObjectT: ObjectProtocol>(vObject: ObjectT?) {
+        g_value_set_object(value_ptr, vObject?.object_ptr)
     
     }
 
@@ -602,13 +617,18 @@ public extension ValueProtocol {
     ///
     /// **set_object_take_ownership is deprecated:**
     /// Use g_value_take_object() instead.
-    @available(*, deprecated) @inlinable func setObjectTakeOwnership(vObject v_object: gpointer! = nil) {
-        g_value_set_object_take_ownership(value_ptr, v_object)
+    @available(*, deprecated) @inlinable func setObjectTakeOwnership(vObject: gpointer! = nil) {
+        g_value_set_object_take_ownership(value_ptr, vObject)
     
     }
 
     /// Set the contents of a `G_TYPE_PARAM` `GValue` to `param`.
-    @inlinable func set<ParamSpecT: ParamSpecProtocol>(param: ParamSpecT? = nil) {
+    @inlinable func set(param: ParamSpecRef? = nil) {
+        g_value_set_param(value_ptr, param?.param_spec_ptr)
+    
+    }
+    /// Set the contents of a `G_TYPE_PARAM` `GValue` to `param`.
+    @inlinable func set<ParamSpecT: ParamSpecProtocol>(param: ParamSpecT?) {
         g_value_set_param(value_ptr, param?.param_spec_ptr)
     
     }
@@ -617,42 +637,50 @@ public extension ValueProtocol {
     ///
     /// **set_param_take_ownership is deprecated:**
     /// Use g_value_take_param() instead.
-    @available(*, deprecated) @inlinable func setParamTakeOwnership<ParamSpecT: ParamSpecProtocol>(param: ParamSpecT? = nil) {
+    @available(*, deprecated) @inlinable func setParamTakeOwnership(param: ParamSpecRef? = nil) {
+        g_value_set_param_take_ownership(value_ptr, param?.param_spec_ptr)
+    
+    }
+    /// This is an internal function introduced mainly for C marshallers.
+    ///
+    /// **set_param_take_ownership is deprecated:**
+    /// Use g_value_take_param() instead.
+    @available(*, deprecated) @inlinable func setParamTakeOwnership<ParamSpecT: ParamSpecProtocol>(param: ParamSpecT?) {
         g_value_set_param_take_ownership(value_ptr, param?.param_spec_ptr)
     
     }
 
     /// Set the contents of a pointer `GValue` to `v_pointer`.
-    @inlinable func setPointer(vPointer v_pointer: gpointer! = nil) {
-        g_value_set_pointer(value_ptr, v_pointer)
+    @inlinable func setPointer(vPointer: gpointer! = nil) {
+        g_value_set_pointer(value_ptr, vPointer)
     
     }
 
     /// Set the contents of a `G_TYPE_CHAR` `GValue` to `v_char`.
-    @inlinable func setSchar(vChar v_char: gint8) {
-        g_value_set_schar(value_ptr, v_char)
+    @inlinable func setSchar(vChar: gint8) {
+        g_value_set_schar(value_ptr, vChar)
     
     }
 
     /// Set the contents of a `G_TYPE_BOXED` derived `GValue` to `v_boxed`.
     /// The boxed value is assumed to be static, and is thus not duplicated
     /// when setting the `GValue`.
-    @inlinable func setStaticBoxed(vBoxed v_boxed: gconstpointer! = nil) {
-        g_value_set_static_boxed(value_ptr, v_boxed)
+    @inlinable func setStaticBoxed(vBoxed: gconstpointer! = nil) {
+        g_value_set_static_boxed(value_ptr, vBoxed)
     
     }
 
     /// Set the contents of a `G_TYPE_STRING` `GValue` to `v_string`.
     /// The string is assumed to be static, and is thus not duplicated
     /// when setting the `GValue`.
-    @inlinable func setStaticString(vString v_string: UnsafePointer<gchar>? = nil) {
-        g_value_set_static_string(value_ptr, v_string)
+    @inlinable func setStaticString(vString: UnsafePointer<gchar>? = nil) {
+        g_value_set_static_string(value_ptr, vString)
     
     }
 
     /// Set the contents of a `G_TYPE_STRING` `GValue` to `v_string`.
-    @inlinable func setString(vString v_string: UnsafePointer<gchar>? = nil) {
-        g_value_set_string(value_ptr, v_string)
+    @inlinable func setString(vString: UnsafePointer<gchar>? = nil) {
+        g_value_set_string(value_ptr, vString)
     
     }
 
@@ -660,38 +688,44 @@ public extension ValueProtocol {
     ///
     /// **set_string_take_ownership is deprecated:**
     /// Use g_value_take_string() instead.
-    @available(*, deprecated) @inlinable func setStringTakeOwnership(vString v_string: UnsafeMutablePointer<gchar>? = nil) {
-        g_value_set_string_take_ownership(value_ptr, v_string)
+    @available(*, deprecated) @inlinable func setStringTakeOwnership(vString: UnsafeMutablePointer<gchar>? = nil) {
+        g_value_set_string_take_ownership(value_ptr, vString)
     
     }
 
     /// Set the contents of a `G_TYPE_UCHAR` `GValue` to `v_uchar`.
-    @inlinable func setUchar(vUchar v_uchar: guchar) {
-        g_value_set_uchar(value_ptr, v_uchar)
+    @inlinable func setUchar(vUchar: guchar) {
+        g_value_set_uchar(value_ptr, vUchar)
     
     }
 
     /// Set the contents of a `G_TYPE_UINT` `GValue` to `v_uint`.
-    @inlinable func setUint(vUint v_uint: guint) {
-        g_value_set_uint(value_ptr, guint(v_uint))
+    @inlinable func setUint(vUint: guint) {
+        g_value_set_uint(value_ptr, guint(vUint))
     
     }
 
     /// Set the contents of a `G_TYPE_UINT64` `GValue` to `v_uint64`.
-    @inlinable func setUint64(vUint64 v_uint64: guint64) {
-        g_value_set_uint64(value_ptr, v_uint64)
+    @inlinable func setUint64(vUint64: guint64) {
+        g_value_set_uint64(value_ptr, vUint64)
     
     }
 
     /// Set the contents of a `G_TYPE_ULONG` `GValue` to `v_ulong`.
-    @inlinable func setUlong(vUlong v_ulong: gulong) {
-        g_value_set_ulong(value_ptr, gulong(v_ulong))
+    @inlinable func setUlong(vUlong: gulong) {
+        g_value_set_ulong(value_ptr, gulong(vUlong))
     
     }
 
     /// Set the contents of a variant `GValue` to `variant`.
     /// If the variant is floating, it is consumed.
-    @inlinable func set<VariantT: VariantProtocol>(variant: VariantT? = nil) {
+    @inlinable func set(variant: GLib.VariantRef? = nil) {
+        g_value_set_variant(value_ptr, variant?.variant_ptr)
+    
+    }
+    /// Set the contents of a variant `GValue` to `variant`.
+    /// If the variant is floating, it is consumed.
+    @inlinable func set<VariantT: GLib.VariantProtocol>(variant: VariantT?) {
         g_value_set_variant(value_ptr, variant?.variant_ptr)
     
     }
@@ -699,8 +733,8 @@ public extension ValueProtocol {
     /// Sets the contents of a `G_TYPE_BOXED` derived `GValue` to `v_boxed`
     /// and takes over the ownership of the caller’s reference to `v_boxed`;
     /// the caller doesn’t have to unref it any more.
-    @inlinable func takeBoxed(vBoxed v_boxed: gconstpointer! = nil) {
-        g_value_take_boxed(value_ptr, v_boxed)
+    @inlinable func takeBoxed(vBoxed: gconstpointer! = nil) {
+        g_value_take_boxed(value_ptr, vBoxed)
     
     }
 
@@ -711,22 +745,29 @@ public extension ValueProtocol {
     /// 
     /// If you want the `GValue` to hold its own reference to `v_object`, use
     /// `g_value_set_object()` instead.
-    @inlinable func takeObject(vObject v_object: gpointer! = nil) {
-        g_value_take_object(value_ptr, v_object)
+    @inlinable func takeObject(vObject: gpointer! = nil) {
+        g_value_take_object(value_ptr, vObject)
     
     }
 
     /// Sets the contents of a `G_TYPE_PARAM` `GValue` to `param` and takes
     /// over the ownership of the caller’s reference to `param`; the caller
     /// doesn’t have to unref it any more.
-    @inlinable func take<ParamSpecT: ParamSpecProtocol>(param: ParamSpecT? = nil) {
+    @inlinable func take(param: ParamSpecRef? = nil) {
+        g_value_take_param(value_ptr, param?.param_spec_ptr)
+    
+    }
+    /// Sets the contents of a `G_TYPE_PARAM` `GValue` to `param` and takes
+    /// over the ownership of the caller’s reference to `param`; the caller
+    /// doesn’t have to unref it any more.
+    @inlinable func take<ParamSpecT: ParamSpecProtocol>(param: ParamSpecT?) {
         g_value_take_param(value_ptr, param?.param_spec_ptr)
     
     }
 
     /// Sets the contents of a `G_TYPE_STRING` `GValue` to `v_string`.
-    @inlinable func takeString(vString v_string: UnsafeMutablePointer<gchar>? = nil) {
-        g_value_take_string(value_ptr, v_string)
+    @inlinable func takeString(vString: UnsafeMutablePointer<gchar>? = nil) {
+        g_value_take_string(value_ptr, vString)
     
     }
 
@@ -742,7 +783,23 @@ public extension ValueProtocol {
     /// `g_value_set_variant()` instead.
     /// 
     /// This is an internal function introduced mainly for C marshallers.
-    @inlinable func take<VariantT: VariantProtocol>(variant: VariantT? = nil) {
+    @inlinable func take(variant: GLib.VariantRef? = nil) {
+        g_value_take_variant(value_ptr, variant?.variant_ptr)
+    
+    }
+    /// Set the contents of a variant `GValue` to `variant`, and takes over
+    /// the ownership of the caller's reference to `variant`;
+    /// the caller doesn't have to unref it any more (i.e. the reference
+    /// count of the variant is not increased).
+    /// 
+    /// If `variant` was floating then its floating reference is converted to
+    /// a hard reference.
+    /// 
+    /// If you want the `GValue` to hold its own reference to `variant`, use
+    /// `g_value_set_variant()` instead.
+    /// 
+    /// This is an internal function introduced mainly for C marshallers.
+    @inlinable func take<VariantT: GLib.VariantProtocol>(variant: VariantT?) {
         g_value_take_variant(value_ptr, variant?.variant_ptr)
     
     }
@@ -754,8 +811,8 @@ public extension ValueProtocol {
     /// transformations into strings might reveal seemingly arbitrary
     /// results and shouldn't be relied upon for production code (such
     /// as rcfile value or object property serialization).
-    @inlinable func transform<ValueT: ValueProtocol>(destValue dest_value: ValueT) -> Bool {
-        let rv = ((g_value_transform(value_ptr, dest_value.value_ptr)) != 0)
+    @inlinable func transform<ValueT: ValueProtocol>(destValue: ValueT) -> Bool {
+        let rv = ((g_value_transform(value_ptr, destValue.value_ptr)) != 0)
         return rv
     }
 
@@ -772,156 +829,156 @@ public extension ValueProtocol {
     /// take two boxed pointers as arguments and return a boolean.  If you
     /// have such a signal, you will probably also need to use an
     /// accumulator, such as `g_signal_accumulator_true_handled()`.
-    @inlinable func cclosureMarshalBOOLEAN_BOXEDBOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_BOOLEAN__BOXED_BOXED(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalBOOLEAN_BOXEDBOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_BOOLEAN__BOXED_BOXED(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `gboolean (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter
     /// denotes a flags type.
-    @inlinable func cclosureMarshalBOOLEAN_FLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_BOOLEAN__FLAGS(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalBOOLEAN_FLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_BOOLEAN__FLAGS(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `gchar* (*callback) (gpointer instance, GObject *arg1, gpointer arg2, gpointer user_data)`.
-    @inlinable func cclosureMarshalSTRING_OBJECTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_STRING__OBJECT_POINTER(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalSTRING_OBJECTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_STRING__OBJECT_POINTER(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gboolean arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_BOOLEAN<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__BOOLEAN(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_BOOLEAN<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__BOOLEAN(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GBoxed *arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_BOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__BOXED(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_BOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__BOXED(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gchar arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_CHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__CHAR(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_CHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__CHAR(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gdouble arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_DOUBLE<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__DOUBLE(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_DOUBLE<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__DOUBLE(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter denotes an enumeration type..
-    @inlinable func cclosureMarshalVOID_ENUM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__ENUM(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_ENUM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__ENUM(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter denotes a flags type.
-    @inlinable func cclosureMarshalVOID_FLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__FLAGS(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_FLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__FLAGS(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gfloat arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_FLOAT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__FLOAT(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_FLOAT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__FLOAT(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_INT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__INT(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_INT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__INT(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, glong arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_LONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__LONG(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_LONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__LONG(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GObject *arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_OBJECT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__OBJECT(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_OBJECT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__OBJECT(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GParamSpec *arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_PARAM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__PARAM(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_PARAM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__PARAM(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gpointer arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_POINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__POINTER(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_POINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__POINTER(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, const gchar *arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_STRING<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__STRING(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_STRING<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__STRING(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, guchar arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_UCHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__UCHAR(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_UCHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__UCHAR(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, guint arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_UINT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__UINT(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_UINT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__UINT(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, guint arg1, gpointer arg2, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_UINTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__UINT_POINTER(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_UINTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__UINT_POINTER(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gulong arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_ULONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__ULONG(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_ULONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__ULONG(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GVariant *arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_VARIANT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__VARIANT(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_VARIANT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__VARIANT(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_VOID<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_VOID__VOID(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalVOID_VOID<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_VOID__VOID(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
@@ -930,8 +987,8 @@ public extension ValueProtocol {
     /// 
     /// Normally this function is not passed explicitly to `g_signal_new()`,
     /// but used automatically by GLib when specifying a `nil` marshaller.
-    @inlinable func cclosureMarshalGeneric<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues n_param_values: Int, paramValues param_values: ValueT, invocationHint invocation_hint: gpointer! = nil, marshalData marshal_data: gpointer! = nil) {
-        g_cclosure_marshal_generic(closure.closure_ptr, value_ptr, guint(n_param_values), param_values.value_ptr, invocation_hint, marshal_data)
+    @inlinable func cclosureMarshalGeneric<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+        g_cclosure_marshal_generic(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
@@ -942,8 +999,8 @@ public extension ValueProtocol {
     /// 
     /// See also `g_value_type_transformable()`, `g_value_transform()` and
     /// `g_param_value_validate()`.
-    @inlinable func paramValueConvert<ParamSpecT: ParamSpecProtocol, ValueT: ValueProtocol>(pspec: ParamSpecT, destValue dest_value: ValueT, strictValidation strict_validation: Bool) -> Bool {
-        let rv = ((g_param_value_convert(pspec.param_spec_ptr, value_ptr, dest_value.value_ptr, gboolean((strict_validation) ? 1 : 0))) != 0)
+    @inlinable func paramValueConvert<ParamSpecT: ParamSpecProtocol, ValueT: ValueProtocol>(pspec: ParamSpecT, destValue: ValueT, strictValidation: Bool) -> Bool {
+        let rv = ((g_param_value_convert(pspec.param_spec_ptr, value_ptr, destValue.value_ptr, gboolean((strictValidation) ? 1 : 0))) != 0)
         return rv
     }
 
@@ -988,8 +1045,8 @@ public extension ValueProtocol {
     /// This accumulator will use the return value from the first signal
     /// handler that is run as the return value for the signal and not run
     /// any further handlers (ie: the first handler "wins").
-    @inlinable func signalAccumulatorFirstWins<SignalInvocationHintT: SignalInvocationHintProtocol, ValueT: ValueProtocol>(ihint: SignalInvocationHintT, handlerReturn handler_return: ValueT, dummy: gpointer! = nil) -> Bool {
-        let rv = ((g_signal_accumulator_first_wins(ihint._ptr, value_ptr, handler_return.value_ptr, dummy)) != 0)
+    @inlinable func signalAccumulatorFirstWins<SignalInvocationHintT: SignalInvocationHintProtocol, ValueT: ValueProtocol>(ihint: SignalInvocationHintT, handlerReturn: ValueT, dummy: gpointer! = nil) -> Bool {
+        let rv = ((g_signal_accumulator_first_wins(ihint._ptr, value_ptr, handlerReturn.value_ptr, dummy)) != 0)
         return rv
     }
 
@@ -1000,8 +1057,8 @@ public extension ValueProtocol {
     /// the emission to continue. The idea here is that a `true` return
     /// indicates that the callback handled the signal, and no further
     /// handling is needed.
-    @inlinable func signalAccumulatorTrueHandled<SignalInvocationHintT: SignalInvocationHintProtocol, ValueT: ValueProtocol>(ihint: SignalInvocationHintT, handlerReturn handler_return: ValueT, dummy: gpointer! = nil) -> Bool {
-        let rv = ((g_signal_accumulator_true_handled(ihint._ptr, value_ptr, handler_return.value_ptr, dummy)) != 0)
+    @inlinable func signalAccumulatorTrueHandled<SignalInvocationHintT: SignalInvocationHintProtocol, ValueT: ValueProtocol>(ihint: SignalInvocationHintT, handlerReturn: ValueT, dummy: gpointer! = nil) -> Bool {
+        let rv = ((g_signal_accumulator_true_handled(ihint._ptr, value_ptr, handlerReturn.value_ptr, dummy)) != 0)
         return rv
     }
 
@@ -1009,8 +1066,8 @@ public extension ValueProtocol {
     /// be called from an overridden class closure; see
     /// `g_signal_override_class_closure()` and
     /// `g_signal_override_class_handler()`.
-    @inlinable func signalChainFromOverridden(instanceAndParams instance_and_params: UnsafePointer<GValue>!) {
-        g_signal_chain_from_overridden(instance_and_params, value_ptr)
+    @inlinable func signalChainFromOverridden(instanceAndParams: UnsafePointer<GValue>!) {
+        g_signal_chain_from_overridden(instanceAndParams, value_ptr)
     
     }
 
@@ -1018,8 +1075,8 @@ public extension ValueProtocol {
     /// 
     /// Note that `g_signal_emitv()` doesn't change `return_value` if no handlers are
     /// connected, in contrast to `g_signal_emit()` and `g_signal_emit_valist()`.
-    @inlinable func signalEmitv(instanceAndParams instance_and_params: UnsafePointer<GValue>!, signalID signal_id: Int, detail: GQuark) {
-        g_signal_emitv(instance_and_params, guint(signal_id), detail, value_ptr)
+    @inlinable func signalEmitv(instanceAndParams: UnsafePointer<GValue>!, signalID: Int, detail: GQuark) {
+        g_signal_emitv(instanceAndParams, guint(signalID), detail, value_ptr)
     
     }
 
@@ -1327,10 +1384,10 @@ public extension ValueProtocol {
     }
 
     /// Get the contents of a variant `GValue`.
-    @inlinable var variant: VariantRef! {
+    @inlinable var variant: GLib.VariantRef! {
         /// Get the contents of a variant `GValue`.
         get {
-            let rv = VariantRef(gconstpointer: gconstpointer(g_value_get_variant(value_ptr)))
+            let rv = GLib.VariantRef(g_value_get_variant(value_ptr))
             return rv
         }
         /// Set the contents of a variant `GValue` to `variant`.

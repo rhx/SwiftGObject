@@ -100,7 +100,7 @@ public extension TypeInfoRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeInfoProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -307,16 +307,16 @@ public extension TypeInfoProtocol {
     /// }
     /// ```
     /// 
-    @inlinable func enumCompleteTypeInfo<EnumValueT: EnumValueProtocol>(gEnumType g_enum_type: GType, constValues const_values: EnumValueT) {
-        g_enum_complete_type_info(g_enum_type, _ptr, const_values._ptr)
+    @inlinable func enumCompleteTypeInfo<EnumValueT: EnumValueProtocol>(gEnumType: GType, constValues: EnumValueT) {
+        g_enum_complete_type_info(gEnumType, _ptr, constValues._ptr)
     
     }
 
     /// This function is meant to be called from the `complete_type_info()`
     /// function of a `GTypePlugin` implementation, see the example for
     /// `g_enum_complete_type_info()` above.
-    @inlinable func flagsCompleteTypeInfo<FlagsValueT: FlagsValueProtocol>(gFlagsType g_flags_type: GType, constValues const_values: FlagsValueT) {
-        g_flags_complete_type_info(g_flags_type, _ptr, const_values._ptr)
+    @inlinable func flagsCompleteTypeInfo<FlagsValueT: FlagsValueProtocol>(gFlagsType: GType, constValues: FlagsValueT) {
+        g_flags_complete_type_info(gFlagsType, _ptr, constValues._ptr)
     
     }
 
@@ -327,8 +327,8 @@ public extension TypeInfoProtocol {
     /// pointed to by `info` and the `GTypeFundamentalInfo` structure pointed to by
     /// `finfo` to manage the type and its instances. The value of `flags` determines
     /// additional characteristics of the fundamental type.
-    @inlinable func typeRegisterFundamental<TypeFundamentalInfoT: TypeFundamentalInfoProtocol>(typeID type_id: GType, typeName type_name: UnsafePointer<gchar>!, finfo: TypeFundamentalInfoT, flags: TypeFlags) -> GType {
-        let rv = g_type_register_fundamental(type_id, type_name, _ptr, finfo._ptr, flags.value)
+    @inlinable func typeRegisterFundamental<TypeFundamentalInfoT: TypeFundamentalInfoProtocol>(typeID: GType, typeName: UnsafePointer<gchar>!, finfo: TypeFundamentalInfoT, flags: TypeFlags) -> GType {
+        let rv = g_type_register_fundamental(typeID, typeName, _ptr, finfo._ptr, flags.value)
         return rv
     }
 
@@ -337,8 +337,8 @@ public extension TypeInfoProtocol {
     /// `GTypeInfo` structure pointed to by `info` to manage the type and its
     /// instances (if not abstract). The value of `flags` determines the nature
     /// (e.g. abstract or not) of the type.
-    @inlinable func typeRegisterStatic(parentType parent_type: GType, typeName type_name: UnsafePointer<gchar>!, flags: TypeFlags) -> GType {
-        let rv = g_type_register_static(parent_type, type_name, _ptr, flags.value)
+    @inlinable func typeRegisterStatic(parentType: GType, typeName: UnsafePointer<gchar>!, flags: TypeFlags) -> GType {
+        let rv = g_type_register_static(parentType, typeName, _ptr, flags.value)
         return rv
     }
 

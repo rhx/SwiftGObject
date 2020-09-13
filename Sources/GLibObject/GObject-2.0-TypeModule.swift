@@ -134,7 +134,7 @@ public extension TypeModuleRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -384,8 +384,8 @@ public extension TypeModuleProtocol {
     /// 
     /// Since 2.56 if `module` is `nil` this will call `g_type_add_interface_static()`
     /// instead. This can be used when making a static build of the module.
-    @inlinable func addInterface<InterfaceInfoT: InterfaceInfoProtocol>(instanceType instance_type: GType, interfaceType interface_type: GType, interfaceInfo interface_info: InterfaceInfoT) {
-        g_type_module_add_interface(type_module_ptr, instance_type, interface_type, interface_info._ptr)
+    @inlinable func addInterface<InterfaceInfoT: InterfaceInfoProtocol>(instanceType: GType, interfaceType: GType, interfaceInfo: InterfaceInfoT) {
+        g_type_module_add_interface(type_module_ptr, instanceType, interfaceType, interfaceInfo._ptr)
     
     }
 
@@ -399,8 +399,8 @@ public extension TypeModuleProtocol {
     /// 
     /// Since 2.56 if `module` is `nil` this will call `g_type_register_static()`
     /// instead. This can be used when making a static build of the module.
-    @inlinable func registerEnum<EnumValueT: EnumValueProtocol>(name: UnsafePointer<gchar>!, constStaticValues const_static_values: EnumValueT) -> GType {
-        let rv = g_type_module_register_enum(type_module_ptr, name, const_static_values._ptr)
+    @inlinable func registerEnum<EnumValueT: EnumValueProtocol>(name: UnsafePointer<gchar>!, constStaticValues: EnumValueT) -> GType {
+        let rv = g_type_module_register_enum(type_module_ptr, name, constStaticValues._ptr)
         return rv
     }
 
@@ -414,8 +414,8 @@ public extension TypeModuleProtocol {
     /// 
     /// Since 2.56 if `module` is `nil` this will call `g_type_register_static()`
     /// instead. This can be used when making a static build of the module.
-    @inlinable func registerFlags<FlagsValueT: FlagsValueProtocol>(name: UnsafePointer<gchar>!, constStaticValues const_static_values: FlagsValueT) -> GType {
-        let rv = g_type_module_register_flags(type_module_ptr, name, const_static_values._ptr)
+    @inlinable func registerFlags<FlagsValueT: FlagsValueProtocol>(name: UnsafePointer<gchar>!, constStaticValues: FlagsValueT) -> GType {
+        let rv = g_type_module_register_flags(type_module_ptr, name, constStaticValues._ptr)
         return rv
     }
 
@@ -433,8 +433,8 @@ public extension TypeModuleProtocol {
     /// 
     /// Since 2.56 if `module` is `nil` this will call `g_type_register_static()`
     /// instead. This can be used when making a static build of the module.
-    @inlinable func registerType<TypeInfoT: TypeInfoProtocol>(parentType parent_type: GType, typeName type_name: UnsafePointer<gchar>!, typeInfo type_info: TypeInfoT, flags: TypeFlags) -> GType {
-        let rv = g_type_module_register_type(type_module_ptr, parent_type, type_name, type_info._ptr, flags.value)
+    @inlinable func registerType<TypeInfoT: TypeInfoProtocol>(parentType: GType, typeName: UnsafePointer<gchar>!, typeInfo: TypeInfoT, flags: TypeFlags) -> GType {
+        let rv = g_type_module_register_type(type_module_ptr, parentType, typeName, typeInfo._ptr, flags.value)
         return rv
     }
 

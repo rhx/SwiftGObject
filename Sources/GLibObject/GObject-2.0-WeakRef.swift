@@ -122,7 +122,7 @@ public extension WeakRefRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WeakRefProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -351,7 +351,20 @@ public extension WeakRefProtocol {
     /// `g_weak_ref_clear()`.  It is not necessary to use this function for a
     /// `GWeakRef` in static storage because it will already be
     /// properly initialised.  Just use `g_weak_ref_set()` directly.
-    @inlinable func init_<ObjectT: ObjectProtocol>(object: ObjectT? = nil) {
+    @inlinable func init_(object: ObjectRef? = nil) {
+        g_weak_ref_init(_ptr, object?.object_ptr)
+    
+    }
+    /// Initialise a non-statically-allocated `GWeakRef`.
+    /// 
+    /// This function also calls `g_weak_ref_set()` with `object` on the
+    /// freshly-initialised weak reference.
+    /// 
+    /// This function should always be matched with a call to
+    /// `g_weak_ref_clear()`.  It is not necessary to use this function for a
+    /// `GWeakRef` in static storage because it will already be
+    /// properly initialised.  Just use `g_weak_ref_set()` directly.
+    @inlinable func init_<ObjectT: ObjectProtocol>(object: ObjectT?) {
         g_weak_ref_init(_ptr, object?.object_ptr)
     
     }
@@ -361,7 +374,16 @@ public extension WeakRefProtocol {
     /// 
     /// You must own a strong reference on `object` while calling this
     /// function.
-    @inlinable func set<ObjectT: ObjectProtocol>(object: ObjectT? = nil) {
+    @inlinable func set(object: ObjectRef? = nil) {
+        g_weak_ref_set(_ptr, object?.object_ptr)
+    
+    }
+    /// Change the object to which `weak_ref` points, or set it to
+    /// `nil`.
+    /// 
+    /// You must own a strong reference on `object` while calling this
+    /// function.
+    @inlinable func set<ObjectT: ObjectProtocol>(object: ObjectT?) {
         g_weak_ref_set(_ptr, object?.object_ptr)
     
     }

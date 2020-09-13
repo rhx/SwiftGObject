@@ -86,7 +86,7 @@ public extension TypeFundamentalInfoRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeFundamentalInfoProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -271,8 +271,8 @@ public extension TypeFundamentalInfoProtocol {
     /// pointed to by `info` and the `GTypeFundamentalInfo` structure pointed to by
     /// `finfo` to manage the type and its instances. The value of `flags` determines
     /// additional characteristics of the fundamental type.
-    @inlinable func typeRegisterFundamental<TypeInfoT: TypeInfoProtocol>(typeID type_id: GType, typeName type_name: UnsafePointer<gchar>!, info: TypeInfoT, flags: TypeFlags) -> GType {
-        let rv = g_type_register_fundamental(type_id, type_name, info._ptr, _ptr, flags.value)
+    @inlinable func typeRegisterFundamental<TypeInfoT: TypeInfoProtocol>(typeID: GType, typeName: UnsafePointer<gchar>!, info: TypeInfoT, flags: TypeFlags) -> GType {
+        let rv = g_type_register_fundamental(typeID, typeName, info._ptr, _ptr, flags.value)
         return rv
     }
 

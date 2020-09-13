@@ -86,7 +86,7 @@ public extension InterfaceInfoRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InterfaceInfoProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -267,8 +267,8 @@ public extension InterfaceInfoProtocol {
     /// Adds `interface_type` to the static `instantiable_type`.
     /// The information contained in the `GInterfaceInfo` structure
     /// pointed to by `info` is used to manage the relationship.
-    @inlinable func typeAddInterfaceStatic(instanceType instance_type: GType, interfaceType interface_type: GType) {
-        g_type_add_interface_static(instance_type, interface_type, _ptr)
+    @inlinable func typeAddInterfaceStatic(instanceType: GType, interfaceType: GType) {
+        g_type_add_interface_static(instanceType, interfaceType, _ptr)
     
     }
 

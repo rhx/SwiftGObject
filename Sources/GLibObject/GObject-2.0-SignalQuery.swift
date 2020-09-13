@@ -86,7 +86,7 @@ public extension SignalQueryRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SignalQueryProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -270,8 +270,8 @@ public extension SignalQueryProtocol {
     /// signal id is passed in, the `signal_id` member of the `GSignalQuery`
     /// is 0. All members filled into the `GSignalQuery` structure should
     /// be considered constant and have to be left untouched.
-    @inlinable func signalQuery(signalID signal_id: Int) {
-        g_signal_query(guint(signal_id), _ptr)
+    @inlinable func signalQuery(signalID: Int) {
+        g_signal_query(guint(signalID), _ptr)
     
     }
 

@@ -86,7 +86,7 @@ public extension FlagsValueRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlagsValueProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -267,8 +267,8 @@ public extension FlagsValueProtocol {
     /// This function is meant to be called from the `complete_type_info()`
     /// function of a `GTypePlugin` implementation, see the example for
     /// `g_enum_complete_type_info()` above.
-    @inlinable func flagsCompleteTypeInfo<TypeInfoT: TypeInfoProtocol>(gFlagsType g_flags_type: GType, info: TypeInfoT) {
-        g_flags_complete_type_info(g_flags_type, info._ptr, _ptr)
+    @inlinable func flagsCompleteTypeInfo<TypeInfoT: TypeInfoProtocol>(gFlagsType: GType, info: TypeInfoT) {
+        g_flags_complete_type_info(gFlagsType, info._ptr, _ptr)
     
     }
 

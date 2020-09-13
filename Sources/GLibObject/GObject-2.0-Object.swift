@@ -86,7 +86,7 @@ public extension ObjectRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ObjectProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -110,8 +110,8 @@ public extension ObjectRef {
     /// 
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
-    @inlinable init(valist object_type: GType, firstPropertyName first_property_name: UnsafePointer<gchar>!, varArgs var_args: CVaListPointer) {
-        let rv = g_object_new_valist(object_type, first_property_name, var_args)
+    @inlinable init(valist objectType: GType, firstPropertyName: UnsafePointer<gchar>!, varArgs: CVaListPointer) {
+        let rv = g_object_new_valist(objectType, firstPropertyName, varArgs)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
@@ -121,8 +121,8 @@ public extension ObjectRef {
     /// 
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
-    @inlinable init(properties object_type: GType, nProperties n_properties: Int, names: UnsafeMutablePointer<UnsafePointer<CChar>?>!, values: UnsafePointer<GValue>!) {
-        let rv = g_object_new_with_properties(object_type, guint(n_properties), names, values)
+    @inlinable init(properties objectType: GType, nProperties: Int, names: UnsafeMutablePointer<UnsafePointer<CChar>?>!, values: UnsafePointer<GValue>!) {
+        let rv = g_object_new_with_properties(objectType, guint(nProperties), names, values)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
@@ -134,16 +134,16 @@ public extension ObjectRef {
     /// **newv is deprecated:**
     /// Use g_object_new_with_properties() instead.
     /// deprecated. See #GParameter for more information.
-    @available(*, deprecated) @inlinable init(objectType object_type: GType, nParameters n_parameters: Int, parameters: UnsafeMutablePointer<GParameter>!) {
-        let rv = g_object_newv(object_type, guint(n_parameters), parameters)
+    @available(*, deprecated) @inlinable init(objectType: GType, nParameters: Int, parameters: UnsafeMutablePointer<GParameter>!) {
+        let rv = g_object_newv(objectType, guint(nParameters), parameters)
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new instance of a `GObject` subtype and sets its properties.
     /// 
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
-    @inlinable static func new(valist object_type: GType, firstPropertyName first_property_name: UnsafePointer<gchar>!, varArgs var_args: CVaListPointer) -> ObjectRef! {
-        guard let rv = ObjectRef(gconstpointer: gconstpointer(g_object_new_valist(object_type, first_property_name, var_args))) else { return nil }
+    @inlinable static func new(valist objectType: GType, firstPropertyName: UnsafePointer<gchar>!, varArgs: CVaListPointer) -> ObjectRef! {
+        guard let rv = ObjectRef(gconstpointer: gconstpointer(g_object_new_valist(objectType, firstPropertyName, varArgs))) else { return nil }
         return rv
     }
 
@@ -153,8 +153,8 @@ public extension ObjectRef {
     /// 
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
-    @inlinable static func newWith(properties object_type: GType, nProperties n_properties: Int, names: UnsafeMutablePointer<UnsafePointer<CChar>?>!, values: UnsafePointer<GValue>!) -> ObjectRef! {
-        guard let rv = ObjectRef(gconstpointer: gconstpointer(g_object_new_with_properties(object_type, guint(n_properties), names, values))) else { return nil }
+    @inlinable static func newWith(properties objectType: GType, nProperties: Int, names: UnsafeMutablePointer<UnsafePointer<CChar>?>!, values: UnsafePointer<GValue>!) -> ObjectRef! {
+        guard let rv = ObjectRef(gconstpointer: gconstpointer(g_object_new_with_properties(objectType, guint(nProperties), names, values))) else { return nil }
         return rv
     }
 
@@ -166,8 +166,8 @@ public extension ObjectRef {
     /// **newv is deprecated:**
     /// Use g_object_new_with_properties() instead.
     /// deprecated. See #GParameter for more information.
-    @available(*, deprecated) @inlinable static func newv(objectType object_type: GType, nParameters n_parameters: Int, parameters: UnsafeMutablePointer<GParameter>!) -> ObjectRef! {
-        guard let rv = ObjectRef(gpointer: g_object_newv(object_type, guint(n_parameters), parameters)) else { return nil }
+    @available(*, deprecated) @inlinable static func newv(objectType: GType, nParameters: Int, parameters: UnsafeMutablePointer<GParameter>!) -> ObjectRef! {
+        guard let rv = ObjectRef(gpointer: g_object_newv(objectType, guint(nParameters), parameters)) else { return nil }
         return rv
     }
 }
@@ -332,8 +332,8 @@ open class Object: ObjectProtocol {
     /// 
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
-    @inlinable public init(properties object_type: GType, nProperties n_properties: Int, names: UnsafeMutablePointer<UnsafePointer<CChar>?>!, values: UnsafePointer<GValue>!) {
-        let rv = g_object_new_with_properties(object_type, guint(n_properties), names, values)
+    @inlinable public init(properties objectType: GType, nProperties: Int, names: UnsafeMutablePointer<UnsafePointer<CChar>?>!, values: UnsafePointer<GValue>!) {
+        let rv = g_object_new_with_properties(objectType, guint(nProperties), names, values)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
@@ -345,8 +345,8 @@ open class Object: ObjectProtocol {
     /// **newv is deprecated:**
     /// Use g_object_new_with_properties() instead.
     /// deprecated. See #GParameter for more information.
-    @available(*, deprecated) @inlinable public init(objectType object_type: GType, nParameters n_parameters: Int, parameters: UnsafeMutablePointer<GParameter>!) {
-        let rv = g_object_newv(object_type, guint(n_parameters), parameters)
+    @available(*, deprecated) @inlinable public init(objectType: GType, nParameters: Int, parameters: UnsafeMutablePointer<GParameter>!) {
+        let rv = g_object_newv(objectType, guint(nParameters), parameters)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
@@ -360,8 +360,8 @@ open class Object: ObjectProtocol {
     /// 
     /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
     /// which are not explicitly specified are set to their default values.
-    @inlinable public static func newWith(properties object_type: GType, nProperties n_properties: Int, names: UnsafeMutablePointer<UnsafePointer<CChar>?>!, values: UnsafePointer<GValue>!) -> Object! {
-        guard let rv = Object(gconstpointer: gconstpointer(g_object_new_with_properties(object_type, guint(n_properties), names, values))) else { return nil }
+    @inlinable public static func newWith(properties objectType: GType, nProperties: Int, names: UnsafeMutablePointer<UnsafePointer<CChar>?>!, values: UnsafePointer<GValue>!) -> Object! {
+        guard let rv = Object(gconstpointer: gconstpointer(g_object_new_with_properties(objectType, guint(nProperties), names, values))) else { return nil }
         return rv
     }
 
@@ -373,8 +373,8 @@ open class Object: ObjectProtocol {
     /// **newv is deprecated:**
     /// Use g_object_new_with_properties() instead.
     /// deprecated. See #GParameter for more information.
-    @available(*, deprecated) @inlinable public static func newv(objectType object_type: GType, nParameters n_parameters: Int, parameters: UnsafeMutablePointer<GParameter>!) -> Object! {
-        guard let rv = Object(gpointer: g_object_newv(object_type, guint(n_parameters), parameters)) else { return nil }
+    @available(*, deprecated) @inlinable public static func newv(objectType: GType, nParameters: Int, parameters: UnsafeMutablePointer<GParameter>!) -> Object! {
+        guard let rv = Object(gpointer: g_object_newv(objectType, guint(nParameters), parameters)) else { return nil }
         return rv
     }
 
@@ -486,8 +486,8 @@ public extension ObjectProtocol {
     /// this method are not thread-safe: they cannot safely be used in one
     /// thread if the object's last `g_object_unref()` might happen in another
     /// thread. Use `GWeakRef` if thread-safety is required.
-    @inlinable func addWeakPointer(weakPointerLocation weak_pointer_location: UnsafeMutablePointer<gpointer?>!) {
-        g_object_add_weak_pointer(object_ptr, weak_pointer_location)
+    @inlinable func addWeakPointer(weakPointerLocation: UnsafeMutablePointer<gpointer?>!) {
+        g_object_add_weak_pointer(object_ptr, weakPointerLocation)
     
     }
 
@@ -513,8 +513,8 @@ public extension ObjectProtocol {
     /// `GBinding` instance.
     /// 
     /// A `GObject` can have multiple bindings.
-    @inlinable func bindProperty<ObjectT: ObjectProtocol>(sourceProperty source_property: UnsafePointer<gchar>!, target: ObjectT, targetProperty target_property: UnsafePointer<gchar>!, flags: BindingFlags) -> BindingRef! {
-        let rv = BindingRef(gconstpointer: gconstpointer(g_object_bind_property(object_ptr, source_property, target.object_ptr, target_property, flags.value)))
+    @inlinable func bindProperty<ObjectT: ObjectProtocol>(sourceProperty: UnsafePointer<gchar>!, target: ObjectT, targetProperty: UnsafePointer<gchar>!, flags: BindingFlags) -> BindingRef! {
+        let rv = BindingRef(gconstpointer: gconstpointer(g_object_bind_property(object_ptr, sourceProperty, target.object_ptr, targetProperty, flags.value)))
         return rv
     }
 
@@ -543,8 +543,8 @@ public extension ObjectProtocol {
     /// be called once, when the binding is removed. If you need different data
     /// for each transformation function, please use
     /// `g_object_bind_property_with_closures()` instead.
-    @inlinable func bindPropertyFull<ObjectT: ObjectProtocol>(sourceProperty source_property: UnsafePointer<gchar>!, target: ObjectT, targetProperty target_property: UnsafePointer<gchar>!, flags: BindingFlags, transformTo transform_to: GBindingTransformFunc? = nil, transformFrom transform_from: GBindingTransformFunc? = nil, userData user_data: gpointer! = nil, notify: GDestroyNotify? = nil) -> BindingRef! {
-        let rv = BindingRef(gconstpointer: gconstpointer(g_object_bind_property_full(object_ptr, source_property, target.object_ptr, target_property, flags.value, transform_to, transform_from, user_data, notify)))
+    @inlinable func bindPropertyFull<ObjectT: ObjectProtocol>(sourceProperty: UnsafePointer<gchar>!, target: ObjectT, targetProperty: UnsafePointer<gchar>!, flags: BindingFlags, transformTo: GBindingTransformFunc? = nil, transformFrom: GBindingTransformFunc? = nil, userData: gpointer! = nil, notify: GDestroyNotify? = nil) -> BindingRef! {
+        let rv = BindingRef(gconstpointer: gconstpointer(g_object_bind_property_full(object_ptr, sourceProperty, target.object_ptr, targetProperty, flags.value, transformTo, transformFrom, userData, notify)))
         return rv
     }
 
@@ -555,8 +555,8 @@ public extension ObjectProtocol {
     /// This function is the language bindings friendly version of
     /// `g_object_bind_property_full()`, using `GClosures` instead of
     /// function pointers.
-    @inlinable func bindPropertyWithClosures<ClosureT: ClosureProtocol, ObjectT: ObjectProtocol>(sourceProperty source_property: UnsafePointer<gchar>!, target: ObjectT, targetProperty target_property: UnsafePointer<gchar>!, flags: BindingFlags, transformTo transform_to: ClosureT, transformFrom transform_from: ClosureT) -> BindingRef! {
-        let rv = BindingRef(gconstpointer: gconstpointer(g_object_bind_property_with_closures(object_ptr, source_property, target.object_ptr, target_property, flags.value, transform_to.closure_ptr, transform_from.closure_ptr)))
+    @inlinable func bindPropertyWithClosures<ClosureT: ClosureProtocol, ObjectT: ObjectProtocol>(sourceProperty: UnsafePointer<gchar>!, target: ObjectT, targetProperty: UnsafePointer<gchar>!, flags: BindingFlags, transformTo: ClosureT, transformFrom: ClosureT) -> BindingRef! {
+        let rv = BindingRef(gconstpointer: gconstpointer(g_object_bind_property_with_closures(object_ptr, sourceProperty, target.object_ptr, targetProperty, flags.value, transformTo.closure_ptr, transformFrom.closure_ptr)))
         return rv
     }
 
@@ -582,8 +582,8 @@ public extension ObjectProtocol {
     /// This function can be useful to avoid races when multiple
     /// threads are using object data on the same key on the same
     /// object.
-    @inlinable func dupData(key: UnsafePointer<gchar>!, dupFunc dup_func: GDuplicateFunc? = nil, userData user_data: gpointer! = nil) -> gpointer! {
-        let rv = g_object_dup_data(object_ptr, key, dup_func, user_data)
+    @inlinable func dupData(key: UnsafePointer<gchar>!, dupFunc: GDuplicateFunc? = nil, userData: gpointer! = nil) -> gpointer! {
+        let rv = g_object_dup_data(object_ptr, key, dupFunc, userData)
         return rv
     }
 
@@ -601,8 +601,8 @@ public extension ObjectProtocol {
     /// This function can be useful to avoid races when multiple
     /// threads are using object data on the same key on the same
     /// object.
-    @inlinable func dupQdata(quark: GQuark, dupFunc dup_func: GDuplicateFunc? = nil, userData user_data: gpointer! = nil) -> gpointer! {
-        let rv = g_object_dup_qdata(object_ptr, quark, dup_func, user_data)
+    @inlinable func dupQdata(quark: GQuark, dupFunc: GDuplicateFunc? = nil, userData: gpointer! = nil) -> gpointer! {
+        let rv = g_object_dup_qdata(object_ptr, quark, dupFunc, userData)
         return rv
     }
 
@@ -655,8 +655,8 @@ public extension ObjectProtocol {
     /// 
     /// Note that `g_object_get_property()` is really intended for language
     /// bindings, `g_object_get()` is much more convenient for C programming.
-    @inlinable func getProperty<ValueT: ValueProtocol>(propertyName property_name: UnsafePointer<gchar>!, value: ValueT) {
-        g_object_get_property(object_ptr, property_name, value.value_ptr)
+    @inlinable func getProperty<ValueT: ValueProtocol>(propertyName: UnsafePointer<gchar>!, value: ValueT) {
+        g_object_get_property(object_ptr, propertyName, value.value_ptr)
     
     }
 
@@ -674,8 +674,8 @@ public extension ObjectProtocol {
     /// the type, for instance by calling `g_free()` or `g_object_unref()`.
     /// 
     /// See `g_object_get()`.
-    @inlinable func getValist(firstPropertyName first_property_name: UnsafePointer<gchar>!, varArgs var_args: CVaListPointer) {
-        g_object_get_valist(object_ptr, first_property_name, var_args)
+    @inlinable func getValist(firstPropertyName: UnsafePointer<gchar>!, varArgs: CVaListPointer) {
+        g_object_get_valist(object_ptr, firstPropertyName, varArgs)
     
     }
 
@@ -683,8 +683,8 @@ public extension ObjectProtocol {
     /// Obtained properties will be set to `values`. All properties must be valid.
     /// Warnings will be emitted and undefined behaviour may result if invalid
     /// properties are passed in.
-    @inlinable func getv(nProperties n_properties: Int, names: UnsafeMutablePointer<UnsafePointer<gchar>?>!, values: UnsafeMutablePointer<GValue>!) {
-        g_object_getv(object_ptr, guint(n_properties), names, values)
+    @inlinable func getv(nProperties: Int, names: UnsafeMutablePointer<UnsafePointer<gchar>?>!, values: UnsafeMutablePointer<GValue>!) {
+        g_object_getv(object_ptr, guint(nProperties), names, values)
     
     }
 
@@ -698,8 +698,8 @@ public extension ObjectProtocol {
     /// `g_object_freeze_notify()`. In this case, the signal emissions are queued
     /// and will be emitted (in reverse order) when `g_object_thaw_notify()` is
     /// called.
-    @inlinable func notify(propertyName property_name: UnsafePointer<gchar>!) {
-        g_object_notify(object_ptr, property_name)
+    @inlinable func notify(propertyName: UnsafePointer<gchar>!) {
+        g_object_notify(object_ptr, propertyName)
     
     }
 
@@ -786,8 +786,8 @@ public extension ObjectProtocol {
     /// Removes a weak reference from `object` that was previously added
     /// using `g_object_add_weak_pointer()`. The `weak_pointer_location` has
     /// to match the one used with `g_object_add_weak_pointer()`.
-    @inlinable func removeWeakPointer(weakPointerLocation weak_pointer_location: UnsafeMutablePointer<gpointer?>!) {
-        g_object_remove_weak_pointer(object_ptr, weak_pointer_location)
+    @inlinable func removeWeakPointer(weakPointerLocation: UnsafeMutablePointer<gpointer?>!) {
+        g_object_remove_weak_pointer(object_ptr, weakPointerLocation)
     
     }
 
@@ -807,8 +807,8 @@ public extension ObjectProtocol {
     /// 
     /// See `g_object_set_data()` for guidance on using a small, bounded set of values
     /// for `key`.
-    @inlinable func replaceData(key: UnsafePointer<gchar>!, oldval: gpointer! = nil, newval: gpointer! = nil, destroy: GDestroyNotify? = nil, oldDestroy old_destroy: UnsafeMutablePointer<GDestroyNotify?>! = nil) -> Bool {
-        let rv = ((g_object_replace_data(object_ptr, key, oldval, newval, destroy, old_destroy)) != 0)
+    @inlinable func replaceData(key: UnsafePointer<gchar>!, oldval: gpointer! = nil, newval: gpointer! = nil, destroy: GDestroyNotify? = nil, oldDestroy: UnsafeMutablePointer<GDestroyNotify?>! = nil) -> Bool {
+        let rv = ((g_object_replace_data(object_ptr, key, oldval, newval, destroy, oldDestroy)) != 0)
         return rv
     }
 
@@ -825,8 +825,8 @@ public extension ObjectProtocol {
     /// It’s up to the caller to free this as needed, which may
     /// or may not include using `old_destroy` as sometimes replacement
     /// should not destroy the object in the normal way.
-    @inlinable func replaceQdata(quark: GQuark, oldval: gpointer! = nil, newval: gpointer! = nil, destroy: GDestroyNotify? = nil, oldDestroy old_destroy: UnsafeMutablePointer<GDestroyNotify?>! = nil) -> Bool {
-        let rv = ((g_object_replace_qdata(object_ptr, quark, oldval, newval, destroy, old_destroy)) != 0)
+    @inlinable func replaceQdata(quark: GQuark, oldval: gpointer! = nil, newval: gpointer! = nil, destroy: GDestroyNotify? = nil, oldDestroy: UnsafeMutablePointer<GDestroyNotify?>! = nil) -> Bool {
+        let rv = ((g_object_replace_qdata(object_ptr, quark, oldval, newval, destroy, oldDestroy)) != 0)
         return rv
     }
 
@@ -869,8 +869,8 @@ public extension ObjectProtocol {
     }
 
     /// Sets a property on an object.
-    @inlinable func setProperty<ValueT: ValueProtocol>(propertyName property_name: UnsafePointer<gchar>!, value: ValueT) {
-        g_object_set_property(object_ptr, property_name, value.value_ptr)
+    @inlinable func setProperty<ValueT: ValueProtocol>(propertyName: UnsafePointer<gchar>!, value: ValueT) {
+        g_object_set_property(object_ptr, propertyName, value.value_ptr)
     
     }
 
@@ -898,8 +898,8 @@ public extension ObjectProtocol {
     }
 
     /// Sets properties on an object.
-    @inlinable func setValist(firstPropertyName first_property_name: UnsafePointer<gchar>!, varArgs var_args: CVaListPointer) {
-        g_object_set_valist(object_ptr, first_property_name, var_args)
+    @inlinable func setValist(firstPropertyName: UnsafePointer<gchar>!, varArgs: CVaListPointer) {
+        g_object_set_valist(object_ptr, firstPropertyName, varArgs)
     
     }
 
@@ -907,8 +907,8 @@ public extension ObjectProtocol {
     /// Properties to be set will be taken from `values`. All properties must be
     /// valid. Warnings will be emitted and undefined behaviour may result if invalid
     /// properties are passed in.
-    @inlinable func setv(nProperties n_properties: Int, names: UnsafeMutablePointer<UnsafePointer<gchar>?>!, values: UnsafePointer<GValue>!) {
-        g_object_setv(object_ptr, guint(n_properties), names, values)
+    @inlinable func setv(nProperties: Int, names: UnsafeMutablePointer<UnsafePointer<gchar>?>!, values: UnsafePointer<GValue>!) {
+        g_object_setv(object_ptr, guint(nProperties), names, values)
     
     }
 
@@ -1026,8 +1026,8 @@ public extension ObjectProtocol {
     /// closure. This function is useful when you have a callback closely
     /// associated with a `GObject`, and want the callback to no longer run
     /// after the object is is freed.
-    @inlinable func cclosureNewObject(callbackFunc callback_func: @escaping GCallback) -> ClosureRef! {
-        let rv = ClosureRef(gconstpointer: gconstpointer(g_cclosure_new_object(callback_func, object_ptr)))
+    @inlinable func cclosureNewObject(callbackFunc: @escaping GCallback) -> ClosureRef! {
+        let rv = ClosureRef(gconstpointer: gconstpointer(g_cclosure_new_object(callbackFunc, object_ptr)))
         return rv
     }
 
@@ -1036,8 +1036,8 @@ public extension ObjectProtocol {
     /// closure. This function is useful when you have a callback closely
     /// associated with a `GObject`, and want the callback to no longer run
     /// after the object is is freed.
-    @inlinable func cclosureNewObjectSwap(callbackFunc callback_func: @escaping GCallback) -> ClosureRef! {
-        let rv = ClosureRef(gconstpointer: gconstpointer(g_cclosure_new_object_swap(callback_func, object_ptr)))
+    @inlinable func cclosureNewObjectSwap(callbackFunc: @escaping GCallback) -> ClosureRef! {
+        let rv = ClosureRef(gconstpointer: gconstpointer(g_cclosure_new_object_swap(callbackFunc, object_ptr)))
         return rv
     }
 
@@ -1049,20 +1049,20 @@ public extension ObjectProtocol {
     /// 
     /// A macro is also included that allows this function to be used without
     /// pointer casts.
-    @inlinable func clearSignalHandler(handlerIDPtr handler_id_ptr: UnsafeMutablePointer<gulong>!) {
-        g_clear_signal_handler(handler_id_ptr, object_ptr)
+    @inlinable func clearSignalHandler(handlerIDPtr: UnsafeMutablePointer<gulong>!) {
+        g_clear_signal_handler(handlerIDPtr, object_ptr)
     
     }
 
     /// Connects a closure to a signal for a particular object.
-    @inlinable func signalConnectClosure<ClosureT: ClosureProtocol>(detailedSignal detailed_signal: UnsafePointer<gchar>!, closure: ClosureT, after: Bool) -> Int {
-        let rv = Int(g_signal_connect_closure(object_ptr, detailed_signal, closure.closure_ptr, gboolean((after) ? 1 : 0)))
+    @inlinable func signalConnectClosure<ClosureT: ClosureProtocol>(detailedSignal: UnsafePointer<gchar>!, closure: ClosureT, after: Bool) -> Int {
+        let rv = Int(g_signal_connect_closure(object_ptr, detailedSignal, closure.closure_ptr, gboolean((after) ? 1 : 0)))
         return rv
     }
 
     /// Connects a closure to a signal for a particular object.
-    @inlinable func signalConnectClosureByID<ClosureT: ClosureProtocol>(signalID signal_id: Int, detail: GQuark, closure: ClosureT, after: Bool) -> Int {
-        let rv = Int(g_signal_connect_closure_by_id(object_ptr, guint(signal_id), detail, closure.closure_ptr, gboolean((after) ? 1 : 0)))
+    @inlinable func signalConnectClosureByID<ClosureT: ClosureProtocol>(signalID: Int, detail: GQuark, closure: ClosureT, after: Bool) -> Int {
+        let rv = Int(g_signal_connect_closure_by_id(object_ptr, guint(signalID), detail, closure.closure_ptr, gboolean((after) ? 1 : 0)))
         return rv
     }
 
@@ -1071,8 +1071,8 @@ public extension ObjectProtocol {
     /// which will be called when the signal handler is disconnected and no longer
     /// used. Specify `connect_flags` if you need ``..._after()`` or
     /// ``..._swapped()`` variants of this function.
-    @inlinable func signalConnectData(detailedSignal detailed_signal: UnsafePointer<gchar>!, cHandler c_handler: @escaping GCallback, data: gpointer! = nil, destroyData destroy_data: GClosureNotify?, connectFlags connect_flags: ConnectFlags) -> Int {
-        let rv = Int(g_signal_connect_data(object_ptr, detailed_signal, c_handler, data, destroy_data, connect_flags.value))
+    @inlinable func signalConnectData(detailedSignal: UnsafePointer<gchar>!, cHandler: @escaping GCallback, data: gpointer! = nil, destroyData: GClosureNotify?, connectFlags: ConnectFlags) -> Int {
+        let rv = Int(g_signal_connect_data(object_ptr, detailedSignal, cHandler, data, destroyData, connectFlags.value))
         return rv
     }
 
@@ -1084,8 +1084,8 @@ public extension ObjectProtocol {
     /// disconnected.  Note that this is not currently threadsafe (ie:
     /// emitting a signal while `gobject` is being destroyed in another thread
     /// is not safe).
-    @inlinable func signalConnectObject<TypeInstanceT: TypeInstanceProtocol>(instance: TypeInstanceT, detailedSignal detailed_signal: UnsafePointer<gchar>!, cHandler c_handler: @escaping GCallback, connectFlags connect_flags: ConnectFlags) -> Int {
-        let rv = Int(g_signal_connect_object(instance._ptr, detailed_signal, c_handler, object_ptr, connect_flags.value))
+    @inlinable func signalConnectObject<TypeInstanceT: TypeInstanceProtocol>(instance: TypeInstanceT, detailedSignal: UnsafePointer<gchar>!, cHandler: @escaping GCallback, connectFlags: ConnectFlags) -> Int {
+        let rv = Int(g_signal_connect_object(instance._ptr, detailedSignal, cHandler, object_ptr, connectFlags.value))
         return rv
     }
 
@@ -1111,8 +1111,8 @@ public extension ObjectProtocol {
     /// 
     /// The `handler_id` has to be a valid signal handler id, connected to a
     /// signal of `instance`.
-    @inlinable func signalHandlerBlock(handlerID handler_id: Int) {
-        g_signal_handler_block(object_ptr, gulong(handler_id))
+    @inlinable func signalHandlerBlock(handlerID: Int) {
+        g_signal_handler_block(object_ptr, gulong(handlerID))
     
     }
 
@@ -1122,8 +1122,8 @@ public extension ObjectProtocol {
     /// 
     /// The `handler_id` has to be a valid signal handler id, connected to a
     /// signal of `instance`.
-    @inlinable func signalHandlerDisconnect(handlerID handler_id: Int) {
-        g_signal_handler_disconnect(object_ptr, gulong(handler_id))
+    @inlinable func signalHandlerDisconnect(handlerID: Int) {
+        g_signal_handler_disconnect(object_ptr, gulong(handlerID))
     
     }
 
@@ -1132,14 +1132,23 @@ public extension ObjectProtocol {
     /// flags, and the criteria values are passed as arguments.
     /// The match `mask` has to be non-0 for successful matches.
     /// If no handler was found, 0 is returned.
-    @inlinable func signalHandlerFind<ClosureT: ClosureProtocol>(mask: SignalMatchType, signalID signal_id: Int, detail: GQuark, closure: ClosureT? = nil, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
-        let rv = Int(g_signal_handler_find(object_ptr, mask.value, guint(signal_id), detail, closure?.closure_ptr, `func`, data))
+    @inlinable func signalHandlerFind(mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureRef? = nil, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
+        let rv = Int(g_signal_handler_find(object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
+        return rv
+    }
+    /// Finds the first signal handler that matches certain selection criteria.
+    /// The criteria mask is passed as an OR-ed combination of `GSignalMatchType`
+    /// flags, and the criteria values are passed as arguments.
+    /// The match `mask` has to be non-0 for successful matches.
+    /// If no handler was found, 0 is returned.
+    @inlinable func signalHandlerFind<ClosureT: ClosureProtocol>(mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureT?, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
+        let rv = Int(g_signal_handler_find(object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
         return rv
     }
 
     /// Returns whether `handler_id` is the ID of a handler connected to `instance`.
-    @inlinable func signalHandlerIsConnected(handlerID handler_id: Int) -> Bool {
-        let rv = ((g_signal_handler_is_connected(object_ptr, gulong(handler_id))) != 0)
+    @inlinable func signalHandlerIsConnected(handlerID: Int) -> Bool {
+        let rv = ((g_signal_handler_is_connected(object_ptr, gulong(handlerID))) != 0)
         return rv
     }
 
@@ -1156,8 +1165,8 @@ public extension ObjectProtocol {
     /// 
     /// The `handler_id` has to be a valid id of a signal handler that is
     /// connected to a signal of `instance` and is currently blocked.
-    @inlinable func signalHandlerUnblock(handlerID handler_id: Int) {
-        g_signal_handler_unblock(object_ptr, gulong(handler_id))
+    @inlinable func signalHandlerUnblock(handlerID: Int) {
+        g_signal_handler_unblock(object_ptr, gulong(handlerID))
     
     }
 
@@ -1168,8 +1177,19 @@ public extension ObjectProtocol {
     /// or `G_SIGNAL_MATCH_DATA` match flags is required for successful matches.
     /// If no handlers were found, 0 is returned, the number of blocked handlers
     /// otherwise.
-    @inlinable func signalHandlersBlockMatched<ClosureT: ClosureProtocol>(mask: SignalMatchType, signalID signal_id: Int, detail: GQuark, closure: ClosureT? = nil, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
-        let rv = Int(g_signal_handlers_block_matched(object_ptr, mask.value, guint(signal_id), detail, closure?.closure_ptr, `func`, data))
+    @inlinable func signalHandlersBlockMatched(mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureRef? = nil, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
+        let rv = Int(g_signal_handlers_block_matched(object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
+        return rv
+    }
+    /// Blocks all handlers on an instance that match a certain selection criteria.
+    /// The criteria mask is passed as an OR-ed combination of `GSignalMatchType`
+    /// flags, and the criteria values are passed as arguments.
+    /// Passing at least one of the `G_SIGNAL_MATCH_CLOSURE`, `G_SIGNAL_MATCH_FUNC`
+    /// or `G_SIGNAL_MATCH_DATA` match flags is required for successful matches.
+    /// If no handlers were found, 0 is returned, the number of blocked handlers
+    /// otherwise.
+    @inlinable func signalHandlersBlockMatched<ClosureT: ClosureProtocol>(mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureT?, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
+        let rv = Int(g_signal_handlers_block_matched(object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
         return rv
     }
 
@@ -1189,8 +1209,20 @@ public extension ObjectProtocol {
     /// `G_SIGNAL_MATCH_DATA` match flags is required for successful
     /// matches.  If no handlers were found, 0 is returned, the number of
     /// disconnected handlers otherwise.
-    @inlinable func signalHandlersDisconnectMatched<ClosureT: ClosureProtocol>(mask: SignalMatchType, signalID signal_id: Int, detail: GQuark, closure: ClosureT? = nil, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
-        let rv = Int(g_signal_handlers_disconnect_matched(object_ptr, mask.value, guint(signal_id), detail, closure?.closure_ptr, `func`, data))
+    @inlinable func signalHandlersDisconnectMatched(mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureRef? = nil, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
+        let rv = Int(g_signal_handlers_disconnect_matched(object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
+        return rv
+    }
+    /// Disconnects all handlers on an instance that match a certain
+    /// selection criteria. The criteria mask is passed as an OR-ed
+    /// combination of `GSignalMatchType` flags, and the criteria values are
+    /// passed as arguments.  Passing at least one of the
+    /// `G_SIGNAL_MATCH_CLOSURE`, `G_SIGNAL_MATCH_FUNC` or
+    /// `G_SIGNAL_MATCH_DATA` match flags is required for successful
+    /// matches.  If no handlers were found, 0 is returned, the number of
+    /// disconnected handlers otherwise.
+    @inlinable func signalHandlersDisconnectMatched<ClosureT: ClosureProtocol>(mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureT?, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
+        let rv = Int(g_signal_handlers_disconnect_matched(object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
         return rv
     }
 
@@ -1202,8 +1234,20 @@ public extension ObjectProtocol {
     /// If no handlers were found, 0 is returned, the number of unblocked handlers
     /// otherwise. The match criteria should not apply to any handlers that are
     /// not currently blocked.
-    @inlinable func signalHandlersUnblockMatched<ClosureT: ClosureProtocol>(mask: SignalMatchType, signalID signal_id: Int, detail: GQuark, closure: ClosureT? = nil, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
-        let rv = Int(g_signal_handlers_unblock_matched(object_ptr, mask.value, guint(signal_id), detail, closure?.closure_ptr, `func`, data))
+    @inlinable func signalHandlersUnblockMatched(mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureRef? = nil, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
+        let rv = Int(g_signal_handlers_unblock_matched(object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
+        return rv
+    }
+    /// Unblocks all handlers on an instance that match a certain selection
+    /// criteria. The criteria mask is passed as an OR-ed combination of
+    /// `GSignalMatchType` flags, and the criteria values are passed as arguments.
+    /// Passing at least one of the `G_SIGNAL_MATCH_CLOSURE`, `G_SIGNAL_MATCH_FUNC`
+    /// or `G_SIGNAL_MATCH_DATA` match flags is required for successful matches.
+    /// If no handlers were found, 0 is returned, the number of unblocked handlers
+    /// otherwise. The match criteria should not apply to any handlers that are
+    /// not currently blocked.
+    @inlinable func signalHandlersUnblockMatched<ClosureT: ClosureProtocol>(mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureT?, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
+        let rv = Int(g_signal_handlers_unblock_matched(object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
         return rv
     }
 
@@ -1223,8 +1267,8 @@ public extension ObjectProtocol {
     /// signal are difficult to compute. A class implementor may opt to not
     /// emit the signal if no one is attached anyway, thus saving the cost
     /// of building the arguments.
-    @inlinable func signalHasHandlerPending(signalID signal_id: Int, detail: GQuark, mayBeBlocked may_be_blocked: Bool) -> Bool {
-        let rv = ((g_signal_has_handler_pending(object_ptr, guint(signal_id), detail, gboolean((may_be_blocked) ? 1 : 0))) != 0)
+    @inlinable func signalHasHandlerPending(signalID: Int, detail: GQuark, mayBeBlocked: Bool) -> Bool {
+        let rv = ((g_signal_has_handler_pending(object_ptr, guint(signalID), detail, gboolean((mayBeBlocked) ? 1 : 0))) != 0)
         return rv
     }
 
@@ -1235,8 +1279,8 @@ public extension ObjectProtocol {
     /// flag).
     /// 
     /// Prints a warning if used on a signal which isn't being emitted.
-    @inlinable func signalStopEmission(signalID signal_id: Int, detail: GQuark) {
-        g_signal_stop_emission(object_ptr, guint(signal_id), detail)
+    @inlinable func signalStopEmission(signalID: Int, detail: GQuark) {
+        g_signal_stop_emission(object_ptr, guint(signalID), detail)
     
     }
 
@@ -1244,8 +1288,8 @@ public extension ObjectProtocol {
     /// 
     /// This is just like `g_signal_stop_emission()` except it will look up the
     /// signal id for you.
-    @inlinable func signalStopEmissionByName(detailedSignal detailed_signal: UnsafePointer<gchar>!) {
-        g_signal_stop_emission_by_name(object_ptr, detailed_signal)
+    @inlinable func signalStopEmissionByName(detailedSignal: UnsafePointer<gchar>!) {
+        g_signal_stop_emission_by_name(object_ptr, detailedSignal)
     
     }
     /// Checks whether `object` has a [floating](#floating-ref) reference.

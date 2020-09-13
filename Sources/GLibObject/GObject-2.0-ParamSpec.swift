@@ -108,7 +108,7 @@ public extension ParamSpecRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -135,8 +135,8 @@ public extension ParamSpecRef {
     /// for use as a label for the property in a property editor, and the
     /// `blurb`, which should be a somewhat longer description, suitable for
     /// e.g. a tooltip. The `nick` and `blurb` should ideally be localized.
-    @inlinable static func internal_(paramType param_type: GType, name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, flags: ParamFlags) -> ParamSpecRef! {
-        guard let rv = ParamSpecRef(gpointer: g_param_spec_internal(param_type, name, nick, blurb, flags.value)) else { return nil }
+    @inlinable static func internal_(paramType: GType, name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, flags: ParamFlags) -> ParamSpecRef! {
+        guard let rv = ParamSpecRef(gpointer: g_param_spec_internal(paramType, name, nick, blurb, flags.value)) else { return nil }
         return rv
     }
 }
@@ -310,8 +310,8 @@ open class ParamSpec: ParamSpecProtocol {
     /// for use as a label for the property in a property editor, and the
     /// `blurb`, which should be a somewhat longer description, suitable for
     /// e.g. a tooltip. The `nick` and `blurb` should ideally be localized.
-    @inlinable public static func internal_(paramType param_type: GType, name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, flags: ParamFlags) -> ParamSpec! {
-        guard let rv = ParamSpec(gpointer: g_param_spec_internal(param_type, name, nick, blurb, flags.value)) else { return nil }
+    @inlinable public static func internal_(paramType: GType, name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, flags: ParamFlags) -> ParamSpec! {
+        guard let rv = ParamSpec(gpointer: g_param_spec_internal(paramType, name, nick, blurb, flags.value)) else { return nil }
         return rv
     }
 
@@ -466,8 +466,8 @@ public extension ParamSpecProtocol {
     /// 
     /// See also `g_value_type_transformable()`, `g_value_transform()` and
     /// `g_param_value_validate()`.
-    @inlinable func paramValueConvert<ValueT: ValueProtocol>(srcValue src_value: ValueT, destValue dest_value: ValueT, strictValidation strict_validation: Bool) -> Bool {
-        let rv = ((g_param_value_convert(param_spec_ptr, src_value.value_ptr, dest_value.value_ptr, gboolean((strict_validation) ? 1 : 0))) != 0)
+    @inlinable func paramValueConvert<ValueT: ValueProtocol>(srcValue: ValueT, destValue: ValueT, strictValidation: Bool) -> Bool {
+        let rv = ((g_param_value_convert(param_spec_ptr, srcValue.value_ptr, destValue.value_ptr, gboolean((strictValidation) ? 1 : 0))) != 0)
         return rv
     }
 

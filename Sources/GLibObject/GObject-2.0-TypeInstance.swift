@@ -84,7 +84,7 @@ public extension TypeInstanceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeInstanceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -261,8 +261,8 @@ public extension TypeInstanceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTypeInstance` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GTypeInstance>! { return ptr?.assumingMemoryBound(to: GTypeInstance.self) }
 
-    @inlinable func getPrivate(privateType private_type: GType) -> gpointer! {
-        let rv = g_type_instance_get_private(_ptr, private_type)
+    @inlinable func getPrivate(privateType: GType) -> gpointer! {
+        let rv = g_type_instance_get_private(_ptr, privateType)
         return rv
     }
 
@@ -278,8 +278,20 @@ public extension TypeInstanceProtocol {
     /// disconnected.  Note that this is not currently threadsafe (ie:
     /// emitting a signal while `gobject` is being destroyed in another thread
     /// is not safe).
-    @inlinable func signalConnectObject<ObjectT: ObjectProtocol>(detailedSignal detailed_signal: UnsafePointer<gchar>!, cHandler c_handler: @escaping GCallback, gobject: ObjectT? = nil, connectFlags connect_flags: ConnectFlags) -> Int {
-        let rv = Int(g_signal_connect_object(_ptr, detailed_signal, c_handler, gobject?.object_ptr, connect_flags.value))
+    @inlinable func signalConnectObject(detailedSignal: UnsafePointer<gchar>!, cHandler: @escaping GCallback, gobject: ObjectRef? = nil, connectFlags: ConnectFlags) -> Int {
+        let rv = Int(g_signal_connect_object(_ptr, detailedSignal, cHandler, gobject?.object_ptr, connectFlags.value))
+        return rv
+    }
+    /// This is similar to `g_signal_connect_data()`, but uses a closure which
+    /// ensures that the `gobject` stays alive during the call to `c_handler`
+    /// by temporarily adding a reference count to `gobject`.
+    /// 
+    /// When the `gobject` is destroyed the signal handler will be automatically
+    /// disconnected.  Note that this is not currently threadsafe (ie:
+    /// emitting a signal while `gobject` is being destroyed in another thread
+    /// is not safe).
+    @inlinable func signalConnectObject<ObjectT: ObjectProtocol>(detailedSignal: UnsafePointer<gchar>!, cHandler: @escaping GCallback, gobject: ObjectT?, connectFlags: ConnectFlags) -> Int {
+        let rv = Int(g_signal_connect_object(_ptr, detailedSignal, cHandler, gobject?.object_ptr, connectFlags.value))
         return rv
     }
 
@@ -287,8 +299,8 @@ public extension TypeInstanceProtocol {
     /// 
     /// Note that `g_signal_emit_valist()` resets the return value to the default
     /// if no handlers are connected, in contrast to `g_signal_emitv()`.
-    @inlinable func signalEmitValist(signalID signal_id: Int, detail: GQuark, varArgs var_args: CVaListPointer) {
-        g_signal_emit_valist(_ptr, guint(signal_id), detail, var_args)
+    @inlinable func signalEmitValist(signalID: Int, detail: GQuark, varArgs: CVaListPointer) {
+        g_signal_emit_valist(_ptr, guint(signalID), detail, varArgs)
     
     }
 
@@ -299,18 +311,18 @@ public extension TypeInstanceProtocol {
         return rv
     }
 
-    @inlinable func typeCheckInstanceCast(ifaceType iface_type: GType) -> TypeInstanceRef! {
-        guard let rv = TypeInstanceRef(gconstpointer: gconstpointer(g_type_check_instance_cast(_ptr, iface_type))) else { return nil }
+    @inlinable func typeCheckInstanceCast(ifaceType: GType) -> TypeInstanceRef! {
+        guard let rv = TypeInstanceRef(gconstpointer: gconstpointer(g_type_check_instance_cast(_ptr, ifaceType))) else { return nil }
         return rv
     }
 
-    @inlinable func typeCheckInstanceIsA(ifaceType iface_type: GType) -> Bool {
-        let rv = ((g_type_check_instance_is_a(_ptr, iface_type)) != 0)
+    @inlinable func typeCheckInstanceIsA(ifaceType: GType) -> Bool {
+        let rv = ((g_type_check_instance_is_a(_ptr, ifaceType)) != 0)
         return rv
     }
 
-    @inlinable func typeCheckInstanceIsFundamentallyA(fundamentalType fundamental_type: GType) -> Bool {
-        let rv = ((g_type_check_instance_is_fundamentally_a(_ptr, fundamental_type)) != 0)
+    @inlinable func typeCheckInstanceIsFundamentallyA(fundamentalType: GType) -> Bool {
+        let rv = ((g_type_check_instance_is_fundamentally_a(_ptr, fundamentalType)) != 0)
         return rv
     }
 

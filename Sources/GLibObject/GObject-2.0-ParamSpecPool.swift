@@ -90,7 +90,7 @@ public extension ParamSpecPoolRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecPoolProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -271,28 +271,28 @@ public extension ParamSpecPoolProtocol {
     @inlinable var _ptr: UnsafeMutablePointer<GParamSpecPool>! { return ptr?.assumingMemoryBound(to: GParamSpecPool.self) }
 
     /// Inserts a `GParamSpec` in the pool.
-    @inlinable func insert<ParamSpecT: ParamSpecProtocol>(pspec: ParamSpecT, ownerType owner_type: GType) {
-        g_param_spec_pool_insert(_ptr, pspec.param_spec_ptr, owner_type)
+    @inlinable func insert<ParamSpecT: ParamSpecProtocol>(pspec: ParamSpecT, ownerType: GType) {
+        g_param_spec_pool_insert(_ptr, pspec.param_spec_ptr, ownerType)
     
     }
 
     /// Gets an array of all `GParamSpecs` owned by `owner_type` in
     /// the pool.
-    @inlinable func list(ownerType owner_type: GType, nPspecsP n_pspecs_p: UnsafeMutablePointer<guint>!) -> UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>?>! {
-        let rv = g_param_spec_pool_list(_ptr, owner_type, n_pspecs_p)
+    @inlinable func list(ownerType: GType, nPspecsP: UnsafeMutablePointer<guint>!) -> UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>?>! {
+        let rv = g_param_spec_pool_list(_ptr, ownerType, nPspecsP)
         return rv
     }
 
     /// Gets an `GList` of all `GParamSpecs` owned by `owner_type` in
     /// the pool.
-    @inlinable func listOwned(ownerType owner_type: GType) -> ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(g_param_spec_pool_list_owned(_ptr, owner_type)))
+    @inlinable func listOwned(ownerType: GType) -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_param_spec_pool_list_owned(_ptr, ownerType))
         return rv
     }
 
     /// Looks up a `GParamSpec` in the pool.
-    @inlinable func lookup(paramName param_name: UnsafePointer<gchar>!, ownerType owner_type: GType, walkAncestors walk_ancestors: Bool) -> ParamSpecRef! {
-        let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_pool_lookup(_ptr, param_name, owner_type, gboolean((walk_ancestors) ? 1 : 0))))
+    @inlinable func lookup(paramName: UnsafePointer<gchar>!, ownerType: GType, walkAncestors: Bool) -> ParamSpecRef! {
+        let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_pool_lookup(_ptr, paramName, ownerType, gboolean((walkAncestors) ? 1 : 0))))
         return rv
     }
 

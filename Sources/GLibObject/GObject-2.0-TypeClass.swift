@@ -84,7 +84,7 @@ public extension TypeClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -377,8 +377,8 @@ public extension TypeClassProtocol {
     /// **add_private is deprecated:**
     /// Use the G_ADD_PRIVATE() macro with the `G_DEFINE_*`
     ///   family of macros to add instance private data to a type
-    @available(*, deprecated) @inlinable func addPrivate(privateSize private_size: Int) {
-        g_type_class_add_private(_ptr, gsize(private_size))
+    @available(*, deprecated) @inlinable func addPrivate(privateSize: Int) {
+        g_type_class_add_private(_ptr, gsize(privateSize))
     
     }
 
@@ -395,8 +395,8 @@ public extension TypeClassProtocol {
         return rv
     }
 
-    @inlinable func getPrivate(privateType private_type: GType) -> gpointer! {
-        let rv = g_type_class_get_private(_ptr, private_type)
+    @inlinable func getPrivate(privateType: GType) -> gpointer! {
+        let rv = g_type_class_get_private(_ptr, privateType)
         return rv
     }
 
@@ -431,20 +431,20 @@ public extension TypeClassProtocol {
     
     }
 
-    @inlinable func typeCheckClassCast(isAType is_a_type: GType) -> TypeClassRef! {
-        guard let rv = TypeClassRef(gconstpointer: gconstpointer(g_type_check_class_cast(_ptr, is_a_type))) else { return nil }
+    @inlinable func typeCheckClassCast(isAType: GType) -> TypeClassRef! {
+        guard let rv = TypeClassRef(gconstpointer: gconstpointer(g_type_check_class_cast(_ptr, isAType))) else { return nil }
         return rv
     }
 
-    @inlinable func typeCheckClassIsA(isAType is_a_type: GType) -> Bool {
-        let rv = ((g_type_check_class_is_a(_ptr, is_a_type)) != 0)
+    @inlinable func typeCheckClassIsA(isAType: GType) -> Bool {
+        let rv = ((g_type_check_class_is_a(_ptr, isAType)) != 0)
         return rv
     }
 
     /// Returns the `GTypeInterface` structure of an interface to which the
     /// passed in class conforms.
-    @inlinable func typeInterfacePeek(ifaceType iface_type: GType) -> TypeInterfaceRef! {
-        let rv = TypeInterfaceRef(gpointer: g_type_interface_peek(_ptr, iface_type))
+    @inlinable func typeInterfacePeek(ifaceType: GType) -> TypeInterfaceRef! {
+        let rv = TypeInterfaceRef(gpointer: g_type_interface_peek(_ptr, ifaceType))
         return rv
     }
 
