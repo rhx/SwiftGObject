@@ -14,6 +14,8 @@ was compiled against libraries built with earlier versions of `gir2swift`.
 
 ### Notable changes
 
+ * Parameters use idiomatic Swift names (e.g. camel case instead of snake case, splitting out of "for", "from", etc.)
+ * Uses the namespace referenced in the `gir` file
  * Requires Swift 5.2 or later
  * Wrapper code is now `@inlinable` to enable the compiler to optimise away most of the wrappers
  * Parameters and return types use more idiomatic Swift (e.g. `Ref` wrappers instead of pointers, `Int` instead of `gint`, etc.)
