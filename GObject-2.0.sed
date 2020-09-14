@@ -30,3 +30,4 @@ s|= value_ptr.pointee.data$|= value_ptr.withMemoryRebound(to: GType.self, capaci
 s|value_ptr.pointee.data = newValue|value_ptr.withMemoryRebound(to: GType.self, capacity: 2) { UnsafeMutableRawPointer($0+1).assumingMemoryBound(to: (_Value__data__union, _Value__data__union).self).pointee = newValue }|
 s|\(@discardableResult @inlinable\) @discardableResult|\1|
 s|names: UnsafeMutablePointer<..har>|names: UnsafeMutablePointer<UnsafePointer<CChar>?>|
+s|\(G_VALUE_INTERNED_STRING\) // \([1-9][0-9]*\)|CInt(\2) // \1|
