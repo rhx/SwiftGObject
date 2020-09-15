@@ -31,5 +31,5 @@ s|value_ptr.pointee.data = newValue|value_ptr.withMemoryRebound(to: GType.self, 
 s|\(@discardableResult @inlinable\) @discardableResult|\1|
 s|names: UnsafeMutablePointer<..har>|names: UnsafeMutablePointer<UnsafePointer<CChar>?>|
 s|\(G_VALUE_INTERNED_STRING\) // \([1-9][0-9]*\)|CInt(\2) // \1|
-s|paramTypes: UnsafeMutablePointer<GType>|paramTypes: UnsafePointer<GType>|
+s|var paramTypes: UnsafeMutablePointer<GType>|var paramTypes: UnsafePointer<GType>|
 s|names: UnsafeMutablePointer<..har>|names: UnsafeMutablePointer<UnsafePointer<CChar>?>|
