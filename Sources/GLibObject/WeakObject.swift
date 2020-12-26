@@ -5,7 +5,6 @@ public protocol GWeakCapturing {
     init(raw: UnsafeMutableRawPointer)
 }
 
-
 @propertyWrapper
 public final class GWeak<T: ObjectProtocol & GWeakCapturing> {
 
@@ -16,11 +15,6 @@ public final class GWeak<T: ObjectProtocol & GWeakCapturing> {
         set { assign(newValue: newValue) }
     }
 
-    public var raw: gpointer? {
-        get { storage.pointee.pointee }
-        set { assign(newValue: newValue.flatMap(T.init(raw:))) }
-    }
-
     public init(wrappedValue: T?) {
         self.storage = UnsafeMutablePointer.allocate(capacity: 1)
         self.storage.pointee = UnsafeMutablePointer.allocate(capacity: 1)
@@ -28,12 +22,8 @@ public final class GWeak<T: ObjectProtocol & GWeakCapturing> {
         assign(newValue: wrappedValue) 
     }
 
-    public convenience init(raw pointer: UnsafeMutableRawPointer?) {
-        self.init(wrappedValue: pointer.flatMap(T.init(raw:)))
-    }
-
-    public convenience init(_ object: ObjectProtocol) {
-        self.init(raw: object.ptr)
+    public convenience init(_ other: T?) {
+        self.init(wrappedValue: other)
     }
 
     private func assign(newValue: T?) {
