@@ -77,7 +77,7 @@ final class WeakReferenceContainer {
 } 
 
 extension ObjectProtocol {
-    public func assWeakObserver( _ handler: @escaping (_ objectBeingDestroyed: gpointer) -> Void ) -> AnyObject {
+    public func asWeakObserver( _ handler: @escaping (_ objectBeingDestroyed: gpointer) -> Void ) -> AnyObject {
         typealias SwiftHandler = GLib.ClosureHolder<gpointer, Void>
         let container = WeakReferenceContainer()
         let notificationBox: (gpointer) -> Void = { [weak container] arg in handler(arg); container?.dispose()}
