@@ -50,3 +50,46 @@ public final class GWeak<T: ObjectProtocol & GWeakCapturing> {
         storage.deallocate()
     }
 } 
+
+
+final class WeakReferenceContainer {
+    typealias Container = (closureBox: AnyObject, handler: GWeakNotify, unownedInstance: UnsafeMutableRawPointer)
+    private var container: Container? = nil
+
+    init() { }
+
+    func inject(closureBox: AnyObject, handler: @escaping GWeakNotify, unownedInstance: UnsafeMutableRawPointer) {
+        self.container = (closureBox: closureBox, handler: handler, unownedInstance: unownedInstance)
+    }
+
+    func dispose() {
+        container = nil
+    }
+
+    deinit {
+        if let container = container {
+            let data = Unmanaged.passUnretained(container.closureBox)
+            ObjectRef(raw: container.unownedInstance).weakUnref(notify: container.handler, data: data.toOpaque())
+            data.release()
+        }
+    }
+
+} 
+
+extension ObjectProtocol {
+    public func assWeakObserver( _ handler: @escaping (_ objectBeingDestroyed: gpointer) -> Void ) -> AnyObject {
+        typealias SwiftHandler = GLib.ClosureHolder<gpointer, Void>
+        let container = WeakReferenceContainer()
+        let notificationBox: (gpointer) -> Void = { [weak container] arg in handler(arg); container?.dispose()}
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = {  userData, unownedSelf in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeRetainedValue()
+            holder.call(unownedSelf)
+        }
+        let closureBox = SwiftHandler(notificationBox)
+        let data = Unmanaged.passRetained(closureBox)
+        let notificationHanler = unsafeBitCast(cCallback, to: GWeakNotify.self)
+        self.weakRef(notify: notificationHanler, data: data.toOpaque())
+        container.inject(closureBox: closureBox, handler: notificationHanler, unownedInstance: self.ptr)
+        return container
+    }
+}
