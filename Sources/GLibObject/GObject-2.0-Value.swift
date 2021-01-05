@@ -576,6 +576,14 @@ public extension ValueProtocol {
     
     }
 
+    /// Set the contents of a `G_TYPE_STRING` `GValue` to `v_string`.  The string is
+    /// assumed to be static and interned (canonical, for example from
+    /// `g_intern_string()`), and is thus not duplicated when setting the `GValue`.
+    @inlinable func setInternedString(vString: UnsafePointer<gchar>? = nil) {
+        g_value_set_interned_string(value_ptr, vString)
+    
+    }
+
     /// Set the contents of a `G_TYPE_LONG` `GValue` to `v_long`.
     @inlinable func setLong(vLong: Int) {
         g_value_set_long(value_ptr, glong(vLong))
@@ -673,6 +681,9 @@ public extension ValueProtocol {
     /// Set the contents of a `G_TYPE_STRING` `GValue` to `v_string`.
     /// The string is assumed to be static, and is thus not duplicated
     /// when setting the `GValue`.
+    /// 
+    /// If the the string is a canonical string, using `g_value_set_interned_string()`
+    /// is more appropriate.
     @inlinable func setStaticString(vString: UnsafePointer<gchar>? = nil) {
         g_value_set_static_string(value_ptr, vString)
     

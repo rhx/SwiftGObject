@@ -48,7 +48,12 @@ public let TYPE_RESERVED_GLIB_LAST = G_TYPE_RESERVED_GLIB_LAST // 31
 /// type id with `G_TYPE_MAKE_FUNDAMENTAL()`.
 public let TYPE_RESERVED_USER_FIRST = G_TYPE_RESERVED_USER_FIRST // 49
 
+/// For string values, indicates that the string contained is canonical and will
+/// exist for the duration of the process. See `g_value_set_interned_string()`.
+public let VALUE_INTERNED_STRING = CInt(268435456) // G_VALUE_INTERNED_STRING
+
 /// If passed to `G_VALUE_COLLECT()`, allocated data won't be copied
 /// but used verbatim. This does not affect ref-counted types like
-/// objects.
+/// objects. This does not affect usage of `g_value_copy()`, the data will
+/// be copied if it is not ref-counted.
 public let VALUE_NOCOPY_CONTENTS = G_VALUE_NOCOPY_CONTENTS // 134217728

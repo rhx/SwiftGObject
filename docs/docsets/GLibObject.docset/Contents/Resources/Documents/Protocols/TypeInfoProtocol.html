@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLibObject 2.64.4 Docs
+          GLibObject 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGObject%2Fdocsets%2FGLibObject%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGObject%2Fdocsets%2FGLibObject.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -291,6 +291,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10GLibObject24TYPE_RESERVED_USER_FIRSTs5Int32Vvp">TYPE_RESERVED_USER_FIRST</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10GLibObject21VALUE_INTERNED_STRINGs5Int32Vvp">VALUE_INTERNED_STRING</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10GLibObject21VALUE_NOCOPY_CONTENTSs5Int32Vvp">VALUE_NOCOPY_CONTENTS</a>
@@ -636,6 +639,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject23signalHasHandlerPending8instance0C2ID6detail12mayBeBlockedSbx_Sis6UInt32VSbtAA0B8ProtocolRzlF">signalHasHandlerPending(instance:signalID:detail:mayBeBlocked:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13signalIsValid4nameSbSPys4Int8VGSg_tF">signalIsValid(name:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13signalListIDs5itype01nE0Spys6UInt32VGSgSu_AHtF">signalListIDs(itype:nIDs:)</a>
@@ -1392,6 +1398,7 @@
             <h1>TypeInfoProtocol</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeInfoProtocol</span></code></pre>
 
                 </div>
@@ -1411,6 +1418,9 @@ its instances.</p>
 copy of this structure, so its memory does not need to be persistent
 across invocation of <code>g_type_register_static()</code>.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeInfo.swift#L21-L28">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -1490,10 +1500,10 @@ across invocation of <code>g_type_register_static()</code>.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/TypeInfo%20Record:%20TypeInfoProtocol%20extension%20(methods%20and%20fields)"></a>
+                <a name="/TypeInfo%20Record%3A%20TypeInfoProtocol%20extension%20%28methods%20and%20fields%29"></a>
                 <a name="//apple_ref/swift/Section/TypeInfo Record: TypeInfoProtocol extension (methods and fields)" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/TypeInfo%20Record:%20TypeInfoProtocol%20extension%20(methods%20and%20fields)"></a>
+                  <a class="section-name-link" href="#/TypeInfo%20Record%3A%20TypeInfoProtocol%20extension%20%28methods%20and%20fields%29"></a>
                   <h3 class="section-name"><p>TypeInfo Record: TypeInfoProtocol extension (methods and fields)</p>
 </h3>
                 </div>
@@ -1504,7 +1514,7 @@ across invocation of <code>g_type_register_static()</code>.</p>
                     <code>
                     <a name="/s:10GLibObject16TypeInfoProtocolPAAE012enumCompletecD005gEnumC011constValuesySu_qd__tAA0h5ValueE0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/enumCompleteTypeInfo(gEnumType:constValues:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject16TypeInfoProtocolPAAE012enumCompletecD005gEnumC011constValuesySu_qd__tAA0h5ValueE0Rd__lF">enumCompleteTypeInfo(gEnumType:constValues:)</a>
+                    <a class="token" href="#/s:10GLibObject16TypeInfoProtocolPAAE012enumCompletecD005gEnumC011constValuesySu_qd__tAA0h5ValueE0Rd__lF">enumCompleteTypeInfo(gEnumType:<wbr>constValues:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1557,7 +1567,7 @@ my_enum_complete_type_info (GTypePlugin     *plugin,
                     <code>
                     <a name="/s:10GLibObject16TypeInfoProtocolPAAE013flagsCompletecD006gFlagsC011constValuesySu_qd__tAA0h5ValueE0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/flagsCompleteTypeInfo(gFlagsType:constValues:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject16TypeInfoProtocolPAAE013flagsCompletecD006gFlagsC011constValuesySu_qd__tAA0h5ValueE0Rd__lF">flagsCompleteTypeInfo(gFlagsType:constValues:)</a>
+                    <a class="token" href="#/s:10GLibObject16TypeInfoProtocolPAAE013flagsCompletecD006gFlagsC011constValuesySu_qd__tAA0h5ValueE0Rd__lF">flagsCompleteTypeInfo(gFlagsType:<wbr>constValues:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1593,7 +1603,7 @@ function of a <code>GTypePlugin</code> implementation, see the example for
                     <code>
                     <a name="/s:10GLibObject16TypeInfoProtocolPAAE23typeRegisterFundamental0F2ID0F4Name5finfo5flagsS2u_SPys4Int8VGSgqd__AA0C5FlagsVtAA0chdE0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/typeRegisterFundamental(typeID:typeName:finfo:flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject16TypeInfoProtocolPAAE23typeRegisterFundamental0F2ID0F4Name5finfo5flagsS2u_SPys4Int8VGSgqd__AA0C5FlagsVtAA0chdE0Rd__lF">typeRegisterFundamental(typeID:typeName:finfo:flags:)</a>
+                    <a class="token" href="#/s:10GLibObject16TypeInfoProtocolPAAE23typeRegisterFundamental0F2ID0F4Name5finfo5flagsS2u_SPys4Int8VGSgqd__AA0C5FlagsVtAA0chdE0Rd__lF">typeRegisterFundamental(typeID:<wbr>typeName:<wbr>finfo:<wbr>flags:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1633,7 +1643,7 @@ additional characteristics of the fundamental type.</p>
                     <code>
                     <a name="/s:10GLibObject16TypeInfoProtocolPAAE18typeRegisterStatic06parentC00F4Name5flagsS2u_SPys4Int8VGSgAA0C5FlagsVtF"></a>
                     <a name="//apple_ref/swift/Method/typeRegisterStatic(parentType:typeName:flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject16TypeInfoProtocolPAAE18typeRegisterStatic06parentC00F4Name5flagsS2u_SPys4Int8VGSgAA0C5FlagsVtF">typeRegisterStatic(parentType:typeName:flags:)</a>
+                    <a class="token" href="#/s:10GLibObject16TypeInfoProtocolPAAE18typeRegisterStatic06parentC00F4Name5flagsS2u_SPys4Int8VGSgAA0C5FlagsVtF">typeRegisterStatic(parentType:<wbr>typeName:<wbr>flags:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2022,8 +2032,8 @@ instances (if not abstract). The value of <code>flags</code> determines the natu
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

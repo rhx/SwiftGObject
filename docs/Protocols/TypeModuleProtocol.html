@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLibObject 2.64.4 Docs
+          GLibObject 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGObject%2Fdocsets%2FGLibObject%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGObject%2Fdocsets%2FGLibObject.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -291,6 +291,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10GLibObject24TYPE_RESERVED_USER_FIRSTs5Int32Vvp">TYPE_RESERVED_USER_FIRST</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10GLibObject21VALUE_INTERNED_STRINGs5Int32Vvp">VALUE_INTERNED_STRING</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10GLibObject21VALUE_NOCOPY_CONTENTSs5Int32Vvp">VALUE_NOCOPY_CONTENTS</a>
@@ -636,6 +639,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject23signalHasHandlerPending8instance0C2ID6detail12mayBeBlockedSbx_Sis6UInt32VSbtAA0B8ProtocolRzlF">signalHasHandlerPending(instance:signalID:detail:mayBeBlocked:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13signalIsValid4nameSbSPys4Int8VGSg_tF">signalIsValid(name:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13signalListIDs5itype01nE0Spys6UInt32VGSgSu_AHtF">signalListIDs(itype:nIDs:)</a>
@@ -1392,6 +1398,7 @@
             <h1>TypeModuleProtocol</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeModuleProtocol</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ObjectProtocol.html">ObjectProtocol</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/TypePluginProtocol.html">TypePluginProtocol</a></span></code></pre>
 
                 </div>
@@ -1428,6 +1435,9 @@ loading and unloading. To create a particular module type you must
 derive from <code>GTypeModule</code> and implement the load and unload functions
 in <code>GTypeModuleClass</code>.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L38-L45">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -1521,7 +1531,7 @@ in <code>GTypeModuleClass</code>.</p>
                     <code>
                     <a name="/s:10GLibObject18TypeModuleProtocolPAAE7connect6signal5flags2toSiAA0cD10SignalNameO_AA12ConnectFlagsVyyctF"></a>
                     <a name="//apple_ref/swift/Method/connect(signal:flags:to:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject18TypeModuleProtocolPAAE7connect6signal5flags2toSiAA0cD10SignalNameO_AA12ConnectFlagsVyyctF">connect(signal:flags:to:)</a>
+                    <a class="token" href="#/s:10GLibObject18TypeModuleProtocolPAAE7connect6signal5flags2toSiAA0cD10SignalNameO_AA12ConnectFlagsVyyctF">connect(signal:<wbr>flags:<wbr>to:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1602,10 +1612,10 @@ in <code>GTypeModuleClass</code>.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/TypeModule%20Class:%20TypeModuleProtocol%20extension%20(methods%20and%20fields)"></a>
+                <a name="/TypeModule%20Class%3A%20TypeModuleProtocol%20extension%20%28methods%20and%20fields%29"></a>
                 <a name="//apple_ref/swift/Section/TypeModule Class: TypeModuleProtocol extension (methods and fields)" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/TypeModule%20Class:%20TypeModuleProtocol%20extension%20(methods%20and%20fields)"></a>
+                  <a class="section-name-link" href="#/TypeModule%20Class%3A%20TypeModuleProtocol%20extension%20%28methods%20and%20fields%29"></a>
                   <h3 class="section-name"><p>TypeModule Class: TypeModuleProtocol extension (methods and fields)</p>
 </h3>
                 </div>
@@ -1616,7 +1626,7 @@ in <code>GTypeModuleClass</code>.</p>
                     <code>
                     <a name="/s:10GLibObject18TypeModuleProtocolPAAE12addInterface08instanceC009interfaceC00I4InfoySu_Suqd__tAA0gjE0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/addInterface(instanceType:interfaceType:interfaceInfo:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject18TypeModuleProtocolPAAE12addInterface08instanceC009interfaceC00I4InfoySu_Suqd__tAA0gjE0Rd__lF">addInterface(instanceType:interfaceType:interfaceInfo:)</a>
+                    <a class="token" href="#/s:10GLibObject18TypeModuleProtocolPAAE12addInterface08instanceC009interfaceC00I4InfoySu_Suqd__tAA0gjE0Rd__lF">addInterface(instanceType:<wbr>interfaceType:<wbr>interfaceInfo:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1658,7 +1668,7 @@ instead. This can be used when making a static build of the module.</p>
                     <code>
                     <a name="/s:10GLibObject18TypeModuleProtocolPAAE12registerEnum4name17constStaticValuesSuSPys4Int8VGSg_qd__tAA0g5ValueE0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/registerEnum(name:constStaticValues:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject18TypeModuleProtocolPAAE12registerEnum4name17constStaticValuesSuSPys4Int8VGSg_qd__tAA0g5ValueE0Rd__lF">registerEnum(name:constStaticValues:)</a>
+                    <a class="token" href="#/s:10GLibObject18TypeModuleProtocolPAAE12registerEnum4name17constStaticValuesSuSPys4Int8VGSg_qd__tAA0g5ValueE0Rd__lF">registerEnum(name:<wbr>constStaticValues:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1701,7 +1711,7 @@ instead. This can be used when making a static build of the module.</p>
                     <code>
                     <a name="/s:10GLibObject18TypeModuleProtocolPAAE13registerFlags4name17constStaticValuesSuSPys4Int8VGSg_qd__tAA0g5ValueE0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/registerFlags(name:constStaticValues:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject18TypeModuleProtocolPAAE13registerFlags4name17constStaticValuesSuSPys4Int8VGSg_qd__tAA0g5ValueE0Rd__lF">registerFlags(name:constStaticValues:)</a>
+                    <a class="token" href="#/s:10GLibObject18TypeModuleProtocolPAAE13registerFlags4name17constStaticValuesSuSPys4Int8VGSg_qd__tAA0g5ValueE0Rd__lF">registerFlags(name:<wbr>constStaticValues:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1744,7 +1754,7 @@ instead. This can be used when making a static build of the module.</p>
                     <code>
                     <a name="/s:10GLibObject18TypeModuleProtocolPAAE08registerC006parentC08typeName0H4Info5flagsS2u_SPys4Int8VGSgqd__AA0C5FlagsVtAA0cjE0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/registerType(parentType:typeName:typeInfo:flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject18TypeModuleProtocolPAAE08registerC006parentC08typeName0H4Info5flagsS2u_SPys4Int8VGSgqd__AA0C5FlagsVtAA0cjE0Rd__lF">registerType(parentType:typeName:typeInfo:flags:)</a>
+                    <a class="token" href="#/s:10GLibObject18TypeModuleProtocolPAAE08registerC006parentC08typeName0H4Info5flagsS2u_SPys4Int8VGSgqd__AA0C5FlagsVtAA0cjE0Rd__lF">registerType(parentType:<wbr>typeName:<wbr>typeInfo:<wbr>flags:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1791,7 +1801,7 @@ instead. This can be used when making a static build of the module.</p>
                     <code>
                     <a name="/s:10GLibObject18TypeModuleProtocolPAAE3set4nameySPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/set(name:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject18TypeModuleProtocolPAAE3set4nameySPys4Int8VGSg_tF">set(name:)</a>
+                    <a class="token" href="#/s:10GLibObject18TypeModuleProtocolPAAE3set4nameySPys4Int8VGSg_tF">set(name:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2073,8 +2083,8 @@ its prior value.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

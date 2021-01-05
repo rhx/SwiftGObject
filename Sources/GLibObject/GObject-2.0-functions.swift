@@ -1052,7 +1052,7 @@ import GObjectCHelpers
 
 /// Blocks a handler of an instance so it will not be called during any
 /// signal emissions unless it is unblocked again. Thus "blocking" a
-/// signal handler means to temporarily deactive it, a signal handler
+/// signal handler means to temporarily deactivate it, a signal handler
 /// has to be unblocked exactly the same amount of times it has been
 /// blocked before to become active again.
 /// 
@@ -1243,6 +1243,20 @@ import GObjectCHelpers
 /// of building the arguments.
 @inlinable public func signalHasHandlerPending<ObjectT: ObjectProtocol>(instance: ObjectT, signalID: Int, detail: GQuark, mayBeBlocked: Bool) -> Bool {
     let rv = ((g_signal_has_handler_pending(instance.object_ptr, guint(signalID), detail, gboolean((mayBeBlocked) ? 1 : 0))) != 0)
+    return rv
+}
+
+
+
+
+/// Validate a signal name. This can be useful for dynamically-generated signals
+/// which need to be validated at run-time before actually trying to create them.
+/// 
+/// See [canonical parameter names](#canonical-parameter-names) for details of
+/// the rules for valid names. The rules for signal names are the same as those
+/// for property names.
+@inlinable public func signalIsValid(name: UnsafePointer<gchar>!) -> Bool {
+    let rv = ((g_signal_is_valid_name(name)) != 0)
     return rv
 }
 
@@ -1705,7 +1719,7 @@ import GObjectCHelpers
 /// and structure setups for instances: actual instance creation should
 /// happen through functions supplied by the type's fundamental type
 /// implementation.  So use of `g_type_create_instance()` is reserved for
-/// implementators of fundamental types only. E.g. instances of the
+/// implementers of fundamental types only. E.g. instances of the
 /// `GObject` hierarchy should be created via `g_object_new()` and never
 /// directly through `g_type_create_instance()` which doesn't handle things
 /// like singleton objects or object construction.
@@ -1738,7 +1752,7 @@ import GObjectCHelpers
 /// and returns the default interface vtable for the type.
 /// 
 /// If the type is not currently in use, then the default vtable
-/// for the type will be created and initalized by calling
+/// for the type will be created and initialized by calling
 /// the base interface init and default vtable init functions for
 /// the type (the `base_init` and `class_init` members of `GTypeInfo`).
 /// Calling `g_type_default_interface_ref()` is useful when you

@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLibObject 2.64.4 Docs
+          GLibObject 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGObject%2Fdocsets%2FGLibObject%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGObject%2Fdocsets%2FGLibObject.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -291,6 +291,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10GLibObject24TYPE_RESERVED_USER_FIRSTs5Int32Vvp">TYPE_RESERVED_USER_FIRST</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10GLibObject21VALUE_INTERNED_STRINGs5Int32Vvp">VALUE_INTERNED_STRING</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10GLibObject21VALUE_NOCOPY_CONTENTSs5Int32Vvp">VALUE_NOCOPY_CONTENTS</a>
@@ -636,6 +639,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject23signalHasHandlerPending8instance0C2ID6detail12mayBeBlockedSbx_Sis6UInt32VSbtAA0B8ProtocolRzlF">signalHasHandlerPending(instance:signalID:detail:mayBeBlocked:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13signalIsValid4nameSbSPys4Int8VGSg_tF">signalIsValid(name:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13signalListIDs5itype01nE0Spys6UInt32VGSgSu_AHtF">signalListIDs(itype:nIDs:)</a>
@@ -1392,6 +1398,7 @@
             <h1>ParamSpecProtocol</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ParamSpecProtocol</span></code></pre>
 
                 </div>
@@ -1405,8 +1412,8 @@ Alternatively, use <code><a href="../Structs/ParamSpecRef.html">ParamSpecRef</a>
 required to specify parameters, such as e.g. <code>GObject</code> properties.</p>
 <h2 id='parameter-names-a-name-canonical-parameter-names-a' class='heading'>Parameter names # <a name="canonical-parameter-names"></a></h2>
 
-<p>A property name consists of segments consisting of ASCII letters and
-digits, separated by either the <code>-</code> or <code>_</code> character. The first
+<p>A property name consists of one or more segments consisting of ASCII letters
+and digits, separated by either the <code>-</code> or <code>_</code> character. The first
 character of a property name must be a letter. These are the same rules as
 for signal naming (see <code>g_signal_new()</code>).</p>
 
@@ -1414,6 +1421,9 @@ for signal naming (see <code>g_signal_new()</code>).</p>
 used, but they cannot be mixed. Using <code>-</code> is considerably more
 efficient, and is the ‘canonical form’. Using <code>_</code> is discouraged.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpec.swift#L25-L32">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -1493,10 +1503,10 @@ efficient, and is the ‘canonical form’. Using <code>_</code> is discouraged.
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/ParamSpec%20Class:%20ParamSpecProtocol%20extension%20(methods%20and%20fields)"></a>
+                <a name="/ParamSpec%20Class%3A%20ParamSpecProtocol%20extension%20%28methods%20and%20fields%29"></a>
                 <a name="//apple_ref/swift/Section/ParamSpec Class: ParamSpecProtocol extension (methods and fields)" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/ParamSpec%20Class:%20ParamSpecProtocol%20extension%20(methods%20and%20fields)"></a>
+                  <a class="section-name-link" href="#/ParamSpec%20Class%3A%20ParamSpecProtocol%20extension%20%28methods%20and%20fields%29"></a>
                   <h3 class="section-name"><p>ParamSpec Class: ParamSpecProtocol extension (methods and fields)</p>
 </h3>
                 </div>
@@ -1682,7 +1692,7 @@ This allows for pointer-value comparisons.</p>
                     <code>
                     <a name="/s:10GLibObject17ParamSpecProtocolPAAE8getQdata5quarkSvSgs6UInt32V_tF"></a>
                     <a name="//apple_ref/swift/Method/getQdata(quark:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE8getQdata5quarkSvSgs6UInt32V_tF">getQdata(quark:)</a>
+                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE8getQdata5quarkSvSgs6UInt32V_tF">getQdata(quark:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1826,7 +1836,7 @@ for an example of the use of this capability.</p>
                     <code>
                     <a name="/s:10GLibObject17ParamSpecProtocolPAAE8setQdata5quark4datays6UInt32V_SvSgtF"></a>
                     <a name="//apple_ref/swift/Method/setQdata(quark:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE8setQdata5quark4datays6UInt32V_SvSgtF">setQdata(quark:data:)</a>
+                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE8setQdata5quark4datays6UInt32V_SvSgtF">setQdata(quark:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1865,7 +1875,7 @@ set, using <code>nil</code> as pointer essentially removes the data stored.</p>
                     <code>
                     <a name="/s:10GLibObject17ParamSpecProtocolPAAE12setQdataFull5quark4data7destroyys6UInt32V_SvSgyAJXCSgtF"></a>
                     <a name="//apple_ref/swift/Method/setQdataFull(quark:data:destroy:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE12setQdataFull5quark4data7destroyys6UInt32V_SvSgyAJXCSgtF">setQdataFull(quark:data:destroy:)</a>
+                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE12setQdataFull5quark4data7destroyys6UInt32V_SvSgyAJXCSgtF">setQdataFull(quark:<wbr>data:<wbr>destroy:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1943,7 +1953,7 @@ count of 1 still, but is not flagged &ldquo;floating&rdquo; anymore).</p>
                     <code>
                     <a name="/s:10GLibObject17ParamSpecProtocolPAAE10stealQdata5quarkSvSgs6UInt32V_tF"></a>
                     <a name="//apple_ref/swift/Method/stealQdata(quark:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE10stealQdata5quarkSvSgs6UInt32V_tF">stealQdata(quark:)</a>
+                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE10stealQdata5quarkSvSgs6UInt32V_tF">stealQdata(quark:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2014,7 +2024,7 @@ required to update user data pointers with a destroy notifier.</p>
                     <code>
                     <a name="/s:10GLibObject17ParamSpecProtocolPAAE05paramD8Override4nameAA0cD3RefVSgSPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/paramSpecOverride(name:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE05paramD8Override4nameAA0cD3RefVSgSPys4Int8VGSg_tF">paramSpecOverride(name:)</a>
+                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE05paramD8Override4nameAA0cD3RefVSgSPys4Int8VGSg_tF">paramSpecOverride(name:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2050,7 +2060,7 @@ useful unless you are implementing a new base type similar to GObject.</p>
                     <code>
                     <a name="/s:10GLibObject17ParamSpecProtocolPAAE05paramD10ValueArray4name4nick5blurb5flagsAA0cD3RefVSgSPys4Int8VGSg_A2oA0C5FlagsVtF"></a>
                     <a name="//apple_ref/swift/Method/paramSpecValueArray(name:nick:blurb:flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE05paramD10ValueArray4name4nick5blurb5flagsAA0cD3RefVSgSPys4Int8VGSg_A2oA0C5FlagsVtF">paramSpecValueArray(name:nick:blurb:flags:)</a>
+                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE05paramD10ValueArray4name4nick5blurb5flagsAA0cD3RefVSgSPys4Int8VGSg_A2oA0C5FlagsVtF">paramSpecValueArray(name:<wbr>nick:<wbr>blurb:<wbr>flags:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2089,7 +2099,7 @@ can be accessed with <code>g_value_set_boxed()</code> and <code>g_value_get_boxe
                     <code>
                     <a name="/s:10GLibObject17ParamSpecProtocolPAAE17paramValueConvert03srcG004destG016strictValidationSbqd___qd__SbtAA0gE0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/paramValueConvert(srcValue:destValue:strictValidation:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE17paramValueConvert03srcG004destG016strictValidationSbqd___qd__SbtAA0gE0Rd__lF">paramValueConvert(srcValue:destValue:strictValidation:)</a>
+                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE17paramValueConvert03srcG004destG016strictValidationSbqd___qd__SbtAA0gE0Rd__lF">paramValueConvert(srcValue:<wbr>destValue:<wbr>strictValidation:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2129,7 +2139,7 @@ transformed <code>dest_value</code> complied to <code>pspec</code> without modif
                     <code>
                     <a name="/s:10GLibObject17ParamSpecProtocolPAAE18paramValueDefaults5valueSbqd___tAA0gE0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/paramValueDefaults(value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE18paramValueDefaults5valueSbqd___tAA0gE0Rd__lF">paramValueDefaults(value:)</a>
+                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE18paramValueDefaults5valueSbqd___tAA0gE0Rd__lF">paramValueDefaults(value:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2163,7 +2173,7 @@ transformed <code>dest_value</code> complied to <code>pspec</code> without modif
                     <code>
                     <a name="/s:10GLibObject17ParamSpecProtocolPAAE20paramValueSetDefault5valueyqd___tAA0gE0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/paramValueSetDefault(value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE20paramValueSetDefault5valueyqd___tAA0gE0Rd__lF">paramValueSetDefault(value:)</a>
+                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE20paramValueSetDefault5valueyqd___tAA0gE0Rd__lF">paramValueSetDefault(value:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2197,7 +2207,7 @@ transformed <code>dest_value</code> complied to <code>pspec</code> without modif
                     <code>
                     <a name="/s:10GLibObject17ParamSpecProtocolPAAE18paramValueValidate5valueSbqd___tAA0gE0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/paramValueValidate(value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE18paramValueValidate5valueSbqd___tAA0gE0Rd__lF">paramValueValidate(value:)</a>
+                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE18paramValueValidate5valueSbqd___tAA0gE0Rd__lF">paramValueValidate(value:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2236,7 +2246,7 @@ range -42 .. +42.</p>
                     <code>
                     <a name="/s:10GLibObject17ParamSpecProtocolPAAE14paramValuesCmp6value16value2Siqd___qd__tAA05ValueE0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/paramValuesCmp(value1:value2:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE14paramValuesCmp6value16value2Siqd___qd__tAA05ValueE0Rd__lF">paramValuesCmp(value1:value2:)</a>
+                    <a class="token" href="#/s:10GLibObject17ParamSpecProtocolPAAE14paramValuesCmp6value16value2Siqd___qd__tAA05ValueE0Rd__lF">paramValuesCmp(value1:<wbr>value2:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2660,8 +2670,8 @@ for an example of the use of this capability.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

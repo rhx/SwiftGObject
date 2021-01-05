@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLibObject 2.64.4 Docs
+          GLibObject 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGObject%2Fdocsets%2FGLibObject%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGObject%2Fdocsets%2FGLibObject.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -291,6 +291,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10GLibObject24TYPE_RESERVED_USER_FIRSTs5Int32Vvp">TYPE_RESERVED_USER_FIRST</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10GLibObject21VALUE_INTERNED_STRINGs5Int32Vvp">VALUE_INTERNED_STRING</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10GLibObject21VALUE_NOCOPY_CONTENTSs5Int32Vvp">VALUE_NOCOPY_CONTENTS</a>
@@ -636,6 +639,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject23signalHasHandlerPending8instance0C2ID6detail12mayBeBlockedSbx_Sis6UInt32VSbtAA0B8ProtocolRzlF">signalHasHandlerPending(instance:signalID:detail:mayBeBlocked:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13signalIsValid4nameSbSPys4Int8VGSg_tF">signalIsValid(name:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13signalListIDs5itype01nE0Spys6UInt32VGSgSu_AHtF">signalListIDs(itype:nIDs:)</a>
@@ -1392,6 +1398,7 @@
             <h1>ObjectProtocol</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ObjectProtocol</span></code></pre>
 
                 </div>
@@ -1404,6 +1411,9 @@ Alternatively, use <code><a href="../Structs/ObjectRef.html">ObjectRef</a></code
 <p>All the fields in the GObject structure are private
 to the <code>GObject</code> implementation and should never be accessed directly.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object.swift#L14-L21">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -1484,7 +1494,7 @@ to the <code>GObject</code> implementation and should never be accessed directly
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE6freeze7contextSpySo19_GObjectNotifyQueueVGSgSpySo01_fG7ContextVGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/freeze(context:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE6freeze7contextSpySo19_GObjectNotifyQueueVGSgSpySo01_fG7ContextVGSg_tF">freeze(context:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE6freeze7contextSpySo19_GObjectNotifyQueueVGSgSpySo01_fG7ContextVGSg_tF">freeze(context:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1537,7 +1547,7 @@ to the <code>GObject</code> implementation and should never be accessed directly
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE4thaw5queueySpySo19_GObjectNotifyQueueVG_tF"></a>
                     <a name="//apple_ref/swift/Method/thaw(queue:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4thaw5queueySpySo19_GObjectNotifyQueueVG_tF">thaw(queue:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4thaw5queueySpySo19_GObjectNotifyQueueVG_tF">thaw(queue:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1590,7 +1600,7 @@ to the <code>GObject</code> implementation and should never be accessed directly
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE3new4typeSvSgSu_tFZ"></a>
                     <a name="//apple_ref/swift/Method/new(type:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE3new4typeSvSgSu_tFZ">new(type:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE3new4typeSvSgSu_tFZ">new(type:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1647,7 +1657,7 @@ to the <code>GObject</code> implementation and should never be accessed directly
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE14newReferenceTo10instanceOfAA0B3RefVSgSu_tFZ"></a>
                     <a name="//apple_ref/swift/Method/newReferenceTo(instanceOf:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE14newReferenceTo10instanceOfAA0B3RefVSgSu_tFZ">newReferenceTo(instanceOf:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE14newReferenceTo10instanceOfAA0B3RefVSgSu_tFZ">newReferenceTo(instanceOf:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1704,7 +1714,7 @@ to the <code>GObject</code> implementation and should never be accessed directly
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE3newyAA0B0CSgSuFZ"></a>
                     <a name="//apple_ref/swift/Method/new(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE3newyAA0B0CSgSuFZ">new(_:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE3newyAA0B0CSgSuFZ">new(_:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1761,7 +1771,7 @@ to the <code>GObject</code> implementation and should never be accessed directly
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE7connect_5flags7handlerSiqd___AA12ConnectFlagsVyyctAA010SignalNameC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/connect(_:flags:handler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE7connect_5flags7handlerSiqd___AA12ConnectFlagsVyyctAA010SignalNameC0Rd__lF">connect(_:flags:handler:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE7connect_5flags7handlerSiqd___AA12ConnectFlagsVyyctAA010SignalNameC0Rd__lF">connect(_:<wbr>flags:<wbr>handler:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1798,7 +1808,7 @@ to provide a Swift closure that can capture its surrounding context.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE4bind_6target8property5flagsAA10BindingRefVSgqd___qd_1_qd_0_AA0H5FlagsVtAA012PropertyNameC0Rd__AaMRd_0_AaBRd_1_r1_lF"></a>
                     <a name="//apple_ref/swift/Method/bind(_:target:property:flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4bind_6target8property5flagsAA10BindingRefVSgqd___qd_1_qd_0_AA0H5FlagsVtAA012PropertyNameC0Rd__AaMRd_0_AaBRd_1_r1_lF">bind(_:target:property:flags:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4bind_6target8property5flagsAA10BindingRefVSgqd___qd_1_qd_0_AA0H5FlagsVtAA012PropertyNameC0Rd__AaMRd_0_AaBRd_1_r1_lF">bind(_:<wbr>target:<wbr>property:<wbr>flags:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1854,7 +1864,7 @@ will be updated as well.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE4bind_2to8property5flags13transformFrom0H2ToAA10BindingRefVSgqd___qd_1_qd_0_AA0K5FlagsVSbAA05ValueL0V_APtcSbAP_APtctAA012PropertyNameC0Rd__AaQRd_0_AaBRd_1_r1_lF"></a>
                     <a name="//apple_ref/swift/Method/bind(_:to:property:flags:transformFrom:transformTo:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4bind_2to8property5flags13transformFrom0H2ToAA10BindingRefVSgqd___qd_1_qd_0_AA0K5FlagsVSbAA05ValueL0V_APtcSbAP_APtctAA012PropertyNameC0Rd__AaQRd_0_AaBRd_1_r1_lF">bind(_:to:property:flags:transformFrom:transformTo:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4bind_2to8property5flags13transformFrom0H2ToAA10BindingRefVSgqd___qd_1_qd_0_AA0K5FlagsVSbAA05ValueL0V_APtcSbAP_APtctAA012PropertyNameC0Rd__AaQRd_0_AaBRd_1_r1_lF">bind(_:<wbr>to:<wbr>property:<wbr>flags:<wbr>transformFrom:<wbr>transformTo:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1905,7 +1915,7 @@ of bidirectional bindings, otherwise it will be ignored</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE4bind_2to8property5flags11convertFrom0H2ToAA10BindingRefVSgqd___qd_1_qd_0_AA0K5FlagsVqd_3_Sgqd_2_SgcApOctAA012PropertyNameC0Rd__AaQRd_0_AaBRd_1_r3_lF"></a>
                     <a name="//apple_ref/swift/Method/bind(_:to:property:flags:convertFrom:convertTo:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4bind_2to8property5flags11convertFrom0H2ToAA10BindingRefVSgqd___qd_1_qd_0_AA0K5FlagsVqd_3_Sgqd_2_SgcApOctAA012PropertyNameC0Rd__AaQRd_0_AaBRd_1_r3_lF">bind(_:to:property:flags:convertFrom:convertTo:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4bind_2to8property5flags11convertFrom0H2ToAA10BindingRefVSgqd___qd_1_qd_0_AA0K5FlagsVqd_3_Sgqd_2_SgcApOctAA012PropertyNameC0Rd__AaQRd_0_AaBRd_1_r3_lF">bind(_:<wbr>to:<wbr>property:<wbr>flags:<wbr>convertFrom:<wbr>convertTo:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1956,7 +1966,7 @@ of bidirectional bindings, otherwise it will be ignored</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE4bind_2to8property5flags11convertFrom0H2ToAA10BindingRefVSgqd___qd_1_qd_0_AA0K5FlagsVqd_3_Sgqd_2_cqd_2_Sgqd_3_ctAA012PropertyNameC0Rd__AaQRd_0_AaBRd_1_r3_lF"></a>
                     <a name="//apple_ref/swift/Method/bind(_:to:property:flags:convertFrom:convertTo:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4bind_2to8property5flags11convertFrom0H2ToAA10BindingRefVSgqd___qd_1_qd_0_AA0K5FlagsVqd_3_Sgqd_2_cqd_2_Sgqd_3_ctAA012PropertyNameC0Rd__AaQRd_0_AaBRd_1_r3_lF">bind(_:to:property:flags:convertFrom:convertTo:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4bind_2to8property5flags11convertFrom0H2ToAA10BindingRefVSgqd___qd_1_qd_0_AA0K5FlagsVqd_3_Sgqd_2_cqd_2_Sgqd_3_ctAA012PropertyNameC0Rd__AaQRd_0_AaBRd_1_r3_lF">bind(_:<wbr>to:<wbr>property:<wbr>flags:<wbr>convertFrom:<wbr>convertTo:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2007,7 +2017,7 @@ of bidirectional bindings, otherwise it will be ignored</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE4emit6signal6detail9argumentsySi_s6UInt32VSays7CVarArg_pGtF"></a>
                     <a name="//apple_ref/swift/Method/emit(signal:detail:arguments:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4emit6signal6detail9argumentsySi_s6UInt32VSays7CVarArg_pGtF">emit(signal:detail:arguments:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4emit6signal6detail9argumentsySi_s6UInt32VSays7CVarArg_pGtF">emit(signal:<wbr>detail:<wbr>arguments:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2084,7 +2094,7 @@ of bidirectional bindings, otherwise it will be ignored</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE4emit6signal6detail_ySi_s6UInt32Vs7CVarArg_pdtF"></a>
                     <a name="//apple_ref/swift/Method/emit(signal:detail:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4emit6signal6detail_ySi_s6UInt32Vs7CVarArg_pdtF">emit(signal:detail:_:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4emit6signal6detail_ySi_s6UInt32Vs7CVarArg_pdtF">emit(signal:<wbr>detail:<wbr>_:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2161,7 +2171,7 @@ of bidirectional bindings, otherwise it will be ignored</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE4emit_9argumentsyqd___Says7CVarArg_pGtAA010SignalNameC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/emit(_:arguments:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4emit_9argumentsyqd___Says7CVarArg_pGtAA010SignalNameC0Rd__lF">emit(_:arguments:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4emit_9argumentsyqd___Says7CVarArg_pGtAA010SignalNameC0Rd__lF">emit(_:<wbr>arguments:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2226,7 +2236,7 @@ of bidirectional bindings, otherwise it will be ignored</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE4emityyqd___s7CVarArg_pdtAA010SignalNameC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/emit(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4emityyqd___s7CVarArg_pdtAA010SignalNameC0Rd__lF">emit(_:_:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4emityyqd___s7CVarArg_pdtAA010SignalNameC0Rd__lF">emit(_:<wbr>_:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2372,7 +2382,7 @@ of bidirectional bindings, otherwise it will be ignored</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE7connect6signal5flags2toSiAA0B10SignalNameO_AA12ConnectFlagsVyyctF"></a>
                     <a name="//apple_ref/swift/Method/connect(signal:flags:to:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE7connect6signal5flags2toSiAA0B10SignalNameO_AA12ConnectFlagsVyyctF">connect(signal:flags:to:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE7connect6signal5flags2toSiAA0B10SignalNameO_AA12ConnectFlagsVyyctF">connect(signal:<wbr>flags:<wbr>to:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2453,10 +2463,10 @@ of bidirectional bindings, otherwise it will be ignored</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Object%20Class:%20ObjectProtocol%20extension%20(methods%20and%20fields)"></a>
+                <a name="/Object%20Class%3A%20ObjectProtocol%20extension%20%28methods%20and%20fields%29"></a>
                 <a name="//apple_ref/swift/Section/Object Class: ObjectProtocol extension (methods and fields)" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/Object%20Class:%20ObjectProtocol%20extension%20(methods%20and%20fields)"></a>
+                  <a class="section-name-link" href="#/Object%20Class%3A%20ObjectProtocol%20extension%20%28methods%20and%20fields%29"></a>
                   <h3 class="section-name"><p>Object Class: ObjectProtocol extension (methods and fields)</p>
 </h3>
                 </div>
@@ -2467,7 +2477,7 @@ of bidirectional bindings, otherwise it will be ignored</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE12addToggleRef6notify4datayySvSg_SpySo8_GObjectVGSgs5Int32VtXCSg_AGtF"></a>
                     <a name="//apple_ref/swift/Method/addToggleRef(notify:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE12addToggleRef6notify4datayySvSg_SpySo8_GObjectVGSgs5Int32VtXCSg_AGtF">addToggleRef(notify:data:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE12addToggleRef6notify4datayySvSg_SpySo8_GObjectVGSgs5Int32VtXCSg_AGtF">addToggleRef(notify:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2528,7 +2538,7 @@ is important state in the proxy object.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE14addWeakPointer04weakF8LocationySpySvSgGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/addWeakPointer(weakPointerLocation:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE14addWeakPointer04weakF8LocationySpySvSgGSg_tF">addWeakPointer(weakPointerLocation:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE14addWeakPointer04weakF8LocationySpySvSgGSg_tF">addWeakPointer(weakPointerLocation:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2570,7 +2580,7 @@ thread. Use <code>GWeakRef</code> if thread-safety is required.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE12bindProperty06sourceE06target0gE05flagsAA10BindingRefVSgSPys4Int8VGSg_qd__AoA0I5FlagsVtAaBRd__lF"></a>
                     <a name="//apple_ref/swift/Method/bindProperty(sourceProperty:target:targetProperty:flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE12bindProperty06sourceE06target0gE05flagsAA10BindingRefVSgSPys4Int8VGSg_qd__AoA0I5FlagsVtAaBRd__lF">bindProperty(sourceProperty:target:targetProperty:flags:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE12bindProperty06sourceE06target0gE05flagsAA10BindingRefVSgSPys4Int8VGSg_qd__AoA0I5FlagsVtAaBRd__lF">bindProperty(sourceProperty:<wbr>target:<wbr>targetProperty:<wbr>flags:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2623,7 +2633,7 @@ will be updated as well.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE16bindPropertyFull06sourceE06target0hE05flags11transformTo0J4From8userData6notifyAA10BindingRefVSgSPys4Int8VGSg_qd__AsA0P5FlagsVs5Int32VSpySo9_GBindingVGSg_SPySo7_GValueVGSgSpyA1_GSgSvSgtXCSgA7_A6_yA6_XCSgtAaBRd__lF"></a>
                     <a name="//apple_ref/swift/Method/bindPropertyFull(sourceProperty:target:targetProperty:flags:transformTo:transformFrom:userData:notify:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE16bindPropertyFull06sourceE06target0hE05flags11transformTo0J4From8userData6notifyAA10BindingRefVSgSPys4Int8VGSg_qd__AsA0P5FlagsVs5Int32VSpySo9_GBindingVGSg_SPySo7_GValueVGSgSpyA1_GSgSvSgtXCSgA7_A6_yA6_XCSgtAaBRd__lF">bindPropertyFull(sourceProperty:target:targetProperty:flags:transformTo:transformFrom:userData:notify:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE16bindPropertyFull06sourceE06target0hE05flags11transformTo0J4From8userData6notifyAA10BindingRefVSgSPys4Int8VGSg_qd__AsA0P5FlagsVs5Int32VSpySo9_GBindingVGSg_SPySo7_GValueVGSgSpyA1_GSgSvSgtXCSgA7_A6_yA6_XCSgtAaBRd__lF">bindPropertyFull(sourceProperty:<wbr>target:<wbr>targetProperty:<wbr>flags:<wbr>transformTo:<wbr>transformFrom:<wbr>userData:<wbr>notify:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2681,7 +2691,7 @@ for each transformation function, please use
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE24bindPropertyWithClosures06sourceE06target0iE05flags11transformTo0K4FromAA10BindingRefVSgSPys4Int8VGSg_qd_0_AqA0N5FlagsVqd__qd__tAA07ClosureC0Rd__AaBRd_0_r0_lF"></a>
                     <a name="//apple_ref/swift/Method/bindPropertyWithClosures(sourceProperty:target:targetProperty:flags:transformTo:transformFrom:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE24bindPropertyWithClosures06sourceE06target0iE05flags11transformTo0K4FromAA10BindingRefVSgSPys4Int8VGSg_qd_0_AqA0N5FlagsVqd__qd__tAA07ClosureC0Rd__AaBRd_0_r0_lF">bindPropertyWithClosures(sourceProperty:target:targetProperty:flags:transformTo:transformFrom:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE24bindPropertyWithClosures06sourceE06target0iE05flags11transformTo0K4FromAA10BindingRefVSgSPys4Int8VGSg_qd_0_AqA0N5FlagsVqd__qd__tAA07ClosureC0Rd__AaBRd_0_r0_lF">bindPropertyWithClosures(sourceProperty:<wbr>target:<wbr>targetProperty:<wbr>flags:<wbr>transformTo:<wbr>transformFrom:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2721,7 +2731,7 @@ function pointers.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE7dupData3key0D4Func04userE0SvSgSPys4Int8VGSg_A2H_AHtXCSgAHtF"></a>
                     <a name="//apple_ref/swift/Method/dupData(key:dupFunc:userData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE7dupData3key0D4Func04userE0SvSgSPys4Int8VGSg_A2H_AHtXCSgAHtF">dupData(key:dupFunc:userData:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE7dupData3key0D4Func04userE0SvSgSPys4Int8VGSg_A2H_AHtXCSgAHtF">dupData(key:<wbr>dupFunc:<wbr>userData:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2768,7 +2778,7 @@ object.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE8dupQdata5quark0D4Func8userDataSvSgs6UInt32V_A2H_AHtXCSgAHtF"></a>
                     <a name="//apple_ref/swift/Method/dupQdata(quark:dupFunc:userData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE8dupQdata5quark0D4Func8userDataSvSgs6UInt32V_A2H_AHtXCSgAHtF">dupQdata(quark:dupFunc:userData:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE8dupQdata5quark0D4Func8userDataSvSgs6UInt32V_A2H_AHtXCSgAHtF">dupQdata(quark:<wbr>dupFunc:<wbr>userData:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2894,7 +2904,7 @@ premature notification while the object is still being modified.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE7getData3keySvSgSPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/getData(key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE7getData3keySvSgSPys4Int8VGSg_tF">getData(key:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE7getData3keySvSgSPys4Int8VGSg_tF">getData(key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2928,7 +2938,7 @@ premature notification while the object is still being modified.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE11getProperty12propertyName5valueySPys4Int8VGSg_qd__tAA05ValueC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/getProperty(propertyName:value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE11getProperty12propertyName5valueySPys4Int8VGSg_qd__tAA05ValueC0Rd__lF">getProperty(propertyName:value:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE11getProperty12propertyName5valueySPys4Int8VGSg_qd__tAA05ValueC0Rd__lF">getProperty(propertyName:<wbr>value:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -2979,7 +2989,7 @@ bindings, <code>g_object_get()</code> is much more convenient for C programming.
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE8getQdata5quarkSvSgs6UInt32V_tF"></a>
                     <a name="//apple_ref/swift/Method/getQdata(quark:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE8getQdata5quarkSvSgs6UInt32V_tF">getQdata(quark:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE8getQdata5quarkSvSgs6UInt32V_tF">getQdata(quark:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3014,7 +3024,7 @@ bindings, <code>g_object_get()</code> is much more convenient for C programming.
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE9getValist17firstPropertyName7varArgsySPys4Int8VGSg_s14CVaListPointerVtF"></a>
                     <a name="//apple_ref/swift/Method/getValist(firstPropertyName:varArgs:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE9getValist17firstPropertyName7varArgsySPys4Int8VGSg_s14CVaListPointerVtF">getValist(firstPropertyName:varArgs:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE9getValist17firstPropertyName7varArgsySPys4Int8VGSg_s14CVaListPointerVtF">getValist(firstPropertyName:<wbr>varArgs:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3054,7 +3064,7 @@ the type, for instance by calling <code>g_free()</code> or <code>g_object_unref(
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE4getv11nProperties5names6valuesySi_SpySPys4Int8VGSgGSgSpySo7_GValueVGSgtF"></a>
                     <a name="//apple_ref/swift/Method/getv(nProperties:names:values:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4getv11nProperties5names6valuesySi_SpySPys4Int8VGSgGSgSpySo7_GValueVGSgtF">getv(nProperties:names:values:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4getv11nProperties5names6valuesySi_SpySPys4Int8VGSgGSgSpySo7_GValueVGSgtF">getv(nProperties:<wbr>names:<wbr>values:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3091,7 +3101,7 @@ properties are passed in.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE6notify12propertyNameySPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/notify(propertyName:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE6notify12propertyNameySPys4Int8VGSg_tF">notify(propertyName:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE6notify12propertyNameySPys4Int8VGSg_tF">notify(propertyName:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3134,7 +3144,7 @@ called.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE8notifyBy5pspecyqd___tAA09ParamSpecC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/notifyBy(pspec:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE8notifyBy5pspecyqd___tAA09ParamSpecC0Rd__lF">notifyBy(pspec:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE8notifyBy5pspecyqd___tAA09ParamSpecC0Rd__lF">notifyBy(pspec:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3290,7 +3300,7 @@ under the same conditions as for <code>g_object_ref()</code>.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE15removeToggleRef6notify4datayySvSg_SpySo8_GObjectVGSgs5Int32VtXCSg_AGtF"></a>
                     <a name="//apple_ref/swift/Method/removeToggleRef(notify:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE15removeToggleRef6notify4datayySvSg_SpySo8_GObjectVGSgs5Int32VtXCSg_AGtF">removeToggleRef(notify:data:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE15removeToggleRef6notify4datayySvSg_SpySo8_GObjectVGSgs5Int32VtXCSg_AGtF">removeToggleRef(notify:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3325,7 +3335,7 @@ reference count of the object is decreased by one.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE17removeWeakPointer04weakF8LocationySpySvSgGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/removeWeakPointer(weakPointerLocation:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE17removeWeakPointer04weakF8LocationySpySvSgGSg_tF">removeWeakPointer(weakPointerLocation:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE17removeWeakPointer04weakF8LocationySpySvSgGSg_tF">removeWeakPointer(weakPointerLocation:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3361,7 +3371,7 @@ to match the one used with <code>g_object_add_weak_pointer()</code>.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE11replaceData3key6oldval6newval7destroy10oldDestroySbSPys4Int8VGSg_SvSgANyANXCSgSpyAOGSgtF"></a>
                     <a name="//apple_ref/swift/Method/replaceData(key:oldval:newval:destroy:oldDestroy:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE11replaceData3key6oldval6newval7destroy10oldDestroySbSPys4Int8VGSg_SvSgANyANXCSgSpyAOGSgtF">replaceData(key:oldval:newval:destroy:oldDestroy:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE11replaceData3key6oldval6newval7destroy10oldDestroySbSPys4Int8VGSg_SvSgANyANXCSgSpyAOGSgtF">replaceData(key:<wbr>oldval:<wbr>newval:<wbr>destroy:<wbr>oldDestroy:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3410,7 +3420,7 @@ for <code>key</code>.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE12replaceQdata5quark6oldval6newval7destroy10oldDestroySbs6UInt32V_SvSgALyALXCSgSpyAMGSgtF"></a>
                     <a name="//apple_ref/swift/Method/replaceQdata(quark:oldval:newval:destroy:oldDestroy:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE12replaceQdata5quark6oldval6newval7destroy10oldDestroySbs6UInt32V_SvSgALyALXCSgSpyAMGSgtF">replaceQdata(quark:oldval:newval:destroy:oldDestroy:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE12replaceQdata5quark6oldval6newval7destroy10oldDestroySbs6UInt32V_SvSgALyALXCSgSpyAMGSgtF">replaceQdata(quark:<wbr>oldval:<wbr>newval:<wbr>destroy:<wbr>oldDestroy:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3493,7 +3503,7 @@ reference cycles.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE7setData3key4dataySPys4Int8VGSg_SvSgtF"></a>
                     <a name="//apple_ref/swift/Method/setData(key:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE7setData3key4dataySPys4Int8VGSg_SvSgtF">setData(key:data:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE7setData3key4dataySPys4Int8VGSg_SvSgtF">setData(key:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3536,7 +3546,7 @@ for <code>key</code> in your program, to avoid the <code>GQuark</code> storage g
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE11setDataFull3key4data7destroyySPys4Int8VGSg_SvSgyALXCSgtF"></a>
                     <a name="//apple_ref/swift/Method/setDataFull(key:data:destroy:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE11setDataFull3key4data7destroyySPys4Int8VGSg_SvSgyALXCSgtF">setDataFull(key:data:destroy:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE11setDataFull3key4data7destroyySPys4Int8VGSg_SvSgyALXCSgtF">setDataFull(key:<wbr>data:<wbr>destroy:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3574,7 +3584,7 @@ to a different value or when the object is destroyed.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE11setProperty12propertyName5valueySPys4Int8VGSg_qd__tAA05ValueC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/setProperty(propertyName:value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE11setProperty12propertyName5valueySPys4Int8VGSg_qd__tAA05ValueC0Rd__lF">setProperty(propertyName:value:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE11setProperty12propertyName5valueySPys4Int8VGSg_qd__tAA05ValueC0Rd__lF">setProperty(propertyName:<wbr>value:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3608,7 +3618,7 @@ to a different value or when the object is destroyed.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE8setQdata5quark4datays6UInt32V_SvSgtF"></a>
                     <a name="//apple_ref/swift/Method/setQdata(quark:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE8setQdata5quark4datays6UInt32V_SvSgtF">setQdata(quark:data:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE8setQdata5quark4datays6UInt32V_SvSgtF">setQdata(quark:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3620,7 +3630,7 @@ to a different value or when the object is destroyed.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This sets an opaque, named pointer on an object.
-The name is specified through a <code>GQuark</code> (retrived e.g. via
+The name is specified through a <code>GQuark</code> (retrieved e.g. via
 <code>g_quark_from_static_string()</code>), and the pointer
 can be gotten back from the <code>object</code> with <code>g_object_get_qdata()</code>
 until the <code>object</code> is finalized.
@@ -3649,7 +3659,7 @@ removes the data stored.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE12setQdataFull5quark4data7destroyys6UInt32V_SvSgyAJXCSgtF"></a>
                     <a name="//apple_ref/swift/Method/setQdataFull(quark:data:destroy:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE12setQdataFull5quark4data7destroyys6UInt32V_SvSgyAJXCSgtF">setQdataFull(quark:data:destroy:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE12setQdataFull5quark4data7destroyys6UInt32V_SvSgyAJXCSgtF">setQdataFull(quark:<wbr>data:<wbr>destroy:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3687,7 +3697,7 @@ with the same <code>quark</code>.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE9setValist17firstPropertyName7varArgsySPys4Int8VGSg_s14CVaListPointerVtF"></a>
                     <a name="//apple_ref/swift/Method/setValist(firstPropertyName:varArgs:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE9setValist17firstPropertyName7varArgsySPys4Int8VGSg_s14CVaListPointerVtF">setValist(firstPropertyName:varArgs:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE9setValist17firstPropertyName7varArgsySPys4Int8VGSg_s14CVaListPointerVtF">setValist(firstPropertyName:<wbr>varArgs:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3721,7 +3731,7 @@ with the same <code>quark</code>.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE4setv11nProperties5names6valuesySi_SpySPys4Int8VGSgGSgSPySo7_GValueVGSgtF"></a>
                     <a name="//apple_ref/swift/Method/setv(nProperties:names:values:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4setv11nProperties5names6valuesySi_SpySPys4Int8VGSgGSgSPySo7_GValueVGSgtF">setv(nProperties:names:values:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE4setv11nProperties5names6valuesySi_SpySPys4Int8VGSgGSgSPySo7_GValueVGSgtF">setv(nProperties:<wbr>names:<wbr>values:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3758,7 +3768,7 @@ properties are passed in.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE9stealData3keySvSgSPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/stealData(key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE9stealData3keySvSgSPys4Int8VGSg_tF">stealData(key:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE9stealData3keySvSgSPys4Int8VGSg_tF">stealData(key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3793,7 +3803,7 @@ without invoking the association&rsquo;s destroy handler.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE10stealQdata5quarkSvSgs6UInt32V_tF"></a>
                     <a name="//apple_ref/swift/Method/stealQdata(quark:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE10stealQdata5quarkSvSgs6UInt32V_tF">stealQdata(quark:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE10stealQdata5quarkSvSgs6UInt32V_tF">stealQdata(quark:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3817,7 +3827,7 @@ object_add_to_user_list (GObject     *object,
 {
   // the quark, naming the object data
   GQuark quark_string_list = g_quark_from_static_string ("my-string-list");
-  // retrive the old string list
+  // retrieve the old string list
   GList *list = g_object_steal_qdata (object, quark_string_list);
 
   // prepend new string
@@ -3944,7 +3954,7 @@ invalid <code>GObject</code> instance. Use <code>g_clear_object()</code> for thi
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE5watch7closureyqd___tAA07ClosureC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/watch(closure:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE5watch7closureyqd___tAA07ClosureC0Rd__lF">watch(closure:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE5watch7closureyqd___tAA07ClosureC0Rd__lF">watch(closure:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3986,7 +3996,7 @@ use this <code>object</code> as closure data.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE7weakRef6notify4datayySvSg_SpySo8_GObjectVGSgtXCSg_AGtF"></a>
                     <a name="//apple_ref/swift/Method/weakRef(notify:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE7weakRef6notify4datayySvSg_SpySo8_GObjectVGSgtXCSg_AGtF">weakRef(notify:data:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE7weakRef6notify4datayySvSg_SpySo8_GObjectVGSgtXCSg_AGtF">weakRef(notify:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4029,7 +4039,7 @@ Use <code>GWeakRef</code> if thread-safety is required.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE9weakUnref6notify4datayySvSg_SpySo8_GObjectVGSgtXCSg_AGtF"></a>
                     <a name="//apple_ref/swift/Method/weakUnref(notify:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE9weakUnref6notify4datayySvSg_SpySo8_GObjectVGSgtXCSg_AGtF">weakUnref(notify:data:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE9weakUnref6notify4datayySvSg_SpySo8_GObjectVGSgtXCSg_AGtF">weakUnref(notify:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4063,7 +4073,7 @@ Use <code>GWeakRef</code> if thread-safety is required.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE011cclosureNewB012callbackFuncAA10ClosureRefVSgyyXC_tF"></a>
                     <a name="//apple_ref/swift/Method/cclosureNewObject(callbackFunc:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE011cclosureNewB012callbackFuncAA10ClosureRefVSgyyXC_tF">cclosureNewObject(callbackFunc:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE011cclosureNewB012callbackFuncAA10ClosureRefVSgyyXC_tF">cclosureNewObject(callbackFunc:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4101,7 +4111,7 @@ after the object is is freed.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE011cclosureNewB4Swap12callbackFuncAA10ClosureRefVSgyyXC_tF"></a>
                     <a name="//apple_ref/swift/Method/cclosureNewObjectSwap(callbackFunc:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE011cclosureNewB4Swap12callbackFuncAA10ClosureRefVSgyyXC_tF">cclosureNewObjectSwap(callbackFunc:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE011cclosureNewB4Swap12callbackFuncAA10ClosureRefVSgyyXC_tF">cclosureNewObjectSwap(callbackFunc:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4139,7 +4149,7 @@ after the object is is freed.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE18clearSignalHandler12handlerIDPtrySpySuGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/clearSignalHandler(handlerIDPtr:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE18clearSignalHandler12handlerIDPtrySpySuGSg_tF">clearSignalHandler(handlerIDPtr:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE18clearSignalHandler12handlerIDPtrySpySuGSg_tF">clearSignalHandler(handlerIDPtr:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4180,7 +4190,7 @@ pointer casts.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE20signalConnectClosure14detailedSignal7closure5afterSiSPys4Int8VGSg_qd__SbtAA0fC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/signalConnectClosure(detailedSignal:closure:after:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE20signalConnectClosure14detailedSignal7closure5afterSiSPys4Int8VGSg_qd__SbtAA0fC0Rd__lF">signalConnectClosure(detailedSignal:closure:after:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE20signalConnectClosure14detailedSignal7closure5afterSiSPys4Int8VGSg_qd__SbtAA0fC0Rd__lF">signalConnectClosure(detailedSignal:<wbr>closure:<wbr>after:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4214,7 +4224,7 @@ pointer casts.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE24signalConnectClosureByID0dH06detail7closure5afterS2i_s6UInt32Vqd__SbtAA0fC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/signalConnectClosureByID(signalID:detail:closure:after:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE24signalConnectClosureByID0dH06detail7closure5afterS2i_s6UInt32Vqd__SbtAA0fC0Rd__lF">signalConnectClosureByID(signalID:detail:closure:after:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE24signalConnectClosureByID0dH06detail7closure5afterS2i_s6UInt32Vqd__SbtAA0fC0Rd__lF">signalConnectClosureByID(signalID:<wbr>detail:<wbr>closure:<wbr>after:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4248,7 +4258,7 @@ pointer casts.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE17signalConnectData14detailedSignal8cHandler4data07destroyF012connectFlagsSiSPys4Int8VGSg_yyXCSvSgyAN_SpySo9_GClosureVGSgtXCSgAA0eM0VtF"></a>
                     <a name="//apple_ref/swift/Method/signalConnectData(detailedSignal:cHandler:data:destroyData:connectFlags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE17signalConnectData14detailedSignal8cHandler4data07destroyF012connectFlagsSiSPys4Int8VGSg_yyXCSvSgyAN_SpySo9_GClosureVGSgtXCSgAA0eM0VtF">signalConnectData(detailedSignal:cHandler:data:destroyData:connectFlags:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE17signalConnectData14detailedSignal8cHandler4data07destroyF012connectFlagsSiSPys4Int8VGSg_yyXCSvSgyAN_SpySo9_GClosureVGSgtXCSgAA0eM0VtF">signalConnectData(detailedSignal:<wbr>cHandler:<wbr>data:<wbr>destroyData:<wbr>connectFlags:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4286,7 +4296,7 @@ used. Specify <code>connect_flags</code> if you need <code>..._after()</code> or
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE013signalConnectB08instance14detailedSignal8cHandler12connectFlagsSiqd___SPys4Int8VGSgyyXCAA0eK0VtAA012TypeInstanceC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/signalConnectObject(instance:detailedSignal:cHandler:connectFlags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE013signalConnectB08instance14detailedSignal8cHandler12connectFlagsSiqd___SPys4Int8VGSgyyXCAA0eK0VtAA012TypeInstanceC0Rd__lF">signalConnectObject(instance:detailedSignal:cHandler:connectFlags:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE013signalConnectB08instance14detailedSignal8cHandler12connectFlagsSiqd___SPys4Int8VGSgyyXCAA0eK0VtAA012TypeInstanceC0Rd__lF">signalConnectObject(instance:<wbr>detailedSignal:<wbr>cHandler:<wbr>connectFlags:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4361,7 +4371,7 @@ is not safe).</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE18signalHandlerBlock9handlerIDySi_tF"></a>
                     <a name="//apple_ref/swift/Method/signalHandlerBlock(handlerID:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE18signalHandlerBlock9handlerIDySi_tF">signalHandlerBlock(handlerID:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE18signalHandlerBlock9handlerIDySi_tF">signalHandlerBlock(handlerID:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4374,7 +4384,7 @@ is not safe).</p>
                       <div class="abstract">
                         <p>Blocks a handler of an instance so it will not be called during any
 signal emissions unless it is unblocked again. Thus &ldquo;blocking&rdquo; a
-signal handler means to temporarily deactive it, a signal handler
+signal handler means to temporarily deactivate it, a signal handler
 has to be unblocked exactly the same amount of times it has been
 blocked before to become active again.</p>
 
@@ -4402,7 +4412,7 @@ signal of <code>instance</code>.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE23signalHandlerDisconnect9handlerIDySi_tF"></a>
                     <a name="//apple_ref/swift/Method/signalHandlerDisconnect(handlerID:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE23signalHandlerDisconnect9handlerIDySi_tF">signalHandlerDisconnect(handlerID:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE23signalHandlerDisconnect9handlerIDySi_tF">signalHandlerDisconnect(handlerID:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4441,7 +4451,7 @@ signal of <code>instance</code>.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE17signalHandlerFind4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32VAA10ClosureRefVSgSvSgARtF"></a>
                     <a name="//apple_ref/swift/Method/signalHandlerFind(mask:signalID:detail:closure:func:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE17signalHandlerFind4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32VAA10ClosureRefVSgSvSgARtF">signalHandlerFind(mask:signalID:detail:closure:func:data:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE17signalHandlerFind4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32VAA10ClosureRefVSgSvSgARtF">signalHandlerFind(mask:<wbr>signalID:<wbr>detail:<wbr>closure:<wbr>func:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4479,7 +4489,7 @@ If no handler was found, 0 is returned.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE17signalHandlerFind4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32Vqd__SgSvSgAPtAA07ClosureC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/signalHandlerFind(mask:signalID:detail:closure:func:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE17signalHandlerFind4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32Vqd__SgSvSgAPtAA07ClosureC0Rd__lF">signalHandlerFind(mask:signalID:detail:closure:func:data:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE17signalHandlerFind4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32Vqd__SgSvSgAPtAA07ClosureC0Rd__lF">signalHandlerFind(mask:<wbr>signalID:<wbr>detail:<wbr>closure:<wbr>func:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4517,7 +4527,7 @@ If no handler was found, 0 is returned.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE24signalHandlerIsConnected9handlerIDSbSi_tF"></a>
                     <a name="//apple_ref/swift/Method/signalHandlerIsConnected(handlerID:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE24signalHandlerIsConnected9handlerIDSbSi_tF">signalHandlerIsConnected(handlerID:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE24signalHandlerIsConnected9handlerIDSbSi_tF">signalHandlerIsConnected(handlerID:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4551,7 +4561,7 @@ If no handler was found, 0 is returned.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE20signalHandlerUnblock9handlerIDySi_tF"></a>
                     <a name="//apple_ref/swift/Method/signalHandlerUnblock(handlerID:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE20signalHandlerUnblock9handlerIDySi_tF">signalHandlerUnblock(handlerID:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE20signalHandlerUnblock9handlerIDySi_tF">signalHandlerUnblock(handlerID:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4597,7 +4607,7 @@ connected to a signal of <code>instance</code> and is currently blocked.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE26signalHandlersBlockMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32VAA10ClosureRefVSgSvSgARtF"></a>
                     <a name="//apple_ref/swift/Method/signalHandlersBlockMatched(mask:signalID:detail:closure:func:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE26signalHandlersBlockMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32VAA10ClosureRefVSgSvSgARtF">signalHandlersBlockMatched(mask:signalID:detail:closure:func:data:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE26signalHandlersBlockMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32VAA10ClosureRefVSgSvSgARtF">signalHandlersBlockMatched(mask:<wbr>signalID:<wbr>detail:<wbr>closure:<wbr>func:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4637,7 +4647,7 @@ otherwise.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE26signalHandlersBlockMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32Vqd__SgSvSgAPtAA07ClosureC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/signalHandlersBlockMatched(mask:signalID:detail:closure:func:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE26signalHandlersBlockMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32Vqd__SgSvSgAPtAA07ClosureC0Rd__lF">signalHandlersBlockMatched(mask:signalID:detail:closure:func:data:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE26signalHandlersBlockMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32Vqd__SgSvSgAPtAA07ClosureC0Rd__lF">signalHandlersBlockMatched(mask:<wbr>signalID:<wbr>detail:<wbr>closure:<wbr>func:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4713,7 +4723,7 @@ and should not be used outside of the type system.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE31signalHandlersDisconnectMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32VAA10ClosureRefVSgSvSgARtF"></a>
                     <a name="//apple_ref/swift/Method/signalHandlersDisconnectMatched(mask:signalID:detail:closure:func:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE31signalHandlersDisconnectMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32VAA10ClosureRefVSgSvSgARtF">signalHandlersDisconnectMatched(mask:signalID:detail:closure:func:data:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE31signalHandlersDisconnectMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32VAA10ClosureRefVSgSvSgARtF">signalHandlersDisconnectMatched(mask:<wbr>signalID:<wbr>detail:<wbr>closure:<wbr>func:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4754,7 +4764,7 @@ disconnected handlers otherwise.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE31signalHandlersDisconnectMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32Vqd__SgSvSgAPtAA07ClosureC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/signalHandlersDisconnectMatched(mask:signalID:detail:closure:func:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE31signalHandlersDisconnectMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32Vqd__SgSvSgAPtAA07ClosureC0Rd__lF">signalHandlersDisconnectMatched(mask:signalID:detail:closure:func:data:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE31signalHandlersDisconnectMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32Vqd__SgSvSgAPtAA07ClosureC0Rd__lF">signalHandlersDisconnectMatched(mask:<wbr>signalID:<wbr>detail:<wbr>closure:<wbr>func:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4795,7 +4805,7 @@ disconnected handlers otherwise.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE28signalHandlersUnblockMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32VAA10ClosureRefVSgSvSgARtF"></a>
                     <a name="//apple_ref/swift/Method/signalHandlersUnblockMatched(mask:signalID:detail:closure:func:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE28signalHandlersUnblockMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32VAA10ClosureRefVSgSvSgARtF">signalHandlersUnblockMatched(mask:signalID:detail:closure:func:data:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE28signalHandlersUnblockMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32VAA10ClosureRefVSgSvSgARtF">signalHandlersUnblockMatched(mask:<wbr>signalID:<wbr>detail:<wbr>closure:<wbr>func:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4836,7 +4846,7 @@ not currently blocked.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE28signalHandlersUnblockMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32Vqd__SgSvSgAPtAA07ClosureC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/signalHandlersUnblockMatched(mask:signalID:detail:closure:func:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE28signalHandlersUnblockMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32Vqd__SgSvSgAPtAA07ClosureC0Rd__lF">signalHandlersUnblockMatched(mask:signalID:detail:closure:func:data:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE28signalHandlersUnblockMatched4mask0D2ID6detail7closure4func4dataSiAA15SignalMatchTypeV_Sis6UInt32Vqd__SgSvSgAPtAA07ClosureC0Rd__lF">signalHandlersUnblockMatched(mask:<wbr>signalID:<wbr>detail:<wbr>closure:<wbr>func:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4877,7 +4887,7 @@ not currently blocked.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE23signalHasHandlerPending0D2ID6detail12mayBeBlockedSbSi_s6UInt32VSbtF"></a>
                     <a name="//apple_ref/swift/Method/signalHasHandlerPending(signalID:detail:mayBeBlocked:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE23signalHasHandlerPending0D2ID6detail12mayBeBlockedSbSi_s6UInt32VSbtF">signalHasHandlerPending(signalID:detail:mayBeBlocked:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE23signalHasHandlerPending0D2ID6detail12mayBeBlockedSbSi_s6UInt32VSbtF">signalHasHandlerPending(signalID:<wbr>detail:<wbr>mayBeBlocked:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4926,7 +4936,7 @@ of building the arguments.</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE18signalStopEmission0D2ID6detailySi_s6UInt32VtF"></a>
                     <a name="//apple_ref/swift/Method/signalStopEmission(signalID:detail:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE18signalStopEmission0D2ID6detailySi_s6UInt32VtF">signalStopEmission(signalID:detail:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE18signalStopEmission0D2ID6detailySi_s6UInt32VtF">signalStopEmission(signalID:<wbr>detail:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4966,7 +4976,7 @@ flag).</p>
                     <code>
                     <a name="/s:10GLibObject0B8ProtocolPAAE24signalStopEmissionByName14detailedSignalySPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/signalStopEmissionByName(detailedSignal:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE24signalStopEmissionByName14detailedSignalySPys4Int8VGSg_tF">signalStopEmissionByName(detailedSignal:)</a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolPAAE24signalStopEmissionByName14detailedSignalySPys4Int8VGSg_tF">signalStopEmissionByName(detailedSignal:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5074,8 +5084,8 @@ signal id for you.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

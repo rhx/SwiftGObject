@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLibObject 2.64.4 Docs
+          GLibObject 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGObject%2Fdocsets%2FGLibObject%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGObject%2Fdocsets%2FGLibObject.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -291,6 +291,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10GLibObject24TYPE_RESERVED_USER_FIRSTs5Int32Vvp">TYPE_RESERVED_USER_FIRST</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10GLibObject21VALUE_INTERNED_STRINGs5Int32Vvp">VALUE_INTERNED_STRING</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10GLibObject21VALUE_NOCOPY_CONTENTSs5Int32Vvp">VALUE_NOCOPY_CONTENTS</a>
@@ -636,6 +639,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject23signalHasHandlerPending8instance0C2ID6detail12mayBeBlockedSbx_Sis6UInt32VSbtAA0B8ProtocolRzlF">signalHasHandlerPending(instance:signalID:detail:mayBeBlocked:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13signalIsValid4nameSbSPys4Int8VGSg_tF">signalIsValid(name:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject13signalListIDs5itype01nE0Spys6UInt32VGSgSu_AHtF">signalListIDs(itype:nIDs:)</a>
@@ -1392,6 +1398,7 @@
             <h1>TypeModule</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">TypeModule</span> <span class="p">:</span> <span class="kt"><a href="../Classes/Object.html">Object</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/TypeModuleProtocol.html">TypeModuleProtocol</a></span></code></pre>
 
                 </div>
@@ -1427,6 +1434,9 @@ loading and unloading. To create a particular module type you must
 derive from <code>GTypeModule</code> and implement the load and unload functions
 in <code>GTypeModuleClass</code>.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeModule.swift#L185-L312">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -1439,7 +1449,7 @@ in <code>GTypeModuleClass</code>.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleCyACSpySo06_GTypeD0VGcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleCyACSpySo06_GTypeD0VGcfc">init(_:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleCyACSpySo06_GTypeD0VGcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1493,7 +1503,7 @@ i.e., ownership is transferred to the <code>TypeModule</code> instance.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleCyACSPySo06_GTypeD0VGcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleCyACSPySo06_GTypeD0VGcfc">init(_:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleCyACSPySo06_GTypeD0VGcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1545,7 +1555,7 @@ i.e., ownership is transferred to the <code>TypeModule</code> instance.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleC8gpointerACSgSvSg_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(gpointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleC8gpointerACSgSvSg_tcfc">init(gpointer:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleC8gpointerACSgSvSg_tcfc">init(gpointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1598,7 +1608,7 @@ i.e., ownership is transferred to the <code>TypeModule</code> instance.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleC13gconstpointerACSgSVSg_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(gconstpointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleC13gconstpointerACSgSVSg_tcfc">init(gconstpointer:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleC13gconstpointerACSgSVSg_tcfc">init(gconstpointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1651,7 +1661,7 @@ i.e., ownership is transferred to the <code>TypeModule</code> instance.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleCyACSgSPySo06_GTypeD0VGSgcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleCyACSgSPySo06_GTypeD0VGSgcfc">init(_:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleCyACSgSPySo06_GTypeD0VGSgcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1703,7 +1713,7 @@ i.e., ownership is transferred to the <code>TypeModule</code> instance.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleCyACSgSpySo06_GTypeD0VGSgcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleCyACSgSpySo06_GTypeD0VGSgcfc">init(_:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleCyACSgSpySo06_GTypeD0VGSgcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1755,7 +1765,7 @@ i.e., ownership is transferred to the <code>TypeModule</code> instance.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleC9retainingACSpySo06_GTypeD0VG_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retaining:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleC9retainingACSpySo06_GTypeD0VG_tcfc">init(retaining:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleC9retainingACSpySo06_GTypeD0VG_tcfc">init(retaining:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1807,7 +1817,7 @@ i.e., ownership is transferred to the <code>TypeModule</code> instance.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleC04typeD0ACx_tcAA0cD8ProtocolRzlufc"></a>
                     <a name="//apple_ref/swift/Method/init(typeModule:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleC04typeD0ACx_tcAA0cD8ProtocolRzlufc">init(typeModule:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleC04typeD0ACx_tcAA0cD8ProtocolRzlufc">init(typeModule:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1858,7 +1868,7 @@ Will retain <code>GTypeModule</code>.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleC8cPointerACSpyxG_tclufc"></a>
                     <a name="//apple_ref/swift/Method/init(cPointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleC8cPointerACSpyxG_tclufc">init(cPointer:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleC8cPointerACSpyxG_tclufc">init(cPointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1909,7 +1919,7 @@ Will retain <code>GTypeModule</code>.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleC17retainingCPointerACSpyxG_tclufc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingCPointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleC17retainingCPointerACSpyxG_tclufc">init(retainingCPointer:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleC17retainingCPointerACSpyxG_tclufc">init(retainingCPointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1960,7 +1970,7 @@ Will retain <code>GTypeModule</code>.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleC3rawACSV_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(raw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleC3rawACSV_tcfc">init(raw:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleC3rawACSV_tcfc">init(raw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2011,7 +2021,7 @@ Will retain <code>GTypeModule</code>.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleC12retainingRawACSV_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleC12retainingRawACSV_tcfc">init(retainingRaw:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleC12retainingRawACSV_tcfc">init(retainingRaw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2043,7 +2053,7 @@ Will retain <code>GTypeModule</code>.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleC3rawACSv_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(raw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleC3rawACSv_tcfc">init(raw:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleC3rawACSv_tcfc">init(raw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2094,7 +2104,7 @@ Will retain <code>GTypeModule</code>.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleC12retainingRawACSv_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleC12retainingRawACSv_tcfc">init(retainingRaw:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleC12retainingRawACSv_tcfc">init(retainingRaw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2145,7 +2155,7 @@ Will retain <code>GTypeModule</code>.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleC13opaquePointerACs06OpaqueF0V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(opaquePointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleC13opaquePointerACs06OpaqueF0V_tcfc">init(opaquePointer:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleC13opaquePointerACs06OpaqueF0V_tcfc">init(opaquePointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2196,7 +2206,7 @@ Will retain <code>GTypeModule</code>.</p>
                     <code>
                     <a name="/s:10GLibObject10TypeModuleC22retainingOpaquePointerACs0fG0V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingOpaquePointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10TypeModuleC22retainingOpaquePointerACs0fG0V_tcfc">init(retainingOpaquePointer:)</a>
+                    <a class="token" href="#/s:10GLibObject10TypeModuleC22retainingOpaquePointerACs0fG0V_tcfc">init(retainingOpaquePointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2250,8 +2260,8 @@ Will retain <code>GTypeModule</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

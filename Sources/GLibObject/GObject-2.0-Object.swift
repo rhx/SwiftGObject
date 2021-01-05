@@ -875,7 +875,7 @@ public extension ObjectProtocol {
     }
 
     /// This sets an opaque, named pointer on an object.
-    /// The name is specified through a `GQuark` (retrived e.g. via
+    /// The name is specified through a `GQuark` (retrieved e.g. via
     /// `g_quark_from_static_string()`), and the pointer
     /// can be gotten back from the `object` with `g_object_get_qdata()`
     /// until the `object` is finalized.
@@ -933,7 +933,7 @@ public extension ObjectProtocol {
     /// {
     ///   // the quark, naming the object data
     ///   GQuark quark_string_list = g_quark_from_static_string ("my-string-list");
-    ///   // retrive the old string list
+    ///   // retrieve the old string list
     ///   GList *list = g_object_steal_qdata (object, quark_string_list);
     /// 
     ///   // prepend new string
@@ -1105,7 +1105,7 @@ public extension ObjectProtocol {
 
     /// Blocks a handler of an instance so it will not be called during any
     /// signal emissions unless it is unblocked again. Thus "blocking" a
-    /// signal handler means to temporarily deactive it, a signal handler
+    /// signal handler means to temporarily deactivate it, a signal handler
     /// has to be unblocked exactly the same amount of times it has been
     /// blocked before to become active again.
     /// 

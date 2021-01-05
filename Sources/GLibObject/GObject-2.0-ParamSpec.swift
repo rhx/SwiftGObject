@@ -14,8 +14,8 @@ import GObjectCHelpers
 /// 
 /// ## Parameter names # <a name="canonical-parameter-names"></a>
 /// 
-/// A property name consists of segments consisting of ASCII letters and
-/// digits, separated by either the `-` or `_` character. The first
+/// A property name consists of one or more segments consisting of ASCII letters
+/// and digits, separated by either the `-` or `_` character. The first
 /// character of a property name must be a letter. These are the same rules as
 /// for signal naming (see `g_signal_new()`).
 /// 
@@ -40,8 +40,8 @@ public protocol ParamSpecProtocol {
 /// 
 /// ## Parameter names # <a name="canonical-parameter-names"></a>
 /// 
-/// A property name consists of segments consisting of ASCII letters and
-/// digits, separated by either the `-` or `_` character. The first
+/// A property name consists of one or more segments consisting of ASCII letters
+/// and digits, separated by either the `-` or `_` character. The first
 /// character of a property name must be a letter. These are the same rules as
 /// for signal naming (see `g_signal_new()`).
 /// 
@@ -150,8 +150,8 @@ public extension ParamSpecRef {
 /// 
 /// ## Parameter names # <a name="canonical-parameter-names"></a>
 /// 
-/// A property name consists of segments consisting of ASCII letters and
-/// digits, separated by either the `-` or `_` character. The first
+/// A property name consists of one or more segments consisting of ASCII letters
+/// and digits, separated by either the `-` or `_` character. The first
 /// character of a property name must be a letter. These are the same rules as
 /// for signal naming (see `g_signal_new()`).
 /// 
