@@ -103,10 +103,17 @@ public extension ValueProtocol {
         return bindingFlags
     }
 
-    /// Generic Value accessor.
+    /// Generic, mutable pointer Value accessor.
     ///
     /// - Returns: an optional pointer if stored as the value
     @inlinable func get<T>() -> UnsafeMutablePointer<T>? {
+        let ptr = pointer
+        return ptr.map { $0.assumingMemoryBound(to: T.self) }
+    }
+    /// Generic, force-unwrapped mutable pointer Value accessor
+    ///
+    /// - Returns: a force-unwrapped, optional pointer if stored as the value
+    @inlinable func geUnsafeMutablePointer<T>() -> UnsafeMutablePointer<T>! {
         let ptr = pointer
         return ptr.map { $0.assumingMemoryBound(to: T.self) }
     }

@@ -6,7 +6,7 @@ let package = Package(
     name: "GLibObject",
     products: [ .library(name: "GLibObject", targets: ["GLibObject"]), ],
     dependencies: [
-        .package(name: "GLib", url: "https://github.com/rhx/SwiftGLib.git", .branch("master"))
+        .package(name: "GLib", url: "https://github.com/rhx/SwiftGLib.git", .branch("main"))
     ],
     targets: [
         .target(name: "GLibObject", dependencies: ["GObjectCHelpers", "GLib"]),
