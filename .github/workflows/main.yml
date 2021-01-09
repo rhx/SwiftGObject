@@ -144,12 +144,12 @@ jobs:
           swift build
           cd ..
 
-      - name: Test SwiftGObject
-        run: |
-          cd SwiftGObject
-          swift test
-          cd ..
-
+#      - name: Test SwiftGObject
+#        run: |
+#          cd SwiftGObject
+#          swift test
+#          cd ..
+#
       - name: Remove unneeded files and archive artifacts
         run: |
           cd SwiftGObject
