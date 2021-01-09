@@ -4,6 +4,10 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 
 ## What is new?
 
+The current version introduces a new build system and signal generation code contributed bby Mikoláš Stuchlík (see the **Building** Section below).
+
+### Other nobable changes
+
 Version 11 introduces a new type system into `gir2swift`,
 to ensure it has a representation of the underlying types.
 This is necessary for Swift 5.3 onwards, which requires more stringent casts.
@@ -11,8 +15,6 @@ As a consequence, accessors can accept and return idiomatic Swift rather than
 underlying types or pointers.
 This means that a lot of the changes will be source-breaking for code that
 was compiled against libraries built with earlier versions of `gir2swift`.
-
-### Notable changes
 
  * Parameters use idiomatic Swift names (e.g. camel case instead of snake case, splitting out of "for", "from", etc.)
  * Uses the namespace referenced in the `gir` file
@@ -78,8 +80,15 @@ Normally, you don't build this package directly, but you embed it into your own 
 
 	git clone https://github.com/rhx/SwiftGObject.git
 	cd SwiftGObject
-	./build.sh
-	./test.sh
+    ./run-gir2swift.sh
+    swift build
+    swift test
+
+Please note that on macOS, due to a bug currently in the Swift Package Manager,
+you need to pass in the build flags manually, i.e. instead of `swift build` and `swift test` you can run
+
+    swift build `./run-gir2swift.sh flags -noUpdate`
+    swift test  `./run-gir2swift.sh flags -noUpdate`
 
 ### Xcode
 
@@ -116,3 +125,7 @@ this probably means that your Swift toolchain is too old.  Make sure the latest 
 	sudo xcode-select -s /Applications/Xcode.app
 	xcode-select --install
 
+### Known Issues
+
+ * The current build system does not support directory paths with spaces (e.g. the `My Drive` directory used by Google Drive File Stream).  As a workaround, use the old build scripts, e.g. `./build.sh` instead of `run-gir2swift.sh` and `swift build` to build a package.
+ * BUILD_DIR is not suported in the current build system.
