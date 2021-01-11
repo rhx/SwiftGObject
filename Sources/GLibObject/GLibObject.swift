@@ -3,7 +3,7 @@
 //  GObject
 //
 //  Created by Rene Hexel on 20/06/2016.
-//  Copyright © 2016, 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
+//  Copyright © 2016, 2017, 2018, 2019, 2020, 2021 Rene Hexel.  All rights reserved.
 //
 import CGLib
 import GLib
@@ -59,7 +59,7 @@ extension PropertyName: PropertyNameProtocol {
     @inlinable public static func ==(lhs: PropertyName, rhs: PropertyName) -> Bool {
         return lhs.name == rhs.name
     }
-    
+
     /// Property name as a String
     @inlinable public var rawValue: String { return name }
 }
@@ -68,7 +68,7 @@ extension PropertyName: ExpressibleByStringLiteral {
     public typealias UnicodeScalarLiteralType = String
     public typealias ExtendedGraphemeClusterLiteralType = String
     public typealias StringLiteralType = String
-    
+
     @inlinable public init(stringLiteral value: StringLiteralType) { self.init(value) }
     @inlinable public init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) { self.init(value) }
     @inlinable public init(unicodeScalarLiteral value: UnicodeScalarLiteralType) { self.init(value) }
@@ -81,22 +81,13 @@ public typealias SignalHandler = () -> ()
 /// This closure needs to return true if successful, or false otherwise
 public typealias ValueTransformer = (ValueRef, ValueRef) -> Bool
 
-/// Internal Class that wraps a closure to make sure the closure is retained
-/// until no longer required
-public class ClosureHolder<S,T> {
-    public let call: (S) -> T
-    
-    @inlinable public init(_ closure: @escaping (S) -> T) {
-        self.call = closure
-    }
-}
 
 /// Internal Class that wraps a binding to make sure it is retained
 /// until no longer required
 public class BindingHolder<S,T> {
     public let transform_from: (S, T) -> Bool
     public let transform_to:   (T, S) -> Bool
-    
+
     @inlinable public init(_ transform_from: @escaping (S, T) -> Bool, _ transform_to: @escaping (T, S) -> Bool) {
         self.transform_from = transform_from
         self.transform_to   = transform_to
