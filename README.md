@@ -2,7 +2,16 @@
 A Swift wrapper around gobject-2.x that is largely auto-generated from gobject-introspection.
 For up to date (auto-generated) reference documentation, see https://rhx.github.io/SwiftGObject/
 
+![macOS 11 build](https://github.com/rhx/SwiftGObject/workflows/macOS%2011/badge.svg)
+![macOS 10.15 build](https://github.com/rhx/SwiftGObject/workflows/macOS%2010.15/badge.svg)
+![Ubuntu 20.04 build](https://github.com/rhx/SwiftGObject/workflows/Ubuntu%2020.04/badge.svg)
+![Ubuntu 18.04 build](https://github.com/rhx/SwiftGObject/workflows/Ubuntu%2018.04/badge.svg)
+
 ## What is new?
+
+The current version introduces a new build system and signal generation code contributed by Mikoláš Stuchlík (see the **Building** Section below).
+
+### Other notable changes
 
 Version 11 introduces a new type system into `gir2swift`,
 to ensure it has a representation of the underlying types.
@@ -11,8 +20,6 @@ As a consequence, accessors can accept and return idiomatic Swift rather than
 underlying types or pointers.
 This means that a lot of the changes will be source-breaking for code that
 was compiled against libraries built with earlier versions of `gir2swift`.
-
-### Notable changes
 
  * Parameters use idiomatic Swift names (e.g. camel case instead of snake case, splitting out of "for", "from", etc.)
  * Uses the namespace referenced in the `gir` file
@@ -73,13 +80,38 @@ On macOS, you can install glib using HomeBrew (for setup instructions, see http:
 	brew install glib glib-networking gobject-introspection pkg-config
 
 
+## Usage
+
+Normally, you don't build this package directly (but for testing you can - see 'Building' below). Instead you need to embed SwiftGObject into your own project using the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGObject` as a dependency to your `Package.swift` file, e.g.:
+
+```Swift
+// swift-tools-version:5.3
+
+import PackageDescription
+
+let package = Package(name: "MyPackage",
+    dependencies: [
+        .package(name: "GLibObject", url: "https://github.com/rhx/SwiftGObject.git", .branch("main")),
+    ],
+    targets: [.target(name: "MyPackage", dependencies: ["GLibObject"])]
+)
+```
+
+
 ## Building
-Normally, you don't build this package directly, but you embed it into your own project (see 'Embedding' below).  However, you can build and test this module separately to ensure that everything works.  Make sure you have all the prerequisites installed (see above).  After that, you can simply clone this repository and build the command line executable (be patient, this will download all the required dependencies and take a while to compile) using
+Normally, you don't build this package directly, but you embed it into your own project (see 'Usage' above).  However, you can build and test this module separately to ensure that everything works.  Make sure you have all the prerequisites installed (see above).  After that, you can simply clone this repository and build the command line executable (be patient, this will download all the required dependencies and take a while to compile) using
 
 	git clone https://github.com/rhx/SwiftGObject.git
 	cd SwiftGObject
-	./build.sh
-	./test.sh
+    ./run-gir2swift.sh
+    swift build
+    swift test
+
+Please note that on macOS, due to a bug currently in the Swift Package Manager,
+you need to pass in the build flags manually, i.e. instead of `swift build` and `swift test` you can run
+
+    swift build `./run-gir2swift.sh flags -noUpdate`
+    swift test  `./run-gir2swift.sh flags -noUpdate`
 
 ### Xcode
 
@@ -116,3 +148,10 @@ this probably means that your Swift toolchain is too old.  Make sure the latest 
 	sudo xcode-select -s /Applications/Xcode.app
 	xcode-select --install
 
+### Known Issues
+
+ * The current build system does not support directory paths with spaces (e.g. the `My Drive` directory used by Google Drive File Stream).
+ * BUILD_DIR is not supported in the current build system.
+ 
+As a workaround, you can use the old build scripts, e.g. `./build.sh` instead of `run-gir2swift.sh` and `swift build` to build a package.
+ 
