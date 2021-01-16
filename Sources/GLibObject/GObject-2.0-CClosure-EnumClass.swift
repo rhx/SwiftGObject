@@ -253,6 +253,8 @@ open class CClosure: CClosureProtocol {
 
 // MARK: no CClosure properties
 
+// MARK: no CClosure signals
+
 // MARK: CClosure has no signals
 // MARK: CClosure Record: CClosureProtocol extension (methods and fields)
 public extension CClosureProtocol {
@@ -870,6 +872,8 @@ open class Closure: ClosureProtocol {
 }
 
 // MARK: no Closure properties
+
+// MARK: no Closure signals
 
 // MARK: Closure has no signals
 // MARK: Closure Record: ClosureProtocol extension (methods and fields)
@@ -1624,6 +1628,8 @@ open class ClosureNotifyData: ClosureNotifyDataProtocol {
 
 // MARK: no ClosureNotifyData properties
 
+// MARK: no ClosureNotifyData signals
+
 // MARK: ClosureNotifyData has no signals
 // MARK: ClosureNotifyData Record: ClosureNotifyDataProtocol extension (methods and fields)
 public extension ClosureNotifyDataProtocol {
@@ -1908,6 +1914,8 @@ open class EnumClass: EnumClassProtocol {
 }
 
 // MARK: no EnumClass properties
+
+// MARK: no EnumClass signals
 
 // MARK: EnumClass has no signals
 // MARK: EnumClass Record: EnumClassProtocol extension (methods and fields)

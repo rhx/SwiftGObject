@@ -253,6 +253,8 @@ open class TypeCValue: TypeCValueProtocol {
 
 // MARK: no TypeCValue properties
 
+// MARK: no TypeCValue signals
+
 // MARK: TypeCValue has no signals
 // MARK: TypeCValue Union: TypeCValueProtocol extension (methods and fields)
 public extension TypeCValueProtocol {
@@ -515,6 +517,8 @@ open class _Value__data__union: _Value__data__unionProtocol {
 }
 
 // MARK: no _Value__data__union properties
+
+// MARK: no _Value__data__union signals
 
 // MARK: _Value__data__union has no signals
 // MARK: _Value__data__union Union: _Value__data__unionProtocol extension (methods and fields)

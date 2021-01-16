@@ -259,6 +259,8 @@ open class ObjectConstructParam: ObjectConstructParamProtocol {
 
 // MARK: no ObjectConstructParam properties
 
+// MARK: no ObjectConstructParam signals
+
 // MARK: ObjectConstructParam has no signals
 // MARK: ObjectConstructParam Record: ObjectConstructParamProtocol extension (methods and fields)
 public extension ObjectConstructParamProtocol {
@@ -552,6 +554,8 @@ open class ParamSpecClass: ParamSpecClassProtocol {
 }
 
 // MARK: no ParamSpecClass properties
+
+// MARK: no ParamSpecClass signals
 
 // MARK: ParamSpecClass has no signals
 // MARK: ParamSpecClass Record: ParamSpecClassProtocol extension (methods and fields)

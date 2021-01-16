@@ -238,6 +238,8 @@ open class ParamSpecBoolean: ParamSpec, ParamSpecBooleanProtocol {
 
 // MARK: no ParamSpecBoolean properties
 
+// MARK: no ParamSpecBoolean signals
+
 // MARK: ParamSpecBoolean has no signals
 // MARK: ParamSpecBoolean Class: ParamSpecBooleanProtocol extension (methods and fields)
 public extension ParamSpecBooleanProtocol {
@@ -503,6 +505,8 @@ open class ParamSpecBoxed: ParamSpec, ParamSpecBoxedProtocol {
 
 // MARK: no ParamSpecBoxed properties
 
+// MARK: no ParamSpecBoxed signals
+
 // MARK: ParamSpecBoxed has no signals
 // MARK: ParamSpecBoxed Class: ParamSpecBoxedProtocol extension (methods and fields)
 public extension ParamSpecBoxedProtocol {
@@ -758,6 +762,8 @@ open class ParamSpecChar: ParamSpec, ParamSpecCharProtocol {
 }
 
 // MARK: no ParamSpecChar properties
+
+// MARK: no ParamSpecChar signals
 
 // MARK: ParamSpecChar has no signals
 // MARK: ParamSpecChar Class: ParamSpecCharProtocol extension (methods and fields)
@@ -1041,6 +1047,8 @@ open class ParamSpecDouble: ParamSpec, ParamSpecDoubleProtocol {
 }
 
 // MARK: no ParamSpecDouble properties
+
+// MARK: no ParamSpecDouble signals
 
 // MARK: ParamSpecDouble has no signals
 // MARK: ParamSpecDouble Class: ParamSpecDoubleProtocol extension (methods and fields)
@@ -1339,6 +1347,8 @@ open class ParamSpecEnum: ParamSpec, ParamSpecEnumProtocol {
 
 // MARK: no ParamSpecEnum properties
 
+// MARK: no ParamSpecEnum signals
+
 // MARK: ParamSpecEnum has no signals
 // MARK: ParamSpecEnum Class: ParamSpecEnumProtocol extension (methods and fields)
 public extension ParamSpecEnumProtocol {
@@ -1616,6 +1626,8 @@ open class ParamSpecFlags: ParamSpec, ParamSpecFlagsProtocol {
 
 // MARK: no ParamSpecFlags properties
 
+// MARK: no ParamSpecFlags signals
+
 // MARK: ParamSpecFlags has no signals
 // MARK: ParamSpecFlags Class: ParamSpecFlagsProtocol extension (methods and fields)
 public extension ParamSpecFlagsProtocol {
@@ -1889,6 +1901,8 @@ open class ParamSpecFloat: ParamSpec, ParamSpecFloatProtocol {
 }
 
 // MARK: no ParamSpecFloat properties
+
+// MARK: no ParamSpecFloat signals
 
 // MARK: ParamSpecFloat has no signals
 // MARK: ParamSpecFloat Class: ParamSpecFloatProtocol extension (methods and fields)
@@ -2184,6 +2198,8 @@ open class ParamSpecGType: ParamSpec, ParamSpecGTypeProtocol {
 
 // MARK: no ParamSpecGType properties
 
+// MARK: no ParamSpecGType signals
+
 // MARK: ParamSpecGType has no signals
 // MARK: ParamSpecGType Class: ParamSpecGTypeProtocol extension (methods and fields)
 public extension ParamSpecGTypeProtocol {
@@ -2448,6 +2464,8 @@ open class ParamSpecInt: ParamSpec, ParamSpecIntProtocol {
 }
 
 // MARK: no ParamSpecInt properties
+
+// MARK: no ParamSpecInt signals
 
 // MARK: ParamSpecInt has no signals
 // MARK: ParamSpecInt Class: ParamSpecIntProtocol extension (methods and fields)
@@ -2732,6 +2750,8 @@ open class ParamSpecInt64: ParamSpec, ParamSpecInt64Protocol {
 
 // MARK: no ParamSpecInt64 properties
 
+// MARK: no ParamSpecInt64 signals
+
 // MARK: ParamSpecInt64 has no signals
 // MARK: ParamSpecInt64 Class: ParamSpecInt64Protocol extension (methods and fields)
 public extension ParamSpecInt64Protocol {
@@ -3014,6 +3034,8 @@ open class ParamSpecLong: ParamSpec, ParamSpecLongProtocol {
 }
 
 // MARK: no ParamSpecLong properties
+
+// MARK: no ParamSpecLong signals
 
 // MARK: ParamSpecLong has no signals
 // MARK: ParamSpecLong Class: ParamSpecLongProtocol extension (methods and fields)
@@ -3298,6 +3320,8 @@ open class ParamSpecObject: ParamSpec, ParamSpecObjectProtocol {
 
 // MARK: no ParamSpecObject properties
 
+// MARK: no ParamSpecObject signals
+
 // MARK: ParamSpecObject has no signals
 // MARK: ParamSpecObject Class: ParamSpecObjectProtocol extension (methods and fields)
 public extension ParamSpecObjectProtocol {
@@ -3575,6 +3599,8 @@ open class ParamSpecOverride: ParamSpec, ParamSpecOverrideProtocol {
 
 // MARK: no ParamSpecOverride properties
 
+// MARK: no ParamSpecOverride signals
+
 // MARK: ParamSpecOverride has no signals
 // MARK: ParamSpecOverride Class: ParamSpecOverrideProtocol extension (methods and fields)
 public extension ParamSpecOverrideProtocol {
@@ -3828,6 +3854,8 @@ open class ParamSpecParam: ParamSpec, ParamSpecParamProtocol {
 }
 
 // MARK: no ParamSpecParam properties
+
+// MARK: no ParamSpecParam signals
 
 // MARK: ParamSpecParam has no signals
 // MARK: ParamSpecParam Class: ParamSpecParamProtocol extension (methods and fields)
@@ -4084,6 +4112,8 @@ open class ParamSpecPointer: ParamSpec, ParamSpecPointerProtocol {
 }
 
 // MARK: no ParamSpecPointer properties
+
+// MARK: no ParamSpecPointer signals
 
 // MARK: ParamSpecPointer has no signals
 // MARK: ParamSpecPointer Class: ParamSpecPointerProtocol extension (methods and fields)
@@ -4343,6 +4373,8 @@ open class ParamSpecString: ParamSpec, ParamSpecStringProtocol {
 }
 
 // MARK: no ParamSpecString properties
+
+// MARK: no ParamSpecString signals
 
 // MARK: ParamSpecString has no signals
 // MARK: ParamSpecString Class: ParamSpecStringProtocol extension (methods and fields)
@@ -4654,6 +4686,8 @@ open class ParamSpecUChar: ParamSpec, ParamSpecUCharProtocol {
 
 // MARK: no ParamSpecUChar properties
 
+// MARK: no ParamSpecUChar signals
+
 // MARK: ParamSpecUChar has no signals
 // MARK: ParamSpecUChar Class: ParamSpecUCharProtocol extension (methods and fields)
 public extension ParamSpecUCharProtocol {
@@ -4936,6 +4970,8 @@ open class ParamSpecUInt: ParamSpec, ParamSpecUIntProtocol {
 }
 
 // MARK: no ParamSpecUInt properties
+
+// MARK: no ParamSpecUInt signals
 
 // MARK: ParamSpecUInt has no signals
 // MARK: ParamSpecUInt Class: ParamSpecUIntProtocol extension (methods and fields)
@@ -5220,6 +5256,8 @@ open class ParamSpecUInt64: ParamSpec, ParamSpecUInt64Protocol {
 
 // MARK: no ParamSpecUInt64 properties
 
+// MARK: no ParamSpecUInt64 signals
+
 // MARK: ParamSpecUInt64 has no signals
 // MARK: ParamSpecUInt64 Class: ParamSpecUInt64Protocol extension (methods and fields)
 public extension ParamSpecUInt64Protocol {
@@ -5502,6 +5540,8 @@ open class ParamSpecULong: ParamSpec, ParamSpecULongProtocol {
 }
 
 // MARK: no ParamSpecULong properties
+
+// MARK: no ParamSpecULong signals
 
 // MARK: ParamSpecULong has no signals
 // MARK: ParamSpecULong Class: ParamSpecULongProtocol extension (methods and fields)
@@ -5786,6 +5826,8 @@ open class ParamSpecUnichar: ParamSpec, ParamSpecUnicharProtocol {
 
 // MARK: no ParamSpecUnichar properties
 
+// MARK: no ParamSpecUnichar signals
+
 // MARK: ParamSpecUnichar has no signals
 // MARK: ParamSpecUnichar Class: ParamSpecUnicharProtocol extension (methods and fields)
 public extension ParamSpecUnicharProtocol {
@@ -6050,6 +6092,8 @@ open class ParamSpecValueArray: ParamSpec, ParamSpecValueArrayProtocol {
 }
 
 // MARK: no ParamSpecValueArray properties
+
+// MARK: no ParamSpecValueArray signals
 
 // MARK: ParamSpecValueArray has no signals
 // MARK: ParamSpecValueArray Class: ParamSpecValueArrayProtocol extension (methods and fields)
@@ -6342,6 +6386,8 @@ open class ParamSpecVariant: ParamSpec, ParamSpecVariantProtocol {
 }
 
 // MARK: no ParamSpecVariant properties
+
+// MARK: no ParamSpecVariant signals
 
 // MARK: ParamSpecVariant has no signals
 // MARK: ParamSpecVariant Class: ParamSpecVariantProtocol extension (methods and fields)
@@ -6696,6 +6742,35 @@ open class TypeModule: Object, TypeModuleProtocol {
 }
 
 // MARK: no TypeModule properties
+
+public enum TypeModuleSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+
+}
 
 // MARK: TypeModule has no signals
 // MARK: TypeModule Class: TypeModuleProtocol extension (methods and fields)

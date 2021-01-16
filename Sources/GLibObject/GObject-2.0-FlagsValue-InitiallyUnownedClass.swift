@@ -256,6 +256,8 @@ open class FlagsValue: FlagsValueProtocol {
 
 // MARK: no FlagsValue properties
 
+// MARK: no FlagsValue signals
+
 // MARK: FlagsValue has no signals
 // MARK: FlagsValue Record: FlagsValueProtocol extension (methods and fields)
 public extension FlagsValueProtocol {

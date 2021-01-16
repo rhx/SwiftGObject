@@ -256,6 +256,8 @@ open class SignalQuery: SignalQueryProtocol {
 
 // MARK: no SignalQuery properties
 
+// MARK: no SignalQuery signals
+
 // MARK: SignalQuery has no signals
 // MARK: SignalQuery Record: SignalQueryProtocol extension (methods and fields)
 public extension SignalQueryProtocol {
@@ -699,6 +701,8 @@ open class TypeClass: TypeClassProtocol {
 }
 
 // MARK: no TypeClass properties
+
+// MARK: no TypeClass signals
 
 // MARK: TypeClass has no signals
 // MARK: TypeClass Record: TypeClassProtocol extension (methods and fields)

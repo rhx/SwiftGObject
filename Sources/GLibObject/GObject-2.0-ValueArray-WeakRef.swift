@@ -273,6 +273,8 @@ open class ValueArray: ValueArrayProtocol {
 
 // MARK: no ValueArray properties
 
+// MARK: no ValueArray signals
+
 // MARK: ValueArray has no signals
 // MARK: ValueArray Record: ValueArrayProtocol extension (methods and fields)
 public extension ValueArrayProtocol {
@@ -738,6 +740,8 @@ open class WeakRef: WeakRefProtocol {
 }
 
 // MARK: no WeakRef properties
+
+// MARK: no WeakRef signals
 
 // MARK: WeakRef has no signals
 // MARK: WeakRef Record: WeakRefProtocol extension (methods and fields)

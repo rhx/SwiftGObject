@@ -262,6 +262,8 @@ open class ParamSpecPool: ParamSpecPoolProtocol {
 
 // MARK: no ParamSpecPool properties
 
+// MARK: no ParamSpecPool signals
+
 // MARK: ParamSpecPool has no signals
 // MARK: ParamSpecPool Record: ParamSpecPoolProtocol extension (methods and fields)
 public extension ParamSpecPoolProtocol {
@@ -573,6 +575,8 @@ open class ParamSpecTypeInfo: ParamSpecTypeInfoProtocol {
 }
 
 // MARK: no ParamSpecTypeInfo properties
+
+// MARK: no ParamSpecTypeInfo signals
 
 // MARK: ParamSpecTypeInfo has no signals
 // MARK: ParamSpecTypeInfo Record: ParamSpecTypeInfoProtocol extension (methods and fields)
@@ -896,6 +900,8 @@ open class Parameter: ParameterProtocol {
 
 // MARK: no Parameter properties
 
+// MARK: no Parameter signals
+
 // MARK: Parameter has no signals
 // MARK: Parameter Record: ParameterProtocol extension (methods and fields)
 public extension ParameterProtocol {
@@ -1186,6 +1192,8 @@ open class SignalInvocationHint: SignalInvocationHintProtocol {
 }
 
 // MARK: no SignalInvocationHint properties
+
+// MARK: no SignalInvocationHint signals
 
 // MARK: SignalInvocationHint has no signals
 // MARK: SignalInvocationHint Record: SignalInvocationHintProtocol extension (methods and fields)

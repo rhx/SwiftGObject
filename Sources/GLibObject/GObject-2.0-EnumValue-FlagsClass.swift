@@ -256,6 +256,8 @@ open class EnumValue: EnumValueProtocol {
 
 // MARK: no EnumValue properties
 
+// MARK: no EnumValue signals
+
 // MARK: EnumValue has no signals
 // MARK: EnumValue Record: EnumValueProtocol extension (methods and fields)
 public extension EnumValueProtocol {
@@ -595,6 +597,8 @@ open class FlagsClass: FlagsClassProtocol {
 }
 
 // MARK: no FlagsClass properties
+
+// MARK: no FlagsClass signals
 
 // MARK: FlagsClass has no signals
 // MARK: FlagsClass Record: FlagsClassProtocol extension (methods and fields)

@@ -400,6 +400,8 @@ open class TypePlugin: TypePluginProtocol {
 
 // MARK: no TypePlugin properties
 
+// MARK: no TypePlugin signals
+
 // MARK: TypePlugin has no signals
 // MARK: TypePlugin Interface: TypePluginProtocol extension (methods and fields)
 public extension TypePluginProtocol {

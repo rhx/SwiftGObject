@@ -256,6 +256,8 @@ open class TypeFundamentalInfo: TypeFundamentalInfoProtocol {
 
 // MARK: no TypeFundamentalInfo properties
 
+// MARK: no TypeFundamentalInfo signals
+
 // MARK: TypeFundamentalInfo has no signals
 // MARK: TypeFundamentalInfo Record: TypeFundamentalInfoProtocol extension (methods and fields)
 public extension TypeFundamentalInfoProtocol {
@@ -565,6 +567,8 @@ open class TypeInfo: TypeInfoProtocol {
 }
 
 // MARK: no TypeInfo properties
+
+// MARK: no TypeInfo signals
 
 // MARK: TypeInfo has no signals
 // MARK: TypeInfo Record: TypeInfoProtocol extension (methods and fields)
@@ -1038,6 +1042,8 @@ open class TypeInstance: TypeInstanceProtocol {
 
 // MARK: no TypeInstance properties
 
+// MARK: no TypeInstance signals
+
 // MARK: TypeInstance has no signals
 // MARK: TypeInstance Record: TypeInstanceProtocol extension (methods and fields)
 public extension TypeInstanceProtocol {
@@ -1392,6 +1398,8 @@ open class TypeInterface: TypeInterfaceProtocol {
 }
 
 // MARK: no TypeInterface properties
+
+// MARK: no TypeInterface signals
 
 // MARK: TypeInterface has no signals
 // MARK: TypeInterface Record: TypeInterfaceProtocol extension (methods and fields)
@@ -1828,6 +1836,8 @@ open class TypePluginClass: TypePluginClassProtocol {
 
 // MARK: no TypePluginClass properties
 
+// MARK: no TypePluginClass signals
+
 // MARK: TypePluginClass has no signals
 // MARK: TypePluginClass Record: TypePluginClassProtocol extension (methods and fields)
 public extension TypePluginClassProtocol {
@@ -2158,6 +2168,8 @@ open class TypeQuery: TypeQueryProtocol {
 }
 
 // MARK: no TypeQuery properties
+
+// MARK: no TypeQuery signals
 
 // MARK: TypeQuery has no signals
 // MARK: TypeQuery Record: TypeQueryProtocol extension (methods and fields)
@@ -2503,6 +2515,8 @@ open class TypeValueTable: TypeValueTableProtocol {
 }
 
 // MARK: no TypeValueTable properties
+
+// MARK: no TypeValueTable signals
 
 // MARK: TypeValueTable has no signals
 // MARK: TypeValueTable Record: TypeValueTableProtocol extension (methods and fields)
@@ -2863,6 +2877,8 @@ open class ValueBase: ValueProtocol {
 }
 
 // MARK: no Value properties
+
+// MARK: no Value signals
 
 // MARK: Value has no signals
 // MARK: Value Record: ValueProtocol extension (methods and fields)

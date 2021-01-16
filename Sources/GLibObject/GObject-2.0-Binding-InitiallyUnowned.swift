@@ -550,6 +550,52 @@ public extension BindingProtocol {
     }
 }
 
+public enum BindingSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Flags to be used to control the `GBinding`
+    case notifyFlags = "notify::flags"
+    /// The `GObject` that should be used as the source of the binding
+    case notifySource = "notify::source"
+    /// The name of the property of `GBinding:source` that should be used
+    /// as the source of the binding.
+    /// 
+    /// This should be in [canonical form](#canonical-parameter-names) to get the
+    /// best performance.
+    case notifySourceProperty = "notify::source-property"
+    /// The `GObject` that should be used as the target of the binding
+    case notifyTarget = "notify::target"
+    /// The name of the property of `GBinding:target` that should be used
+    /// as the target of the binding.
+    /// 
+    /// This should be in [canonical form](#canonical-parameter-names) to get the
+    /// best performance.
+    case notifyTargetProperty = "notify::target-property"
+}
+
 // MARK: Binding has no signals
 // MARK: Binding Class: BindingProtocol extension (methods and fields)
 public extension BindingProtocol {
@@ -903,6 +949,35 @@ open class InitiallyUnowned: Object, InitiallyUnownedProtocol {
 }
 
 // MARK: no InitiallyUnowned properties
+
+public enum InitiallyUnownedSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+
+}
 
 // MARK: InitiallyUnowned has no signals
 // MARK: InitiallyUnowned Class: InitiallyUnownedProtocol extension (methods and fields)

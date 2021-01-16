@@ -256,6 +256,8 @@ open class InterfaceInfo: InterfaceInfoProtocol {
 
 // MARK: no InterfaceInfo properties
 
+// MARK: no InterfaceInfo signals
+
 // MARK: InterfaceInfo has no signals
 // MARK: InterfaceInfo Record: InterfaceInfoProtocol extension (methods and fields)
 public extension InterfaceInfoProtocol {
