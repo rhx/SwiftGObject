@@ -2,6 +2,294 @@ import CGLib
 import GLib
 import GObjectCHelpers
 
+// MARK: - CClosure Record
+
+/// The `CClosureProtocol` protocol exposes the methods and properties of an underlying `GCClosure` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `CClosure`.
+/// Alternatively, use `CClosureRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+/// A `GCClosure` is a specialization of `GClosure` for C function callbacks.
+public protocol CClosureProtocol {
+        /// Untyped pointer to the underlying `GCClosure` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GCClosure` instance.
+    var _ptr: UnsafeMutablePointer<GCClosure>! { get }
+
+}
+
+/// The `CClosureRef` type acts as a lightweight Swift reference to an underlying `GCClosure` instance.
+/// It exposes methods that can operate on this data type through `CClosureProtocol` conformance.
+/// Use `CClosureRef` only as an `unowned` reference to an existing `GCClosure` instance.
+///
+/// A `GCClosure` is a specialization of `GClosure` for C function callbacks.
+public struct CClosureRef: CClosureProtocol {
+        /// Untyped pointer to the underlying `GCClosure` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension CClosureRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GCClosure>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GCClosure>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GCClosure>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GCClosure>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `CClosureProtocol`
+    @inlinable init<T: CClosureProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CClosureProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CClosureProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CClosureProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CClosureProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CClosureProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+/// The `CClosure` type acts as an owner of an underlying `GCClosure` instance.
+/// It provides the methods that can operate on this data type through `CClosureProtocol` conformance.
+/// Use `CClosure` as a strong reference or owner of a `GCClosure` instance.
+///
+/// A `GCClosure` is a specialization of `GClosure` for C function callbacks.
+open class CClosure: CClosureProtocol {
+        /// Untyped pointer to the underlying `GCClosure` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `CClosure` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GCClosure>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `CClosure` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GCClosure>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `CClosure` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `CClosure` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `CClosure` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GCClosure>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `CClosure` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GCClosure>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GCClosure` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `CClosure` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GCClosure>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GCClosure, cannot ref(_ptr)
+    }
+
+    /// Reference intialiser for a related type that implements `CClosureProtocol`
+    /// `GCClosure` does not allow reference counting.
+    /// - Parameter other: an instance of a related type that implements `CClosureProtocol`
+    @inlinable public init<T: CClosureProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GCClosure, cannot ref(_ptr)
+    }
+
+    /// Do-nothing destructor for `GCClosure`.
+    deinit {
+        // no reference counting for GCClosure, cannot unref(_ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CClosureProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CClosureProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GCClosure, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CClosureProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CClosureProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GCClosure, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CClosureProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CClosureProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GCClosure, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CClosureProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CClosureProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GCClosure, cannot ref(_ptr)
+    }
+
+
+
+}
+
+// MARK: no CClosure properties
+
+// MARK: CClosure has no signals
+// MARK: CClosure Record: CClosureProtocol extension (methods and fields)
+public extension CClosureProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GCClosure` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GCClosure>! { return ptr?.assumingMemoryBound(to: GCClosure.self) }
+
+
+    /// the `GClosure`
+    @inlinable var closure: GClosure {
+        /// the `GClosure`
+        get {
+            let rv = _ptr.pointee.closure
+            return rv
+        }
+        /// the `GClosure`
+         set {
+            _ptr.pointee.closure = newValue
+        }
+    }
+
+    /// the callback function
+    @inlinable var callback: gpointer! {
+        /// the callback function
+        get {
+            let rv = _ptr.pointee.callback
+            return rv
+        }
+        /// the callback function
+         set {
+            _ptr.pointee.callback = newValue
+        }
+    }
+
+}
+
+
+
 // MARK: - Closure Record
 
 /// The `ClosureProtocol` protocol exposes the methods and properties of an underlying `GClosure` instance.
@@ -583,9 +871,7 @@ open class Closure: ClosureProtocol {
 
 // MARK: no Closure properties
 
-// MARK: no Closure signals
-
-
+// MARK: Closure has no signals
 // MARK: Closure Record: ClosureProtocol extension (methods and fields)
 public extension ClosureProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GClosure` instance.
@@ -1082,6 +1368,638 @@ public extension ClosureProtocol {
     // var data is unavailable because data is private
 
     // var notifiers is unavailable because notifiers is private
+
+}
+
+
+
+// MARK: - ClosureNotifyData Record
+
+/// The `ClosureNotifyDataProtocol` protocol exposes the methods and properties of an underlying `GClosureNotifyData` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ClosureNotifyData`.
+/// Alternatively, use `ClosureNotifyDataRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+
+public protocol ClosureNotifyDataProtocol {
+        /// Untyped pointer to the underlying `GClosureNotifyData` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GClosureNotifyData` instance.
+    var _ptr: UnsafeMutablePointer<GClosureNotifyData>! { get }
+
+}
+
+/// The `ClosureNotifyDataRef` type acts as a lightweight Swift reference to an underlying `GClosureNotifyData` instance.
+/// It exposes methods that can operate on this data type through `ClosureNotifyDataProtocol` conformance.
+/// Use `ClosureNotifyDataRef` only as an `unowned` reference to an existing `GClosureNotifyData` instance.
+///
+
+public struct ClosureNotifyDataRef: ClosureNotifyDataProtocol {
+        /// Untyped pointer to the underlying `GClosureNotifyData` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension ClosureNotifyDataRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GClosureNotifyData>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GClosureNotifyData>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GClosureNotifyData>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GClosureNotifyData>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `ClosureNotifyDataProtocol`
+    @inlinable init<T: ClosureNotifyDataProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureNotifyDataProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureNotifyDataProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureNotifyDataProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureNotifyDataProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureNotifyDataProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+/// The `ClosureNotifyData` type acts as an owner of an underlying `GClosureNotifyData` instance.
+/// It provides the methods that can operate on this data type through `ClosureNotifyDataProtocol` conformance.
+/// Use `ClosureNotifyData` as a strong reference or owner of a `GClosureNotifyData` instance.
+///
+
+open class ClosureNotifyData: ClosureNotifyDataProtocol {
+        /// Untyped pointer to the underlying `GClosureNotifyData` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ClosureNotifyData` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GClosureNotifyData>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ClosureNotifyData` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GClosureNotifyData>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ClosureNotifyData` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ClosureNotifyData` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ClosureNotifyData` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GClosureNotifyData>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ClosureNotifyData` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GClosureNotifyData>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GClosureNotifyData` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `ClosureNotifyData` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GClosureNotifyData>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GClosureNotifyData, cannot ref(_ptr)
+    }
+
+    /// Reference intialiser for a related type that implements `ClosureNotifyDataProtocol`
+    /// `GClosureNotifyData` does not allow reference counting.
+    /// - Parameter other: an instance of a related type that implements `ClosureNotifyDataProtocol`
+    @inlinable public init<T: ClosureNotifyDataProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GClosureNotifyData, cannot ref(_ptr)
+    }
+
+    /// Do-nothing destructor for `GClosureNotifyData`.
+    deinit {
+        // no reference counting for GClosureNotifyData, cannot unref(_ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureNotifyDataProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureNotifyDataProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GClosureNotifyData, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureNotifyDataProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureNotifyDataProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GClosureNotifyData, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureNotifyDataProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureNotifyDataProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GClosureNotifyData, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureNotifyDataProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureNotifyDataProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GClosureNotifyData, cannot ref(_ptr)
+    }
+
+
+
+}
+
+// MARK: no ClosureNotifyData properties
+
+// MARK: ClosureNotifyData has no signals
+// MARK: ClosureNotifyData Record: ClosureNotifyDataProtocol extension (methods and fields)
+public extension ClosureNotifyDataProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GClosureNotifyData` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GClosureNotifyData>! { return ptr?.assumingMemoryBound(to: GClosureNotifyData.self) }
+
+
+    @inlinable var data: gpointer! {
+        get {
+            let rv = _ptr.pointee.data
+            return rv
+        }
+         set {
+            _ptr.pointee.data = newValue
+        }
+    }
+
+    @inlinable var notify: GClosureNotify! {
+        get {
+            let rv = _ptr.pointee.notify
+            return rv
+        }
+         set {
+            _ptr.pointee.notify = newValue
+        }
+    }
+
+}
+
+
+
+// MARK: - EnumClass Record
+
+/// The `EnumClassProtocol` protocol exposes the methods and properties of an underlying `GEnumClass` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `EnumClass`.
+/// Alternatively, use `EnumClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+/// The class of an enumeration type holds information about its
+/// possible values.
+public protocol EnumClassProtocol {
+        /// Untyped pointer to the underlying `GEnumClass` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GEnumClass` instance.
+    var _ptr: UnsafeMutablePointer<GEnumClass>! { get }
+
+}
+
+/// The `EnumClassRef` type acts as a lightweight Swift reference to an underlying `GEnumClass` instance.
+/// It exposes methods that can operate on this data type through `EnumClassProtocol` conformance.
+/// Use `EnumClassRef` only as an `unowned` reference to an existing `GEnumClass` instance.
+///
+/// The class of an enumeration type holds information about its
+/// possible values.
+public struct EnumClassRef: EnumClassProtocol {
+        /// Untyped pointer to the underlying `GEnumClass` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension EnumClassRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GEnumClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GEnumClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GEnumClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GEnumClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `EnumClassProtocol`
+    @inlinable init<T: EnumClassProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EnumClassProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EnumClassProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EnumClassProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EnumClassProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EnumClassProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+/// The `EnumClass` type acts as an owner of an underlying `GEnumClass` instance.
+/// It provides the methods that can operate on this data type through `EnumClassProtocol` conformance.
+/// Use `EnumClass` as a strong reference or owner of a `GEnumClass` instance.
+///
+/// The class of an enumeration type holds information about its
+/// possible values.
+open class EnumClass: EnumClassProtocol {
+        /// Untyped pointer to the underlying `GEnumClass` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `EnumClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GEnumClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `EnumClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GEnumClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `EnumClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `EnumClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `EnumClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GEnumClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `EnumClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GEnumClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GEnumClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `EnumClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GEnumClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GEnumClass, cannot ref(_ptr)
+    }
+
+    /// Reference intialiser for a related type that implements `EnumClassProtocol`
+    /// `GEnumClass` does not allow reference counting.
+    /// - Parameter other: an instance of a related type that implements `EnumClassProtocol`
+    @inlinable public init<T: EnumClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GEnumClass, cannot ref(_ptr)
+    }
+
+    /// Do-nothing destructor for `GEnumClass`.
+    deinit {
+        // no reference counting for GEnumClass, cannot unref(_ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EnumClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EnumClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GEnumClass, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EnumClassProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EnumClassProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GEnumClass, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EnumClassProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EnumClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GEnumClass, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EnumClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EnumClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GEnumClass, cannot ref(_ptr)
+    }
+
+
+
+}
+
+// MARK: no EnumClass properties
+
+// MARK: EnumClass has no signals
+// MARK: EnumClass Record: EnumClassProtocol extension (methods and fields)
+public extension EnumClassProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GEnumClass` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GEnumClass>! { return ptr?.assumingMemoryBound(to: GEnumClass.self) }
+
+    /// Returns the `GEnumValue` for a value.
+    @inlinable func enumGet(value: Int) -> EnumValueRef! {
+        let rv = EnumValueRef(gconstpointer: gconstpointer(g_enum_get_value(_ptr, gint(value))))
+        return rv
+    }
+
+    /// Looks up a `GEnumValue` by name.
+    @inlinable func enumGetValueBy(name: UnsafePointer<gchar>!) -> EnumValueRef! {
+        let rv = EnumValueRef(gconstpointer: gconstpointer(g_enum_get_value_by_name(_ptr, name)))
+        return rv
+    }
+
+    /// Looks up a `GEnumValue` by nickname.
+    @inlinable func enumGetValueBy(nick: UnsafePointer<gchar>!) -> EnumValueRef! {
+        let rv = EnumValueRef(gconstpointer: gconstpointer(g_enum_get_value_by_nick(_ptr, nick)))
+        return rv
+    }
+
+    /// the parent class
+    @inlinable var gTypeClass: GTypeClass {
+        /// the parent class
+        get {
+            let rv = _ptr.pointee.g_type_class
+            return rv
+        }
+        /// the parent class
+         set {
+            _ptr.pointee.g_type_class = newValue
+        }
+    }
+
+    /// the smallest possible value.
+    @inlinable var minimum: gint {
+        /// the smallest possible value.
+        get {
+            let rv = _ptr.pointee.minimum
+            return rv
+        }
+        /// the smallest possible value.
+         set {
+            _ptr.pointee.minimum = newValue
+        }
+    }
+
+    /// the largest possible value.
+    @inlinable var maximum: gint {
+        /// the largest possible value.
+        get {
+            let rv = _ptr.pointee.maximum
+            return rv
+        }
+        /// the largest possible value.
+         set {
+            _ptr.pointee.maximum = newValue
+        }
+    }
+
+    /// the number of possible values.
+    @inlinable var nValues: guint {
+        /// the number of possible values.
+        get {
+            let rv = _ptr.pointee.n_values
+            return rv
+        }
+        /// the number of possible values.
+         set {
+            _ptr.pointee.n_values = newValue
+        }
+    }
+
+    /// an array of `GEnumValue` structs describing the
+    ///  individual values.
+    @inlinable var values: EnumValueRef! {
+        /// an array of `GEnumValue` structs describing the
+        ///  individual values.
+        get {
+            let rv = EnumValueRef(gconstpointer: gconstpointer(_ptr.pointee.values))
+            return rv
+        }
+        /// an array of `GEnumValue` structs describing the
+        ///  individual values.
+         set {
+            _ptr.pointee.values = UnsafeMutablePointer<GEnumValue>(newValue._ptr)
+        }
+    }
 
 }
 
