@@ -3,4 +3,4 @@
 # Remove the .build folder
 #
 . ./config.sh
-exec rm -rf "$BUILD_DIR"
+exec rm -rf .build "$BUILD_DIR"
