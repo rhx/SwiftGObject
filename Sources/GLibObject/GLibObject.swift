@@ -154,10 +154,15 @@ public extension ObjectProtocol {
         return rv.map { BindingRef($0) }
     }
 
-    /// Connects a (Void) -> Void closure or function to a signal for
-    /// the receiver object.  Similar to g_signal_connect(), but allows
+    /// Connects a (Void) -> Void closure or function to a typed signal for
+    /// the receiver object.  Similar to `g_signal_connect()`, but allows
     /// to provide a Swift closure that can capture its surrounding context.
-    @inlinable @discardableResult func connect<S: SignalNameProtocol>(_ signal: S, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping SignalHandler) -> Int {
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - handler: A Swift closure to run whenever the given signal was emitted
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @discardableResult @inlinable func connect<S: SignalNameProtocol>(_ signal: S, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping SignalHandler) -> Int {
         let rv = _connect(signal: signal.name, flags: f, data: ClosureHolder(handler)) {
             let ptr = UnsafeRawPointer($1)
             let holder = Unmanaged<SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
@@ -165,6 +170,20 @@ public extension ObjectProtocol {
             call(())
         }
         return rv
+    }
+
+    /// Type-safe wrapper for `g_signal_connect_data()`.
+    /// Connects a @convention(c) function to a typed signal for
+    /// the receiver object.
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @discardableResult @inlinable func connectSignal<S: SignalNameProtocol>(_ signal: S, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer! = nil, destroyData destructor: GClosureNotify? = nil, handler: @escaping GCallback) -> Int {
+        signalConnectData(detailedSignal: signal.name, cHandler: handler, data: userData, destroyData: destructor, connectFlags: f)
     }
 
     /// Creates a binding between @source_property on @source and @target_property
