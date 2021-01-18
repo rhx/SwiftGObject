@@ -272,7 +272,16 @@ class GLibObjectTests: XCTestCase {
             }
         }
     }
+
+    func testInitiallyUnowned() {
+        // InitiallyUnowned is actually not of type InitiallyUnownedClassRef.metatypeReference?
+        let initiallyUnowned = InitiallyUnowned(raw: ObjectRef.new(g_initially_unowned_get_type())!.ptr)
+        XCTAssertNotEqual(initiallyUnowned is InitiallyUnownedProtocol, typeIsA(type: initiallyUnowned.type, isAType: InitiallyUnownedClassRef.metatypeReference))
+        let object = Object.new(.object)!
+        XCTAssertEqual(object is InitiallyUnownedProtocol, typeIsA(type: object.type, isAType: InitiallyUnownedClassRef.metatypeReference))
+    }
 }
+
 extension GLibObjectTests {
     static var allTests : [(String, (GLibObjectTests) -> () throws -> Void)] {
         return [
@@ -283,6 +292,7 @@ extension GLibObjectTests {
 //            ("testTransformerBindings",     testTransformerBindings),
             ("testTypedBindings",           testTypedBindings),
             ("testTypedDistinctBindings",   testTypedDistinctBindings),
+            ("testInitiallyUnowned",        testInitiallyUnowned),
         ]
     }
 }
