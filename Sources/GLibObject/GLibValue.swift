@@ -337,6 +337,10 @@ public extension ValueProtocol {
     }
 }
 
+/// This class is the main Swift wrapper with memory management
+/// for underlying `GValues` (the opaque GLib structure used to
+/// hold different types of values.
+/// - Note: this class conforms to ExpressibleBy*Literal for storage of primitive types such as `String`, `Int`, `Double`, or `Bool`
 open class Value: ValueBase, ExpressibleByStringLiteral, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByBooleanLiteral {
     public typealias StringLiteralType = StaticString
     public typealias ExtendedGraphemeClusterLiteralType = StaticString
