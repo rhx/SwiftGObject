@@ -3,7 +3,7 @@
 //  GLibObject
 //
 //  Created by Rene Hexel on 17/4/17.
-//  Copyright © 2016, 2017, 2018, 2020 Rene Hexel.  All rights reserved.
+//  Copyright © 2016, 2017, 2018, 2020, 2021 Rene Hexel.  All rights reserved.
 //
 #if os(macOS) || os(iOS) || os(tvOS)
     import Darwin
@@ -117,9 +117,16 @@ public extension ValueProtocol {
         let ptr = pointer
         return ptr.map { $0.assumingMemoryBound(to: T.self) }
     }
+    /// Generic Value accessor for object types.
+    /// - Warning: this method does not check whether the object actually conforms to the given object subtype.  If you want run time safety, you need to check the (meta)type of the returned reference!
+    /// - Returns: the unwrapped value if conforming to object type or `nil`
+    @inlinable func get<O: ObjectProtocol>() -> O? {
+        if typeCheckValueHolds(type: .object)  { let o = object ; return o?.ptr.flatMap { O(raw: $0) } }
+        return nil
+    }
     /// Generic Value accessor for unknown types.
     ///
-    /// - Returns: nil
+    /// - Returns: the unwrapped value if conforming to the given type or `nil`
     @inlinable func get<T>() -> T? {
         if typeCheckValueHolds(type: .boolean) { return boolean as? T }
         if typeCheckValueHolds(type: .string)  { return string  as? T }
@@ -146,7 +153,7 @@ public extension ValueProtocol {
         let ptr = glibobject_value_dataptr(value_ptr)
         return UnsafePointer(ptr.assumingMemoryBound(to: T.self))
     }
-    
+
     /// Generic Value accessor for Object classes.
     ///
     /// - Returns: nil
@@ -273,11 +280,13 @@ public extension ValueProtocol {
         if let v = o as? StaticString { set(v) ; return }
         if let v = o as? ValueBase { set(v) ; return }
         if let v = o as? ValueRef { set(v) ; return }
-        if let v = o as? ValueProtocol { set(v) ; return }
-        if let v = o as? Object { setObject(vObject: v) ; return }
-        if let v = o as? ObjectRef { setObject(vObject: v) ; return }
-        if let v = o as? ParamSpec { set(param: v) ; return }
-        if let v = o as? ParamSpecRef { set(param: v) ; return }
+        if let v = o as? ValueProtocol { set(ValueRef(v.value_ptr)) ; return }
+        if let v = o as? Object { unset() ; set(type: .object) ; setObject(vObject: v) ; return }
+        if let v = o as? ObjectRef { unset() ; set(type: .object) ; setObject(vObject: v) ; return }
+        if let v = o as? ObjectProtocol { unset() ; set(type: .object) ; setObject(vObject: ObjectRef(v.object_ptr)) ; return }
+        if let v = o as? ParamSpec { unset() ; set(type: .param) ; set(param: v) ; return }
+        if let v = o as? ParamSpecRef { unset() ; set(type: .param) ; set(param: v) ; return }
+        if let v = o as? ParamSpecProtocol { unset() ; set(type: .param) ; set(param: ParamSpecRef(v.param_spec_ptr)) ; return }
         unset()
         g_warn_message("GLibObject", #file, #line, #function, "Cannot set \(o) of type \(O.self) as a Value")
     }
@@ -344,10 +353,10 @@ open class Value: ValueBase, ExpressibleByStringLiteral, ExpressibleByIntegerLit
     }
     @inlinable deinit { ptr.deallocate() }
 
-    /// Convenience value constructor
-    ///
-    /// - Parameter v: value to initialise with
-    @inlinable convenience override public init<T>(_ v: T) {
+    /// Convenience, optional value constructor
+    /// - Note: The value container will be `unset` if the value is `nil`
+    /// - Parameter v: optional value to initialise with (or `unset` if `nil`)
+    @inlinable convenience override public init<T>(_ v: T?) {
         self.init()
         set(v)
     }
