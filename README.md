@@ -9,6 +9,10 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 
 ## What is new?
 
+[Value](https://rhx.github.io/SwiftGObject/Classes/Value.html) instances can now be initialised from optionals.  The underlying value will be `unset` if the optional was nil.
+
+As of gir2swift version 12.2, `init(raw:)` is now required by the protocol and `init(retainingRaw:)` is required for classes, closing [PR#6](https://github.com/rhx/gir2swift/pull/6).
+
 Version 12 of gir2swift pulls in [PR#10](https://github.com/rhx/gir2swift/pull/10), addressing several issues:
 
 - Improvements to the Build experience and LSP [rhx/SwiftGtk#34](https://github.com/rhx/SwiftGtk/issues/34)
