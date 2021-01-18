@@ -17,6 +17,8 @@ public protocol TypeCValueProtocol {
     /// Typed pointer to the underlying `GTypeCValue` instance.
     var _ptr: UnsafeMutablePointer<GTypeCValue>! { get }
 
+    /// Required Initialiser for types conforming to `TypeCValueProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TypeCValueRef` type acts as a lightweight Swift reference to an underlying `GTypeCValue` instance.
@@ -220,7 +222,7 @@ open class TypeCValue: TypeCValueProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeCValueProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -282,6 +284,8 @@ public protocol _Value__data__unionProtocol {
     /// Typed pointer to the underlying `_Value__data__union` instance.
     var _ptr: UnsafeMutablePointer<GObjectTypeValueUnion>! { get }
 
+    /// Required Initialiser for types conforming to `_Value__data__unionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `_Value__data__unionRef` type acts as a lightweight Swift reference to an underlying `_Value__data__union` instance.
@@ -485,7 +489,7 @@ open class _Value__data__union: _Value__data__unionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `_Value__data__unionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

@@ -18,6 +18,8 @@ public protocol FlagsValueProtocol {
     /// Typed pointer to the underlying `GFlagsValue` instance.
     var _ptr: UnsafeMutablePointer<GFlagsValue>! { get }
 
+    /// Required Initialiser for types conforming to `FlagsValueProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FlagsValueRef` type acts as a lightweight Swift reference to an underlying `GFlagsValue` instance.
@@ -223,7 +225,7 @@ open class FlagsValue: FlagsValueProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlagsValueProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -355,6 +357,8 @@ public protocol InitiallyUnownedClassProtocol {
     /// Typed pointer to the underlying `GInitiallyUnownedClass` instance.
     var _ptr: UnsafeMutablePointer<GInitiallyUnownedClass>! { get }
 
+    /// Required Initialiser for types conforming to `InitiallyUnownedClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InitiallyUnownedClassRef` type acts as a lightweight Swift reference to an underlying `GInitiallyUnownedClass` instance.

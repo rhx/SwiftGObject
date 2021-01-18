@@ -18,6 +18,8 @@ public protocol TypeFundamentalInfoProtocol {
     /// Typed pointer to the underlying `GTypeFundamentalInfo` instance.
     var _ptr: UnsafeMutablePointer<GTypeFundamentalInfo>! { get }
 
+    /// Required Initialiser for types conforming to `TypeFundamentalInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TypeFundamentalInfoRef` type acts as a lightweight Swift reference to an underlying `GTypeFundamentalInfo` instance.
@@ -223,7 +225,7 @@ open class TypeFundamentalInfo: TypeFundamentalInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeFundamentalInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -316,6 +318,8 @@ public protocol TypeInfoProtocol {
     /// Typed pointer to the underlying `GTypeInfo` instance.
     var _ptr: UnsafeMutablePointer<GTypeInfo>! { get }
 
+    /// Required Initialiser for types conforming to `TypeInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TypeInfoRef` type acts as a lightweight Swift reference to an underlying `GTypeInfo` instance.
@@ -535,7 +539,7 @@ open class TypeInfo: TypeInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -806,6 +810,8 @@ public protocol TypeInstanceProtocol {
     /// Typed pointer to the underlying `GTypeInstance` instance.
     var _ptr: UnsafeMutablePointer<GTypeInstance>! { get }
 
+    /// Required Initialiser for types conforming to `TypeInstanceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TypeInstanceRef` type acts as a lightweight Swift reference to an underlying `GTypeInstance` instance.
@@ -1009,7 +1015,7 @@ open class TypeInstance: TypeInstanceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeInstanceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1151,6 +1157,8 @@ public protocol TypeInterfaceProtocol {
     /// Typed pointer to the underlying `GTypeInterface` instance.
     var _ptr: UnsafeMutablePointer<GTypeInterface>! { get }
 
+    /// Required Initialiser for types conforming to `TypeInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TypeInterfaceRef` type acts as a lightweight Swift reference to an underlying `GTypeInterface` instance.
@@ -1360,7 +1368,7 @@ open class TypeInterface: TypeInterfaceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeInterfaceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1465,6 +1473,8 @@ public protocol TypeModuleClassProtocol {
     /// Typed pointer to the underlying `GTypeModuleClass` instance.
     var _ptr: UnsafeMutablePointer<GTypeModuleClass>! { get }
 
+    /// Required Initialiser for types conforming to `TypeModuleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TypeModuleClassRef` type acts as a lightweight Swift reference to an underlying `GTypeModuleClass` instance.
@@ -1598,6 +1608,8 @@ public protocol TypePluginClassProtocol {
     /// Typed pointer to the underlying `GTypePluginClass` instance.
     var _ptr: UnsafeMutablePointer<GTypePluginClass>! { get }
 
+    /// Required Initialiser for types conforming to `TypePluginClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TypePluginClassRef` type acts as a lightweight Swift reference to an underlying `GTypePluginClass` instance.
@@ -1803,7 +1815,7 @@ open class TypePluginClass: TypePluginClassProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypePluginClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1931,6 +1943,8 @@ public protocol TypeQueryProtocol {
     /// Typed pointer to the underlying `GTypeQuery` instance.
     var _ptr: UnsafeMutablePointer<GTypeQuery>! { get }
 
+    /// Required Initialiser for types conforming to `TypeQueryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TypeQueryRef` type acts as a lightweight Swift reference to an underlying `GTypeQuery` instance.
@@ -2136,7 +2150,7 @@ open class TypeQuery: TypeQueryProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeQueryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2260,6 +2274,8 @@ public protocol TypeValueTableProtocol {
     /// Typed pointer to the underlying `GTypeValueTable` instance.
     var _ptr: UnsafeMutablePointer<GTypeValueTable>! { get }
 
+    /// Required Initialiser for types conforming to `TypeValueTableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TypeValueTableRef` type acts as a lightweight Swift reference to an underlying `GTypeValueTable` instance.
@@ -2474,7 +2490,7 @@ open class TypeValueTable: TypeValueTableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeValueTableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2628,6 +2644,8 @@ public protocol ValueProtocol {
     /// Typed pointer to the underlying `GValue` instance.
     var value_ptr: UnsafeMutablePointer<GValue>! { get }
 
+    /// Required Initialiser for types conforming to `ValueProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ValueRef` type acts as a lightweight Swift reference to an underlying `GValue` instance.
@@ -2845,7 +2863,7 @@ open class ValueBase: ValueProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ValueProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

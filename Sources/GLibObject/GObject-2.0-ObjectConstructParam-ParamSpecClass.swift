@@ -19,6 +19,8 @@ public protocol ObjectConstructParamProtocol {
     /// Typed pointer to the underlying `GObjectConstructParam` instance.
     var _ptr: UnsafeMutablePointer<GObjectConstructParam>! { get }
 
+    /// Required Initialiser for types conforming to `ObjectConstructParamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ObjectConstructParamRef` type acts as a lightweight Swift reference to an underlying `GObjectConstructParam` instance.
@@ -226,7 +228,7 @@ open class ObjectConstructParam: ObjectConstructParamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ObjectConstructParamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -315,6 +317,8 @@ public protocol ParamSpecClassProtocol {
     /// Typed pointer to the underlying `GParamSpecClass` instance.
     var _ptr: UnsafeMutablePointer<GParamSpecClass>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecClassRef` type acts as a lightweight Swift reference to an underlying `GParamSpecClass` instance.
@@ -522,7 +526,7 @@ open class ParamSpecClass: ParamSpecClassProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

@@ -18,6 +18,8 @@ public protocol InterfaceInfoProtocol {
     /// Typed pointer to the underlying `GInterfaceInfo` instance.
     var _ptr: UnsafeMutablePointer<GInterfaceInfo>! { get }
 
+    /// Required Initialiser for types conforming to `InterfaceInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InterfaceInfoRef` type acts as a lightweight Swift reference to an underlying `GInterfaceInfo` instance.
@@ -223,7 +225,7 @@ open class InterfaceInfo: InterfaceInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InterfaceInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -372,6 +374,8 @@ public protocol ObjectClassProtocol {
     /// Typed pointer to the underlying `GObjectClass` instance.
     var _ptr: UnsafeMutablePointer<GObjectClass>! { get }
 
+    /// Required Initialiser for types conforming to `ObjectClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ObjectClassRef` type acts as a lightweight Swift reference to an underlying `GObjectClass` instance.

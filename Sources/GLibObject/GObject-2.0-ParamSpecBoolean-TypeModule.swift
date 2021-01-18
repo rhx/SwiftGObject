@@ -17,6 +17,8 @@ public protocol ParamSpecBooleanProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecBoolean` instance.
     var param_spec_boolean_ptr: UnsafeMutablePointer<GParamSpecBoolean>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecBooleanProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecBooleanRef` type acts as a lightweight Swift reference to an underlying `GParamSpecBoolean` instance.
@@ -207,7 +209,7 @@ open class ParamSpecBoolean: ParamSpec, ParamSpecBooleanProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecBooleanProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -284,6 +286,8 @@ public protocol ParamSpecBoxedProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecBoxed` instance.
     var param_spec_boxed_ptr: UnsafeMutablePointer<GParamSpecBoxed>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecBoxedProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecBoxedRef` type acts as a lightweight Swift reference to an underlying `GParamSpecBoxed` instance.
@@ -474,7 +478,7 @@ open class ParamSpecBoxed: ParamSpec, ParamSpecBoxedProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecBoxedProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -542,6 +546,8 @@ public protocol ParamSpecCharProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecChar` instance.
     var param_spec_char_ptr: UnsafeMutablePointer<GParamSpecChar>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecCharProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecCharRef` type acts as a lightweight Swift reference to an underlying `GParamSpecChar` instance.
@@ -732,7 +738,7 @@ open class ParamSpecChar: ParamSpec, ParamSpecCharProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecCharProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -827,6 +833,8 @@ public protocol ParamSpecDoubleProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecDouble` instance.
     var param_spec_double_ptr: UnsafeMutablePointer<GParamSpecDouble>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecDoubleProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecDoubleRef` type acts as a lightweight Swift reference to an underlying `GParamSpecDouble` instance.
@@ -1017,7 +1025,7 @@ open class ParamSpecDouble: ParamSpec, ParamSpecDoubleProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecDoubleProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -1124,6 +1132,8 @@ public protocol ParamSpecEnumProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecEnum` instance.
     var param_spec_enum_ptr: UnsafeMutablePointer<GParamSpecEnum>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecEnumProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecEnumRef` type acts as a lightweight Swift reference to an underlying `GParamSpecEnum` instance.
@@ -1316,7 +1326,7 @@ open class ParamSpecEnum: ParamSpec, ParamSpecEnumProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecEnumProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -1403,6 +1413,8 @@ public protocol ParamSpecFlagsProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecFlags` instance.
     var param_spec_flags_ptr: UnsafeMutablePointer<GParamSpecFlags>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecFlagsProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecFlagsRef` type acts as a lightweight Swift reference to an underlying `GParamSpecFlags` instance.
@@ -1595,7 +1607,7 @@ open class ParamSpecFlags: ParamSpec, ParamSpecFlagsProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecFlagsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -1681,6 +1693,8 @@ public protocol ParamSpecFloatProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecFloat` instance.
     var param_spec_float_ptr: UnsafeMutablePointer<GParamSpecFloat>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecFloatProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecFloatRef` type acts as a lightweight Swift reference to an underlying `GParamSpecFloat` instance.
@@ -1871,7 +1885,7 @@ open class ParamSpecFloat: ParamSpec, ParamSpecFloatProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecFloatProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -1977,6 +1991,8 @@ public protocol ParamSpecGTypeProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecGType` instance.
     var param_spec_gtype_ptr: UnsafeMutablePointer<GParamSpecGType>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecGTypeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecGTypeRef` type acts as a lightweight Swift reference to an underlying `GParamSpecGType` instance.
@@ -2167,7 +2183,7 @@ open class ParamSpecGType: ParamSpec, ParamSpecGTypeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecGTypeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -2244,6 +2260,8 @@ public protocol ParamSpecIntProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecInt` instance.
     var param_spec_int_ptr: UnsafeMutablePointer<GParamSpecInt>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecIntProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecIntRef` type acts as a lightweight Swift reference to an underlying `GParamSpecInt` instance.
@@ -2434,7 +2452,7 @@ open class ParamSpecInt: ParamSpec, ParamSpecIntProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecIntProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -2529,6 +2547,8 @@ public protocol ParamSpecInt64Protocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecInt64` instance.
     var param_spec_int64_ptr: UnsafeMutablePointer<GParamSpecInt64>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecInt64Protocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecInt64Ref` type acts as a lightweight Swift reference to an underlying `GParamSpecInt64` instance.
@@ -2719,7 +2739,7 @@ open class ParamSpecInt64: ParamSpec, ParamSpecInt64Protocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecInt64Protocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -2814,6 +2834,8 @@ public protocol ParamSpecLongProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecLong` instance.
     var param_spec_long_ptr: UnsafeMutablePointer<GParamSpecLong>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecLongProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecLongRef` type acts as a lightweight Swift reference to an underlying `GParamSpecLong` instance.
@@ -3004,7 +3026,7 @@ open class ParamSpecLong: ParamSpec, ParamSpecLongProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecLongProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -3099,6 +3121,8 @@ public protocol ParamSpecObjectProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecObject` instance.
     var param_spec_object_ptr: UnsafeMutablePointer<GParamSpecObject>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecObjectProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecObjectRef` type acts as a lightweight Swift reference to an underlying `GParamSpecObject` instance.
@@ -3289,7 +3313,7 @@ open class ParamSpecObject: ParamSpec, ParamSpecObjectProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecObjectProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -3364,6 +3388,8 @@ public protocol ParamSpecOverrideProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecOverride` instance.
     var param_spec_override_ptr: UnsafeMutablePointer<GParamSpecOverride>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecOverrideProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecOverrideRef` type acts as a lightweight Swift reference to an underlying `GParamSpecOverride` instance.
@@ -3568,7 +3594,7 @@ open class ParamSpecOverride: ParamSpec, ParamSpecOverrideProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecOverrideProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -3632,6 +3658,8 @@ public protocol ParamSpecParamProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecParam` instance.
     var param_spec_param_ptr: UnsafeMutablePointer<GParamSpecParam>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecParamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecParamRef` type acts as a lightweight Swift reference to an underlying `GParamSpecParam` instance.
@@ -3824,7 +3852,7 @@ open class ParamSpecParam: ParamSpec, ParamSpecParamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecParamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -3892,6 +3920,8 @@ public protocol ParamSpecPointerProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecPointer` instance.
     var param_spec_pointer_ptr: UnsafeMutablePointer<GParamSpecPointer>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecPointerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecPointerRef` type acts as a lightweight Swift reference to an underlying `GParamSpecPointer` instance.
@@ -4082,7 +4112,7 @@ open class ParamSpecPointer: ParamSpec, ParamSpecPointerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecPointerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -4151,6 +4181,8 @@ public protocol ParamSpecStringProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecString` instance.
     var param_spec_string_ptr: UnsafeMutablePointer<GParamSpecString>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecStringProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecStringRef` type acts as a lightweight Swift reference to an underlying `GParamSpecString` instance.
@@ -4343,7 +4375,7 @@ open class ParamSpecString: ParamSpec, ParamSpecStringProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecStringProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -4465,6 +4497,8 @@ public protocol ParamSpecUCharProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecUChar` instance.
     var param_spec_uchar_ptr: UnsafeMutablePointer<GParamSpecUChar>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecUCharProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecUCharRef` type acts as a lightweight Swift reference to an underlying `GParamSpecUChar` instance.
@@ -4655,7 +4689,7 @@ open class ParamSpecUChar: ParamSpec, ParamSpecUCharProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUCharProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -4750,6 +4784,8 @@ public protocol ParamSpecUIntProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecUInt` instance.
     var param_spec_uint_ptr: UnsafeMutablePointer<GParamSpecUInt>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecUIntProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecUIntRef` type acts as a lightweight Swift reference to an underlying `GParamSpecUInt` instance.
@@ -4940,7 +4976,7 @@ open class ParamSpecUInt: ParamSpec, ParamSpecUIntProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUIntProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -5035,6 +5071,8 @@ public protocol ParamSpecUInt64Protocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecUInt64` instance.
     var param_spec_uint64_ptr: UnsafeMutablePointer<GParamSpecUInt64>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecUInt64Protocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecUInt64Ref` type acts as a lightweight Swift reference to an underlying `GParamSpecUInt64` instance.
@@ -5225,7 +5263,7 @@ open class ParamSpecUInt64: ParamSpec, ParamSpecUInt64Protocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUInt64Protocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -5320,6 +5358,8 @@ public protocol ParamSpecULongProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecULong` instance.
     var param_spec_ulong_ptr: UnsafeMutablePointer<GParamSpecULong>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecULongProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecULongRef` type acts as a lightweight Swift reference to an underlying `GParamSpecULong` instance.
@@ -5510,7 +5550,7 @@ open class ParamSpecULong: ParamSpec, ParamSpecULongProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecULongProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -5605,6 +5645,8 @@ public protocol ParamSpecUnicharProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecUnichar` instance.
     var param_spec_unichar_ptr: UnsafeMutablePointer<GParamSpecUnichar>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecUnicharProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecUnicharRef` type acts as a lightweight Swift reference to an underlying `GParamSpecUnichar` instance.
@@ -5795,7 +5837,7 @@ open class ParamSpecUnichar: ParamSpec, ParamSpecUnicharProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUnicharProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -5872,6 +5914,8 @@ public protocol ParamSpecValueArrayProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecValueArray` instance.
     var param_spec_value_array_ptr: UnsafeMutablePointer<GParamSpecValueArray>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecValueArrayProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecValueArrayRef` type acts as a lightweight Swift reference to an underlying `GParamSpecValueArray` instance.
@@ -6062,7 +6106,7 @@ open class ParamSpecValueArray: ParamSpec, ParamSpecValueArrayProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecValueArrayProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -6154,6 +6198,8 @@ public protocol ParamSpecVariantProtocol: ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpecVariant` instance.
     var param_spec_variant_ptr: UnsafeMutablePointer<GParamSpecVariant>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecVariantProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecVariantRef` type acts as a lightweight Swift reference to an underlying `GParamSpecVariant` instance.
@@ -6356,7 +6402,7 @@ open class ParamSpecVariant: ParamSpec, ParamSpecVariantProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecVariantProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -6469,6 +6515,8 @@ public protocol TypeModuleProtocol: ObjectProtocol, TypePluginProtocol {
     /// Typed pointer to the underlying `GTypeModule` instance.
     var type_module_ptr: UnsafeMutablePointer<GTypeModule>! { get }
 
+    /// Required Initialiser for types conforming to `TypeModuleProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TypeModuleRef` type acts as a lightweight Swift reference to an underlying `GTypeModule` instance.
@@ -6712,14 +6760,14 @@ open class TypeModule: Object, TypeModuleProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

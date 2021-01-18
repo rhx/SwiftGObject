@@ -18,6 +18,8 @@ public protocol SignalQueryProtocol {
     /// Typed pointer to the underlying `GSignalQuery` instance.
     var _ptr: UnsafeMutablePointer<GSignalQuery>! { get }
 
+    /// Required Initialiser for types conforming to `SignalQueryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SignalQueryRef` type acts as a lightweight Swift reference to an underlying `GSignalQuery` instance.
@@ -223,7 +225,7 @@ open class SignalQuery: SignalQueryProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SignalQueryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -418,6 +420,8 @@ public protocol TypeClassProtocol {
     /// Typed pointer to the underlying `GTypeClass` instance.
     var _ptr: UnsafeMutablePointer<GTypeClass>! { get }
 
+    /// Required Initialiser for types conforming to `TypeClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TypeClassRef` type acts as a lightweight Swift reference to an underlying `GTypeClass` instance.
@@ -645,7 +649,7 @@ open class TypeClass: TypeClassProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

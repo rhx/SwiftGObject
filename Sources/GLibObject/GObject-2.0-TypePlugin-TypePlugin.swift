@@ -66,6 +66,8 @@ public protocol TypePluginProtocol {
     /// Typed pointer to the underlying `GTypePlugin` instance.
     var type_plugin_ptr: UnsafeMutablePointer<GTypePlugin>! { get }
 
+    /// Required Initialiser for types conforming to `TypePluginProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TypePluginRef` type acts as a lightweight Swift reference to an underlying `GTypePlugin` instance.
@@ -367,7 +369,7 @@ open class TypePlugin: TypePluginProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypePluginProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

@@ -17,6 +17,8 @@ public protocol ValueArrayProtocol {
     /// Typed pointer to the underlying `GValueArray` instance.
     var value_array_ptr: UnsafeMutablePointer<GValueArray>! { get }
 
+    /// Required Initialiser for types conforming to `ValueArrayProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ValueArrayRef` type acts as a lightweight Swift reference to an underlying `GValueArray` instance.
@@ -230,7 +232,7 @@ open class ValueArray: ValueArrayProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ValueArrayProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -467,6 +469,8 @@ public protocol WeakRefProtocol {
     /// Typed pointer to the underlying `GWeakRef` instance.
     var _ptr: UnsafeMutablePointer<GWeakRef>! { get }
 
+    /// Required Initialiser for types conforming to `WeakRefProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WeakRefRef` type acts as a lightweight Swift reference to an underlying `GWeakRef` instance.
@@ -708,7 +712,7 @@ open class WeakRef: WeakRefProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WeakRefProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

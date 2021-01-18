@@ -18,6 +18,8 @@ public protocol ObjectProtocol {
     /// Typed pointer to the underlying `GObject` instance.
     var object_ptr: UnsafeMutablePointer<GObject>! { get }
 
+    /// Required Initialiser for types conforming to `ObjectProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ObjectRef` type acts as a lightweight Swift reference to an underlying `GObject` instance.
@@ -294,14 +296,14 @@ open class Object: ObjectProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ObjectProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ObjectProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
         g_object_ref(ptr.assumingMemoryBound(to: GObject.self))
     }
@@ -1402,6 +1404,8 @@ public protocol ParamSpecProtocol {
     /// Typed pointer to the underlying `GParamSpec` instance.
     var param_spec_ptr: UnsafeMutablePointer<GParamSpec>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecRef` type acts as a lightweight Swift reference to an underlying `GParamSpec` instance.
@@ -1644,7 +1648,7 @@ open class ParamSpec: ParamSpecProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

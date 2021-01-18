@@ -18,6 +18,8 @@ public protocol EnumValueProtocol {
     /// Typed pointer to the underlying `GEnumValue` instance.
     var _ptr: UnsafeMutablePointer<GEnumValue>! { get }
 
+    /// Required Initialiser for types conforming to `EnumValueProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EnumValueRef` type acts as a lightweight Swift reference to an underlying `GEnumValue` instance.
@@ -223,7 +225,7 @@ open class EnumValue: EnumValueProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EnumValueProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -360,6 +362,8 @@ public protocol FlagsClassProtocol {
     /// Typed pointer to the underlying `GFlagsClass` instance.
     var _ptr: UnsafeMutablePointer<GFlagsClass>! { get }
 
+    /// Required Initialiser for types conforming to `FlagsClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FlagsClassRef` type acts as a lightweight Swift reference to an underlying `GFlagsClass` instance.
@@ -565,7 +569,7 @@ open class FlagsClass: FlagsClassProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlagsClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

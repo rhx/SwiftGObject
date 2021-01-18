@@ -96,6 +96,8 @@ public protocol BindingProtocol: ObjectProtocol {
     /// Typed pointer to the underlying `GBinding` instance.
     var binding_ptr: UnsafeMutablePointer<GBinding>! { get }
 
+    /// Required Initialiser for types conforming to `BindingProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BindingRef` type acts as a lightweight Swift reference to an underlying `GBinding` instance.
@@ -447,14 +449,14 @@ open class Binding: Object, BindingProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BindingProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BindingProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -716,6 +718,8 @@ public protocol InitiallyUnownedProtocol: ObjectProtocol {
     /// Typed pointer to the underlying `GInitiallyUnowned` instance.
     var initially_unowned_ptr: UnsafeMutablePointer<GInitiallyUnowned>! { get }
 
+    /// Required Initialiser for types conforming to `InitiallyUnownedProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InitiallyUnownedRef` type acts as a lightweight Swift reference to an underlying `GInitiallyUnowned` instance.
@@ -919,14 +923,14 @@ open class InitiallyUnowned: Object, InitiallyUnownedProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitiallyUnownedProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitiallyUnownedProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

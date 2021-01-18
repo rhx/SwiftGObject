@@ -17,6 +17,8 @@ public protocol CClosureProtocol {
     /// Typed pointer to the underlying `GCClosure` instance.
     var _ptr: UnsafeMutablePointer<GCClosure>! { get }
 
+    /// Required Initialiser for types conforming to `CClosureProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CClosureRef` type acts as a lightweight Swift reference to an underlying `GCClosure` instance.
@@ -220,7 +222,7 @@ open class CClosure: CClosureProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CClosureProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -349,6 +351,8 @@ public protocol ClosureProtocol {
     /// Typed pointer to the underlying `GClosure` instance.
     var closure_ptr: UnsafeMutablePointer<GClosure>! { get }
 
+    /// Required Initialiser for types conforming to `ClosureProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ClosureRef` type acts as a lightweight Swift reference to an underlying `GClosure` instance.
@@ -738,7 +742,7 @@ open class Closure: ClosureProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1392,6 +1396,8 @@ public protocol ClosureNotifyDataProtocol {
     /// Typed pointer to the underlying `GClosureNotifyData` instance.
     var _ptr: UnsafeMutablePointer<GClosureNotifyData>! { get }
 
+    /// Required Initialiser for types conforming to `ClosureNotifyDataProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ClosureNotifyDataRef` type acts as a lightweight Swift reference to an underlying `GClosureNotifyData` instance.
@@ -1595,7 +1601,7 @@ open class ClosureNotifyData: ClosureNotifyDataProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClosureNotifyDataProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1677,6 +1683,8 @@ public protocol EnumClassProtocol {
     /// Typed pointer to the underlying `GEnumClass` instance.
     var _ptr: UnsafeMutablePointer<GEnumClass>! { get }
 
+    /// Required Initialiser for types conforming to `EnumClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EnumClassRef` type acts as a lightweight Swift reference to an underlying `GEnumClass` instance.
@@ -1882,7 +1890,7 @@ open class EnumClass: EnumClassProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EnumClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
