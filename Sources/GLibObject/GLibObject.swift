@@ -286,7 +286,11 @@ public extension ObjectProtocol {
 
 //MARK:- Swift Object
 
-public let swiftObjKey = "swiftobj";
+let swiftObjKey = "swiftobj";
+
+let gtrue: gboolean = 1
+
+let gfalse: gboolean = 0
 
 public extension GLibObject.ObjectProtocol {
 	
