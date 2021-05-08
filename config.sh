@@ -4,7 +4,7 @@
 # the compiler and linker flags to use.
 #
 VER=2.0
-JAZZY_VER=2.66.4
+JAZZY_VER=2.68.1
 Mod=`grep name: Package.swift | head -n1 | cut -d'"' -f2`
 Pkg=GObject
 Module=${Pkg}-${VER}
