@@ -126,8 +126,9 @@ Normally, you don't build this package directly, but you embed it into your own 
     swift build
     swift test
 
-Please note that on macOS, due to a bug currently in the Swift Package Manager,
-you need to pass in the build flags manually, i.e. instead of `swift build` and `swift test` you can run
+Please note that on macOS, due to a bug in the Swift Package Manager prior to Swift 5.4,
+if you have Xcode-12.4 or older, you need to pass in the build flags manually,
+i.e. instead of `swift build` and `swift test` you can run
 
     swift build `./run-gir2swift.sh flags -noUpdate`
     swift test  `./run-gir2swift.sh flags -noUpdate`
@@ -143,12 +144,17 @@ After that, use the (usual) Build and Test buttons to build/test this package.
 
 
 ## Documentation
-You can find reference documentation inside the [docs](https://rhx.github.io/SwiftGObject/) folder.
+
+You can find reference documentation inside the [docs](https://rhx.github.io/SwiftGLib/) folder.
 This was generated using the [jazzy](https://github.com/realm/jazzy) tool.
 If you want to generate your own documentation, matching your local installation,
 you can use the `generate-documentation.sh` script in the repository.
-Unfortunately, at this stage [jazzy](https://github.com/realm/jazzy) only works on macOS (and crashes under Linux), so this will currently only work on a Mac.
+Make sure you have [sourcekitten](https://github.com/jpsim/SourceKitten) and [jazzy](https://github.com/realm/jazzy) installed, e.g. on macOS:
 
+	brew install sourcekitten
+	sudo gem install jazzy
+	./run-gir2swift.sh
+	./generate-documentation.sh
 
 
 ## Troubleshooting
