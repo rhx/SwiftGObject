@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLibObject 2.66.4 Docs
+          GLibObject 2.68.1 Docs
         </a>
          (97% documented)
       </p>
@@ -503,9 +503,6 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject16paramSpecPointer4name4nick5blurb5flagsAA05ParamD3RefVSgSPys4Int8VGSg_A2mA0J5FlagsVtF">paramSpecPointer(name:nick:blurb:flags:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject16paramSpecPoolNew13typePrefixingAA05ParamdE3RefVSgSb_tF">paramSpecPoolNew(typePrefixing:)</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject15paramSpecString4name4nick5blurb12defaultValue5flagsAA05ParamD3RefVSgSPys4Int8VGSg_A3nA0L5FlagsVtF">paramSpecString(name:nick:blurb:defaultValue:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -644,7 +641,10 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject10signalName0C2IDSSSgSi_tF">signalName(signalID:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject15signalNewValist0C4Name5itype0C5Flags12classClosure11accumulator8accuData11cMarshaller10returnType7nParams4argsSiSPys4Int8VGSg_SuAA06SignalH0Vxs5Int32VSpySo22_GSignalInvocationHintVGSg_SpySo7_GValueVGSgSPyAZGSgSvSgtXCA3_ySpySo9_GClosureVGSg_A0_s6UInt32VA2_A3_A3_tXCSgSuSis14CVaListPointerVtAA0J8ProtocolRzlF">signalNewValist(signalName:itype:signalFlags:classClosure:accumulator:accuData:cMarshaller:returnType:nParams:args:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject15signalNewValist0C4Name5itype0C5Flags12classClosure11accumulator8accuData11cMarshaller10returnType7nParams4argsSiSPys4Int8VGSg_SuAA06SignalH0VAA0J3RefVSgs5Int32VSpySo22_GSignalInvocationHintVGSg_SpySo7_GValueVGSgSPyA1_GSgSvSgtXCSgA6_ySpySo9_GClosureVGSg_A3_s6UInt32VA5_A6_A6_tXCSgSuSis14CVaListPointerVtF">signalNewValist(signalName:itype:signalFlags:classClosure:accumulator:accuData:cMarshaller:returnType:nParams:args:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject15signalNewValist0C4Name5itype0C5Flags12classClosure11accumulator8accuData11cMarshaller10returnType7nParams4argsSiSPys4Int8VGSg_SuAA06SignalH0VxSgs5Int32VSpySo22_GSignalInvocationHintVGSg_SpySo7_GValueVGSgSPyA_GSgSvSgtXCSgA4_ySpySo9_GClosureVGSg_A1_s6UInt32VA3_A4_A4_tXCSgSuSis14CVaListPointerVtAA0J8ProtocolRzlF">signalNewValist(signalName:itype:signalFlags:classClosure:accumulator:accuData:cMarshaller:returnType:nParams:args:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject10signalNewv0C4Name5itype0C5Flags12classClosure11accumulator8accuData11cMarshaller10returnType7nParams10paramTypesSiSPys4Int8VGSg_SuAA06SignalG0VAA0I3RefVSgs5Int32VSpySo22_GSignalInvocationHintVGSg_SpySo7_GValueVGSgSPyA1_GSgSvSgtXCSgA6_ySpySo9_GClosureVGSg_A3_s6UInt32VA5_A6_A6_tXCSgSuSiSpySuGSgtF">signalNewv(signalName:itype:signalFlags:classClosure:accumulator:accuData:cMarshaller:returnType:nParams:paramTypes:)</a>
@@ -1897,18 +1897,31 @@ binding, source, and target instances to drop.</p>
                       <div class="abstract">
                         <p>Retrieves the <code>GObject</code> instance used as the source of the binding.</p>
 
+<p>A <code>GBinding</code> can outlive the source <code>GObject</code> as the binding does not hold a
+strong reference to the source. If the source is destroyed before the
+binding then this function will return <code>nil</code>.</p>
+
+<p>Use <code>g_binding_dup_source()</code> if the source or binding are used from different
+threads as otherwise the pointer returned from this function might become
+invalid if the source is finalized from another thread in the meantime.</p>
+
+<p><strong>get_source is deprecated:</strong>
+Use g_binding_dup_source() for a safer version of this
+function.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">@inlinable</span>
 <span class="kd">func</span> <span class="nf">getSource</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ObjectRef.html">ObjectRef</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L614-L617">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L626-L629">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1943,7 +1956,7 @@ of the binding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L621-L624">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L633-L636">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1966,18 +1979,31 @@ of the binding.</p>
                       <div class="abstract">
                         <p>Retrieves the <code>GObject</code> instance used as the target of the binding.</p>
 
+<p>A <code>GBinding</code> can outlive the target <code>GObject</code> as the binding does not hold a
+strong reference to the target. If the target is destroyed before the
+binding then this function will return <code>nil</code>.</p>
+
+<p>Use <code>g_binding_dup_target()</code> if the target or binding are used from different
+threads as otherwise the pointer returned from this function might become
+invalid if the target is finalized from another thread in the meantime.</p>
+
+<p><strong>get_target is deprecated:</strong>
+Use g_binding_dup_target() for a safer version of this
+function.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">@inlinable</span>
 <span class="kd">func</span> <span class="nf">getTarget</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ObjectRef.html">ObjectRef</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L627-L630">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L651-L654">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2012,7 +2038,7 @@ of the binding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L634-L637">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L658-L661">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2037,9 +2063,13 @@ of the binding.</p>
 property expressed by <code>binding</code>.</p>
 
 <p>This function will release the reference that is being held on
-the <code>binding</code> instance; if you want to hold on to the <code>GBinding</code> instance
-after calling <code>g_binding_unbind()</code>, you will need to hold a reference
-to it.</p>
+the <code>binding</code> instance if the binding is still bound; if you want to hold on
+to the <code>GBinding</code> instance after calling <code>g_binding_unbind()</code>, you will need
+to hold a reference to it.</p>
+
+<p>Note however that this function does not take ownership of <code>binding</code>, it
+only unrefs the reference that was initially created by
+<code>g_object_bind_property()</code> and is owned by the binding.</p>
 
                       </div>
                       <div class="declaration">
@@ -2052,7 +2082,7 @@ to it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L646-L649">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L674-L677">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2086,7 +2116,7 @@ to it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L651-L657">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L679-L685">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2120,7 +2150,7 @@ to it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L660-L666">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L688-L706">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2155,7 +2185,7 @@ of the binding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L670-L677">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L710-L717">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2189,7 +2219,7 @@ of the binding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L680-L686">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L720-L738">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2224,7 +2254,7 @@ of the binding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L690-L697">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L742-L749">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2237,8 +2267,8 @@ of the binding.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
