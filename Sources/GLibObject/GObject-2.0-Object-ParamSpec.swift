@@ -573,6 +573,13 @@ public extension ObjectProtocol {
     /// `source` and the `target` you can just call `g_object_unref()` on the returned
     /// `GBinding` instance.
     /// 
+    /// Removing the binding by calling `g_object_unref()` on it must only be done if
+    /// the binding, `source` and `target` are only used from a single thread and it
+    /// is clear that both `source` and `target` outlive the binding. Especially it
+    /// is not safe to rely on this if the binding, `source` or `target` can be
+    /// finalized from different threads. Keep another reference to the binding and
+    /// use `g_binding_unbind()` instead to be on the safe side.
+    /// 
     /// A `GObject` can have multiple bindings.
     @inlinable func bindProperty<ObjectT: ObjectProtocol>(sourceProperty: UnsafePointer<gchar>!, target: ObjectT, targetProperty: UnsafePointer<gchar>!, flags: BindingFlags) -> BindingRef! {
         let rv = BindingRef(gconstpointer: gconstpointer(g_object_bind_property(object_ptr, sourceProperty, target.object_ptr, targetProperty, flags.value)))
@@ -1062,7 +1069,7 @@ public extension ObjectProtocol {
     }
 
     /// Adds a weak reference callback to an object. Weak references are
-    /// used for notification when an object is finalized. They are called
+    /// used for notification when an object is disposed. They are called
     /// "weak references" because they allow you to safely hold a pointer
     /// to an object without calling `g_object_ref()` (`g_object_ref()` adds a
     /// strong reference, that is, forces the object to stay alive).
@@ -1108,8 +1115,8 @@ public extension ObjectProtocol {
     /// 
     /// If the handler ID is 0 then this function does nothing.
     /// 
-    /// A macro is also included that allows this function to be used without
-    /// pointer casts.
+    /// There is also a macro version of this function so that the code
+    /// will be inlined.
     @inlinable func clearSignalHandler(handlerIDPtr: UnsafeMutablePointer<gulong>!) {
         g_clear_signal_handler(handlerIDPtr, object_ptr)
     
@@ -1132,7 +1139,7 @@ public extension ObjectProtocol {
     /// which will be called when the signal handler is disconnected and no longer
     /// used. Specify `connect_flags` if you need ``..._after()`` or
     /// ``..._swapped()`` variants of this function.
-    @inlinable func signalConnectData(detailedSignal: UnsafePointer<gchar>!, cHandler: @escaping GCallback, data: gpointer! = nil, destroyData: GClosureNotify?, connectFlags: ConnectFlags) -> Int {
+    @inlinable func signalConnectData(detailedSignal: UnsafePointer<gchar>!, cHandler: @escaping GCallback, data: gpointer! = nil, destroyData: GClosureNotify? = nil, connectFlags: ConnectFlags) -> Int {
         let rv = Int(g_signal_connect_data(object_ptr, detailedSignal, cHandler, data, destroyData, connectFlags.value))
         return rv
     }
@@ -1785,7 +1792,7 @@ public extension ParamSpecProtocol {
     /// specified which is called with `data` as argument when the `pspec` is
     /// finalized, or the data is being overwritten by a call to
     /// `g_param_spec_set_qdata()` with the same `quark`.
-    @inlinable func setQdataFull(quark: GQuark, data: gpointer! = nil, destroy: GDestroyNotify?) {
+    @inlinable func setQdataFull(quark: GQuark, data: gpointer! = nil, destroy: GDestroyNotify? = nil) {
         g_param_spec_set_qdata_full(param_spec_ptr, quark, data, destroy)
     
     }

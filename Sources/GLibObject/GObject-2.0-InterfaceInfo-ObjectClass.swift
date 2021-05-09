@@ -266,7 +266,7 @@ public extension InterfaceInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInterfaceInfo` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GInterfaceInfo>! { return ptr?.assumingMemoryBound(to: GInterfaceInfo.self) }
 
-    /// Adds `interface_type` to the static `instantiable_type`.
+    /// Adds `interface_type` to the static `instance_type`.
     /// The information contained in the `GInterfaceInfo` structure
     /// pointed to by `info` is used to manage the relationship.
     @inlinable func typeAddInterfaceStatic(instanceType: GType, interfaceType: GType) {

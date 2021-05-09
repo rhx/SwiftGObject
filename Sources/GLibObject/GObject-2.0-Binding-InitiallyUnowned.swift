@@ -611,7 +611,19 @@ public extension BindingProtocol {
     }
 
     /// Retrieves the `GObject` instance used as the source of the binding.
-    @inlinable func getSource() -> ObjectRef! {
+    /// 
+    /// A `GBinding` can outlive the source `GObject` as the binding does not hold a
+    /// strong reference to the source. If the source is destroyed before the
+    /// binding then this function will return `nil`.
+    /// 
+    /// Use `g_binding_dup_source()` if the source or binding are used from different
+    /// threads as otherwise the pointer returned from this function might become
+    /// invalid if the source is finalized from another thread in the meantime.
+    ///
+    /// **get_source is deprecated:**
+    /// Use g_binding_dup_source() for a safer version of this
+    /// function.
+    @available(*, deprecated) @inlinable func getSource() -> ObjectRef! {
         guard let rv = ObjectRef(gconstpointer: gconstpointer(g_binding_get_source(binding_ptr))) else { return nil }
         return rv
     }
@@ -624,7 +636,19 @@ public extension BindingProtocol {
     }
 
     /// Retrieves the `GObject` instance used as the target of the binding.
-    @inlinable func getTarget() -> ObjectRef! {
+    /// 
+    /// A `GBinding` can outlive the target `GObject` as the binding does not hold a
+    /// strong reference to the target. If the target is destroyed before the
+    /// binding then this function will return `nil`.
+    /// 
+    /// Use `g_binding_dup_target()` if the target or binding are used from different
+    /// threads as otherwise the pointer returned from this function might become
+    /// invalid if the target is finalized from another thread in the meantime.
+    ///
+    /// **get_target is deprecated:**
+    /// Use g_binding_dup_target() for a safer version of this
+    /// function.
+    @available(*, deprecated) @inlinable func getTarget() -> ObjectRef! {
         guard let rv = ObjectRef(gconstpointer: gconstpointer(g_binding_get_target(binding_ptr))) else { return nil }
         return rv
     }
@@ -640,9 +664,13 @@ public extension BindingProtocol {
     /// property expressed by `binding`.
     /// 
     /// This function will release the reference that is being held on
-    /// the `binding` instance; if you want to hold on to the `GBinding` instance
-    /// after calling `g_binding_unbind()`, you will need to hold a reference
-    /// to it.
+    /// the `binding` instance if the binding is still bound; if you want to hold on
+    /// to the `GBinding` instance after calling `g_binding_unbind()`, you will need
+    /// to hold a reference to it.
+    /// 
+    /// Note however that this function does not take ownership of `binding`, it
+    /// only unrefs the reference that was initially created by
+    /// `g_object_bind_property()` and is owned by the binding.
     @inlinable func unbind() {
         g_binding_unbind(binding_ptr)
     
@@ -659,7 +687,19 @@ public extension BindingProtocol {
     /// The `GObject` that should be used as the source of the binding
     @inlinable var source: ObjectRef! {
         /// Retrieves the `GObject` instance used as the source of the binding.
-        get {
+        /// 
+        /// A `GBinding` can outlive the source `GObject` as the binding does not hold a
+        /// strong reference to the source. If the source is destroyed before the
+        /// binding then this function will return `nil`.
+        /// 
+        /// Use `g_binding_dup_source()` if the source or binding are used from different
+        /// threads as otherwise the pointer returned from this function might become
+        /// invalid if the source is finalized from another thread in the meantime.
+        ///
+        /// **get_source is deprecated:**
+        /// Use g_binding_dup_source() for a safer version of this
+        /// function.
+        @available(*, deprecated) get {
             guard let rv = ObjectRef(gconstpointer: gconstpointer(g_binding_get_source(binding_ptr))) else { return nil }
             return rv
         }
@@ -679,7 +719,19 @@ public extension BindingProtocol {
     /// The `GObject` that should be used as the target of the binding
     @inlinable var target: ObjectRef! {
         /// Retrieves the `GObject` instance used as the target of the binding.
-        get {
+        /// 
+        /// A `GBinding` can outlive the target `GObject` as the binding does not hold a
+        /// strong reference to the target. If the target is destroyed before the
+        /// binding then this function will return `nil`.
+        /// 
+        /// Use `g_binding_dup_target()` if the target or binding are used from different
+        /// threads as otherwise the pointer returned from this function might become
+        /// invalid if the target is finalized from another thread in the meantime.
+        ///
+        /// **get_target is deprecated:**
+        /// Use g_binding_dup_target() for a safer version of this
+        /// function.
+        @available(*, deprecated) get {
             guard let rv = ObjectRef(gconstpointer: gconstpointer(g_binding_get_target(binding_ptr))) else { return nil }
             return rv
         }

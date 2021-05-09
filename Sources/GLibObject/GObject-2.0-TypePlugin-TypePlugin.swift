@@ -442,7 +442,7 @@ public extension TypePluginProtocol {
     
     }
 
-    /// Adds `interface_type` to the dynamic `instantiable_type`. The information
+    /// Adds `interface_type` to the dynamic `instance_type`. The information
     /// contained in the `GTypePlugin` structure pointed to by `plugin`
     /// is used to manage the relationship.
     @inlinable func typeAddInterfaceDynamic(instanceType: GType, interfaceType: GType) {

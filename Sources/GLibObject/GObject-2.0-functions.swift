@@ -341,8 +341,8 @@ import GObjectCHelpers
 /// 
 /// If the handler ID is 0 then this function does nothing.
 /// 
-/// A macro is also included that allows this function to be used without
-/// pointer casts.
+/// There is also a macro version of this function so that the code
+/// will be inlined.
 @inlinable public func clearSignalHandler<ObjectT: ObjectProtocol>(handlerIDPtr: UnsafeMutablePointer<gulong>!, instance: ObjectT) {
     g_clear_signal_handler(handlerIDPtr, instance.object_ptr)
 
@@ -681,20 +681,6 @@ import GObjectCHelpers
 
 
 
-/// Creates a new `GParamSpecPool`.
-/// 
-/// If `type_prefixing` is `true`, lookups in the newly created pool will
-/// allow to specify the owner as a colon-separated prefix of the
-/// property name, like "GtkContainer:border-width". This feature is
-/// deprecated, so you should always set `type_prefixing` to `false`.
-@inlinable public func paramSpecPoolNew(typePrefixing: Bool) -> ParamSpecPoolRef! {
-    guard let rv = ParamSpecPoolRef(gconstpointer: gconstpointer(g_param_spec_pool_new(gboolean((typePrefixing) ? 1 : 0)))) else { return nil }
-    return rv
-}
-
-
-
-
 /// Creates a new `GParamSpecString` instance.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
@@ -917,7 +903,7 @@ import GObjectCHelpers
 /// Adds an emission hook for a signal, which will get called for any emission
 /// of that signal, independent of the instance. This is possible only
 /// for signals which don't have `G_SIGNAL_NO_HOOKS` flag set.
-@inlinable public func signalAddEmissionHook(signalID: Int, detail: GQuark, hookFunc: @escaping GSignalEmissionHook, hookData: gpointer! = nil, dataDestroy: GDestroyNotify?) -> Int {
+@inlinable public func signalAddEmissionHook(signalID: Int, detail: GQuark, hookFunc: @escaping GSignalEmissionHook, hookData: gpointer! = nil, dataDestroy: GDestroyNotify? = nil) -> Int {
     let rv = Int(g_signal_add_emission_hook(guint(signalID), detail, hookFunc, hookData, dataDestroy))
     return rv
 }
@@ -967,7 +953,7 @@ import GObjectCHelpers
 /// which will be called when the signal handler is disconnected and no longer
 /// used. Specify `connect_flags` if you need ``..._after()`` or
 /// ``..._swapped()`` variants of this function.
-@inlinable public func signalConnectData<ObjectT: ObjectProtocol>(instance: ObjectT, detailedSignal: UnsafePointer<gchar>!, cHandler: @escaping GCallback, data: gpointer! = nil, destroyData: GClosureNotify?, connectFlags: ConnectFlags) -> Int {
+@inlinable public func signalConnectData<ObjectT: ObjectProtocol>(instance: ObjectT, detailedSignal: UnsafePointer<gchar>!, cHandler: @escaping GCallback, data: gpointer! = nil, destroyData: GClosureNotify? = nil, connectFlags: ConnectFlags) -> Int {
     let rv = Int(g_signal_connect_data(instance.object_ptr, detailedSignal, cHandler, data, destroyData, connectFlags.value))
     return rv
 }
@@ -1324,8 +1310,18 @@ import GObjectCHelpers
 /// 
 /// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
 /// the marshaller for this signal.
-@inlinable public func signalNewValist<ClosureT: ClosureProtocol>(signalName: UnsafePointer<gchar>!, itype: GType, signalFlags: SignalFlags, classClosure: ClosureT, accumulator: @escaping GSignalAccumulator, accuData: gpointer! = nil, cMarshaller: GSignalCMarshaller! = nil, returnType: GType, nParams: Int, args: CVaListPointer) -> Int {
-    let rv = Int(g_signal_new_valist(signalName, itype, signalFlags.value, classClosure.closure_ptr, accumulator, accuData, cMarshaller, returnType, guint(nParams), args))
+@inlinable public func signalNewValist(signalName: UnsafePointer<gchar>!, itype: GType, signalFlags: SignalFlags, classClosure: ClosureRef? = nil, accumulator: GSignalAccumulator! = nil, accuData: gpointer! = nil, cMarshaller: GSignalCMarshaller! = nil, returnType: GType, nParams: Int, args: CVaListPointer) -> Int {
+    let rv = Int(g_signal_new_valist(signalName, itype, signalFlags.value, classClosure?.closure_ptr, accumulator, accuData, cMarshaller, returnType, guint(nParams), args))
+    return rv
+}
+/// Creates a new signal. (This is usually done in the class initializer.)
+/// 
+/// See `g_signal_new()` for details on allowed signal names.
+/// 
+/// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
+/// the marshaller for this signal.
+@inlinable public func signalNewValist<ClosureT: ClosureProtocol>(signalName: UnsafePointer<gchar>!, itype: GType, signalFlags: SignalFlags, classClosure: ClosureT?, accumulator: GSignalAccumulator! = nil, accuData: gpointer! = nil, cMarshaller: GSignalCMarshaller! = nil, returnType: GType, nParams: Int, args: CVaListPointer) -> Int {
+    let rv = Int(g_signal_new_valist(signalName, itype, signalFlags.value, classClosure?.closure_ptr, accumulator, accuData, cMarshaller, returnType, guint(nParams), args))
     return rv
 }
 
@@ -1338,7 +1334,7 @@ import GObjectCHelpers
 /// 
 /// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
 /// the marshaller for this signal.
-@inlinable public func signalNewv(signalName: UnsafePointer<gchar>!, itype: GType, signalFlags: SignalFlags, classClosure: ClosureRef? = nil, accumulator: GSignalAccumulator! = nil, accuData: gpointer! = nil, cMarshaller: GSignalCMarshaller! = nil, returnType: GType, nParams: Int, paramTypes: UnsafeMutablePointer<GType>!) -> Int {
+@inlinable public func signalNewv(signalName: UnsafePointer<gchar>!, itype: GType, signalFlags: SignalFlags, classClosure: ClosureRef? = nil, accumulator: GSignalAccumulator! = nil, accuData: gpointer! = nil, cMarshaller: GSignalCMarshaller! = nil, returnType: GType, nParams: Int, paramTypes: UnsafeMutablePointer<GType>! = nil) -> Int {
     let rv = Int(g_signal_newv(signalName, itype, signalFlags.value, classClosure?.closure_ptr, accumulator, accuData, cMarshaller, returnType, guint(nParams), paramTypes))
     return rv
 }
@@ -1348,7 +1344,7 @@ import GObjectCHelpers
 /// 
 /// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
 /// the marshaller for this signal.
-@inlinable public func signalNewv<ClosureT: ClosureProtocol>(signalName: UnsafePointer<gchar>!, itype: GType, signalFlags: SignalFlags, classClosure: ClosureT?, accumulator: GSignalAccumulator! = nil, accuData: gpointer! = nil, cMarshaller: GSignalCMarshaller! = nil, returnType: GType, nParams: Int, paramTypes: UnsafeMutablePointer<GType>!) -> Int {
+@inlinable public func signalNewv<ClosureT: ClosureProtocol>(signalName: UnsafePointer<gchar>!, itype: GType, signalFlags: SignalFlags, classClosure: ClosureT?, accumulator: GSignalAccumulator! = nil, accuData: gpointer! = nil, cMarshaller: GSignalCMarshaller! = nil, returnType: GType, nParams: Int, paramTypes: UnsafeMutablePointer<GType>! = nil) -> Int {
     let rv = Int(g_signal_newv(signalName, itype, signalFlags.value, classClosure?.closure_ptr, accumulator, accuData, cMarshaller, returnType, guint(nParams), paramTypes))
     return rv
 }
@@ -1566,7 +1562,7 @@ import GObjectCHelpers
 
 
 
-/// Adds `interface_type` to the dynamic `instantiable_type`. The information
+/// Adds `interface_type` to the dynamic `instance_type`. The information
 /// contained in the `GTypePlugin` structure pointed to by `plugin`
 /// is used to manage the relationship.
 @inlinable public func typeAddInterfaceDynamic<TypePluginT: TypePluginProtocol>(instanceType: GType, interfaceType: GType, plugin: TypePluginT) {
@@ -1577,7 +1573,7 @@ import GObjectCHelpers
 
 
 
-/// Adds `interface_type` to the static `instantiable_type`.
+/// Adds `interface_type` to the static `instance_type`.
 /// The information contained in the `GInterfaceInfo` structure
 /// pointed to by `info` is used to manage the relationship.
 @inlinable public func typeAddInterfaceStatic<InterfaceInfoT: InterfaceInfoProtocol>(instanceType: GType, interfaceType: GType, info: InterfaceInfoT) {
@@ -2030,7 +2026,7 @@ import GObjectCHelpers
 
 
 /// Given a `leaf_type` and a `root_type` which is contained in its
-/// anchestry, return the type that `root_type` is the immediate parent
+/// ancestry, return the type that `root_type` is the immediate parent
 /// of. In other words, this function determines the type that is
 /// derived directly from `root_type` which is also a base class of
 /// `leaf_type`.  Given a root type and a leaf type, this function can
