@@ -296,16 +296,16 @@ public extension ObjectProtocol {
 
 //MARK:- Swift Object
 
-let swiftObjKey = "swiftobj";
+@usableFromInline let swiftObjKey = "swiftobj";
 
-let gtrue: gboolean = 1
+@usableFromInline let gtrue: gboolean = 1
 
-let gfalse: gboolean = 0
+@usableFromInline let gfalse: gboolean = 0
 
 public extension GLibObject.ObjectProtocol {
 	
 	/// The swift wrapper for this object.
-    var swiftObj: AnyObject? {
+    @inlinable var swiftObj: AnyObject? {
 		get {
 			let pointer = getData(key: swiftObjKey);
 			if pointer != nil {
@@ -346,14 +346,14 @@ public extension GLibObject.ObjectProtocol {
 public extension GLibObject.Object {
 	
 	/// Will set this swift instance to be the swiftObj.
-	func becomeSwiftObj() {
+    @inlinable func becomeSwiftObj() {
 		swiftObj = self;
 	}
 	
 }
 
 /// Fetches the swift object from the given pointers, if any. Assume pointer is a GObject, so only call this function if this is known.
-public func swiftObj(fromRaw raw: UnsafeMutableRawPointer) -> AnyObject? {
+@inlinable public func swiftObj(fromRaw raw: UnsafeMutableRawPointer) -> AnyObject? {
 	let objPointer = g_object_get_data(raw.assumingMemoryBound(to: GObject.self), swiftObjKey);
 	if let objPointer = objPointer {
 		return Unmanaged<AnyObject>.fromOpaque(objPointer).takeUnretainedValue();
