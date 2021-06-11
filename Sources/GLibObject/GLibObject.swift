@@ -305,7 +305,7 @@ let gfalse: gboolean = 0
 public extension GLibObject.ObjectProtocol {
 	
 	/// The swift wrapper for this object.
-	public var swiftObj: AnyObject? {
+    var swiftObj: AnyObject? {
 		get {
 			let pointer = getData(key: swiftObjKey);
 			if pointer != nil {
@@ -328,7 +328,7 @@ public extension GLibObject.ObjectProtocol {
 				switch lastRef {
 				case gfalse:
 					// Make the gobject strongly reference the wrapper.
-					swiftObjPointer.retain();
+					_ = swiftObjPointer.retain();
 				case gtrue:
 					// Make the gobject weakly reference the wrapper.
 					swiftObjPointer.release();
@@ -346,7 +346,7 @@ public extension GLibObject.ObjectProtocol {
 public extension GLibObject.Object {
 	
 	/// Will set this swift instance to be the swiftObj.
-	public func becomeSwiftObj() {
+	func becomeSwiftObj() {
 		swiftObj = self;
 	}
 	
