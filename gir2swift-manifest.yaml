@@ -1,0 +1,3 @@
+version: 1
+gir-name: GObject-2.0
+output-directory: Sources/GLibObject
