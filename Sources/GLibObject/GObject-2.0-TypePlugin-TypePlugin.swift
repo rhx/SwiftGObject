@@ -4,14 +4,10 @@ import GObjectCHelpers
 
 // MARK: - TypePlugin Interface
 
-/// The `TypePluginProtocol` protocol exposes the methods and properties of an underlying `GTypePlugin` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TypePlugin`.
-/// Alternatively, use `TypePluginRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
+/// An interface that handles the lifecycle of dynamically loaded types.
+/// 
 /// The GObject type system supports dynamic loading of types.
-/// The `GTypePlugin` interface is used to handle the lifecycle
-/// of dynamically loaded types. It goes as follows:
+/// It goes as follows:
 /// 
 /// 1. The type is initially introduced (usually upon loading the module
 ///    the first time, or by your main application that knows what modules
@@ -59,6 +55,12 @@ import GObjectCHelpers
 /// `GTypeModule` is an implementation of `GTypePlugin` that already
 /// implements most of this except for the actual module loading and
 /// unloading. It even handles multiple registered types per module.
+///
+/// The `TypePluginProtocol` protocol exposes the methods and properties of an underlying `GTypePlugin` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TypePlugin`.
+/// Alternatively, use `TypePluginRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TypePluginProtocol {
         /// Untyped pointer to the underlying `GTypePlugin` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -70,13 +72,10 @@ public protocol TypePluginProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TypePluginRef` type acts as a lightweight Swift reference to an underlying `GTypePlugin` instance.
-/// It exposes methods that can operate on this data type through `TypePluginProtocol` conformance.
-/// Use `TypePluginRef` only as an `unowned` reference to an existing `GTypePlugin` instance.
-///
+/// An interface that handles the lifecycle of dynamically loaded types.
+/// 
 /// The GObject type system supports dynamic loading of types.
-/// The `GTypePlugin` interface is used to handle the lifecycle
-/// of dynamically loaded types. It goes as follows:
+/// It goes as follows:
 /// 
 /// 1. The type is initially introduced (usually upon loading the module
 ///    the first time, or by your main application that knows what modules
@@ -124,6 +123,11 @@ public protocol TypePluginProtocol {
 /// `GTypeModule` is an implementation of `GTypePlugin` that already
 /// implements most of this except for the actual module loading and
 /// unloading. It even handles multiple registered types per module.
+///
+/// The `TypePluginRef` type acts as a lightweight Swift reference to an underlying `GTypePlugin` instance.
+/// It exposes methods that can operate on this data type through `TypePluginProtocol` conformance.
+/// Use `TypePluginRef` only as an `unowned` reference to an existing `GTypePlugin` instance.
+///
 public struct TypePluginRef: TypePluginProtocol {
         /// Untyped pointer to the underlying `GTypePlugin` instance.
     /// For type-safe access, use the generated, typed pointer `type_plugin_ptr` property instead.
@@ -202,13 +206,10 @@ public extension TypePluginRef {
 
     }
 
-/// The `TypePlugin` type acts as an owner of an underlying `GTypePlugin` instance.
-/// It provides the methods that can operate on this data type through `TypePluginProtocol` conformance.
-/// Use `TypePlugin` as a strong reference or owner of a `GTypePlugin` instance.
-///
+/// An interface that handles the lifecycle of dynamically loaded types.
+/// 
 /// The GObject type system supports dynamic loading of types.
-/// The `GTypePlugin` interface is used to handle the lifecycle
-/// of dynamically loaded types. It goes as follows:
+/// It goes as follows:
 /// 
 /// 1. The type is initially introduced (usually upon loading the module
 ///    the first time, or by your main application that knows what modules
@@ -256,6 +257,11 @@ public extension TypePluginRef {
 /// `GTypeModule` is an implementation of `GTypePlugin` that already
 /// implements most of this except for the actual module loading and
 /// unloading. It even handles multiple registered types per module.
+///
+/// The `TypePlugin` type acts as an owner of an underlying `GTypePlugin` instance.
+/// It provides the methods that can operate on this data type through `TypePluginProtocol` conformance.
+/// Use `TypePlugin` as a strong reference or owner of a `GTypePlugin` instance.
+///
 open class TypePlugin: TypePluginProtocol {
         /// Untyped pointer to the underlying `GTypePlugin` instance.
     /// For type-safe access, use the generated, typed pointer `type_plugin_ptr` property instead.

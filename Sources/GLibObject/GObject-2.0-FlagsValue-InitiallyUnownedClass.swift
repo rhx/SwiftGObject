@@ -4,13 +4,14 @@ import GObjectCHelpers
 
 // MARK: - FlagsValue Record
 
+/// A structure which contains a single flags value, its name, and its
+/// nickname.
+///
 /// The `FlagsValueProtocol` protocol exposes the methods and properties of an underlying `GFlagsValue` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FlagsValue`.
 /// Alternatively, use `FlagsValueRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A structure which contains a single flags value, its name, and its
-/// nickname.
 public protocol FlagsValueProtocol {
         /// Untyped pointer to the underlying `GFlagsValue` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -22,12 +23,13 @@ public protocol FlagsValueProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A structure which contains a single flags value, its name, and its
+/// nickname.
+///
 /// The `FlagsValueRef` type acts as a lightweight Swift reference to an underlying `GFlagsValue` instance.
 /// It exposes methods that can operate on this data type through `FlagsValueProtocol` conformance.
 /// Use `FlagsValueRef` only as an `unowned` reference to an existing `GFlagsValue` instance.
 ///
-/// A structure which contains a single flags value, its name, and its
-/// nickname.
 public struct FlagsValueRef: FlagsValueProtocol {
         /// Untyped pointer to the underlying `GFlagsValue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -106,12 +108,13 @@ public extension FlagsValueRef {
 
     }
 
+/// A structure which contains a single flags value, its name, and its
+/// nickname.
+///
 /// The `FlagsValue` type acts as an owner of an underlying `GFlagsValue` instance.
 /// It provides the methods that can operate on this data type through `FlagsValueProtocol` conformance.
 /// Use `FlagsValue` as a strong reference or owner of a `GFlagsValue` instance.
 ///
-/// A structure which contains a single flags value, its name, and its
-/// nickname.
 open class FlagsValue: FlagsValueProtocol {
         /// Untyped pointer to the underlying `GFlagsValue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -344,12 +347,13 @@ public extension InitiallyUnownedClassRef {
 
 // MARK: - InitiallyUnownedClass Record
 
+/// The class structure for the GInitiallyUnowned type.
+///
 /// The `InitiallyUnownedClassProtocol` protocol exposes the methods and properties of an underlying `GInitiallyUnownedClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `InitiallyUnownedClass`.
 /// Alternatively, use `InitiallyUnownedClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The class structure for the GInitiallyUnowned type.
 public protocol InitiallyUnownedClassProtocol {
         /// Untyped pointer to the underlying `GInitiallyUnownedClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -361,11 +365,12 @@ public protocol InitiallyUnownedClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The class structure for the GInitiallyUnowned type.
+///
 /// The `InitiallyUnownedClassRef` type acts as a lightweight Swift reference to an underlying `GInitiallyUnownedClass` instance.
 /// It exposes methods that can operate on this data type through `InitiallyUnownedClassProtocol` conformance.
 /// Use `InitiallyUnownedClassRef` only as an `unowned` reference to an existing `GInitiallyUnownedClass` instance.
 ///
-/// The class structure for the GInitiallyUnowned type.
 public struct InitiallyUnownedClassRef: InitiallyUnownedClassProtocol {
         /// Untyped pointer to the underlying `GInitiallyUnownedClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

@@ -4,12 +4,13 @@ import GObjectCHelpers
 
 // MARK: - TypeCValue Union
 
+
+///
 /// The `TypeCValueProtocol` protocol exposes the methods and properties of an underlying `GTypeCValue` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TypeCValue`.
 /// Alternatively, use `TypeCValueRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TypeCValueProtocol {
         /// Untyped pointer to the underlying `GTypeCValue` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -21,11 +22,12 @@ public protocol TypeCValueProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TypeCValueRef` type acts as a lightweight Swift reference to an underlying `GTypeCValue` instance.
 /// It exposes methods that can operate on this data type through `TypeCValueProtocol` conformance.
 /// Use `TypeCValueRef` only as an `unowned` reference to an existing `GTypeCValue` instance.
 ///
-
 public struct TypeCValueRef: TypeCValueProtocol {
         /// Untyped pointer to the underlying `GTypeCValue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -104,11 +106,12 @@ public extension TypeCValueRef {
 
     }
 
+
+///
 /// The `TypeCValue` type acts as an owner of an underlying `GTypeCValue` instance.
 /// It provides the methods that can operate on this data type through `TypeCValueProtocol` conformance.
 /// Use `TypeCValue` as a strong reference or owner of a `GTypeCValue` instance.
 ///
-
 open class TypeCValue: TypeCValueProtocol {
         /// Untyped pointer to the underlying `GTypeCValue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -271,12 +274,13 @@ public extension TypeCValueProtocol {
 
 // MARK: - _Value__data__union Union
 
+
+///
 /// The `_Value__data__unionProtocol` protocol exposes the methods and properties of an underlying `_Value__data__union` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `_Value__data__union`.
 /// Alternatively, use `_Value__data__unionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol _Value__data__unionProtocol {
         /// Untyped pointer to the underlying `_Value__data__union` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -288,11 +292,12 @@ public protocol _Value__data__unionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `_Value__data__unionRef` type acts as a lightweight Swift reference to an underlying `_Value__data__union` instance.
 /// It exposes methods that can operate on this data type through `_Value__data__unionProtocol` conformance.
 /// Use `_Value__data__unionRef` only as an `unowned` reference to an existing `_Value__data__union` instance.
 ///
-
 public struct _Value__data__unionRef: _Value__data__unionProtocol {
         /// Untyped pointer to the underlying `_Value__data__union` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -371,11 +376,12 @@ public extension _Value__data__unionRef {
 
     }
 
+
+///
 /// The `_Value__data__union` type acts as an owner of an underlying `_Value__data__union` instance.
 /// It provides the methods that can operate on this data type through `_Value__data__unionProtocol` conformance.
 /// Use `_Value__data__union` as a strong reference or owner of a `_Value__data__union` instance.
 ///
-
 open class _Value__data__union: _Value__data__unionProtocol {
         /// Untyped pointer to the underlying `_Value__data__union` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

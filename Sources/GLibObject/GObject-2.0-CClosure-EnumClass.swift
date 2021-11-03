@@ -4,12 +4,13 @@ import GObjectCHelpers
 
 // MARK: - CClosure Record
 
+/// A `GCClosure` is a specialization of `GClosure` for C function callbacks.
+///
 /// The `CClosureProtocol` protocol exposes the methods and properties of an underlying `GCClosure` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CClosure`.
 /// Alternatively, use `CClosureRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GCClosure` is a specialization of `GClosure` for C function callbacks.
 public protocol CClosureProtocol {
         /// Untyped pointer to the underlying `GCClosure` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -21,11 +22,12 @@ public protocol CClosureProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GCClosure` is a specialization of `GClosure` for C function callbacks.
+///
 /// The `CClosureRef` type acts as a lightweight Swift reference to an underlying `GCClosure` instance.
 /// It exposes methods that can operate on this data type through `CClosureProtocol` conformance.
 /// Use `CClosureRef` only as an `unowned` reference to an existing `GCClosure` instance.
 ///
-/// A `GCClosure` is a specialization of `GClosure` for C function callbacks.
 public struct CClosureRef: CClosureProtocol {
         /// Untyped pointer to the underlying `GCClosure` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -104,11 +106,12 @@ public extension CClosureRef {
 
     }
 
+/// A `GCClosure` is a specialization of `GClosure` for C function callbacks.
+///
 /// The `CClosure` type acts as an owner of an underlying `GCClosure` instance.
 /// It provides the methods that can operate on this data type through `CClosureProtocol` conformance.
 /// Use `CClosure` as a strong reference or owner of a `GCClosure` instance.
 ///
-/// A `GCClosure` is a specialization of `GClosure` for C function callbacks.
 open class CClosure: CClosureProtocol {
         /// Untyped pointer to the underlying `GCClosure` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -296,13 +299,9 @@ public extension CClosureProtocol {
 
 // MARK: - Closure Record
 
-/// The `ClosureProtocol` protocol exposes the methods and properties of an underlying `GClosure` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Closure`.
-/// Alternatively, use `ClosureRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-/// A `GClosure` represents a callback supplied by the programmer. It
-/// will generally comprise a function of some kind and a marshaller
+/// A `GClosure` represents a callback supplied by the programmer.
+/// 
+/// It will generally comprise a function of some kind and a marshaller
 /// used to call it. It is the responsibility of the marshaller to
 /// convert the arguments for the invocation from `GValues` into
 /// a suitable form, perform the callback on the converted arguments,
@@ -344,6 +343,12 @@ public extension CClosureProtocol {
 /// 
 /// - `g_closure_invalidate()` and invalidation notifiers allow callbacks to be
 ///   automatically removed when the objects they point to go away.
+///
+/// The `ClosureProtocol` protocol exposes the methods and properties of an underlying `GClosure` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Closure`.
+/// Alternatively, use `ClosureRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ClosureProtocol {
         /// Untyped pointer to the underlying `GClosure` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -355,12 +360,9 @@ public protocol ClosureProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ClosureRef` type acts as a lightweight Swift reference to an underlying `GClosure` instance.
-/// It exposes methods that can operate on this data type through `ClosureProtocol` conformance.
-/// Use `ClosureRef` only as an `unowned` reference to an existing `GClosure` instance.
-///
-/// A `GClosure` represents a callback supplied by the programmer. It
-/// will generally comprise a function of some kind and a marshaller
+/// A `GClosure` represents a callback supplied by the programmer.
+/// 
+/// It will generally comprise a function of some kind and a marshaller
 /// used to call it. It is the responsibility of the marshaller to
 /// convert the arguments for the invocation from `GValues` into
 /// a suitable form, perform the callback on the converted arguments,
@@ -402,6 +404,11 @@ public protocol ClosureProtocol {
 /// 
 /// - `g_closure_invalidate()` and invalidation notifiers allow callbacks to be
 ///   automatically removed when the objects they point to go away.
+///
+/// The `ClosureRef` type acts as a lightweight Swift reference to an underlying `GClosure` instance.
+/// It exposes methods that can operate on this data type through `ClosureProtocol` conformance.
+/// Use `ClosureRef` only as an `unowned` reference to an existing `GClosure` instance.
+///
 public struct ClosureRef: ClosureProtocol {
         /// Untyped pointer to the underlying `GClosure` instance.
     /// For type-safe access, use the generated, typed pointer `closure_ptr` property instead.
@@ -488,8 +495,9 @@ public extension ClosureRef {
     }
 
     /// Allocates a struct of the given size and initializes the initial
-    /// part as a `GClosure`. This function is mainly useful when
-    /// implementing new types of closures.
+    /// part as a `GClosure`.
+    /// 
+    /// This function is mainly useful when implementing new types of closures:
     /// 
     /// (C Language Example):
     /// ```C
@@ -539,8 +547,9 @@ public extension ClosureRef {
     }
 
     /// Allocates a struct of the given size and initializes the initial
-    /// part as a `GClosure`. This function is mainly useful when
-    /// implementing new types of closures.
+    /// part as a `GClosure`.
+    /// 
+    /// This function is mainly useful when implementing new types of closures:
     /// 
     /// (C Language Example):
     /// ```C
@@ -582,12 +591,9 @@ public extension ClosureRef {
     }
 }
 
-/// The `Closure` type acts as a reference-counted owner of an underlying `GClosure` instance.
-/// It provides the methods that can operate on this data type through `ClosureProtocol` conformance.
-/// Use `Closure` as a strong reference or owner of a `GClosure` instance.
-///
-/// A `GClosure` represents a callback supplied by the programmer. It
-/// will generally comprise a function of some kind and a marshaller
+/// A `GClosure` represents a callback supplied by the programmer.
+/// 
+/// It will generally comprise a function of some kind and a marshaller
 /// used to call it. It is the responsibility of the marshaller to
 /// convert the arguments for the invocation from `GValues` into
 /// a suitable form, perform the callback on the converted arguments,
@@ -629,6 +635,11 @@ public extension ClosureRef {
 /// 
 /// - `g_closure_invalidate()` and invalidation notifiers allow callbacks to be
 ///   automatically removed when the objects they point to go away.
+///
+/// The `Closure` type acts as a reference-counted owner of an underlying `GClosure` instance.
+/// It provides the methods that can operate on this data type through `ClosureProtocol` conformance.
+/// Use `Closure` as a strong reference or owner of a `GClosure` instance.
+///
 open class Closure: ClosureProtocol {
         /// Untyped pointer to the underlying `GClosure` instance.
     /// For type-safe access, use the generated, typed pointer `closure_ptr` property instead.
@@ -779,8 +790,9 @@ open class Closure: ClosureProtocol {
     }
 
     /// Allocates a struct of the given size and initializes the initial
-    /// part as a `GClosure`. This function is mainly useful when
-    /// implementing new types of closures.
+    /// part as a `GClosure`.
+    /// 
+    /// This function is mainly useful when implementing new types of closures:
     /// 
     /// (C Language Example):
     /// ```C
@@ -831,8 +843,9 @@ open class Closure: ClosureProtocol {
     }
 
     /// Allocates a struct of the given size and initializes the initial
-    /// part as a `GClosure`. This function is mainly useful when
-    /// implementing new types of closures.
+    /// part as a `GClosure`.
+    /// 
+    /// This function is mainly useful when implementing new types of closures:
     /// 
     /// (C Language Example):
     /// ```C
@@ -886,29 +899,33 @@ public extension ClosureProtocol {
     @inlinable var closure_ptr: UnsafeMutablePointer<GClosure>! { return ptr?.assumingMemoryBound(to: GClosure.self) }
 
     /// Registers a finalization notifier which will be called when the
-    /// reference count of `closure` goes down to 0. Multiple finalization
-    /// notifiers on a single closure are invoked in unspecified order. If
-    /// a single call to `g_closure_unref()` results in the closure being
-    /// both invalidated and finalized, then the invalidate notifiers will
-    /// be run before the finalize notifiers.
+    /// reference count of `closure` goes down to 0.
+    /// 
+    /// Multiple finalization notifiers on a single closure are invoked in
+    /// unspecified order. If a single call to `g_closure_unref()` results in
+    /// the closure being both invalidated and finalized, then the invalidate
+    /// notifiers will be run before the finalize notifiers.
     @inlinable func addFinalizeNotifier(notifyData: gpointer! = nil, notifyFunc: GClosureNotify? = nil) {
         g_closure_add_finalize_notifier(closure_ptr, notifyData, notifyFunc)
     
     }
 
     /// Registers an invalidation notifier which will be called when the
-    /// `closure` is invalidated with `g_closure_invalidate()`. Invalidation
-    /// notifiers are invoked before finalization notifiers, in an
-    /// unspecified order.
+    /// `closure` is invalidated with `g_closure_invalidate()`.
+    /// 
+    /// Invalidation notifiers are invoked before finalization notifiers,
+    /// in an unspecified order.
     @inlinable func addInvalidateNotifier(notifyData: gpointer! = nil, notifyFunc: GClosureNotify? = nil) {
         g_closure_add_invalidate_notifier(closure_ptr, notifyData, notifyFunc)
     
     }
 
     /// Adds a pair of notifiers which get invoked before and after the
-    /// closure callback, respectively. This is typically used to protect
-    /// the extra arguments for the duration of the callback. See
-    /// `g_object_watch_closure()` for an example of marshal guards.
+    /// closure callback, respectively.
+    /// 
+    /// This is typically used to protect the extra arguments for the
+    /// duration of the callback. See `g_object_watch_closure()` for an
+    /// example of marshal guards.
     @inlinable func addMarshalGuards(preMarshalData: gpointer! = nil, preMarshalNotify: GClosureNotify? = nil, postMarshalData: gpointer! = nil, postMarshalNotify: GClosureNotify? = nil) {
         g_closure_add_marshal_guards(closure_ptr, preMarshalData, preMarshalNotify, postMarshalData, postMarshalNotify)
     
@@ -917,7 +934,9 @@ public extension ClosureProtocol {
     /// Sets a flag on the closure to indicate that its calling
     /// environment has become invalid, and thus causes any future
     /// invocations of `g_closure_invoke()` on this `closure` to be
-    /// ignored. Also, invalidation notifiers installed on the closure will
+    /// ignored.
+    /// 
+    /// Also, invalidation notifiers installed on the closure will
     /// be called at this point. Note that unless you are holding a
     /// reference to the closure yourself, the invalidation notifiers may
     /// unref the closure and cause it to be destroyed, so if you need to
@@ -966,23 +985,30 @@ public extension ClosureProtocol {
     
     }
 
-    /// Sets the marshaller of `closure`. The `marshal_data`
-    /// of `marshal` provides a way for a meta marshaller to provide additional
-    /// information to the marshaller. (See `g_closure_set_meta_marshal()`.) For
-    /// GObject's C predefined marshallers (the g_cclosure_marshal_*()
+    /// Sets the marshaller of `closure`.
+    /// 
+    /// The `marshal_data` of `marshal` provides a way for a meta marshaller to
+    /// provide additional information to the marshaller.
+    /// 
+    /// For GObject's C predefined marshallers (the `g_cclosure_marshal_*()`
     /// functions), what it provides is a callback function to use instead of
     /// `closure-`&gt;callback.
+    /// 
+    /// See also: `g_closure_set_meta_marshal()`
     @inlinable func set(marshal: @escaping GClosureMarshal) {
         g_closure_set_marshal(closure_ptr, marshal)
     
     }
 
-    /// Sets the meta marshaller of `closure`.  A meta marshaller wraps
-    /// `closure-`&gt;marshal and modifies the way it is called in some
-    /// fashion. The most common use of this facility is for C callbacks.
+    /// Sets the meta marshaller of `closure`.
+    /// 
+    /// A meta marshaller wraps the `closure`'s marshal and modifies the way
+    /// it is called in some fashion. The most common use of this facility
+    /// is for C callbacks.
+    /// 
     /// The same marshallers (generated by [glib-genmarshal](#glib-genmarshal)),
     /// are used everywhere, but the way that we get the callback function
-    /// differs. In most cases we want to use `closure-`&gt;callback, but in
+    /// differs. In most cases we want to use the `closure`'s callback, but in
     /// other cases we want to use some different technique to retrieve the
     /// callback function.
     /// 
@@ -996,22 +1022,28 @@ public extension ClosureProtocol {
     
     }
 
-    /// Takes over the initial ownership of a closure.  Each closure is
-    /// initially created in a "floating" state, which means that the initial
-    /// reference count is not owned by any caller. `g_closure_sink()` checks
-    /// to see if the object is still floating, and if so, unsets the
-    /// floating state and decreases the reference count. If the closure
-    /// is not floating, `g_closure_sink()` does nothing. The reason for the
-    /// existence of the floating state is to prevent cumbersome code
-    /// sequences like:
+    /// Takes over the initial ownership of a closure.
+    /// 
+    /// Each closure is initially created in a "floating" state, which means
+    /// that the initial reference count is not owned by any caller.
+    /// 
+    /// This function checks to see if the object is still floating, and if so,
+    /// unsets the floating state and decreases the reference count. If the
+    /// closure is not floating, `g_closure_sink()` does nothing.
+    /// 
+    /// The reason for the existence of the floating state is to prevent
+    /// cumbersome code sequences like:
+    /// 
     /// (C Language Example):
     /// ```C
     /// closure = g_cclosure_new (cb_func, cb_data);
     /// g_source_set_closure (source, closure);
     /// g_closure_unref (closure); // GObject doesn't really need this
     /// ```
+    /// 
     /// Because `g_source_set_closure()` (and similar functions) take ownership of the
     /// initial reference count, if it is unowned, we instead can write:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_source_set_closure (source, g_cclosure_new (cb_func, cb_data));
@@ -1019,6 +1051,7 @@ public extension ClosureProtocol {
     /// 
     /// Generally, this function is used together with `g_closure_ref()`. An example
     /// of storing a closure for later notification looks like:
+    /// 
     /// (C Language Example):
     /// ```C
     /// static GClosure *notify_closure = NULL;
@@ -1045,8 +1078,10 @@ public extension ClosureProtocol {
     }
 
     /// Decrements the reference count of a closure after it was previously
-    /// incremented by the same caller. If no other callers are using the
-    /// closure, then the closure will be destroyed and freed.
+    /// incremented by the same caller.
+    /// 
+    /// If no other callers are using the closure, then the closure will be
+    /// destroyed and freed.
     @inlinable func unref() {
         g_closure_unref(closure_ptr)
     
@@ -1056,7 +1091,7 @@ public extension ClosureProtocol {
     /// take two boxed pointers as arguments and return a boolean.  If you
     /// have such a signal, you will probably also need to use an
     /// accumulator, such as `g_signal_accumulator_true_handled()`.
-    @inlinable func cclosureMarshalBOOLEAN_BOXEDBOXED<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalBOOLEANBOXEDBOXED<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_BOOLEAN__BOXED_BOXED(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
@@ -1064,147 +1099,147 @@ public extension ClosureProtocol {
     /// A marshaller for a `GCClosure` with a callback of type
     /// `gboolean (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter
     /// denotes a flags type.
-    @inlinable func cclosureMarshalBOOLEAN_FLAGS<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalBOOLEANFLAGS<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_BOOLEAN__FLAGS(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `gchar* (*callback) (gpointer instance, GObject *arg1, gpointer arg2, gpointer user_data)`.
-    @inlinable func cclosureMarshalSTRING_OBJECTPOINTER<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalSTRINGOBJECTPOINTER<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_STRING__OBJECT_POINTER(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gboolean arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_BOOLEAN<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDBOOLEAN<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__BOOLEAN(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GBoxed *arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_BOXED<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDBOXED<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__BOXED(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gchar arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_CHAR<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDCHAR<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__CHAR(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gdouble arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_DOUBLE<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDDOUBLE<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__DOUBLE(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter denotes an enumeration type..
-    @inlinable func cclosureMarshalVOID_ENUM<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDENUM<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__ENUM(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter denotes a flags type.
-    @inlinable func cclosureMarshalVOID_FLAGS<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDFLAGS<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__FLAGS(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gfloat arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_FLOAT<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDFLOAT<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__FLOAT(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_INT<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDINT<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__INT(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, glong arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_LONG<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDLONG<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__LONG(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GObject *arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_OBJECT<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDOBJECT<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__OBJECT(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GParamSpec *arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_PARAM<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDPARAM<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__PARAM(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gpointer arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_POINTER<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDPOINTER<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__POINTER(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, const gchar *arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_STRING<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDSTRING<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__STRING(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, guchar arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_UCHAR<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDUCHAR<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__UCHAR(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, guint arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_UINT<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDUINT<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__UINT(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, guint arg1, gpointer arg2, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_UINTPOINTER<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDUINTPOINTER<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__UINT_POINTER(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gulong arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_ULONG<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDULONG<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__ULONG(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GVariant *arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_VARIANT<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDVARIANT<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__VARIANT(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_VOID<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDVOID<ValueT: ValueProtocol>(returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__VOID(closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
@@ -1383,12 +1418,13 @@ public extension ClosureProtocol {
 
 // MARK: - ClosureNotifyData Record
 
+
+///
 /// The `ClosureNotifyDataProtocol` protocol exposes the methods and properties of an underlying `GClosureNotifyData` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ClosureNotifyData`.
 /// Alternatively, use `ClosureNotifyDataRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ClosureNotifyDataProtocol {
         /// Untyped pointer to the underlying `GClosureNotifyData` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1400,11 +1436,12 @@ public protocol ClosureNotifyDataProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ClosureNotifyDataRef` type acts as a lightweight Swift reference to an underlying `GClosureNotifyData` instance.
 /// It exposes methods that can operate on this data type through `ClosureNotifyDataProtocol` conformance.
 /// Use `ClosureNotifyDataRef` only as an `unowned` reference to an existing `GClosureNotifyData` instance.
 ///
-
 public struct ClosureNotifyDataRef: ClosureNotifyDataProtocol {
         /// Untyped pointer to the underlying `GClosureNotifyData` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1483,11 +1520,12 @@ public extension ClosureNotifyDataRef {
 
     }
 
+
+///
 /// The `ClosureNotifyData` type acts as an owner of an underlying `GClosureNotifyData` instance.
 /// It provides the methods that can operate on this data type through `ClosureNotifyDataProtocol` conformance.
 /// Use `ClosureNotifyData` as a strong reference or owner of a `GClosureNotifyData` instance.
 ///
-
 open class ClosureNotifyData: ClosureNotifyDataProtocol {
         /// Untyped pointer to the underlying `GClosureNotifyData` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1669,13 +1707,14 @@ public extension ClosureNotifyDataProtocol {
 
 // MARK: - EnumClass Record
 
+/// The class of an enumeration type holds information about its
+/// possible values.
+///
 /// The `EnumClassProtocol` protocol exposes the methods and properties of an underlying `GEnumClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EnumClass`.
 /// Alternatively, use `EnumClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The class of an enumeration type holds information about its
-/// possible values.
 public protocol EnumClassProtocol {
         /// Untyped pointer to the underlying `GEnumClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1687,12 +1726,13 @@ public protocol EnumClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The class of an enumeration type holds information about its
+/// possible values.
+///
 /// The `EnumClassRef` type acts as a lightweight Swift reference to an underlying `GEnumClass` instance.
 /// It exposes methods that can operate on this data type through `EnumClassProtocol` conformance.
 /// Use `EnumClassRef` only as an `unowned` reference to an existing `GEnumClass` instance.
 ///
-/// The class of an enumeration type holds information about its
-/// possible values.
 public struct EnumClassRef: EnumClassProtocol {
         /// Untyped pointer to the underlying `GEnumClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1771,12 +1811,13 @@ public extension EnumClassRef {
 
     }
 
+/// The class of an enumeration type holds information about its
+/// possible values.
+///
 /// The `EnumClass` type acts as an owner of an underlying `GEnumClass` instance.
 /// It provides the methods that can operate on this data type through `EnumClassProtocol` conformance.
 /// Use `EnumClass` as a strong reference or owner of a `GEnumClass` instance.
 ///
-/// The class of an enumeration type holds information about its
-/// possible values.
 open class EnumClass: EnumClassProtocol {
         /// Untyped pointer to the underlying `GEnumClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

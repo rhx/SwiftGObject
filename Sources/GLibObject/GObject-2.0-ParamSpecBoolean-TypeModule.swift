@@ -4,12 +4,13 @@ import GObjectCHelpers
 
 // MARK: - ParamSpecBoolean Class
 
+/// A `GParamSpec` derived structure that contains the meta data for boolean properties.
+///
 /// The `ParamSpecBooleanProtocol` protocol exposes the methods and properties of an underlying `GParamSpecBoolean` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecBoolean`.
 /// Alternatively, use `ParamSpecBooleanRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for boolean properties.
 public protocol ParamSpecBooleanProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecBoolean` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -21,11 +22,12 @@ public protocol ParamSpecBooleanProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for boolean properties.
+///
 /// The `ParamSpecBooleanRef` type acts as a lightweight Swift reference to an underlying `GParamSpecBoolean` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecBooleanProtocol` conformance.
 /// Use `ParamSpecBooleanRef` only as an `unowned` reference to an existing `GParamSpecBoolean` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for boolean properties.
 public struct ParamSpecBooleanRef: ParamSpecBooleanProtocol {
         /// Untyped pointer to the underlying `GParamSpecBoolean` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_boolean_ptr` property instead.
@@ -104,11 +106,12 @@ public extension ParamSpecBooleanRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for boolean properties.
+///
 /// The `ParamSpecBoolean` type acts as a reference-counted owner of an underlying `GParamSpecBoolean` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecBooleanProtocol` conformance.
 /// Use `ParamSpecBoolean` as a strong reference or owner of a `GParamSpecBoolean` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for boolean properties.
 open class ParamSpecBoolean: ParamSpec, ParamSpecBooleanProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -273,12 +276,13 @@ public extension ParamSpecBooleanProtocol {
 
 // MARK: - ParamSpecBoxed Class
 
+/// A `GParamSpec` derived structure that contains the meta data for boxed properties.
+///
 /// The `ParamSpecBoxedProtocol` protocol exposes the methods and properties of an underlying `GParamSpecBoxed` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecBoxed`.
 /// Alternatively, use `ParamSpecBoxedRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for boxed properties.
 public protocol ParamSpecBoxedProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecBoxed` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -290,11 +294,12 @@ public protocol ParamSpecBoxedProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for boxed properties.
+///
 /// The `ParamSpecBoxedRef` type acts as a lightweight Swift reference to an underlying `GParamSpecBoxed` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecBoxedProtocol` conformance.
 /// Use `ParamSpecBoxedRef` only as an `unowned` reference to an existing `GParamSpecBoxed` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for boxed properties.
 public struct ParamSpecBoxedRef: ParamSpecBoxedProtocol {
         /// Untyped pointer to the underlying `GParamSpecBoxed` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_boxed_ptr` property instead.
@@ -373,11 +378,12 @@ public extension ParamSpecBoxedRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for boxed properties.
+///
 /// The `ParamSpecBoxed` type acts as a reference-counted owner of an underlying `GParamSpecBoxed` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecBoxedProtocol` conformance.
 /// Use `ParamSpecBoxed` as a strong reference or owner of a `GParamSpecBoxed` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for boxed properties.
 open class ParamSpecBoxed: ParamSpec, ParamSpecBoxedProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -533,12 +539,13 @@ public extension ParamSpecBoxedProtocol {
 
 // MARK: - ParamSpecChar Class
 
+/// A `GParamSpec` derived structure that contains the meta data for character properties.
+///
 /// The `ParamSpecCharProtocol` protocol exposes the methods and properties of an underlying `GParamSpecChar` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecChar`.
 /// Alternatively, use `ParamSpecCharRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for character properties.
 public protocol ParamSpecCharProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecChar` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -550,11 +557,12 @@ public protocol ParamSpecCharProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for character properties.
+///
 /// The `ParamSpecCharRef` type acts as a lightweight Swift reference to an underlying `GParamSpecChar` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecCharProtocol` conformance.
 /// Use `ParamSpecCharRef` only as an `unowned` reference to an existing `GParamSpecChar` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for character properties.
 public struct ParamSpecCharRef: ParamSpecCharProtocol {
         /// Untyped pointer to the underlying `GParamSpecChar` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_char_ptr` property instead.
@@ -633,11 +641,12 @@ public extension ParamSpecCharRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for character properties.
+///
 /// The `ParamSpecChar` type acts as a reference-counted owner of an underlying `GParamSpecChar` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecCharProtocol` conformance.
 /// Use `ParamSpecChar` as a strong reference or owner of a `GParamSpecChar` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for character properties.
 open class ParamSpecChar: ParamSpec, ParamSpecCharProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -820,12 +829,13 @@ public extension ParamSpecCharProtocol {
 
 // MARK: - ParamSpecDouble Class
 
+/// A `GParamSpec` derived structure that contains the meta data for double properties.
+///
 /// The `ParamSpecDoubleProtocol` protocol exposes the methods and properties of an underlying `GParamSpecDouble` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecDouble`.
 /// Alternatively, use `ParamSpecDoubleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for double properties.
 public protocol ParamSpecDoubleProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecDouble` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -837,11 +847,12 @@ public protocol ParamSpecDoubleProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for double properties.
+///
 /// The `ParamSpecDoubleRef` type acts as a lightweight Swift reference to an underlying `GParamSpecDouble` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecDoubleProtocol` conformance.
 /// Use `ParamSpecDoubleRef` only as an `unowned` reference to an existing `GParamSpecDouble` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for double properties.
 public struct ParamSpecDoubleRef: ParamSpecDoubleProtocol {
         /// Untyped pointer to the underlying `GParamSpecDouble` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_double_ptr` property instead.
@@ -920,11 +931,12 @@ public extension ParamSpecDoubleRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for double properties.
+///
 /// The `ParamSpecDouble` type acts as a reference-counted owner of an underlying `GParamSpecDouble` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecDoubleProtocol` conformance.
 /// Use `ParamSpecDouble` as a strong reference or owner of a `GParamSpecDouble` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for double properties.
 open class ParamSpecDouble: ParamSpec, ParamSpecDoubleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1118,13 +1130,14 @@ public extension ParamSpecDoubleProtocol {
 
 // MARK: - ParamSpecEnum Class
 
+/// A `GParamSpec` derived structure that contains the meta data for enum
+/// properties.
+///
 /// The `ParamSpecEnumProtocol` protocol exposes the methods and properties of an underlying `GParamSpecEnum` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecEnum`.
 /// Alternatively, use `ParamSpecEnumRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for enum
-/// properties.
 public protocol ParamSpecEnumProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecEnum` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1136,12 +1149,13 @@ public protocol ParamSpecEnumProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for enum
+/// properties.
+///
 /// The `ParamSpecEnumRef` type acts as a lightweight Swift reference to an underlying `GParamSpecEnum` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecEnumProtocol` conformance.
 /// Use `ParamSpecEnumRef` only as an `unowned` reference to an existing `GParamSpecEnum` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for enum
-/// properties.
 public struct ParamSpecEnumRef: ParamSpecEnumProtocol {
         /// Untyped pointer to the underlying `GParamSpecEnum` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_enum_ptr` property instead.
@@ -1220,12 +1234,13 @@ public extension ParamSpecEnumRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for enum
+/// properties.
+///
 /// The `ParamSpecEnum` type acts as a reference-counted owner of an underlying `GParamSpecEnum` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecEnumProtocol` conformance.
 /// Use `ParamSpecEnum` as a strong reference or owner of a `GParamSpecEnum` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for enum
-/// properties.
 open class ParamSpecEnum: ParamSpec, ParamSpecEnumProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1399,13 +1414,14 @@ public extension ParamSpecEnumProtocol {
 
 // MARK: - ParamSpecFlags Class
 
+/// A `GParamSpec` derived structure that contains the meta data for flags
+/// properties.
+///
 /// The `ParamSpecFlagsProtocol` protocol exposes the methods and properties of an underlying `GParamSpecFlags` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecFlags`.
 /// Alternatively, use `ParamSpecFlagsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for flags
-/// properties.
 public protocol ParamSpecFlagsProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecFlags` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1417,12 +1433,13 @@ public protocol ParamSpecFlagsProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for flags
+/// properties.
+///
 /// The `ParamSpecFlagsRef` type acts as a lightweight Swift reference to an underlying `GParamSpecFlags` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecFlagsProtocol` conformance.
 /// Use `ParamSpecFlagsRef` only as an `unowned` reference to an existing `GParamSpecFlags` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for flags
-/// properties.
 public struct ParamSpecFlagsRef: ParamSpecFlagsProtocol {
         /// Untyped pointer to the underlying `GParamSpecFlags` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_flags_ptr` property instead.
@@ -1501,12 +1518,13 @@ public extension ParamSpecFlagsRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for flags
+/// properties.
+///
 /// The `ParamSpecFlags` type acts as a reference-counted owner of an underlying `GParamSpecFlags` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecFlagsProtocol` conformance.
 /// Use `ParamSpecFlags` as a strong reference or owner of a `GParamSpecFlags` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for flags
-/// properties.
 open class ParamSpecFlags: ParamSpec, ParamSpecFlagsProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1680,12 +1698,13 @@ public extension ParamSpecFlagsProtocol {
 
 // MARK: - ParamSpecFloat Class
 
+/// A `GParamSpec` derived structure that contains the meta data for float properties.
+///
 /// The `ParamSpecFloatProtocol` protocol exposes the methods and properties of an underlying `GParamSpecFloat` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecFloat`.
 /// Alternatively, use `ParamSpecFloatRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for float properties.
 public protocol ParamSpecFloatProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecFloat` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1697,11 +1716,12 @@ public protocol ParamSpecFloatProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for float properties.
+///
 /// The `ParamSpecFloatRef` type acts as a lightweight Swift reference to an underlying `GParamSpecFloat` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecFloatProtocol` conformance.
 /// Use `ParamSpecFloatRef` only as an `unowned` reference to an existing `GParamSpecFloat` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for float properties.
 public struct ParamSpecFloatRef: ParamSpecFloatProtocol {
         /// Untyped pointer to the underlying `GParamSpecFloat` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_float_ptr` property instead.
@@ -1780,11 +1800,12 @@ public extension ParamSpecFloatRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for float properties.
+///
 /// The `ParamSpecFloat` type acts as a reference-counted owner of an underlying `GParamSpecFloat` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecFloatProtocol` conformance.
 /// Use `ParamSpecFloat` as a strong reference or owner of a `GParamSpecFloat` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for float properties.
 open class ParamSpecFloat: ParamSpec, ParamSpecFloatProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1978,12 +1999,13 @@ public extension ParamSpecFloatProtocol {
 
 // MARK: - ParamSpecGType Class
 
+/// A `GParamSpec` derived structure that contains the meta data for `GType` properties.
+///
 /// The `ParamSpecGTypeProtocol` protocol exposes the methods and properties of an underlying `GParamSpecGType` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecGType`.
 /// Alternatively, use `ParamSpecGTypeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for `GType` properties.
 public protocol ParamSpecGTypeProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecGType` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1995,11 +2017,12 @@ public protocol ParamSpecGTypeProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for `GType` properties.
+///
 /// The `ParamSpecGTypeRef` type acts as a lightweight Swift reference to an underlying `GParamSpecGType` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecGTypeProtocol` conformance.
 /// Use `ParamSpecGTypeRef` only as an `unowned` reference to an existing `GParamSpecGType` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for `GType` properties.
 public struct ParamSpecGTypeRef: ParamSpecGTypeProtocol {
         /// Untyped pointer to the underlying `GParamSpecGType` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_gtype_ptr` property instead.
@@ -2078,11 +2101,12 @@ public extension ParamSpecGTypeRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for `GType` properties.
+///
 /// The `ParamSpecGType` type acts as a reference-counted owner of an underlying `GParamSpecGType` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecGTypeProtocol` conformance.
 /// Use `ParamSpecGType` as a strong reference or owner of a `GParamSpecGType` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for `GType` properties.
 open class ParamSpecGType: ParamSpec, ParamSpecGTypeProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2247,12 +2271,13 @@ public extension ParamSpecGTypeProtocol {
 
 // MARK: - ParamSpecInt Class
 
+/// A `GParamSpec` derived structure that contains the meta data for integer properties.
+///
 /// The `ParamSpecIntProtocol` protocol exposes the methods and properties of an underlying `GParamSpecInt` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecInt`.
 /// Alternatively, use `ParamSpecIntRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for integer properties.
 public protocol ParamSpecIntProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecInt` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2264,11 +2289,12 @@ public protocol ParamSpecIntProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for integer properties.
+///
 /// The `ParamSpecIntRef` type acts as a lightweight Swift reference to an underlying `GParamSpecInt` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecIntProtocol` conformance.
 /// Use `ParamSpecIntRef` only as an `unowned` reference to an existing `GParamSpecInt` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for integer properties.
 public struct ParamSpecIntRef: ParamSpecIntProtocol {
         /// Untyped pointer to the underlying `GParamSpecInt` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_int_ptr` property instead.
@@ -2347,11 +2373,12 @@ public extension ParamSpecIntRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for integer properties.
+///
 /// The `ParamSpecInt` type acts as a reference-counted owner of an underlying `GParamSpecInt` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecIntProtocol` conformance.
 /// Use `ParamSpecInt` as a strong reference or owner of a `GParamSpecInt` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for integer properties.
 open class ParamSpecInt: ParamSpec, ParamSpecIntProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2534,12 +2561,13 @@ public extension ParamSpecIntProtocol {
 
 // MARK: - ParamSpecInt64 Class
 
+/// A `GParamSpec` derived structure that contains the meta data for 64bit integer properties.
+///
 /// The `ParamSpecInt64Protocol` protocol exposes the methods and properties of an underlying `GParamSpecInt64` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecInt64`.
 /// Alternatively, use `ParamSpecInt64Ref` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for 64bit integer properties.
 public protocol ParamSpecInt64Protocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecInt64` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2551,11 +2579,12 @@ public protocol ParamSpecInt64Protocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for 64bit integer properties.
+///
 /// The `ParamSpecInt64Ref` type acts as a lightweight Swift reference to an underlying `GParamSpecInt64` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecInt64Protocol` conformance.
 /// Use `ParamSpecInt64Ref` only as an `unowned` reference to an existing `GParamSpecInt64` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for 64bit integer properties.
 public struct ParamSpecInt64Ref: ParamSpecInt64Protocol {
         /// Untyped pointer to the underlying `GParamSpecInt64` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_int64_ptr` property instead.
@@ -2634,11 +2663,12 @@ public extension ParamSpecInt64Ref {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for 64bit integer properties.
+///
 /// The `ParamSpecInt64` type acts as a reference-counted owner of an underlying `GParamSpecInt64` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecInt64Protocol` conformance.
 /// Use `ParamSpecInt64` as a strong reference or owner of a `GParamSpecInt64` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for 64bit integer properties.
 open class ParamSpecInt64: ParamSpec, ParamSpecInt64Protocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2821,12 +2851,13 @@ public extension ParamSpecInt64Protocol {
 
 // MARK: - ParamSpecLong Class
 
+/// A `GParamSpec` derived structure that contains the meta data for long integer properties.
+///
 /// The `ParamSpecLongProtocol` protocol exposes the methods and properties of an underlying `GParamSpecLong` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecLong`.
 /// Alternatively, use `ParamSpecLongRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for long integer properties.
 public protocol ParamSpecLongProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecLong` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2838,11 +2869,12 @@ public protocol ParamSpecLongProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for long integer properties.
+///
 /// The `ParamSpecLongRef` type acts as a lightweight Swift reference to an underlying `GParamSpecLong` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecLongProtocol` conformance.
 /// Use `ParamSpecLongRef` only as an `unowned` reference to an existing `GParamSpecLong` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for long integer properties.
 public struct ParamSpecLongRef: ParamSpecLongProtocol {
         /// Untyped pointer to the underlying `GParamSpecLong` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_long_ptr` property instead.
@@ -2921,11 +2953,12 @@ public extension ParamSpecLongRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for long integer properties.
+///
 /// The `ParamSpecLong` type acts as a reference-counted owner of an underlying `GParamSpecLong` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecLongProtocol` conformance.
 /// Use `ParamSpecLong` as a strong reference or owner of a `GParamSpecLong` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for long integer properties.
 open class ParamSpecLong: ParamSpec, ParamSpecLongProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3108,12 +3141,13 @@ public extension ParamSpecLongProtocol {
 
 // MARK: - ParamSpecObject Class
 
+/// A `GParamSpec` derived structure that contains the meta data for object properties.
+///
 /// The `ParamSpecObjectProtocol` protocol exposes the methods and properties of an underlying `GParamSpecObject` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecObject`.
 /// Alternatively, use `ParamSpecObjectRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for object properties.
 public protocol ParamSpecObjectProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecObject` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3125,11 +3159,12 @@ public protocol ParamSpecObjectProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for object properties.
+///
 /// The `ParamSpecObjectRef` type acts as a lightweight Swift reference to an underlying `GParamSpecObject` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecObjectProtocol` conformance.
 /// Use `ParamSpecObjectRef` only as an `unowned` reference to an existing `GParamSpecObject` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for object properties.
 public struct ParamSpecObjectRef: ParamSpecObjectProtocol {
         /// Untyped pointer to the underlying `GParamSpecObject` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_object_ptr` property instead.
@@ -3208,11 +3243,12 @@ public extension ParamSpecObjectRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for object properties.
+///
 /// The `ParamSpecObject` type acts as a reference-counted owner of an underlying `GParamSpecObject` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecObjectProtocol` conformance.
 /// Use `ParamSpecObject` as a strong reference or owner of a `GParamSpecObject` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for object properties.
 open class ParamSpecObject: ParamSpec, ParamSpecObjectProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3368,19 +3404,23 @@ public extension ParamSpecObjectProtocol {
 
 // MARK: - ParamSpecOverride Class
 
+/// A `GParamSpec` derived structure that redirects operations to
+/// other types of `GParamSpec`.
+/// 
+/// All operations other than getting or setting the value are redirected,
+/// including accessing the nick and blurb, validating a value, and so
+/// forth.
+/// 
+/// See `g_param_spec_get_redirect_target()` for retrieving the overridden
+/// property. `GParamSpecOverride` is used in implementing
+/// `g_object_class_override_property()`, and will not be directly useful
+/// unless you are implementing a new base type similar to GObject.
+///
 /// The `ParamSpecOverrideProtocol` protocol exposes the methods and properties of an underlying `GParamSpecOverride` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecOverride`.
 /// Alternatively, use `ParamSpecOverrideRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// This is a type of `GParamSpec` type that simply redirects operations to
-/// another paramspec.  All operations other than getting or
-/// setting the value are redirected, including accessing the nick and
-/// blurb, validating a value, and so forth. See
-/// `g_param_spec_get_redirect_target()` for retrieving the overridden
-/// property. `GParamSpecOverride` is used in implementing
-/// `g_object_class_override_property()`, and will not be directly useful
-/// unless you are implementing a new base type similar to GObject.
 public protocol ParamSpecOverrideProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecOverride` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3392,18 +3432,22 @@ public protocol ParamSpecOverrideProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that redirects operations to
+/// other types of `GParamSpec`.
+/// 
+/// All operations other than getting or setting the value are redirected,
+/// including accessing the nick and blurb, validating a value, and so
+/// forth.
+/// 
+/// See `g_param_spec_get_redirect_target()` for retrieving the overridden
+/// property. `GParamSpecOverride` is used in implementing
+/// `g_object_class_override_property()`, and will not be directly useful
+/// unless you are implementing a new base type similar to GObject.
+///
 /// The `ParamSpecOverrideRef` type acts as a lightweight Swift reference to an underlying `GParamSpecOverride` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecOverrideProtocol` conformance.
 /// Use `ParamSpecOverrideRef` only as an `unowned` reference to an existing `GParamSpecOverride` instance.
 ///
-/// This is a type of `GParamSpec` type that simply redirects operations to
-/// another paramspec.  All operations other than getting or
-/// setting the value are redirected, including accessing the nick and
-/// blurb, validating a value, and so forth. See
-/// `g_param_spec_get_redirect_target()` for retrieving the overridden
-/// property. `GParamSpecOverride` is used in implementing
-/// `g_object_class_override_property()`, and will not be directly useful
-/// unless you are implementing a new base type similar to GObject.
 public struct ParamSpecOverrideRef: ParamSpecOverrideProtocol {
         /// Untyped pointer to the underlying `GParamSpecOverride` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_override_ptr` property instead.
@@ -3482,18 +3526,22 @@ public extension ParamSpecOverrideRef {
 
     }
 
+/// A `GParamSpec` derived structure that redirects operations to
+/// other types of `GParamSpec`.
+/// 
+/// All operations other than getting or setting the value are redirected,
+/// including accessing the nick and blurb, validating a value, and so
+/// forth.
+/// 
+/// See `g_param_spec_get_redirect_target()` for retrieving the overridden
+/// property. `GParamSpecOverride` is used in implementing
+/// `g_object_class_override_property()`, and will not be directly useful
+/// unless you are implementing a new base type similar to GObject.
+///
 /// The `ParamSpecOverride` type acts as a reference-counted owner of an underlying `GParamSpecOverride` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecOverrideProtocol` conformance.
 /// Use `ParamSpecOverride` as a strong reference or owner of a `GParamSpecOverride` instance.
 ///
-/// This is a type of `GParamSpec` type that simply redirects operations to
-/// another paramspec.  All operations other than getting or
-/// setting the value are redirected, including accessing the nick and
-/// blurb, validating a value, and so forth. See
-/// `g_param_spec_get_redirect_target()` for retrieving the overridden
-/// property. `GParamSpecOverride` is used in implementing
-/// `g_object_class_override_property()`, and will not be directly useful
-/// unless you are implementing a new base type similar to GObject.
 open class ParamSpecOverride: ParamSpec, ParamSpecOverrideProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3644,13 +3692,14 @@ public extension ParamSpecOverrideProtocol {
 
 // MARK: - ParamSpecParam Class
 
+/// A `GParamSpec` derived structure that contains the meta data for `G_TYPE_PARAM`
+/// properties.
+///
 /// The `ParamSpecParamProtocol` protocol exposes the methods and properties of an underlying `GParamSpecParam` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecParam`.
 /// Alternatively, use `ParamSpecParamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for `G_TYPE_PARAM`
-/// properties.
 public protocol ParamSpecParamProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecParam` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3662,12 +3711,13 @@ public protocol ParamSpecParamProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for `G_TYPE_PARAM`
+/// properties.
+///
 /// The `ParamSpecParamRef` type acts as a lightweight Swift reference to an underlying `GParamSpecParam` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecParamProtocol` conformance.
 /// Use `ParamSpecParamRef` only as an `unowned` reference to an existing `GParamSpecParam` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for `G_TYPE_PARAM`
-/// properties.
 public struct ParamSpecParamRef: ParamSpecParamProtocol {
         /// Untyped pointer to the underlying `GParamSpecParam` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_param_ptr` property instead.
@@ -3746,12 +3796,13 @@ public extension ParamSpecParamRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for `G_TYPE_PARAM`
+/// properties.
+///
 /// The `ParamSpecParam` type acts as a reference-counted owner of an underlying `GParamSpecParam` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecParamProtocol` conformance.
 /// Use `ParamSpecParam` as a strong reference or owner of a `GParamSpecParam` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for `G_TYPE_PARAM`
-/// properties.
 open class ParamSpecParam: ParamSpec, ParamSpecParamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3907,12 +3958,13 @@ public extension ParamSpecParamProtocol {
 
 // MARK: - ParamSpecPointer Class
 
+/// A `GParamSpec` derived structure that contains the meta data for pointer properties.
+///
 /// The `ParamSpecPointerProtocol` protocol exposes the methods and properties of an underlying `GParamSpecPointer` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecPointer`.
 /// Alternatively, use `ParamSpecPointerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for pointer properties.
 public protocol ParamSpecPointerProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecPointer` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3924,11 +3976,12 @@ public protocol ParamSpecPointerProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for pointer properties.
+///
 /// The `ParamSpecPointerRef` type acts as a lightweight Swift reference to an underlying `GParamSpecPointer` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecPointerProtocol` conformance.
 /// Use `ParamSpecPointerRef` only as an `unowned` reference to an existing `GParamSpecPointer` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for pointer properties.
 public struct ParamSpecPointerRef: ParamSpecPointerProtocol {
         /// Untyped pointer to the underlying `GParamSpecPointer` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_pointer_ptr` property instead.
@@ -4007,11 +4060,12 @@ public extension ParamSpecPointerRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for pointer properties.
+///
 /// The `ParamSpecPointer` type acts as a reference-counted owner of an underlying `GParamSpecPointer` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecPointerProtocol` conformance.
 /// Use `ParamSpecPointer` as a strong reference or owner of a `GParamSpecPointer` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for pointer properties.
 open class ParamSpecPointer: ParamSpec, ParamSpecPointerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4167,13 +4221,14 @@ public extension ParamSpecPointerProtocol {
 
 // MARK: - ParamSpecString Class
 
+/// A `GParamSpec` derived structure that contains the meta data for string
+/// properties.
+///
 /// The `ParamSpecStringProtocol` protocol exposes the methods and properties of an underlying `GParamSpecString` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecString`.
 /// Alternatively, use `ParamSpecStringRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for string
-/// properties.
 public protocol ParamSpecStringProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecString` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4185,12 +4240,13 @@ public protocol ParamSpecStringProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for string
+/// properties.
+///
 /// The `ParamSpecStringRef` type acts as a lightweight Swift reference to an underlying `GParamSpecString` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecStringProtocol` conformance.
 /// Use `ParamSpecStringRef` only as an `unowned` reference to an existing `GParamSpecString` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for string
-/// properties.
 public struct ParamSpecStringRef: ParamSpecStringProtocol {
         /// Untyped pointer to the underlying `GParamSpecString` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_string_ptr` property instead.
@@ -4269,12 +4325,13 @@ public extension ParamSpecStringRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for string
+/// properties.
+///
 /// The `ParamSpecString` type acts as a reference-counted owner of an underlying `GParamSpecString` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecStringProtocol` conformance.
 /// Use `ParamSpecString` as a strong reference or owner of a `GParamSpecString` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for string
-/// properties.
 open class ParamSpecString: ParamSpec, ParamSpecStringProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4484,12 +4541,13 @@ public extension ParamSpecStringProtocol {
 
 // MARK: - ParamSpecUChar Class
 
+/// A `GParamSpec` derived structure that contains the meta data for unsigned character properties.
+///
 /// The `ParamSpecUCharProtocol` protocol exposes the methods and properties of an underlying `GParamSpecUChar` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecUChar`.
 /// Alternatively, use `ParamSpecUCharRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for unsigned character properties.
 public protocol ParamSpecUCharProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecUChar` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4501,11 +4559,12 @@ public protocol ParamSpecUCharProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for unsigned character properties.
+///
 /// The `ParamSpecUCharRef` type acts as a lightweight Swift reference to an underlying `GParamSpecUChar` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecUCharProtocol` conformance.
 /// Use `ParamSpecUCharRef` only as an `unowned` reference to an existing `GParamSpecUChar` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for unsigned character properties.
 public struct ParamSpecUCharRef: ParamSpecUCharProtocol {
         /// Untyped pointer to the underlying `GParamSpecUChar` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_uchar_ptr` property instead.
@@ -4584,11 +4643,12 @@ public extension ParamSpecUCharRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for unsigned character properties.
+///
 /// The `ParamSpecUChar` type acts as a reference-counted owner of an underlying `GParamSpecUChar` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecUCharProtocol` conformance.
 /// Use `ParamSpecUChar` as a strong reference or owner of a `GParamSpecUChar` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for unsigned character properties.
 open class ParamSpecUChar: ParamSpec, ParamSpecUCharProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4771,12 +4831,13 @@ public extension ParamSpecUCharProtocol {
 
 // MARK: - ParamSpecUInt Class
 
+/// A `GParamSpec` derived structure that contains the meta data for unsigned integer properties.
+///
 /// The `ParamSpecUIntProtocol` protocol exposes the methods and properties of an underlying `GParamSpecUInt` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecUInt`.
 /// Alternatively, use `ParamSpecUIntRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for unsigned integer properties.
 public protocol ParamSpecUIntProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecUInt` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4788,11 +4849,12 @@ public protocol ParamSpecUIntProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for unsigned integer properties.
+///
 /// The `ParamSpecUIntRef` type acts as a lightweight Swift reference to an underlying `GParamSpecUInt` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecUIntProtocol` conformance.
 /// Use `ParamSpecUIntRef` only as an `unowned` reference to an existing `GParamSpecUInt` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for unsigned integer properties.
 public struct ParamSpecUIntRef: ParamSpecUIntProtocol {
         /// Untyped pointer to the underlying `GParamSpecUInt` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_uint_ptr` property instead.
@@ -4871,11 +4933,12 @@ public extension ParamSpecUIntRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for unsigned integer properties.
+///
 /// The `ParamSpecUInt` type acts as a reference-counted owner of an underlying `GParamSpecUInt` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecUIntProtocol` conformance.
 /// Use `ParamSpecUInt` as a strong reference or owner of a `GParamSpecUInt` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for unsigned integer properties.
 open class ParamSpecUInt: ParamSpec, ParamSpecUIntProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5058,12 +5121,13 @@ public extension ParamSpecUIntProtocol {
 
 // MARK: - ParamSpecUInt64 Class
 
+/// A `GParamSpec` derived structure that contains the meta data for unsigned 64bit integer properties.
+///
 /// The `ParamSpecUInt64Protocol` protocol exposes the methods and properties of an underlying `GParamSpecUInt64` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecUInt64`.
 /// Alternatively, use `ParamSpecUInt64Ref` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for unsigned 64bit integer properties.
 public protocol ParamSpecUInt64Protocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecUInt64` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5075,11 +5139,12 @@ public protocol ParamSpecUInt64Protocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for unsigned 64bit integer properties.
+///
 /// The `ParamSpecUInt64Ref` type acts as a lightweight Swift reference to an underlying `GParamSpecUInt64` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecUInt64Protocol` conformance.
 /// Use `ParamSpecUInt64Ref` only as an `unowned` reference to an existing `GParamSpecUInt64` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for unsigned 64bit integer properties.
 public struct ParamSpecUInt64Ref: ParamSpecUInt64Protocol {
         /// Untyped pointer to the underlying `GParamSpecUInt64` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_uint64_ptr` property instead.
@@ -5158,11 +5223,12 @@ public extension ParamSpecUInt64Ref {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for unsigned 64bit integer properties.
+///
 /// The `ParamSpecUInt64` type acts as a reference-counted owner of an underlying `GParamSpecUInt64` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecUInt64Protocol` conformance.
 /// Use `ParamSpecUInt64` as a strong reference or owner of a `GParamSpecUInt64` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for unsigned 64bit integer properties.
 open class ParamSpecUInt64: ParamSpec, ParamSpecUInt64Protocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5345,12 +5411,13 @@ public extension ParamSpecUInt64Protocol {
 
 // MARK: - ParamSpecULong Class
 
+/// A `GParamSpec` derived structure that contains the meta data for unsigned long integer properties.
+///
 /// The `ParamSpecULongProtocol` protocol exposes the methods and properties of an underlying `GParamSpecULong` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecULong`.
 /// Alternatively, use `ParamSpecULongRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for unsigned long integer properties.
 public protocol ParamSpecULongProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecULong` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5362,11 +5429,12 @@ public protocol ParamSpecULongProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for unsigned long integer properties.
+///
 /// The `ParamSpecULongRef` type acts as a lightweight Swift reference to an underlying `GParamSpecULong` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecULongProtocol` conformance.
 /// Use `ParamSpecULongRef` only as an `unowned` reference to an existing `GParamSpecULong` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for unsigned long integer properties.
 public struct ParamSpecULongRef: ParamSpecULongProtocol {
         /// Untyped pointer to the underlying `GParamSpecULong` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_ulong_ptr` property instead.
@@ -5445,11 +5513,12 @@ public extension ParamSpecULongRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for unsigned long integer properties.
+///
 /// The `ParamSpecULong` type acts as a reference-counted owner of an underlying `GParamSpecULong` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecULongProtocol` conformance.
 /// Use `ParamSpecULong` as a strong reference or owner of a `GParamSpecULong` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for unsigned long integer properties.
 open class ParamSpecULong: ParamSpec, ParamSpecULongProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5632,12 +5701,13 @@ public extension ParamSpecULongProtocol {
 
 // MARK: - ParamSpecUnichar Class
 
+/// A `GParamSpec` derived structure that contains the meta data for unichar (unsigned integer) properties.
+///
 /// The `ParamSpecUnicharProtocol` protocol exposes the methods and properties of an underlying `GParamSpecUnichar` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecUnichar`.
 /// Alternatively, use `ParamSpecUnicharRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for unichar (unsigned integer) properties.
 public protocol ParamSpecUnicharProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecUnichar` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5649,11 +5719,12 @@ public protocol ParamSpecUnicharProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for unichar (unsigned integer) properties.
+///
 /// The `ParamSpecUnicharRef` type acts as a lightweight Swift reference to an underlying `GParamSpecUnichar` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecUnicharProtocol` conformance.
 /// Use `ParamSpecUnicharRef` only as an `unowned` reference to an existing `GParamSpecUnichar` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for unichar (unsigned integer) properties.
 public struct ParamSpecUnicharRef: ParamSpecUnicharProtocol {
         /// Untyped pointer to the underlying `GParamSpecUnichar` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_unichar_ptr` property instead.
@@ -5732,11 +5803,12 @@ public extension ParamSpecUnicharRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for unichar (unsigned integer) properties.
+///
 /// The `ParamSpecUnichar` type acts as a reference-counted owner of an underlying `GParamSpecUnichar` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecUnicharProtocol` conformance.
 /// Use `ParamSpecUnichar` as a strong reference or owner of a `GParamSpecUnichar` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for unichar (unsigned integer) properties.
 open class ParamSpecUnichar: ParamSpec, ParamSpecUnicharProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5901,12 +5973,13 @@ public extension ParamSpecUnicharProtocol {
 
 // MARK: - ParamSpecValueArray Class
 
+/// A `GParamSpec` derived structure that contains the meta data for `GValueArray` properties.
+///
 /// The `ParamSpecValueArrayProtocol` protocol exposes the methods and properties of an underlying `GParamSpecValueArray` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecValueArray`.
 /// Alternatively, use `ParamSpecValueArrayRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for `GValueArray` properties.
 public protocol ParamSpecValueArrayProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecValueArray` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5918,11 +5991,12 @@ public protocol ParamSpecValueArrayProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpec` derived structure that contains the meta data for `GValueArray` properties.
+///
 /// The `ParamSpecValueArrayRef` type acts as a lightweight Swift reference to an underlying `GParamSpecValueArray` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecValueArrayProtocol` conformance.
 /// Use `ParamSpecValueArrayRef` only as an `unowned` reference to an existing `GParamSpecValueArray` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for `GValueArray` properties.
 public struct ParamSpecValueArrayRef: ParamSpecValueArrayProtocol {
         /// Untyped pointer to the underlying `GParamSpecValueArray` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_value_array_ptr` property instead.
@@ -6001,11 +6075,12 @@ public extension ParamSpecValueArrayRef {
 
     }
 
+/// A `GParamSpec` derived structure that contains the meta data for `GValueArray` properties.
+///
 /// The `ParamSpecValueArray` type acts as a reference-counted owner of an underlying `GParamSpecValueArray` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecValueArrayProtocol` conformance.
 /// Use `ParamSpecValueArray` as a strong reference or owner of a `GParamSpecValueArray` instance.
 ///
-/// A `GParamSpec` derived structure that contains the meta data for `GValueArray` properties.
 open class ParamSpecValueArray: ParamSpec, ParamSpecValueArrayProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6179,11 +6254,6 @@ public extension ParamSpecValueArrayProtocol {
 
 // MARK: - ParamSpecVariant Class
 
-/// The `ParamSpecVariantProtocol` protocol exposes the methods and properties of an underlying `GParamSpecVariant` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ParamSpecVariant`.
-/// Alternatively, use `ParamSpecVariantRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GParamSpec` derived structure that contains the meta data for `GVariant` properties.
 /// 
 /// When comparing values with `g_param_values_cmp()`, scalar values with the same
@@ -6191,6 +6261,12 @@ public extension ParamSpecValueArrayProtocol {
 /// be checked for equality with `g_variant_equal()`, and their sort order is
 /// otherwise undefined. `nil` is ordered before non-`nil` variants. Two `nil`
 /// values compare equal.
+///
+/// The `ParamSpecVariantProtocol` protocol exposes the methods and properties of an underlying `GParamSpecVariant` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ParamSpecVariant`.
+/// Alternatively, use `ParamSpecVariantRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ParamSpecVariantProtocol: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpecVariant` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6202,10 +6278,6 @@ public protocol ParamSpecVariantProtocol: ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ParamSpecVariantRef` type acts as a lightweight Swift reference to an underlying `GParamSpecVariant` instance.
-/// It exposes methods that can operate on this data type through `ParamSpecVariantProtocol` conformance.
-/// Use `ParamSpecVariantRef` only as an `unowned` reference to an existing `GParamSpecVariant` instance.
-///
 /// A `GParamSpec` derived structure that contains the meta data for `GVariant` properties.
 /// 
 /// When comparing values with `g_param_values_cmp()`, scalar values with the same
@@ -6213,6 +6285,11 @@ public protocol ParamSpecVariantProtocol: ParamSpecProtocol {
 /// be checked for equality with `g_variant_equal()`, and their sort order is
 /// otherwise undefined. `nil` is ordered before non-`nil` variants. Two `nil`
 /// values compare equal.
+///
+/// The `ParamSpecVariantRef` type acts as a lightweight Swift reference to an underlying `GParamSpecVariant` instance.
+/// It exposes methods that can operate on this data type through `ParamSpecVariantProtocol` conformance.
+/// Use `ParamSpecVariantRef` only as an `unowned` reference to an existing `GParamSpecVariant` instance.
+///
 public struct ParamSpecVariantRef: ParamSpecVariantProtocol {
         /// Untyped pointer to the underlying `GParamSpecVariant` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_variant_ptr` property instead.
@@ -6291,10 +6368,6 @@ public extension ParamSpecVariantRef {
 
     }
 
-/// The `ParamSpecVariant` type acts as a reference-counted owner of an underlying `GParamSpecVariant` instance.
-/// It provides the methods that can operate on this data type through `ParamSpecVariantProtocol` conformance.
-/// Use `ParamSpecVariant` as a strong reference or owner of a `GParamSpecVariant` instance.
-///
 /// A `GParamSpec` derived structure that contains the meta data for `GVariant` properties.
 /// 
 /// When comparing values with `g_param_values_cmp()`, scalar values with the same
@@ -6302,6 +6375,11 @@ public extension ParamSpecVariantRef {
 /// be checked for equality with `g_variant_equal()`, and their sort order is
 /// otherwise undefined. `nil` is ordered before non-`nil` variants. Two `nil`
 /// values compare equal.
+///
+/// The `ParamSpecVariant` type acts as a reference-counted owner of an underlying `GParamSpecVariant` instance.
+/// It provides the methods that can operate on this data type through `ParamSpecVariantProtocol` conformance.
+/// Use `ParamSpecVariant` as a strong reference or owner of a `GParamSpecVariant` instance.
+///
 open class ParamSpecVariant: ParamSpec, ParamSpecVariantProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6477,22 +6555,21 @@ public extension ParamSpecVariantProtocol {
 
 // MARK: - TypeModule Class
 
-/// The `TypeModuleProtocol` protocol exposes the methods and properties of an underlying `GTypeModule` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TypeModule`.
-/// Alternatively, use `TypeModuleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GTypeModule` provides a simple implementation of the `GTypePlugin`
-/// interface. The model of `GTypeModule` is a dynamically loaded module
-/// which implements some number of types and interface implementations.
+/// interface.
+/// 
+/// The model of `GTypeModule` is a dynamically loaded module which
+/// implements some number of types and interface implementations.
+/// 
 /// When the module is loaded, it registers its types and interfaces
 /// using `g_type_module_register_type()` and `g_type_module_add_interface()`.
 /// As long as any instances of these types and interface implementations
 /// are in use, the module is kept loaded. When the types and interfaces
 /// are gone, the module may be unloaded. If the types and interfaces
 /// become used again, the module will be reloaded. Note that the last
-/// unref cannot happen in module code, since that would lead to the
-/// caller's code being unloaded before `g_object_unref()` returns to it.
+/// reference cannot be released from within the module code, since that
+/// would lead to the caller's code being unloaded before `g_object_unref()`
+/// returns to it.
 /// 
 /// Keeping track of whether the module should be loaded or not is done by
 /// using a use count - it starts at zero, and whenever it is greater than
@@ -6508,6 +6585,12 @@ public extension ParamSpecVariantProtocol {
 /// loading and unloading. To create a particular module type you must
 /// derive from `GTypeModule` and implement the load and unload functions
 /// in `GTypeModuleClass`.
+///
+/// The `TypeModuleProtocol` protocol exposes the methods and properties of an underlying `GTypeModule` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TypeModule`.
+/// Alternatively, use `TypeModuleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TypeModuleProtocol: ObjectProtocol, TypePluginProtocol {
         /// Untyped pointer to the underlying `GTypeModule` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6519,21 +6602,21 @@ public protocol TypeModuleProtocol: ObjectProtocol, TypePluginProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TypeModuleRef` type acts as a lightweight Swift reference to an underlying `GTypeModule` instance.
-/// It exposes methods that can operate on this data type through `TypeModuleProtocol` conformance.
-/// Use `TypeModuleRef` only as an `unowned` reference to an existing `GTypeModule` instance.
-///
 /// `GTypeModule` provides a simple implementation of the `GTypePlugin`
-/// interface. The model of `GTypeModule` is a dynamically loaded module
-/// which implements some number of types and interface implementations.
+/// interface.
+/// 
+/// The model of `GTypeModule` is a dynamically loaded module which
+/// implements some number of types and interface implementations.
+/// 
 /// When the module is loaded, it registers its types and interfaces
 /// using `g_type_module_register_type()` and `g_type_module_add_interface()`.
 /// As long as any instances of these types and interface implementations
 /// are in use, the module is kept loaded. When the types and interfaces
 /// are gone, the module may be unloaded. If the types and interfaces
 /// become used again, the module will be reloaded. Note that the last
-/// unref cannot happen in module code, since that would lead to the
-/// caller's code being unloaded before `g_object_unref()` returns to it.
+/// reference cannot be released from within the module code, since that
+/// would lead to the caller's code being unloaded before `g_object_unref()`
+/// returns to it.
 /// 
 /// Keeping track of whether the module should be loaded or not is done by
 /// using a use count - it starts at zero, and whenever it is greater than
@@ -6549,6 +6632,11 @@ public protocol TypeModuleProtocol: ObjectProtocol, TypePluginProtocol {
 /// loading and unloading. To create a particular module type you must
 /// derive from `GTypeModule` and implement the load and unload functions
 /// in `GTypeModuleClass`.
+///
+/// The `TypeModuleRef` type acts as a lightweight Swift reference to an underlying `GTypeModule` instance.
+/// It exposes methods that can operate on this data type through `TypeModuleProtocol` conformance.
+/// Use `TypeModuleRef` only as an `unowned` reference to an existing `GTypeModule` instance.
+///
 public struct TypeModuleRef: TypeModuleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GTypeModule` instance.
     /// For type-safe access, use the generated, typed pointer `type_module_ptr` property instead.
@@ -6630,21 +6718,21 @@ public extension TypeModuleRef {
 
     }
 
-/// The `TypeModule` type acts as a reference-counted owner of an underlying `GTypeModule` instance.
-/// It provides the methods that can operate on this data type through `TypeModuleProtocol` conformance.
-/// Use `TypeModule` as a strong reference or owner of a `GTypeModule` instance.
-///
 /// `GTypeModule` provides a simple implementation of the `GTypePlugin`
-/// interface. The model of `GTypeModule` is a dynamically loaded module
-/// which implements some number of types and interface implementations.
+/// interface.
+/// 
+/// The model of `GTypeModule` is a dynamically loaded module which
+/// implements some number of types and interface implementations.
+/// 
 /// When the module is loaded, it registers its types and interfaces
 /// using `g_type_module_register_type()` and `g_type_module_add_interface()`.
 /// As long as any instances of these types and interface implementations
 /// are in use, the module is kept loaded. When the types and interfaces
 /// are gone, the module may be unloaded. If the types and interfaces
 /// become used again, the module will be reloaded. Note that the last
-/// unref cannot happen in module code, since that would lead to the
-/// caller's code being unloaded before `g_object_unref()` returns to it.
+/// reference cannot be released from within the module code, since that
+/// would lead to the caller's code being unloaded before `g_object_unref()`
+/// returns to it.
 /// 
 /// Keeping track of whether the module should be loaded or not is done by
 /// using a use count - it starts at zero, and whenever it is greater than
@@ -6660,6 +6748,11 @@ public extension TypeModuleRef {
 /// loading and unloading. To create a particular module type you must
 /// derive from `GTypeModule` and implement the load and unload functions
 /// in `GTypeModuleClass`.
+///
+/// The `TypeModule` type acts as a reference-counted owner of an underlying `GTypeModule` instance.
+/// It provides the methods that can operate on this data type through `TypeModuleProtocol` conformance.
+/// Use `TypeModule` as a strong reference or owner of a `GTypeModule` instance.
+///
 open class TypeModule: Object, TypeModuleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6807,12 +6900,14 @@ public enum TypeModuleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

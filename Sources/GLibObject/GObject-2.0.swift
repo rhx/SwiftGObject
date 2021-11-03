@@ -1,5 +1,9 @@
 import CGLib
 import GLib
+import GObjectCHelpers
+
+import CGLib
+import GLib
 
 
 extension gboolean {

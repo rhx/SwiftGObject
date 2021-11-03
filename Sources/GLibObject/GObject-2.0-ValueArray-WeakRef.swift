@@ -4,12 +4,13 @@ import GObjectCHelpers
 
 // MARK: - ValueArray Record
 
+/// A `GValueArray` contains an array of `GValue` elements.
+///
 /// The `ValueArrayProtocol` protocol exposes the methods and properties of an underlying `GValueArray` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ValueArray`.
 /// Alternatively, use `ValueArrayRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GValueArray` contains an array of `GValue` elements.
 public protocol ValueArrayProtocol {
         /// Untyped pointer to the underlying `GValueArray` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -21,11 +22,12 @@ public protocol ValueArrayProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GValueArray` contains an array of `GValue` elements.
+///
 /// The `ValueArrayRef` type acts as a lightweight Swift reference to an underlying `GValueArray` instance.
 /// It exposes methods that can operate on this data type through `ValueArrayProtocol` conformance.
 /// Use `ValueArrayRef` only as an `unowned` reference to an existing `GValueArray` instance.
 ///
-/// A `GValueArray` contains an array of `GValue` elements.
 public struct ValueArrayRef: ValueArrayProtocol {
         /// Untyped pointer to the underlying `GValueArray` instance.
     /// For type-safe access, use the generated, typed pointer `value_array_ptr` property instead.
@@ -114,11 +116,12 @@ public extension ValueArrayRef {
     }
 }
 
+/// A `GValueArray` contains an array of `GValue` elements.
+///
 /// The `ValueArray` type acts as an owner of an underlying `GValueArray` instance.
 /// It provides the methods that can operate on this data type through `ValueArrayProtocol` conformance.
 /// Use `ValueArray` as a strong reference or owner of a `GValueArray` instance.
 ///
-/// A `GValueArray` contains an array of `GValue` elements.
 open class ValueArray: ValueArrayProtocol {
         /// Untyped pointer to the underlying `GValueArray` instance.
     /// For type-safe access, use the generated, typed pointer `value_array_ptr` property instead.
@@ -325,8 +328,8 @@ public extension ValueArrayProtocol {
     ///
     /// **get_nth is deprecated:**
     /// Use g_array_index() instead.
-    @available(*, deprecated) @inlinable func getNth(index_: Int) -> ValueRef! {
-        let rv = ValueRef(gconstpointer: gconstpointer(g_value_array_get_nth(value_array_ptr, guint(index_))))
+    @available(*, deprecated) @inlinable func getNth(index: Int) -> ValueRef! {
+        let rv = ValueRef(gconstpointer: gconstpointer(g_value_array_get_nth(value_array_ptr, guint(index))))
         return rv
     }
 
@@ -335,8 +338,8 @@ public extension ValueArrayProtocol {
     ///
     /// **insert is deprecated:**
     /// Use #GArray and g_array_insert_val() instead.
-    @available(*, deprecated) @inlinable func insert(index_: Int, value: ValueRef? = nil) -> ValueArrayRef! {
-        guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_insert(value_array_ptr, guint(index_), value?.value_ptr))) else { return nil }
+    @available(*, deprecated) @inlinable func insert(index: Int, value: ValueRef? = nil) -> ValueArrayRef! {
+        guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_insert(value_array_ptr, guint(index), value?.value_ptr))) else { return nil }
         return rv
     }
     /// Insert a copy of `value` at specified position into `value_array`. If `value`
@@ -344,8 +347,8 @@ public extension ValueArrayProtocol {
     ///
     /// **insert is deprecated:**
     /// Use #GArray and g_array_insert_val() instead.
-    @available(*, deprecated) @inlinable func insert<ValueT: ValueProtocol>(index_: Int, value: ValueT?) -> ValueArrayRef! {
-        guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_insert(value_array_ptr, guint(index_), value?.value_ptr))) else { return nil }
+    @available(*, deprecated) @inlinable func insert<ValueT: ValueProtocol>(index: Int, value: ValueT?) -> ValueArrayRef! {
+        guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_insert(value_array_ptr, guint(index), value?.value_ptr))) else { return nil }
         return rv
     }
 
@@ -372,8 +375,8 @@ public extension ValueArrayProtocol {
     ///
     /// **remove is deprecated:**
     /// Use #GArray and g_array_remove_index() instead.
-    @available(*, deprecated) @inlinable func remove(index_: Int) -> ValueArrayRef! {
-        guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_remove(value_array_ptr, guint(index_)))) else { return nil }
+    @available(*, deprecated) @inlinable func remove(index: Int) -> ValueArrayRef! {
+        guard let rv = ValueArrayRef(gconstpointer: gconstpointer(g_value_array_remove(value_array_ptr, guint(index)))) else { return nil }
         return rv
     }
 
@@ -437,16 +440,12 @@ public extension ValueArrayProtocol {
 
 // MARK: - WeakRef Record
 
-/// The `WeakRefProtocol` protocol exposes the methods and properties of an underlying `GWeakRef` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `WeakRef`.
-/// Alternatively, use `WeakRefRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-/// A structure containing a weak reference to a `GObject`.  It can either
-/// be empty (i.e. point to `nil`), or point to an object for as long as
-/// at least one "strong" reference to that object exists. Before the
-/// object's `GObjectClass.dispose` method is called, every `GWeakRef`
-/// associated with becomes empty (i.e. points to `nil`).
+/// A structure containing a weak reference to a `GObject`.
+/// 
+/// A `GWeakRef` can either be empty (i.e. point to `nil`), or point to an
+/// object for as long as at least one "strong" reference to that object
+/// exists. Before the object's `GObjectClass.dispose` method is called,
+/// every `GWeakRef` associated with becomes empty (i.e. points to `nil`).
 /// 
 /// Like `GValue`, `GWeakRef` can be statically allocated, stack- or
 /// heap-allocated, or embedded in larger structures.
@@ -462,6 +461,12 @@ public extension ValueArrayProtocol {
 /// `GWeakRefs` are taken after the object is disposed and
 /// re-referenced, they will continue to point to it until its refcount
 /// goes back to zero, at which point they too will be invalidated.
+///
+/// The `WeakRefProtocol` protocol exposes the methods and properties of an underlying `GWeakRef` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `WeakRef`.
+/// Alternatively, use `WeakRefRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol WeakRefProtocol {
         /// Untyped pointer to the underlying `GWeakRef` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -473,15 +478,12 @@ public protocol WeakRefProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `WeakRefRef` type acts as a lightweight Swift reference to an underlying `GWeakRef` instance.
-/// It exposes methods that can operate on this data type through `WeakRefProtocol` conformance.
-/// Use `WeakRefRef` only as an `unowned` reference to an existing `GWeakRef` instance.
-///
-/// A structure containing a weak reference to a `GObject`.  It can either
-/// be empty (i.e. point to `nil`), or point to an object for as long as
-/// at least one "strong" reference to that object exists. Before the
-/// object's `GObjectClass.dispose` method is called, every `GWeakRef`
-/// associated with becomes empty (i.e. points to `nil`).
+/// A structure containing a weak reference to a `GObject`.
+/// 
+/// A `GWeakRef` can either be empty (i.e. point to `nil`), or point to an
+/// object for as long as at least one "strong" reference to that object
+/// exists. Before the object's `GObjectClass.dispose` method is called,
+/// every `GWeakRef` associated with becomes empty (i.e. points to `nil`).
 /// 
 /// Like `GValue`, `GWeakRef` can be statically allocated, stack- or
 /// heap-allocated, or embedded in larger structures.
@@ -497,6 +499,11 @@ public protocol WeakRefProtocol {
 /// `GWeakRefs` are taken after the object is disposed and
 /// re-referenced, they will continue to point to it until its refcount
 /// goes back to zero, at which point they too will be invalidated.
+///
+/// The `WeakRefRef` type acts as a lightweight Swift reference to an underlying `GWeakRef` instance.
+/// It exposes methods that can operate on this data type through `WeakRefProtocol` conformance.
+/// Use `WeakRefRef` only as an `unowned` reference to an existing `GWeakRef` instance.
+///
 public struct WeakRefRef: WeakRefProtocol {
         /// Untyped pointer to the underlying `GWeakRef` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -575,15 +582,12 @@ public extension WeakRefRef {
 
     }
 
-/// The `WeakRef` type acts as an owner of an underlying `GWeakRef` instance.
-/// It provides the methods that can operate on this data type through `WeakRefProtocol` conformance.
-/// Use `WeakRef` as a strong reference or owner of a `GWeakRef` instance.
-///
-/// A structure containing a weak reference to a `GObject`.  It can either
-/// be empty (i.e. point to `nil`), or point to an object for as long as
-/// at least one "strong" reference to that object exists. Before the
-/// object's `GObjectClass.dispose` method is called, every `GWeakRef`
-/// associated with becomes empty (i.e. points to `nil`).
+/// A structure containing a weak reference to a `GObject`.
+/// 
+/// A `GWeakRef` can either be empty (i.e. point to `nil`), or point to an
+/// object for as long as at least one "strong" reference to that object
+/// exists. Before the object's `GObjectClass.dispose` method is called,
+/// every `GWeakRef` associated with becomes empty (i.e. points to `nil`).
 /// 
 /// Like `GValue`, `GWeakRef` can be statically allocated, stack- or
 /// heap-allocated, or embedded in larger structures.
@@ -599,6 +603,11 @@ public extension WeakRefRef {
 /// `GWeakRefs` are taken after the object is disposed and
 /// re-referenced, they will continue to point to it until its refcount
 /// goes back to zero, at which point they too will be invalidated.
+///
+/// The `WeakRef` type acts as an owner of an underlying `GWeakRef` instance.
+/// It provides the methods that can operate on this data type through `WeakRefProtocol` conformance.
+/// Use `WeakRef` as a strong reference or owner of a `GWeakRef` instance.
+///
 open class WeakRef: WeakRefProtocol {
         /// Untyped pointer to the underlying `GWeakRef` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

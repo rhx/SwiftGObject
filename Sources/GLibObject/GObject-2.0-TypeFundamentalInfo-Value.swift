@@ -4,13 +4,14 @@ import GObjectCHelpers
 
 // MARK: - TypeFundamentalInfo Record
 
+/// A structure that provides information to the type system which is
+/// used specifically for managing fundamental types.
+///
 /// The `TypeFundamentalInfoProtocol` protocol exposes the methods and properties of an underlying `GTypeFundamentalInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TypeFundamentalInfo`.
 /// Alternatively, use `TypeFundamentalInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A structure that provides information to the type system which is
-/// used specifically for managing fundamental types.
 public protocol TypeFundamentalInfoProtocol {
         /// Untyped pointer to the underlying `GTypeFundamentalInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -22,12 +23,13 @@ public protocol TypeFundamentalInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A structure that provides information to the type system which is
+/// used specifically for managing fundamental types.
+///
 /// The `TypeFundamentalInfoRef` type acts as a lightweight Swift reference to an underlying `GTypeFundamentalInfo` instance.
 /// It exposes methods that can operate on this data type through `TypeFundamentalInfoProtocol` conformance.
 /// Use `TypeFundamentalInfoRef` only as an `unowned` reference to an existing `GTypeFundamentalInfo` instance.
 ///
-/// A structure that provides information to the type system which is
-/// used specifically for managing fundamental types.
 public struct TypeFundamentalInfoRef: TypeFundamentalInfoProtocol {
         /// Untyped pointer to the underlying `GTypeFundamentalInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -106,12 +108,13 @@ public extension TypeFundamentalInfoRef {
 
     }
 
+/// A structure that provides information to the type system which is
+/// used specifically for managing fundamental types.
+///
 /// The `TypeFundamentalInfo` type acts as an owner of an underlying `GTypeFundamentalInfo` instance.
 /// It provides the methods that can operate on this data type through `TypeFundamentalInfoProtocol` conformance.
 /// Use `TypeFundamentalInfo` as a strong reference or owner of a `GTypeFundamentalInfo` instance.
 ///
-/// A structure that provides information to the type system which is
-/// used specifically for managing fundamental types.
 open class TypeFundamentalInfo: TypeFundamentalInfoProtocol {
         /// Untyped pointer to the underlying `GTypeFundamentalInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -297,11 +300,6 @@ public extension TypeFundamentalInfoProtocol {
 
 // MARK: - TypeInfo Record
 
-/// The `TypeInfoProtocol` protocol exposes the methods and properties of an underlying `GTypeInfo` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TypeInfo`.
-/// Alternatively, use `TypeInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// This structure is used to provide the type system with the information
 /// required to initialize and destruct (finalize) a type's class and
 /// its instances.
@@ -311,6 +309,12 @@ public extension TypeFundamentalInfoProtocol {
 /// `g_type_plugin_complete_type_info()`). The type system will perform a deep
 /// copy of this structure, so its memory does not need to be persistent
 /// across invocation of `g_type_register_static()`.
+///
+/// The `TypeInfoProtocol` protocol exposes the methods and properties of an underlying `GTypeInfo` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TypeInfo`.
+/// Alternatively, use `TypeInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TypeInfoProtocol {
         /// Untyped pointer to the underlying `GTypeInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -322,10 +326,6 @@ public protocol TypeInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TypeInfoRef` type acts as a lightweight Swift reference to an underlying `GTypeInfo` instance.
-/// It exposes methods that can operate on this data type through `TypeInfoProtocol` conformance.
-/// Use `TypeInfoRef` only as an `unowned` reference to an existing `GTypeInfo` instance.
-///
 /// This structure is used to provide the type system with the information
 /// required to initialize and destruct (finalize) a type's class and
 /// its instances.
@@ -335,6 +335,11 @@ public protocol TypeInfoProtocol {
 /// `g_type_plugin_complete_type_info()`). The type system will perform a deep
 /// copy of this structure, so its memory does not need to be persistent
 /// across invocation of `g_type_register_static()`.
+///
+/// The `TypeInfoRef` type acts as a lightweight Swift reference to an underlying `GTypeInfo` instance.
+/// It exposes methods that can operate on this data type through `TypeInfoProtocol` conformance.
+/// Use `TypeInfoRef` only as an `unowned` reference to an existing `GTypeInfo` instance.
+///
 public struct TypeInfoRef: TypeInfoProtocol {
         /// Untyped pointer to the underlying `GTypeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -413,10 +418,6 @@ public extension TypeInfoRef {
 
     }
 
-/// The `TypeInfo` type acts as an owner of an underlying `GTypeInfo` instance.
-/// It provides the methods that can operate on this data type through `TypeInfoProtocol` conformance.
-/// Use `TypeInfo` as a strong reference or owner of a `GTypeInfo` instance.
-///
 /// This structure is used to provide the type system with the information
 /// required to initialize and destruct (finalize) a type's class and
 /// its instances.
@@ -426,6 +427,11 @@ public extension TypeInfoRef {
 /// `g_type_plugin_complete_type_info()`). The type system will perform a deep
 /// copy of this structure, so its memory does not need to be persistent
 /// across invocation of `g_type_register_static()`.
+///
+/// The `TypeInfo` type acts as an owner of an underlying `GTypeInfo` instance.
+/// It provides the methods that can operate on this data type through `TypeInfoProtocol` conformance.
+/// Use `TypeInfo` as a strong reference or owner of a `GTypeInfo` instance.
+///
 open class TypeInfo: TypeInfoProtocol {
         /// Untyped pointer to the underlying `GTypeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -797,12 +803,13 @@ public extension TypeInfoProtocol {
 
 // MARK: - TypeInstance Record
 
+/// An opaque structure used as the base of all type instances.
+///
 /// The `TypeInstanceProtocol` protocol exposes the methods and properties of an underlying `GTypeInstance` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TypeInstance`.
 /// Alternatively, use `TypeInstanceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An opaque structure used as the base of all type instances.
 public protocol TypeInstanceProtocol {
         /// Untyped pointer to the underlying `GTypeInstance` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -814,11 +821,12 @@ public protocol TypeInstanceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An opaque structure used as the base of all type instances.
+///
 /// The `TypeInstanceRef` type acts as a lightweight Swift reference to an underlying `GTypeInstance` instance.
 /// It exposes methods that can operate on this data type through `TypeInstanceProtocol` conformance.
 /// Use `TypeInstanceRef` only as an `unowned` reference to an existing `GTypeInstance` instance.
 ///
-/// An opaque structure used as the base of all type instances.
 public struct TypeInstanceRef: TypeInstanceProtocol {
         /// Untyped pointer to the underlying `GTypeInstance` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -897,11 +905,12 @@ public extension TypeInstanceRef {
 
     }
 
+/// An opaque structure used as the base of all type instances.
+///
 /// The `TypeInstance` type acts as an owner of an underlying `GTypeInstance` instance.
 /// It provides the methods that can operate on this data type through `TypeInstanceProtocol` conformance.
 /// Use `TypeInstance` as a strong reference or owner of a `GTypeInstance` instance.
 ///
-/// An opaque structure used as the base of all type instances.
 open class TypeInstance: TypeInstanceProtocol {
         /// Untyped pointer to the underlying `GTypeInstance` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1144,12 +1153,13 @@ public extension TypeInstanceProtocol {
 
 // MARK: - TypeInterface Record
 
+/// An opaque structure used as the base of all interface types.
+///
 /// The `TypeInterfaceProtocol` protocol exposes the methods and properties of an underlying `GTypeInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TypeInterface`.
 /// Alternatively, use `TypeInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An opaque structure used as the base of all interface types.
 public protocol TypeInterfaceProtocol {
         /// Untyped pointer to the underlying `GTypeInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1161,11 +1171,12 @@ public protocol TypeInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An opaque structure used as the base of all interface types.
+///
 /// The `TypeInterfaceRef` type acts as a lightweight Swift reference to an underlying `GTypeInterface` instance.
 /// It exposes methods that can operate on this data type through `TypeInterfaceProtocol` conformance.
 /// Use `TypeInterfaceRef` only as an `unowned` reference to an existing `GTypeInterface` instance.
 ///
-/// An opaque structure used as the base of all interface types.
 public struct TypeInterfaceRef: TypeInterfaceProtocol {
         /// Untyped pointer to the underlying `GTypeInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1250,11 +1261,12 @@ public extension TypeInterfaceRef {
     }
 }
 
+/// An opaque structure used as the base of all interface types.
+///
 /// The `TypeInterface` type acts as an owner of an underlying `GTypeInterface` instance.
 /// It provides the methods that can operate on this data type through `TypeInterfaceProtocol` conformance.
 /// Use `TypeInterface` as a strong reference or owner of a `GTypeInterface` instance.
 ///
-/// An opaque structure used as the base of all interface types.
 open class TypeInterface: TypeInterfaceProtocol {
         /// Untyped pointer to the underlying `GTypeInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1459,13 +1471,14 @@ public extension TypeModuleClassRef {
 
 // MARK: - TypeModuleClass Record
 
+/// In order to implement dynamic loading of types based on `GTypeModule`,
+/// the `load` and `unload` functions in `GTypeModuleClass` must be implemented.
+///
 /// The `TypeModuleClassProtocol` protocol exposes the methods and properties of an underlying `GTypeModuleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TypeModuleClass`.
 /// Alternatively, use `TypeModuleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// In order to implement dynamic loading of types based on `GTypeModule`,
-/// the `load` and `unload` functions in `GTypeModuleClass` must be implemented.
 public protocol TypeModuleClassProtocol {
         /// Untyped pointer to the underlying `GTypeModuleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1477,12 +1490,13 @@ public protocol TypeModuleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// In order to implement dynamic loading of types based on `GTypeModule`,
+/// the `load` and `unload` functions in `GTypeModuleClass` must be implemented.
+///
 /// The `TypeModuleClassRef` type acts as a lightweight Swift reference to an underlying `GTypeModuleClass` instance.
 /// It exposes methods that can operate on this data type through `TypeModuleClassProtocol` conformance.
 /// Use `TypeModuleClassRef` only as an `unowned` reference to an existing `GTypeModuleClass` instance.
 ///
-/// In order to implement dynamic loading of types based on `GTypeModule`,
-/// the `load` and `unload` functions in `GTypeModuleClass` must be implemented.
 public struct TypeModuleClassRef: TypeModuleClassProtocol {
         /// Untyped pointer to the underlying `GTypeModuleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1594,13 +1608,14 @@ public extension TypeModuleClassProtocol {
 
 // MARK: - TypePluginClass Record
 
+/// The `GTypePlugin` interface is used by the type system in order to handle
+/// the lifecycle of dynamically loaded types.
+///
 /// The `TypePluginClassProtocol` protocol exposes the methods and properties of an underlying `GTypePluginClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TypePluginClass`.
 /// Alternatively, use `TypePluginClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GTypePlugin` interface is used by the type system in order to handle
-/// the lifecycle of dynamically loaded types.
 public protocol TypePluginClassProtocol {
         /// Untyped pointer to the underlying `GTypePluginClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1612,12 +1627,13 @@ public protocol TypePluginClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GTypePlugin` interface is used by the type system in order to handle
+/// the lifecycle of dynamically loaded types.
+///
 /// The `TypePluginClassRef` type acts as a lightweight Swift reference to an underlying `GTypePluginClass` instance.
 /// It exposes methods that can operate on this data type through `TypePluginClassProtocol` conformance.
 /// Use `TypePluginClassRef` only as an `unowned` reference to an existing `GTypePluginClass` instance.
 ///
-/// The `GTypePlugin` interface is used by the type system in order to handle
-/// the lifecycle of dynamically loaded types.
 public struct TypePluginClassRef: TypePluginClassProtocol {
         /// Untyped pointer to the underlying `GTypePluginClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1696,12 +1712,13 @@ public extension TypePluginClassRef {
 
     }
 
+/// The `GTypePlugin` interface is used by the type system in order to handle
+/// the lifecycle of dynamically loaded types.
+///
 /// The `TypePluginClass` type acts as an owner of an underlying `GTypePluginClass` instance.
 /// It provides the methods that can operate on this data type through `TypePluginClassProtocol` conformance.
 /// Use `TypePluginClass` as a strong reference or owner of a `GTypePluginClass` instance.
 ///
-/// The `GTypePlugin` interface is used by the type system in order to handle
-/// the lifecycle of dynamically loaded types.
 open class TypePluginClass: TypePluginClassProtocol {
         /// Untyped pointer to the underlying `GTypePluginClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1929,13 +1946,15 @@ public extension TypePluginClassProtocol {
 
 // MARK: - TypeQuery Record
 
+/// A structure holding information for a specific type.
+/// 
+/// See also: `g_type_query()`
+///
 /// The `TypeQueryProtocol` protocol exposes the methods and properties of an underlying `GTypeQuery` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TypeQuery`.
 /// Alternatively, use `TypeQueryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A structure holding information for a specific type.
-/// It is filled in by the `g_type_query()` function.
 public protocol TypeQueryProtocol {
         /// Untyped pointer to the underlying `GTypeQuery` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1947,12 +1966,14 @@ public protocol TypeQueryProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A structure holding information for a specific type.
+/// 
+/// See also: `g_type_query()`
+///
 /// The `TypeQueryRef` type acts as a lightweight Swift reference to an underlying `GTypeQuery` instance.
 /// It exposes methods that can operate on this data type through `TypeQueryProtocol` conformance.
 /// Use `TypeQueryRef` only as an `unowned` reference to an existing `GTypeQuery` instance.
 ///
-/// A structure holding information for a specific type.
-/// It is filled in by the `g_type_query()` function.
 public struct TypeQueryRef: TypeQueryProtocol {
         /// Untyped pointer to the underlying `GTypeQuery` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2031,12 +2052,14 @@ public extension TypeQueryRef {
 
     }
 
+/// A structure holding information for a specific type.
+/// 
+/// See also: `g_type_query()`
+///
 /// The `TypeQuery` type acts as an owner of an underlying `GTypeQuery` instance.
 /// It provides the methods that can operate on this data type through `TypeQueryProtocol` conformance.
 /// Use `TypeQuery` as a strong reference or owner of a `GTypeQuery` instance.
 ///
-/// A structure holding information for a specific type.
-/// It is filled in by the `g_type_query()` function.
 open class TypeQuery: TypeQueryProtocol {
         /// Untyped pointer to the underlying `GTypeQuery` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2260,13 +2283,14 @@ public extension TypeQueryProtocol {
 
 // MARK: - TypeValueTable Record
 
+/// The `GTypeValueTable` provides the functions required by the `GValue`
+/// implementation, to serve as a container for values of a type.
+///
 /// The `TypeValueTableProtocol` protocol exposes the methods and properties of an underlying `GTypeValueTable` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TypeValueTable`.
 /// Alternatively, use `TypeValueTableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GTypeValueTable` provides the functions required by the `GValue`
-/// implementation, to serve as a container for values of a type.
 public protocol TypeValueTableProtocol {
         /// Untyped pointer to the underlying `GTypeValueTable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2278,12 +2302,13 @@ public protocol TypeValueTableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GTypeValueTable` provides the functions required by the `GValue`
+/// implementation, to serve as a container for values of a type.
+///
 /// The `TypeValueTableRef` type acts as a lightweight Swift reference to an underlying `GTypeValueTable` instance.
 /// It exposes methods that can operate on this data type through `TypeValueTableProtocol` conformance.
 /// Use `TypeValueTableRef` only as an `unowned` reference to an existing `GTypeValueTable` instance.
 ///
-/// The `GTypeValueTable` provides the functions required by the `GValue`
-/// implementation, to serve as a container for values of a type.
 public struct TypeValueTableRef: TypeValueTableProtocol {
         /// Untyped pointer to the underlying `GTypeValueTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2371,12 +2396,13 @@ public extension TypeValueTableRef {
     }
 }
 
+/// The `GTypeValueTable` provides the functions required by the `GValue`
+/// implementation, to serve as a container for values of a type.
+///
 /// The `TypeValueTable` type acts as an owner of an underlying `GTypeValueTable` instance.
 /// It provides the methods that can operate on this data type through `TypeValueTableProtocol` conformance.
 /// Use `TypeValueTable` as a strong reference or owner of a `GTypeValueTable` instance.
 ///
-/// The `GTypeValueTable` provides the functions required by the `GValue`
-/// implementation, to serve as a container for values of a type.
 open class TypeValueTable: TypeValueTableProtocol {
         /// Untyped pointer to the underlying `GTypeValueTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2624,19 +2650,22 @@ public extension TypeValueTableProtocol {
 
 // MARK: - Value Record
 
+/// An opaque structure used to hold different types of values.
+/// 
+/// The data within the structure has protected scope: it is accessible only
+/// to functions within a `GTypeValueTable` structure, or implementations of
+/// the g_value_*() API. That is, code portions which implement new fundamental
+/// types.
+/// 
+/// `GValue` users cannot make any assumptions about how data is stored
+/// within the 2 element `data` union, and the `g_type` member should
+/// only be accessed through the `G_VALUE_TYPE()` macro.
+///
 /// The `ValueProtocol` protocol exposes the methods and properties of an underlying `GValue` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Value`.
 /// Alternatively, use `ValueRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An opaque structure used to hold different types of values.
-/// The data within the structure has protected scope: it is accessible only
-/// to functions within a `GTypeValueTable` structure, or implementations of
-/// the g_value_*() API. That is, code portions which implement new fundamental
-/// types.
-/// `GValue` users cannot make any assumptions about how data is stored
-/// within the 2 element `data` union, and the `g_type` member should
-/// only be accessed through the `G_VALUE_TYPE()` macro.
 public protocol ValueProtocol {
         /// Untyped pointer to the underlying `GValue` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2648,18 +2677,21 @@ public protocol ValueProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ValueRef` type acts as a lightweight Swift reference to an underlying `GValue` instance.
-/// It exposes methods that can operate on this data type through `ValueProtocol` conformance.
-/// Use `ValueRef` only as an `unowned` reference to an existing `GValue` instance.
-///
 /// An opaque structure used to hold different types of values.
+/// 
 /// The data within the structure has protected scope: it is accessible only
 /// to functions within a `GTypeValueTable` structure, or implementations of
 /// the g_value_*() API. That is, code portions which implement new fundamental
 /// types.
+/// 
 /// `GValue` users cannot make any assumptions about how data is stored
 /// within the 2 element `data` union, and the `g_type` member should
 /// only be accessed through the `G_VALUE_TYPE()` macro.
+///
+/// The `ValueRef` type acts as a lightweight Swift reference to an underlying `GValue` instance.
+/// It exposes methods that can operate on this data type through `ValueProtocol` conformance.
+/// Use `ValueRef` only as an `unowned` reference to an existing `GValue` instance.
+///
 public struct ValueRef: ValueProtocol {
         /// Untyped pointer to the underlying `GValue` instance.
     /// For type-safe access, use the generated, typed pointer `value_ptr` property instead.
@@ -2738,18 +2770,21 @@ public extension ValueRef {
 
     }
 
-/// The `Value` type acts as an owner of an underlying `GValue` instance.
-/// It provides the methods that can operate on this data type through `ValueProtocol` conformance.
-/// Use `Value` as a strong reference or owner of a `GValue` instance.
-///
 /// An opaque structure used to hold different types of values.
+/// 
 /// The data within the structure has protected scope: it is accessible only
 /// to functions within a `GTypeValueTable` structure, or implementations of
 /// the g_value_*() API. That is, code portions which implement new fundamental
 /// types.
+/// 
 /// `GValue` users cannot make any assumptions about how data is stored
 /// within the 2 element `data` union, and the `g_type` member should
 /// only be accessed through the `G_VALUE_TYPE()` macro.
+///
+/// The `Value` type acts as an owner of an underlying `GValue` instance.
+/// It provides the methods that can operate on this data type through `ValueProtocol` conformance.
+/// Use `Value` as a strong reference or owner of a `GValue` instance.
+///
 open class ValueBase: ValueProtocol {
         /// Untyped pointer to the underlying `GValue` instance.
     /// For type-safe access, use the generated, typed pointer `value_ptr` property instead.
@@ -3293,6 +3328,7 @@ public extension ValueProtocol {
     }
 
     /// Set the contents of a `G_TYPE_BOXED` derived `GValue` to `v_boxed`.
+    /// 
     /// The boxed value is assumed to be static, and is thus not duplicated
     /// when setting the `GValue`.
     @inlinable func setStaticBoxed(vBoxed: gconstpointer! = nil) {
@@ -3311,7 +3347,7 @@ public extension ValueProtocol {
     
     }
 
-    /// Set the contents of a `G_TYPE_STRING` `GValue` to `v_string`.
+    /// Set the contents of a `G_TYPE_STRING` `GValue` to a copy of `v_string`.
     @inlinable func setString(vString: UnsafePointer<gchar>? = nil) {
         g_value_set_string(value_ptr, vString)
     
@@ -3462,7 +3498,7 @@ public extension ValueProtocol {
     /// take two boxed pointers as arguments and return a boolean.  If you
     /// have such a signal, you will probably also need to use an
     /// accumulator, such as `g_signal_accumulator_true_handled()`.
-    @inlinable func cclosureMarshalBOOLEAN_BOXEDBOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalBOOLEANBOXEDBOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_BOOLEAN__BOXED_BOXED(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
@@ -3470,147 +3506,147 @@ public extension ValueProtocol {
     /// A marshaller for a `GCClosure` with a callback of type
     /// `gboolean (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter
     /// denotes a flags type.
-    @inlinable func cclosureMarshalBOOLEAN_FLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalBOOLEANFLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_BOOLEAN__FLAGS(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `gchar* (*callback) (gpointer instance, GObject *arg1, gpointer arg2, gpointer user_data)`.
-    @inlinable func cclosureMarshalSTRING_OBJECTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalSTRINGOBJECTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_STRING__OBJECT_POINTER(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gboolean arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_BOOLEAN<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDBOOLEAN<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__BOOLEAN(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GBoxed *arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_BOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDBOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__BOXED(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gchar arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_CHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDCHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__CHAR(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gdouble arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_DOUBLE<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDDOUBLE<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__DOUBLE(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter denotes an enumeration type..
-    @inlinable func cclosureMarshalVOID_ENUM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDENUM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__ENUM(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter denotes a flags type.
-    @inlinable func cclosureMarshalVOID_FLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDFLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__FLAGS(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gfloat arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_FLOAT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDFLOAT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__FLOAT(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_INT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDINT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__INT(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, glong arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_LONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDLONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__LONG(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GObject *arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_OBJECT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDOBJECT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__OBJECT(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GParamSpec *arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_PARAM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDPARAM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__PARAM(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gpointer arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_POINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__POINTER(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, const gchar *arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_STRING<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDSTRING<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__STRING(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, guchar arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_UCHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDUCHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__UCHAR(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, guint arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_UINT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDUINT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__UINT(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, guint arg1, gpointer arg2, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_UINTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDUINTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__UINT_POINTER(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gulong arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_ULONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDULONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__ULONG(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, GVariant *arg1, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_VARIANT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDVARIANT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__VARIANT(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
 
     /// A marshaller for a `GCClosure` with a callback of type
     /// `void (*callback) (gpointer instance, gpointer user_data)`.
-    @inlinable func cclosureMarshalVOID_VOID<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+    @inlinable func cclosureMarshalVOIDVOID<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
         g_cclosure_marshal_VOID__VOID(closure.closure_ptr, value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
     
     }
@@ -3958,7 +3994,7 @@ public extension ValueProtocol {
             let rv = g_value_get_string(value_ptr).map({ String(cString: $0) })
             return rv
         }
-        /// Set the contents of a `G_TYPE_STRING` `GValue` to `v_string`.
+        /// Set the contents of a `G_TYPE_STRING` `GValue` to a copy of `v_string`.
         nonmutating set {
             g_value_set_string(value_ptr, newValue)
         }

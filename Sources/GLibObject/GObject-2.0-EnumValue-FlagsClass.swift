@@ -4,13 +4,14 @@ import GObjectCHelpers
 
 // MARK: - EnumValue Record
 
+/// A structure which contains a single enum value, its name, and its
+/// nickname.
+///
 /// The `EnumValueProtocol` protocol exposes the methods and properties of an underlying `GEnumValue` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EnumValue`.
 /// Alternatively, use `EnumValueRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A structure which contains a single enum value, its name, and its
-/// nickname.
 public protocol EnumValueProtocol {
         /// Untyped pointer to the underlying `GEnumValue` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -22,12 +23,13 @@ public protocol EnumValueProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A structure which contains a single enum value, its name, and its
+/// nickname.
+///
 /// The `EnumValueRef` type acts as a lightweight Swift reference to an underlying `GEnumValue` instance.
 /// It exposes methods that can operate on this data type through `EnumValueProtocol` conformance.
 /// Use `EnumValueRef` only as an `unowned` reference to an existing `GEnumValue` instance.
 ///
-/// A structure which contains a single enum value, its name, and its
-/// nickname.
 public struct EnumValueRef: EnumValueProtocol {
         /// Untyped pointer to the underlying `GEnumValue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -106,12 +108,13 @@ public extension EnumValueRef {
 
     }
 
+/// A structure which contains a single enum value, its name, and its
+/// nickname.
+///
 /// The `EnumValue` type acts as an owner of an underlying `GEnumValue` instance.
 /// It provides the methods that can operate on this data type through `EnumValueProtocol` conformance.
 /// Use `EnumValue` as a strong reference or owner of a `GEnumValue` instance.
 ///
-/// A structure which contains a single enum value, its name, and its
-/// nickname.
 open class EnumValue: EnumValueProtocol {
         /// Untyped pointer to the underlying `GEnumValue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -348,13 +351,14 @@ public extension EnumValueProtocol {
 
 // MARK: - FlagsClass Record
 
+/// The class of a flags type holds information about its
+/// possible values.
+///
 /// The `FlagsClassProtocol` protocol exposes the methods and properties of an underlying `GFlagsClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FlagsClass`.
 /// Alternatively, use `FlagsClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The class of a flags type holds information about its
-/// possible values.
 public protocol FlagsClassProtocol {
         /// Untyped pointer to the underlying `GFlagsClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -366,12 +370,13 @@ public protocol FlagsClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The class of a flags type holds information about its
+/// possible values.
+///
 /// The `FlagsClassRef` type acts as a lightweight Swift reference to an underlying `GFlagsClass` instance.
 /// It exposes methods that can operate on this data type through `FlagsClassProtocol` conformance.
 /// Use `FlagsClassRef` only as an `unowned` reference to an existing `GFlagsClass` instance.
 ///
-/// The class of a flags type holds information about its
-/// possible values.
 public struct FlagsClassRef: FlagsClassProtocol {
         /// Untyped pointer to the underlying `GFlagsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -450,12 +455,13 @@ public extension FlagsClassRef {
 
     }
 
+/// The class of a flags type holds information about its
+/// possible values.
+///
 /// The `FlagsClass` type acts as an owner of an underlying `GFlagsClass` instance.
 /// It provides the methods that can operate on this data type through `FlagsClassProtocol` conformance.
 /// Use `FlagsClass` as a strong reference or owner of a `GFlagsClass` instance.
 ///
-/// The class of a flags type holds information about its
-/// possible values.
 open class FlagsClass: FlagsClassProtocol {
         /// Untyped pointer to the underlying `GFlagsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

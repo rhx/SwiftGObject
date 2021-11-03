@@ -4,15 +4,17 @@ import GObjectCHelpers
 
 // MARK: - ParamSpecPool Record
 
+/// A `GParamSpecPool` maintains a collection of `GParamSpecs` which can be
+/// quickly accessed by owner and name.
+/// 
+/// The implementation of the `GObject` property system uses such a pool to
+/// store the `GParamSpecs` of the properties all object types.
+///
 /// The `ParamSpecPoolProtocol` protocol exposes the methods and properties of an underlying `GParamSpecPool` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecPool`.
 /// Alternatively, use `ParamSpecPoolRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GParamSpecPool` maintains a collection of `GParamSpecs` which can be
-/// quickly accessed by owner and name. The implementation of the `GObject` property
-/// system uses such a pool to store the `GParamSpecs` of the properties all object
-/// types.
 public protocol ParamSpecPoolProtocol {
         /// Untyped pointer to the underlying `GParamSpecPool` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -24,14 +26,16 @@ public protocol ParamSpecPoolProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GParamSpecPool` maintains a collection of `GParamSpecs` which can be
+/// quickly accessed by owner and name.
+/// 
+/// The implementation of the `GObject` property system uses such a pool to
+/// store the `GParamSpecs` of the properties all object types.
+///
 /// The `ParamSpecPoolRef` type acts as a lightweight Swift reference to an underlying `GParamSpecPool` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecPoolProtocol` conformance.
 /// Use `ParamSpecPoolRef` only as an `unowned` reference to an existing `GParamSpecPool` instance.
 ///
-/// A `GParamSpecPool` maintains a collection of `GParamSpecs` which can be
-/// quickly accessed by owner and name. The implementation of the `GObject` property
-/// system uses such a pool to store the `GParamSpecs` of the properties all object
-/// types.
 public struct ParamSpecPoolRef: ParamSpecPoolProtocol {
         /// Untyped pointer to the underlying `GParamSpecPool` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -110,14 +114,16 @@ public extension ParamSpecPoolRef {
 
     }
 
+/// A `GParamSpecPool` maintains a collection of `GParamSpecs` which can be
+/// quickly accessed by owner and name.
+/// 
+/// The implementation of the `GObject` property system uses such a pool to
+/// store the `GParamSpecs` of the properties all object types.
+///
 /// The `ParamSpecPool` type acts as an owner of an underlying `GParamSpecPool` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecPoolProtocol` conformance.
 /// Use `ParamSpecPool` as a strong reference or owner of a `GParamSpecPool` instance.
 ///
-/// A `GParamSpecPool` maintains a collection of `GParamSpecs` which can be
-/// quickly accessed by owner and name. The implementation of the `GObject` property
-/// system uses such a pool to store the `GParamSpecs` of the properties all object
-/// types.
 open class ParamSpecPool: ParamSpecPoolProtocol {
         /// Untyped pointer to the underlying `GParamSpecPool` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -311,18 +317,20 @@ public extension ParamSpecPoolProtocol {
 
 // MARK: - ParamSpecTypeInfo Record
 
+/// This structure is used to provide the type system with the information
+/// required to initialize and destruct (finalize) a parameter's class and
+/// instances thereof.
+/// 
+/// The initialized structure is passed to the `g_param_type_register_static()`
+/// The type system will perform a deep copy of this structure, so its memory
+/// does not need to be persistent across invocation of
+/// `g_param_type_register_static()`.
+///
 /// The `ParamSpecTypeInfoProtocol` protocol exposes the methods and properties of an underlying `GParamSpecTypeInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecTypeInfo`.
 /// Alternatively, use `ParamSpecTypeInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// This structure is used to provide the type system with the information
-/// required to initialize and destruct (finalize) a parameter's class and
-/// instances thereof.
-/// The initialized structure is passed to the `g_param_type_register_static()`
-/// The type system will perform a deep copy of this structure, so its memory
-/// does not need to be persistent across invocation of
-/// `g_param_type_register_static()`.
 public protocol ParamSpecTypeInfoProtocol {
         /// Untyped pointer to the underlying `GParamSpecTypeInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -334,17 +342,19 @@ public protocol ParamSpecTypeInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ParamSpecTypeInfoRef` type acts as a lightweight Swift reference to an underlying `GParamSpecTypeInfo` instance.
-/// It exposes methods that can operate on this data type through `ParamSpecTypeInfoProtocol` conformance.
-/// Use `ParamSpecTypeInfoRef` only as an `unowned` reference to an existing `GParamSpecTypeInfo` instance.
-///
 /// This structure is used to provide the type system with the information
 /// required to initialize and destruct (finalize) a parameter's class and
 /// instances thereof.
+/// 
 /// The initialized structure is passed to the `g_param_type_register_static()`
 /// The type system will perform a deep copy of this structure, so its memory
 /// does not need to be persistent across invocation of
 /// `g_param_type_register_static()`.
+///
+/// The `ParamSpecTypeInfoRef` type acts as a lightweight Swift reference to an underlying `GParamSpecTypeInfo` instance.
+/// It exposes methods that can operate on this data type through `ParamSpecTypeInfoProtocol` conformance.
+/// Use `ParamSpecTypeInfoRef` only as an `unowned` reference to an existing `GParamSpecTypeInfo` instance.
+///
 public struct ParamSpecTypeInfoRef: ParamSpecTypeInfoProtocol {
         /// Untyped pointer to the underlying `GParamSpecTypeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -423,17 +433,19 @@ public extension ParamSpecTypeInfoRef {
 
     }
 
-/// The `ParamSpecTypeInfo` type acts as an owner of an underlying `GParamSpecTypeInfo` instance.
-/// It provides the methods that can operate on this data type through `ParamSpecTypeInfoProtocol` conformance.
-/// Use `ParamSpecTypeInfo` as a strong reference or owner of a `GParamSpecTypeInfo` instance.
-///
 /// This structure is used to provide the type system with the information
 /// required to initialize and destruct (finalize) a parameter's class and
 /// instances thereof.
+/// 
 /// The initialized structure is passed to the `g_param_type_register_static()`
 /// The type system will perform a deep copy of this structure, so its memory
 /// does not need to be persistent across invocation of
 /// `g_param_type_register_static()`.
+///
+/// The `ParamSpecTypeInfo` type acts as an owner of an underlying `GParamSpecTypeInfo` instance.
+/// It provides the methods that can operate on this data type through `ParamSpecTypeInfoProtocol` conformance.
+/// Use `ParamSpecTypeInfo` as a strong reference or owner of a `GParamSpecTypeInfo` instance.
+///
 open class ParamSpecTypeInfo: ParamSpecTypeInfoProtocol {
         /// Untyped pointer to the underlying `GParamSpecTypeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -588,10 +600,12 @@ public extension ParamSpecTypeInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecTypeInfo` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GParamSpecTypeInfo>! { return ptr?.assumingMemoryBound(to: GParamSpecTypeInfo.self) }
 
-    /// Registers `name` as the name of a new static type derived from
-    /// `G_TYPE_PARAM`. The type system uses the information contained in
-    /// the `GParamSpecTypeInfo` structure pointed to by `info` to manage the
-    /// `GParamSpec` type and its instances.
+    /// Registers `name` as the name of a new static type derived
+    /// from `G_TYPE_PARAM`.
+    /// 
+    /// The type system uses the information contained in the `GParamSpecTypeInfo`
+    /// structure pointed to by `info` to manage the `GParamSpec` type and its
+    /// instances.
     @inlinable func paramTypeRegisterStatic(name: UnsafePointer<gchar>!) -> GType {
         let rv = g_param_type_register_static(name, _ptr)
         return rv
@@ -652,13 +666,14 @@ public extension ParamSpecTypeInfoProtocol {
 
 // MARK: - Parameter Record
 
+/// The GParameter struct is an auxiliary structure used
+/// to hand parameter name/value pairs to `g_object_newv()`.
+///
 /// The `ParameterProtocol` protocol exposes the methods and properties of an underlying `GParameter` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Parameter`.
 /// Alternatively, use `ParameterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GParameter struct is an auxiliary structure used
-/// to hand parameter name/value pairs to `g_object_newv()`.
 public protocol ParameterProtocol {
         /// Untyped pointer to the underlying `GParameter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -670,12 +685,13 @@ public protocol ParameterProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The GParameter struct is an auxiliary structure used
+/// to hand parameter name/value pairs to `g_object_newv()`.
+///
 /// The `ParameterRef` type acts as a lightweight Swift reference to an underlying `GParameter` instance.
 /// It exposes methods that can operate on this data type through `ParameterProtocol` conformance.
 /// Use `ParameterRef` only as an `unowned` reference to an existing `GParameter` instance.
 ///
-/// The GParameter struct is an auxiliary structure used
-/// to hand parameter name/value pairs to `g_object_newv()`.
 public struct ParameterRef: ParameterProtocol {
         /// Untyped pointer to the underlying `GParameter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -754,12 +770,13 @@ public extension ParameterRef {
 
     }
 
+/// The GParameter struct is an auxiliary structure used
+/// to hand parameter name/value pairs to `g_object_newv()`.
+///
 /// The `Parameter` type acts as an owner of an underlying `GParameter` instance.
 /// It provides the methods that can operate on this data type through `ParameterProtocol` conformance.
 /// Use `Parameter` as a strong reference or owner of a `GParameter` instance.
 ///
-/// The GParameter struct is an auxiliary structure used
-/// to hand parameter name/value pairs to `g_object_newv()`.
 open class Parameter: ParameterProtocol {
         /// Untyped pointer to the underlying `GParameter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -947,13 +964,14 @@ public extension ParameterProtocol {
 
 // MARK: - SignalInvocationHint Record
 
+/// The `GSignalInvocationHint` structure is used to pass on additional information
+/// to callbacks during a signal emission.
+///
 /// The `SignalInvocationHintProtocol` protocol exposes the methods and properties of an underlying `GSignalInvocationHint` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SignalInvocationHint`.
 /// Alternatively, use `SignalInvocationHintRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GSignalInvocationHint` structure is used to pass on additional information
-/// to callbacks during a signal emission.
 public protocol SignalInvocationHintProtocol {
         /// Untyped pointer to the underlying `GSignalInvocationHint` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -965,12 +983,13 @@ public protocol SignalInvocationHintProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GSignalInvocationHint` structure is used to pass on additional information
+/// to callbacks during a signal emission.
+///
 /// The `SignalInvocationHintRef` type acts as a lightweight Swift reference to an underlying `GSignalInvocationHint` instance.
 /// It exposes methods that can operate on this data type through `SignalInvocationHintProtocol` conformance.
 /// Use `SignalInvocationHintRef` only as an `unowned` reference to an existing `GSignalInvocationHint` instance.
 ///
-/// The `GSignalInvocationHint` structure is used to pass on additional information
-/// to callbacks during a signal emission.
 public struct SignalInvocationHintRef: SignalInvocationHintProtocol {
         /// Untyped pointer to the underlying `GSignalInvocationHint` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1049,12 +1068,13 @@ public extension SignalInvocationHintRef {
 
     }
 
+/// The `GSignalInvocationHint` structure is used to pass on additional information
+/// to callbacks during a signal emission.
+///
 /// The `SignalInvocationHint` type acts as an owner of an underlying `GSignalInvocationHint` instance.
 /// It provides the methods that can operate on this data type through `SignalInvocationHintProtocol` conformance.
 /// Use `SignalInvocationHint` as a strong reference or owner of a `GSignalInvocationHint` instance.
 ///
-/// The `GSignalInvocationHint` structure is used to pass on additional information
-/// to callbacks during a signal emission.
 open class SignalInvocationHint: SignalInvocationHintProtocol {
         /// Untyped pointer to the underlying `GSignalInvocationHint` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1264,18 +1284,24 @@ public extension SignalInvocationHintProtocol {
 
     /// The stage the signal emission is currently in, this
     ///  field will contain one of `G_SIGNAL_RUN_FIRST`,
-    ///  `G_SIGNAL_RUN_LAST` or `G_SIGNAL_RUN_CLEANUP`.
+    ///  `G_SIGNAL_RUN_LAST` or `G_SIGNAL_RUN_CLEANUP` and `G_SIGNAL_ACCUMULATOR_FIRST_RUN`.
+    ///  `G_SIGNAL_ACCUMULATOR_FIRST_RUN` is only set for the first run of the accumulator
+    ///  function for a signal emission.
     @inlinable var runType: SignalFlags {
         /// The stage the signal emission is currently in, this
         ///  field will contain one of `G_SIGNAL_RUN_FIRST`,
-        ///  `G_SIGNAL_RUN_LAST` or `G_SIGNAL_RUN_CLEANUP`.
+        ///  `G_SIGNAL_RUN_LAST` or `G_SIGNAL_RUN_CLEANUP` and `G_SIGNAL_ACCUMULATOR_FIRST_RUN`.
+        ///  `G_SIGNAL_ACCUMULATOR_FIRST_RUN` is only set for the first run of the accumulator
+        ///  function for a signal emission.
         get {
             let rv = SignalFlags(_ptr.pointee.run_type)
             return rv
         }
         /// The stage the signal emission is currently in, this
         ///  field will contain one of `G_SIGNAL_RUN_FIRST`,
-        ///  `G_SIGNAL_RUN_LAST` or `G_SIGNAL_RUN_CLEANUP`.
+        ///  `G_SIGNAL_RUN_LAST` or `G_SIGNAL_RUN_CLEANUP` and `G_SIGNAL_ACCUMULATOR_FIRST_RUN`.
+        ///  `G_SIGNAL_ACCUMULATOR_FIRST_RUN` is only set for the first run of the accumulator
+        ///  function for a signal emission.
          set {
             _ptr.pointee.run_type = newValue.value
         }

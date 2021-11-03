@@ -4,16 +4,12 @@ import GObjectCHelpers
 
 // MARK: - Binding Class
 
-/// The `BindingProtocol` protocol exposes the methods and properties of an underlying `GBinding` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Binding`.
-/// Alternatively, use `BindingRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GBinding` is the representation of a binding between a property on a
 /// `GObject` instance (or source) and another property on another `GObject`
-/// instance (or target). Whenever the source property changes, the same
-/// value is applied to the target property; for instance, the following
-/// binding:
+/// instance (or target).
+/// 
+/// Whenever the source property changes, the same value is applied to the
+/// target property; for instance, the following binding:
 /// 
 /// (C Language Example):
 /// ```C
@@ -89,6 +85,12 @@ import GObjectCHelpers
 /// binding, source, and target instances to drop.
 /// 
 /// `GBinding` is available since GObject 2.26
+///
+/// The `BindingProtocol` protocol exposes the methods and properties of an underlying `GBinding` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Binding`.
+/// Alternatively, use `BindingRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol BindingProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GBinding` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -100,15 +102,12 @@ public protocol BindingProtocol: ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `BindingRef` type acts as a lightweight Swift reference to an underlying `GBinding` instance.
-/// It exposes methods that can operate on this data type through `BindingProtocol` conformance.
-/// Use `BindingRef` only as an `unowned` reference to an existing `GBinding` instance.
-///
 /// `GBinding` is the representation of a binding between a property on a
 /// `GObject` instance (or source) and another property on another `GObject`
-/// instance (or target). Whenever the source property changes, the same
-/// value is applied to the target property; for instance, the following
-/// binding:
+/// instance (or target).
+/// 
+/// Whenever the source property changes, the same value is applied to the
+/// target property; for instance, the following binding:
 /// 
 /// (C Language Example):
 /// ```C
@@ -184,6 +183,11 @@ public protocol BindingProtocol: ObjectProtocol {
 /// binding, source, and target instances to drop.
 /// 
 /// `GBinding` is available since GObject 2.26
+///
+/// The `BindingRef` type acts as a lightweight Swift reference to an underlying `GBinding` instance.
+/// It exposes methods that can operate on this data type through `BindingProtocol` conformance.
+/// Use `BindingRef` only as an `unowned` reference to an existing `GBinding` instance.
+///
 public struct BindingRef: BindingProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GBinding` instance.
     /// For type-safe access, use the generated, typed pointer `binding_ptr` property instead.
@@ -265,15 +269,12 @@ public extension BindingRef {
 
     }
 
-/// The `Binding` type acts as a reference-counted owner of an underlying `GBinding` instance.
-/// It provides the methods that can operate on this data type through `BindingProtocol` conformance.
-/// Use `Binding` as a strong reference or owner of a `GBinding` instance.
-///
 /// `GBinding` is the representation of a binding between a property on a
 /// `GObject` instance (or source) and another property on another `GObject`
-/// instance (or target). Whenever the source property changes, the same
-/// value is applied to the target property; for instance, the following
-/// binding:
+/// instance (or target).
+/// 
+/// Whenever the source property changes, the same value is applied to the
+/// target property; for instance, the following binding:
 /// 
 /// (C Language Example):
 /// ```C
@@ -349,6 +350,11 @@ public extension BindingRef {
 /// binding, source, and target instances to drop.
 /// 
 /// `GBinding` is available since GObject 2.26
+///
+/// The `Binding` type acts as a reference-counted owner of an underlying `GBinding` instance.
+/// It provides the methods that can operate on this data type through `BindingProtocol` conformance.
+/// Use `Binding` as a strong reference or owner of a `GBinding` instance.
+///
 open class Binding: Object, BindingProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -568,12 +574,14 @@ public enum BindingSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -603,6 +611,26 @@ public enum BindingSignalName: String, SignalNameProtocol {
 public extension BindingProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GBinding` instance.
     @inlinable var binding_ptr: UnsafeMutablePointer<GBinding>! { return ptr?.assumingMemoryBound(to: GBinding.self) }
+
+    /// Retrieves the `GObject` instance used as the source of the binding.
+    /// 
+    /// A `GBinding` can outlive the source `GObject` as the binding does not hold a
+    /// strong reference to the source. If the source is destroyed before the
+    /// binding then this function will return `nil`.
+    @inlinable func dupSource() -> ObjectRef! {
+        guard let rv = ObjectRef(gconstpointer: gconstpointer(g_binding_dup_source(binding_ptr))) else { return nil }
+        return rv
+    }
+
+    /// Retrieves the `GObject` instance used as the target of the binding.
+    /// 
+    /// A `GBinding` can outlive the target `GObject` as the binding does not hold a
+    /// strong reference to the target. If the target is destroyed before the
+    /// binding then this function will return `nil`.
+    @inlinable func dupTarget() -> ObjectRef! {
+        guard let rv = ObjectRef(gconstpointer: gconstpointer(g_binding_dup_target(binding_ptr))) else { return nil }
+        return rv
+    }
 
     /// Retrieves the flags passed when constructing the `GBinding`.
     @inlinable func getFlags() -> BindingFlags {
@@ -755,14 +783,16 @@ public extension BindingProtocol {
 
 // MARK: - InitiallyUnowned Class
 
+/// A type for objects that have an initially floating reference.
+/// 
+/// All the fields in the `GInitiallyUnowned` structure are private to the
+/// implementation and should never be accessed directly.
+///
 /// The `InitiallyUnownedProtocol` protocol exposes the methods and properties of an underlying `GInitiallyUnowned` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `InitiallyUnowned`.
 /// Alternatively, use `InitiallyUnownedRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// All the fields in the GInitiallyUnowned structure
-/// are private to the `GInitiallyUnowned` implementation and should never be
-/// accessed directly.
 public protocol InitiallyUnownedProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GInitiallyUnowned` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -774,13 +804,15 @@ public protocol InitiallyUnownedProtocol: ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A type for objects that have an initially floating reference.
+/// 
+/// All the fields in the `GInitiallyUnowned` structure are private to the
+/// implementation and should never be accessed directly.
+///
 /// The `InitiallyUnownedRef` type acts as a lightweight Swift reference to an underlying `GInitiallyUnowned` instance.
 /// It exposes methods that can operate on this data type through `InitiallyUnownedProtocol` conformance.
 /// Use `InitiallyUnownedRef` only as an `unowned` reference to an existing `GInitiallyUnowned` instance.
 ///
-/// All the fields in the GInitiallyUnowned structure
-/// are private to the `GInitiallyUnowned` implementation and should never be
-/// accessed directly.
 public struct InitiallyUnownedRef: InitiallyUnownedProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GInitiallyUnowned` instance.
     /// For type-safe access, use the generated, typed pointer `initially_unowned_ptr` property instead.
@@ -862,13 +894,15 @@ public extension InitiallyUnownedRef {
 
     }
 
+/// A type for objects that have an initially floating reference.
+/// 
+/// All the fields in the `GInitiallyUnowned` structure are private to the
+/// implementation and should never be accessed directly.
+///
 /// The `InitiallyUnowned` type acts as a reference-counted owner of an underlying `GInitiallyUnowned` instance.
 /// It provides the methods that can operate on this data type through `InitiallyUnownedProtocol` conformance.
 /// Use `InitiallyUnowned` as a strong reference or owner of a `GInitiallyUnowned` instance.
 ///
-/// All the fields in the GInitiallyUnowned structure
-/// are private to the `GInitiallyUnowned` implementation and should never be
-/// accessed directly.
 open class InitiallyUnowned: Object, InitiallyUnownedProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1022,12 +1056,14 @@ public enum InitiallyUnownedSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

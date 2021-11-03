@@ -4,13 +4,15 @@ import GObjectCHelpers
 
 // MARK: - SignalQuery Record
 
+/// A structure holding in-depth information for a specific signal.
+/// 
+/// See also: `g_signal_query()`
+///
 /// The `SignalQueryProtocol` protocol exposes the methods and properties of an underlying `GSignalQuery` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SignalQuery`.
 /// Alternatively, use `SignalQueryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A structure holding in-depth information for a specific signal. It is
-/// filled in by the `g_signal_query()` function.
 public protocol SignalQueryProtocol {
         /// Untyped pointer to the underlying `GSignalQuery` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -22,12 +24,14 @@ public protocol SignalQueryProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A structure holding in-depth information for a specific signal.
+/// 
+/// See also: `g_signal_query()`
+///
 /// The `SignalQueryRef` type acts as a lightweight Swift reference to an underlying `GSignalQuery` instance.
 /// It exposes methods that can operate on this data type through `SignalQueryProtocol` conformance.
 /// Use `SignalQueryRef` only as an `unowned` reference to an existing `GSignalQuery` instance.
 ///
-/// A structure holding in-depth information for a specific signal. It is
-/// filled in by the `g_signal_query()` function.
 public struct SignalQueryRef: SignalQueryProtocol {
         /// Untyped pointer to the underlying `GSignalQuery` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -106,12 +110,14 @@ public extension SignalQueryRef {
 
     }
 
+/// A structure holding in-depth information for a specific signal.
+/// 
+/// See also: `g_signal_query()`
+///
 /// The `SignalQuery` type acts as an owner of an underlying `GSignalQuery` instance.
 /// It provides the methods that can operate on this data type through `SignalQueryProtocol` conformance.
 /// Use `SignalQuery` as a strong reference or owner of a `GSignalQuery` instance.
 ///
-/// A structure holding in-depth information for a specific signal. It is
-/// filled in by the `g_signal_query()` function.
 open class SignalQuery: SignalQueryProtocol {
         /// Untyped pointer to the underlying `GSignalQuery` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -407,12 +413,13 @@ public extension SignalQueryProtocol {
 
 // MARK: - TypeClass Record
 
+/// An opaque structure used as the base of all classes.
+///
 /// The `TypeClassProtocol` protocol exposes the methods and properties of an underlying `GTypeClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TypeClass`.
 /// Alternatively, use `TypeClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An opaque structure used as the base of all classes.
 public protocol TypeClassProtocol {
         /// Untyped pointer to the underlying `GTypeClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -424,11 +431,12 @@ public protocol TypeClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An opaque structure used as the base of all classes.
+///
 /// The `TypeClassRef` type acts as a lightweight Swift reference to an underlying `GTypeClass` instance.
 /// It exposes methods that can operate on this data type through `TypeClassProtocol` conformance.
 /// Use `TypeClassRef` only as an `unowned` reference to an existing `GTypeClass` instance.
 ///
-/// An opaque structure used as the base of all classes.
 public struct TypeClassRef: TypeClassProtocol {
         /// Untyped pointer to the underlying `GTypeClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -531,11 +539,12 @@ public extension TypeClassRef {
     }
 }
 
+/// An opaque structure used as the base of all classes.
+///
 /// The `TypeClass` type acts as an owner of an underlying `GTypeClass` instance.
 /// It provides the methods that can operate on this data type through `TypeClassProtocol` conformance.
 /// Use `TypeClass` as a strong reference or owner of a `GTypeClass` instance.
 ///
-/// An opaque structure used as the base of all classes.
 open class TypeClass: TypeClassProtocol {
         /// Untyped pointer to the underlying `GTypeClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

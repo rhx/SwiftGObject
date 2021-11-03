@@ -21,8 +21,14 @@ import GObjectCHelpers
 
 
 /// This function creates a new `G_TYPE_BOXED` derived type id for a new
-/// boxed type with name `name`. Boxed type handling functions have to be
-/// provided to copy and free opaque boxed structures of this type.
+/// boxed type with name `name`.
+/// 
+/// Boxed type handling functions have to be provided to copy and free
+/// opaque boxed structures of this type.
+/// 
+/// For the general case, it is recommended to use `G_DEFINE_BOXED_TYPE`
+/// instead of calling `g_boxed_type_register_static()` directly. The macro
+/// will create the appropriate ``*_get_type()`` function for the boxed type.
 @inlinable public func boxedTypeRegisterStatic(name: UnsafePointer<gchar>!, boxedCopy: GBoxedCopyFunc?, boxedFree: GBoxedFreeFunc?) -> GType {
     let rv = g_boxed_type_register_static(name, boxedCopy, boxedFree)
     return rv
@@ -35,7 +41,7 @@ import GObjectCHelpers
 /// take two boxed pointers as arguments and return a boolean.  If you
 /// have such a signal, you will probably also need to use an
 /// accumulator, such as `g_signal_accumulator_true_handled()`.
-@inlinable public func cclosureMarshalBOOLEAN_BOXEDBOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalBOOLEANBOXEDBOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_BOOLEAN__BOXED_BOXED(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -46,7 +52,7 @@ import GObjectCHelpers
 /// A marshaller for a `GCClosure` with a callback of type
 /// `gboolean (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter
 /// denotes a flags type.
-@inlinable public func cclosureMarshalBOOLEAN_FLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalBOOLEANFLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_BOOLEAN__FLAGS(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -56,7 +62,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `gchar* (*callback) (gpointer instance, GObject *arg1, gpointer arg2, gpointer user_data)`.
-@inlinable public func cclosureMarshalSTRING_OBJECTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalSTRINGOBJECTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_STRING__OBJECT_POINTER(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -66,7 +72,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gboolean arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_BOOLEAN<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDBOOLEAN<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__BOOLEAN(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -76,7 +82,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, GBoxed *arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_BOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDBOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__BOXED(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -86,7 +92,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gchar arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_CHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDCHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__CHAR(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -96,7 +102,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gdouble arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_DOUBLE<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDDOUBLE<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__DOUBLE(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -106,7 +112,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter denotes an enumeration type..
-@inlinable public func cclosureMarshalVOID_ENUM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDENUM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__ENUM(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -116,7 +122,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter denotes a flags type.
-@inlinable public func cclosureMarshalVOID_FLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDFLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__FLAGS(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -126,7 +132,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gfloat arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_FLOAT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDFLOAT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__FLOAT(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -136,7 +142,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_INT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDINT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__INT(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -146,7 +152,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, glong arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_LONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDLONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__LONG(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -156,7 +162,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, GObject *arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_OBJECT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDOBJECT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__OBJECT(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -166,7 +172,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, GParamSpec *arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_PARAM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDPARAM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__PARAM(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -176,7 +182,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gpointer arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_POINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__POINTER(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -186,7 +192,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, const gchar *arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_STRING<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDSTRING<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__STRING(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -196,7 +202,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, guchar arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_UCHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDUCHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__UCHAR(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -206,7 +212,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, guint arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_UINT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDUINT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__UINT(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -216,7 +222,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, guint arg1, gpointer arg2, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_UINTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDUINTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__UINT_POINTER(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -226,7 +232,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gulong arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_ULONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDULONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__ULONG(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -236,7 +242,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, GVariant *arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_VARIANT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDVARIANT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__VARIANT(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -246,7 +252,7 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOID_VOID<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDVOID<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
     g_cclosure_marshal_VOID__VOID(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
 
 }
@@ -787,10 +793,12 @@ import GObjectCHelpers
 
 
 
-/// Registers `name` as the name of a new static type derived from
-/// `G_TYPE_PARAM`. The type system uses the information contained in
-/// the `GParamSpecTypeInfo` structure pointed to by `info` to manage the
-/// `GParamSpec` type and its instances.
+/// Registers `name` as the name of a new static type derived
+/// from `G_TYPE_PARAM`.
+/// 
+/// The type system uses the information contained in the `GParamSpecTypeInfo`
+/// structure pointed to by `info` to manage the `GParamSpec` type and its
+/// instances.
 @inlinable public func paramTypeRegisterStatic<ParamSpecTypeInfoT: ParamSpecTypeInfoProtocol>(name: UnsafePointer<gchar>!, pspecInfo: ParamSpecTypeInfoT) -> GType {
     let rv = g_param_type_register_static(name, pspecInfo._ptr)
     return rv
@@ -1950,6 +1958,20 @@ import GObjectCHelpers
 /// not have a `GTypePlugin` structure. See `g_type_add_interface_dynamic()`.
 @inlinable public func typeInterfaceGetPlugin(instanceType: GType, interfaceType: GType) -> TypePluginRef! {
     guard let rv = TypePluginRef(gconstpointer: gconstpointer(g_type_interface_get_plugin(instanceType, interfaceType))) else { return nil }
+    return rv
+}
+
+
+
+
+/// Returns the most specific instantiatable prerequisite of an
+/// interface type. If the interface type has no instantiatable
+/// prerequisite, `G_TYPE_INVALID` is returned.
+/// 
+/// See `g_type_interface_add_prerequisite()` for more information
+/// about prerequisites.
+@inlinable public func typeInterfaceInstantiatablePrerequisite(interfaceType: GType) -> GType {
+    let rv = g_type_interface_instantiatable_prerequisite(interfaceType)
     return rv
 }
 

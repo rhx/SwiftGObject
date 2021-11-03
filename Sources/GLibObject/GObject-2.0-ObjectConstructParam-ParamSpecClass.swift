@@ -4,14 +4,14 @@ import GObjectCHelpers
 
 // MARK: - ObjectConstructParam Record
 
+/// The GObjectConstructParam struct is an auxiliary structure used to hand
+/// `GParamSpec`/`GValue` pairs to the `constructor` of a `GObjectClass`.
+///
 /// The `ObjectConstructParamProtocol` protocol exposes the methods and properties of an underlying `GObjectConstructParam` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ObjectConstructParam`.
 /// Alternatively, use `ObjectConstructParamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GObjectConstructParam struct is an auxiliary
-/// structure used to hand `GParamSpec`/`GValue` pairs to the `constructor` of
-/// a `GObjectClass`.
 public protocol ObjectConstructParamProtocol {
         /// Untyped pointer to the underlying `GObjectConstructParam` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -23,13 +23,13 @@ public protocol ObjectConstructParamProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The GObjectConstructParam struct is an auxiliary structure used to hand
+/// `GParamSpec`/`GValue` pairs to the `constructor` of a `GObjectClass`.
+///
 /// The `ObjectConstructParamRef` type acts as a lightweight Swift reference to an underlying `GObjectConstructParam` instance.
 /// It exposes methods that can operate on this data type through `ObjectConstructParamProtocol` conformance.
 /// Use `ObjectConstructParamRef` only as an `unowned` reference to an existing `GObjectConstructParam` instance.
 ///
-/// The GObjectConstructParam struct is an auxiliary
-/// structure used to hand `GParamSpec`/`GValue` pairs to the `constructor` of
-/// a `GObjectClass`.
 public struct ObjectConstructParamRef: ObjectConstructParamProtocol {
         /// Untyped pointer to the underlying `GObjectConstructParam` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -108,13 +108,13 @@ public extension ObjectConstructParamRef {
 
     }
 
+/// The GObjectConstructParam struct is an auxiliary structure used to hand
+/// `GParamSpec`/`GValue` pairs to the `constructor` of a `GObjectClass`.
+///
 /// The `ObjectConstructParam` type acts as an owner of an underlying `GObjectConstructParam` instance.
 /// It provides the methods that can operate on this data type through `ObjectConstructParamProtocol` conformance.
 /// Use `ObjectConstructParam` as a strong reference or owner of a `GObjectConstructParam` instance.
 ///
-/// The GObjectConstructParam struct is an auxiliary
-/// structure used to hand `GParamSpec`/`GValue` pairs to the `constructor` of
-/// a `GObjectClass`.
 open class ObjectConstructParam: ObjectConstructParamProtocol {
         /// Untyped pointer to the underlying `GObjectConstructParam` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -302,14 +302,15 @@ public extension ObjectConstructParamProtocol {
 
 // MARK: - ParamSpecClass Record
 
+/// The class structure for the GParamSpec type.
+/// Normally, GParamSpec classes are filled by
+/// `g_param_type_register_static()`.
+///
 /// The `ParamSpecClassProtocol` protocol exposes the methods and properties of an underlying `GParamSpecClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ParamSpecClass`.
 /// Alternatively, use `ParamSpecClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The class structure for the GParamSpec type.
-/// Normally, GParamSpec classes are filled by
-/// `g_param_type_register_static()`.
 public protocol ParamSpecClassProtocol {
         /// Untyped pointer to the underlying `GParamSpecClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -321,13 +322,14 @@ public protocol ParamSpecClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The class structure for the GParamSpec type.
+/// Normally, GParamSpec classes are filled by
+/// `g_param_type_register_static()`.
+///
 /// The `ParamSpecClassRef` type acts as a lightweight Swift reference to an underlying `GParamSpecClass` instance.
 /// It exposes methods that can operate on this data type through `ParamSpecClassProtocol` conformance.
 /// Use `ParamSpecClassRef` only as an `unowned` reference to an existing `GParamSpecClass` instance.
 ///
-/// The class structure for the GParamSpec type.
-/// Normally, GParamSpec classes are filled by
-/// `g_param_type_register_static()`.
 public struct ParamSpecClassRef: ParamSpecClassProtocol {
         /// Untyped pointer to the underlying `GParamSpecClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -406,13 +408,14 @@ public extension ParamSpecClassRef {
 
     }
 
+/// The class structure for the GParamSpec type.
+/// Normally, GParamSpec classes are filled by
+/// `g_param_type_register_static()`.
+///
 /// The `ParamSpecClass` type acts as an owner of an underlying `GParamSpecClass` instance.
 /// It provides the methods that can operate on this data type through `ParamSpecClassProtocol` conformance.
 /// Use `ParamSpecClass` as a strong reference or owner of a `GParamSpecClass` instance.
 ///
-/// The class structure for the GParamSpec type.
-/// Normally, GParamSpec classes are filled by
-/// `g_param_type_register_static()`.
 open class ParamSpecClass: ParamSpecClassProtocol {
         /// Untyped pointer to the underlying `GParamSpecClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

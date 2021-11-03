@@ -4,13 +4,14 @@ import GObjectCHelpers
 
 // MARK: - InterfaceInfo Record
 
+/// A structure that provides information to the type system which is
+/// used specifically for managing interface types.
+///
 /// The `InterfaceInfoProtocol` protocol exposes the methods and properties of an underlying `GInterfaceInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `InterfaceInfo`.
 /// Alternatively, use `InterfaceInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A structure that provides information to the type system which is
-/// used specifically for managing interface types.
 public protocol InterfaceInfoProtocol {
         /// Untyped pointer to the underlying `GInterfaceInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -22,12 +23,13 @@ public protocol InterfaceInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A structure that provides information to the type system which is
+/// used specifically for managing interface types.
+///
 /// The `InterfaceInfoRef` type acts as a lightweight Swift reference to an underlying `GInterfaceInfo` instance.
 /// It exposes methods that can operate on this data type through `InterfaceInfoProtocol` conformance.
 /// Use `InterfaceInfoRef` only as an `unowned` reference to an existing `GInterfaceInfo` instance.
 ///
-/// A structure that provides information to the type system which is
-/// used specifically for managing interface types.
 public struct InterfaceInfoRef: InterfaceInfoProtocol {
         /// Untyped pointer to the underlying `GInterfaceInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -106,12 +108,13 @@ public extension InterfaceInfoRef {
 
     }
 
+/// A structure that provides information to the type system which is
+/// used specifically for managing interface types.
+///
 /// The `InterfaceInfo` type acts as an owner of an underlying `GInterfaceInfo` instance.
 /// It provides the methods that can operate on this data type through `InterfaceInfoProtocol` conformance.
 /// Use `InterfaceInfo` as a strong reference or owner of a `GInterfaceInfo` instance.
 ///
-/// A structure that provides information to the type system which is
-/// used specifically for managing interface types.
 open class InterfaceInfo: InterfaceInfoProtocol {
         /// Untyped pointer to the underlying `GInterfaceInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -334,11 +337,6 @@ public extension ObjectClassRef {
 
 // MARK: - ObjectClass Record
 
-/// The `ObjectClassProtocol` protocol exposes the methods and properties of an underlying `GObjectClass` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ObjectClass`.
-/// Alternatively, use `ObjectClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The class structure for the GObject type.
 /// 
 /// (C Language Example):
@@ -367,6 +365,12 @@ public extension ObjectClassRef {
 /// }
 /// ```
 /// 
+///
+/// The `ObjectClassProtocol` protocol exposes the methods and properties of an underlying `GObjectClass` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ObjectClass`.
+/// Alternatively, use `ObjectClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ObjectClassProtocol {
         /// Untyped pointer to the underlying `GObjectClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -378,10 +382,6 @@ public protocol ObjectClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ObjectClassRef` type acts as a lightweight Swift reference to an underlying `GObjectClass` instance.
-/// It exposes methods that can operate on this data type through `ObjectClassProtocol` conformance.
-/// Use `ObjectClassRef` only as an `unowned` reference to an existing `GObjectClass` instance.
-///
 /// The class structure for the GObject type.
 /// 
 /// (C Language Example):
@@ -410,6 +410,11 @@ public protocol ObjectClassProtocol {
 /// }
 /// ```
 /// 
+///
+/// The `ObjectClassRef` type acts as a lightweight Swift reference to an underlying `GObjectClass` instance.
+/// It exposes methods that can operate on this data type through `ObjectClassProtocol` conformance.
+/// Use `ObjectClassRef` only as an `unowned` reference to an existing `GObjectClass` instance.
+///
 public struct ObjectClassRef: ObjectClassProtocol {
         /// Untyped pointer to the underlying `GObjectClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

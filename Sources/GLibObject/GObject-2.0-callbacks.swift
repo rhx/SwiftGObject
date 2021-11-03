@@ -4,56 +4,76 @@ import GObjectCHelpers
 
 /// A callback function used by the type system to finalize those portions
 /// of a derived types class structure that were setup from the corresponding
-/// `GBaseInitFunc()` function. Class finalization basically works the inverse
-/// way in which class initialization is performed.
+/// `GBaseInitFunc()` function.
+/// 
+/// Class finalization basically works the inverse way in which class
+/// initialization is performed.
+/// 
 /// See `GClassInitFunc()` for a discussion of the class initialization process.
 public typealias BaseFinalizeFunc = GBaseFinalizeFunc
 
+
 /// A callback function used by the type system to do base initialization
-/// of the class structures of derived types. It is called as part of the
-/// initialization process of all derived classes and should reallocate
-/// or reset all dynamic class members copied over from the parent class.
+/// of the class structures of derived types.
+/// 
+/// This function is called as part of the initialization process of all derived
+/// classes and should reallocate or reset all dynamic class members copied over
+/// from the parent class.
+/// 
 /// For example, class members (such as strings) that are not sufficiently
 /// handled by a plain memory copy of the parent class into the derived class
 /// have to be altered. See `GClassInitFunc()` for a discussion of the class
 /// initialization process.
 public typealias BaseInitFunc = GBaseInitFunc
 
-/// A function to be called to transform `from_value` to `to_value`. If
-/// this is the `transform_to` function of a binding, then `from_value`
+
+/// A function to be called to transform `from_value` to `to_value`.
+/// 
+/// If this is the `transform_to` function of a binding, then `from_value`
 /// is the `source_property` on the `source` object, and `to_value` is the
 /// `target_property` on the `target` object. If this is the
 /// `transform_from` function of a `G_BINDING_BIDIRECTIONAL` binding,
 /// then those roles are reversed.
 public typealias BindingTransformFunc = GBindingTransformFunc
 
+
 /// This function is provided by the user and should produce a copy
 /// of the passed in boxed structure.
 public typealias BoxedCopyFunc = GBoxedCopyFunc
+
 
 /// This function is provided by the user and should free the boxed
 /// structure passed.
 public typealias BoxedFreeFunc = GBoxedFreeFunc
 
+
 /// The type used for callback functions in structure definitions and function
-/// signatures. This doesn't mean that all callback functions must take no
-/// parameters and return void. The required signature of a callback function
-/// is determined by the context in which is used (e.g. the signal to which it
-/// is connected). Use `G_CALLBACK()` to cast the callback function to a `GCallback`.
+/// signatures.
+/// 
+/// This doesn't mean that all callback functions must take no  parameters and
+/// return void. The required signature of a callback function is determined by
+/// the context in which is used (e.g. the signal to which it is connected).
+/// 
+/// Use `G_CALLBACK()` to cast the callback function to a `GCallback`.
 public typealias Callback = GCallback
 
+
 /// A callback function used by the type system to finalize a class.
+/// 
 /// This function is rarely needed, as dynamically allocated class resources
 /// should be handled by `GBaseInitFunc()` and `GBaseFinalizeFunc()`.
+/// 
 /// Also, specification of a `GClassFinalizeFunc()` in the `GTypeInfo`
 /// structure of a static type is invalid, because classes of static types
 /// will never be finalized (they are artificially kept alive when their
 /// reference count drops to zero).
 public typealias ClassFinalizeFunc = GClassFinalizeFunc
 
+
 /// A callback function used by the type system to initialize the class
-/// of a specific type. This function should initialize all static class
-/// members.
+/// of a specific type.
+/// 
+/// This function should initialize all static class members.
 /// 
 /// The initialization process of a class involves:
 /// 
@@ -123,6 +143,7 @@ public typealias ClassFinalizeFunc = GClassFinalizeFunc
 ///   class->static_float = 3.14159265358979323846;
 /// }
 /// ```
+/// 
 /// Initialization of TypeBClass will first cause initialization of
 /// TypeAClass (derived classes reference their parent classes, see
 /// `g_type_class_ref()` on this).
@@ -149,16 +170,21 @@ public typealias ClassFinalizeFunc = GClassFinalizeFunc
 /// time.
 public typealias ClassInitFunc = GClassInitFunc
 
+
 /// The type used for marshaller functions.
 public typealias ClosureMarshal = GClosureMarshal
+
 
 /// The type used for the various notification callbacks which can be registered
 /// on closures.
 public typealias ClosureNotify = GClosureNotify
 
+
 /// A callback function used by the type system to initialize a new
-/// instance of a type. This function initializes all instance members and
-/// allocates any resources required by it.
+/// instance of a type.
+/// 
+/// This function initializes all instance members and allocates any resources
+/// required by it.
 /// 
 /// Initialization of a derived instance involves calling all its parent
 /// types instance initializers, so the class member of the instance
@@ -169,74 +195,99 @@ public typealias ClosureNotify = GClosureNotify
 /// zeros before this function is called.
 public typealias InstanceInitFunc = GInstanceInitFunc
 
+
 /// A callback function used by the type system to finalize an interface.
+/// 
 /// This function should destroy any internal data and release any resources
 /// allocated by the corresponding `GInterfaceInitFunc()` function.
 public typealias InterfaceFinalizeFunc = GInterfaceFinalizeFunc
 
+
 /// A callback function used by the type system to initialize a new
-/// interface.  This function should initialize all internal data and
-/// allocate any resources required by the interface.
+/// interface.
+/// 
+/// This function should initialize all internal data and* allocate any
+/// resources required by the interface.
 /// 
 /// The members of `iface_data` are guaranteed to have been filled with
 /// zeros before this function is called.
 public typealias InterfaceInitFunc = GInterfaceInitFunc
 
+
 /// The type of the `finalize` function of `GObjectClass`.
 public typealias ObjectFinalizeFunc = GObjectFinalizeFunc
+
 
 /// The type of the `get_property` function of `GObjectClass`.
 public typealias ObjectGetPropertyFunc = GObjectGetPropertyFunc
 
+
 /// The type of the `set_property` function of `GObjectClass`.
 public typealias ObjectSetPropertyFunc = GObjectSetPropertyFunc
 
+
 /// The signal accumulator is a special callback function that can be used
 /// to collect return values of the various callbacks that are called
-/// during a signal emission. The signal accumulator is specified at signal
-/// creation time, if it is left `nil`, no accumulation of callback return
-/// values is performed. The return value of signal emissions is then the
-/// value returned by the last callback.
+/// during a signal emission.
+/// 
+/// The signal accumulator is specified at signal creation time, if it is
+/// left `nil`, no accumulation of callback return values is performed.
+/// The return value of signal emissions is then the value returned by the
+/// last callback.
 public typealias SignalAccumulator = GSignalAccumulator
 
-/// A simple function pointer to get invoked when the signal is emitted. This
-/// allows you to tie a hook to the signal type, so that it will trap all
-/// emissions of that signal, from any object.
+
+/// A simple function pointer to get invoked when the signal is emitted.
+/// 
+/// Emission hooks allow you to tie a hook to the signal type, so that it will
+/// trap all emissions of that signal, from any object.
 /// 
 /// You may not attach these to signals created with the `G_SIGNAL_NO_HOOKS` flag.
 public typealias SignalEmissionHook = GSignalEmissionHook
 
+
 /// A callback function used for notification when the state
-/// of a toggle reference changes. See `g_object_add_toggle_ref()`.
+/// of a toggle reference changes.
+/// 
+/// See also: `g_object_add_toggle_ref()`
 public typealias ToggleNotify = GToggleNotify
 
+
 /// A callback function which is called when the reference count of a class
-/// drops to zero. It may use `g_type_class_ref()` to prevent the class from
-/// being freed. You should not call `g_type_class_unref()` from a
-/// `GTypeClassCacheFunc` function to prevent infinite recursion, use
-/// `g_type_class_unref_uncached()` instead.
+/// drops to zero.
+/// 
+/// It may use `g_type_class_ref()` to prevent the class from being freed. You
+/// should not call `g_type_class_unref()` from a `GTypeClassCacheFunc` function
+/// to prevent infinite recursion, use `g_type_class_unref_uncached()` instead.
 /// 
 /// The functions have to check the class id passed in to figure
 /// whether they actually want to cache the class of this type, since all
 /// classes are routed through the same `GTypeClassCacheFunc` chain.
 public typealias TypeClassCacheFunc = GTypeClassCacheFunc
 
+
 /// A callback called after an interface vtable is initialized.
+/// 
 /// See `g_type_add_interface_check()`.
 public typealias TypeInterfaceCheckFunc = GTypeInterfaceCheckFunc
+
 
 /// The type of the `complete_interface_info` function of `GTypePluginClass`.
 public typealias TypePluginCompleteInterfaceInfo = GTypePluginCompleteInterfaceInfo
 
+
 /// The type of the `complete_type_info` function of `GTypePluginClass`.
 public typealias TypePluginCompleteTypeInfo = GTypePluginCompleteTypeInfo
+
 
 /// The type of the `unuse_plugin` function of `GTypePluginClass`.
 public typealias TypePluginUnuse = GTypePluginUnuse
 
+
 /// The type of the `use_plugin` function of `GTypePluginClass`, which gets called
 /// to increase the use count of `plugin`.
 public typealias TypePluginUse = GTypePluginUse
+
 
 /// The type of value transformation functions which can be registered with
 /// `g_value_register_transform_func()`.
@@ -244,8 +295,11 @@ public typealias TypePluginUse = GTypePluginUse
 /// `dest_value` will be initialized to the correct destination type.
 public typealias ValueTransform = GValueTransform
 
+
 /// A `GWeakNotify` function can be added to an object as a callback that gets
-/// triggered when the object is finalized. Since the object is already being
-/// finalized when the `GWeakNotify` is called, there's not much you could do
-/// with the object, apart from e.g. using its address as hash-index or the like.
+/// triggered when the object is finalized.
+/// 
+/// Since the object is already being disposed when the `GWeakNotify` is called,
+/// there's not much you could do with the object, apart from e.g. using its
+/// address as hash-index or the like.
 public typealias WeakNotify = GWeakNotify

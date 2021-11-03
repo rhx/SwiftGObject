@@ -4,13 +4,16 @@ import GObjectCHelpers
 
 // MARK: - Object Class
 
+/// The base object type.
+/// 
+/// All the fields in the `GObject` structure are private to the implementation
+/// and should never be accessed directly.
+///
 /// The `ObjectProtocol` protocol exposes the methods and properties of an underlying `GObject` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Object`.
 /// Alternatively, use `ObjectRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// All the fields in the GObject structure are private
-/// to the `GObject` implementation and should never be accessed directly.
 public protocol ObjectProtocol {
         /// Untyped pointer to the underlying `GObject` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -22,12 +25,15 @@ public protocol ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The base object type.
+/// 
+/// All the fields in the `GObject` structure are private to the implementation
+/// and should never be accessed directly.
+///
 /// The `ObjectRef` type acts as a lightweight Swift reference to an underlying `GObject` instance.
 /// It exposes methods that can operate on this data type through `ObjectProtocol` conformance.
 /// Use `ObjectRef` only as an `unowned` reference to an existing `GObject` instance.
 ///
-/// All the fields in the GObject structure are private
-/// to the `GObject` implementation and should never be accessed directly.
 public struct ObjectRef: ObjectProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GObject` instance.
     /// For type-safe access, use the generated, typed pointer `object_ptr` property instead.
@@ -177,12 +183,15 @@ public extension ObjectRef {
     }
 }
 
+/// The base object type.
+/// 
+/// All the fields in the `GObject` structure are private to the implementation
+/// and should never be accessed directly.
+///
 /// The `Object` type acts as a reference-counted owner of an underlying `GObject` instance.
 /// It provides the methods that can operate on this data type through `ObjectProtocol` conformance.
 /// Use `Object` as a strong reference or owner of a `GObject` instance.
 ///
-/// All the fields in the GObject structure are private
-/// to the `GObject` implementation and should never be accessed directly.
 open class Object: ObjectProtocol {
         /// Untyped pointer to the underlying `GObject` instance.
     /// For type-safe access, use the generated, typed pointer `object_ptr` property instead.
@@ -407,12 +416,14 @@ public enum ObjectSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -463,12 +474,14 @@ public extension ObjectProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -553,10 +566,13 @@ public extension ObjectProtocol {
     }
 
     /// Creates a binding between `source_property` on `source` and `target_property`
-    /// on `target`. Whenever the `source_property` is changed the `target_property` is
+    /// on `target`.
+    /// 
+    /// Whenever the `source_property` is changed the `target_property` is
     /// updated using the same value. For instance:
     /// 
-    /// ```
+    /// (C Language Example):
+    /// ```C
     ///   g_object_bind_property (action, "active", widget, "sensitive", 0);
     /// ```
     /// 
@@ -1028,6 +1044,46 @@ public extension ObjectProtocol {
         return rv
     }
 
+    /// If `object` is floating, sink it.  Otherwise, do nothing.
+    /// 
+    /// In other words, this function will convert a floating reference (if
+    /// present) into a full reference.
+    /// 
+    /// Typically you want to use `g_object_ref_sink()` in order to
+    /// automatically do the correct thing with respect to floating or
+    /// non-floating references, but there is one specific scenario where
+    /// this function is helpful.
+    /// 
+    /// The situation where this function is helpful is when creating an API
+    /// that allows the user to provide a callback function that returns a
+    /// GObject. We certainly want to allow the user the flexibility to
+    /// return a non-floating reference from this callback (for the case
+    /// where the object that is being returned already exists).
+    /// 
+    /// At the same time, the API style of some popular GObject-based
+    /// libraries (such as Gtk) make it likely that for newly-created GObject
+    /// instances, the user can be saved some typing if they are allowed to
+    /// return a floating reference.
+    /// 
+    /// Using this function on the return value of the user's callback allows
+    /// the user to do whichever is more convenient for them. The caller will
+    /// alway receives exactly one full reference to the value: either the
+    /// one that was returned in the first place, or a floating reference
+    /// that has been converted to a full reference.
+    /// 
+    /// This function has an odd interaction when combined with
+    /// `g_object_ref_sink()` running at the same time in another thread on
+    /// the same `GObject` instance. If `g_object_ref_sink()` runs first then
+    /// the result will be that the floating reference is converted to a hard
+    /// reference. If `g_object_take_ref()` runs first then the result will be
+    /// that the floating reference is converted to a hard reference and an
+    /// additional reference on top of that one is added. It is best to avoid
+    /// this situation.
+    @inlinable func takeRef() -> ObjectRef! {
+        guard let rv = ObjectRef(gpointer: g_object_take_ref(object_ptr)) else { return nil }
+        return rv
+    }
+
     /// Reverts the effect of a previous call to
     /// `g_object_freeze_notify()`. The freeze count is decreased on `object`
     /// and when it reaches zero, queued "notify" signals are emitted.
@@ -1386,11 +1442,6 @@ public extension ObjectProtocol {
 
 // MARK: - ParamSpec Class
 
-/// The `ParamSpecProtocol` protocol exposes the methods and properties of an underlying `GParamSpec` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ParamSpec`.
-/// Alternatively, use `ParamSpecRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GParamSpec` is an object structure that encapsulates the metadata
 /// required to specify parameters, such as e.g. `GObject` properties.
 /// 
@@ -1404,6 +1455,12 @@ public extension ObjectProtocol {
 /// When creating and looking up a `GParamSpec`, either separator can be
 /// used, but they cannot be mixed. Using `-` is considerably more
 /// efficient, and is the ‘canonical form’. Using `_` is discouraged.
+///
+/// The `ParamSpecProtocol` protocol exposes the methods and properties of an underlying `GParamSpec` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ParamSpec`.
+/// Alternatively, use `ParamSpecRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpec` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1415,10 +1472,6 @@ public protocol ParamSpecProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ParamSpecRef` type acts as a lightweight Swift reference to an underlying `GParamSpec` instance.
-/// It exposes methods that can operate on this data type through `ParamSpecProtocol` conformance.
-/// Use `ParamSpecRef` only as an `unowned` reference to an existing `GParamSpec` instance.
-///
 /// `GParamSpec` is an object structure that encapsulates the metadata
 /// required to specify parameters, such as e.g. `GObject` properties.
 /// 
@@ -1432,6 +1485,11 @@ public protocol ParamSpecProtocol {
 /// When creating and looking up a `GParamSpec`, either separator can be
 /// used, but they cannot be mixed. Using `-` is considerably more
 /// efficient, and is the ‘canonical form’. Using `_` is discouraged.
+///
+/// The `ParamSpecRef` type acts as a lightweight Swift reference to an underlying `GParamSpec` instance.
+/// It exposes methods that can operate on this data type through `ParamSpecProtocol` conformance.
+/// Use `ParamSpecRef` only as an `unowned` reference to an existing `GParamSpec` instance.
+///
 public struct ParamSpecRef: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpec` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_ptr` property instead.
@@ -1525,10 +1583,6 @@ public extension ParamSpecRef {
     }
 }
 
-/// The `ParamSpec` type acts as a reference-counted owner of an underlying `GParamSpec` instance.
-/// It provides the methods that can operate on this data type through `ParamSpecProtocol` conformance.
-/// Use `ParamSpec` as a strong reference or owner of a `GParamSpec` instance.
-///
 /// `GParamSpec` is an object structure that encapsulates the metadata
 /// required to specify parameters, such as e.g. `GObject` properties.
 /// 
@@ -1542,6 +1596,11 @@ public extension ParamSpecRef {
 /// When creating and looking up a `GParamSpec`, either separator can be
 /// used, but they cannot be mixed. Using `-` is considerably more
 /// efficient, and is the ‘canonical form’. Using `_` is discouraged.
+///
+/// The `ParamSpec` type acts as a reference-counted owner of an underlying `GParamSpec` instance.
+/// It provides the methods that can operate on this data type through `ParamSpecProtocol` conformance.
+/// Use `ParamSpec` as a strong reference or owner of a `GParamSpec` instance.
+///
 open class ParamSpec: ParamSpecProtocol {
         /// Untyped pointer to the underlying `GParamSpec` instance.
     /// For type-safe access, use the generated, typed pointer `param_spec_ptr` property instead.
