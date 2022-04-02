@@ -7,6 +7,11 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 ![Ubuntu 20.04 build](https://github.com/rhx/SwiftGObject/workflows/Ubuntu%2020.04/badge.svg)
 ![Ubuntu 18.04 build](https://github.com/rhx/SwiftGObject/workflows/Ubuntu%2018.04/badge.svg)
 
+## Swift 5.2
+
+This branch supports Swift 5.2, but is now unmaintained.
+The `main` and `development` branches will require newer versions of Swift.
+
 ## What is new?
 
 [Value](https://rhx.github.io/SwiftGObject/Classes/Value.html) instances can now be initialised from optionals.  The underlying value will be `unset` if the optional was nil.
