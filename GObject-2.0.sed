@@ -20,9 +20,6 @@ s/: \([A-Za-z.]*Transformer =\)/: @escaping \1/g
 s/: \([A-Za-z.]*Hook[,)]\)/: @escaping \1/g
 s|Pointer<_Value__data__union>|Pointer<GObjectTypeValueUnion>|g
 s|_Value__data__union.self|GObjectTypeValueUnion.self|g
-s|var float: Double|var float: Float|
-s|func getFloat() -> Double|func getFloat() -> Float|
-s|Double(g_value_get_float(value_ptr))|g_value_get_float(value_ptr)|
 s|setUlong(vUlong: Int)|setUlong(vUlong: gulong)|
 s|setInt(vInt: Int)|setInt(vInt: gint)|
 s|setUint(vUint: Int)|setUint(vUint: guint)|
