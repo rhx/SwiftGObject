@@ -17,6 +17,10 @@ let package = Package(
                 .product(name: "gir2swift", package: "gir2swift"),
                 .product(name: "GLib",      package: "SwiftGLib"),
             ],
+            swiftSettings: [
+                .unsafeFlags(["-suppress-warnings"], .when(configuration: .release)),
+                .unsafeFlags(["-suppress-warnings", "-Xfrontend", "-serialize-debugging-options"], .when(configuration: .debug)),
+            ],
             plugins: [
                 .plugin(name: "gir2swift-plugin", package: "gir2swift")
             ]
