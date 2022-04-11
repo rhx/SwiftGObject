@@ -25,10 +25,19 @@ let package = Package(
                 .plugin(name: "gir2swift-plugin", package: "gir2swift")
             ]
         ),
-        .target(name: "GObjectCHelpers",
-                dependencies: [
-                    .product(name: "GLib", package: "SwiftGLib"),
-                ]),
-        .testTarget(name: "GLibObjectTests", dependencies: ["GLibObject"]),
+        .target(
+            name: "GObjectCHelpers",
+            dependencies: [
+                .product(name: "GLib", package: "SwiftGLib"),
+            ],
+            cSettings: [
+                .unsafeFlags(["-w"])
+            ]
+        ),
+        .testTarget(
+            name: "GLibObjectTests",
+            dependencies: ["GLibObject"],
+            swiftSettings: [.unsafeFlags(["-suppress-warnings"])]
+        ),
     ]
 )
