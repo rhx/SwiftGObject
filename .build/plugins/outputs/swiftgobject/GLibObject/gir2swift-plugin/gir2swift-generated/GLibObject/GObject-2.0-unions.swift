@@ -540,7 +540,7 @@ public extension _Value__data__unionProtocol {
     @inlinable var vInt: gint {
         get {
             let rv = _ptr.pointee.v_int
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.v_int = newValue
@@ -550,7 +550,7 @@ public extension _Value__data__unionProtocol {
     @inlinable var vUint: guint {
         get {
             let rv = _ptr.pointee.v_uint
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.v_uint = newValue
@@ -560,7 +560,7 @@ public extension _Value__data__unionProtocol {
     @inlinable var vLong: glong {
         get {
             let rv = _ptr.pointee.v_long
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.v_long = newValue
@@ -570,7 +570,7 @@ public extension _Value__data__unionProtocol {
     @inlinable var vUlong: gulong {
         get {
             let rv = _ptr.pointee.v_ulong
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.v_ulong = newValue
@@ -580,7 +580,7 @@ public extension _Value__data__unionProtocol {
     @inlinable var vInt64: gint64 {
         get {
             let rv = _ptr.pointee.v_int64
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.v_int64 = newValue
@@ -590,7 +590,7 @@ public extension _Value__data__unionProtocol {
     @inlinable var vUint64: guint64 {
         get {
             let rv = _ptr.pointee.v_uint64
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.v_uint64 = newValue
@@ -600,7 +600,7 @@ public extension _Value__data__unionProtocol {
     @inlinable var vFloat: gfloat {
         get {
             let rv = _ptr.pointee.v_float
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.v_float = newValue
@@ -610,17 +610,17 @@ public extension _Value__data__unionProtocol {
     @inlinable var vDouble: gdouble {
         get {
             let rv = _ptr.pointee.v_double
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.v_double = newValue
         }
     }
 
-    @inlinable var vPointer: gpointer! {
+    @inlinable var vPointer: gpointer? {
         get {
             let rv = _ptr.pointee.v_pointer
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.v_pointer = newValue

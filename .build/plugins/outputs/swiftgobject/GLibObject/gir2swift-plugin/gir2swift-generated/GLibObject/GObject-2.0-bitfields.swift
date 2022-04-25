@@ -325,7 +325,7 @@ public struct TypeDebugFlags: OptionSet {
     @inlinable public init<I: BinaryInteger>(_ intValue: I) { self.rawValue = UInt32(intValue)  }
 
     /// Print no messages
-    public static let `none` = TypeDebugFlags(0) // G_TYPE_DEBUG_NONE
+    public static let `none` = TypeDebugFlags(0)
 
     /// Print messages about object bookkeeping
     public static let objects = TypeDebugFlags(1) // G_TYPE_DEBUG_OBJECTS

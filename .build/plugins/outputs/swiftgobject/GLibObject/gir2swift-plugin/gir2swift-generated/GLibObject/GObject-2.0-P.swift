@@ -2,6 +2,1943 @@ import CGLib
 import GLib
 import GObjectCHelpers
 
+// MARK: - ParamSpecClass Record
+
+/// The class structure for the GParamSpec type.
+/// Normally, GParamSpec classes are filled by
+/// `g_param_type_register_static()`.
+///
+/// The `ParamSpecClassProtocol` protocol exposes the methods and properties of an underlying `GParamSpecClass` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ParamSpecClass`.
+/// Alternatively, use `ParamSpecClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol ParamSpecClassProtocol {
+        /// Untyped pointer to the underlying `GParamSpecClass` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GParamSpecClass` instance.
+    var _ptr: UnsafeMutablePointer<GParamSpecClass>! { get }
+
+    /// Required Initialiser for types conforming to `ParamSpecClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// The class structure for the GParamSpec type.
+/// Normally, GParamSpec classes are filled by
+/// `g_param_type_register_static()`.
+///
+/// The `ParamSpecClassRef` type acts as a lightweight Swift reference to an underlying `GParamSpecClass` instance.
+/// It exposes methods that can operate on this data type through `ParamSpecClassProtocol` conformance.
+/// Use `ParamSpecClassRef` only as an `unowned` reference to an existing `GParamSpecClass` instance.
+///
+public struct ParamSpecClassRef: ParamSpecClassProtocol {
+        /// Untyped pointer to the underlying `GParamSpecClass` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension ParamSpecClassRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GParamSpecClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GParamSpecClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GParamSpecClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GParamSpecClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `ParamSpecClassProtocol`
+    @inlinable init<T: ParamSpecClassProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecClassProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecClassProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecClassProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecClassProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecClassProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+/// The class structure for the GParamSpec type.
+/// Normally, GParamSpec classes are filled by
+/// `g_param_type_register_static()`.
+///
+/// The `ParamSpecClass` type acts as an owner of an underlying `GParamSpecClass` instance.
+/// It provides the methods that can operate on this data type through `ParamSpecClassProtocol` conformance.
+/// Use `ParamSpecClass` as a strong reference or owner of a `GParamSpecClass` instance.
+///
+open class ParamSpecClass: ParamSpecClassProtocol {
+        /// Untyped pointer to the underlying `GParamSpecClass` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GParamSpecClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GParamSpecClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GParamSpecClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GParamSpecClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GParamSpecClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `ParamSpecClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GParamSpecClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GParamSpecClass, cannot ref(_ptr)
+    }
+
+    /// Reference intialiser for a related type that implements `ParamSpecClassProtocol`
+    /// `GParamSpecClass` does not allow reference counting.
+    /// - Parameter other: an instance of a related type that implements `ParamSpecClassProtocol`
+    @inlinable public init<T: ParamSpecClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GParamSpecClass, cannot ref(_ptr)
+    }
+
+    /// Do-nothing destructor for `GParamSpecClass`.
+    deinit {
+        // no reference counting for GParamSpecClass, cannot unref(_ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GParamSpecClass, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecClassProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecClassProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GParamSpecClass, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecClassProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GParamSpecClass, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GParamSpecClass, cannot ref(_ptr)
+    }
+
+
+
+}
+
+// MARK: no ParamSpecClass properties
+
+// MARK: no ParamSpecClass signals
+
+// MARK: ParamSpecClass has no signals
+// MARK: ParamSpecClass Record: ParamSpecClassProtocol extension (methods and fields)
+public extension ParamSpecClassProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecClass` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GParamSpecClass>! { return ptr?.assumingMemoryBound(to: GParamSpecClass.self) }
+
+
+    /// the parent class
+    @inlinable var gTypeClass: GTypeClass {
+        /// the parent class
+        get {
+            let rv = _ptr.pointee.g_type_class
+    return rv
+        }
+    }
+
+    /// the `GValue` type for this parameter
+    @inlinable var valueType: GType {
+        /// the `GValue` type for this parameter
+        get {
+            let rv = _ptr.pointee.value_type
+    return rv
+        }
+    }
+
+    // var finalize is unavailable because finalize is void
+
+    // var valueSetDefault is unavailable because value_set_default is void
+
+    // var valueValidate is unavailable because value_validate is void
+
+    // var valuesCmp is unavailable because values_cmp is void
+
+    // var dummy is unavailable because dummy is private
+
+}
+
+
+
+// MARK: - ParamSpecPool Record
+
+/// A `GParamSpecPool` maintains a collection of `GParamSpecs` which can be
+/// quickly accessed by owner and name.
+/// 
+/// The implementation of the `GObject` property system uses such a pool to
+/// store the `GParamSpecs` of the properties all object types.
+///
+/// The `ParamSpecPoolProtocol` protocol exposes the methods and properties of an underlying `GParamSpecPool` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ParamSpecPool`.
+/// Alternatively, use `ParamSpecPoolRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol ParamSpecPoolProtocol {
+        /// Untyped pointer to the underlying `GParamSpecPool` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GParamSpecPool` instance.
+    var _ptr: UnsafeMutablePointer<GParamSpecPool>! { get }
+
+    /// Required Initialiser for types conforming to `ParamSpecPoolProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// A `GParamSpecPool` maintains a collection of `GParamSpecs` which can be
+/// quickly accessed by owner and name.
+/// 
+/// The implementation of the `GObject` property system uses such a pool to
+/// store the `GParamSpecs` of the properties all object types.
+///
+/// The `ParamSpecPoolRef` type acts as a lightweight Swift reference to an underlying `GParamSpecPool` instance.
+/// It exposes methods that can operate on this data type through `ParamSpecPoolProtocol` conformance.
+/// Use `ParamSpecPoolRef` only as an `unowned` reference to an existing `GParamSpecPool` instance.
+///
+public struct ParamSpecPoolRef: ParamSpecPoolProtocol {
+        /// Untyped pointer to the underlying `GParamSpecPool` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension ParamSpecPoolRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GParamSpecPool>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GParamSpecPool>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GParamSpecPool>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GParamSpecPool>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `ParamSpecPoolProtocol`
+    @inlinable init<T: ParamSpecPoolProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecPoolProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecPoolProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecPoolProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecPoolProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecPoolProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+/// A `GParamSpecPool` maintains a collection of `GParamSpecs` which can be
+/// quickly accessed by owner and name.
+/// 
+/// The implementation of the `GObject` property system uses such a pool to
+/// store the `GParamSpecs` of the properties all object types.
+///
+/// The `ParamSpecPool` type acts as an owner of an underlying `GParamSpecPool` instance.
+/// It provides the methods that can operate on this data type through `ParamSpecPoolProtocol` conformance.
+/// Use `ParamSpecPool` as a strong reference or owner of a `GParamSpecPool` instance.
+///
+open class ParamSpecPool: ParamSpecPoolProtocol {
+        /// Untyped pointer to the underlying `GParamSpecPool` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecPool` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GParamSpecPool>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecPool` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GParamSpecPool>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecPool` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecPool` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecPool` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GParamSpecPool>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecPool` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GParamSpecPool>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GParamSpecPool` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `ParamSpecPool` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GParamSpecPool>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GParamSpecPool, cannot ref(_ptr)
+    }
+
+    /// Reference intialiser for a related type that implements `ParamSpecPoolProtocol`
+    /// `GParamSpecPool` does not allow reference counting.
+    /// - Parameter other: an instance of a related type that implements `ParamSpecPoolProtocol`
+    @inlinable public init<T: ParamSpecPoolProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GParamSpecPool, cannot ref(_ptr)
+    }
+
+    /// Do-nothing destructor for `GParamSpecPool`.
+    deinit {
+        // no reference counting for GParamSpecPool, cannot unref(_ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecPoolProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecPoolProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GParamSpecPool, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecPoolProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecPoolProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GParamSpecPool, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecPoolProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecPoolProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GParamSpecPool, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecPoolProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecPoolProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GParamSpecPool, cannot ref(_ptr)
+    }
+
+
+
+}
+
+// MARK: no ParamSpecPool properties
+
+// MARK: no ParamSpecPool signals
+
+// MARK: ParamSpecPool has no signals
+// MARK: ParamSpecPool Record: ParamSpecPoolProtocol extension (methods and fields)
+public extension ParamSpecPoolProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecPool` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GParamSpecPool>! { return ptr?.assumingMemoryBound(to: GParamSpecPool.self) }
+
+    /// Inserts a `GParamSpec` in the pool.
+    @inlinable func insert<ParamSpecT: ParamSpecProtocol>(pspec: ParamSpecT, ownerType: GType) {
+        
+        g_param_spec_pool_insert(_ptr, pspec.param_spec_ptr, ownerType)
+        
+    }
+
+    /// Gets an array of all `GParamSpecs` owned by `owner_type` in
+    /// the pool.
+    @inlinable func list(ownerType: GType, nPspecsP: UnsafeMutablePointer<guint>!) -> UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>?>! {
+        let result = g_param_spec_pool_list(_ptr, ownerType, nPspecsP)
+        let rv = result
+        return rv
+    }
+
+    /// Gets an `GList` of all `GParamSpecs` owned by `owner_type` in
+    /// the pool.
+    @inlinable func listOwned(ownerType: GType) -> GLib.ListRef! {
+        let result = g_param_spec_pool_list_owned(_ptr, ownerType)
+        let rv = GLib.ListRef(gconstpointer: gconstpointer(result))
+        return rv
+    }
+
+    /// Looks up a `GParamSpec` in the pool.
+    @inlinable func lookup(paramName: UnsafePointer<gchar>!, ownerType: GType, walkAncestors: Bool) -> GLibObject.ParamSpecRef! {
+        let result = g_param_spec_pool_lookup(_ptr, paramName, ownerType, gboolean((walkAncestors) ? 1 : 0))
+        let rv = ParamSpecRef(gconstpointer: gconstpointer(result))
+        return rv
+    }
+
+    /// Removes a `GParamSpec` from the pool.
+    @inlinable func remove<ParamSpecT: ParamSpecProtocol>(pspec: ParamSpecT) {
+        
+        g_param_spec_pool_remove(_ptr, pspec.param_spec_ptr)
+        
+    }
+
+
+}
+
+
+
+// MARK: - ParamSpecTypeInfo Record
+
+/// This structure is used to provide the type system with the information
+/// required to initialize and destruct (finalize) a parameter's class and
+/// instances thereof.
+/// 
+/// The initialized structure is passed to the `g_param_type_register_static()`
+/// The type system will perform a deep copy of this structure, so its memory
+/// does not need to be persistent across invocation of
+/// `g_param_type_register_static()`.
+///
+/// The `ParamSpecTypeInfoProtocol` protocol exposes the methods and properties of an underlying `GParamSpecTypeInfo` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ParamSpecTypeInfo`.
+/// Alternatively, use `ParamSpecTypeInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol ParamSpecTypeInfoProtocol {
+        /// Untyped pointer to the underlying `GParamSpecTypeInfo` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GParamSpecTypeInfo` instance.
+    var _ptr: UnsafeMutablePointer<GParamSpecTypeInfo>! { get }
+
+    /// Required Initialiser for types conforming to `ParamSpecTypeInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// This structure is used to provide the type system with the information
+/// required to initialize and destruct (finalize) a parameter's class and
+/// instances thereof.
+/// 
+/// The initialized structure is passed to the `g_param_type_register_static()`
+/// The type system will perform a deep copy of this structure, so its memory
+/// does not need to be persistent across invocation of
+/// `g_param_type_register_static()`.
+///
+/// The `ParamSpecTypeInfoRef` type acts as a lightweight Swift reference to an underlying `GParamSpecTypeInfo` instance.
+/// It exposes methods that can operate on this data type through `ParamSpecTypeInfoProtocol` conformance.
+/// Use `ParamSpecTypeInfoRef` only as an `unowned` reference to an existing `GParamSpecTypeInfo` instance.
+///
+public struct ParamSpecTypeInfoRef: ParamSpecTypeInfoProtocol {
+        /// Untyped pointer to the underlying `GParamSpecTypeInfo` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension ParamSpecTypeInfoRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GParamSpecTypeInfo>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GParamSpecTypeInfo>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GParamSpecTypeInfo>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GParamSpecTypeInfo>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `ParamSpecTypeInfoProtocol`
+    @inlinable init<T: ParamSpecTypeInfoProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecTypeInfoProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecTypeInfoProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecTypeInfoProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecTypeInfoProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecTypeInfoProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+/// This structure is used to provide the type system with the information
+/// required to initialize and destruct (finalize) a parameter's class and
+/// instances thereof.
+/// 
+/// The initialized structure is passed to the `g_param_type_register_static()`
+/// The type system will perform a deep copy of this structure, so its memory
+/// does not need to be persistent across invocation of
+/// `g_param_type_register_static()`.
+///
+/// The `ParamSpecTypeInfo` type acts as an owner of an underlying `GParamSpecTypeInfo` instance.
+/// It provides the methods that can operate on this data type through `ParamSpecTypeInfoProtocol` conformance.
+/// Use `ParamSpecTypeInfo` as a strong reference or owner of a `GParamSpecTypeInfo` instance.
+///
+open class ParamSpecTypeInfo: ParamSpecTypeInfoProtocol {
+        /// Untyped pointer to the underlying `GParamSpecTypeInfo` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecTypeInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GParamSpecTypeInfo>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecTypeInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GParamSpecTypeInfo>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecTypeInfo` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecTypeInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecTypeInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GParamSpecTypeInfo>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpecTypeInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GParamSpecTypeInfo>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GParamSpecTypeInfo` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `ParamSpecTypeInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GParamSpecTypeInfo>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GParamSpecTypeInfo, cannot ref(_ptr)
+    }
+
+    /// Reference intialiser for a related type that implements `ParamSpecTypeInfoProtocol`
+    /// `GParamSpecTypeInfo` does not allow reference counting.
+    /// - Parameter other: an instance of a related type that implements `ParamSpecTypeInfoProtocol`
+    @inlinable public init<T: ParamSpecTypeInfoProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GParamSpecTypeInfo, cannot ref(_ptr)
+    }
+
+    /// Do-nothing destructor for `GParamSpecTypeInfo`.
+    deinit {
+        // no reference counting for GParamSpecTypeInfo, cannot unref(_ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecTypeInfoProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecTypeInfoProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GParamSpecTypeInfo, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecTypeInfoProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecTypeInfoProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GParamSpecTypeInfo, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecTypeInfoProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecTypeInfoProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GParamSpecTypeInfo, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecTypeInfoProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecTypeInfoProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GParamSpecTypeInfo, cannot ref(_ptr)
+    }
+
+
+
+}
+
+// MARK: no ParamSpecTypeInfo properties
+
+// MARK: no ParamSpecTypeInfo signals
+
+// MARK: ParamSpecTypeInfo has no signals
+// MARK: ParamSpecTypeInfo Record: ParamSpecTypeInfoProtocol extension (methods and fields)
+public extension ParamSpecTypeInfoProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GParamSpecTypeInfo` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GParamSpecTypeInfo>! { return ptr?.assumingMemoryBound(to: GParamSpecTypeInfo.self) }
+
+    /// Registers `name` as the name of a new static type derived
+    /// from `G_TYPE_PARAM`.
+    /// 
+    /// The type system uses the information contained in the `GParamSpecTypeInfo`
+    /// structure pointed to by `info` to manage the `GParamSpec` type and its
+    /// instances.
+    @inlinable func paramTypeRegisterStatic(name: UnsafePointer<gchar>!) -> GType {
+        let result = g_param_type_register_static(name, _ptr)
+        let rv = result
+        return rv
+    }
+
+    /// Size of the instance (object) structure.
+    @inlinable var instanceSize: guint16 {
+        /// Size of the instance (object) structure.
+        get {
+            let rv = _ptr.pointee.instance_size
+    return rv
+        }
+        /// Size of the instance (object) structure.
+         set {
+            _ptr.pointee.instance_size = newValue
+        }
+    }
+
+    /// Prior to GLib 2.10, it specified the number of pre-allocated (cached) instances to reserve memory for (0 indicates no caching). Since GLib 2.10, it is ignored, since instances are allocated with the [slice allocator](#glib-Memory-Slices) now.
+    @inlinable var nPreallocs: guint16 {
+        /// Prior to GLib 2.10, it specified the number of pre-allocated (cached) instances to reserve memory for (0 indicates no caching). Since GLib 2.10, it is ignored, since instances are allocated with the [slice allocator](#glib-Memory-Slices) now.
+        get {
+            let rv = _ptr.pointee.n_preallocs
+    return rv
+        }
+        /// Prior to GLib 2.10, it specified the number of pre-allocated (cached) instances to reserve memory for (0 indicates no caching). Since GLib 2.10, it is ignored, since instances are allocated with the [slice allocator](#glib-Memory-Slices) now.
+         set {
+            _ptr.pointee.n_preallocs = newValue
+        }
+    }
+
+    // var instanceInit is unavailable because instance_init is void
+
+    /// The `GType` of values conforming to this `GParamSpec`
+    @inlinable var valueType: GType {
+        /// The `GType` of values conforming to this `GParamSpec`
+        get {
+            let rv = _ptr.pointee.value_type
+    return rv
+        }
+        /// The `GType` of values conforming to this `GParamSpec`
+         set {
+            _ptr.pointee.value_type = newValue
+        }
+    }
+
+    // var finalize is unavailable because finalize is void
+
+    // var valueSetDefault is unavailable because value_set_default is void
+
+    // var valueValidate is unavailable because value_validate is void
+
+    // var valuesCmp is unavailable because values_cmp is void
+
+}
+
+
+
+// MARK: - Parameter Record
+
+/// The GParameter struct is an auxiliary structure used
+/// to hand parameter name/value pairs to `g_object_newv()`.
+///
+/// The `ParameterProtocol` protocol exposes the methods and properties of an underlying `GParameter` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Parameter`.
+/// Alternatively, use `ParameterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol ParameterProtocol {
+        /// Untyped pointer to the underlying `GParameter` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GParameter` instance.
+    var _ptr: UnsafeMutablePointer<GParameter>! { get }
+
+    /// Required Initialiser for types conforming to `ParameterProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// The GParameter struct is an auxiliary structure used
+/// to hand parameter name/value pairs to `g_object_newv()`.
+///
+/// The `ParameterRef` type acts as a lightweight Swift reference to an underlying `GParameter` instance.
+/// It exposes methods that can operate on this data type through `ParameterProtocol` conformance.
+/// Use `ParameterRef` only as an `unowned` reference to an existing `GParameter` instance.
+///
+public struct ParameterRef: ParameterProtocol {
+        /// Untyped pointer to the underlying `GParameter` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension ParameterRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GParameter>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GParameter>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GParameter>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GParameter>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `ParameterProtocol`
+    @inlinable init<T: ParameterProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParameterProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParameterProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParameterProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParameterProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParameterProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+/// The GParameter struct is an auxiliary structure used
+/// to hand parameter name/value pairs to `g_object_newv()`.
+///
+/// The `Parameter` type acts as an owner of an underlying `GParameter` instance.
+/// It provides the methods that can operate on this data type through `ParameterProtocol` conformance.
+/// Use `Parameter` as a strong reference or owner of a `GParameter` instance.
+///
+open class Parameter: ParameterProtocol {
+        /// Untyped pointer to the underlying `GParameter` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Parameter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GParameter>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Parameter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GParameter>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Parameter` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Parameter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Parameter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GParameter>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Parameter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GParameter>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GParameter` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `Parameter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GParameter>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GParameter, cannot ref(_ptr)
+    }
+
+    /// Reference intialiser for a related type that implements `ParameterProtocol`
+    /// `GParameter` does not allow reference counting.
+    /// - Parameter other: an instance of a related type that implements `ParameterProtocol`
+    @inlinable public init<T: ParameterProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GParameter, cannot ref(_ptr)
+    }
+
+    /// Do-nothing destructor for `GParameter`.
+    deinit {
+        // no reference counting for GParameter, cannot unref(_ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParameterProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParameterProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GParameter, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParameterProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParameterProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GParameter, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParameterProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParameterProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GParameter, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParameterProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParameterProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GParameter, cannot ref(_ptr)
+    }
+
+
+
+}
+
+// MARK: no Parameter properties
+
+// MARK: no Parameter signals
+
+// MARK: Parameter has no signals
+// MARK: Parameter Record: ParameterProtocol extension (methods and fields)
+public extension ParameterProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GParameter` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GParameter>! { return ptr?.assumingMemoryBound(to: GParameter.self) }
+
+
+    /// the parameter name
+    @inlinable var name: UnsafePointer<gchar>! {
+        /// the parameter name
+        get {
+            let rv = _ptr.pointee.name
+    return rv
+        }
+        /// the parameter name
+         set {
+            _ptr.pointee.name = newValue
+        }
+    }
+
+    /// the parameter value
+    @inlinable var value: GValue {
+        /// the parameter value
+        get {
+            let rv = _ptr.pointee.value
+    return rv
+        }
+        /// the parameter value
+         set {
+            _ptr.pointee.value = newValue
+        }
+    }
+
+}
+
+
+
+// MARK: - ParamSpec Class
+
+/// `GParamSpec` is an object structure that encapsulates the metadata
+/// required to specify parameters, such as e.g. `GObject` properties.
+/// 
+/// ## Parameter names # <a name="canonical-parameter-names"></a>
+/// 
+/// A property name consists of one or more segments consisting of ASCII letters
+/// and digits, separated by either the `-` or `_` character. The first
+/// character of a property name must be a letter. These are the same rules as
+/// for signal naming (see `g_signal_new()`).
+/// 
+/// When creating and looking up a `GParamSpec`, either separator can be
+/// used, but they cannot be mixed. Using `-` is considerably more
+/// efficient, and is the ‘canonical form’. Using `_` is discouraged.
+///
+/// The `ParamSpecProtocol` protocol exposes the methods and properties of an underlying `GParamSpec` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ParamSpec`.
+/// Alternatively, use `ParamSpecRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol ParamSpecProtocol {
+        /// Untyped pointer to the underlying `GParamSpec` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GParamSpec` instance.
+    var param_spec_ptr: UnsafeMutablePointer<GParamSpec>! { get }
+
+    /// Required Initialiser for types conforming to `ParamSpecProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// `GParamSpec` is an object structure that encapsulates the metadata
+/// required to specify parameters, such as e.g. `GObject` properties.
+/// 
+/// ## Parameter names # <a name="canonical-parameter-names"></a>
+/// 
+/// A property name consists of one or more segments consisting of ASCII letters
+/// and digits, separated by either the `-` or `_` character. The first
+/// character of a property name must be a letter. These are the same rules as
+/// for signal naming (see `g_signal_new()`).
+/// 
+/// When creating and looking up a `GParamSpec`, either separator can be
+/// used, but they cannot be mixed. Using `-` is considerably more
+/// efficient, and is the ‘canonical form’. Using `_` is discouraged.
+///
+/// The `ParamSpecRef` type acts as a lightweight Swift reference to an underlying `GParamSpec` instance.
+/// It exposes methods that can operate on this data type through `ParamSpecProtocol` conformance.
+/// Use `ParamSpecRef` only as an `unowned` reference to an existing `GParamSpec` instance.
+///
+public struct ParamSpecRef: ParamSpecProtocol {
+        /// Untyped pointer to the underlying `GParamSpec` instance.
+    /// For type-safe access, use the generated, typed pointer `param_spec_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension ParamSpecRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GParamSpec>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GParamSpec>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GParamSpec>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GParamSpec>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `ParamSpecProtocol`
+    @inlinable init<T: ParamSpecProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+        /// Creates a new `GParamSpec` instance.
+    /// 
+    /// See [canonical parameter names](#canonical-parameter-names) for details of
+    /// the rules for `name`. Names which violate these rules lead to undefined
+    /// behaviour.
+    /// 
+    /// Beyond the name, `GParamSpecs` have two more descriptive
+    /// strings associated with them, the `nick`, which should be suitable
+    /// for use as a label for the property in a property editor, and the
+    /// `blurb`, which should be a somewhat longer description, suitable for
+    /// e.g. a tooltip. The `nick` and `blurb` should ideally be localized.
+    @inlinable static func internal_(paramType: GType, name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+            let result = g_param_spec_internal(paramType, name, nick, blurb, flags.value)
+        guard let rv = ParamSpecRef(gpointer: result) else { return nil }
+        return rv
+    }
+}
+
+/// `GParamSpec` is an object structure that encapsulates the metadata
+/// required to specify parameters, such as e.g. `GObject` properties.
+/// 
+/// ## Parameter names # <a name="canonical-parameter-names"></a>
+/// 
+/// A property name consists of one or more segments consisting of ASCII letters
+/// and digits, separated by either the `-` or `_` character. The first
+/// character of a property name must be a letter. These are the same rules as
+/// for signal naming (see `g_signal_new()`).
+/// 
+/// When creating and looking up a `GParamSpec`, either separator can be
+/// used, but they cannot be mixed. Using `-` is considerably more
+/// efficient, and is the ‘canonical form’. Using `_` is discouraged.
+///
+/// The `ParamSpec` type acts as a reference-counted owner of an underlying `GParamSpec` instance.
+/// It provides the methods that can operate on this data type through `ParamSpecProtocol` conformance.
+/// Use `ParamSpec` as a strong reference or owner of a `GParamSpec` instance.
+///
+open class ParamSpec: ParamSpecProtocol {
+        /// Untyped pointer to the underlying `GParamSpec` instance.
+    /// For type-safe access, use the generated, typed pointer `param_spec_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpec` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GParamSpec>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpec` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GParamSpec>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpec` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpec` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpec` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GParamSpec>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ParamSpec` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GParamSpec>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// Will retain `GParamSpec`.
+    /// i.e., ownership is transferred to the `ParamSpec` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GParamSpec>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_param_spec_ref(ptr.assumingMemoryBound(to: GParamSpec.self))
+    }
+
+    /// Reference intialiser for a related type that implements `ParamSpecProtocol`
+    /// Will retain `GParamSpec`.
+    /// - Parameter other: an instance of a related type that implements `ParamSpecProtocol`
+    @inlinable public init<T: ParamSpecProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_param_spec_ref(ptr.assumingMemoryBound(to: GParamSpec.self))
+    }
+
+    /// Releases the underlying `GParamSpec` instance using `g_param_spec_unref`.
+    deinit {
+        g_param_spec_unref(ptr.assumingMemoryBound(to: GParamSpec.self))
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_param_spec_ref(ptr.assumingMemoryBound(to: GParamSpec.self))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_param_spec_ref(ptr.assumingMemoryBound(to: GParamSpec.self))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_param_spec_ref(ptr.assumingMemoryBound(to: GParamSpec.self))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_param_spec_ref(ptr.assumingMemoryBound(to: GParamSpec.self))
+    }
+
+
+    /// Creates a new `GParamSpec` instance.
+    /// 
+    /// See [canonical parameter names](#canonical-parameter-names) for details of
+    /// the rules for `name`. Names which violate these rules lead to undefined
+    /// behaviour.
+    /// 
+    /// Beyond the name, `GParamSpecs` have two more descriptive
+    /// strings associated with them, the `nick`, which should be suitable
+    /// for use as a label for the property in a property editor, and the
+    /// `blurb`, which should be a somewhat longer description, suitable for
+    /// e.g. a tooltip. The `nick` and `blurb` should ideally be localized.
+    @inlinable public static func internal_(paramType: GType, name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, flags: ParamFlags) -> GLibObject.ParamSpec! {
+            let result = g_param_spec_internal(paramType, name, nick, blurb, flags.value)
+        guard let rv = ParamSpec(gpointer: result) else { return nil }
+        return rv
+    }
+
+}
+
+// MARK: no ParamSpec properties
+
+// MARK: no ParamSpec signals
+
+// MARK: ParamSpec has no signals
+// MARK: ParamSpec Class: ParamSpecProtocol extension (methods and fields)
+public extension ParamSpecProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GParamSpec` instance.
+    @inlinable var param_spec_ptr: UnsafeMutablePointer<GParamSpec>! { return ptr?.assumingMemoryBound(to: GParamSpec.self) }
+
+    /// Get the short description of a `GParamSpec`.
+    @inlinable func getBlurb() -> String! {
+        let result = g_param_spec_get_blurb(param_spec_ptr)
+        let rv = result.map({ String(cString: $0) })
+        return rv
+    }
+
+    /// Gets the default value of `pspec` as a pointer to a `GValue`.
+    /// 
+    /// The `GValue` will remain valid for the life of `pspec`.
+    @inlinable func getDefaultValue() -> GLibObject.ValueRef! {
+        let result = g_param_spec_get_default_value(param_spec_ptr)
+        let rv = ValueRef(gconstpointer: gconstpointer(result))
+        return rv
+    }
+
+    /// Get the name of a `GParamSpec`.
+    /// 
+    /// The name is always an "interned" string (as per `g_intern_string()`).
+    /// This allows for pointer-value comparisons.
+    @inlinable func getName() -> String! {
+        let result = g_param_spec_get_name(param_spec_ptr)
+        let rv = result.map({ String(cString: $0) })
+        return rv
+    }
+
+    /// Gets the GQuark for the name.
+    @inlinable func getNameQuark() -> GQuark {
+        let result = g_param_spec_get_name_quark(param_spec_ptr)
+        let rv = result
+        return rv
+    }
+
+    /// Get the nickname of a `GParamSpec`.
+    @inlinable func getNick() -> String! {
+        let result = g_param_spec_get_nick(param_spec_ptr)
+        let rv = result.map({ String(cString: $0) })
+        return rv
+    }
+
+    /// Gets back user data pointers stored via `g_param_spec_set_qdata()`.
+    @inlinable func getQdata(quark: GQuark) -> gpointer? {
+        let result = g_param_spec_get_qdata(param_spec_ptr, quark)
+        let rv = result
+        return rv
+    }
+
+    /// If the paramspec redirects operations to another paramspec,
+    /// returns that paramspec. Redirect is used typically for
+    /// providing a new implementation of a property in a derived
+    /// type while preserving all the properties from the parent
+    /// type. Redirection is established by creating a property
+    /// of type `GParamSpecOverride`. See `g_object_class_override_property()`
+    /// for an example of the use of this capability.
+    @inlinable func getRedirectTarget() -> GLibObject.ParamSpecRef! {
+        let result = g_param_spec_get_redirect_target(param_spec_ptr)
+        guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Increments the reference count of `pspec`.
+    @discardableResult @inlinable func ref() -> GLibObject.ParamSpecRef! {
+        let result = g_param_spec_ref(param_spec_ptr)
+        guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Convenience function to ref and sink a `GParamSpec`.
+    @inlinable @discardableResult func refSink() -> GLibObject.ParamSpecRef! {
+        let result = g_param_spec_ref_sink(param_spec_ptr)
+        guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Sets an opaque, named pointer on a `GParamSpec`. The name is
+    /// specified through a `GQuark` (retrieved e.g. via
+    /// `g_quark_from_static_string()`), and the pointer can be gotten back
+    /// from the `pspec` with `g_param_spec_get_qdata()`.  Setting a
+    /// previously set user data pointer, overrides (frees) the old pointer
+    /// set, using `nil` as pointer essentially removes the data stored.
+    @inlinable func setQdata(quark: GQuark, data: gpointer? = nil) {
+        
+        g_param_spec_set_qdata(param_spec_ptr, quark, data)
+        
+    }
+
+    /// This function works like `g_param_spec_set_qdata()`, but in addition,
+    /// a `void (*destroy) (gpointer)` function may be
+    /// specified which is called with `data` as argument when the `pspec` is
+    /// finalized, or the data is being overwritten by a call to
+    /// `g_param_spec_set_qdata()` with the same `quark`.
+    @inlinable func setQdataFull(quark: GQuark, data: gpointer? = nil, destroy: GDestroyNotify? = nil) {
+        
+        g_param_spec_set_qdata_full(param_spec_ptr, quark, data, destroy)
+        
+    }
+
+    /// The initial reference count of a newly created `GParamSpec` is 1,
+    /// even though no one has explicitly called `g_param_spec_ref()` on it
+    /// yet. So the initial reference count is flagged as "floating", until
+    /// someone calls `g_param_spec_ref (pspec); g_param_spec_sink
+    /// (pspec);` in sequence on it, taking over the initial
+    /// reference count (thus ending up with a `pspec` that has a reference
+    /// count of 1 still, but is not flagged "floating" anymore).
+    @inlinable func sink() {
+        
+        g_param_spec_sink(param_spec_ptr)
+        
+    }
+
+    /// Gets back user data pointers stored via `g_param_spec_set_qdata()`
+    /// and removes the `data` from `pspec` without invoking its `destroy()`
+    /// function (if any was set).  Usually, calling this function is only
+    /// required to update user data pointers with a destroy notifier.
+    @inlinable func stealQdata(quark: GQuark) -> gpointer? {
+        let result = g_param_spec_steal_qdata(param_spec_ptr, quark)
+        let rv = result
+        return rv
+    }
+
+    /// Decrements the reference count of a `pspec`.
+    @inlinable func unref() {
+        
+        g_param_spec_unref(param_spec_ptr)
+        
+    }
+
+    /// Creates a new property of type `GParamSpecOverride`. This is used
+    /// to direct operations to another paramspec, and will not be directly
+    /// useful unless you are implementing a new base type similar to GObject.
+    @inlinable func paramSpecOverride(name: UnsafePointer<gchar>!) -> GLibObject.ParamSpecRef! {
+        let result = g_param_spec_override(name, param_spec_ptr)
+        guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Creates a new `GParamSpecValueArray` instance specifying a
+    /// `G_TYPE_VALUE_ARRAY` property. `G_TYPE_VALUE_ARRAY` is a
+    /// `G_TYPE_BOXED` type, as such, `GValue` structures for this property
+    /// can be accessed with `g_value_set_boxed()` and `g_value_get_boxed()`.
+    /// 
+    /// See `g_param_spec_internal()` for details on property names.
+    @inlinable func paramSpecValueArray(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+        let result = g_param_spec_value_array(name, nick, blurb, param_spec_ptr, flags.value)
+        guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Transforms `src_value` into `dest_value` if possible, and then
+    /// validates `dest_value`, in order for it to conform to `pspec`.  If
+    /// `strict_validation` is `true` this function will only succeed if the
+    /// transformed `dest_value` complied to `pspec` without modifications.
+    /// 
+    /// See also `g_value_type_transformable()`, `g_value_transform()` and
+    /// `g_param_value_validate()`.
+    @inlinable func paramValueConvert<ValueT: ValueProtocol>(srcValue: ValueT, destValue: ValueT, strictValidation: Bool) -> Bool {
+        let result = g_param_value_convert(param_spec_ptr, srcValue.value_ptr, destValue.value_ptr, gboolean((strictValidation) ? 1 : 0))
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Checks whether `value` contains the default value as specified in `pspec`.
+    @inlinable func paramValueDefaults<ValueT: ValueProtocol>(value: ValueT) -> Bool {
+        let result = g_param_value_defaults(param_spec_ptr, value.value_ptr)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Sets `value` to its default value as specified in `pspec`.
+    @inlinable func paramValueSetDefault<ValueT: ValueProtocol>(value: ValueT) {
+        
+        g_param_value_set_default(param_spec_ptr, value.value_ptr)
+        
+    }
+
+    /// Ensures that the contents of `value` comply with the specifications
+    /// set out by `pspec`. For example, a `GParamSpecInt` might require
+    /// that integers stored in `value` may not be smaller than -42 and not be
+    /// greater than +42. If `value` contains an integer outside of this range,
+    /// it is modified accordingly, so the resulting value will fit into the
+    /// range -42 .. +42.
+    @inlinable func paramValueValidate<ValueT: ValueProtocol>(value: ValueT) -> Bool {
+        let result = g_param_value_validate(param_spec_ptr, value.value_ptr)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Compares `value1` with `value2` according to `pspec`, and return -1, 0 or +1,
+    /// if `value1` is found to be less than, equal to or greater than `value2`,
+    /// respectively.
+    @inlinable func paramValuesCmp<ValueT: ValueProtocol>(value1: ValueT, value2: ValueT) -> Int {
+        let result = g_param_values_cmp(param_spec_ptr, value1.value_ptr, value2.value_ptr)
+        let rv = Int(result)
+        return rv
+    }
+    /// Get the short description of a `GParamSpec`.
+    @inlinable var blurb: String! {
+        /// Get the short description of a `GParamSpec`.
+        get {
+            let result = g_param_spec_get_blurb(param_spec_ptr)
+        let rv = result.map({ String(cString: $0) })
+            return rv
+        }
+    }
+
+    /// Gets the default value of `pspec` as a pointer to a `GValue`.
+    /// 
+    /// The `GValue` will remain valid for the life of `pspec`.
+    @inlinable var defaultValue: GLibObject.ValueRef! {
+        /// Gets the default value of `pspec` as a pointer to a `GValue`.
+        /// 
+        /// The `GValue` will remain valid for the life of `pspec`.
+        get {
+            let result = g_param_spec_get_default_value(param_spec_ptr)
+        let rv = ValueRef(gconstpointer: gconstpointer(result))
+            return rv
+        }
+    }
+
+    /// Get the name of a `GParamSpec`.
+    /// 
+    /// The name is always an "interned" string (as per `g_intern_string()`).
+    /// This allows for pointer-value comparisons.
+    @inlinable var name: String! {
+        /// Get the name of a `GParamSpec`.
+        /// 
+        /// The name is always an "interned" string (as per `g_intern_string()`).
+        /// This allows for pointer-value comparisons.
+        get {
+            let result = g_param_spec_get_name(param_spec_ptr)
+        let rv = result.map({ String(cString: $0) })
+            return rv
+        }
+    }
+
+    /// Gets the GQuark for the name.
+    @inlinable var nameQuark: GQuark {
+        /// Gets the GQuark for the name.
+        get {
+            let result = g_param_spec_get_name_quark(param_spec_ptr)
+        let rv = result
+            return rv
+        }
+    }
+
+    /// Get the nickname of a `GParamSpec`.
+    @inlinable var nick: String! {
+        /// Get the nickname of a `GParamSpec`.
+        get {
+            let result = g_param_spec_get_nick(param_spec_ptr)
+        let rv = result.map({ String(cString: $0) })
+            return rv
+        }
+    }
+
+    /// If the paramspec redirects operations to another paramspec,
+    /// returns that paramspec. Redirect is used typically for
+    /// providing a new implementation of a property in a derived
+    /// type while preserving all the properties from the parent
+    /// type. Redirection is established by creating a property
+    /// of type `GParamSpecOverride`. See `g_object_class_override_property()`
+    /// for an example of the use of this capability.
+    @inlinable var redirectTarget: GLibObject.ParamSpecRef! {
+        /// If the paramspec redirects operations to another paramspec,
+        /// returns that paramspec. Redirect is used typically for
+        /// providing a new implementation of a property in a derived
+        /// type while preserving all the properties from the parent
+        /// type. Redirection is established by creating a property
+        /// of type `GParamSpecOverride`. See `g_object_class_override_property()`
+        /// for an example of the use of this capability.
+        get {
+            let result = g_param_spec_get_redirect_target(param_spec_ptr)
+        guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
+            return rv
+        }
+    }
+
+    /// private `GTypeInstance` portion
+    @inlinable var gTypeInstance: GTypeInstance {
+        /// private `GTypeInstance` portion
+        get {
+            let rv = param_spec_ptr.pointee.g_type_instance
+    return rv
+        }
+    }
+
+    /// name of this parameter: always an interned string
+    @inlinable var _name: UnsafePointer<gchar>! {
+        /// name of this parameter: always an interned string
+        get {
+            let rv = param_spec_ptr.pointee.name
+    return rv
+        }
+    }
+
+    /// `GParamFlags` flags for this parameter
+    @inlinable var flags: GLibObject.ParamFlags {
+        /// `GParamFlags` flags for this parameter
+        get {
+            let rv = ParamFlags(param_spec_ptr.pointee.flags)
+    return rv
+        }
+    }
+
+    /// the `GValue` type for this parameter
+    @inlinable var valueType: GType {
+        /// the `GValue` type for this parameter
+        get {
+            let rv = param_spec_ptr.pointee.value_type
+    return rv
+        }
+    }
+
+    /// `GType` type that uses (introduces) this parameter
+    @inlinable var ownerType: GType {
+        /// `GType` type that uses (introduces) this parameter
+        get {
+            let rv = param_spec_ptr.pointee.owner_type
+    return rv
+        }
+    }
+
+    // var Nick is unavailable because _nick is private
+
+    // var Blurb is unavailable because _blurb is private
+
+    // var qdata is unavailable because qdata is private
+
+    // var refCount is unavailable because ref_count is private
+
+    // var paramID is unavailable because param_id is private
+
+}
+
+
+
 // MARK: - ParamSpecBoolean Class
 
 /// A `GParamSpec` derived structure that contains the meta data for boolean properties.
@@ -257,7 +2194,7 @@ public extension ParamSpecBooleanProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_boolean_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -266,7 +2203,7 @@ public extension ParamSpecBooleanProtocol {
         /// default value for the property specified
         get {
             let rv = param_spec_boolean_ptr.pointee.default_value
-            return rv
+    return rv
         }
     }
 
@@ -529,7 +2466,7 @@ public extension ParamSpecBoxedProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_boxed_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -792,7 +2729,7 @@ public extension ParamSpecCharProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_char_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -801,7 +2738,7 @@ public extension ParamSpecCharProtocol {
         /// minimum value for the property specified
         get {
             let rv = param_spec_char_ptr.pointee.minimum
-            return rv
+    return rv
         }
     }
 
@@ -810,7 +2747,7 @@ public extension ParamSpecCharProtocol {
         /// maximum value for the property specified
         get {
             let rv = param_spec_char_ptr.pointee.maximum
-            return rv
+    return rv
         }
     }
 
@@ -819,7 +2756,7 @@ public extension ParamSpecCharProtocol {
         /// default value for the property specified
         get {
             let rv = param_spec_char_ptr.pointee.default_value
-            return rv
+    return rv
         }
     }
 
@@ -1082,7 +3019,7 @@ public extension ParamSpecDoubleProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_double_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -1091,7 +3028,7 @@ public extension ParamSpecDoubleProtocol {
         /// minimum value for the property specified
         get {
             let rv = param_spec_double_ptr.pointee.minimum
-            return rv
+    return rv
         }
     }
 
@@ -1100,7 +3037,7 @@ public extension ParamSpecDoubleProtocol {
         /// maximum value for the property specified
         get {
             let rv = param_spec_double_ptr.pointee.maximum
-            return rv
+    return rv
         }
     }
 
@@ -1109,7 +3046,7 @@ public extension ParamSpecDoubleProtocol {
         /// default value for the property specified
         get {
             let rv = param_spec_double_ptr.pointee.default_value
-            return rv
+    return rv
         }
     }
 
@@ -1120,7 +3057,7 @@ public extension ParamSpecDoubleProtocol {
         ///  by `g_param_values_cmp()`; the default value is 1e-90.
         get {
             let rv = param_spec_double_ptr.pointee.epsilon
-            return rv
+    return rv
         }
     }
 
@@ -1386,7 +3323,7 @@ public extension ParamSpecEnumProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_enum_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -1395,7 +3332,7 @@ public extension ParamSpecEnumProtocol {
         /// the `GEnumClass` for the enum
         get {
             let rv = EnumClassRef(gconstpointer: gconstpointer(param_spec_enum_ptr.pointee.enum_class))
-            return rv
+    return rv
         }
     }
 
@@ -1404,7 +3341,7 @@ public extension ParamSpecEnumProtocol {
         /// default value for the property specified
         get {
             let rv = param_spec_enum_ptr.pointee.default_value
-            return rv
+    return rv
         }
     }
 
@@ -1670,7 +3607,7 @@ public extension ParamSpecFlagsProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_flags_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -1679,7 +3616,7 @@ public extension ParamSpecFlagsProtocol {
         /// the `GFlagsClass` for the flags
         get {
             let rv = FlagsClassRef(gconstpointer: gconstpointer(param_spec_flags_ptr.pointee.flags_class))
-            return rv
+    return rv
         }
     }
 
@@ -1688,7 +3625,7 @@ public extension ParamSpecFlagsProtocol {
         /// default value for the property specified
         get {
             let rv = param_spec_flags_ptr.pointee.default_value
-            return rv
+    return rv
         }
     }
 
@@ -1951,7 +3888,7 @@ public extension ParamSpecFloatProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_float_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -1960,7 +3897,7 @@ public extension ParamSpecFloatProtocol {
         /// minimum value for the property specified
         get {
             let rv = param_spec_float_ptr.pointee.minimum
-            return rv
+    return rv
         }
     }
 
@@ -1969,7 +3906,7 @@ public extension ParamSpecFloatProtocol {
         /// maximum value for the property specified
         get {
             let rv = param_spec_float_ptr.pointee.maximum
-            return rv
+    return rv
         }
     }
 
@@ -1978,7 +3915,7 @@ public extension ParamSpecFloatProtocol {
         /// default value for the property specified
         get {
             let rv = param_spec_float_ptr.pointee.default_value
-            return rv
+    return rv
         }
     }
 
@@ -1989,7 +3926,7 @@ public extension ParamSpecFloatProtocol {
         ///  by `g_param_values_cmp()`; the default value is 1e-30.
         get {
             let rv = param_spec_float_ptr.pointee.epsilon
-            return rv
+    return rv
         }
     }
 
@@ -2252,7 +4189,7 @@ public extension ParamSpecGTypeProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_gtype_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -2261,7 +4198,7 @@ public extension ParamSpecGTypeProtocol {
         /// a `GType` whose subtypes can occur as values
         get {
             let rv = param_spec_gtype_ptr.pointee.is_a_type
-            return rv
+    return rv
         }
     }
 
@@ -2524,7 +4461,7 @@ public extension ParamSpecIntProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_int_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -2533,7 +4470,7 @@ public extension ParamSpecIntProtocol {
         /// minimum value for the property specified
         get {
             let rv = param_spec_int_ptr.pointee.minimum
-            return rv
+    return rv
         }
     }
 
@@ -2542,7 +4479,7 @@ public extension ParamSpecIntProtocol {
         /// maximum value for the property specified
         get {
             let rv = param_spec_int_ptr.pointee.maximum
-            return rv
+    return rv
         }
     }
 
@@ -2551,7 +4488,7 @@ public extension ParamSpecIntProtocol {
         /// default value for the property specified
         get {
             let rv = param_spec_int_ptr.pointee.default_value
-            return rv
+    return rv
         }
     }
 
@@ -2814,7 +4751,7 @@ public extension ParamSpecInt64Protocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_int64_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -2823,7 +4760,7 @@ public extension ParamSpecInt64Protocol {
         /// minimum value for the property specified
         get {
             let rv = param_spec_int64_ptr.pointee.minimum
-            return rv
+    return rv
         }
     }
 
@@ -2832,7 +4769,7 @@ public extension ParamSpecInt64Protocol {
         /// maximum value for the property specified
         get {
             let rv = param_spec_int64_ptr.pointee.maximum
-            return rv
+    return rv
         }
     }
 
@@ -2841,7 +4778,7 @@ public extension ParamSpecInt64Protocol {
         /// default value for the property specified
         get {
             let rv = param_spec_int64_ptr.pointee.default_value
-            return rv
+    return rv
         }
     }
 
@@ -3104,7 +5041,7 @@ public extension ParamSpecLongProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_long_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -3113,7 +5050,7 @@ public extension ParamSpecLongProtocol {
         /// minimum value for the property specified
         get {
             let rv = param_spec_long_ptr.pointee.minimum
-            return rv
+    return rv
         }
     }
 
@@ -3122,7 +5059,7 @@ public extension ParamSpecLongProtocol {
         /// maximum value for the property specified
         get {
             let rv = param_spec_long_ptr.pointee.maximum
-            return rv
+    return rv
         }
     }
 
@@ -3131,7 +5068,7 @@ public extension ParamSpecLongProtocol {
         /// default value for the property specified
         get {
             let rv = param_spec_long_ptr.pointee.default_value
-            return rv
+    return rv
         }
     }
 
@@ -3394,7 +5331,7 @@ public extension ParamSpecObjectProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_object_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -3948,7 +5885,7 @@ public extension ParamSpecParamProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_param_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -4211,7 +6148,7 @@ public extension ParamSpecPointerProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_pointer_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -4477,7 +6414,7 @@ public extension ParamSpecStringProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_string_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -4486,7 +6423,7 @@ public extension ParamSpecStringProtocol {
         /// default value for the property specified
         get {
             let rv = param_spec_string_ptr.pointee.default_value
-            return rv
+    return rv
         }
     }
 
@@ -4495,7 +6432,7 @@ public extension ParamSpecStringProtocol {
         /// a string containing the allowed values for the first byte
         get {
             let rv = param_spec_string_ptr.pointee.cset_first
-            return rv
+    return rv
         }
     }
 
@@ -4504,7 +6441,7 @@ public extension ParamSpecStringProtocol {
         /// a string containing the allowed values for the subsequent bytes
         get {
             let rv = param_spec_string_ptr.pointee.cset_nth
-            return rv
+    return rv
         }
     }
 
@@ -4513,7 +6450,7 @@ public extension ParamSpecStringProtocol {
         /// the replacement byte for bytes which don't match `cset_first` or `cset_nth`.
         get {
             let rv = param_spec_string_ptr.pointee.substitutor
-            return rv
+    return rv
         }
     }
 
@@ -4522,7 +6459,7 @@ public extension ParamSpecStringProtocol {
         /// replace empty string by `nil`
         get {
             let rv = param_spec_string_ptr.pointee.null_fold_if_empty
-            return rv
+    return rv
         }
     }
 
@@ -4531,7 +6468,7 @@ public extension ParamSpecStringProtocol {
         /// replace `nil` strings by an empty string
         get {
             let rv = param_spec_string_ptr.pointee.ensure_non_null
-            return rv
+    return rv
         }
     }
 
@@ -4794,7 +6731,7 @@ public extension ParamSpecUCharProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_uchar_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -4803,7 +6740,7 @@ public extension ParamSpecUCharProtocol {
         /// minimum value for the property specified
         get {
             let rv = param_spec_uchar_ptr.pointee.minimum
-            return rv
+    return rv
         }
     }
 
@@ -4812,7 +6749,7 @@ public extension ParamSpecUCharProtocol {
         /// maximum value for the property specified
         get {
             let rv = param_spec_uchar_ptr.pointee.maximum
-            return rv
+    return rv
         }
     }
 
@@ -4821,7 +6758,7 @@ public extension ParamSpecUCharProtocol {
         /// default value for the property specified
         get {
             let rv = param_spec_uchar_ptr.pointee.default_value
-            return rv
+    return rv
         }
     }
 
@@ -5084,7 +7021,7 @@ public extension ParamSpecUIntProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_uint_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -5093,7 +7030,7 @@ public extension ParamSpecUIntProtocol {
         /// minimum value for the property specified
         get {
             let rv = param_spec_uint_ptr.pointee.minimum
-            return rv
+    return rv
         }
     }
 
@@ -5102,7 +7039,7 @@ public extension ParamSpecUIntProtocol {
         /// maximum value for the property specified
         get {
             let rv = param_spec_uint_ptr.pointee.maximum
-            return rv
+    return rv
         }
     }
 
@@ -5111,7 +7048,7 @@ public extension ParamSpecUIntProtocol {
         /// default value for the property specified
         get {
             let rv = param_spec_uint_ptr.pointee.default_value
-            return rv
+    return rv
         }
     }
 
@@ -5374,7 +7311,7 @@ public extension ParamSpecUInt64Protocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_uint64_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -5383,7 +7320,7 @@ public extension ParamSpecUInt64Protocol {
         /// minimum value for the property specified
         get {
             let rv = param_spec_uint64_ptr.pointee.minimum
-            return rv
+    return rv
         }
     }
 
@@ -5392,7 +7329,7 @@ public extension ParamSpecUInt64Protocol {
         /// maximum value for the property specified
         get {
             let rv = param_spec_uint64_ptr.pointee.maximum
-            return rv
+    return rv
         }
     }
 
@@ -5401,7 +7338,7 @@ public extension ParamSpecUInt64Protocol {
         /// default value for the property specified
         get {
             let rv = param_spec_uint64_ptr.pointee.default_value
-            return rv
+    return rv
         }
     }
 
@@ -5664,7 +7601,7 @@ public extension ParamSpecULongProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_ulong_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -5673,7 +7610,7 @@ public extension ParamSpecULongProtocol {
         /// minimum value for the property specified
         get {
             let rv = param_spec_ulong_ptr.pointee.minimum
-            return rv
+    return rv
         }
     }
 
@@ -5682,7 +7619,7 @@ public extension ParamSpecULongProtocol {
         /// maximum value for the property specified
         get {
             let rv = param_spec_ulong_ptr.pointee.maximum
-            return rv
+    return rv
         }
     }
 
@@ -5691,7 +7628,7 @@ public extension ParamSpecULongProtocol {
         /// default value for the property specified
         get {
             let rv = param_spec_ulong_ptr.pointee.default_value
-            return rv
+    return rv
         }
     }
 
@@ -5954,7 +7891,7 @@ public extension ParamSpecUnicharProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_unichar_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -5963,7 +7900,7 @@ public extension ParamSpecUnicharProtocol {
         /// default value for the property specified
         get {
             let rv = param_spec_unichar_ptr.pointee.default_value
-            return rv
+    return rv
         }
     }
 
@@ -6226,7 +8163,7 @@ public extension ParamSpecValueArrayProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_value_array_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -6235,7 +8172,7 @@ public extension ParamSpecValueArrayProtocol {
         /// a `GParamSpec` describing the elements contained in arrays of this property, may be `nil`
         get {
             let rv = ParamSpecRef(gconstpointer: gconstpointer(param_spec_value_array_ptr.pointee.element_spec))
-            return rv
+    return rv
         }
     }
 
@@ -6244,7 +8181,7 @@ public extension ParamSpecValueArrayProtocol {
         /// if greater than 0, arrays of this property will always have this many elements
         get {
             let rv = param_spec_value_array_ptr.pointee.fixed_n_elements
-            return rv
+    return rv
         }
     }
 
@@ -6525,7 +8462,7 @@ public extension ParamSpecVariantProtocol {
         /// private `GParamSpec` portion
         get {
             let rv = param_spec_variant_ptr.pointee.parent_instance
-            return rv
+    return rv
         }
     }
 
@@ -6533,8 +8470,8 @@ public extension ParamSpecVariantProtocol {
     @inlinable var type: VariantTypeRef! {
         /// a `GVariantType`, or `nil`
         get {
-            let rv = VariantTypeRef(gconstpointer: gconstpointer(param_spec_variant_ptr.pointee.type))
-            return rv
+            let rv = GLib.VariantTypeRef(gconstpointer: gconstpointer(param_spec_variant_ptr.pointee.type))
+    return rv
         }
     }
 
@@ -6542,509 +8479,12 @@ public extension ParamSpecVariantProtocol {
     @inlinable var defaultValue: VariantRef! {
         /// a `GVariant`, or `nil`
         get {
-            let rv = VariantRef(gconstpointer: gconstpointer(param_spec_variant_ptr.pointee.default_value))
-            return rv
+            let rv = GLib.VariantRef(gconstpointer: gconstpointer(param_spec_variant_ptr.pointee.default_value))
+    return rv
         }
     }
 
     // var padding is unavailable because padding is private
-
-}
-
-
-
-// MARK: - TypeModule Class
-
-/// `GTypeModule` provides a simple implementation of the `GTypePlugin`
-/// interface.
-/// 
-/// The model of `GTypeModule` is a dynamically loaded module which
-/// implements some number of types and interface implementations.
-/// 
-/// When the module is loaded, it registers its types and interfaces
-/// using `g_type_module_register_type()` and `g_type_module_add_interface()`.
-/// As long as any instances of these types and interface implementations
-/// are in use, the module is kept loaded. When the types and interfaces
-/// are gone, the module may be unloaded. If the types and interfaces
-/// become used again, the module will be reloaded. Note that the last
-/// reference cannot be released from within the module code, since that
-/// would lead to the caller's code being unloaded before `g_object_unref()`
-/// returns to it.
-/// 
-/// Keeping track of whether the module should be loaded or not is done by
-/// using a use count - it starts at zero, and whenever it is greater than
-/// zero, the module is loaded. The use count is maintained internally by
-/// the type system, but also can be explicitly controlled by
-/// `g_type_module_use()` and `g_type_module_unuse()`. Typically, when loading
-/// a module for the first type, `g_type_module_use()` will be used to load
-/// it so that it can initialize its types. At some later point, when the
-/// module no longer needs to be loaded except for the type
-/// implementations it contains, `g_type_module_unuse()` is called.
-/// 
-/// `GTypeModule` does not actually provide any implementation of module
-/// loading and unloading. To create a particular module type you must
-/// derive from `GTypeModule` and implement the load and unload functions
-/// in `GTypeModuleClass`.
-///
-/// The `TypeModuleProtocol` protocol exposes the methods and properties of an underlying `GTypeModule` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TypeModule`.
-/// Alternatively, use `TypeModuleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-public protocol TypeModuleProtocol: ObjectProtocol, TypePluginProtocol {
-        /// Untyped pointer to the underlying `GTypeModule` instance.
-    var ptr: UnsafeMutableRawPointer! { get }
-
-    /// Typed pointer to the underlying `GTypeModule` instance.
-    var type_module_ptr: UnsafeMutablePointer<GTypeModule>! { get }
-
-    /// Required Initialiser for types conforming to `TypeModuleProtocol`
-    init(raw: UnsafeMutableRawPointer)
-}
-
-/// `GTypeModule` provides a simple implementation of the `GTypePlugin`
-/// interface.
-/// 
-/// The model of `GTypeModule` is a dynamically loaded module which
-/// implements some number of types and interface implementations.
-/// 
-/// When the module is loaded, it registers its types and interfaces
-/// using `g_type_module_register_type()` and `g_type_module_add_interface()`.
-/// As long as any instances of these types and interface implementations
-/// are in use, the module is kept loaded. When the types and interfaces
-/// are gone, the module may be unloaded. If the types and interfaces
-/// become used again, the module will be reloaded. Note that the last
-/// reference cannot be released from within the module code, since that
-/// would lead to the caller's code being unloaded before `g_object_unref()`
-/// returns to it.
-/// 
-/// Keeping track of whether the module should be loaded or not is done by
-/// using a use count - it starts at zero, and whenever it is greater than
-/// zero, the module is loaded. The use count is maintained internally by
-/// the type system, but also can be explicitly controlled by
-/// `g_type_module_use()` and `g_type_module_unuse()`. Typically, when loading
-/// a module for the first type, `g_type_module_use()` will be used to load
-/// it so that it can initialize its types. At some later point, when the
-/// module no longer needs to be loaded except for the type
-/// implementations it contains, `g_type_module_unuse()` is called.
-/// 
-/// `GTypeModule` does not actually provide any implementation of module
-/// loading and unloading. To create a particular module type you must
-/// derive from `GTypeModule` and implement the load and unload functions
-/// in `GTypeModuleClass`.
-///
-/// The `TypeModuleRef` type acts as a lightweight Swift reference to an underlying `GTypeModule` instance.
-/// It exposes methods that can operate on this data type through `TypeModuleProtocol` conformance.
-/// Use `TypeModuleRef` only as an `unowned` reference to an existing `GTypeModule` instance.
-///
-public struct TypeModuleRef: TypeModuleProtocol, GWeakCapturing {
-        /// Untyped pointer to the underlying `GTypeModule` instance.
-    /// For type-safe access, use the generated, typed pointer `type_module_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-}
-
-public extension TypeModuleRef {
-    /// Designated initialiser from the underlying `C` data type
-    @inlinable init(_ p: UnsafeMutablePointer<GTypeModule>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type
-    @inlinable init(_ p: UnsafePointer<GTypeModule>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
-    }
-
-    /// Conditional initialiser from an optional pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTypeModule>?) {
-        guard let p = maybePointer else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafePointer<GTypeModule>?) {
-        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional `gpointer`
-    @inlinable init!(gpointer g: gpointer?) {
-        guard let p = g else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
-    @inlinable init!(gconstpointer g: gconstpointer?) {
-        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
-        ptr = p
-    }
-
-    /// Reference intialiser for a related type that implements `TypeModuleProtocol`
-    @inlinable init<T: TypeModuleProtocol>(_ other: T) {
-        ptr = other.ptr
-    }
-
-    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
-    @inlinable static func unowned<T: TypeModuleProtocol>(_ other: T) -> TypeModuleRef { TypeModuleRef(other) }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    @inlinable init<T>(constPointer: UnsafePointer<T>) {
-        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    @inlinable init(mutating raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    @inlinable init(raw: UnsafeMutableRawPointer) {
-        ptr = raw
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    @inlinable init(opaquePointer: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(opaquePointer)
-    }
-
-    }
-
-/// `GTypeModule` provides a simple implementation of the `GTypePlugin`
-/// interface.
-/// 
-/// The model of `GTypeModule` is a dynamically loaded module which
-/// implements some number of types and interface implementations.
-/// 
-/// When the module is loaded, it registers its types and interfaces
-/// using `g_type_module_register_type()` and `g_type_module_add_interface()`.
-/// As long as any instances of these types and interface implementations
-/// are in use, the module is kept loaded. When the types and interfaces
-/// are gone, the module may be unloaded. If the types and interfaces
-/// become used again, the module will be reloaded. Note that the last
-/// reference cannot be released from within the module code, since that
-/// would lead to the caller's code being unloaded before `g_object_unref()`
-/// returns to it.
-/// 
-/// Keeping track of whether the module should be loaded or not is done by
-/// using a use count - it starts at zero, and whenever it is greater than
-/// zero, the module is loaded. The use count is maintained internally by
-/// the type system, but also can be explicitly controlled by
-/// `g_type_module_use()` and `g_type_module_unuse()`. Typically, when loading
-/// a module for the first type, `g_type_module_use()` will be used to load
-/// it so that it can initialize its types. At some later point, when the
-/// module no longer needs to be loaded except for the type
-/// implementations it contains, `g_type_module_unuse()` is called.
-/// 
-/// `GTypeModule` does not actually provide any implementation of module
-/// loading and unloading. To create a particular module type you must
-/// derive from `GTypeModule` and implement the load and unload functions
-/// in `GTypeModuleClass`.
-///
-/// The `TypeModule` type acts as a reference-counted owner of an underlying `GTypeModule` instance.
-/// It provides the methods that can operate on this data type through `TypeModuleProtocol` conformance.
-/// Use `TypeModule` as a strong reference or owner of a `GTypeModule` instance.
-///
-open class TypeModule: Object, TypeModuleProtocol {
-        /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TypeModule` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GTypeModule>) {
-        super.init(cPointer: op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TypeModule` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GTypeModule>) {
-        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TypeModule` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable override public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        super.init(raw: p)
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TypeModule` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable override public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        super.init(raw: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TypeModule` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GTypeModule>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        super.init(cPointer: p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TypeModule` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GTypeModule>?) {
-        guard let p = op else { return nil }
-        super.init(cPointer: p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// Will retain `GTypeModule`.
-    /// i.e., ownership is transferred to the `TypeModule` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GTypeModule>) {
-        super.init(retainingCPointer: op)
-    }
-
-    /// Reference intialiser for a related type that implements `TypeModuleProtocol`
-    /// Will retain `GTypeModule`.
-    /// - Parameter other: an instance of a related type that implements `TypeModuleProtocol`
-    @inlinable public init<T: TypeModuleProtocol>(typeModule other: T) {
-        super.init(retainingRaw: other.ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        super.init(cPointer: p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        super.init(retainingCPointer: cPointer)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeRawPointer) {
-        super.init(raw: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
-        super.init(retainingRaw: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
-        super.init(raw: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        super.init(retainingRaw: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable override public init(opaquePointer p: OpaquePointer) {
-        super.init(opaquePointer: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TypeModuleProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
-        super.init(retainingOpaquePointer: p)
-    }
-
-
-
-}
-
-// MARK: no TypeModule properties
-
-public enum TypeModuleSignalName: String, SignalNameProtocol {
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// 
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// 
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-
-}
-
-// MARK: TypeModule has no signals
-// MARK: TypeModule Class: TypeModuleProtocol extension (methods and fields)
-public extension TypeModuleProtocol {
-    /// Return the stored, untyped pointer as a typed pointer to the `GTypeModule` instance.
-    @inlinable var type_module_ptr: UnsafeMutablePointer<GTypeModule>! { return ptr?.assumingMemoryBound(to: GTypeModule.self) }
-
-    /// Registers an additional interface for a type, whose interface lives
-    /// in the given type plugin. If the interface was already registered
-    /// for the type in this plugin, nothing will be done.
-    /// 
-    /// As long as any instances of the type exist, the type plugin will
-    /// not be unloaded.
-    /// 
-    /// Since 2.56 if `module` is `nil` this will call `g_type_add_interface_static()`
-    /// instead. This can be used when making a static build of the module.
-    @inlinable func addInterface<InterfaceInfoT: InterfaceInfoProtocol>(instanceType: GType, interfaceType: GType, interfaceInfo: InterfaceInfoT) {
-        g_type_module_add_interface(type_module_ptr, instanceType, interfaceType, interfaceInfo._ptr)
-    
-    }
-
-    /// Looks up or registers an enumeration that is implemented with a particular
-    /// type plugin. If a type with name `type_name` was previously registered,
-    /// the `GType` identifier for the type is returned, otherwise the type
-    /// is newly registered, and the resulting `GType` identifier returned.
-    /// 
-    /// As long as any instances of the type exist, the type plugin will
-    /// not be unloaded.
-    /// 
-    /// Since 2.56 if `module` is `nil` this will call `g_type_register_static()`
-    /// instead. This can be used when making a static build of the module.
-    @inlinable func registerEnum<EnumValueT: EnumValueProtocol>(name: UnsafePointer<gchar>!, constStaticValues: EnumValueT) -> GType {
-        let rv = g_type_module_register_enum(type_module_ptr, name, constStaticValues._ptr)
-        return rv
-    }
-
-    /// Looks up or registers a flags type that is implemented with a particular
-    /// type plugin. If a type with name `type_name` was previously registered,
-    /// the `GType` identifier for the type is returned, otherwise the type
-    /// is newly registered, and the resulting `GType` identifier returned.
-    /// 
-    /// As long as any instances of the type exist, the type plugin will
-    /// not be unloaded.
-    /// 
-    /// Since 2.56 if `module` is `nil` this will call `g_type_register_static()`
-    /// instead. This can be used when making a static build of the module.
-    @inlinable func registerFlags<FlagsValueT: FlagsValueProtocol>(name: UnsafePointer<gchar>!, constStaticValues: FlagsValueT) -> GType {
-        let rv = g_type_module_register_flags(type_module_ptr, name, constStaticValues._ptr)
-        return rv
-    }
-
-    /// Looks up or registers a type that is implemented with a particular
-    /// type plugin. If a type with name `type_name` was previously registered,
-    /// the `GType` identifier for the type is returned, otherwise the type
-    /// is newly registered, and the resulting `GType` identifier returned.
-    /// 
-    /// When reregistering a type (typically because a module is unloaded
-    /// then reloaded, and reinitialized), `module` and `parent_type` must
-    /// be the same as they were previously.
-    /// 
-    /// As long as any instances of the type exist, the type plugin will
-    /// not be unloaded.
-    /// 
-    /// Since 2.56 if `module` is `nil` this will call `g_type_register_static()`
-    /// instead. This can be used when making a static build of the module.
-    @inlinable func registerType<TypeInfoT: TypeInfoProtocol>(parentType: GType, typeName: UnsafePointer<gchar>!, typeInfo: TypeInfoT, flags: TypeFlags) -> GType {
-        let rv = g_type_module_register_type(type_module_ptr, parentType, typeName, typeInfo._ptr, flags.value)
-        return rv
-    }
-
-    /// Sets the name for a `GTypeModule`
-    @inlinable func set(name: UnsafePointer<gchar>!) {
-        g_type_module_set_name(type_module_ptr, name)
-    
-    }
-
-    /// Decreases the use count of a `GTypeModule` by one. If the
-    /// result is zero, the module will be unloaded. (However, the
-    /// `GTypeModule` will not be freed, and types associated with the
-    /// `GTypeModule` are not unregistered. Once a `GTypeModule` is
-    /// initialized, it must exist forever.)
-    @inlinable func unuse() {
-        g_type_module_unuse(type_module_ptr)
-    
-    }
-
-    /// Increases the use count of a `GTypeModule` by one. If the
-    /// use count was zero before, the plugin will be loaded.
-    /// If loading the plugin fails, the use count is reset to
-    /// its prior value.
-    @inlinable func use() -> Bool {
-        let rv = ((g_type_module_use(type_module_ptr)) != 0)
-        return rv
-    }
-
-    @inlinable var parentInstance: GObject {
-        get {
-            let rv = type_module_ptr.pointee.parent_instance
-            return rv
-        }
-    }
-
-    @inlinable var useCount: guint {
-        get {
-            let rv = type_module_ptr.pointee.use_count
-            return rv
-        }
-    }
-
-    @inlinable var typeInfos: SListRef! {
-        get {
-            let rv = SListRef(gconstpointer: gconstpointer(type_module_ptr.pointee.type_infos))
-            return rv
-        }
-    }
-
-    @inlinable var interfaceInfos: SListRef! {
-        get {
-            let rv = SListRef(gconstpointer: gconstpointer(type_module_ptr.pointee.interface_infos))
-            return rv
-        }
-    }
-
-    /// the name of the module
-    @inlinable var name: UnsafeMutablePointer<gchar>! {
-        /// the name of the module
-        get {
-            let rv = type_module_ptr.pointee.name
-            return rv
-        }
-    }
 
 }
 

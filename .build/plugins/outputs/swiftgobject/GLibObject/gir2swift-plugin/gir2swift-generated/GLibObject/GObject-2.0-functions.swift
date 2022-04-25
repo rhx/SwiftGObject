@@ -3,8 +3,9 @@ import GLib
 import GObjectCHelpers
 
 /// Provide a copy of a boxed structure `src_boxed` which is of type `boxed_type`.
-@inlinable public func boxedCopy(boxedType: GType, srcBoxed: gconstpointer) -> gpointer! {
-    guard let rv = gpointer?(g_boxed_copy(boxedType, srcBoxed)) else { return nil }
+@inlinable public func boxedCopy(boxedType: GType, srcBoxed: gconstpointer?) -> gpointer! {
+    let result = g_boxed_copy(boxedType, srcBoxed)
+    guard let rv = gpointer(result) else { return nil }
     return rv
 }
 
@@ -13,8 +14,9 @@ import GObjectCHelpers
 
 /// Free the boxed structure `boxed` which is of type `boxed_type`.
 @inlinable public func boxedFree(boxedType: GType, boxed: gpointer!) {
+    
     g_boxed_free(boxedType, boxed)
-
+    
 }
 
 
@@ -26,11 +28,12 @@ import GObjectCHelpers
 /// Boxed type handling functions have to be provided to copy and free
 /// opaque boxed structures of this type.
 /// 
-/// For the general case, it is recommended to use `G_DEFINE_BOXED_TYPE`
+/// For the general case, it is recommended to use `G_DEFINE_BOXED_TYPE()`
 /// instead of calling `g_boxed_type_register_static()` directly. The macro
 /// will create the appropriate ``*_get_type()`` function for the boxed type.
 @inlinable public func boxedTypeRegisterStatic(name: UnsafePointer<gchar>!, boxedCopy: GBoxedCopyFunc?, boxedFree: GBoxedFreeFunc?) -> GType {
-    let rv = g_boxed_type_register_static(name, boxedCopy, boxedFree)
+    let result = g_boxed_type_register_static(name, boxedCopy, boxedFree)
+    let rv = result
     return rv
 }
 
@@ -41,9 +44,10 @@ import GObjectCHelpers
 /// take two boxed pointers as arguments and return a boolean.  If you
 /// have such a signal, you will probably also need to use an
 /// accumulator, such as `g_signal_accumulator_true_handled()`.
-@inlinable public func cclosureMarshalBOOLEANBOXEDBOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalBOOLEANBOXEDBOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_BOOLEAN__BOXED_BOXED(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -52,9 +56,10 @@ import GObjectCHelpers
 /// A marshaller for a `GCClosure` with a callback of type
 /// `gboolean (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter
 /// denotes a flags type.
-@inlinable public func cclosureMarshalBOOLEANFLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalBOOLEANFLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_BOOLEAN__FLAGS(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -62,9 +67,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `gchar* (*callback) (gpointer instance, GObject *arg1, gpointer arg2, gpointer user_data)`.
-@inlinable public func cclosureMarshalSTRINGOBJECTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalSTRINGOBJECTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_STRING__OBJECT_POINTER(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -72,9 +78,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gboolean arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDBOOLEAN<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDBOOLEAN<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__BOOLEAN(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -82,9 +89,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, GBoxed *arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDBOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDBOXED<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__BOXED(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -92,9 +100,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gchar arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDCHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDCHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__CHAR(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -102,9 +111,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gdouble arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDDOUBLE<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDDOUBLE<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__DOUBLE(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -112,9 +122,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter denotes an enumeration type..
-@inlinable public func cclosureMarshalVOIDENUM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDENUM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__ENUM(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -122,9 +133,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)` where the `gint` parameter denotes a flags type.
-@inlinable public func cclosureMarshalVOIDFLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDFLAGS<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__FLAGS(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -132,9 +144,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gfloat arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDFLOAT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDFLOAT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__FLOAT(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -142,9 +155,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gint arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDINT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDINT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__INT(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -152,9 +166,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, glong arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDLONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDLONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__LONG(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -162,9 +177,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, GObject *arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDOBJECT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDOBJECT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__OBJECT(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -172,9 +188,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, GParamSpec *arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDPARAM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDPARAM<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__PARAM(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -182,9 +199,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gpointer arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__POINTER(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -192,9 +210,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, const gchar *arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDSTRING<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDSTRING<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__STRING(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -202,9 +221,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, guchar arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDUCHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDUCHAR<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__UCHAR(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -212,9 +232,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, guint arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDUINT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDUINT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__UINT(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -222,9 +243,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, guint arg1, gpointer arg2, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDUINTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDUINTPOINTER<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__UINT_POINTER(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -232,9 +254,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gulong arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDULONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDULONG<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__ULONG(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -242,9 +265,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, GVariant *arg1, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDVARIANT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDVARIANT<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__VARIANT(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -252,9 +276,10 @@ import GObjectCHelpers
 
 /// A marshaller for a `GCClosure` with a callback of type
 /// `void (*callback) (gpointer instance, gpointer user_data)`.
-@inlinable public func cclosureMarshalVOIDVOID<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalVOIDVOID<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnValue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_VOID__VOID(closure.closure_ptr, returnValue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -265,9 +290,10 @@ import GObjectCHelpers
 /// 
 /// Normally this function is not passed explicitly to `g_signal_new()`,
 /// but used automatically by GLib when specifying a `nil` marshaller.
-@inlinable public func cclosureMarshalGeneric<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnGvalue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer! = nil, marshalData: gpointer! = nil) {
+@inlinable public func cclosureMarshalGeneric<ClosureT: ClosureProtocol, ValueT: ValueProtocol>(closure: ClosureT, returnGvalue: ValueT, nParamValues: Int, paramValues: ValueT, invocationHint: gpointer? = nil, marshalData: gpointer? = nil) {
+    
     g_cclosure_marshal_generic(closure.closure_ptr, returnGvalue.value_ptr, guint(nParamValues), paramValues.value_ptr, invocationHint, marshalData)
-
+    
 }
 
 
@@ -277,8 +303,9 @@ import GObjectCHelpers
 /// the last parameter.
 /// 
 /// `destroy_data` will be called as a finalize notifier on the `GClosure`.
-@inlinable public func cclosureNew(callbackFunc: GCallback! = nil, userData: gpointer! = nil, destroyData: GClosureNotify?) -> ClosureRef! {
-    guard let rv = ClosureRef(gconstpointer: gconstpointer(g_cclosure_new(callbackFunc, userData, destroyData))) else { return nil }
+@inlinable public func cclosureNew(callbackFunc: GCallback! = nil, userData: gpointer? = nil, destroyData: GClosureNotify?) -> GLibObject.ClosureRef! {
+    let result = g_cclosure_new(callbackFunc, userData, destroyData)
+    guard let rv = ClosureRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -290,8 +317,9 @@ import GObjectCHelpers
 /// closure. This function is useful when you have a callback closely
 /// associated with a `GObject`, and want the callback to no longer run
 /// after the object is is freed.
-@inlinable public func cclosureNewObject<ObjectT: ObjectProtocol>(callbackFunc: @escaping GCallback, object: ObjectT) -> ClosureRef! {
-    guard let rv = ClosureRef(gconstpointer: gconstpointer(g_cclosure_new_object(callbackFunc, object.object_ptr))) else { return nil }
+@inlinable public func cclosureNewObject<ObjectT: ObjectProtocol>(callbackFunc: @escaping GCallback, object: ObjectT) -> GLibObject.ClosureRef! {
+    let result = g_cclosure_new_object(callbackFunc, object.object_ptr)
+    guard let rv = ClosureRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -303,8 +331,9 @@ import GObjectCHelpers
 /// closure. This function is useful when you have a callback closely
 /// associated with a `GObject`, and want the callback to no longer run
 /// after the object is is freed.
-@inlinable public func cclosureNewObjectSwap<ObjectT: ObjectProtocol>(callbackFunc: @escaping GCallback, object: ObjectT) -> ClosureRef! {
-    guard let rv = ClosureRef(gconstpointer: gconstpointer(g_cclosure_new_object_swap(callbackFunc, object.object_ptr))) else { return nil }
+@inlinable public func cclosureNewObjectSwap<ObjectT: ObjectProtocol>(callbackFunc: @escaping GCallback, object: ObjectT) -> GLibObject.ClosureRef! {
+    let result = g_cclosure_new_object_swap(callbackFunc, object.object_ptr)
+    guard let rv = ClosureRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -315,8 +344,9 @@ import GObjectCHelpers
 /// the first parameter.
 /// 
 /// `destroy_data` will be called as a finalize notifier on the `GClosure`.
-@inlinable public func cclosureNewSwap(callbackFunc: GCallback! = nil, userData: gpointer! = nil, destroyData: GClosureNotify?) -> ClosureRef! {
-    guard let rv = ClosureRef(gconstpointer: gconstpointer(g_cclosure_new_swap(callbackFunc, userData, destroyData))) else { return nil }
+@inlinable public func cclosureNewSwap(callbackFunc: GCallback! = nil, userData: gpointer? = nil, destroyData: GClosureNotify?) -> GLibObject.ClosureRef! {
+    let result = g_cclosure_new_swap(callbackFunc, userData, destroyData)
+    guard let rv = ClosureRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -334,8 +364,9 @@ import GObjectCHelpers
 /// A macro is also included that allows this function to be used without
 /// pointer casts.
 @inlinable public func clearObject(objectPtr: UnsafeMutablePointer<UnsafeMutablePointer<GObject>?>!) {
+    
     g_clear_object(objectPtr)
-
+    
 }
 
 
@@ -350,8 +381,9 @@ import GObjectCHelpers
 /// There is also a macro version of this function so that the code
 /// will be inlined.
 @inlinable public func clearSignalHandler<ObjectT: ObjectProtocol>(handlerIDPtr: UnsafeMutablePointer<gulong>!, instance: ObjectT) {
+    
     g_clear_signal_handler(handlerIDPtr, instance.object_ptr)
-
+    
 }
 
 
@@ -380,16 +412,18 @@ import GObjectCHelpers
 /// ```
 /// 
 @inlinable public func enumCompleteTypeInfo<EnumValueT: EnumValueProtocol, TypeInfoT: TypeInfoProtocol>(gEnumType: GType, info: TypeInfoT, constValues: EnumValueT) {
+    
     g_enum_complete_type_info(gEnumType, info._ptr, constValues._ptr)
-
+    
 }
 
 
 
 
 /// Returns the `GEnumValue` for a value.
-@inlinable public func enumGetValue<EnumClassT: EnumClassProtocol>(enumClass: EnumClassT, value: Int) -> EnumValueRef! {
-    guard let rv = EnumValueRef(gconstpointer: gconstpointer(g_enum_get_value(enumClass._ptr, gint(value)))) else { return nil }
+@inlinable public func enumGetValue<EnumClassT: EnumClassProtocol>(enumClass: EnumClassT, value: Int) -> GLibObject.EnumValueRef! {
+    let result = g_enum_get_value(enumClass._ptr, gint(value))
+    guard let rv = EnumValueRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -397,8 +431,9 @@ import GObjectCHelpers
 
 
 /// Looks up a `GEnumValue` by name.
-@inlinable public func enumGetValueByName<EnumClassT: EnumClassProtocol>(enumClass: EnumClassT, name: UnsafePointer<gchar>!) -> EnumValueRef! {
-    guard let rv = EnumValueRef(gconstpointer: gconstpointer(g_enum_get_value_by_name(enumClass._ptr, name))) else { return nil }
+@inlinable public func enumGetValueByName<EnumClassT: EnumClassProtocol>(enumClass: EnumClassT, name: UnsafePointer<gchar>!) -> GLibObject.EnumValueRef! {
+    let result = g_enum_get_value_by_name(enumClass._ptr, name)
+    guard let rv = EnumValueRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -406,8 +441,9 @@ import GObjectCHelpers
 
 
 /// Looks up a `GEnumValue` by nickname.
-@inlinable public func enumGetValueByNick<EnumClassT: EnumClassProtocol>(enumClass: EnumClassT, nick: UnsafePointer<gchar>!) -> EnumValueRef! {
-    guard let rv = EnumValueRef(gconstpointer: gconstpointer(g_enum_get_value_by_nick(enumClass._ptr, nick))) else { return nil }
+@inlinable public func enumGetValueByNick<EnumClassT: EnumClassProtocol>(enumClass: EnumClassT, nick: UnsafePointer<gchar>!) -> GLibObject.EnumValueRef! {
+    let result = g_enum_get_value_by_nick(enumClass._ptr, nick)
+    guard let rv = EnumValueRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -420,7 +456,8 @@ import GObjectCHelpers
 /// generate a `my_enum_get_type()` function from a usual C enumeration
 /// definition  than to write one yourself using `g_enum_register_static()`.
 @inlinable public func enumRegisterStatic<EnumValueT: EnumValueProtocol>(name: UnsafePointer<gchar>!, constStaticValues: EnumValueT) -> GType {
-    let rv = g_enum_register_static(name, constStaticValues._ptr)
+    let result = g_enum_register_static(name, constStaticValues._ptr)
+    let rv = result
     return rv
 }
 
@@ -432,7 +469,8 @@ import GObjectCHelpers
 /// This is intended to be used for debugging purposes. The format of the output
 /// may change in the future.
 @inlinable public func enumToString(gEnumType: GType, value: Int) -> String! {
-    guard let rv = g_enum_to_string(gEnumType, gint(value)).map({ String(cString: $0) }) else { return nil }
+    let result = g_enum_to_string(gEnumType, gint(value))
+    guard let rv = result.map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -443,16 +481,18 @@ import GObjectCHelpers
 /// function of a `GTypePlugin` implementation, see the example for
 /// `g_enum_complete_type_info()` above.
 @inlinable public func flagsCompleteTypeInfo<FlagsValueT: FlagsValueProtocol, TypeInfoT: TypeInfoProtocol>(gFlagsType: GType, info: TypeInfoT, constValues: FlagsValueT) {
+    
     g_flags_complete_type_info(gFlagsType, info._ptr, constValues._ptr)
-
+    
 }
 
 
 
 
 /// Returns the first `GFlagsValue` which is set in `value`.
-@inlinable public func flagsGetFirstValue<FlagsClassT: FlagsClassProtocol>(flagsClass: FlagsClassT, value: Int) -> FlagsValueRef! {
-    guard let rv = FlagsValueRef(gconstpointer: gconstpointer(g_flags_get_first_value(flagsClass._ptr, guint(value)))) else { return nil }
+@inlinable public func flagsGetFirstValue<FlagsClassT: FlagsClassProtocol>(flagsClass: FlagsClassT, value: Int) -> GLibObject.FlagsValueRef! {
+    let result = g_flags_get_first_value(flagsClass._ptr, guint(value))
+    guard let rv = FlagsValueRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -460,8 +500,9 @@ import GObjectCHelpers
 
 
 /// Looks up a `GFlagsValue` by name.
-@inlinable public func flagsGetValueByName<FlagsClassT: FlagsClassProtocol>(flagsClass: FlagsClassT, name: UnsafePointer<gchar>!) -> FlagsValueRef! {
-    guard let rv = FlagsValueRef(gconstpointer: gconstpointer(g_flags_get_value_by_name(flagsClass._ptr, name))) else { return nil }
+@inlinable public func flagsGetValueByName<FlagsClassT: FlagsClassProtocol>(flagsClass: FlagsClassT, name: UnsafePointer<gchar>!) -> GLibObject.FlagsValueRef! {
+    let result = g_flags_get_value_by_name(flagsClass._ptr, name)
+    guard let rv = FlagsValueRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -469,8 +510,9 @@ import GObjectCHelpers
 
 
 /// Looks up a `GFlagsValue` by nickname.
-@inlinable public func flagsGetValueByNick<FlagsClassT: FlagsClassProtocol>(flagsClass: FlagsClassT, nick: UnsafePointer<gchar>!) -> FlagsValueRef! {
-    guard let rv = FlagsValueRef(gconstpointer: gconstpointer(g_flags_get_value_by_nick(flagsClass._ptr, nick))) else { return nil }
+@inlinable public func flagsGetValueByNick<FlagsClassT: FlagsClassProtocol>(flagsClass: FlagsClassT, nick: UnsafePointer<gchar>!) -> GLibObject.FlagsValueRef! {
+    let result = g_flags_get_value_by_nick(flagsClass._ptr, nick)
+    guard let rv = FlagsValueRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -483,7 +525,8 @@ import GObjectCHelpers
 /// generate a `my_flags_get_type()` function from a usual C enumeration
 /// definition than to write one yourself using `g_flags_register_static()`.
 @inlinable public func flagsRegisterStatic<FlagsValueT: FlagsValueProtocol>(name: UnsafePointer<gchar>!, constStaticValues: FlagsValueT) -> GType {
-    let rv = g_flags_register_static(name, constStaticValues._ptr)
+    let result = g_flags_register_static(name, constStaticValues._ptr)
+    let rv = result
     return rv
 }
 
@@ -496,7 +539,8 @@ import GObjectCHelpers
 /// This is intended to be used for debugging purposes. The format of the output
 /// may change in the future.
 @inlinable public func flagsToString(flagsType: GType, value: Int) -> String! {
-    guard let rv = g_flags_to_string(flagsType, guint(value)).map({ String(cString: $0) }) else { return nil }
+    let result = g_flags_to_string(flagsType, guint(value))
+    guard let rv = result.map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -504,7 +548,8 @@ import GObjectCHelpers
 
 
 @inlinable public func gtypeGetType() -> GType {
-    let rv = g_gtype_get_type()
+    let result = g_gtype_get_type()
+    let rv = result
     return rv
 }
 
@@ -518,8 +563,9 @@ import GObjectCHelpers
 /// API.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecBoolean(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, defaultValue: Bool, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_boolean(name, nick, blurb, gboolean((defaultValue) ? 1 : 0), flags.value))) else { return nil }
+@inlinable public func paramSpecBoolean(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, defaultValue: Bool, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_boolean(name, nick, blurb, gboolean((defaultValue) ? 1 : 0), flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -530,8 +576,9 @@ import GObjectCHelpers
 /// derived property.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecBoxed(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, boxedType: GType, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_boxed(name, nick, blurb, boxedType, flags.value))) else { return nil }
+@inlinable public func paramSpecBoxed(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, boxedType: GType, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_boxed(name, nick, blurb, boxedType, flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -539,8 +586,9 @@ import GObjectCHelpers
 
 
 /// Creates a new `GParamSpecChar` instance specifying a `G_TYPE_CHAR` property.
-@inlinable public func paramSpecChar(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: gint8, maximum: gint8, defaultValue: gint8, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_char(name, nick, blurb, minimum, maximum, defaultValue, flags.value))) else { return nil }
+@inlinable public func paramSpecChar(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: gint8, maximum: gint8, defaultValue: gint8, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_char(name, nick, blurb, minimum, maximum, defaultValue, flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -551,8 +599,9 @@ import GObjectCHelpers
 /// property.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecDouble(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: Double, maximum: Double, defaultValue: Double, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_double(name, nick, blurb, gdouble(minimum), gdouble(maximum), gdouble(defaultValue), flags.value))) else { return nil }
+@inlinable public func paramSpecDouble(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: Double, maximum: Double, defaultValue: Double, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_double(name, nick, blurb, gdouble(minimum), gdouble(maximum), gdouble(defaultValue), flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -563,8 +612,9 @@ import GObjectCHelpers
 /// property.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecEnum(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, enumType: GType, defaultValue: Int, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_enum(name, nick, blurb, enumType, gint(defaultValue), flags.value))) else { return nil }
+@inlinable public func paramSpecEnum(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, enumType: GType, defaultValue: Int, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_enum(name, nick, blurb, enumType, gint(defaultValue), flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -575,8 +625,9 @@ import GObjectCHelpers
 /// property.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecFlags(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, flagsType: GType, defaultValue: Int, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_flags(name, nick, blurb, flagsType, guint(defaultValue), flags.value))) else { return nil }
+@inlinable public func paramSpecFlags(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, flagsType: GType, defaultValue: Int, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_flags(name, nick, blurb, flagsType, guint(defaultValue), flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -586,8 +637,9 @@ import GObjectCHelpers
 /// Creates a new `GParamSpecFloat` instance specifying a `G_TYPE_FLOAT` property.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecFloat(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: Double, maximum: Double, defaultValue: Double, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_float(name, nick, blurb, gfloat(minimum), gfloat(maximum), gfloat(defaultValue), flags.value))) else { return nil }
+@inlinable public func paramSpecFloat(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: Double, maximum: Double, defaultValue: Double, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_float(name, nick, blurb, gfloat(minimum), gfloat(maximum), gfloat(defaultValue), flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -598,8 +650,9 @@ import GObjectCHelpers
 /// `G_TYPE_GTYPE` property.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecGtype(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, isAType: GType, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_gtype(name, nick, blurb, isAType, flags.value))) else { return nil }
+@inlinable public func paramSpecGtype(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, isAType: GType, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_gtype(name, nick, blurb, isAType, flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -609,8 +662,9 @@ import GObjectCHelpers
 /// Creates a new `GParamSpecInt` instance specifying a `G_TYPE_INT` property.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecInt(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: Int, maximum: Int, defaultValue: Int, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_int(name, nick, blurb, gint(minimum), gint(maximum), gint(defaultValue), flags.value))) else { return nil }
+@inlinable public func paramSpecInt(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: Int, maximum: Int, defaultValue: Int, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_int(name, nick, blurb, gint(minimum), gint(maximum), gint(defaultValue), flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -620,8 +674,9 @@ import GObjectCHelpers
 /// Creates a new `GParamSpecInt64` instance specifying a `G_TYPE_INT64` property.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecInt64(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: gint64, maximum: gint64, defaultValue: gint64, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_int64(name, nick, blurb, minimum, maximum, defaultValue, flags.value))) else { return nil }
+@inlinable public func paramSpecInt64(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: gint64, maximum: gint64, defaultValue: gint64, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_int64(name, nick, blurb, minimum, maximum, defaultValue, flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -631,8 +686,9 @@ import GObjectCHelpers
 /// Creates a new `GParamSpecLong` instance specifying a `G_TYPE_LONG` property.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecLong(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: Int, maximum: Int, defaultValue: Int, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_long(name, nick, blurb, glong(minimum), glong(maximum), glong(defaultValue), flags.value))) else { return nil }
+@inlinable public func paramSpecLong(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: Int, maximum: Int, defaultValue: Int, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_long(name, nick, blurb, glong(minimum), glong(maximum), glong(defaultValue), flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -643,8 +699,9 @@ import GObjectCHelpers
 /// derived property.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecObject(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, objectType: GType, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_object(name, nick, blurb, objectType, flags.value))) else { return nil }
+@inlinable public func paramSpecObject(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, objectType: GType, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_object(name, nick, blurb, objectType, flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -654,8 +711,9 @@ import GObjectCHelpers
 /// Creates a new property of type `GParamSpecOverride`. This is used
 /// to direct operations to another paramspec, and will not be directly
 /// useful unless you are implementing a new base type similar to GObject.
-@inlinable public func paramSpecOverride<ParamSpecT: ParamSpecProtocol>(name: UnsafePointer<gchar>!, overridden: ParamSpecT) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_override(name, overridden.param_spec_ptr))) else { return nil }
+@inlinable public func paramSpecOverride<ParamSpecT: ParamSpecProtocol>(name: UnsafePointer<gchar>!, overridden: ParamSpecT) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_override(name, overridden.param_spec_ptr)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -666,8 +724,9 @@ import GObjectCHelpers
 /// property.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecParam(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, paramType: GType, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_param(name, nick, blurb, paramType, flags.value))) else { return nil }
+@inlinable public func paramSpecParam(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, paramType: GType, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_param(name, nick, blurb, paramType, flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -679,8 +738,9 @@ import GObjectCHelpers
 /// `g_param_spec_boxed()` to expose memory management information.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecPointer(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_pointer(name, nick, blurb, flags.value))) else { return nil }
+@inlinable public func paramSpecPointer(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_pointer(name, nick, blurb, flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -690,8 +750,9 @@ import GObjectCHelpers
 /// Creates a new `GParamSpecString` instance.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecString(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, defaultValue: UnsafePointer<gchar>? = nil, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_string(name, nick, blurb, defaultValue, flags.value))) else { return nil }
+@inlinable public func paramSpecString(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, defaultValue: UnsafePointer<gchar>? = nil, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_string(name, nick, blurb, defaultValue, flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -699,8 +760,9 @@ import GObjectCHelpers
 
 
 /// Creates a new `GParamSpecUChar` instance specifying a `G_TYPE_UCHAR` property.
-@inlinable public func paramSpecUchar(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: guint8, maximum: guint8, defaultValue: guint8, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_uchar(name, nick, blurb, minimum, maximum, defaultValue, flags.value))) else { return nil }
+@inlinable public func paramSpecUchar(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: guint8, maximum: guint8, defaultValue: guint8, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_uchar(name, nick, blurb, minimum, maximum, defaultValue, flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -710,8 +772,9 @@ import GObjectCHelpers
 /// Creates a new `GParamSpecUInt` instance specifying a `G_TYPE_UINT` property.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecUint(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: Int, maximum: Int, defaultValue: Int, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_uint(name, nick, blurb, guint(minimum), guint(maximum), guint(defaultValue), flags.value))) else { return nil }
+@inlinable public func paramSpecUint(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: Int, maximum: Int, defaultValue: Int, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_uint(name, nick, blurb, guint(minimum), guint(maximum), guint(defaultValue), flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -722,8 +785,9 @@ import GObjectCHelpers
 /// property.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecUint64(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: guint64, maximum: guint64, defaultValue: guint64, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_uint64(name, nick, blurb, minimum, maximum, defaultValue, flags.value))) else { return nil }
+@inlinable public func paramSpecUint64(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: guint64, maximum: guint64, defaultValue: guint64, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_uint64(name, nick, blurb, minimum, maximum, defaultValue, flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -734,8 +798,9 @@ import GObjectCHelpers
 /// property.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecUlong(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: Int, maximum: Int, defaultValue: Int, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_ulong(name, nick, blurb, gulong(minimum), gulong(maximum), gulong(defaultValue), flags.value))) else { return nil }
+@inlinable public func paramSpecUlong(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: Int, maximum: Int, defaultValue: Int, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_ulong(name, nick, blurb, gulong(minimum), gulong(maximum), gulong(defaultValue), flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -747,8 +812,9 @@ import GObjectCHelpers
 /// `g_value_set_uint()` and `g_value_get_uint()`.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecUnichar(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, defaultValue: gunichar, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_unichar(name, nick, blurb, defaultValue, flags.value))) else { return nil }
+@inlinable public func paramSpecUnichar(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, defaultValue: gunichar, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_unichar(name, nick, blurb, defaultValue, flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -761,8 +827,9 @@ import GObjectCHelpers
 /// can be accessed with `g_value_set_boxed()` and `g_value_get_boxed()`.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecValueArray<ParamSpecT: ParamSpecProtocol>(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, elementSpec: ParamSpecT, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_value_array(name, nick, blurb, elementSpec.param_spec_ptr, flags.value))) else { return nil }
+@inlinable public func paramSpecValueArray<ParamSpecT: ParamSpecProtocol>(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, elementSpec: ParamSpecT, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_value_array(name, nick, blurb, elementSpec.param_spec_ptr, flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -775,8 +842,9 @@ import GObjectCHelpers
 /// If `default_value` is floating, it is consumed.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecVariant<VariantTypeT: GLib.VariantTypeProtocol>(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, type: VariantTypeT, defaultValue: GLib.VariantRef? = nil, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_variant(name, nick, blurb, type.variant_type_ptr, defaultValue?.variant_ptr, flags.value))) else { return nil }
+@inlinable public func paramSpecVariant<GLibVariantTypeT: GLib.VariantTypeProtocol>(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, type: GLibVariantTypeT, defaultValue: GLib.VariantRef? = nil, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_variant(name, nick, blurb, type.variant_type_ptr, defaultValue?.variant_ptr, flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 /// Creates a new `GParamSpecVariant` instance specifying a `GVariant`
@@ -785,8 +853,9 @@ import GObjectCHelpers
 /// If `default_value` is floating, it is consumed.
 /// 
 /// See `g_param_spec_internal()` for details on property names.
-@inlinable public func paramSpecVariant<VariantT: GLib.VariantProtocol, VariantTypeT: GLib.VariantTypeProtocol>(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, type: VariantTypeT, defaultValue: VariantT?, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(g_param_spec_variant(name, nick, blurb, type.variant_type_ptr, defaultValue?.variant_ptr, flags.value))) else { return nil }
+@inlinable public func paramSpecVariant<GLibVariantT: GLib.VariantProtocol, GLibVariantTypeT: GLib.VariantTypeProtocol>(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, type: GLibVariantTypeT, defaultValue: GLibVariantT?, flags: ParamFlags) -> GLibObject.ParamSpecRef! {
+    let result = g_param_spec_variant(name, nick, blurb, type.variant_type_ptr, defaultValue?.variant_ptr, flags.value)
+    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -800,7 +869,8 @@ import GObjectCHelpers
 /// structure pointed to by `info` to manage the `GParamSpec` type and its
 /// instances.
 @inlinable public func paramTypeRegisterStatic<ParamSpecTypeInfoT: ParamSpecTypeInfoProtocol>(name: UnsafePointer<gchar>!, pspecInfo: ParamSpecTypeInfoT) -> GType {
-    let rv = g_param_type_register_static(name, pspecInfo._ptr)
+    let result = g_param_type_register_static(name, pspecInfo._ptr)
+    let rv = result
     return rv
 }
 
@@ -815,7 +885,8 @@ import GObjectCHelpers
 /// See also `g_value_type_transformable()`, `g_value_transform()` and
 /// `g_param_value_validate()`.
 @inlinable public func paramValueConvert<ParamSpecT: ParamSpecProtocol, ValueT: ValueProtocol>(pspec: ParamSpecT, srcValue: ValueT, destValue: ValueT, strictValidation: Bool) -> Bool {
-    let rv = ((g_param_value_convert(pspec.param_spec_ptr, srcValue.value_ptr, destValue.value_ptr, gboolean((strictValidation) ? 1 : 0))) != 0)
+    let result = g_param_value_convert(pspec.param_spec_ptr, srcValue.value_ptr, destValue.value_ptr, gboolean((strictValidation) ? 1 : 0))
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -824,7 +895,8 @@ import GObjectCHelpers
 
 /// Checks whether `value` contains the default value as specified in `pspec`.
 @inlinable public func paramValueDefaults<ParamSpecT: ParamSpecProtocol, ValueT: ValueProtocol>(pspec: ParamSpecT, value: ValueT) -> Bool {
-    let rv = ((g_param_value_defaults(pspec.param_spec_ptr, value.value_ptr)) != 0)
+    let result = g_param_value_defaults(pspec.param_spec_ptr, value.value_ptr)
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -833,8 +905,9 @@ import GObjectCHelpers
 
 /// Sets `value` to its default value as specified in `pspec`.
 @inlinable public func paramValueSetDefault<ParamSpecT: ParamSpecProtocol, ValueT: ValueProtocol>(pspec: ParamSpecT, value: ValueT) {
+    
     g_param_value_set_default(pspec.param_spec_ptr, value.value_ptr)
-
+    
 }
 
 
@@ -847,7 +920,8 @@ import GObjectCHelpers
 /// it is modified accordingly, so the resulting value will fit into the
 /// range -42 .. +42.
 @inlinable public func paramValueValidate<ParamSpecT: ParamSpecProtocol, ValueT: ValueProtocol>(pspec: ParamSpecT, value: ValueT) -> Bool {
-    let rv = ((g_param_value_validate(pspec.param_spec_ptr, value.value_ptr)) != 0)
+    let result = g_param_value_validate(pspec.param_spec_ptr, value.value_ptr)
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -858,7 +932,8 @@ import GObjectCHelpers
 /// if `value1` is found to be less than, equal to or greater than `value2`,
 /// respectively.
 @inlinable public func paramValuesCmp<ParamSpecT: ParamSpecProtocol, ValueT: ValueProtocol>(pspec: ParamSpecT, value1: ValueT, value2: ValueT) -> Int {
-    let rv = Int(g_param_values_cmp(pspec.param_spec_ptr, value1.value_ptr, value2.value_ptr))
+    let result = g_param_values_cmp(pspec.param_spec_ptr, value1.value_ptr, value2.value_ptr)
+    let rv = Int(result)
     return rv
 }
 
@@ -868,7 +943,8 @@ import GObjectCHelpers
 /// Creates a new `G_TYPE_POINTER` derived type id for a new
 /// pointer type with name `name`.
 @inlinable public func pointerTypeRegisterStatic(name: UnsafePointer<gchar>!) -> GType {
-    let rv = g_pointer_type_register_static(name)
+    let result = g_pointer_type_register_static(name)
+    let rv = result
     return rv
 }
 
@@ -885,8 +961,9 @@ import GObjectCHelpers
 /// This accumulator will use the return value from the first signal
 /// handler that is run as the return value for the signal and not run
 /// any further handlers (ie: the first handler "wins").
-@inlinable public func signalAccumulatorFirstWins<SignalInvocationHintT: SignalInvocationHintProtocol, ValueT: ValueProtocol>(ihint: SignalInvocationHintT, returnAccu: ValueT, handlerReturn: ValueT, dummy: gpointer! = nil) -> Bool {
-    let rv = ((g_signal_accumulator_first_wins(ihint._ptr, returnAccu.value_ptr, handlerReturn.value_ptr, dummy)) != 0)
+@inlinable public func signalAccumulatorFirstWins<SignalInvocationHintT: SignalInvocationHintProtocol, ValueT: ValueProtocol>(ihint: SignalInvocationHintT, returnAccu: ValueT, handlerReturn: ValueT, dummy: gpointer? = nil) -> Bool {
+    let result = g_signal_accumulator_first_wins(ihint._ptr, returnAccu.value_ptr, handlerReturn.value_ptr, dummy)
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -900,8 +977,9 @@ import GObjectCHelpers
 /// the emission to continue. The idea here is that a `true` return
 /// indicates that the callback handled the signal, and no further
 /// handling is needed.
-@inlinable public func signalAccumulatorTrueHandled<SignalInvocationHintT: SignalInvocationHintProtocol, ValueT: ValueProtocol>(ihint: SignalInvocationHintT, returnAccu: ValueT, handlerReturn: ValueT, dummy: gpointer! = nil) -> Bool {
-    let rv = ((g_signal_accumulator_true_handled(ihint._ptr, returnAccu.value_ptr, handlerReturn.value_ptr, dummy)) != 0)
+@inlinable public func signalAccumulatorTrueHandled<SignalInvocationHintT: SignalInvocationHintProtocol, ValueT: ValueProtocol>(ihint: SignalInvocationHintT, returnAccu: ValueT, handlerReturn: ValueT, dummy: gpointer? = nil) -> Bool {
+    let result = g_signal_accumulator_true_handled(ihint._ptr, returnAccu.value_ptr, handlerReturn.value_ptr, dummy)
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -911,8 +989,9 @@ import GObjectCHelpers
 /// Adds an emission hook for a signal, which will get called for any emission
 /// of that signal, independent of the instance. This is possible only
 /// for signals which don't have `G_SIGNAL_NO_HOOKS` flag set.
-@inlinable public func signalAddEmissionHook(signalID: Int, detail: GQuark, hookFunc: @escaping GSignalEmissionHook, hookData: gpointer! = nil, dataDestroy: GDestroyNotify? = nil) -> Int {
-    let rv = Int(g_signal_add_emission_hook(guint(signalID), detail, hookFunc, hookData, dataDestroy))
+@inlinable public func signalAddEmissionHook(signalID: Int, detail: GQuark, hookFunc: @escaping GSignalEmissionHook, hookData: gpointer? = nil, dataDestroy: GDestroyNotify? = nil) -> Int {
+    let result = g_signal_add_emission_hook(guint(signalID), detail, hookFunc, hookData, dataDestroy)
+    let rv = Int(result)
     return rv
 }
 
@@ -924,8 +1003,9 @@ import GObjectCHelpers
 /// `g_signal_override_class_closure()` and
 /// `g_signal_override_class_handler()`.
 @inlinable public func signalChainFromOverridden<ValueT: ValueProtocol>(instanceAndParams: UnsafePointer<GValue>!, returnValue: ValueT) {
+    
     g_signal_chain_from_overridden(instanceAndParams, returnValue.value_ptr)
-
+    
 }
 
 
@@ -940,7 +1020,8 @@ import GObjectCHelpers
 
 /// Connects a closure to a signal for a particular object.
 @inlinable public func signalConnectClosure<ClosureT: ClosureProtocol, ObjectT: ObjectProtocol>(instance: ObjectT, detailedSignal: UnsafePointer<gchar>!, closure: ClosureT, after: Bool) -> Int {
-    let rv = Int(g_signal_connect_closure(instance.object_ptr, detailedSignal, closure.closure_ptr, gboolean((after) ? 1 : 0)))
+    let result = g_signal_connect_closure(instance.object_ptr, detailedSignal, closure.closure_ptr, gboolean((after) ? 1 : 0))
+    let rv = Int(result)
     return rv
 }
 
@@ -949,7 +1030,8 @@ import GObjectCHelpers
 
 /// Connects a closure to a signal for a particular object.
 @inlinable public func signalConnectClosureByID<ClosureT: ClosureProtocol, ObjectT: ObjectProtocol>(instance: ObjectT, signalID: Int, detail: GQuark, closure: ClosureT, after: Bool) -> Int {
-    let rv = Int(g_signal_connect_closure_by_id(instance.object_ptr, guint(signalID), detail, closure.closure_ptr, gboolean((after) ? 1 : 0)))
+    let result = g_signal_connect_closure_by_id(instance.object_ptr, guint(signalID), detail, closure.closure_ptr, gboolean((after) ? 1 : 0))
+    let rv = Int(result)
     return rv
 }
 
@@ -961,8 +1043,9 @@ import GObjectCHelpers
 /// which will be called when the signal handler is disconnected and no longer
 /// used. Specify `connect_flags` if you need ``..._after()`` or
 /// ``..._swapped()`` variants of this function.
-@inlinable public func signalConnectData<ObjectT: ObjectProtocol>(instance: ObjectT, detailedSignal: UnsafePointer<gchar>!, cHandler: @escaping GCallback, data: gpointer! = nil, destroyData: GClosureNotify? = nil, connectFlags: ConnectFlags) -> Int {
-    let rv = Int(g_signal_connect_data(instance.object_ptr, detailedSignal, cHandler, data, destroyData, connectFlags.value))
+@inlinable public func signalConnectData<ObjectT: ObjectProtocol>(instance: ObjectT, detailedSignal: UnsafePointer<gchar>!, cHandler: @escaping GCallback, data: gpointer? = nil, destroyData: GClosureNotify? = nil, connectFlags: ConnectFlags) -> Int {
+    let result = g_signal_connect_data(instance.object_ptr, detailedSignal, cHandler, data, destroyData, connectFlags.value)
+    let rv = Int(result)
     return rv
 }
 
@@ -978,7 +1061,8 @@ import GObjectCHelpers
 /// emitting a signal while `gobject` is being destroyed in another thread
 /// is not safe).
 @inlinable public func signalConnectObject<TypeInstanceT: TypeInstanceProtocol>(instance: TypeInstanceT, detailedSignal: UnsafePointer<gchar>!, cHandler: @escaping GCallback, gobject: ObjectRef? = nil, connectFlags: ConnectFlags) -> Int {
-    let rv = Int(g_signal_connect_object(instance._ptr, detailedSignal, cHandler, gobject?.object_ptr, connectFlags.value))
+    let result = g_signal_connect_object(instance._ptr, detailedSignal, cHandler, gobject?.object_ptr, connectFlags.value)
+    let rv = Int(result)
     return rv
 }
 /// This is similar to `g_signal_connect_data()`, but uses a closure which
@@ -990,7 +1074,8 @@ import GObjectCHelpers
 /// emitting a signal while `gobject` is being destroyed in another thread
 /// is not safe).
 @inlinable public func signalConnectObject<ObjectT: ObjectProtocol, TypeInstanceT: TypeInstanceProtocol>(instance: TypeInstanceT, detailedSignal: UnsafePointer<gchar>!, cHandler: @escaping GCallback, gobject: ObjectT?, connectFlags: ConnectFlags) -> Int {
-    let rv = Int(g_signal_connect_object(instance._ptr, detailedSignal, cHandler, gobject?.object_ptr, connectFlags.value))
+    let result = g_signal_connect_object(instance._ptr, detailedSignal, cHandler, gobject?.object_ptr, connectFlags.value)
+    let rv = Int(result)
     return rv
 }
 
@@ -1011,33 +1096,38 @@ import GObjectCHelpers
 
 
 
-/// Emits a signal.
+/// Emits a signal. Signal emission is done synchronously.
+/// The method will only return control after all handlers are called or signal emission was stopped.
 /// 
 /// Note that `g_signal_emit_valist()` resets the return value to the default
 /// if no handlers are connected, in contrast to `g_signal_emitv()`.
 @inlinable public func signalEmitValist<TypeInstanceT: TypeInstanceProtocol>(instance: TypeInstanceT, signalID: Int, detail: GQuark, varArgs: CVaListPointer) {
+    
     g_signal_emit_valist(instance._ptr, guint(signalID), detail, varArgs)
-
+    
 }
 
 
 
 
-/// Emits a signal.
+/// Emits a signal. Signal emission is done synchronously.
+/// The method will only return control after all handlers are called or signal emission was stopped.
 /// 
 /// Note that `g_signal_emitv()` doesn't change `return_value` if no handlers are
 /// connected, in contrast to `g_signal_emit()` and `g_signal_emit_valist()`.
 @inlinable public func signalEmitv<ValueT: ValueProtocol>(instanceAndParams: UnsafePointer<GValue>!, signalID: Int, detail: GQuark, returnValue: ValueT) {
+    
     g_signal_emitv(instanceAndParams, guint(signalID), detail, returnValue.value_ptr)
-
+    
 }
 
 
 
 
 /// Returns the invocation hint of the innermost signal emission of instance.
-@inlinable public func signalGetInvocationHint<ObjectT: ObjectProtocol>(instance: ObjectT) -> SignalInvocationHintRef! {
-    guard let rv = SignalInvocationHintRef(gconstpointer: gconstpointer(g_signal_get_invocation_hint(instance.object_ptr))) else { return nil }
+@inlinable public func signalGetInvocationHint<ObjectT: ObjectProtocol>(instance: ObjectT) -> GLibObject.SignalInvocationHintRef! {
+    let result = g_signal_get_invocation_hint(instance.object_ptr)
+    guard let rv = SignalInvocationHintRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -1053,8 +1143,9 @@ import GObjectCHelpers
 /// The `handler_id` has to be a valid signal handler id, connected to a
 /// signal of `instance`.
 @inlinable public func signalHandlerBlock<ObjectT: ObjectProtocol>(instance: ObjectT, handlerID: Int) {
+    
     g_signal_handler_block(instance.object_ptr, gulong(handlerID))
-
+    
 }
 
 
@@ -1067,8 +1158,9 @@ import GObjectCHelpers
 /// The `handler_id` has to be a valid signal handler id, connected to a
 /// signal of `instance`.
 @inlinable public func signalHandlerDisconnect<ObjectT: ObjectProtocol>(instance: ObjectT, handlerID: Int) {
+    
     g_signal_handler_disconnect(instance.object_ptr, gulong(handlerID))
-
+    
 }
 
 
@@ -1079,8 +1171,9 @@ import GObjectCHelpers
 /// flags, and the criteria values are passed as arguments.
 /// The match `mask` has to be non-0 for successful matches.
 /// If no handler was found, 0 is returned.
-@inlinable public func signalHandlerFind<ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureRef? = nil, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
-    let rv = Int(g_signal_handler_find(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
+@inlinable public func signalHandlerFind<ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureRef? = nil, `func`: gpointer? = nil, data: gpointer? = nil) -> Int {
+    let result = g_signal_handler_find(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data)
+    let rv = Int(result)
     return rv
 }
 /// Finds the first signal handler that matches certain selection criteria.
@@ -1088,8 +1181,9 @@ import GObjectCHelpers
 /// flags, and the criteria values are passed as arguments.
 /// The match `mask` has to be non-0 for successful matches.
 /// If no handler was found, 0 is returned.
-@inlinable public func signalHandlerFind<ClosureT: ClosureProtocol, ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureT?, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
-    let rv = Int(g_signal_handler_find(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
+@inlinable public func signalHandlerFind<ClosureT: ClosureProtocol, ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureT?, `func`: gpointer? = nil, data: gpointer? = nil) -> Int {
+    let result = g_signal_handler_find(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data)
+    let rv = Int(result)
     return rv
 }
 
@@ -1098,7 +1192,8 @@ import GObjectCHelpers
 
 /// Returns whether `handler_id` is the ID of a handler connected to `instance`.
 @inlinable public func signalHandlerIsConnected<ObjectT: ObjectProtocol>(instance: ObjectT, handlerID: Int) -> Bool {
-    let rv = ((g_signal_handler_is_connected(instance.object_ptr, gulong(handlerID))) != 0)
+    let result = g_signal_handler_is_connected(instance.object_ptr, gulong(handlerID))
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -1119,8 +1214,9 @@ import GObjectCHelpers
 /// The `handler_id` has to be a valid id of a signal handler that is
 /// connected to a signal of `instance` and is currently blocked.
 @inlinable public func signalHandlerUnblock<ObjectT: ObjectProtocol>(instance: ObjectT, handlerID: Int) {
+    
     g_signal_handler_unblock(instance.object_ptr, gulong(handlerID))
-
+    
 }
 
 
@@ -1133,8 +1229,9 @@ import GObjectCHelpers
 /// or `G_SIGNAL_MATCH_DATA` match flags is required for successful matches.
 /// If no handlers were found, 0 is returned, the number of blocked handlers
 /// otherwise.
-@inlinable public func signalHandlersBlockMatched<ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureRef? = nil, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
-    let rv = Int(g_signal_handlers_block_matched(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
+@inlinable public func signalHandlersBlockMatched<ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureRef? = nil, `func`: gpointer? = nil, data: gpointer? = nil) -> Int {
+    let result = g_signal_handlers_block_matched(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data)
+    let rv = Int(result)
     return rv
 }
 /// Blocks all handlers on an instance that match a certain selection criteria.
@@ -1144,8 +1241,9 @@ import GObjectCHelpers
 /// or `G_SIGNAL_MATCH_DATA` match flags is required for successful matches.
 /// If no handlers were found, 0 is returned, the number of blocked handlers
 /// otherwise.
-@inlinable public func signalHandlersBlockMatched<ClosureT: ClosureProtocol, ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureT?, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
-    let rv = Int(g_signal_handlers_block_matched(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
+@inlinable public func signalHandlersBlockMatched<ClosureT: ClosureProtocol, ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureT?, `func`: gpointer? = nil, data: gpointer? = nil) -> Int {
+    let result = g_signal_handlers_block_matched(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data)
+    let rv = Int(result)
     return rv
 }
 
@@ -1156,8 +1254,9 @@ import GObjectCHelpers
 /// an implementation detail of the `GObject` dispose implementation,
 /// and should not be used outside of the type system.
 @inlinable public func signalHandlersDestroy<ObjectT: ObjectProtocol>(instance: ObjectT) {
+    
     g_signal_handlers_destroy(instance.object_ptr)
-
+    
 }
 
 
@@ -1171,8 +1270,9 @@ import GObjectCHelpers
 /// `G_SIGNAL_MATCH_DATA` match flags is required for successful
 /// matches.  If no handlers were found, 0 is returned, the number of
 /// disconnected handlers otherwise.
-@inlinable public func signalHandlersDisconnectMatched<ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureRef? = nil, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
-    let rv = Int(g_signal_handlers_disconnect_matched(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
+@inlinable public func signalHandlersDisconnectMatched<ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureRef? = nil, `func`: gpointer? = nil, data: gpointer? = nil) -> Int {
+    let result = g_signal_handlers_disconnect_matched(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data)
+    let rv = Int(result)
     return rv
 }
 /// Disconnects all handlers on an instance that match a certain
@@ -1183,8 +1283,9 @@ import GObjectCHelpers
 /// `G_SIGNAL_MATCH_DATA` match flags is required for successful
 /// matches.  If no handlers were found, 0 is returned, the number of
 /// disconnected handlers otherwise.
-@inlinable public func signalHandlersDisconnectMatched<ClosureT: ClosureProtocol, ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureT?, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
-    let rv = Int(g_signal_handlers_disconnect_matched(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
+@inlinable public func signalHandlersDisconnectMatched<ClosureT: ClosureProtocol, ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureT?, `func`: gpointer? = nil, data: gpointer? = nil) -> Int {
+    let result = g_signal_handlers_disconnect_matched(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data)
+    let rv = Int(result)
     return rv
 }
 
@@ -1199,8 +1300,9 @@ import GObjectCHelpers
 /// If no handlers were found, 0 is returned, the number of unblocked handlers
 /// otherwise. The match criteria should not apply to any handlers that are
 /// not currently blocked.
-@inlinable public func signalHandlersUnblockMatched<ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureRef? = nil, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
-    let rv = Int(g_signal_handlers_unblock_matched(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
+@inlinable public func signalHandlersUnblockMatched<ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureRef? = nil, `func`: gpointer? = nil, data: gpointer? = nil) -> Int {
+    let result = g_signal_handlers_unblock_matched(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data)
+    let rv = Int(result)
     return rv
 }
 /// Unblocks all handlers on an instance that match a certain selection
@@ -1211,8 +1313,9 @@ import GObjectCHelpers
 /// If no handlers were found, 0 is returned, the number of unblocked handlers
 /// otherwise. The match criteria should not apply to any handlers that are
 /// not currently blocked.
-@inlinable public func signalHandlersUnblockMatched<ClosureT: ClosureProtocol, ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureT?, `func`: gpointer! = nil, data: gpointer! = nil) -> Int {
-    let rv = Int(g_signal_handlers_unblock_matched(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data))
+@inlinable public func signalHandlersUnblockMatched<ClosureT: ClosureProtocol, ObjectT: ObjectProtocol>(instance: ObjectT, mask: SignalMatchType, signalID: Int, detail: GQuark, closure: ClosureT?, `func`: gpointer? = nil, data: gpointer? = nil) -> Int {
+    let result = g_signal_handlers_unblock_matched(instance.object_ptr, mask.value, guint(signalID), detail, closure?.closure_ptr, `func`, data)
+    let rv = Int(result)
     return rv
 }
 
@@ -1236,7 +1339,8 @@ import GObjectCHelpers
 /// emit the signal if no one is attached anyway, thus saving the cost
 /// of building the arguments.
 @inlinable public func signalHasHandlerPending<ObjectT: ObjectProtocol>(instance: ObjectT, signalID: Int, detail: GQuark, mayBeBlocked: Bool) -> Bool {
-    let rv = ((g_signal_has_handler_pending(instance.object_ptr, guint(signalID), detail, gboolean((mayBeBlocked) ? 1 : 0))) != 0)
+    let result = g_signal_has_handler_pending(instance.object_ptr, guint(signalID), detail, gboolean((mayBeBlocked) ? 1 : 0))
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -1250,7 +1354,8 @@ import GObjectCHelpers
 /// the rules for valid names. The rules for signal names are the same as those
 /// for property names.
 @inlinable public func signalIsValid(name: UnsafePointer<gchar>!) -> Bool {
-    let rv = ((g_signal_is_valid_name(name)) != 0)
+    let result = g_signal_is_valid_name(name)
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -1261,7 +1366,8 @@ import GObjectCHelpers
 /// created. Further information about the signals can be acquired through
 /// `g_signal_query()`.
 @inlinable public func signalListIDs(itype: GType, nIDs: UnsafeMutablePointer<guint>!) -> UnsafeMutablePointer<guint>! {
-    guard let rv = g_signal_list_ids(itype, nIDs) else { return nil }
+    let result = g_signal_list_ids(itype, nIDs)
+    guard let rv = result else { return nil }
     return rv
 }
 
@@ -1280,7 +1386,8 @@ import GObjectCHelpers
 /// 
 /// See `g_signal_new()` for details on allowed signal names.
 @inlinable public func signalLookup(name: UnsafePointer<gchar>!, itype: GType) -> Int {
-    let rv = Int(g_signal_lookup(name, itype))
+    let result = g_signal_lookup(name, itype)
+    let rv = Int(result)
     return rv
 }
 
@@ -1291,7 +1398,8 @@ import GObjectCHelpers
 /// 
 /// Two different signals may have the same name, if they have differing types.
 @inlinable public func signalName(signalID: Int) -> String! {
-    guard let rv = g_signal_name(guint(signalID)).map({ String(cString: $0) }) else { return nil }
+    let result = g_signal_name(guint(signalID))
+    guard let rv = result.map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -1318,8 +1426,9 @@ import GObjectCHelpers
 /// 
 /// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
 /// the marshaller for this signal.
-@inlinable public func signalNewValist(signalName: UnsafePointer<gchar>!, itype: GType, signalFlags: SignalFlags, classClosure: ClosureRef? = nil, accumulator: GSignalAccumulator! = nil, accuData: gpointer! = nil, cMarshaller: GSignalCMarshaller! = nil, returnType: GType, nParams: Int, args: CVaListPointer) -> Int {
-    let rv = Int(g_signal_new_valist(signalName, itype, signalFlags.value, classClosure?.closure_ptr, accumulator, accuData, cMarshaller, returnType, guint(nParams), args))
+@inlinable public func signalNewValist(signalName: UnsafePointer<gchar>!, itype: GType, signalFlags: SignalFlags, classClosure: ClosureRef? = nil, accumulator: GSignalAccumulator! = nil, accuData: gpointer? = nil, cMarshaller: GSignalCMarshaller! = nil, returnType: GType, nParams: Int, args: CVaListPointer) -> Int {
+    let result = g_signal_new_valist(signalName, itype, signalFlags.value, classClosure?.closure_ptr, accumulator, accuData, cMarshaller, returnType, guint(nParams), args)
+    let rv = Int(result)
     return rv
 }
 /// Creates a new signal. (This is usually done in the class initializer.)
@@ -1328,8 +1437,9 @@ import GObjectCHelpers
 /// 
 /// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
 /// the marshaller for this signal.
-@inlinable public func signalNewValist<ClosureT: ClosureProtocol>(signalName: UnsafePointer<gchar>!, itype: GType, signalFlags: SignalFlags, classClosure: ClosureT?, accumulator: GSignalAccumulator! = nil, accuData: gpointer! = nil, cMarshaller: GSignalCMarshaller! = nil, returnType: GType, nParams: Int, args: CVaListPointer) -> Int {
-    let rv = Int(g_signal_new_valist(signalName, itype, signalFlags.value, classClosure?.closure_ptr, accumulator, accuData, cMarshaller, returnType, guint(nParams), args))
+@inlinable public func signalNewValist<ClosureT: ClosureProtocol>(signalName: UnsafePointer<gchar>!, itype: GType, signalFlags: SignalFlags, classClosure: ClosureT?, accumulator: GSignalAccumulator! = nil, accuData: gpointer? = nil, cMarshaller: GSignalCMarshaller! = nil, returnType: GType, nParams: Int, args: CVaListPointer) -> Int {
+    let result = g_signal_new_valist(signalName, itype, signalFlags.value, classClosure?.closure_ptr, accumulator, accuData, cMarshaller, returnType, guint(nParams), args)
+    let rv = Int(result)
     return rv
 }
 
@@ -1342,8 +1452,9 @@ import GObjectCHelpers
 /// 
 /// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
 /// the marshaller for this signal.
-@inlinable public func signalNewv(signalName: UnsafePointer<gchar>!, itype: GType, signalFlags: SignalFlags, classClosure: ClosureRef? = nil, accumulator: GSignalAccumulator! = nil, accuData: gpointer! = nil, cMarshaller: GSignalCMarshaller! = nil, returnType: GType, nParams: Int, paramTypes: UnsafeMutablePointer<GType>! = nil) -> Int {
-    let rv = Int(g_signal_newv(signalName, itype, signalFlags.value, classClosure?.closure_ptr, accumulator, accuData, cMarshaller, returnType, guint(nParams), paramTypes))
+@inlinable public func signalNewv(signalName: UnsafePointer<gchar>!, itype: GType, signalFlags: SignalFlags, classClosure: ClosureRef? = nil, accumulator: GSignalAccumulator! = nil, accuData: gpointer? = nil, cMarshaller: GSignalCMarshaller! = nil, returnType: GType, nParams: Int, paramTypes: UnsafeMutablePointer<GType>! = nil) -> Int {
+    let result = g_signal_newv(signalName, itype, signalFlags.value, classClosure?.closure_ptr, accumulator, accuData, cMarshaller, returnType, guint(nParams), paramTypes)
+    let rv = Int(result)
     return rv
 }
 /// Creates a new signal. (This is usually done in the class initializer.)
@@ -1352,8 +1463,9 @@ import GObjectCHelpers
 /// 
 /// If c_marshaller is `nil`, `g_cclosure_marshal_generic()` will be used as
 /// the marshaller for this signal.
-@inlinable public func signalNewv<ClosureT: ClosureProtocol>(signalName: UnsafePointer<gchar>!, itype: GType, signalFlags: SignalFlags, classClosure: ClosureT?, accumulator: GSignalAccumulator! = nil, accuData: gpointer! = nil, cMarshaller: GSignalCMarshaller! = nil, returnType: GType, nParams: Int, paramTypes: UnsafeMutablePointer<GType>! = nil) -> Int {
-    let rv = Int(g_signal_newv(signalName, itype, signalFlags.value, classClosure?.closure_ptr, accumulator, accuData, cMarshaller, returnType, guint(nParams), paramTypes))
+@inlinable public func signalNewv<ClosureT: ClosureProtocol>(signalName: UnsafePointer<gchar>!, itype: GType, signalFlags: SignalFlags, classClosure: ClosureT?, accumulator: GSignalAccumulator! = nil, accuData: gpointer? = nil, cMarshaller: GSignalCMarshaller! = nil, returnType: GType, nParams: Int, paramTypes: UnsafeMutablePointer<GType>! = nil) -> Int {
+    let result = g_signal_newv(signalName, itype, signalFlags.value, classClosure?.closure_ptr, accumulator, accuData, cMarshaller, returnType, guint(nParams), paramTypes)
+    let rv = Int(result)
     return rv
 }
 
@@ -1368,8 +1480,9 @@ import GObjectCHelpers
 /// `g_signal_chain_from_overridden_handler()` for how to chain up to the
 /// parent class closure from inside the overridden one.
 @inlinable public func signalOverrideClassClosure<ClosureT: ClosureProtocol>(signalID: Int, instanceType: GType, classClosure: ClosureT) {
+    
     g_signal_override_class_closure(guint(signalID), instanceType, classClosure.closure_ptr)
-
+    
 }
 
 
@@ -1384,8 +1497,9 @@ import GObjectCHelpers
 /// `g_signal_chain_from_overridden_handler()` for how to chain up to the
 /// parent class closure from inside the overridden one.
 @inlinable public func signalOverrideClassHandler(signalName: UnsafePointer<gchar>!, instanceType: GType, classHandler: @escaping GCallback) {
+    
     g_signal_override_class_handler(signalName, instanceType, classHandler)
-
+    
 }
 
 
@@ -1394,7 +1508,8 @@ import GObjectCHelpers
 /// Internal function to parse a signal name into its `signal_id`
 /// and `detail` quark.
 @inlinable public func signalParseName(detailedSignal: UnsafePointer<gchar>!, itype: GType, signalIDP: UnsafeMutablePointer<guint>!, detailP: UnsafeMutablePointer<GQuark>!, forceDetailQuark: Bool) -> Bool {
-    let rv = ((g_signal_parse_name(detailedSignal, itype, signalIDP, detailP, gboolean((forceDetailQuark) ? 1 : 0))) != 0)
+    let result = g_signal_parse_name(detailedSignal, itype, signalIDP, detailP, gboolean((forceDetailQuark) ? 1 : 0))
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -1408,8 +1523,9 @@ import GObjectCHelpers
 /// is 0. All members filled into the `GSignalQuery` structure should
 /// be considered constant and have to be left untouched.
 @inlinable public func signalQuery<SignalQueryT: SignalQueryProtocol>(signalID: Int, query: SignalQueryT) {
+    
     g_signal_query(guint(signalID), query._ptr)
-
+    
 }
 
 
@@ -1417,8 +1533,9 @@ import GObjectCHelpers
 
 /// Deletes an emission hook.
 @inlinable public func signalRemoveEmissionHook(signalID: Int, hookID: Int) {
+    
     g_signal_remove_emission_hook(guint(signalID), gulong(hookID))
-
+    
 }
 
 
@@ -1439,8 +1556,9 @@ import GObjectCHelpers
 /// 
 /// Prints a warning if used on a signal which isn't being emitted.
 @inlinable public func signalStopEmission<ObjectT: ObjectProtocol>(instance: ObjectT, signalID: Int, detail: GQuark) {
+    
     g_signal_stop_emission(instance.object_ptr, guint(signalID), detail)
-
+    
 }
 
 
@@ -1451,8 +1569,9 @@ import GObjectCHelpers
 /// This is just like `g_signal_stop_emission()` except it will look up the
 /// signal id for you.
 @inlinable public func signalStopEmissionByName<ObjectT: ObjectProtocol>(instance: ObjectT, detailedSignal: UnsafePointer<gchar>!) {
+    
     g_signal_stop_emission_by_name(instance.object_ptr, detailedSignal)
-
+    
 }
 
 
@@ -1461,8 +1580,9 @@ import GObjectCHelpers
 /// Creates a new closure which invokes the function found at the offset
 /// `struct_offset` in the class structure of the interface or classed type
 /// identified by `itype`.
-@inlinable public func signalTypeCclosureNew(itype: GType, structOffset: Int) -> ClosureRef! {
-    guard let rv = ClosureRef(gconstpointer: gconstpointer(g_signal_type_cclosure_new(itype, guint(structOffset)))) else { return nil }
+@inlinable public func signalTypeCclosureNew(itype: GType, structOffset: Int) -> GLibObject.ClosureRef! {
+    let result = g_signal_type_cclosure_new(itype, guint(structOffset))
+    guard let rv = ClosureRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -1474,9 +1594,10 @@ import GObjectCHelpers
 /// If the source is not one of the standard GLib types, the `closure_callback`
 /// and `closure_marshal` fields of the `GSourceFuncs` structure must have been
 /// filled in with pointers to appropriate functions.
-@inlinable public func sourceSetClosure<ClosureT: ClosureProtocol, SourceT: GLib.SourceProtocol>(source: SourceT, closure: ClosureT) {
+@inlinable public func sourceSetClosure<ClosureT: ClosureProtocol, GLibSourceT: GLib.SourceProtocol>(source: GLibSourceT, closure: ClosureT) {
+    
     g_source_set_closure(source.source_ptr, closure.closure_ptr)
-
+    
 }
 
 
@@ -1492,9 +1613,10 @@ import GObjectCHelpers
 /// `closure_callback` and `closure_marshal` fields of the `GSourceFuncs`
 /// structure must have been filled in with pointers to appropriate
 /// functions.
-@inlinable public func sourceSetDummyCallback<SourceT: GLib.SourceProtocol>(source: SourceT) {
+@inlinable public func sourceSetDummyCallback<GLibSourceT: GLib.SourceProtocol>(source: GLibSourceT) {
+    
     g_source_set_dummy_callback(source.source_ptr)
-
+    
 }
 
 
@@ -1505,7 +1627,8 @@ import GObjectCHelpers
 /// contents for debugging output, the way in which the contents are
 /// described may change between different GLib versions.
 @inlinable public func strdupValueContents<ValueT: ValueProtocol>(value: ValueT) -> String! {
-    guard let rv = g_strdup_value_contents(value.value_ptr).map({ String(cString: $0) }) else { return nil }
+    let result = g_strdup_value_contents(value.value_ptr)
+    guard let rv = result.map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -1519,9 +1642,10 @@ import GObjectCHelpers
 /// passed in to figure whether they actually want to cache the class of this
 /// type, since all classes are routed through the same `GTypeClassCacheFunc`
 /// chain.
-@inlinable public func typeAddClassCacheFunc(cacheData: gpointer! = nil, cacheFunc: GTypeClassCacheFunc?) {
+@inlinable public func typeAddClassCacheFunc(cacheData: gpointer? = nil, cacheFunc: GTypeClassCacheFunc?) {
+    
     g_type_add_class_cache_func(cacheData, cacheFunc)
-
+    
 }
 
 
@@ -1538,15 +1662,17 @@ import GObjectCHelpers
 /// The private structure can be retrieved using the
 /// `G_TYPE_CLASS_GET_PRIVATE()` macro.
 @inlinable public func typeAddClassPrivate(classType: GType, privateSize: Int) {
+    
     g_type_add_class_private(classType, gsize(privateSize))
-
+    
 }
 
 
 
 
 @inlinable public func typeAddInstancePrivate(classType: GType, privateSize: Int) -> Int {
-    let rv = Int(g_type_add_instance_private(classType, gsize(privateSize)))
+    let result = g_type_add_instance_private(classType, gsize(privateSize))
+    let rv = Int(result)
     return rv
 }
 
@@ -1562,9 +1688,10 @@ import GObjectCHelpers
 /// implementation of `GObject` uses this facility to check that an
 /// object implements all of the properties that are defined on its
 /// interfaces.
-@inlinable public func typeAddInterfaceCheck(checkData: gpointer! = nil, checkFunc: GTypeInterfaceCheckFunc?) {
+@inlinable public func typeAddInterfaceCheck(checkData: gpointer? = nil, checkFunc: GTypeInterfaceCheckFunc?) {
+    
     g_type_add_interface_check(checkData, checkFunc)
-
+    
 }
 
 
@@ -1574,8 +1701,9 @@ import GObjectCHelpers
 /// contained in the `GTypePlugin` structure pointed to by `plugin`
 /// is used to manage the relationship.
 @inlinable public func typeAddInterfaceDynamic<TypePluginT: TypePluginProtocol>(instanceType: GType, interfaceType: GType, plugin: TypePluginT) {
+    
     g_type_add_interface_dynamic(instanceType, interfaceType, plugin.type_plugin_ptr)
-
+    
 }
 
 
@@ -1585,15 +1713,17 @@ import GObjectCHelpers
 /// The information contained in the `GInterfaceInfo` structure
 /// pointed to by `info` is used to manage the relationship.
 @inlinable public func typeAddInterfaceStatic<InterfaceInfoT: InterfaceInfoProtocol>(instanceType: GType, interfaceType: GType, info: InterfaceInfoT) {
+    
     g_type_add_interface_static(instanceType, interfaceType, info._ptr)
-
+    
 }
 
 
 
 
-@inlinable public func typeCheckClassCast<TypeClassT: TypeClassProtocol>(gClass: TypeClassT, isAType: GType) -> TypeClassRef! {
-    guard let rv = TypeClassRef(gconstpointer: gconstpointer(g_type_check_class_cast(gClass._ptr, isAType))) else { return nil }
+@inlinable public func typeCheckClassCast<TypeClassT: TypeClassProtocol>(gClass: TypeClassT, isAType: GType) -> GLibObject.TypeClassRef! {
+    let result = g_type_check_class_cast(gClass._ptr, isAType)
+    guard let rv = TypeClassRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -1601,7 +1731,8 @@ import GObjectCHelpers
 
 
 @inlinable public func typeCheckClassIsA<TypeClassT: TypeClassProtocol>(gClass: TypeClassT, isAType: GType) -> Bool {
-    let rv = ((g_type_check_class_is_a(gClass._ptr, isAType)) != 0)
+    let result = g_type_check_class_is_a(gClass._ptr, isAType)
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -1611,15 +1742,17 @@ import GObjectCHelpers
 /// Private helper function to aid implementation of the
 /// `G_TYPE_CHECK_INSTANCE()` macro.
 @inlinable public func typeCheck<TypeInstanceT: TypeInstanceProtocol>(instance: TypeInstanceT) -> Bool {
-    let rv = ((g_type_check_instance(instance._ptr)) != 0)
+    let result = g_type_check_instance(instance._ptr)
+    let rv = ((result) != 0)
     return rv
 }
 
 
 
 
-@inlinable public func typeCheckInstanceCast<TypeInstanceT: TypeInstanceProtocol>(instance: TypeInstanceT, ifaceType: GType) -> TypeInstanceRef! {
-    guard let rv = TypeInstanceRef(gconstpointer: gconstpointer(g_type_check_instance_cast(instance._ptr, ifaceType))) else { return nil }
+@inlinable public func typeCheckInstanceCast<TypeInstanceT: TypeInstanceProtocol>(instance: TypeInstanceT, ifaceType: GType) -> GLibObject.TypeInstanceRef! {
+    let result = g_type_check_instance_cast(instance._ptr, ifaceType)
+    guard let rv = TypeInstanceRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -1627,7 +1760,8 @@ import GObjectCHelpers
 
 
 @inlinable public func typeCheckInstanceIsA<TypeInstanceT: TypeInstanceProtocol>(instance: TypeInstanceT, ifaceType: GType) -> Bool {
-    let rv = ((g_type_check_instance_is_a(instance._ptr, ifaceType)) != 0)
+    let result = g_type_check_instance_is_a(instance._ptr, ifaceType)
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -1635,7 +1769,8 @@ import GObjectCHelpers
 
 
 @inlinable public func typeCheckInstanceIsFundamentallyA<TypeInstanceT: TypeInstanceProtocol>(instance: TypeInstanceT, fundamentalType: GType) -> Bool {
-    let rv = ((g_type_check_instance_is_fundamentally_a(instance._ptr, fundamentalType)) != 0)
+    let result = g_type_check_instance_is_fundamentally_a(instance._ptr, fundamentalType)
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -1643,7 +1778,8 @@ import GObjectCHelpers
 
 
 @inlinable public func typeCheckIsValue(type: GType) -> Bool {
-    let rv = ((g_type_check_is_value_type(type)) != 0)
+    let result = g_type_check_is_value_type(type)
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -1651,7 +1787,8 @@ import GObjectCHelpers
 
 
 @inlinable public func typeCheck<ValueT: ValueProtocol>(value: ValueT) -> Bool {
-    let rv = ((g_type_check_value(value.value_ptr)) != 0)
+    let result = g_type_check_value(value.value_ptr)
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -1659,7 +1796,8 @@ import GObjectCHelpers
 
 
 @inlinable public func typeCheckValueHolds<ValueT: ValueProtocol>(value: ValueT, type: GType) -> Bool {
-    let rv = ((g_type_check_value_holds(value.value_ptr, type)) != 0)
+    let result = g_type_check_value_holds(value.value_ptr, type)
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -1669,16 +1807,18 @@ import GObjectCHelpers
 /// Return a newly allocated and 0-terminated array of type IDs, listing
 /// the child types of `type`.
 @inlinable public func typeChildren(type: GType, nChildren: UnsafeMutablePointer<guint>! = nil) -> UnsafeMutablePointer<GType>! {
-    guard let rv = g_type_children(type, nChildren) else { return nil }
+    let result = g_type_children(type, nChildren)
+    guard let rv = result else { return nil }
     return rv
 }
 
 
 
 
-@inlinable public func typeClassAdjustPrivateOffset(gClass: gpointer! = nil, privateSizeOrOffset: UnsafeMutablePointer<gint>!) {
+@inlinable public func typeClassAdjustPrivateOffset(gClass: gpointer? = nil, privateSizeOrOffset: UnsafeMutablePointer<gint>!) {
+    
     g_type_class_adjust_private_offset(gClass, privateSizeOrOffset)
-
+    
 }
 
 
@@ -1689,8 +1829,9 @@ import GObjectCHelpers
 /// As a consequence, this function may return `nil` if the class
 /// of the type passed in does not currently exist (hasn't been
 /// referenced before).
-@inlinable public func typeClassPeek(type: GType) -> TypeClassRef! {
-    guard let rv = TypeClassRef(gpointer: g_type_class_peek(type)) else { return nil }
+@inlinable public func typeClassPeek(type: GType) -> GLibObject.TypeClassRef! {
+    let result = g_type_class_peek(type)
+    guard let rv = TypeClassRef(gpointer: result) else { return nil }
     return rv
 }
 
@@ -1699,8 +1840,9 @@ import GObjectCHelpers
 
 /// A more efficient version of `g_type_class_peek()` which works only for
 /// static types.
-@inlinable public func typeClassPeekStatic(type: GType) -> TypeClassRef! {
-    guard let rv = TypeClassRef(gpointer: g_type_class_peek_static(type)) else { return nil }
+@inlinable public func typeClassPeekStatic(type: GType) -> GLibObject.TypeClassRef! {
+    let result = g_type_class_peek_static(type)
+    guard let rv = TypeClassRef(gpointer: result) else { return nil }
     return rv
 }
 
@@ -1710,8 +1852,9 @@ import GObjectCHelpers
 /// Increments the reference count of the class structure belonging to
 /// `type`. This function will demand-create the class if it doesn't
 /// exist already.
-@inlinable public func typeClassRef(type: GType) -> TypeClassRef! {
-    guard let rv = TypeClassRef(gpointer: g_type_class_ref(type)) else { return nil }
+@inlinable public func typeClassRef(type: GType) -> GLibObject.TypeClassRef! {
+    let result = g_type_class_ref(type)
+    guard let rv = TypeClassRef(gpointer: result) else { return nil }
     return rv
 }
 
@@ -1734,8 +1877,9 @@ import GObjectCHelpers
 /// Note: Do not use this function, unless you're implementing a
 /// fundamental type. Also language bindings should not use this
 /// function, but `g_object_new()` instead.
-@inlinable public func typeCreateInstance(type: GType) -> TypeInstanceRef! {
-    guard let rv = TypeInstanceRef(gconstpointer: gconstpointer(g_type_create_instance(type))) else { return nil }
+@inlinable public func typeCreateInstance(type: GType) -> GLibObject.TypeInstanceRef! {
+    let result = g_type_create_instance(type)
+    guard let rv = TypeInstanceRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -1744,8 +1888,9 @@ import GObjectCHelpers
 
 /// If the interface type `g_type` is currently in use, returns its
 /// default interface vtable.
-@inlinable public func typeDefaultInterfacePeek(gType: GType) -> TypeInterfaceRef! {
-    guard let rv = TypeInterfaceRef(gpointer: g_type_default_interface_peek(gType)) else { return nil }
+@inlinable public func typeDefaultInterfacePeek(gType: GType) -> GLibObject.TypeInterfaceRef! {
+    let result = g_type_default_interface_peek(gType)
+    guard let rv = TypeInterfaceRef(gpointer: result) else { return nil }
     return rv
 }
 
@@ -1762,8 +1907,9 @@ import GObjectCHelpers
 /// Calling `g_type_default_interface_ref()` is useful when you
 /// want to make sure that signals and properties for an interface
 /// have been installed.
-@inlinable public func typeDefaultInterfaceRef(gType: GType) -> TypeInterfaceRef! {
-    guard let rv = TypeInterfaceRef(gpointer: g_type_default_interface_ref(gType)) else { return nil }
+@inlinable public func typeDefaultInterfaceRef(gType: GType) -> GLibObject.TypeInterfaceRef! {
+    let result = g_type_default_interface_ref(gType)
+    guard let rv = TypeInterfaceRef(gpointer: result) else { return nil }
     return rv
 }
 
@@ -1776,8 +1922,9 @@ import GObjectCHelpers
 /// been released, the finalize function for the interface's default
 /// vtable (the `class_finalize` member of `GTypeInfo`) will be called.
 @inlinable public func typeDefaultInterfaceUnref<TypeInterfaceT: TypeInterfaceProtocol>(gIface: TypeInterfaceT) {
+    
     g_type_default_interface_unref(gIface._ptr)
-
+    
 }
 
 
@@ -1786,7 +1933,8 @@ import GObjectCHelpers
 /// Returns the length of the ancestry of the passed in type. This
 /// includes the type itself, so that e.g. a fundamental type has depth 1.
 @inlinable public func typeDepth(type: GType) -> Int {
-    let rv = Int(g_type_depth(type))
+    let result = g_type_depth(type)
+    let rv = Int(result)
     return rv
 }
 
@@ -1806,8 +1954,9 @@ import GObjectCHelpers
 /// out by the compiler. Using `g_type_ensure()` guarantees that the
 /// type's `_get_type()` method is called.
 @inlinable public func typeEnsure(type: GType) {
+    
     g_type_ensure(type)
-
+    
 }
 
 
@@ -1819,8 +1968,9 @@ import GObjectCHelpers
 /// Like `g_type_create_instance()`, this function is reserved for
 /// implementors of fundamental types.
 @inlinable public func typeFree<TypeInstanceT: TypeInstanceProtocol>(instance: TypeInstanceT) {
+    
     g_type_free_instance(instance._ptr)
-
+    
 }
 
 
@@ -1831,7 +1981,8 @@ import GObjectCHelpers
 /// to find out by name whether a specific type has been registered
 /// yet).
 @inlinable public func typeFrom(name: UnsafePointer<gchar>!) -> GType {
-    let rv = g_type_from_name(name)
+    let result = g_type_from_name(name)
+    let rv = result
     return rv
 }
 
@@ -1841,7 +1992,8 @@ import GObjectCHelpers
 /// Internal function, used to extract the fundamental type ID portion.
 /// Use `G_TYPE_FUNDAMENTAL()` instead.
 @inlinable public func typeFundamental(typeID: GType) -> GType {
-    let rv = g_type_fundamental(typeID)
+    let result = g_type_fundamental(typeID)
+    let rv = result
     return rv
 }
 
@@ -1853,7 +2005,8 @@ import GObjectCHelpers
 /// The returned type ID represents the highest currently registered
 /// fundamental type identifier.
 @inlinable public func typeFundamentalNext() -> GType {
-    let rv = g_type_fundamental_next()
+    let result = g_type_fundamental_next()
+    let rv = result
     return rv
 }
 
@@ -1865,7 +2018,8 @@ import GObjectCHelpers
 /// the instance_count debug flag is set (by setting the GOBJECT_DEBUG
 /// variable to include instance-count).
 @inlinable public func typeGetInstanceCount(type: GType) -> Int {
-    let rv = Int(g_type_get_instance_count(type))
+    let result = g_type_get_instance_count(type)
+    let rv = Int(result)
     return rv
 }
 
@@ -1873,8 +2027,9 @@ import GObjectCHelpers
 
 
 /// Returns the `GTypePlugin` structure for `type`.
-@inlinable public func typeGetPlugin(type: GType) -> TypePluginRef! {
-    guard let rv = TypePluginRef(gconstpointer: gconstpointer(g_type_get_plugin(type))) else { return nil }
+@inlinable public func typeGetPlugin(type: GType) -> GLibObject.TypePluginRef! {
+    let result = g_type_get_plugin(type)
+    guard let rv = TypePluginRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -1887,8 +2042,9 @@ import GObjectCHelpers
 /// Note that this does not take subtyping into account; data
 /// attached to one type with `g_type_set_qdata()` cannot
 /// be retrieved from a subtype using `g_type_get_qdata()`.
-@inlinable public func typeGetQdata(type: GType, quark: GQuark) -> gpointer! {
-    guard let rv = g_type_get_qdata(type, quark) else { return nil }
+@inlinable public func typeGetQdata(type: GType, quark: GQuark) -> gpointer? {
+    let result = g_type_get_qdata(type, quark)
+    guard let rv = result else { return nil }
     return rv
 }
 
@@ -1901,7 +2057,8 @@ import GObjectCHelpers
 /// `g_type_from_name()`) and know if the cache is still valid at a later
 /// time by comparing the current serial with the one at the type lookup.
 @inlinable public func typeGetTypeRegistrationSerial() -> Int {
-    let rv = Int(g_type_get_type_registration_serial())
+    let result = g_type_get_type_registration_serial()
+    let rv = Int(result)
     return rv
 }
 
@@ -1915,8 +2072,9 @@ import GObjectCHelpers
 /// **type_init is deprecated:**
 /// the type system is now initialised automatically
 @available(*, deprecated) @inlinable public func typeInit() {
+    
     g_type_init()
-
+    
 }
 
 
@@ -1932,8 +2090,9 @@ import GObjectCHelpers
 /// **type_init_with_debug_flags is deprecated:**
 /// the type system is now initialised automatically
 @available(*, deprecated) @inlinable public func typeInitWith(debugFlags: TypeDebugFlags) {
+    
     g_type_init_with_debug_flags(debugFlags.value)
-
+    
 }
 
 
@@ -1945,8 +2104,9 @@ import GObjectCHelpers
 /// interface derivation (which GType doesn't support). An interface can have
 /// at most one instantiatable prerequisite type.
 @inlinable public func typeInterfaceAddPrerequisite(interfaceType: GType, prerequisiteType: GType) {
+    
     g_type_interface_add_prerequisite(interfaceType, prerequisiteType)
-
+    
 }
 
 
@@ -1956,8 +2116,9 @@ import GObjectCHelpers
 /// `interface_type` which has been added to `instance_type`, or `nil`
 /// if `interface_type` has not been added to `instance_type` or does
 /// not have a `GTypePlugin` structure. See `g_type_add_interface_dynamic()`.
-@inlinable public func typeInterfaceGetPlugin(instanceType: GType, interfaceType: GType) -> TypePluginRef! {
-    guard let rv = TypePluginRef(gconstpointer: gconstpointer(g_type_interface_get_plugin(instanceType, interfaceType))) else { return nil }
+@inlinable public func typeInterfaceGetPlugin(instanceType: GType, interfaceType: GType) -> GLibObject.TypePluginRef! {
+    let result = g_type_interface_get_plugin(instanceType, interfaceType)
+    guard let rv = TypePluginRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -1971,7 +2132,8 @@ import GObjectCHelpers
 /// See `g_type_interface_add_prerequisite()` for more information
 /// about prerequisites.
 @inlinable public func typeInterfaceInstantiatablePrerequisite(interfaceType: GType) -> GType {
-    let rv = g_type_interface_instantiatable_prerequisite(interfaceType)
+    let result = g_type_interface_instantiatable_prerequisite(interfaceType)
+    let rv = result
     return rv
 }
 
@@ -1980,8 +2142,9 @@ import GObjectCHelpers
 
 /// Returns the `GTypeInterface` structure of an interface to which the
 /// passed in class conforms.
-@inlinable public func typeInterfacePeek<TypeClassT: TypeClassProtocol>(instanceClass: TypeClassT, ifaceType: GType) -> TypeInterfaceRef! {
-    guard let rv = TypeInterfaceRef(gpointer: g_type_interface_peek(instanceClass._ptr, ifaceType)) else { return nil }
+@inlinable public func typeInterfacePeek<TypeClassT: TypeClassProtocol>(instanceClass: TypeClassT, ifaceType: GType) -> GLibObject.TypeInterfaceRef! {
+    let result = g_type_interface_peek(instanceClass._ptr, ifaceType)
+    guard let rv = TypeInterfaceRef(gpointer: result) else { return nil }
     return rv
 }
 
@@ -1990,7 +2153,8 @@ import GObjectCHelpers
 
 /// Returns the prerequisites of an interfaces type.
 @inlinable public func typeInterfacePrerequisites(interfaceType: GType, nPrerequisites: UnsafeMutablePointer<guint>! = nil) -> UnsafeMutablePointer<GType>! {
-    guard let rv = g_type_interface_prerequisites(interfaceType, nPrerequisites) else { return nil }
+    let result = g_type_interface_prerequisites(interfaceType, nPrerequisites)
+    guard let rv = result else { return nil }
     return rv
 }
 
@@ -2000,7 +2164,8 @@ import GObjectCHelpers
 /// Return a newly allocated and 0-terminated array of type IDs, listing
 /// the interface types that `type` conforms to.
 @inlinable public func typeInterfaces(type: GType, nInterfaces: UnsafeMutablePointer<guint>! = nil) -> UnsafeMutablePointer<GType>! {
-    guard let rv = g_type_interfaces(type, nInterfaces) else { return nil }
+    let result = g_type_interfaces(type, nInterfaces)
+    guard let rv = result else { return nil }
     return rv
 }
 
@@ -2011,7 +2176,8 @@ import GObjectCHelpers
 /// descendant of `is_a_type`. If `is_a_type` is an interface, check
 /// whether `type` conforms to it.
 @inlinable public func typeIsA(type: GType, isAType: GType) -> Bool {
-    let rv = ((g_type_is_a(type, isAType)) != 0)
+    let result = g_type_is_a(type, isAType)
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -2024,7 +2190,8 @@ import GObjectCHelpers
 /// other validly registered type ID, but randomized type IDs should
 /// not be passed in and will most likely lead to a crash.
 @inlinable public func typeName(type: GType) -> String! {
-    guard let rv = g_type_name(type).map({ String(cString: $0) }) else { return nil }
+    let result = g_type_name(type)
+    guard let rv = result.map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -2032,7 +2199,8 @@ import GObjectCHelpers
 
 
 @inlinable public func typeNameFromClass<TypeClassT: TypeClassProtocol>(gClass: TypeClassT) -> String! {
-    guard let rv = g_type_name_from_class(gClass._ptr).map({ String(cString: $0) }) else { return nil }
+    let result = g_type_name_from_class(gClass._ptr)
+    guard let rv = result.map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -2040,7 +2208,8 @@ import GObjectCHelpers
 
 
 @inlinable public func typeNameFrom<TypeInstanceT: TypeInstanceProtocol>(instance: TypeInstanceT) -> String! {
-    guard let rv = g_type_name_from_instance(instance._ptr).map({ String(cString: $0) }) else { return nil }
+    let result = g_type_name_from_instance(instance._ptr)
+    guard let rv = result.map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -2055,7 +2224,8 @@ import GObjectCHelpers
 /// be used to determine the types and order in which the leaf type is
 /// descended from the root type.
 @inlinable public func typeNextBase(leafType: GType, rootType: GType) -> GType {
-    let rv = g_type_next_base(leafType, rootType)
+    let result = g_type_next_base(leafType, rootType)
+    let rv = result
     return rv
 }
 
@@ -2065,7 +2235,8 @@ import GObjectCHelpers
 /// Return the direct parent type of the passed in type. If the passed
 /// in type has no parent, i.e. is a fundamental type, 0 is returned.
 @inlinable public func typeParent(type: GType) -> GType {
-    let rv = g_type_parent(type)
+    let result = g_type_parent(type)
+    let rv = result
     return rv
 }
 
@@ -2074,7 +2245,8 @@ import GObjectCHelpers
 
 /// Get the corresponding quark of the type IDs name.
 @inlinable public func typeQname(type: GType) -> GQuark {
-    let rv = g_type_qname(type)
+    let result = g_type_qname(type)
+    let rv = result
     return rv
 }
 
@@ -2088,8 +2260,9 @@ import GObjectCHelpers
 /// `GTypeQuery` structure should be considered constant and have to be
 /// left untouched.
 @inlinable public func typeQuery<TypeQueryT: TypeQueryProtocol>(type: GType, query: TypeQueryT) {
+    
     g_type_query(type, query._ptr)
-
+    
 }
 
 
@@ -2101,7 +2274,8 @@ import GObjectCHelpers
 /// instances (if not abstract).  The value of `flags` determines the nature
 /// (e.g. abstract or not) of the type.
 @inlinable public func typeRegisterDynamic<TypePluginT: TypePluginProtocol>(parentType: GType, typeName: UnsafePointer<gchar>!, plugin: TypePluginT, flags: TypeFlags) -> GType {
-    let rv = g_type_register_dynamic(parentType, typeName, plugin.type_plugin_ptr, flags.value)
+    let result = g_type_register_dynamic(parentType, typeName, plugin.type_plugin_ptr, flags.value)
+    let rv = result
     return rv
 }
 
@@ -2116,7 +2290,8 @@ import GObjectCHelpers
 /// `finfo` to manage the type and its instances. The value of `flags` determines
 /// additional characteristics of the fundamental type.
 @inlinable public func typeRegisterFundamental<TypeFundamentalInfoT: TypeFundamentalInfoProtocol, TypeInfoT: TypeInfoProtocol>(typeID: GType, typeName: UnsafePointer<gchar>!, info: TypeInfoT, finfo: TypeFundamentalInfoT, flags: TypeFlags) -> GType {
-    let rv = g_type_register_fundamental(typeID, typeName, info._ptr, finfo._ptr, flags.value)
+    let result = g_type_register_fundamental(typeID, typeName, info._ptr, finfo._ptr, flags.value)
+    let rv = result
     return rv
 }
 
@@ -2129,7 +2304,8 @@ import GObjectCHelpers
 /// instances (if not abstract). The value of `flags` determines the nature
 /// (e.g. abstract or not) of the type.
 @inlinable public func typeRegisterStatic<TypeInfoT: TypeInfoProtocol>(parentType: GType, typeName: UnsafePointer<gchar>!, info: TypeInfoT, flags: TypeFlags) -> GType {
-    let rv = g_type_register_static(parentType, typeName, info._ptr, flags.value)
+    let result = g_type_register_static(parentType, typeName, info._ptr, flags.value)
+    let rv = result
     return rv
 }
 
@@ -2141,7 +2317,8 @@ import GObjectCHelpers
 /// abstract or not) of the type. It works by filling a `GTypeInfo`
 /// struct and calling `g_type_register_static()`.
 @inlinable public func typeRegisterStaticSimple(parentType: GType, typeName: UnsafePointer<gchar>!, classSize: Int, classInit: GClassInitFunc?, instanceSize: Int, instanceInit: GInstanceInitFunc?, flags: TypeFlags) -> GType {
-    let rv = g_type_register_static_simple(parentType, typeName, guint(classSize), classInit, guint(instanceSize), instanceInit, flags.value)
+    let result = g_type_register_static_simple(parentType, typeName, guint(classSize), classInit, guint(instanceSize), instanceInit, flags.value)
+    let rv = result
     return rv
 }
 
@@ -2151,9 +2328,10 @@ import GObjectCHelpers
 /// Removes a previously installed `GTypeClassCacheFunc`. The cache
 /// maintained by `cache_func` has to be empty when calling
 /// `g_type_remove_class_cache_func()` to avoid leaks.
-@inlinable public func typeRemoveClassCacheFunc(cacheData: gpointer! = nil, cacheFunc: GTypeClassCacheFunc?) {
+@inlinable public func typeRemoveClassCacheFunc(cacheData: gpointer? = nil, cacheFunc: GTypeClassCacheFunc?) {
+    
     g_type_remove_class_cache_func(cacheData, cacheFunc)
-
+    
 }
 
 
@@ -2161,25 +2339,28 @@ import GObjectCHelpers
 
 /// Removes an interface check function added with
 /// `g_type_add_interface_check()`.
-@inlinable public func typeRemoveInterfaceCheck(checkData: gpointer! = nil, checkFunc: GTypeInterfaceCheckFunc?) {
+@inlinable public func typeRemoveInterfaceCheck(checkData: gpointer? = nil, checkFunc: GTypeInterfaceCheckFunc?) {
+    
     g_type_remove_interface_check(checkData, checkFunc)
-
+    
 }
 
 
 
 
 /// Attaches arbitrary data to a type.
-@inlinable public func typeSetQdata(type: GType, quark: GQuark, data: gpointer! = nil) {
+@inlinable public func typeSetQdata(type: GType, quark: GQuark, data: gpointer? = nil) {
+    
     g_type_set_qdata(type, quark, data)
-
+    
 }
 
 
 
 
 @inlinable public func typeTestFlags(type: GType, flags: Int) -> Bool {
-    let rv = ((g_type_test_flags(type, guint(flags))) != 0)
+    let result = g_type_test_flags(type, guint(flags))
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -2191,8 +2372,9 @@ import GObjectCHelpers
 /// Note that this function should only be used from source code
 /// that implements or has internal knowledge of the implementation of
 /// `type`.
-@inlinable public func typeValueTablePeek(type: GType) -> TypeValueTableRef! {
-    guard let rv = TypeValueTableRef(gconstpointer: gconstpointer(g_type_value_table_peek(type))) else { return nil }
+@inlinable public func typeValueTablePeek(type: GType) -> GLibObject.TypeValueTableRef! {
+    let result = g_type_value_table_peek(type)
+    guard let rv = TypeValueTableRef(gconstpointer: gconstpointer(result)) else { return nil }
     return rv
 }
 
@@ -2203,8 +2385,9 @@ import GObjectCHelpers
 /// A previously registered transformation function for `src_type` and `dest_type`
 /// will be replaced.
 @inlinable public func valueRegisterTransformFunc(srcType: GType, destType: GType, transformFunc: @escaping GValueTransform) {
+    
     g_value_register_transform_func(srcType, destType, transformFunc)
-
+    
 }
 
 
@@ -2213,7 +2396,8 @@ import GObjectCHelpers
 /// Returns whether a `GValue` of type `src_type` can be copied into
 /// a `GValue` of type `dest_type`.
 @inlinable public func valueTypeCompatible(srcType: GType, destType: GType) -> Bool {
-    let rv = ((g_value_type_compatible(srcType, destType)) != 0)
+    let result = g_value_type_compatible(srcType, destType)
+    let rv = ((result) != 0)
     return rv
 }
 
@@ -2225,7 +2409,8 @@ import GObjectCHelpers
 /// the types to be transformable, they must be compatible or a
 /// transformation function must be registered.
 @inlinable public func valueTypeTransformable(srcType: GType, destType: GType) -> Bool {
-    let rv = ((g_value_type_transformable(srcType, destType)) != 0)
+    let result = g_value_type_transformable(srcType, destType)
+    let rv = ((result) != 0)
     return rv
 }
 
