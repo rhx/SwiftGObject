@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          GLibObject 2.70.1 Docs
+          GLibObject 2.72.1 Docs
         </a>
          (97% documented)
       </p>
@@ -326,7 +326,7 @@
             <a class="nav-group-name-link" href="Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/s:10GLibObject9boxedCopy0C4Type8srcBoxedSvSgSu_SVtF">boxedCopy(boxedType:srcBoxed:)</a>
+                <a class="nav-group-task-link" href="Functions.html#/s:10GLibObject9boxedCopy0C4Type8srcBoxedSvSgSu_SVSgtF">boxedCopy(boxedType:srcBoxed:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:10GLibObject9boxedFree0C4Type0C0ySu_SvSgtF">boxedFree(boxedType:boxed:)</a>
@@ -1411,6 +1411,1079 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:10GLibObject17SignalCMarshallera"></a>
+                    <a name="//apple_ref/swift/Alias/SignalCMarshaller" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject17SignalCMarshallera">SignalCMarshaller</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is the signature of marshaller functions, required to marshall
+arrays of parameter values to signal emissions into C language callback
+invocations.</p>
+
+<p>It is merely an alias to <code>GClosureMarshal</code> since the <code>GClosure</code> mechanism
+takes over responsibility of actual function invocation for the signal
+system.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">SignalCMarshaller</span> <span class="o">=</span> <span class="kt">GSignalCMarshaller</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-aliases.swift#L12">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject5Type_a"></a>
+                    <a name="//apple_ref/swift/Alias/Type_" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject5Type_a">Type_</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A numerical value which represents the unique identifier of a registered
+type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Type_</span> <span class="o">=</span> <span class="kt">GType</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-aliases.swift#L17">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject16BaseFinalizeFunca"></a>
+                    <a name="//apple_ref/swift/Alias/BaseFinalizeFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject16BaseFinalizeFunca">BaseFinalizeFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A callback function used by the type system to finalize those portions
+of a derived types class structure that were setup from the corresponding
+<code>GBaseInitFunc()</code> function.</p>
+
+<p>Class finalization basically works the inverse way in which class
+initialization is performed.</p>
+
+<p>See <code>GClassInitFunc()</code> for a discussion of the class initialization process.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BaseFinalizeFunc</span> <span class="o">=</span> <span class="kt">GBaseFinalizeFunc</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L13">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject12BaseInitFunca"></a>
+                    <a name="//apple_ref/swift/Alias/BaseInitFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject12BaseInitFunca">BaseInitFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A callback function used by the type system to do base initialization
+of the class structures of derived types.</p>
+
+<p>This function is called as part of the initialization process of all derived
+classes and should reallocate or reset all dynamic class members copied over
+from the parent class.</p>
+
+<p>For example, class members (such as strings) that are not sufficiently
+handled by a plain memory copy of the parent class into the derived class
+have to be altered. See <code>GClassInitFunc()</code> for a discussion of the class
+initialization process.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BaseInitFunc</span> <span class="o">=</span> <span class="kt">GBaseInitFunc</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L27">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject20BindingTransformFunca"></a>
+                    <a name="//apple_ref/swift/Alias/BindingTransformFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject20BindingTransformFunca">BindingTransformFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A function to be called to transform <code>from_value</code> to <code>to_value</code>.</p>
+
+<p>If this is the <code>transform_to</code> function of a binding, then <code>from_value</code>
+is the <code>source_property</code> on the <code>source</code> object, and <code>to_value</code> is the
+<code>target_property</code> on the <code>target</code> object. If this is the
+<code>transform_from</code> function of a <code>G_BINDING_BIDIRECTIONAL</code> binding,
+then those roles are reversed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BindingTransformFunc</span> <span class="o">=</span> <span class="kt">GBindingTransformFunc</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L37">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject13BoxedCopyFunca"></a>
+                    <a name="//apple_ref/swift/Alias/BoxedCopyFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject13BoxedCopyFunca">BoxedCopyFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This function is provided by the user and should produce a copy
+of the passed in boxed structure.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BoxedCopyFunc</span> <span class="o">=</span> <span class="kt">GBoxedCopyFunc</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L42">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject13BoxedFreeFunca"></a>
+                    <a name="//apple_ref/swift/Alias/BoxedFreeFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject13BoxedFreeFunca">BoxedFreeFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This function is provided by the user and should free the boxed
+structure passed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BoxedFreeFunc</span> <span class="o">=</span> <span class="kt">GBoxedFreeFunc</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L47">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject8Callbacka"></a>
+                    <a name="//apple_ref/swift/Alias/Callback" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject8Callbacka">Callback</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type used for callback functions in structure definitions and function
+signatures.</p>
+
+<p>This doesn&rsquo;t mean that all callback functions must take no  parameters and
+return void. The required signature of a callback function is determined by
+the context in which is used (e.g. the signal to which it is connected).</p>
+
+<p>Use <code>G_CALLBACK()</code> to cast the callback function to a <code>GCallback</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Callback</span> <span class="o">=</span> <span class="kt">GCallback</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L58">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject17ClassFinalizeFunca"></a>
+                    <a name="//apple_ref/swift/Alias/ClassFinalizeFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject17ClassFinalizeFunca">ClassFinalizeFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A callback function used by the type system to finalize a class.</p>
+
+<p>This function is rarely needed, as dynamically allocated class resources
+should be handled by <code>GBaseInitFunc()</code> and <code>GBaseFinalizeFunc()</code>.</p>
+
+<p>Also, specification of a <code>GClassFinalizeFunc()</code> in the <code>GTypeInfo</code>
+structure of a static type is invalid, because classes of static types
+will never be finalized (they are artificially kept alive when their
+reference count drops to zero).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ClassFinalizeFunc</span> <span class="o">=</span> <span class="kt">GClassFinalizeFunc</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L70">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject13ClassInitFunca"></a>
+                    <a name="//apple_ref/swift/Alias/ClassInitFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject13ClassInitFunca">ClassInitFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A callback function used by the type system to initialize the class
+of a specific type.</p>
+
+<p>This function should initialize all static class members.</p>
+
+<p>The initialization process of a class involves:</p>
+
+<ul>
+<li>Copying common members from the parent class over to the
+derived class structure.</li>
+<li>Zero initialization of the remaining members not copied
+over from the parent class.</li>
+<li>Invocation of the <code>GBaseInitFunc()</code> initializers of all parent
+types and the class&rsquo; type.</li>
+<li>Invocation of the class&rsquo; <code>GClassInitFunc()</code> initializer.</li>
+</ul>
+
+<p>Since derived classes are partially initialized through a memory copy
+of the parent class, the general rule is that <code>GBaseInitFunc()</code> and
+<code>GBaseFinalizeFunc()</code> should take care of necessary reinitialization
+and release of those class members that were introduced by the type
+that specified these <code>GBaseInitFunc()</code><code>/GBaseFinalizeFunc()</code>.
+<code>GClassInitFunc()</code> should only care about initializing static
+class members, while dynamic class members (such as allocated strings
+or reference counted resources) are better handled by a <code>GBaseInitFunc()</code>
+for this type, so proper initialization of the dynamic class members
+is performed for class initialization of derived types as well.</p>
+
+<p>An example may help to correspond the intend of the different class
+initializers:</p>
+
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>typedef struct {
+  GObjectClass parent_class;
+  gint         static_integer;
+  gchar       *dynamic_string;
+} TypeAClass;
+static void
+type_a_base_class_init (TypeAClass *class)
+{
+  class-&gt;dynamic_string = g_strdup ("some string");
+}
+static void
+type_a_base_class_finalize (TypeAClass *class)
+{
+  g_free (class-&gt;dynamic_string);
+}
+static void
+type_a_class_init (TypeAClass *class)
+{
+  class-&gt;static_integer = 42;
+}
+
+typedef struct {
+  TypeAClass   parent_class;
+  gfloat       static_float;
+  GString     *dynamic_gstring;
+} TypeBClass;
+static void
+type_b_base_class_init (TypeBClass *class)
+{
+  class-&gt;dynamic_gstring = g_string_new ("some other string");
+}
+static void
+type_b_base_class_finalize (TypeBClass *class)
+{
+  g_string_free (class-&gt;dynamic_gstring);
+}
+static void
+type_b_class_init (TypeBClass *class)
+{
+  class-&gt;static_float = 3.14159265358979323846;
+}
+</code></pre>
+
+<p>Initialization of TypeBClass will first cause initialization of
+TypeAClass (derived classes reference their parent classes, see
+<code>g_type_class_ref()</code> on this).</p>
+
+<p>Initialization of TypeAClass roughly involves zero-initializing its fields,
+then calling its <code>GBaseInitFunc()</code> <code>type_a_base_class_init()</code> to allocate
+its dynamic members (dynamic_string), and finally calling its <code>GClassInitFunc()</code>
+<code>type_a_class_init()</code> to initialize its static members (static_integer).
+The first step in the initialization process of TypeBClass is then
+a plain memory copy of the contents of TypeAClass into TypeBClass and
+zero-initialization of the remaining fields in TypeBClass.
+The dynamic members of TypeAClass within TypeBClass now need
+reinitialization which is performed by calling <code>type_a_base_class_init()</code>
+with an argument of TypeBClass.</p>
+
+<p>After that, the <code>GBaseInitFunc()</code> of TypeBClass, <code>type_b_base_class_init()</code>
+is called to allocate the dynamic members of TypeBClass (dynamic_gstring),
+and finally the <code>GClassInitFunc()</code> of TypeBClass, <code>type_b_class_init()</code>,
+is called to complete the initialization process with the static members
+(static_float).</p>
+
+<p>Corresponding finalization counter parts to the <code>GBaseInitFunc()</code> functions
+have to be provided to release allocated resources at class finalization
+time.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ClassInitFunc</span> <span class="o">=</span> <span class="kt">GClassInitFunc</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L171">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject14ClosureMarshala"></a>
+                    <a name="//apple_ref/swift/Alias/ClosureMarshal" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject14ClosureMarshala">ClosureMarshal</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type used for marshaller functions.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ClosureMarshal</span> <span class="o">=</span> <span class="kt">GClosureMarshal</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L175">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject13ClosureNotifya"></a>
+                    <a name="//apple_ref/swift/Alias/ClosureNotify" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject13ClosureNotifya">ClosureNotify</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type used for the various notification callbacks which can be registered
+on closures.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ClosureNotify</span> <span class="o">=</span> <span class="kt">GClosureNotify</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L180">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject16InstanceInitFunca"></a>
+                    <a name="//apple_ref/swift/Alias/InstanceInitFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject16InstanceInitFunca">InstanceInitFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A callback function used by the type system to initialize a new
+instance of a type.</p>
+
+<p>This function initializes all instance members and allocates any resources
+required by it.</p>
+
+<p>Initialization of a derived instance involves calling all its parent
+types instance initializers, so the class member of the instance
+is altered during its initialization to always point to the class that
+belongs to the type the current initializer was introduced for.</p>
+
+<p>The extended members of <code>instance</code> are guaranteed to have been filled with
+zeros before this function is called.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">InstanceInitFunc</span> <span class="o">=</span> <span class="kt">GInstanceInitFunc</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L196">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject21InterfaceFinalizeFunca"></a>
+                    <a name="//apple_ref/swift/Alias/InterfaceFinalizeFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject21InterfaceFinalizeFunca">InterfaceFinalizeFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A callback function used by the type system to finalize an interface.</p>
+
+<p>This function should destroy any internal data and release any resources
+allocated by the corresponding <code>GInterfaceInitFunc()</code> function.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">InterfaceFinalizeFunc</span> <span class="o">=</span> <span class="kt">GInterfaceFinalizeFunc</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L203">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject17InterfaceInitFunca"></a>
+                    <a name="//apple_ref/swift/Alias/InterfaceInitFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject17InterfaceInitFunca">InterfaceInitFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A callback function used by the type system to initialize a new
+interface.</p>
+
+<p>This function should initialize all internal data and* allocate any
+resources required by the interface.</p>
+
+<p>The members of <code>iface_data</code> are guaranteed to have been filled with
+zeros before this function is called.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">InterfaceInitFunc</span> <span class="o">=</span> <span class="kt">GInterfaceInitFunc</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L214">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject0B12FinalizeFunca"></a>
+                    <a name="//apple_ref/swift/Alias/ObjectFinalizeFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject0B12FinalizeFunca">ObjectFinalizeFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of the <code>finalize</code> function of <code>GObjectClass</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ObjectFinalizeFunc</span> <span class="o">=</span> <span class="kt">GObjectFinalizeFunc</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L218">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject0B15GetPropertyFunca"></a>
+                    <a name="//apple_ref/swift/Alias/ObjectGetPropertyFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject0B15GetPropertyFunca">ObjectGetPropertyFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of the <code>get_property</code> function of <code>GObjectClass</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ObjectGetPropertyFunc</span> <span class="o">=</span> <span class="kt">GObjectGetPropertyFunc</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L222">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject0B15SetPropertyFunca"></a>
+                    <a name="//apple_ref/swift/Alias/ObjectSetPropertyFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject0B15SetPropertyFunca">ObjectSetPropertyFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of the <code>set_property</code> function of <code>GObjectClass</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ObjectSetPropertyFunc</span> <span class="o">=</span> <span class="kt">GObjectSetPropertyFunc</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L226">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject17SignalAccumulatora"></a>
+                    <a name="//apple_ref/swift/Alias/SignalAccumulator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject17SignalAccumulatora">SignalAccumulator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The signal accumulator is a special callback function that can be used
+to collect return values of the various callbacks that are called
+during a signal emission.</p>
+
+<p>The signal accumulator is specified at signal creation time, if it is
+left <code>nil</code>, no accumulation of callback return values is performed.
+The return value of signal emissions is then the value returned by the
+last callback.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">SignalAccumulator</span> <span class="o">=</span> <span class="kt">GSignalAccumulator</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L237">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject18SignalEmissionHooka"></a>
+                    <a name="//apple_ref/swift/Alias/SignalEmissionHook" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject18SignalEmissionHooka">SignalEmissionHook</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A simple function pointer to get invoked when the signal is emitted.</p>
+
+<p>Emission hooks allow you to tie a hook to the signal type, so that it will
+trap all emissions of that signal, from any object.</p>
+
+<p>You may not attach these to signals created with the <code>G_SIGNAL_NO_HOOKS</code> flag.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">SignalEmissionHook</span> <span class="o">=</span> <span class="kt">GSignalEmissionHook</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L246">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject12ToggleNotifya"></a>
+                    <a name="//apple_ref/swift/Alias/ToggleNotify" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject12ToggleNotifya">ToggleNotify</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A callback function used for notification when the state
+of a toggle reference changes.</p>
+
+<p>See also: <code>g_object_add_toggle_ref()</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ToggleNotify</span> <span class="o">=</span> <span class="kt">GToggleNotify</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L253">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject18TypeClassCacheFunca"></a>
+                    <a name="//apple_ref/swift/Alias/TypeClassCacheFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject18TypeClassCacheFunca">TypeClassCacheFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A callback function which is called when the reference count of a class
+drops to zero.</p>
+
+<p>It may use <code>g_type_class_ref()</code> to prevent the class from being freed. You
+should not call <code>g_type_class_unref()</code> from a <code>GTypeClassCacheFunc</code> function
+to prevent infinite recursion, use <code>g_type_class_unref_uncached()</code> instead.</p>
+
+<p>The functions have to check the class id passed in to figure
+whether they actually want to cache the class of this type, since all
+classes are routed through the same <code>GTypeClassCacheFunc</code> chain.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TypeClassCacheFunc</span> <span class="o">=</span> <span class="kt">GTypeClassCacheFunc</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L266">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject22TypeInterfaceCheckFunca"></a>
+                    <a name="//apple_ref/swift/Alias/TypeInterfaceCheckFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject22TypeInterfaceCheckFunca">TypeInterfaceCheckFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A callback called after an interface vtable is initialized.</p>
+
+<p>See <code>g_type_add_interface_check()</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TypeInterfaceCheckFunc</span> <span class="o">=</span> <span class="kt">GTypeInterfaceCheckFunc</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L272">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject31TypePluginCompleteInterfaceInfoa"></a>
+                    <a name="//apple_ref/swift/Alias/TypePluginCompleteInterfaceInfo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject31TypePluginCompleteInterfaceInfoa">TypePluginCompleteInterfaceInfo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of the <code>complete_interface_info</code> function of <code>GTypePluginClass</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TypePluginCompleteInterfaceInfo</span> <span class="o">=</span> <span class="kt">GTypePluginCompleteInterfaceInfo</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L276">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject018TypePluginCompleteC4Infoa"></a>
+                    <a name="//apple_ref/swift/Alias/TypePluginCompleteTypeInfo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject018TypePluginCompleteC4Infoa">TypePluginCompleteTypeInfo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of the <code>complete_type_info</code> function of <code>GTypePluginClass</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TypePluginCompleteTypeInfo</span> <span class="o">=</span> <span class="kt">GTypePluginCompleteTypeInfo</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L280">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject15TypePluginUnusea"></a>
+                    <a name="//apple_ref/swift/Alias/TypePluginUnuse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject15TypePluginUnusea">TypePluginUnuse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of the <code>unuse_plugin</code> function of <code>GTypePluginClass</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TypePluginUnuse</span> <span class="o">=</span> <span class="kt">GTypePluginUnuse</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L284">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject13TypePluginUsea"></a>
+                    <a name="//apple_ref/swift/Alias/TypePluginUse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject13TypePluginUsea">TypePluginUse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of the <code>use_plugin</code> function of <code>GTypePluginClass</code>, which gets called
+to increase the use count of <code>plugin</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TypePluginUse</span> <span class="o">=</span> <span class="kt">GTypePluginUse</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L289">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject14ValueTransforma"></a>
+                    <a name="//apple_ref/swift/Alias/ValueTransform" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject14ValueTransforma">ValueTransform</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of value transformation functions which can be registered with
+<code>g_value_register_transform_func()</code>.</p>
+
+<p><code>dest_value</code> will be initialized to the correct destination type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ValueTransform</span> <span class="o">=</span> <span class="kt">GValueTransform</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L296">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject10WeakNotifya"></a>
+                    <a name="//apple_ref/swift/Alias/WeakNotify" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject10WeakNotifya">WeakNotify</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code>GWeakNotify</code> function can be added to an object as a callback that gets
+triggered when the object is finalized.</p>
+
+<p>Since the object is already being disposed when the <code>GWeakNotify</code> is called,
+there&rsquo;s not much you could do with the object, apart from e.g. using its
+address as hash-index or the like.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">WeakNotify</span> <span class="o">=</span> <span class="kt">GWeakNotify</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-callbacks.swift#L305">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:10GLibObject21GObjectTypeValueUniona"></a>
                     <a name="//apple_ref/swift/Alias/GObjectTypeValueUnion" class="dashAnchor"></a>
                     <a class="token" href="#/s:10GLibObject21GObjectTypeValueUniona">GObjectTypeValueUnion</a>
@@ -1559,1079 +2632,6 @@ This closure needs to return true if successful, or false otherwise</p>
                     </section>
                   </div>
                 </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject17SignalCMarshallera"></a>
-                    <a name="//apple_ref/swift/Alias/SignalCMarshaller" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17SignalCMarshallera">SignalCMarshaller</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This is the signature of marshaller functions, required to marshall
-arrays of parameter values to signal emissions into C language callback
-invocations.</p>
-
-<p>It is merely an alias to <code>GClosureMarshal</code> since the <code>GClosure</code> mechanism
-takes over responsibility of actual function invocation for the signal
-system.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">SignalCMarshaller</span> <span class="o">=</span> <span class="kt">GSignalCMarshaller</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-aliases.swift#L12">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject5Type_a"></a>
-                    <a name="//apple_ref/swift/Alias/Type_" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject5Type_a">Type_</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A numerical value which represents the unique identifier of a registered
-type.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Type_</span> <span class="o">=</span> <span class="kt">GType</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-aliases.swift#L17">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject16BaseFinalizeFunca"></a>
-                    <a name="//apple_ref/swift/Alias/BaseFinalizeFunc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject16BaseFinalizeFunca">BaseFinalizeFunc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A callback function used by the type system to finalize those portions
-of a derived types class structure that were setup from the corresponding
-<code>GBaseInitFunc()</code> function.</p>
-
-<p>Class finalization basically works the inverse way in which class
-initialization is performed.</p>
-
-<p>See <code>GClassInitFunc()</code> for a discussion of the class initialization process.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BaseFinalizeFunc</span> <span class="o">=</span> <span class="kt">GBaseFinalizeFunc</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L13">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject12BaseInitFunca"></a>
-                    <a name="//apple_ref/swift/Alias/BaseInitFunc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject12BaseInitFunca">BaseInitFunc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A callback function used by the type system to do base initialization
-of the class structures of derived types.</p>
-
-<p>This function is called as part of the initialization process of all derived
-classes and should reallocate or reset all dynamic class members copied over
-from the parent class.</p>
-
-<p>For example, class members (such as strings) that are not sufficiently
-handled by a plain memory copy of the parent class into the derived class
-have to be altered. See <code>GClassInitFunc()</code> for a discussion of the class
-initialization process.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BaseInitFunc</span> <span class="o">=</span> <span class="kt">GBaseInitFunc</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L27">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject20BindingTransformFunca"></a>
-                    <a name="//apple_ref/swift/Alias/BindingTransformFunc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject20BindingTransformFunca">BindingTransformFunc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A function to be called to transform <code>from_value</code> to <code>to_value</code>.</p>
-
-<p>If this is the <code>transform_to</code> function of a binding, then <code>from_value</code>
-is the <code>source_property</code> on the <code>source</code> object, and <code>to_value</code> is the
-<code>target_property</code> on the <code>target</code> object. If this is the
-<code>transform_from</code> function of a <code>G_BINDING_BIDIRECTIONAL</code> binding,
-then those roles are reversed.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BindingTransformFunc</span> <span class="o">=</span> <span class="kt">GBindingTransformFunc</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L37">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject13BoxedCopyFunca"></a>
-                    <a name="//apple_ref/swift/Alias/BoxedCopyFunc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject13BoxedCopyFunca">BoxedCopyFunc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This function is provided by the user and should produce a copy
-of the passed in boxed structure.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BoxedCopyFunc</span> <span class="o">=</span> <span class="kt">GBoxedCopyFunc</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L42">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject13BoxedFreeFunca"></a>
-                    <a name="//apple_ref/swift/Alias/BoxedFreeFunc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject13BoxedFreeFunca">BoxedFreeFunc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This function is provided by the user and should free the boxed
-structure passed.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BoxedFreeFunc</span> <span class="o">=</span> <span class="kt">GBoxedFreeFunc</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L47">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject8Callbacka"></a>
-                    <a name="//apple_ref/swift/Alias/Callback" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject8Callbacka">Callback</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The type used for callback functions in structure definitions and function
-signatures.</p>
-
-<p>This doesn&rsquo;t mean that all callback functions must take no  parameters and
-return void. The required signature of a callback function is determined by
-the context in which is used (e.g. the signal to which it is connected).</p>
-
-<p>Use <code>G_CALLBACK()</code> to cast the callback function to a <code>GCallback</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Callback</span> <span class="o">=</span> <span class="kt">GCallback</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L58">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject17ClassFinalizeFunca"></a>
-                    <a name="//apple_ref/swift/Alias/ClassFinalizeFunc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17ClassFinalizeFunca">ClassFinalizeFunc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A callback function used by the type system to finalize a class.</p>
-
-<p>This function is rarely needed, as dynamically allocated class resources
-should be handled by <code>GBaseInitFunc()</code> and <code>GBaseFinalizeFunc()</code>.</p>
-
-<p>Also, specification of a <code>GClassFinalizeFunc()</code> in the <code>GTypeInfo</code>
-structure of a static type is invalid, because classes of static types
-will never be finalized (they are artificially kept alive when their
-reference count drops to zero).</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ClassFinalizeFunc</span> <span class="o">=</span> <span class="kt">GClassFinalizeFunc</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L70">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject13ClassInitFunca"></a>
-                    <a name="//apple_ref/swift/Alias/ClassInitFunc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject13ClassInitFunca">ClassInitFunc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A callback function used by the type system to initialize the class
-of a specific type.</p>
-
-<p>This function should initialize all static class members.</p>
-
-<p>The initialization process of a class involves:</p>
-
-<ul>
-<li>Copying common members from the parent class over to the
-derived class structure.</li>
-<li>Zero initialization of the remaining members not copied
-over from the parent class.</li>
-<li>Invocation of the <code>GBaseInitFunc()</code> initializers of all parent
-types and the class&rsquo; type.</li>
-<li>Invocation of the class&rsquo; <code>GClassInitFunc()</code> initializer.</li>
-</ul>
-
-<p>Since derived classes are partially initialized through a memory copy
-of the parent class, the general rule is that <code>GBaseInitFunc()</code> and
-<code>GBaseFinalizeFunc()</code> should take care of necessary reinitialization
-and release of those class members that were introduced by the type
-that specified these <code>GBaseInitFunc()</code><code>/GBaseFinalizeFunc()</code>.
-<code>GClassInitFunc()</code> should only care about initializing static
-class members, while dynamic class members (such as allocated strings
-or reference counted resources) are better handled by a <code>GBaseInitFunc()</code>
-for this type, so proper initialization of the dynamic class members
-is performed for class initialization of derived types as well.</p>
-
-<p>An example may help to correspond the intend of the different class
-initializers:</p>
-
-<p>(C Language Example):</p>
-<pre class="highlight plaintext"><code>typedef struct {
-  GObjectClass parent_class;
-  gint         static_integer;
-  gchar       *dynamic_string;
-} TypeAClass;
-static void
-type_a_base_class_init (TypeAClass *class)
-{
-  class-&gt;dynamic_string = g_strdup ("some string");
-}
-static void
-type_a_base_class_finalize (TypeAClass *class)
-{
-  g_free (class-&gt;dynamic_string);
-}
-static void
-type_a_class_init (TypeAClass *class)
-{
-  class-&gt;static_integer = 42;
-}
-
-typedef struct {
-  TypeAClass   parent_class;
-  gfloat       static_float;
-  GString     *dynamic_gstring;
-} TypeBClass;
-static void
-type_b_base_class_init (TypeBClass *class)
-{
-  class-&gt;dynamic_gstring = g_string_new ("some other string");
-}
-static void
-type_b_base_class_finalize (TypeBClass *class)
-{
-  g_string_free (class-&gt;dynamic_gstring);
-}
-static void
-type_b_class_init (TypeBClass *class)
-{
-  class-&gt;static_float = 3.14159265358979323846;
-}
-</code></pre>
-
-<p>Initialization of TypeBClass will first cause initialization of
-TypeAClass (derived classes reference their parent classes, see
-<code>g_type_class_ref()</code> on this).</p>
-
-<p>Initialization of TypeAClass roughly involves zero-initializing its fields,
-then calling its <code>GBaseInitFunc()</code> <code>type_a_base_class_init()</code> to allocate
-its dynamic members (dynamic_string), and finally calling its <code>GClassInitFunc()</code>
-<code>type_a_class_init()</code> to initialize its static members (static_integer).
-The first step in the initialization process of TypeBClass is then
-a plain memory copy of the contents of TypeAClass into TypeBClass and
-zero-initialization of the remaining fields in TypeBClass.
-The dynamic members of TypeAClass within TypeBClass now need
-reinitialization which is performed by calling <code>type_a_base_class_init()</code>
-with an argument of TypeBClass.</p>
-
-<p>After that, the <code>GBaseInitFunc()</code> of TypeBClass, <code>type_b_base_class_init()</code>
-is called to allocate the dynamic members of TypeBClass (dynamic_gstring),
-and finally the <code>GClassInitFunc()</code> of TypeBClass, <code>type_b_class_init()</code>,
-is called to complete the initialization process with the static members
-(static_float).</p>
-
-<p>Corresponding finalization counter parts to the <code>GBaseInitFunc()</code> functions
-have to be provided to release allocated resources at class finalization
-time.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ClassInitFunc</span> <span class="o">=</span> <span class="kt">GClassInitFunc</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L171">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject14ClosureMarshala"></a>
-                    <a name="//apple_ref/swift/Alias/ClosureMarshal" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject14ClosureMarshala">ClosureMarshal</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The type used for marshaller functions.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ClosureMarshal</span> <span class="o">=</span> <span class="kt">GClosureMarshal</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L175">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject13ClosureNotifya"></a>
-                    <a name="//apple_ref/swift/Alias/ClosureNotify" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject13ClosureNotifya">ClosureNotify</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The type used for the various notification callbacks which can be registered
-on closures.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ClosureNotify</span> <span class="o">=</span> <span class="kt">GClosureNotify</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L180">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject16InstanceInitFunca"></a>
-                    <a name="//apple_ref/swift/Alias/InstanceInitFunc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject16InstanceInitFunca">InstanceInitFunc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A callback function used by the type system to initialize a new
-instance of a type.</p>
-
-<p>This function initializes all instance members and allocates any resources
-required by it.</p>
-
-<p>Initialization of a derived instance involves calling all its parent
-types instance initializers, so the class member of the instance
-is altered during its initialization to always point to the class that
-belongs to the type the current initializer was introduced for.</p>
-
-<p>The extended members of <code>instance</code> are guaranteed to have been filled with
-zeros before this function is called.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">InstanceInitFunc</span> <span class="o">=</span> <span class="kt">GInstanceInitFunc</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L196">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject21InterfaceFinalizeFunca"></a>
-                    <a name="//apple_ref/swift/Alias/InterfaceFinalizeFunc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject21InterfaceFinalizeFunca">InterfaceFinalizeFunc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A callback function used by the type system to finalize an interface.</p>
-
-<p>This function should destroy any internal data and release any resources
-allocated by the corresponding <code>GInterfaceInitFunc()</code> function.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">InterfaceFinalizeFunc</span> <span class="o">=</span> <span class="kt">GInterfaceFinalizeFunc</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L203">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject17InterfaceInitFunca"></a>
-                    <a name="//apple_ref/swift/Alias/InterfaceInitFunc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17InterfaceInitFunca">InterfaceInitFunc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A callback function used by the type system to initialize a new
-interface.</p>
-
-<p>This function should initialize all internal data and* allocate any
-resources required by the interface.</p>
-
-<p>The members of <code>iface_data</code> are guaranteed to have been filled with
-zeros before this function is called.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">InterfaceInitFunc</span> <span class="o">=</span> <span class="kt">GInterfaceInitFunc</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L214">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject0B12FinalizeFunca"></a>
-                    <a name="//apple_ref/swift/Alias/ObjectFinalizeFunc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B12FinalizeFunca">ObjectFinalizeFunc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The type of the <code>finalize</code> function of <code>GObjectClass</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ObjectFinalizeFunc</span> <span class="o">=</span> <span class="kt">GObjectFinalizeFunc</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L218">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject0B15GetPropertyFunca"></a>
-                    <a name="//apple_ref/swift/Alias/ObjectGetPropertyFunc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B15GetPropertyFunca">ObjectGetPropertyFunc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The type of the <code>get_property</code> function of <code>GObjectClass</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ObjectGetPropertyFunc</span> <span class="o">=</span> <span class="kt">GObjectGetPropertyFunc</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L222">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject0B15SetPropertyFunca"></a>
-                    <a name="//apple_ref/swift/Alias/ObjectSetPropertyFunc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B15SetPropertyFunca">ObjectSetPropertyFunc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The type of the <code>set_property</code> function of <code>GObjectClass</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ObjectSetPropertyFunc</span> <span class="o">=</span> <span class="kt">GObjectSetPropertyFunc</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L226">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject17SignalAccumulatora"></a>
-                    <a name="//apple_ref/swift/Alias/SignalAccumulator" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17SignalAccumulatora">SignalAccumulator</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The signal accumulator is a special callback function that can be used
-to collect return values of the various callbacks that are called
-during a signal emission.</p>
-
-<p>The signal accumulator is specified at signal creation time, if it is
-left <code>nil</code>, no accumulation of callback return values is performed.
-The return value of signal emissions is then the value returned by the
-last callback.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">SignalAccumulator</span> <span class="o">=</span> <span class="kt">GSignalAccumulator</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L237">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject18SignalEmissionHooka"></a>
-                    <a name="//apple_ref/swift/Alias/SignalEmissionHook" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject18SignalEmissionHooka">SignalEmissionHook</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A simple function pointer to get invoked when the signal is emitted.</p>
-
-<p>Emission hooks allow you to tie a hook to the signal type, so that it will
-trap all emissions of that signal, from any object.</p>
-
-<p>You may not attach these to signals created with the <code>G_SIGNAL_NO_HOOKS</code> flag.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">SignalEmissionHook</span> <span class="o">=</span> <span class="kt">GSignalEmissionHook</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L246">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject12ToggleNotifya"></a>
-                    <a name="//apple_ref/swift/Alias/ToggleNotify" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject12ToggleNotifya">ToggleNotify</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A callback function used for notification when the state
-of a toggle reference changes.</p>
-
-<p>See also: <code>g_object_add_toggle_ref()</code></p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ToggleNotify</span> <span class="o">=</span> <span class="kt">GToggleNotify</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L253">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject18TypeClassCacheFunca"></a>
-                    <a name="//apple_ref/swift/Alias/TypeClassCacheFunc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject18TypeClassCacheFunca">TypeClassCacheFunc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A callback function which is called when the reference count of a class
-drops to zero.</p>
-
-<p>It may use <code>g_type_class_ref()</code> to prevent the class from being freed. You
-should not call <code>g_type_class_unref()</code> from a <code>GTypeClassCacheFunc</code> function
-to prevent infinite recursion, use <code>g_type_class_unref_uncached()</code> instead.</p>
-
-<p>The functions have to check the class id passed in to figure
-whether they actually want to cache the class of this type, since all
-classes are routed through the same <code>GTypeClassCacheFunc</code> chain.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TypeClassCacheFunc</span> <span class="o">=</span> <span class="kt">GTypeClassCacheFunc</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L266">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject22TypeInterfaceCheckFunca"></a>
-                    <a name="//apple_ref/swift/Alias/TypeInterfaceCheckFunc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject22TypeInterfaceCheckFunca">TypeInterfaceCheckFunc</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A callback called after an interface vtable is initialized.</p>
-
-<p>See <code>g_type_add_interface_check()</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TypeInterfaceCheckFunc</span> <span class="o">=</span> <span class="kt">GTypeInterfaceCheckFunc</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L272">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject31TypePluginCompleteInterfaceInfoa"></a>
-                    <a name="//apple_ref/swift/Alias/TypePluginCompleteInterfaceInfo" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject31TypePluginCompleteInterfaceInfoa">TypePluginCompleteInterfaceInfo</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The type of the <code>complete_interface_info</code> function of <code>GTypePluginClass</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TypePluginCompleteInterfaceInfo</span> <span class="o">=</span> <span class="kt">GTypePluginCompleteInterfaceInfo</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L276">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject018TypePluginCompleteC4Infoa"></a>
-                    <a name="//apple_ref/swift/Alias/TypePluginCompleteTypeInfo" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject018TypePluginCompleteC4Infoa">TypePluginCompleteTypeInfo</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The type of the <code>complete_type_info</code> function of <code>GTypePluginClass</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TypePluginCompleteTypeInfo</span> <span class="o">=</span> <span class="kt">GTypePluginCompleteTypeInfo</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L280">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject15TypePluginUnusea"></a>
-                    <a name="//apple_ref/swift/Alias/TypePluginUnuse" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject15TypePluginUnusea">TypePluginUnuse</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The type of the <code>unuse_plugin</code> function of <code>GTypePluginClass</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TypePluginUnuse</span> <span class="o">=</span> <span class="kt">GTypePluginUnuse</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L284">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject13TypePluginUsea"></a>
-                    <a name="//apple_ref/swift/Alias/TypePluginUse" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject13TypePluginUsea">TypePluginUse</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The type of the <code>use_plugin</code> function of <code>GTypePluginClass</code>, which gets called
-to increase the use count of <code>plugin</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TypePluginUse</span> <span class="o">=</span> <span class="kt">GTypePluginUse</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L289">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject14ValueTransforma"></a>
-                    <a name="//apple_ref/swift/Alias/ValueTransform" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject14ValueTransforma">ValueTransform</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The type of value transformation functions which can be registered with
-<code>g_value_register_transform_func()</code>.</p>
-
-<p><code>dest_value</code> will be initialized to the correct destination type.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ValueTransform</span> <span class="o">=</span> <span class="kt">GValueTransform</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L296">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject10WeakNotifya"></a>
-                    <a name="//apple_ref/swift/Alias/WeakNotify" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject10WeakNotifya">WeakNotify</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A <code>GWeakNotify</code> function can be added to an object as a callback that gets
-triggered when the object is finalized.</p>
-
-<p>Since the object is already being disposed when the <code>GWeakNotify</code> is called,
-there&rsquo;s not much you could do with the object, apart from e.g. using its
-address as hash-index or the like.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">WeakNotify</span> <span class="o">=</span> <span class="kt">GWeakNotify</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-callbacks.swift#L305">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
               </ul>
             </div>
           </div>
@@ -2640,8 +2640,8 @@ address as hash-index or the like.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external noopener">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-11-04)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2022 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external noopener">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2022-04-25)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

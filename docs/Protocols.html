@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          GLibObject 2.70.1 Docs
+          GLibObject 2.72.1 Docs
         </a>
          (97% documented)
       </p>
@@ -326,7 +326,7 @@
             <a class="nav-group-name-link" href="Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/s:10GLibObject9boxedCopy0C4Type8srcBoxedSvSgSu_SVtF">boxedCopy(boxedType:srcBoxed:)</a>
+                <a class="nav-group-task-link" href="Functions.html#/s:10GLibObject9boxedCopy0C4Type8srcBoxedSvSgSu_SVSgtF">boxedCopy(boxedType:srcBoxed:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:10GLibObject9boxedFree0C4Type0C0ySu_SvSgtF">boxedFree(boxedType:boxed:)</a>
@@ -1408,178 +1408,6 @@
           <div class="section-content">
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Object%20Class"></a>
-                <a name="//apple_ref/swift/Section/Object Class" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/Object%20Class"></a>
-                  <h3 class="section-name"><span>Object Class</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject0B8ProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/ObjectProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B8ProtocolP">ObjectProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The base object type.</p>
-
-<p>All the fields in the <code>GObject</code> structure are private to the implementation
-and should never be accessed directly.</p>
-
-<p>The <code>ObjectProtocol</code> protocol exposes the methods and properties of an underlying <code>GObject</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/Object.html">Object</a></code>.
-Alternatively, use <code><a href="Structs/ObjectRef.html">ObjectRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/ObjectProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ObjectProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object-ParamSpec.swift#L17-L26">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject18SignalNameProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/SignalNameProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject18SignalNameProtocolP">SignalNameProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Protocol for signal name enums</p>
-
-                        <a href="Protocols/SignalNameProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SignalNameProtocol</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GLibObject.swift#L16-L18">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject20PropertyNameProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/PropertyNameProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject20PropertyNameProtocolP">PropertyNameProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Protocol for property name enums</p>
-
-                        <a href="Protocols/PropertyNameProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">PropertyNameProtocol</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GLibObject.swift#L30-L32">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Value%20Record"></a>
-                <a name="//apple_ref/swift/Section/Value Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/Value%20Record"></a>
-                  <h3 class="section-name"><span>Value Record</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject13ValueProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/ValueProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject13ValueProtocolP">ValueProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>An opaque structure used to hold different types of values.</p>
-
-<p>The data within the structure has protected scope: it is accessible only
-to functions within a <code>GTypeValueTable</code> structure, or implementations of
-the g_value_*() API. That is, code portions which implement new fundamental
-types.</p>
-
-<p><code>GValue</code> users cannot make any assumptions about how data is stored
-within the 2 element <code>data</code> union, and the <code>g_type</code> member should
-only be accessed through the <code>G_VALUE_TYPE()</code> macro.</p>
-
-<p>The <code>ValueProtocol</code> protocol exposes the methods and properties of an underlying <code>GValue</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/Value.html">Value</a></code>.
-Alternatively, use <code><a href="Structs/ValueRef.html">ValueRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/ValueProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ValueProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeFundamentalInfo-Value.swift#L2669-L2678">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
                 <a name="/Binding%20Class"></a>
                 <a name="//apple_ref/swift/Section/Binding Class" class="dashAnchor"></a>
                 <div class="section-name-container">
@@ -1695,59 +1523,7 @@ Alternatively, use <code><a href="Structs/BindingRef.html">BindingRef</a></code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L94-L103">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/InitiallyUnowned%20Class"></a>
-                <a name="//apple_ref/swift/Section/InitiallyUnowned Class" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/InitiallyUnowned%20Class"></a>
-                  <h3 class="section-name"><span>InitiallyUnowned Class</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject24InitiallyUnownedProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/InitiallyUnownedProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject24InitiallyUnownedProtocolP">InitiallyUnownedProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A type for objects that have an initially floating reference.</p>
-
-<p>All the fields in the <code>GInitiallyUnowned</code> structure are private to the
-implementation and should never be accessed directly.</p>
-
-<p>The <code>InitiallyUnownedProtocol</code> protocol exposes the methods and properties of an underlying <code>GInitiallyUnowned</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/InitiallyUnowned.html">InitiallyUnowned</a></code>.
-Alternatively, use <code><a href="Structs/InitiallyUnownedRef.html">InitiallyUnownedRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/InitiallyUnownedProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">InitiallyUnownedProtocol</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ObjectProtocol.html">ObjectProtocol</a></span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Binding-InitiallyUnowned.swift#L796-L805">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-B.swift#L94-L103">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1796,7 +1572,7 @@ Alternatively, use <code><a href="Structs/CClosureRef.html">CClosureRef</a></cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-CClosure-EnumClass.swift#L14-L23">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-C.swift#L14-L23">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1888,7 +1664,7 @@ Alternatively, use <code><a href="Structs/ClosureRef.html">ClosureRef</a></code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-CClosure-EnumClass.swift#L352-L361">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-C.swift#L352-L361">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1935,7 +1711,7 @@ Alternatively, use <code><a href="Structs/ClosureNotifyDataRef.html">ClosureNoti
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-CClosure-EnumClass.swift#L1428-L1437">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-C.swift#L1482-L1491">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1985,7 +1761,7 @@ Alternatively, use <code><a href="Structs/EnumClassRef.html">EnumClassRef</a></c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-CClosure-EnumClass.swift#L1718-L1727">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-E.swift#L15-L24">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2035,7 +1811,7 @@ Alternatively, use <code><a href="Structs/EnumValueRef.html">EnumValueRef</a></c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-EnumValue-FlagsClass.swift#L15-L24">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-E.swift#L375-L384">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2085,7 +1861,7 @@ Alternatively, use <code><a href="Structs/FlagsClassRef.html">FlagsClassRef</a><
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-EnumValue-FlagsClass.swift#L362-L371">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-F.swift#L15-L24">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2135,7 +1911,59 @@ Alternatively, use <code><a href="Structs/FlagsValueRef.html">FlagsValueRef</a><
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-FlagsValue-InitiallyUnownedClass.swift#L15-L24">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-F.swift#L362-L371">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/InitiallyUnowned%20Class"></a>
+                <a name="//apple_ref/swift/Section/InitiallyUnowned Class" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/InitiallyUnowned%20Class"></a>
+                  <h3 class="section-name"><span>InitiallyUnowned Class</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject24InitiallyUnownedProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/InitiallyUnownedProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject24InitiallyUnownedProtocolP">InitiallyUnownedProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A type for objects that have an initially floating reference.</p>
+
+<p>All the fields in the <code>GInitiallyUnowned</code> structure are private to the
+implementation and should never be accessed directly.</p>
+
+<p>The <code>InitiallyUnownedProtocol</code> protocol exposes the methods and properties of an underlying <code>GInitiallyUnowned</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/InitiallyUnowned.html">InitiallyUnowned</a></code>.
+Alternatively, use <code><a href="Structs/InitiallyUnownedRef.html">InitiallyUnownedRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/InitiallyUnownedProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">InitiallyUnownedProtocol</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ObjectProtocol.html">ObjectProtocol</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-I.swift#L17-L26">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2184,7 +2012,7 @@ Alternatively, use <code><a href="Structs/InitiallyUnownedClassRef.html">Initial
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-FlagsValue-InitiallyUnownedClass.swift#L357-L366">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-I.swift#L341-L350">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2234,7 +2062,7 @@ Alternatively, use <code><a href="Structs/InterfaceInfoRef.html">InterfaceInfoRe
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-InterfaceInfo-ObjectClass.swift#L15-L24">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-I.swift#L487-L496">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2308,7 +2136,319 @@ Alternatively, use <code><a href="Structs/ObjectClassRef.html">ObjectClassRef</a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-InterfaceInfo-ObjectClass.swift#L374-L383">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-O.swift#L56-L65">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/ObjectConstructParam%20Record"></a>
+                <a name="//apple_ref/swift/Section/ObjectConstructParam Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ObjectConstructParam%20Record"></a>
+                  <h3 class="section-name"><span>ObjectConstructParam Record</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject0B22ConstructParamProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/ObjectConstructParamProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject0B22ConstructParamProtocolP">ObjectConstructParamProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The GObjectConstructParam struct is an auxiliary structure used to hand
+<code>GParamSpec</code>/<code>GValue</code> pairs to the <code>constructor</code> of a <code>GObjectClass</code>.</p>
+
+<p>The <code>ObjectConstructParamProtocol</code> protocol exposes the methods and properties of an underlying <code>GObjectConstructParam</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/ObjectConstructParam.html">ObjectConstructParam</a></code>.
+Alternatively, use <code><a href="Structs/ObjectConstructParamRef.html">ObjectConstructParamRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/ObjectConstructParamProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ObjectConstructParamProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-O.swift#L350-L359">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Object%20Class"></a>
+                <a name="//apple_ref/swift/Section/Object Class" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Object%20Class"></a>
+                  <h3 class="section-name"><span>Object Class</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject0B8ProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/ObjectProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject0B8ProtocolP">ObjectProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The base object type.</p>
+
+<p>All the fields in the <code>GObject</code> structure are private to the implementation
+and should never be accessed directly.</p>
+
+<p>The <code>ObjectProtocol</code> protocol exposes the methods and properties of an underlying <code>GObject</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/Object.html">Object</a></code>.
+Alternatively, use <code><a href="Structs/ObjectRef.html">ObjectRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/ObjectProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ObjectProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-O.swift#L650-L659">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/ParamSpecClass%20Record"></a>
+                <a name="//apple_ref/swift/Section/ParamSpecClass Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecClass%20Record"></a>
+                  <h3 class="section-name"><span>ParamSpecClass Record</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject22ParamSpecClassProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/ParamSpecClassProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject22ParamSpecClassProtocolP">ParamSpecClassProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The class structure for the GParamSpec type.
+Normally, GParamSpec classes are filled by
+<code>g_param_type_register_static()</code>.</p>
+
+<p>The <code>ParamSpecClassProtocol</code> protocol exposes the methods and properties of an underlying <code>GParamSpecClass</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/ParamSpecClass.html">ParamSpecClass</a></code>.
+Alternatively, use <code><a href="Structs/ParamSpecClassRef.html">ParamSpecClassRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/ParamSpecClassProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ParamSpecClassProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L16-L25">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/ParamSpecPool%20Record"></a>
+                <a name="//apple_ref/swift/Section/ParamSpecPool Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecPool%20Record"></a>
+                  <h3 class="section-name"><span>ParamSpecPool Record</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject21ParamSpecPoolProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/ParamSpecPoolProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject21ParamSpecPoolProtocolP">ParamSpecPoolProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code>GParamSpecPool</code> maintains a collection of <code>GParamSpecs</code> which can be
+quickly accessed by owner and name.</p>
+
+<p>The implementation of the <code>GObject</code> property system uses such a pool to
+store the <code>GParamSpecs</code> of the properties all object types.</p>
+
+<p>The <code>ParamSpecPoolProtocol</code> protocol exposes the methods and properties of an underlying <code>GParamSpecPool</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/ParamSpecPool.html">ParamSpecPool</a></code>.
+Alternatively, use <code><a href="Structs/ParamSpecPoolRef.html">ParamSpecPoolRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/ParamSpecPoolProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ParamSpecPoolProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L321-L330">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/ParamSpecTypeInfo%20Record"></a>
+                <a name="//apple_ref/swift/Section/ParamSpecTypeInfo Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ParamSpecTypeInfo%20Record"></a>
+                  <h3 class="section-name"><span>ParamSpecTypeInfo Record</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject25ParamSpecTypeInfoProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/ParamSpecTypeInfoProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject25ParamSpecTypeInfoProtocolP">ParamSpecTypeInfoProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This structure is used to provide the type system with the information
+required to initialize and destruct (finalize) a parameter&rsquo;s class and
+instances thereof.</p>
+
+<p>The initialized structure is passed to the <code>g_param_type_register_static()</code>
+The type system will perform a deep copy of this structure, so its memory
+does not need to be persistent across invocation of
+<code>g_param_type_register_static()</code>.</p>
+
+<p>The <code>ParamSpecTypeInfoProtocol</code> protocol exposes the methods and properties of an underlying <code>GParamSpecTypeInfo</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/ParamSpecTypeInfo.html">ParamSpecTypeInfo</a></code>.
+Alternatively, use <code><a href="Structs/ParamSpecTypeInfoRef.html">ParamSpecTypeInfoRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/ParamSpecTypeInfoProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ParamSpecTypeInfoProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L642-L651">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Parameter%20Record"></a>
+                <a name="//apple_ref/swift/Section/Parameter Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Parameter%20Record"></a>
+                  <h3 class="section-name"><span>Parameter Record</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject17ParameterProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/ParameterProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject17ParameterProtocolP">ParameterProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The GParameter struct is an auxiliary structure used
+to hand parameter name/value pairs to <code>g_object_newv()</code>.</p>
+
+<p>The <code>ParameterProtocol</code> protocol exposes the methods and properties of an underlying <code>GParameter</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/Parameter.html">Parameter</a></code>.
+Alternatively, use <code><a href="Structs/ParameterRef.html">ParameterRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/ParameterProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ParameterProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L986-L995">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2368,108 +2508,7 @@ Alternatively, use <code><a href="Structs/ParamSpecRef.html">ParamSpecRef</a></c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-Object-ParamSpec.swift#L1464-L1473">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/ObjectConstructParam%20Record"></a>
-                <a name="//apple_ref/swift/Section/ObjectConstructParam Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/ObjectConstructParam%20Record"></a>
-                  <h3 class="section-name"><span>ObjectConstructParam Record</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject0B22ConstructParamProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/ObjectConstructParamProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject0B22ConstructParamProtocolP">ObjectConstructParamProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The GObjectConstructParam struct is an auxiliary structure used to hand
-<code>GParamSpec</code>/<code>GValue</code> pairs to the <code>constructor</code> of a <code>GObjectClass</code>.</p>
-
-<p>The <code>ObjectConstructParamProtocol</code> protocol exposes the methods and properties of an underlying <code>GObjectConstructParam</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/ObjectConstructParam.html">ObjectConstructParam</a></code>.
-Alternatively, use <code><a href="Structs/ObjectConstructParamRef.html">ObjectConstructParamRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/ObjectConstructParamProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ObjectConstructParamProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ObjectConstructParam-ParamSpecClass.swift#L15-L24">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/ParamSpecClass%20Record"></a>
-                <a name="//apple_ref/swift/Section/ParamSpecClass Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/ParamSpecClass%20Record"></a>
-                  <h3 class="section-name"><span>ParamSpecClass Record</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject22ParamSpecClassProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/ParamSpecClassProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject22ParamSpecClassProtocolP">ParamSpecClassProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The class structure for the GParamSpec type.
-Normally, GParamSpec classes are filled by
-<code>g_param_type_register_static()</code>.</p>
-
-<p>The <code>ParamSpecClassProtocol</code> protocol exposes the methods and properties of an underlying <code>GParamSpecClass</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/ParamSpecClass.html">ParamSpecClass</a></code>.
-Alternatively, use <code><a href="Structs/ParamSpecClassRef.html">ParamSpecClassRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/ParamSpecClassProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ParamSpecClassProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ObjectConstructParam-ParamSpecClass.swift#L314-L323">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L1295-L1304">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2518,7 +2557,7 @@ Alternatively, use <code><a href="Structs/ParamSpecBooleanRef.html">ParamSpecBoo
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L14-L23">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L1951-L1960">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2567,7 +2606,7 @@ Alternatively, use <code><a href="Structs/ParamSpecBoxedRef.html">ParamSpecBoxed
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L286-L295">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L2223-L2232">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2616,7 +2655,7 @@ Alternatively, use <code><a href="Structs/ParamSpecCharRef.html">ParamSpecCharRe
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L549-L558">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L2486-L2495">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2665,7 +2704,7 @@ Alternatively, use <code><a href="Structs/ParamSpecDoubleRef.html">ParamSpecDoub
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L839-L848">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L2776-L2785">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2715,7 +2754,7 @@ Alternatively, use <code><a href="Structs/ParamSpecEnumRef.html">ParamSpecEnumRe
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L1141-L1150">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L3078-L3087">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2765,7 +2804,7 @@ Alternatively, use <code><a href="Structs/ParamSpecFlagsRef.html">ParamSpecFlags
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L1425-L1434">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L3362-L3371">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2814,7 +2853,7 @@ Alternatively, use <code><a href="Structs/ParamSpecFloatRef.html">ParamSpecFloat
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L1708-L1717">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L3645-L3654">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2863,7 +2902,7 @@ Alternatively, use <code><a href="Structs/ParamSpecGTypeRef.html">ParamSpecGType
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L2009-L2018">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L3946-L3955">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2912,7 +2951,7 @@ Alternatively, use <code><a href="Structs/ParamSpecIntRef.html">ParamSpecIntRef<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L2281-L2290">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L4218-L4227">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -2961,7 +3000,7 @@ Alternatively, use <code><a href="Structs/ParamSpecInt64Ref.html">ParamSpecInt64
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L2571-L2580">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L4508-L4517">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3010,7 +3049,7 @@ Alternatively, use <code><a href="Structs/ParamSpecLongRef.html">ParamSpecLongRe
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L2861-L2870">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L4798-L4807">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3059,7 +3098,7 @@ Alternatively, use <code><a href="Structs/ParamSpecObjectRef.html">ParamSpecObje
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L3151-L3160">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L5088-L5097">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3118,7 +3157,7 @@ Alternatively, use <code><a href="Structs/ParamSpecOverrideRef.html">ParamSpecOv
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L3424-L3433">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L5361-L5370">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3168,7 +3207,7 @@ Alternatively, use <code><a href="Structs/ParamSpecParamRef.html">ParamSpecParam
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L3703-L3712">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L5640-L5649">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3217,7 +3256,7 @@ Alternatively, use <code><a href="Structs/ParamSpecPointerRef.html">ParamSpecPoi
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L3968-L3977">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L5905-L5914">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3267,7 +3306,7 @@ Alternatively, use <code><a href="Structs/ParamSpecStringRef.html">ParamSpecStri
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L4232-L4241">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L6169-L6178">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3316,7 +3355,7 @@ Alternatively, use <code><a href="Structs/ParamSpecUCharRef.html">ParamSpecUChar
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L4551-L4560">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L6488-L6497">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3365,7 +3404,7 @@ Alternatively, use <code><a href="Structs/ParamSpecUIntRef.html">ParamSpecUIntRe
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L4841-L4850">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L6778-L6787">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3414,7 +3453,7 @@ Alternatively, use <code><a href="Structs/ParamSpecUInt64Ref.html">ParamSpecUInt
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L5131-L5140">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L7068-L7077">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3463,7 +3502,7 @@ Alternatively, use <code><a href="Structs/ParamSpecULongRef.html">ParamSpecULong
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L5421-L5430">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L7358-L7367">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3512,7 +3551,7 @@ Alternatively, use <code><a href="Structs/ParamSpecUnicharRef.html">ParamSpecUni
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L5711-L5720">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L7648-L7657">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3561,7 +3600,7 @@ Alternatively, use <code><a href="Structs/ParamSpecValueArrayRef.html">ParamSpec
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L5983-L5992">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L7920-L7929">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3616,244 +3655,7 @@ Alternatively, use <code><a href="Structs/ParamSpecVariantRef.html">ParamSpecVar
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L6270-L6279">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/TypeModule%20Class"></a>
-                <a name="//apple_ref/swift/Section/TypeModule Class" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/TypeModule%20Class"></a>
-                  <h3 class="section-name"><span>TypeModule Class</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject18TypeModuleProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/TypeModuleProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject18TypeModuleProtocolP">TypeModuleProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code>GTypeModule</code> provides a simple implementation of the <code>GTypePlugin</code>
-interface.</p>
-
-<p>The model of <code>GTypeModule</code> is a dynamically loaded module which
-implements some number of types and interface implementations.</p>
-
-<p>When the module is loaded, it registers its types and interfaces
-using <code>g_type_module_register_type()</code> and <code>g_type_module_add_interface()</code>.
-As long as any instances of these types and interface implementations
-are in use, the module is kept loaded. When the types and interfaces
-are gone, the module may be unloaded. If the types and interfaces
-become used again, the module will be reloaded. Note that the last
-reference cannot be released from within the module code, since that
-would lead to the caller&rsquo;s code being unloaded before <code>g_object_unref()</code>
-returns to it.</p>
-
-<p>Keeping track of whether the module should be loaded or not is done by
-using a use count - it starts at zero, and whenever it is greater than
-zero, the module is loaded. The use count is maintained internally by
-the type system, but also can be explicitly controlled by
-<code>g_type_module_use()</code> and <code>g_type_module_unuse()</code>. Typically, when loading
-a module for the first type, <code>g_type_module_use()</code> will be used to load
-it so that it can initialize its types. At some later point, when the
-module no longer needs to be loaded except for the type
-implementations it contains, <code>g_type_module_unuse()</code> is called.</p>
-
-<p><code>GTypeModule</code> does not actually provide any implementation of module
-loading and unloading. To create a particular module type you must
-derive from <code>GTypeModule</code> and implement the load and unload functions
-in <code>GTypeModuleClass</code>.</p>
-
-<p>The <code>TypeModuleProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeModule</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeModule.html">TypeModule</a></code>.
-Alternatively, use <code><a href="Structs/TypeModuleRef.html">TypeModuleRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/TypeModuleProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeModuleProtocol</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ObjectProtocol.html">ObjectProtocol</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/TypePluginProtocol.html">TypePluginProtocol</a></span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecBoolean-TypeModule.swift#L6594-L6603">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/ParamSpecPool%20Record"></a>
-                <a name="//apple_ref/swift/Section/ParamSpecPool Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/ParamSpecPool%20Record"></a>
-                  <h3 class="section-name"><span>ParamSpecPool Record</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject21ParamSpecPoolProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/ParamSpecPoolProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject21ParamSpecPoolProtocolP">ParamSpecPoolProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A <code>GParamSpecPool</code> maintains a collection of <code>GParamSpecs</code> which can be
-quickly accessed by owner and name.</p>
-
-<p>The implementation of the <code>GObject</code> property system uses such a pool to
-store the <code>GParamSpecs</code> of the properties all object types.</p>
-
-<p>The <code>ParamSpecPoolProtocol</code> protocol exposes the methods and properties of an underlying <code>GParamSpecPool</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/ParamSpecPool.html">ParamSpecPool</a></code>.
-Alternatively, use <code><a href="Structs/ParamSpecPoolRef.html">ParamSpecPoolRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/ParamSpecPoolProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ParamSpecPoolProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecPool-SignalInvocationHint.swift#L18-L27">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/ParamSpecTypeInfo%20Record"></a>
-                <a name="//apple_ref/swift/Section/ParamSpecTypeInfo Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/ParamSpecTypeInfo%20Record"></a>
-                  <h3 class="section-name"><span>ParamSpecTypeInfo Record</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject25ParamSpecTypeInfoProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/ParamSpecTypeInfoProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject25ParamSpecTypeInfoProtocolP">ParamSpecTypeInfoProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This structure is used to provide the type system with the information
-required to initialize and destruct (finalize) a parameter&rsquo;s class and
-instances thereof.</p>
-
-<p>The initialized structure is passed to the <code>g_param_type_register_static()</code>
-The type system will perform a deep copy of this structure, so its memory
-does not need to be persistent across invocation of
-<code>g_param_type_register_static()</code>.</p>
-
-<p>The <code>ParamSpecTypeInfoProtocol</code> protocol exposes the methods and properties of an underlying <code>GParamSpecTypeInfo</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/ParamSpecTypeInfo.html">ParamSpecTypeInfo</a></code>.
-Alternatively, use <code><a href="Structs/ParamSpecTypeInfoRef.html">ParamSpecTypeInfoRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/ParamSpecTypeInfoProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ParamSpecTypeInfoProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecPool-SignalInvocationHint.swift#L334-L343">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Parameter%20Record"></a>
-                <a name="//apple_ref/swift/Section/Parameter Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/Parameter%20Record"></a>
-                  <h3 class="section-name"><span>Parameter Record</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject17ParameterProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/ParameterProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17ParameterProtocolP">ParameterProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The GParameter struct is an auxiliary structure used
-to hand parameter name/value pairs to <code>g_object_newv()</code>.</p>
-
-<p>The <code>ParameterProtocol</code> protocol exposes the methods and properties of an underlying <code>GParameter</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/Parameter.html">Parameter</a></code>.
-Alternatively, use <code><a href="Structs/ParameterRef.html">ParameterRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/ParameterProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ParameterProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecPool-SignalInvocationHint.swift#L677-L686">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-P.swift#L8207-L8216">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3903,7 +3705,7 @@ Alternatively, use <code><a href="Structs/SignalInvocationHintRef.html">SignalIn
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ParamSpecPool-SignalInvocationHint.swift#L975-L984">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-S.swift#L15-L24">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3954,462 +3756,7 @@ Alternatively, use <code><a href="Structs/SignalQueryRef.html">SignalQueryRef</a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-SignalQuery-TypeClass.swift#L16-L25">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/TypeClass%20Record"></a>
-                <a name="//apple_ref/swift/Section/TypeClass Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/TypeClass%20Record"></a>
-                  <h3 class="section-name"><span>TypeClass Record</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject17TypeClassProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/TypeClassProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17TypeClassProtocolP">TypeClassProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>An opaque structure used as the base of all classes.</p>
-
-<p>The <code>TypeClassProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeClass</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeClass.html">TypeClass</a></code>.
-Alternatively, use <code><a href="Structs/TypeClassRef.html">TypeClassRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/TypeClassProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeClassProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-SignalQuery-TypeClass.swift#L423-L432">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/TypeFundamentalInfo%20Record"></a>
-                <a name="//apple_ref/swift/Section/TypeFundamentalInfo Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/TypeFundamentalInfo%20Record"></a>
-                  <h3 class="section-name"><span>TypeFundamentalInfo Record</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject27TypeFundamentalInfoProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/TypeFundamentalInfoProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject27TypeFundamentalInfoProtocolP">TypeFundamentalInfoProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A structure that provides information to the type system which is
-used specifically for managing fundamental types.</p>
-
-<p>The <code>TypeFundamentalInfoProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeFundamentalInfo</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeFundamentalInfo.html">TypeFundamentalInfo</a></code>.
-Alternatively, use <code><a href="Structs/TypeFundamentalInfoRef.html">TypeFundamentalInfoRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/TypeFundamentalInfoProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeFundamentalInfoProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeFundamentalInfo-Value.swift#L15-L24">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/TypeInfo%20Record"></a>
-                <a name="//apple_ref/swift/Section/TypeInfo Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/TypeInfo%20Record"></a>
-                  <h3 class="section-name"><span>TypeInfo Record</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject16TypeInfoProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/TypeInfoProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject16TypeInfoProtocolP">TypeInfoProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This structure is used to provide the type system with the information
-required to initialize and destruct (finalize) a type&rsquo;s class and
-its instances.</p>
-
-<p>The initialized structure is passed to the <code>g_type_register_static()</code> function
-(or is copied into the provided <code>GTypeInfo</code> structure in the
-<code>g_type_plugin_complete_type_info()</code>). The type system will perform a deep
-copy of this structure, so its memory does not need to be persistent
-across invocation of <code>g_type_register_static()</code>.</p>
-
-<p>The <code>TypeInfoProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeInfo</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeInfo.html">TypeInfo</a></code>.
-Alternatively, use <code><a href="Structs/TypeInfoRef.html">TypeInfoRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/TypeInfoProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeInfoProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeFundamentalInfo-Value.swift#L318-L327">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/TypeInstance%20Record"></a>
-                <a name="//apple_ref/swift/Section/TypeInstance Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/TypeInstance%20Record"></a>
-                  <h3 class="section-name"><span>TypeInstance Record</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject20TypeInstanceProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/TypeInstanceProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject20TypeInstanceProtocolP">TypeInstanceProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>An opaque structure used as the base of all type instances.</p>
-
-<p>The <code>TypeInstanceProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeInstance</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeInstance.html">TypeInstance</a></code>.
-Alternatively, use <code><a href="Structs/TypeInstanceRef.html">TypeInstanceRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/TypeInstanceProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeInstanceProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeFundamentalInfo-Value.swift#L813-L822">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/TypeInterface%20Record"></a>
-                <a name="//apple_ref/swift/Section/TypeInterface Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/TypeInterface%20Record"></a>
-                  <h3 class="section-name"><span>TypeInterface Record</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject21TypeInterfaceProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/TypeInterfaceProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject21TypeInterfaceProtocolP">TypeInterfaceProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>An opaque structure used as the base of all interface types.</p>
-
-<p>The <code>TypeInterfaceProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeInterface</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeInterface.html">TypeInterface</a></code>.
-Alternatively, use <code><a href="Structs/TypeInterfaceRef.html">TypeInterfaceRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/TypeInterfaceProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeInterfaceProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeFundamentalInfo-Value.swift#L1163-L1172">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/TypeModuleClass%20Record"></a>
-                <a name="//apple_ref/swift/Section/TypeModuleClass Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/TypeModuleClass%20Record"></a>
-                  <h3 class="section-name"><span>TypeModuleClass Record</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject23TypeModuleClassProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/TypeModuleClassProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject23TypeModuleClassProtocolP">TypeModuleClassProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>In order to implement dynamic loading of types based on <code>GTypeModule</code>,
-the <code>load</code> and <code>unload</code> functions in <code>GTypeModuleClass</code> must be implemented.</p>
-
-<p>The <code>TypeModuleClassProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeModuleClass</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code>TypeModuleClass</code>.
-Alternatively, use <code><a href="Structs/TypeModuleClassRef.html">TypeModuleClassRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/TypeModuleClassProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeModuleClassProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeFundamentalInfo-Value.swift#L1482-L1491">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/TypePluginClass%20Record"></a>
-                <a name="//apple_ref/swift/Section/TypePluginClass Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/TypePluginClass%20Record"></a>
-                  <h3 class="section-name"><span>TypePluginClass Record</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject23TypePluginClassProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/TypePluginClassProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject23TypePluginClassProtocolP">TypePluginClassProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The <code>GTypePlugin</code> interface is used by the type system in order to handle
-the lifecycle of dynamically loaded types.</p>
-
-<p>The <code>TypePluginClassProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypePluginClass</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/TypePluginClass.html">TypePluginClass</a></code>.
-Alternatively, use <code><a href="Structs/TypePluginClassRef.html">TypePluginClassRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/TypePluginClassProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypePluginClassProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeFundamentalInfo-Value.swift#L1619-L1628">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/TypeQuery%20Record"></a>
-                <a name="//apple_ref/swift/Section/TypeQuery Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/TypeQuery%20Record"></a>
-                  <h3 class="section-name"><span>TypeQuery Record</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject17TypeQueryProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/TypeQueryProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject17TypeQueryProtocolP">TypeQueryProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A structure holding information for a specific type.</p>
-
-<p>See also: <code>g_type_query()</code></p>
-
-<p>The <code>TypeQueryProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeQuery</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeQuery.html">TypeQuery</a></code>.
-Alternatively, use <code><a href="Structs/TypeQueryRef.html">TypeQueryRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/TypeQueryProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeQueryProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeFundamentalInfo-Value.swift#L1958-L1967">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/TypeValueTable%20Record"></a>
-                <a name="//apple_ref/swift/Section/TypeValueTable Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/TypeValueTable%20Record"></a>
-                  <h3 class="section-name"><span>TypeValueTable Record</span>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10GLibObject22TypeValueTableProtocolP"></a>
-                    <a name="//apple_ref/swift/Protocol/TypeValueTableProtocol" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10GLibObject22TypeValueTableProtocolP">TypeValueTableProtocol</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The <code>GTypeValueTable</code> provides the functions required by the <code>GValue</code>
-implementation, to serve as a container for values of a type.</p>
-
-<p>The <code>TypeValueTableProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeValueTable</code> instance.
-The default implementation of these can be found in the protocol extension below.
-For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeValueTable.html">TypeValueTable</a></code>.
-Alternatively, use <code><a href="Structs/TypeValueTableRef.html">TypeValueTableRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
-
-                        <a href="Protocols/TypeValueTableProtocol.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeValueTableProtocol</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypeFundamentalInfo-Value.swift#L2294-L2303">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-S.swift#L367-L376">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4508,7 +3855,598 @@ Alternatively, use <code><a href="Structs/TypePluginRef.html">TypePluginRef</a><
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-TypePlugin-TypePlugin.swift#L64-L73">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-T.swift#L64-L73">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/TypeClass%20Record"></a>
+                <a name="//apple_ref/swift/Section/TypeClass Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeClass%20Record"></a>
+                  <h3 class="section-name"><span>TypeClass Record</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject17TypeClassProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/TypeClassProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject17TypeClassProtocolP">TypeClassProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An opaque structure used as the base of all classes.</p>
+
+<p>The <code>TypeClassProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeClass</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeClass.html">TypeClass</a></code>.
+Alternatively, use <code><a href="Structs/TypeClassRef.html">TypeClassRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/TypeClassProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeClassProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-T.swift#L489-L498">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/TypeFundamentalInfo%20Record"></a>
+                <a name="//apple_ref/swift/Section/TypeFundamentalInfo Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeFundamentalInfo%20Record"></a>
+                  <h3 class="section-name"><span>TypeFundamentalInfo Record</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject27TypeFundamentalInfoProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/TypeFundamentalInfoProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject27TypeFundamentalInfoProtocolP">TypeFundamentalInfoProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A structure that provides information to the type system which is
+used specifically for managing fundamental types.</p>
+
+<p>The <code>TypeFundamentalInfoProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeFundamentalInfo</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeFundamentalInfo.html">TypeFundamentalInfo</a></code>.
+Alternatively, use <code><a href="Structs/TypeFundamentalInfoRef.html">TypeFundamentalInfoRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/TypeFundamentalInfoProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeFundamentalInfoProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-T.swift#L991-L1000">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/TypeInfo%20Record"></a>
+                <a name="//apple_ref/swift/Section/TypeInfo Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeInfo%20Record"></a>
+                  <h3 class="section-name"><span>TypeInfo Record</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject16TypeInfoProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/TypeInfoProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject16TypeInfoProtocolP">TypeInfoProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This structure is used to provide the type system with the information
+required to initialize and destruct (finalize) a type&rsquo;s class and
+its instances.</p>
+
+<p>The initialized structure is passed to the <code>g_type_register_static()</code> function
+(or is copied into the provided <code>GTypeInfo</code> structure in the
+<code>g_type_plugin_complete_type_info()</code>). The type system will perform a deep
+copy of this structure, so its memory does not need to be persistent
+across invocation of <code>g_type_register_static()</code>.</p>
+
+<p>The <code>TypeInfoProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeInfo</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeInfo.html">TypeInfo</a></code>.
+Alternatively, use <code><a href="Structs/TypeInfoRef.html">TypeInfoRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/TypeInfoProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeInfoProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-T.swift#L1295-L1304">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/TypeInstance%20Record"></a>
+                <a name="//apple_ref/swift/Section/TypeInstance Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeInstance%20Record"></a>
+                  <h3 class="section-name"><span>TypeInstance Record</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject20TypeInstanceProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/TypeInstanceProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject20TypeInstanceProtocolP">TypeInstanceProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An opaque structure used as the base of all type instances.</p>
+
+<p>The <code>TypeInstanceProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeInstance</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeInstance.html">TypeInstance</a></code>.
+Alternatively, use <code><a href="Structs/TypeInstanceRef.html">TypeInstanceRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/TypeInstanceProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeInstanceProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-T.swift#L1794-L1803">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/TypeInterface%20Record"></a>
+                <a name="//apple_ref/swift/Section/TypeInterface Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeInterface%20Record"></a>
+                  <h3 class="section-name"><span>TypeInterface Record</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject21TypeInterfaceProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/TypeInterfaceProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject21TypeInterfaceProtocolP">TypeInterfaceProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An opaque structure used as the base of all interface types.</p>
+
+<p>The <code>TypeInterfaceProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeInterface</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeInterface.html">TypeInterface</a></code>.
+Alternatively, use <code><a href="Structs/TypeInterfaceRef.html">TypeInterfaceRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/TypeInterfaceProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeInterfaceProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-T.swift#L2155-L2164">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/TypeModuleClass%20Record"></a>
+                <a name="//apple_ref/swift/Section/TypeModuleClass Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeModuleClass%20Record"></a>
+                  <h3 class="section-name"><span>TypeModuleClass Record</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject23TypeModuleClassProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/TypeModuleClassProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject23TypeModuleClassProtocolP">TypeModuleClassProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>In order to implement dynamic loading of types based on <code>GTypeModule</code>,
+the <code>load</code> and <code>unload</code> functions in <code>GTypeModuleClass</code> must be implemented.</p>
+
+<p>The <code>TypeModuleClassProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeModuleClass</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code>TypeModuleClass</code>.
+Alternatively, use <code><a href="Structs/TypeModuleClassRef.html">TypeModuleClassRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/TypeModuleClassProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeModuleClassProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-T.swift#L2478-L2487">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/TypePluginClass%20Record"></a>
+                <a name="//apple_ref/swift/Section/TypePluginClass Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypePluginClass%20Record"></a>
+                  <h3 class="section-name"><span>TypePluginClass Record</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject23TypePluginClassProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/TypePluginClassProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject23TypePluginClassProtocolP">TypePluginClassProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>GTypePlugin</code> interface is used by the type system in order to handle
+the lifecycle of dynamically loaded types.</p>
+
+<p>The <code>TypePluginClassProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypePluginClass</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/TypePluginClass.html">TypePluginClass</a></code>.
+Alternatively, use <code><a href="Structs/TypePluginClassRef.html">TypePluginClassRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/TypePluginClassProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypePluginClassProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-T.swift#L2615-L2624">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/TypeQuery%20Record"></a>
+                <a name="//apple_ref/swift/Section/TypeQuery Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeQuery%20Record"></a>
+                  <h3 class="section-name"><span>TypeQuery Record</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject17TypeQueryProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/TypeQueryProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject17TypeQueryProtocolP">TypeQueryProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A structure holding information for a specific type.</p>
+
+<p>See also: <code>g_type_query()</code></p>
+
+<p>The <code>TypeQueryProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeQuery</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeQuery.html">TypeQuery</a></code>.
+Alternatively, use <code><a href="Structs/TypeQueryRef.html">TypeQueryRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/TypeQueryProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeQueryProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-T.swift#L2954-L2963">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/TypeValueTable%20Record"></a>
+                <a name="//apple_ref/swift/Section/TypeValueTable Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeValueTable%20Record"></a>
+                  <h3 class="section-name"><span>TypeValueTable Record</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject22TypeValueTableProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/TypeValueTableProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject22TypeValueTableProtocolP">TypeValueTableProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>GTypeValueTable</code> provides the functions required by the <code>GValue</code>
+implementation, to serve as a container for values of a type.</p>
+
+<p>The <code>TypeValueTableProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeValueTable</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeValueTable.html">TypeValueTable</a></code>.
+Alternatively, use <code><a href="Structs/TypeValueTableRef.html">TypeValueTableRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/TypeValueTableProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeValueTableProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-T.swift#L3291-L3300">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/TypeModule%20Class"></a>
+                <a name="//apple_ref/swift/Section/TypeModule Class" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TypeModule%20Class"></a>
+                  <h3 class="section-name"><span>TypeModule Class</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject18TypeModuleProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/TypeModuleProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject18TypeModuleProtocolP">TypeModuleProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>GTypeModule</code> provides a simple implementation of the <code>GTypePlugin</code>
+interface.</p>
+
+<p>The model of <code>GTypeModule</code> is a dynamically loaded module which
+implements some number of types and interface implementations.</p>
+
+<p>When the module is loaded, it registers its types and interfaces
+using <code>g_type_module_register_type()</code> and <code>g_type_module_add_interface()</code>.
+As long as any instances of these types and interface implementations
+are in use, the module is kept loaded. When the types and interfaces
+are gone, the module may be unloaded. If the types and interfaces
+become used again, the module will be reloaded. Note that the last
+reference cannot be released from within the module code, since that
+would lead to the caller&rsquo;s code being unloaded before <code>g_object_unref()</code>
+returns to it.</p>
+
+<p>Keeping track of whether the module should be loaded or not is done by
+using a use count - it starts at zero, and whenever it is greater than
+zero, the module is loaded. The use count is maintained internally by
+the type system, but also can be explicitly controlled by
+<code>g_type_module_use()</code> and <code>g_type_module_unuse()</code>. Typically, when loading
+a module for the first type, <code>g_type_module_use()</code> will be used to load
+it so that it can initialize its types. At some later point, when the
+module no longer needs to be loaded except for the type
+implementations it contains, <code>g_type_module_unuse()</code> is called.</p>
+
+<p><code>GTypeModule</code> does not actually provide any implementation of module
+loading and unloading. To create a particular module type you must
+derive from <code>GTypeModule</code> and implement the load and unload functions
+in <code>GTypeModuleClass</code>.</p>
+
+<p>The <code>TypeModuleProtocol</code> protocol exposes the methods and properties of an underlying <code>GTypeModule</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/TypeModule.html">TypeModule</a></code>.
+Alternatively, use <code><a href="Structs/TypeModuleRef.html">TypeModuleRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/TypeModuleProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TypeModuleProtocol</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ObjectProtocol.html">ObjectProtocol</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/TypePluginProtocol.html">TypePluginProtocol</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-T.swift#L3688-L3697">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Value%20Record"></a>
+                <a name="//apple_ref/swift/Section/Value Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Value%20Record"></a>
+                  <h3 class="section-name"><span>Value Record</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject13ValueProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/ValueProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject13ValueProtocolP">ValueProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An opaque structure used to hold different types of values.</p>
+
+<p>The data within the structure has protected scope: it is accessible only
+to functions within a <code>GTypeValueTable</code> structure, or implementations of
+the g_value_*() API. That is, code portions which implement new fundamental
+types.</p>
+
+<p><code>GValue</code> users cannot make any assumptions about how data is stored
+within the 2 element <code>data</code> union, and the <code>g_type</code> member should
+only be accessed through the <code>G_VALUE_TYPE()</code> macro.</p>
+
+<p>The <code>ValueProtocol</code> protocol exposes the methods and properties of an underlying <code>GValue</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/Value.html">Value</a></code>.
+Alternatively, use <code><a href="Structs/ValueRef.html">ValueRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+                        <a href="Protocols/ValueProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ValueProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-V.swift#L23-L32">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4557,7 +4495,7 @@ Alternatively, use <code><a href="Structs/ValueArrayRef.html">ValueArrayRef</a><
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L14-L23">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-V.swift#L1579-L1588">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4604,11 +4542,14 @@ atomic with respect to invalidation of weak pointers to destroyed
 objects.</p>
 
 <p>If the object&rsquo;s <code>GObjectClass.dispose</code> method results in additional
-references to the object being held, any <code>GWeakRefs</code> taken
-before it was disposed will continue to point to <code>nil</code>.  If
-<code>GWeakRefs</code> are taken after the object is disposed and
-re-referenced, they will continue to point to it until its refcount
+references to the object being held (‘re-referencing’), any <code>GWeakRefs</code> taken
+before it was disposed will continue to point to <code>nil</code>.  Any <code>GWeakRefs</code> taken
+during disposal and after re-referencing, or after disposal has returned due
+to the re-referencing, will continue to point to the object until its refcount
 goes back to zero, at which point they too will be invalidated.</p>
+
+<p>It is invalid to take a <code>GWeakRef</code> on an object during <code>GObjectClass.dispose</code>
+without first having or creating a strong reference to the object.</p>
 
 <p>The <code>WeakRefProtocol</code> protocol exposes the methods and properties of an underlying <code>GWeakRef</code> instance.
 The default implementation of these can be found in the protocol extension below.
@@ -4626,7 +4567,7 @@ Alternatively, use <code><a href="Structs/WeakRefRef.html">WeakRefRef</a></code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L470-L479">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-W.swift#L37-L46">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4673,7 +4614,7 @@ Alternatively, use <code><a href="Structs/TypeCValueRef.html">TypeCValueRef</a><
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-unions.swift#L14-L23">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-unions.swift#L14-L23">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4720,7 +4661,69 @@ Alternatively, use <code><a href="Structs/_Value__data__unionRef.html">_Value__d
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-unions.swift#L284-L293">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-unions.swift#L284-L293">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject18SignalNameProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/SignalNameProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject18SignalNameProtocolP">SignalNameProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Protocol for signal name enums</p>
+
+                        <a href="Protocols/SignalNameProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SignalNameProtocol</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GLibObject.swift#L16-L18">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10GLibObject20PropertyNameProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/PropertyNameProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10GLibObject20PropertyNameProtocolP">PropertyNameProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Protocol for property name enums</p>
+
+                        <a href="Protocols/PropertyNameProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">PropertyNameProtocol</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GLibObject.swift#L30-L32">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4764,8 +4767,8 @@ Alternatively, use <code><a href="Structs/_Value__data__unionRef.html">_Value__d
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external noopener">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-11-04)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2022 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external noopener">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2022-04-25)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

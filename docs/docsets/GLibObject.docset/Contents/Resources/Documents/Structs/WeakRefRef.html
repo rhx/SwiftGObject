@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLibObject 2.70.1 Docs
+          GLibObject 2.72.1 Docs
         </a>
          (97% documented)
       </p>
@@ -326,7 +326,7 @@
             <a class="nav-group-name-link" href="../Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject9boxedCopy0C4Type8srcBoxedSvSgSu_SVtF">boxedCopy(boxedType:srcBoxed:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject9boxedCopy0C4Type8srcBoxedSvSgSu_SVSgtF">boxedCopy(boxedType:srcBoxed:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:10GLibObject9boxedFree0C4Type0C0ySu_SvSgtF">boxedFree(boxedType:boxed:)</a>
@@ -1422,18 +1422,21 @@ atomic with respect to invalidation of weak pointers to destroyed
 objects.</p>
 
 <p>If the object&rsquo;s <code>GObjectClass.dispose</code> method results in additional
-references to the object being held, any <code>GWeakRefs</code> taken
-before it was disposed will continue to point to <code>nil</code>.  If
-<code>GWeakRefs</code> are taken after the object is disposed and
-re-referenced, they will continue to point to it until its refcount
+references to the object being held (‘re-referencing’), any <code>GWeakRefs</code> taken
+before it was disposed will continue to point to <code>nil</code>.  Any <code>GWeakRefs</code> taken
+during disposal and after re-referencing, or after disposal has returned due
+to the re-referencing, will continue to point to the object until its refcount
 goes back to zero, at which point they too will be invalidated.</p>
+
+<p>It is invalid to take a <code>GWeakRef</code> on an object during <code>GObjectClass.dispose</code>
+without first having or creating a strong reference to the object.</p>
 
 <p>The <code>WeakRefRef</code> type acts as a lightweight Swift reference to an underlying <code>GWeakRef</code> instance.
 It exposes methods that can operate on this data type through <code><a href="../Protocols/WeakRefProtocol.html">WeakRefProtocol</a></code> conformance.
 Use <code>WeakRefRef</code> only as an <code>unowned</code> reference to an existing <code>GWeakRef</code> instance.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L507-L511">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-W.swift#L77-L81">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -1470,7 +1473,7 @@ Use <code>WeakRefRef</code> only as an <code>unowned</code> reference to an exis
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L510">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-W.swift#L80">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1514,7 +1517,7 @@ Use <code>WeakRefRef</code> only as an <code>unowned</code> reference to an exis
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L515-L517">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-W.swift#L85-L87">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1545,7 +1548,7 @@ Use <code>WeakRefRef</code> only as an <code>unowned</code> reference to an exis
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L520-L522">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-W.swift#L90-L92">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1576,7 +1579,7 @@ Use <code>WeakRefRef</code> only as an <code>unowned</code> reference to an exis
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L525-L528">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-W.swift#L95-L98">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1607,7 +1610,7 @@ Use <code>WeakRefRef</code> only as an <code>unowned</code> reference to an exis
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L531-L534">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-W.swift#L101-L104">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1638,7 +1641,7 @@ Use <code>WeakRefRef</code> only as an <code>unowned</code> reference to an exis
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L537-L540">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-W.swift#L107-L110">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1669,7 +1672,7 @@ Use <code>WeakRefRef</code> only as an <code>unowned</code> reference to an exis
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L543-L546">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-W.swift#L113-L116">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1700,7 +1703,7 @@ Use <code>WeakRefRef</code> only as an <code>unowned</code> reference to an exis
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L549-L551">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-W.swift#L119-L121">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1732,7 +1735,7 @@ Use <code>WeakRefRef</code> only as an <code>unowned</code> reference to an exis
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L555-L557">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-W.swift#L125-L127">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1764,7 +1767,7 @@ Use <code>WeakRefRef</code> only as an <code>unowned</code> reference to an exis
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L561-L563">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-W.swift#L131-L133">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1796,7 +1799,7 @@ Use <code>WeakRefRef</code> only as an <code>unowned</code> reference to an exis
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L567-L569">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-W.swift#L137-L139">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1828,7 +1831,7 @@ Use <code>WeakRefRef</code> only as an <code>unowned</code> reference to an exis
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L573-L575">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-W.swift#L143-L145">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1860,7 +1863,7 @@ Use <code>WeakRefRef</code> only as an <code>unowned</code> reference to an exis
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/Sources/GLibObject/GObject-2.0-ValueArray-WeakRef.swift#L579-L581">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGObject/tree/generated/.build/plugins/outputs/swiftgobject/GLibObject/gir2swift-plugin/gir2swift-generated/GLibObject/GObject-2.0-W.swift#L149-L151">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -1873,8 +1876,8 @@ Use <code>WeakRefRef</code> only as an <code>unowned</code> reference to an exis
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external noopener">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-11-04)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2022 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external noopener">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2022-04-25)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>
