@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.6
 
 import PackageDescription
 
@@ -6,12 +6,38 @@ let package = Package(
     name: "GLibObject",
     products: [ .library(name: "GLibObject", targets: ["GLibObject"]), ],
     dependencies: [
-        .package(name: "gir2swift", url: "https://github.com/rhx/gir2swift.git", .branch("main")),
-        .package(name: "GLib", url: "https://github.com/rhx/SwiftGLib.git", .branch("main"))
+        .package(url: "https://github.com/rhx/gir2swift.git", branch: "main"),
+        .package(url: "https://github.com/rhx/SwiftGLib.git", branch: "main")
     ],
     targets: [
-        .target(name: "GLibObject", dependencies: ["GObjectCHelpers", "GLib"]),
-        .target(name: "GObjectCHelpers", dependencies: ["GLib"]),
-        .testTarget(name: "GLibObjectTests", dependencies: ["GLibObject"]),
+        .target(
+            name: "GLibObject",
+            dependencies: [
+                "GObjectCHelpers",
+                .product(name: "gir2swift", package: "gir2swift"),
+                .product(name: "GLib",      package: "SwiftGLib"),
+            ],
+            swiftSettings: [
+                .unsafeFlags(["-suppress-warnings"], .when(configuration: .release)),
+                .unsafeFlags(["-suppress-warnings", "-Xfrontend", "-serialize-debugging-options"], .when(configuration: .debug)),
+            ],
+            plugins: [
+                .plugin(name: "gir2swift-plugin", package: "gir2swift")
+            ]
+        ),
+        .target(
+            name: "GObjectCHelpers",
+            dependencies: [
+                .product(name: "GLib", package: "SwiftGLib"),
+            ],
+            cSettings: [
+                .unsafeFlags(["-w"])
+            ]
+        ),
+        .testTarget(
+            name: "GLibObjectTests",
+            dependencies: ["GLibObject"],
+            swiftSettings: [.unsafeFlags(["-suppress-warnings"])]
+        ),
     ]
 )

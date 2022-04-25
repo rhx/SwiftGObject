@@ -282,22 +282,6 @@ class GLibObjectTests: XCTestCase {
     }
 }
 
-extension GLibObjectTests {
-    static var allTests : [(String, (GLibObjectTests) -> () throws -> Void)] {
-        return [
-            ("testTypeFundamental",         testTypeFundamental),
-            ("testCreateObject",            testCreateObject),
-            ("testValues",                  testValues),
-            ("testBindings",                testBindings),
-//            ("testTransformerBindings",     testTransformerBindings),
-            ("testTypedBindings",           testTypedBindings),
-            ("testTypedDistinctBindings",   testTypedDistinctBindings),
-            ("testInitiallyUnowned",        testInitiallyUnowned),
-        ]
-    }
-}
-
-
 fileprivate struct GTypeA {
     var parent: GObject
     var integer: Int

@@ -43,7 +43,7 @@ public extension ValueProtocol {
     /// Generic Value accessor.
     ///
     /// - Returns: a Float if stored as the value
-    @inlinable func get() -> Float { return float }
+    @inlinable func get() -> Float { return Float(float) }
     /// Generic Value accessor.
     ///
     /// - Returns: an Int if stored as the value
