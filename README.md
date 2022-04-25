@@ -9,7 +9,8 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 
 ## What is new?
 
-Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.6 or higher.
+Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.6 or higher
+(older versions can be used via the `swift52` branch).
 
 ## Prerequisites
 
@@ -24,7 +25,7 @@ To build, download Swift from https://swift.org/download/ -- if you are using ma
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.6.0 (swift-5.6.0-RELEASE)
+	Swift version 5.6.1 (swift-5.6.1-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### GLib 2.56 or higher
@@ -35,17 +36,10 @@ These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.
 
 ##### Ubuntu
 
-On Ubuntu 18.04 and 16.04 you can use the glib that comes with the distribution.  Just install with the `apt` package manager:
+On Ubuntu 18.04, 20.04, and 22.04 you can use the glib that comes with the distribution.  Just install with the `apt` package manager:
 
 	sudo apt update
-	sudo apt install libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev
-
-If you prefer a newer version of glib, you can also install it from the GNOME 3 Staging PPA (see https://launchpad.net/~gnome3-team/+archive/ubuntu/gnome3-staging), but be aware that this can be a bit dangerous (as this removes packages that can be vital, particularly if you use a GNOME-based desktop), so only do this if you know what you are doing:
-
-	sudo add-apt-repository ppa:gnome3-team/gnome3-staging
-	sudo apt update
-	sudo apt dist-upgrade
-	sudo apt install libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev
+	sudo apt install libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq
 
 ##### Fedora
 
@@ -58,7 +52,7 @@ On Fedora 29, you can use the glib that comes with the distribution.  Just insta
 On macOS, you can install glib using HomeBrew (for setup instructions, see http://brew.sh).  Once you have a running HomeBrew installation, you can use it to install a native version of glib:
 
 	brew update
-	brew install glib glib-networking gobject-introspection pkg-config
+	brew install glib glib-networking gobject-introspection pkg-config jq
 
 
 ## Usage
@@ -96,25 +90,28 @@ Normally, you don't build this package directly, but you embed it into your own 
 
 ## Documentation
 
-You can find reference documentation inside the [docs](https://rhx.github.io/SwiftGLib/) folder.
-This was generated using the [jazzy](https://github.com/realm/jazzy) tool.
-If you want to generate your own documentation, matching your local installation,
-you can use the `generate-documentation.sh` script in the repository.
-Make sure you have [sourcekitten](https://github.com/jpsim/SourceKitten) and [jazzy](https://github.com/realm/jazzy) installed, e.g. on macOS:
+You can generate documentation using the [DocC plugin](https://apple.github.io/swift-docc-plugin/documentation/swiftdoccplugin/).  To preview documentation matching your local installation, simply run
 
-	brew install sourcekitten
-	sudo gem install jazzy
-	./generate-documentation.sh
+    swift package --disable-sandbox preview-documentation
 
+Then navigate to URL shown for the local preview server.  Make sure you have JavaScript enabled in your browser.
+
+Alternatively, you can create static documentation using [jazzy](https://github.com/realm/jazzy).
+Make sure you have [sourcekitten](https://github.com/jpsim/SourceKitten) and [jazzy](https://github.com/realm/jazzy) installed, e.g. on macOS (x86_64):
+
+	brew install ruby sourcekitten
+	/usr/local/opt/ruby/bin/gem install jazzy
+	./generate-jazzy.sh
 
 ## Troubleshooting
+
 Here are some common errors you might encounter and how to fix them.
 
 ### Missing `.gir` Files
 If you get an error such as
 
 	Girs located at
-	Cannot open '/GLib-2.0.gir': No such file or directory
+	Cannot open '/GObject-2.0.gir': No such file or directory
 
 Make sure that you have the relevant `gobject-introspection` packages installed (as per the Pre-requisites section), including their `.gir` and `.pc` files.
 
