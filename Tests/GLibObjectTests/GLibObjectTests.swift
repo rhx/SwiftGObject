@@ -19,12 +19,12 @@ class GLibObjectTests: XCTestCase {
         XCTAssertNotNil(name)
     }
 
-    /// test whether creating an empty object works
+    /// test whether creating an object works
     func testCreateObject() {
-        let object = Object.new(0)
-        XCTAssertNil(object)
+        let object = Object.new(type: .object, properties: [:])
+        XCTAssertNotNil(object)
     }
-
+    
     /// test values and transformations
     func testValues() {
         let a = Value()

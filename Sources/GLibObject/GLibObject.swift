@@ -339,7 +339,73 @@ public extension GLibObject.ObjectProtocol {
 }
 
 public extension GLibObject.Object {
-	/// Will set this swift instance to be the swiftObj.
+    /// Creates a new instance of a `GObject` subtype and sets its properties using
+    /// the provided dictionary.
+    ///
+    /// Construction parameters (see `G_PARAM_CONSTRUCT`, `G_PARAM_CONSTRUCT_ONLY`)
+    /// which are not explicitly specified are set to their default values.
+    ///
+    /// - Parameters:
+    ///   - type: The type of object to create
+    ///   - properties: Dictionary of name/value pairs representing the properties of the type
+    /// - Returns: A new object of the given type with the given properties
+    static func new(type: GType, properties: [String: Any]) -> GLibObject.Object {
+        var keys = properties.keys.map { $0.withCString { UnsafePointer(strdup($0)) } }
+        let vals = properties.values.map { Value($0) }
+        let obj = keys.withUnsafeMutableBufferPointer { keys in
+            withExtendedLifetime(vals) {
+                let gvalues = vals.map { $0.value_ptr.pointee }
+                return GLibObject.Object(properties: type, nProperties: keys.count, names: keys.baseAddress, values: gvalues)
+            }
+        }
+        keys.forEach { free(UnsafeMutableRawPointer(mutating: $0)) }
+        return obj
+    }
+
+    /// Return the values of the given properties
+    /// - Parameter properties: Array of properties to examine
+    /// - Returns: Array of values associated with the tiven properties
+    func values(for properties: [String]) -> [Value] {
+        var keys = properties.map { $0.withCString { UnsafePointer(strdup($0)) } }
+        let vals = properties.map { _ in Value() }
+        keys.withUnsafeMutableBufferPointer { keys in
+            var gvalues = vals.map { $0.value_ptr.pointee }
+            getv(nProperties: keys.count, names: keys.baseAddress, values: &gvalues)
+        }
+        keys.forEach { free(UnsafeMutableRawPointer(mutating: $0)) }
+        return vals
+    }
+
+    /// Return the underlying String value of the given property
+    /// - Parameter property: Name of the property to examine
+    /// - Returns: Value of the given type
+    @inlinable func value(for property: String) -> String {
+        return values(for: [property])[0].get()
+    }
+
+    /// Return the values of the given properties
+    /// - Parameter properties: Dictionary of name/value pairs representing the properties to set
+    /// - Returns: Array of values associated with the tiven properties
+    func setPropertyValues(_ properties: [String: Any]) {
+        var keys = properties.keys.map { $0.withCString { UnsafePointer(strdup($0)) } }
+        let vals = properties.values.map { Value($0) }
+        keys.withUnsafeMutableBufferPointer { keys in
+            var gvalues = vals.map { $0.value_ptr.pointee }
+            setv(nProperties: keys.count, names: keys.baseAddress, values: &gvalues)
+        }
+        keys.forEach { free(UnsafeMutableRawPointer(mutating: $0)) }
+    }
+
+    /// Set a string value for the given property
+    /// - Returns: Value of the given type
+    /// - Parameters:
+    ///   - value: The value to set
+    ///   - property: The property whose value to set
+    @inlinable func set(value: String, for property: String) {
+        setPropertyValues([property : value])
+    }
+
+    /// Will set this swift instance to be the swiftObj.
     @inlinable func becomeSwiftObj() {
 		swiftObj = self;
 	}
