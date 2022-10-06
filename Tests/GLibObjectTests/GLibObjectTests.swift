@@ -23,8 +23,9 @@ class GLibObjectTests: XCTestCase {
     func testCreateObject() {
         let object = Object.new(type: .object, properties: [:])
         XCTAssertNotNil(object)
+        XCTAssertEqual(object.type, ObjectClassRef.metatypeReference)
     }
-    
+
     /// test values and transformations
     func testValues() {
         let a = Value()
