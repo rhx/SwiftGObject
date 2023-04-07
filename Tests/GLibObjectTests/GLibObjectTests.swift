@@ -1,5 +1,6 @@
 import XCTest
 import CGLib
+import GLib
 @testable import GLibObject
 
 class GLibObjectTests: XCTestCase {
@@ -275,11 +276,21 @@ class GLibObjectTests: XCTestCase {
     }
 
     func testInitiallyUnowned() {
-        // InitiallyUnowned is actually not of type InitiallyUnownedClassRef.metatypeReference?
-        let initiallyUnowned = InitiallyUnowned(raw: ObjectRef.new(g_initially_unowned_get_type())!.ptr)
-        XCTAssertNotEqual(initiallyUnowned is InitiallyUnownedProtocol, typeIsA(type: initiallyUnowned.type, isAType: InitiallyUnownedClassRef.metatypeReference))
-        let object = Object.new(.object)!
-        XCTAssertEqual(object is InitiallyUnownedProtocol, typeIsA(type: object.type, isAType: InitiallyUnownedClassRef.metatypeReference))
+        let type = g_initially_unowned_get_type()
+        XCTAssertNotEqual(type, 0)
+        let ref = ObjectRef.new(type)
+        XCTAssertNotNil(ref)
+        guard let ref = ref else { return }
+        let initiallyUnowned = InitiallyUnownedRef(raw: ref.ptr)
+        XCTAssertEqual(initiallyUnowned is InitiallyUnownedProtocol, typeIsA(type: initiallyUnowned.type, isAType: InitiallyUnownedClassRef.metatypeReference))
+    }
+
+    func testRefArray() {
+        let o = Object.new(.object)
+        XCTAssertNotNil(o)
+        guard let o = o else { return }
+        let array: RefArray = [o, o, o, o, o]
+        XCTAssertEqual(array.count, 5)
     }
 }
 
