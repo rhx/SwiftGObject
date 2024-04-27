@@ -2,9 +2,9 @@
 A Swift wrapper around gobject-2.x that is largely auto-generated from gobject-introspection.
 For up to date (auto-generated) reference documentation, see https://rhx.github.io/SwiftGObject/
 
-![macOS](https://github.com/rhx/SwiftGLib/actions/workflows/macOS.yml/badge.svg?branch=development)
-![Linux](https://github.com/rhx/SwiftGLib/actions/workflows/Linux.yml/badge.svg?branch=development)
-![DocC](https://github.com/rhx/SwiftGLib/actions/workflows/docc.yml/badge.svg?branch=development)
+![macOS](https://github.com/rhx/SwiftGObject/actions/workflows/macOS.yml/badge.svg?branch=development)
+![Linux](https://github.com/rhx/SwiftGObject/actions/workflows/Linux.yml/badge.svg?branch=development)
+![DocC](https://github.com/rhx/SwiftGObject/actions/workflows/docc.yml/badge.svg?branch=development)
 
 ## What is new?
 
