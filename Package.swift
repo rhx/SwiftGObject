@@ -15,7 +15,6 @@ let package = Package(
             name: "GLibObject",
             dependencies: [
                 "GObjectCHelpers",
-                .product(name: "gir2swift", package: "gir2swift"),
                 .product(name: "GLib",      package: "SwiftGLib"),
             ],
             swiftSettings: [
