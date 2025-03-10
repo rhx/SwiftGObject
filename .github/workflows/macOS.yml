@@ -1,4 +1,4 @@
-name: macOS 12
+name: macOS
 
 # Dependencies of this package
 env:
@@ -15,33 +15,32 @@ on:
       - main
 
 jobs:
-  # macOS tasks
-  build-mac-swift-latest:
-    runs-on: macos-12.0
+  build-macos:
+    strategy:
+      matrix:
+        os: [macos-13]
+    name: macOS version ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
       - uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '13.3.1'
+          xcode-version: latest
 
-      - name: Print Swift version to confirm
-        run: swift --version
+      - name: Print macOS and Swift version
+        run: |
+          uname -a
+          swift --version
 
-      - name: Fetch dependencies for general repository
-        run: brew install $MACOS_BREW
+      - name: Fetch macOS dependencies
+        run: |
+          brew install python@3 || brew link --overwrite python@3
+          brew install $MACOS_BREW
+          mv /Library/Developer/CommandLineTools /Library/Developer/CommandLineTools.orig || sudo mv /Library/Developer/CommandLineTools /Library/Developer/CommandLineTools.orig
 
       - name: Checkout SwiftGObject
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: SwiftGObject
-
-      - name: Build Swift Wrappers
-        run: |
-          cd SwiftGObject
-          ./run-gir2swift.sh
-          echo "GIR2SWIFT_PATH=${PWD}/checkouts/gir2swift/.build/release/gir2swift" >> $GITHUB_ENV
-          cd ..
 
       - name: Build SwiftGObject
         run: |
@@ -56,7 +55,8 @@ jobs:
           cd ..
 
       - name: Remove unneeded files and archive artefacts
-        run: | 
+        run: |
+          rm -rf _tempGTK
           cd SwiftGObject
           swift package clean
           rm -rf .build/repositories

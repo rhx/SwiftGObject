@@ -2,10 +2,9 @@
 A Swift wrapper around gobject-2.x that is largely auto-generated from gobject-introspection.
 For up to date (auto-generated) reference documentation, see https://rhx.github.io/SwiftGObject/
 
-![macOS 11 build](https://github.com/rhx/SwiftGObject/workflows/macOS%2011/badge.svg)
-![macOS 10.15 build](https://github.com/rhx/SwiftGObject/workflows/macOS%2010.15/badge.svg)
-![Ubuntu 20.04 build](https://github.com/rhx/SwiftGObject/workflows/Ubuntu%2020.04/badge.svg)
-![Ubuntu 18.04 build](https://github.com/rhx/SwiftGObject/workflows/Ubuntu%2018.04/badge.svg)
+![macOS](https://github.com/rhx/SwiftGObject/actions/workflows/macOS.yml/badge.svg?branch=development)
+![Linux](https://github.com/rhx/SwiftGObject/actions/workflows/Linux.yml/badge.svg?branch=development)
+![DocC](https://github.com/rhx/SwiftGObject/actions/workflows/docc.yml/badge.svg?branch=development)
 
 ## What is new?
 
@@ -14,23 +13,23 @@ Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 
 
 ## Prerequisites
 
-### Swift 5.6 or higher
+### Swift 5.7 or higher
 
 To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	swift-driver version: 1.75.2 Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
-    Target: arm64-apple-macosx13.0
+	swift-driver version: 1.90.11.1 Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+    Target: arm64-apple-macosx14.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.8 (swift-5.8-RELEASE)
+	Swift version 5.10 (swift-5.10-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### GLib 2.56 or higher
 
-These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, 2.72, 2.74, and 2.76.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, 2.72, 2.74, 2.76, 2.78, and 2.80.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 

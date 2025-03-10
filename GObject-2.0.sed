@@ -30,3 +30,5 @@ s|names: UnsafeMutablePointer<..har>|names: UnsafeMutablePointer<UnsafePointer<C
 s|\(G_VALUE_INTERNED_STRING\) // \([1-9][0-9]*\)|CInt(\2) // \1|
 s|var paramTypes: UnsafeMutablePointer<GType>|var paramTypes: UnsafePointer<GType>|
 s|names: UnsafeMutablePointer<..har>|names: UnsafeMutablePointer<UnsafePointer<CChar>?>|
+s|\([A-Za-z0-9_-]*\.html\)|https://docs.gtk.org/gobject/\1|g
+s|\.html`\([A-Za-z0-9_-]*\)`|.html#\1|g
